@@ -1,0 +1,453 @@
+\documentclass[english,a4paper,12pt]{report}
+\usepackage{mypackage}
+
+\title{Special Relativity}
+
+\author{Haydn Cheng}
+
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\chapter{Kinematics}
+
+\section{Lorentz Transformation}
+
+An event is something that an observer can specify with spatial and time coordiantes. For example somebody clap their hands, two spaceships crashes onto each other, or more abstractly a specific point at a given time. Something that is not an event is when the observer cannot specify the point in space where or the time when it occurs, such as a person staring at a pebble for one minute (because the time coordinate is not specified), or a train moving by an observer (because the train has spatial extent).
+
+Lorentz transformation attempts to relate the coordinates of two different events\footnote{Since there is no preferred origin, an event can be described by arbitrary \(x \text { and } t\) values simply by shifiting the origin. Therefore there is no physical significance to compare the coordinates between two frames describing one event (except if the origin is specified but this already constitutes as an event).} observed in two different inertial frames (\(S \text { and } S'\)) which have a relative speed \(v\). That is, we want to find the constants \(A, B, C, D\) in the relations\footnote{We have assumed \(A, B, C \text { and } D\) are constants (does not depend on \(x, t, x' \text { or } t'\)), since all points in space are indistinguishable, the presence of dependency on absolute coordinates would mean that the absolute location in space (and not just the relative position) is important. In short, the absolute coordinate is arbitrarily defined based on the choice of the origin; only the change in coordinates is what we concern.}\footnote{We also assumed that \(\Delta x \text { and } \Delta t\) are linear functions of \(\Delta x' \text { and }  \Delta t'\). This can be justified by noting that any interval can be built up from a series of many infinitesimal intervals. But for infinitesimal intervals \(\Delta x' \text { and } \Delta t'\), any nonlinear terms such as \((\Delta t')^2\) are negligible. So if we add up all the infinitesimal intervals to obtain the given interval, we will be left with only the linear terms.}  
+
+\begin{equation}
+    \begin{aligned}
+        \Delta x &= A \Delta x' + B \Delta t' \\
+        \Delta t &= C \Delta t' + D \Delta x'. 
+    \end{aligned}
+\end{equation}
+
+The four independent equations depending on four independent facts, which are 
+
+\begin{enumerate}
+    \item \(S'\) moves with velocity \(v\) with respect to \(S\).
+    \item \(S\)  moves with velocity \(-v\) with respect to \(S'\). 
+    \item Time dilation (or length contraction) looks the same from either frame.
+    \item A light pulse with speed \(c\) in \(S'\) also has speed \(c\)  in \(S\).
+\end{enumerate}
+
+The first two facts translate into (dropping the \(\Delta \)s)
+
+\begin{enumerate}
+    \item \(\Delta x' = 0 \text { and } v = \frac{\Delta x}{\Delta t} \implies \frac{B}{C} = v \).
+    \item \(\Delta x = 0 \text { and } -v = \frac{\Delta x'}{\Delta t'} \implies A = C \).  
+\end{enumerate}
+
+The third fact can be used by asking how fast does a person in \(S\) see a clock in \(S'\) ticks and the analogous question how fast does a person in \(S'\) see a clock in \(S\) ticks? 
+
+The answer to the first question can be solved by letting \(\Delta x' = 0\), which gives \(\Delta t = \Delta t'\). The second question can be solved by letting \(\Delta x = 0\), which gives \(\Delta t' = \frac{\Delta t}{A - Dv} \). Comparing the two equations, we have \(D = \frac{1}{v}(A - \frac{1}{A}) \). 
+
+The fourth fact can be used to say that if \(\Delta x' = c \Delta t'\), then \(\Delta x = c \Delta t\). Solving for \(A\)  gives \(A = \gamma \). 
+
+Gathering all the constants found, we have the Lorentz transformation
+
+\begin{equation}
+    \begin{aligned}
+    \Delta x &= \gamma (\Delta x' + v \Delta t') \\
+    \Delta t &= \gamma (\Delta t' + v \Delta x').
+    \end{aligned}
+\end{equation}
+
+Solving for \(\Delta x' \text { and }  \Delta t'\), we have the same form as above except \(v\) is replaced by \(-v\) (as expected, as there is no superior frame).   
+
+
+If two events occur simultaneously in frame \(S\), then \(\Delta t = 0\), so \((\Delta x', \Delta t') = (\gamma \Delta x, -\gamma v \Delta x)\). Thus the two events does not occur simultaneously in frame \(S'\) and length is contracted.
+
+If two events occur at the same place in \(S'\), then \(\Delta x' = 0\), so \(\Delta x = \gamma v\Delta t', \Delta t = \gamma \Delta t'\). Thus time is dilated. 
+
+Note that proper length (the length of an object in its rest frame) is always longest and the proper time (the time interval in which the events occurs at the same place) is always to shortest. This distinguish whether we should multiply or divide by \(\gamma \). 
+
+Both longitudinal and transverse velocity addition can be easily done with Lorentz transformation, as
+
+\begin{equation}
+    \begin{aligned}
+    v_{x}  &\equiv \frac{\Delta x}{\Delta t} = \frac{\Delta x' + v\Delta t'}{\Delta t' + v\Delta x'} = \frac{v_{x} ' + v}{1+v v_{x} '} \\
+    v_{y}  &\equiv \frac{\Delta y}{\Delta t} = \frac{\Delta y'}{\gamma (\Delta t' + v\Delta x')} = \frac{v_{y} '}{\gamma (1 + v v_{x} ')},
+    \end{aligned}
+\end{equation}
+
+where \(v\) is the relative speed of the two frames and \(\vb{v} '\) is the velocity of the object observed in the primed frame.  
+
+As will be proved in later chapters, the spacetime interval (or invariant interval)
+
+\begin{equation}
+    (\Delta s) ^2 = (\Delta t)^2- (\Delta x)^2 - (\Delta y)^2 - (\Delta z)^2 
+\end{equation}
+
+is an invariant (does not depend on which reference frame you are measuring it from). 
+
+There are 3 possible signs for \((\Delta s)^2\):
+
+\begin{enumerate}
+    \item \((\Delta s)^2 > 0 \implies \abs{\frac{x}{t} } < c \): We can always possible to find a frame \(S'\) in which the two events happen at the same place, since \(\Delta x' = \gamma (\Delta x - v\Delta t)\) can be equals to zero. This implies that it is possible for an object to travel from one event to the other.
+    \item \((\Delta s)^2 < 0 \implies \abs{\frac{x}{t} } > c \): 
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\chapter{4-Vectors and Dynamics}
+
+\section{Definition and Examples of 4-Vectors}
+
+\begin{definition}
+A 4-tuple, \(A = (A_0 , A_1 , A_2 , A_3 )\) is called a ``4-vector'' if the \(A_{i} \) transform between frames in the same way that \((\Delta t, \Delta x, \Delta y, \Delta z)\) do. In other words, \(A\) is a 4-vector if it transforms according to the Lorentz transformation
+
+\begin{equation}
+    \begin{pmatrix}
+         A_0  \\
+         A_1  \\
+         A_2  \\
+         A_3  \\
+    \end{pmatrix} = \gamma \begin{pmatrix}
+        1  & v & 0 & 0  \\
+        v & 1 & 0 & 0  \\
+        0 & 0 & 1 & 0  \\
+        0 & 0 & 0 & 0  \\
+    \end{pmatrix} \begin{pmatrix}
+         A_1 ' \\
+         A_2 ' \\
+         A_3 ' \\
+         A_4 ' \\
+    \end{pmatrix}.
+\end{equation}
+\end{definition}
+
+The displacement 4-vector between two events that are infinitesimally close together is 
+
+\begin{equation}
+    dS \equiv (dt,dx,dy,dz)
+\end{equation}
+
+Dividing the displacement 4-vector with the proper time \(d \tau = \frac{dt}{\gamma } \) (which is an invariant since it is independent of the fram in which it is measured), we obtain 
+
+\begin{equation}
+    V \equiv  \frac{dS}{d\tau } = \gamma (1, \frac{dx}{dt}, \frac{dy}{dt}, \frac{dz}{dt}) = \gamma (1, \vb{v} ).
+\end{equation}
+
+We can then take the derivative of the velocity 4-vector with respect to \(\tau \). The result is a four vector because the numerator is just an infinitesimal change of the displacement 4-vector (which is also a 4-vector due to linearity) and the denominator is an invariant. So
+
+\begin{equation}
+    A \equiv  \frac{dV}{d\tau } = \gamma (\frac{d\gamma }{dt}, \frac{d(\gamma \vb{v} )}{dt}) = (\gamma ^{4}v \dot{v} , \gamma ^{4} v \dot{v} \vb{v} + \gamma ^2 \vb{a})
+\end{equation}
+
+Multiply the velocity 4-vector by another invariant, mass \(m\), we get the energy-momentum 4-vector
+
+\begin{equation}
+    P \equiv mV = \gamma m(1,v) = (E, \vb{p} ). 
+\end{equation}
+
+The force 4-vector is then the derivative of the momentum 4-vector with respect to \(\tau \). This gives
+
+\begin{equation}
+    F \equiv \frac{dP}{d\tau } = \gamma (\frac{dE}{dt}, \vb{f}),
+\end{equation}
+
+where \(\vb{f} \equiv \frac{d(\gamma m\vb{v} )}{dt} \) is the usual 3-force defined as the rate of change of momentum.  
+
+In terms of acceleration 4-vector, we can write 
+
+\begin{equation}
+    F = mA = m(\gamma ^{4}v \dot{v} , \gamma ^{4} v \dot{v} \vb{v}  + \gamma ^2 \vb{a}  ) = m(\gamma ^{4} v_{x} a_{x}, \gamma ^{4} a_{x}, \gamma ^2 a_{y}, \gamma ^2 a_{z}),
+\end{equation}
+
+if \(\vb{v} = v_{x}\vu{x}  \). Combining the two forms of \(F\), we see that the 3-force is
+
+\begin{equation}
+    \vb{f} = m(\gamma ^3 a_{x}, \gamma a_{y}, \gamma a_{z}).
+\end{equation}
+
+\section{Properties of 4-Vectors}
+
+If \(A\) and \(B\) are 4-vectors, then \(C \equiv aA + bB = \) is also a 4-vector, this is due to the linearity of Lorentz transformation. For example, the first component of \(C\) is
+
+\begin{equation}
+    C_0 \equiv aA_0 + bB_0  = a(A_0 ' + v A_1 ') + b(B_0 ' + vB_1 ') = (aA'_{0} + b B'_{0}) + v(aA'_{1} + bB'_{1}  ) = C'_{0} + vC'_{1}  
+\end{equation}
+
+which is the correct transformation for the first component of \(C\) under Lorentz transformation.
+
+The inner product of two 4-vectors \(A \text { and } B\) are defined as 
+
+\begin{equation}
+    A \cdot B \equiv A_0 B_0 - A_1 B_1  - A_2 B_2 - A_3 B_3.
+\end{equation}
+
+It can be shown (by direct substitution) that the inner product is an invariant. This invariance under Lorentz Transformation (by multiplying the Lorentz matrix) is analogous to the invariance of the scalar (dot) product \(\vb{A} \cdot \vb{B} = \abs{A}\abs{B}\cos \theta   \) under rotations (by multiplying the rotational matrix) in 3-space (since neither \(\abs{\vb{A} }, \abs{\vb{B} }   \) nor \(\theta \) is affected by rotation ). 
+
+The norm of a 4-vector is then defined as the square root of the inner product of \(A\) with itself:
+
+\begin{equation}
+    \abs{A}^2 \equiv A \cdot A \equiv A_0 A_0 - A_1 A_1 -A_2 A_2 -A_3 A_3  = A_0 ^2 - \abs{\vb{A} }^2.  
+\end{equation}
+
+The invariance of the norm \(\sqrt{A \cdot A} \) is analogous to the invariance of the norm \(\sqrt{\vb{A} \cdot \vb{A} } \equiv \abs{\vb{A} } \) for rotations in 3-space. 
+
+If a certain one of the components of a 4-vector is zero in every frame, then all four components are zero in every frame. This is analgous to how if someone comes along and says the she has a vector in 3-space that has no \(x\) component, no matter how you rotate the axes, then you would certainly say that the vector must be the zero vector. The situation in Lorentzian 4-sapce is the same, because all of the coordinates get intertwined with each other in the Lorentz (and rotation) transformations.
+\section{Force and Acceleration}
+
+In frame \(S'\) of a given particle travelling at speed \(v\) in the \(x\) direction relative to the lab frame \(S\), we have the force 4-vector
+
+\begin{equation}
+    F' = \gamma (\frac{dE'}{dt}, \vb{f} ' ) = \gamma ( \frac{dm}{dt}, \vb{f} ' ) = (0, \vb{f} ')
+\end{equation}
+
+Transfomring \(F'\) into \(F\), we get
+
+\begin{equation}
+    \begin{aligned}
+        F_0 &= \gamma \frac{dE}{dt} = \gamma (F_0 ' + v F_1 ') = \gamma v f_{x}' , \\
+        F_1 &= \gamma f_{x} =  \gamma (F_1 ' + v F_0 ') = \gamma f_{x}', \\
+        F_2 &= \gamma f_{y} = F_2 ' =  f_{y}' , \\
+        F_2 &= \gamma f_{z} = F_2 ' =  f_{z}' . \\
+    \end{aligned}
+\end{equation}
+
+Thus we get 
+
+\begin{equation}
+        \frac{dE}{dt} = vf_{x}',  ~~
+        f_{x} = f_{x}', ~~
+        f_{y} = \frac{f_{y}' }{\gamma }, ~~
+        f_{z} = \frac{f_{z}' }{\gamma }.   
+\end{equation}
+
+The acceleration 4-vector, on the other hand, is 
+
+\begin{equation}
+    A' = (\gamma ^{4}v' \dot{v'} , \gamma ^{4} v' \dot{v'} \vb{v'} + \gamma ^2 \vb{a'}) = (0,\vb{a} '),
+\end{equation}
+
+Transforming \(A'\) into \(A\), we get 
+
+\begin{equation}
+    \begin{aligned}
+        A_0 &= \gamma ^{4}va_{x} = \gamma (A_0 ' + vA_1 ') = \gamma v a_{x}', \\
+        A_1 &= \gamma ^{4} a_{x} = \gamma (A_0 ' + vA_0 ' ) = \gamma a_{x}', \\
+        A_2 &= \gamma ^2 a_{y} = A_2 ' = a_{y}', \\
+        A_3 &= \gamma ^2 a_{z} = A_3 ' = a_{z}'.           
+    \end{aligned}
+\end{equation}
+
+Thus we get
+
+\begin{equation}
+    a_{x} = \frac{a_{x}' }{\gamma ^3 }, ~~ a_{y} = \frac{a_{y}' }{\gamma ^2}, ~~ a_{z} = \frac{a_{z}' }{\gamma ^2}.      
+\end{equation}
+
+\example{Acceleration for Circular Motion}
+{A particle moves with constant speed \(v\) around the circle \(x^2+y^2=r^2, ~z=0\), in the lab frame. At the instant the particle crosses the negative \(y\) axis, find the 3-acceleration and 4-acceleration in both the lab frame and the instantaneous inertial frame of the particle. }
+{The 3-acceleration in \(S\) is simply
+
+\begin{equation}
+    \vb{a} = (0,\frac{v^2}{r}, 0 ).
+\end{equation}
+
+There is nothing fancy going on here; the standard nonrelativistic proof of the centripetal acceleration works just fine again in the relativistic case. 
+
+The 4-accleration in \(S\) is then 
+
+\begin{equation}
+    A = (0,0,\gamma ^2\frac{v^2}{r}, 0 ).
+\end{equation}
+
+Transforming to \(S'\), we have 
+
+\begin{equation}
+    A' = (0,0, \gamma ^2 \frac{v^2}{r}, 0 ).
+\end{equation}
+
+So the 3-acceleration in \(S'\) is then the space part of \(A'\)
+
+\begin{equation}
+    \vb{a} ' = (0,\gamma ^2\frac{v^2}{r}, 0 ).
+\end{equation}
+
+Of course, we can arrive at this result with a simple time-dilation argument, since
+
+\begin{equation}
+    a_{y}' = \frac{d^2y'}{dt'^2} = \frac{d^2y}{(\frac{dt}{\gamma }) ^2} = \gamma ^2 a_{y} = \gamma ^2 \frac{v^2}{r}.     
+\end{equation}
+}
+
+Note that in special relativity, if a statement has any chance of being true in all frames, it must involve only 4-vectors. Consider a 4-vector equation \(A = B\) that is true in frame \(S\). Aplying Lorentz transformation on both sides, we get \(A' = B'\) so the law is therefore also true in frame \(S'\). However, \(\vb{f} = m\vb{a} \) cannot be a physical law, since the two sides of this equation transform differently when going from one frame to another, so the statement cannot be true in all frames. 
+
+All of this is exactly analogous to the situation in 3-dimensional space. In Newtonian mechanics, \(\vb{f}  = m\vb{a} \) is a possible law (and indeed a physcal law), because both sides are 3-vectors. But \(\vb{f} = m(2a_{x}, a_{y},a_{z})\) has no chance of being a physical law, because the right hand side is not a 3-vector; it depends on which axis you label as the \(x\) axis.
+
+Physcial laws may also take the form of scalar equations, such as \(P \cdot P = m^2\) A scalar is by definition a quantity that is frame independent. So if a scalar statement is true in one inertial frame, then it is true in all inertial frames.  
+
+\section{Collisions}
+
+From the energy-momentum 4-vector we see that the momentum and energy of a particle governed by special relativity are
+
+\begin{equation}
+    \vb{p}  = \gamma m\vb{v} \text { and } E = \gamma m.
+\end{equation}
+
+Taylor expanding \(\gamma \) , we get
+
+\begin{equation}
+    \begin{aligned}
+    \vb{p} &= (1 + \mathcal{O}(v^2)) m\vb{v} = m\vb{v} + \mathcal{O}(v^3 ) \\
+    E &= (1 + \frac{1}{2}v^2 + \mathcal{O}(v^{4} ) ) m = m + \frac{1}{2}mv^2 + \mathcal{O}(v^{4} ), 
+    \end{aligned}
+\end{equation}
+
+which, according to correspondence principle, must give the same answer in Newtonian physics. 
+
+Note that the energy of a particle even in Newtonian physics consists of the rest mass energy term \(m\).  
+
+In an elastic collision, no kinetic energy is transformed into other forms of energy, so the mass is conserved (To not introduce another degree of freedom, we assume that individual masses are conserved, not just the sum of them, so particles cannot transfer their internal energy to one another), so we can neglect writing down the rest mass energies when applying the law of conservation of energy.
+
+An inelastic collision, on the other hand, converts kinetic energy to internal energy (e.g., thermal energy) which increases the masses of the particles\footnote{All internal energy such as thermal, rotational and potential energy contributes to the rest mass of an object. In fact, the vast majority of the mass of an atom is due to the internal energy between quarks that make up the nucleus rather than the rest mass of the quarks themselves.}, so the mass is not conserved and thus the Newtonian kinetic energy \(\frac{1}{2}mv^2\) is not conserved. 
+
+Similar to the relation \(E = \frac{p^2}{2m} \text { or } p = \sqrt{2mE}  \) in Newtonian physics, we can relate the energy and the momentum of a particle by this ``very-important-relationship''
+
+\begin{equation}\label{veryimportantrelationship} 
+    E^2 = p^2 + m^2.
+\end{equation}
+
+Whenver we know two of the three quantities \(E,p \text { and }  m\), this eqution gives you the third.
+
+There is no need to use 4-vectors to solve collision problems, they can be always be solved solely by writing down the energy and momentum conservation laws, as well as the ``very-important-relationship'' but they often prove to be useful bookeeping tools, since the norm of the energy-momentum 4-vector of a particle (note that this does not work for a collection of particles) is simply the mass of the particle: 
+
+\begin{equation}
+    P \cdot P = E^2 - \vb{p} ^2 = m^2.
+\end{equation}
+
+The power of writing energy and momentum of a particle in a single energy-momentum 4-vector can be illustrated by the example below:
+
+\example{Decay of a Particle}
+{A particle with mass \(M\) and energy \(E\) decays into two identical particles. In the lab frame, one of them is emitted at a \(90 ^\circ \) angle. What are the energy of the created particles? }
+{Let \(P, P_1 \text { and } P_2 \) be the energy-momentum 4-vectors of the decayed particle, the particle emitted at \(90 ^\circ \) angle, and the remaining particle respectively. 
+
+By conservation of energy and momentum,
+
+\begin{equation}
+    \begin{aligned}
+        P &= P_1 + P_2 \\
+        P-P_1  &= P_2 \\
+        (P - P_1 )(P - P_1 ) &= P_2 \cdot P_2 \\
+        P^2 - 2 P \cdot  P_1  + P_1 ^2 &= P_2 ^2 \\
+        M^2 - 2E E_1  + m^2 &= m^2 \\
+        E_1  & = \frac{M^2}{2E}. 
+    \end{aligned}
+\end{equation}
+
+Again, the energy-momentum vector introduce no new physics, it simply write the conservation laws in a way that help simplify the algebra using the ``norm squared equals mass'' property.
+} 
+
+The only non-trivial property of the energy-momentum vector is that since the sum of the energy-momentum 4-vectors of a collection of particles is also a 4-vector due to linearity, 
+
+\begin{equation}
+    \left( \sum_{}^{} P \right)^2 = \left( \sum_{}^{} E \right) ^2 - \left( \sum_{}^{} \vb{p}   \right) ^2 
+\end{equation}
+
+is also an invariant. Note that the sums are taken before squaring in the above equation. If we sqaure before the addition it would simply give the sum of the squares of the masses (which of course is also an invariant but is trivial why).
+
+
+\section{Force}
+
+The Newton's law in special relativity is 
+
+\begin{equation}
+    F = \frac{dp}{dt} = \frac{d(\gamma mv)}{dt} = m(\dot{\gamma }v + \gamma \dot{v}  ) = m(\gamma ^3 vav + \gamma a) = ma\gamma (\gamma ^2v^2 + 1) = \gamma ^3 ma,
+\end{equation}
+
+for one-dimensional case while the work energy theorem is 
+
+\begin{equation}
+    \int_{x_1 }^{x_2 } Fdx = \int_{x_1 }^{x_2 } (\gamma ^3 ma) dx = m \int_{v_1 }^{v_2 } \gamma ^3 vdv = m \int_{\gamma _{1} }^{\gamma _{2} } d\gamma = E_2 - E_1 = \Delta E.      
+\end{equation}
+
+which is the same as in nonrelativistic physics.
+
+The Newtons's law can be easily generalized into two dimensions by 
+
+\begin{equation}
+    F = \frac{d\vb{p} }{dt} = \frac{d(\gamma m\vb{v} )}{dt} = \frac{d}{dt} \left(\frac{m(v_{x}, v_{y}  )}{\sqrt{1 - v_{x}^2 - v_{y}^2  } }\right) = m(\gamma ^3 a_{x}, \gamma a_{y}  ).    
+\end{equation}
+
+The asymmetric arises from the fact that \(v_{x} = v \text { and }  v_{y} = 0 \) at the start by default.
+
+\example{Bead on a Rod}
+{A spring with a tension has one end attached to the end of a rod, and the other end attached to a bead that is constrained to move along the rod. The rod makes an angle \(\theta '\) with respec to the \(x'\) axis and is fixed at rest in the \(s'\) frame (see \cref{beadonarod1}). Right after the bead is release, find the directions of the rod, the acceleration of the bead and the force on the bead in frame \(S\).}
+{The horizontal span of the rod is decreased by a factor \(\gamma \) due to length contraction while the vertical span is unchanged. So we have \(\tan \theta = \gamma \tan \theta '\). 
+
+The acceleration, on the other hand, must point along the rod, simply because the bead always lies on the rod (and the rod itself does not accelerate). 
+
+The force, however, does not point along the rod. This is because the \(y\) component of the force on the bead is decreased by a factor of \(\gamma \) while the \(x\) component is unchanged. So \(\frac{F_{y}}{F_{x} } \) is smaller than \(\frac{F_{y}'}{F_{x}'} \) by a factor \(\gamma \). So we have \(\tan \phi = \frac{1}{\gamma }\tan \theta ' \). 
+
+To double check the direction of acceleration, 
+
+\begin{equation}
+    \frac{a_{y} }{a_{x} } = \gamma ^2 \frac{F_{y} }{F_{x} } = \gamma ^2\frac{\frac{F_{y}' }{\gamma }  }{F_{x}' }  = \gamma \tan \theta ' = \tan \theta .  
+\end{equation}
+
+Note that the rod does not exert a force of constraint. The bead does not need to touch the rod in \(S'\) so it does not need to touch it in \(S\). \(\vb{F} \) simply does not have to be collinear with \(\vb{a} \) in relativistic physics.  
+
+The situation in frame \(S\) is shown in \cref{beadonarod2}.
+
+} 
+\twofig{beadonarod1}{width=\textwidth}{beadonarod2}{width=\textwidth}{beadonarod} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

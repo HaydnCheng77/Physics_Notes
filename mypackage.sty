@@ -1,0 +1,185 @@
+\usepackage{graphicx}
+\usepackage{physics}
+\usepackage{parskip}
+\usepackage{float}
+\usepackage{amsmath,amssymb,amsthm,mathrsfs}
+\usepackage{microtype}
+\setlength {\marginparwidth}{2cm}
+\usepackage{todonotes}
+\usepackage[margin=1in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[backend=biber]{biblatex}
+\usepackage{makeidx}
+\usepackage{enumitem}
+\usepackage{moreenum}
+\usepackage{tikz,pgfplots}
+\usepackage[pdfpagelabels]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[Bjornstrup]{fncychap}
+\usepackage{caption}
+\usepackage{bm}
+\usepackage{pifont}
+\usepackage{cleveref}
+\usepackage{tcolorbox}
+\usepackage{xcolor}
+\usepackage{animate}
+\usepackage{upgreek}
+\usepackage{xr}
+\usepackage{textcmds}
+\usepackage{subcaption}
+\usepackage{csquotes}
+\usepackage{booktabs}
+\usepackage[english]{babel}
+\usepackage{xy}
+\usepackage{mathdots}
+\usepackage{tikz-cd}
+\usepackage[american voltages,siunitx]{circuitikz}
+\usepackage{mdframed}
+\usetikzlibrary{decorations.pathmorphing}
+\usepackage[toc,page]{appendix}
+\usepackage{colortbl}
+\usepackage{array}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{mathtools}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+
+
+
+\tcbuselibrary{breakable}
+\usetikzlibrary{positioning}
+\pgfplotsset{compat=1.18}
+\newcommand{\parallelsum}{\mathbin{\!/\mkern-5mu/\!}}
+\newcommand{\avg}[1]{\langle #1 \rangle}
+\newcommand{\ie}{\textit{i.e.~}}
+\newcommand{\screq}{\text{Schrödinger equation}}
+
+\def\rcurs{{\mbox{$\resizebox{.14in}{.09in}{\includegraphics{realscriptr}}$}}}
+\def\brcurs{{\mbox{$\resizebox{.14in}{.09in}{\includegraphics{realboldr}}$}}}
+\def\hrcurs{{\mbox{$\hat \brcurs$}}}
+
+\newcommand{\onefig}[2]{
+	\begin{figure}[H]
+		\centering
+		\includegraphics[#2]{#1}
+		\caption[]{\label{#1}}
+	\end{figure}}
+
+\newcommand{\twofig}[5]{\begin{figure}[htbp]
+		\centering
+
+		\begin{subfigure}[b]{0.4\textwidth}
+			\centering
+			\includegraphics[#2]{#1}
+			\caption[]{\label{#1}}
+		\end{subfigure}
+		\hfill
+		\begin{subfigure}[b]{0.4\textwidth}
+			\centering
+			\includegraphics[#4]{#3}
+			\caption[]{\label{#3}}
+		\end{subfigure}
+		\caption[]{\label{#5}}
+	\end{figure}}
+
+\newcommand{\threefig}[7]{\begin{figure}[htbp]
+		\centering
+
+		\begin{subfigure}[b]{0.5\textwidth}
+			\centering
+			\includegraphics[#2]{#1}
+			\caption[]{\label{#1}}
+		\end{subfigure}
+		\hfill
+		\begin{subfigure}[b]{0.5\textwidth}
+			\centering
+			\includegraphics[#4]{#3}
+			\caption[]{\label{#3}}
+		\end{subfigure}
+		\hfill
+		\begin{subfigure}[b]{0.5\textwidth}
+			\centering
+			\includegraphics[#6]{#5}
+			\caption[]{\label{#5}}
+		\end{subfigure}
+		\caption[]{\label{#7}}
+	\end{figure}}
+
+
+
+\newtcolorbox{example_template}{
+	colback=gray!10,
+	colframe=gray!10,
+	rounded corners,
+	arc=10pt,
+	breakable,}
+
+\newcommand{\furtherprac}[2]{
+	\begin{example_template}
+		\textbf{Futher Practice:} \textbf{#1} \\
+		\\
+		\textbf{Question:} #2
+	\end{example_template}}
+
+
+
+\newcommand{\example}[3]{
+	\begin{example_template}
+		\textbf{Example:} \textbf{#1} \\
+		\\
+		\textbf{Question:} #2 \\
+		\\
+		\textbf{Solution:}
+		#3
+	\end{example_template}}
+
+\hypersetup{colorlinks=true,linkcolor=black,urlcolor=blue,pdftitle={Maths},}
+
+
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\lstdefinestyle{Rstyle}{
+	language=R,
+	basicstyle=\footnotesize,
+	numbers=left,
+	numberstyle=\tiny,
+	numbersep=5pt,
+	backgroundcolor=\color{white},
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	keywordstyle=\color{blue},
+	commentstyle=\color{green},
+	stringstyle=\color{purple},
+	breaklines=true,              % Enable line wrapping
+	breakatwhitespace=true        % Break at whitespace
+}
+
+\lstdefinestyle{pystyle}{
+	language=Python,
+	backgroundcolor=\color{white},
+	commentstyle=\color{green},
+	keywordstyle=\color{blue},
+	numberstyle=\tiny,
+	stringstyle=\color{red},
+	basicstyle=\footnotesize,
+	breakatwhitespace=false,
+	breaklines=true,
+	captionpos=t,
+	keepspaces=true,
+	numbers=left,
+	numbersep=5pt,
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	tabsize=4
+}
+
+%mklink "C:\Users\User\Downloads\Physics notes\Maths\Electrodynamics\mypackage.sty" "C:\Users\User\Downloads\Physics notes VS\Maths\mypackage.sty"

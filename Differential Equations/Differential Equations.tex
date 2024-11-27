@@ -1,0 +1,744 @@
+\documentclass[english,a4paper,12pt]{report}
+\usepackage{mypackage}
+
+\title{Ordinary Differential Equation}
+
+\author{Haydn Cheng}
+
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+    
+\chapter{What is an Differential Equation}
+
+A differential equation is an equation in which the unknowns are functions of one or more variables and which contains both these functions and their derivatives. Partial differential equations are those wchih more than one independent variable is involved, while ordinary differential equations (ODE), which are what we will focus on, are those that involve functions of a single independent variable which have the general form
+
+\begin{equation}
+    F(x,y,y',\cdots ,y^{(n)} ) = 0.
+\end{equation}
+
+An ODE can be further classified into linear and homogenous based on its general form. An ODE is said to be linear if it has the form
+
+\begin{equation}
+    a_{n}(x)y^{(n)} + a_{n-1}(x)y^{(n-1)} + \cdots + a_{2}(x)y''+a_{1}(x)y'+a_0 (x)y' = f(x) ,     
+\end{equation}
+
+while a homogenous ordinary differential eqution can be in either of two respects: a first order differential equation is said to be homogeneous if it may be written in the form of
+
+\begin{equation} \label{firstorderhomo} 
+    f(x,y)dy=g(x,y)dx \implies \frac{dy}{dx} = h\left(\frac{y}{x} \right), 
+\end{equation}
+
+\todo{don't mention this here} 
+
+where \(f\) and \(g\) are homogenous functions of the same degree of \(x\) and \(y\).\footnote{A function is said to be homogeneous if when each of the function's arguments is multiplied by the same scalar, then the function's value is multiplied by some power (called the degree of homogeneity) of this scalar. That is, if \(f(sx_1 ,\cdots, sx_{n} ) = s ^{k} f(x_1 ,\cdots,x_{n} )  \).  }
+
+Otherwise, a differential equation is homogeneous if it is a homogeneous function of \(y\)  and its derivatives. In the case of linear differential equation this implies that the constant term \(f(x)\)  is zero.
+
+There are two kinds of solution to an differential equation. A real function \(y=f(x)\) is called an explicit solution \(F(x,y,y',\cdots ,y^{(n)}) = 0\) on \([a,b]\) if a direction substiution leads to an identity, \ie 
+
+\begin{equation}
+    F(x,f(x),f'(x),\cdots ,f^{(n)}(x)) =0 \text{ on } [a,b]
+\end{equation}
+
+while a relation \(g(x,y) = 0\) is called an implicit solution of the differential equation \(f(x,y,y',\cdots ,y^{(n)} ) = 0\) on \([a,b]\) if it represents at least one real function \(f\) on \([a,b]\) such that \(y=f(x)\) is an explicit solution on this interval. 
+
+For example, \(x^2+y^2-4=0\) is the implicit solution for the differential equation \(x+y y'=0\) while \(y(x) = \pm \sqrt{4-x^2} \) is the explicit solution to the same differential equation. To understand the relevance of the phrase ``represents at least one real function'' in the above definition of the implicit solution, consider the relation \(x^2+y^2+1=0\), although this also satisfies the same differential equation, but there is no real values of \(x\text { and } y\) which satisfies \(x^2+y^2+1=0\) thus it is not an implicit solution since it does not represent any real valued function. This type of solution has a separate name called a ``formal solution'', which means that it appears to be a solution (but is actually not).
+
+A general theorem states that the general solution of all \(n^{\text{th }} \) order differential equation contains \(n\) integration constants. For example, the function \(y=\frac{1}{6} x^3 + C_1 x + C_2 \) which is the solution to the differential equation \(y'' = x\) has two integration constants \(C_1 \text { and } C_2 \) stemming from integration. Another example is the function \(y = Ae^{ t} + Be^{- t}  \) which is the solution to the differential equation \(y'' = y\) has two integration constants \(A\text { and } B\) although the equation is not necessarily solved by direct integration (but by guessing the solution \(y=e^{\alpha t} \)) and leveraging the homogenity of the equation. Consequently, there must be \(n\) boundary conditions or initial conditions\footnote{Initial conditions specify the value of the independent variable and its derivatives \((y,y',\ldots ,y^{(n-1)} )\) at a single \(x = x_0 \) while boundary conditions them at two or more \(x\) values.} to fix the values of these integration constants. 
+
+The solutions of an \(n^{\text{th }} \) order ODE is often refered to as a \(n\)-parameters family, and can be represented as integral curves, which are parametric curves parameterized by the integration constants. Prominent examples of integral curves are the field lines for electric or magnetic field which satisfy the Maxwell's differential equations, and integral curves for the velocity field of a fluid are known as streamlines, which satisfy the Navier-Stokes differential equation.
+\todo{complete this part} 
+
+
+
+\chapter{First Order Differential Equations}
+
+A first order differential equation \(F(x,y,y')\) are usually written in one of the two equivalent standard forms depending on the method of solving it
+
+\begin{equation}
+    \frac{dy}{dx} = F(x,y) \text { or } A(x,y) dx + B(x,y) dy = 0. 
+\end{equation}
+
+\section{First Order Separable}
+
+A first order differentilal equation is separable if it is in the form
+
+\begin{equation}
+    \frac{dy}{dx} = f(x)g(y)
+\end{equation}
+
+which can be solved by direct integration. Note that if \(g(y) \rightarrow 0\) for any \(y=y_0 \) then the constant function \(y(x) = y_0 \) is also a solution to the equation.
+
+ODE in the form of 
+
+\begin{equation}
+    \frac{dy}{dx} = f(ax+by+c).
+\end{equation}
+
+is also separable simply by a change of the dependent variable \(z(x) = ax + by + c\), then 
+
+\begin{equation}
+    \frac{dz}{dx} = a + \frac{dy}{dx} = a + bf(z).
+\end{equation}
+
+\section{First Order Homogeneous} \label{homo} 
+
+A first order differential equation is homogeneous if it is in the form
+
+\begin{equation}
+    \frac{dy}{dx} = f\left(\frac{y}{x} \right).
+\end{equation}
+
+This reduces to a separable differential equation by introducing a new dependent variable \(z(x) = \frac{y}{x} \), so
+
+\begin{equation}
+    \frac{dz}{dx} = x\frac{dy}{dx} - \frac{y(x)}{x^2} = \frac{f(z)-z}{x}  
+\end{equation}
+
+which can be solved by direction integration or \(z(x) = z_0 \) for all \(x\) where \(z_0 \) satisfies \(z_0 = f(z_0 )\) 
+
+The following equation
+
+\begin{equation}
+    \frac{dy}{dx} = f\left(\frac{a_1 x+b_1 y+c_1 }{a_2 x+b_2 y+c_2 } \right)
+\end{equation}
+
+is not a homogeneous equation but it can be turned into one by a change of variables \(X = x+u\) and \(Y = y+v\) with appropriately chosen \(u\text { and } v\) so that it eliminates the constants \(c_1 \text { and } c_2 \). This happens if they satisfy 
+
+\begin{equation} \label{X=x+u} 
+    \begin{pmatrix}
+        a_1  &  b_1  \\
+        a_2  &  b_2  \\
+    \end{pmatrix} \begin{pmatrix}
+         u \\
+         v \\
+    \end{pmatrix} = \begin{pmatrix}
+         c_1  \\
+        c_2   \\
+    \end{pmatrix} ,
+\end{equation}
+
+which upon substitution leads to a homogeneous equation
+
+\begin{equation}
+    \frac{dY}{dX} = f\left( \frac{a_1 X+b_1 Y}{a_2 X+b_2 Y}  \right),
+\end{equation}
+
+Note that if the square matrix in \cref{X=x+u} has zero determinant meaning that there are no solutions for \(u\) and \(v\), we have \(a_2 x+b_2 y = k(a_1 x+b_1 y)\) for all \(x \text { and } y\) thus \(k=\frac{a_2 }{a_1  } = \frac{b_2 }{b_1 } \). In this case the equation is in the form
+
+\begin{equation}
+    \frac{dy}{dx} = f\left( \frac{a_1 x+b_1 y+c_1 }{k(a_1 x+b_1 y)+c_2 }  \right)= g(a_1 x+b_1 y),
+\end{equation}
+
+which is separable. 
+
+\section{First Order Exact}
+
+An arbitrary differential 
+
+\begin{equation}
+    A(x,y) dx + B(x,y) dy
+\end{equation}
+
+is exact if it is the differential of a function 
+
+\begin{equation}
+    df(x,y) = \frac{\partial f}{\partial x} dx + \frac{\partial f}{\partial y} dy.
+\end{equation}
+
+Therefore, we have
+
+\begin{equation}
+    A(x,y) = \frac{\partial f}{\partial x} \text { and } B(x,y) = \frac{\partial f}{\partial y}
+\end{equation}
+
+Since \(\frac{\partial^2 f}{\partial x \partial y} = \frac{\partial^2 f}{\partial y \partial x}\), we obtain a necessary (and a sufficient) condition for the differential to be exact, which is
+
+\begin{equation}
+    \frac{\partial A}{\partial y} = \frac{\partial B}{\partial x}\footnote{Determining whether a differential containing many variables \(x_1, x_2, \ldots, x_{n}\) is exact is a simple extension of the above: a differential \(df = \sum_{i=1}^{n} g_{i}(x_1 ,x_2 ,\ldots , x_{n} )dx_{i}  \) is exact if \(\frac{\partial g_{i} }{\partial x_{j} } = \frac{\partial g_{j} }{\partial x_{i} } \) for all pairs \(i,j\).} .
+\end{equation}
+
+Thus, a first order differential equation is exact if it is in the form
+
+\begin{equation}
+    df(x,y) = A(x,y)dx + B(x,y)dy = 0,
+\end{equation}
+
+which implies 
+
+\begin{equation}
+    f(x,y) = \int A(x,y) dx + C_1 (y) = \int B(x,y) dy + C_2 (x) = C. 
+\end{equation}
+
+
+
+
+\section{First Order Inexact}
+
+If the differential equation is not exact, we can always make it exact by multiplying the differential by some function \(\mu (x,y)\), known as the integrating factor, so that
+
+\begin{equation}
+    \frac{\partial (\mu A)}{\partial y} = \frac{\partial (\mu B)}{\partial x}.  
+\end{equation}
+
+There is no general method for finding the integrating factor if \(\mu \) is a function of both \(x \text { and } y\). However, if \(\mu \) only depend one of them (\ie \(\mu (x,y) = \mu (x) \text { or } \mu (y)\)), then it can be found analytically. For example, if \(\mu (x,y) = \mu (x)\), then the above equation becomes
+
+\begin{equation}
+    \mu \frac{\partial A}{\partial y} = \mu \frac{\partial B}{\partial x} + B \frac{\partial \mu}{\partial x},
+\end{equation}
+
+which we can solve for \(\mu (x)\) as
+
+\begin{equation} \label{mu(x)} 
+    \mu (x) = \exp \left( \frac{1}{B} \int \left(\frac{\partial A}{\partial y} -\frac{\partial B}{\partial x} \right)dx  \right).
+\end{equation}
+
+Similarly, 
+
+\begin{equation}
+    \mu (y) = \exp \left( \frac{1}{A} \int \left(\frac{\partial B}{\partial x} -\frac{\partial A}{\partial y} \right)dx  \right).
+\end{equation}
+
+These results conveniently provides a general critirea of determining whether the integrating factor \(\mu \) is a function of \(x\text { or } y\) alone, which is when the proposed \(\mu (x) \text { or } \mu (y)\) is indeed a function of \(x \text { or }  y\) only.    
+
+\section{First Order Linear}
+
+A first order differential equation is linear if it is in the form
+
+\begin{equation}
+    \frac{dy}{dx} + P(x)y = Q(x). 
+\end{equation}
+
+It can be shown using \cref{mu(x)} that the integrating factor \(\mu \) always depends on \(x\) alone and has the general form
+
+\begin{equation}
+    \mu (x) = \exp \left( \int P(x) dx \right).
+\end{equation}
+
+\section{First Order Isobaric}
+
+A first order differential equation is isobaric if it is in the form
+
+\begin{equation}
+    \frac{dy}{dx} = \frac{A(x,y)}{B(x,y)},  
+\end{equation}
+
+where the equation is dimensionally consistent if \(y = zx^{m} \). 
+
+\example{Isobaric Differential Equation}
+{Solve
+
+\begin{equation}
+    \frac{dy}{dx} = -\frac{1}{2yx}(y^2 + \frac{2}{x} ).  
+\end{equation}
+}
+{Rearranging we have 
+
+\begin{equation}
+    \left( y^2 + \frac{2}{x}  \right) dx + 2yxdy = 0.
+\end{equation}
+
+Giving \(y\text { and } dy\) weight \(m\) and \(x\text { and } dx\) the weight 1, the sums of powers in each term on the LHS are \(2m+1,0 \text { and } 2m+1\) respectively. These are equal if \(m = -\frac{1}{2} \). Therefore we substitute \(y = zx^{-\frac{1}{2} } \) and get
+
+\begin{equation}
+    zdz + \frac{dx}{x} = 0 \implies \frac{1}{2}y^2x + \ln x = C. 
+\end{equation}
+} 
+
+\section{Bernoulli's Equation}
+
+A first order differential equation is a Bernoulli's equation if it has the form
+
+\begin{equation}
+    \frac{dy}{dx} + P(x)y = Q(x)y^{n}, \text{ where } y\neq 1.  
+\end{equation}
+
+This equation can be solve by the substitution 
+
+\begin{equation}
+    z = y^{1-n} \implies \frac{dy}{dx} = \left( \frac{y^{n} }{1-n}  \right) \frac{dz}{dx}   
+\end{equation}
+
+which makes the equation linear, as
+
+\begin{equation}
+    \frac{dz}{dx} + (1-n) P(x)z = (1-n)Q(x).  
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+\chapter{Autonomous Second Order Differential Equations}
+
+An autonomous system is described by a differential equation that does not explicitly depend on the independent variable. Newton's second law is an example if the force depends on time only through instantenous position and velocity. The general form of a differential equation describing such system is in the form of 
+
+\begin{equation}
+    \ddot{r} = f(r,\dot{r} ),
+\end{equation}
+
+which can be solved by noting \(\ddot{r} = \dot{r} \frac{d \dot{r} }{dr}  \), which would give a first order differential equation upon substituion:
+
+\begin{equation}
+    \frac{d \dot{r} }{dr} = \frac{f(r,\dot{r} )}{\dot{r} } .
+\end{equation}
+
+The \((r,\dot{r} )\) space is referred to as the phase space, whose evolution is characterised by a one-parameter family of curves. For a given initial condition, the evolution is restricted to a single curve in phase space. Note that a second order differential equation would generally give a two-paramter family of curves, so the phase space of (r,t) would be very messy as the curves inevitably intersect.
+
+\section{Conservative Systems}
+
+Conservative systems have a even more strict requirement on \(f(r,v)\), where \(v \equiv \dot{r} \) : It requires that \(f(r,v)\) depends explicitly only on \(r\) but not on \(v\), so \(f(r,v) = f(r)\) . In this case the differential equation is separable, as
+
+\begin{equation}
+    v\frac{dv}{dr} = f(r) \implies \frac{1}{2} v^2+ V(r) = E
+\end{equation}
+
+Here the integration constant \(E\) corresponds to the total energy of the system and \(V(r) = - \int f(r)dr\) is the potential of the force. 
+
+Solving further for \(v = \frac{dr}{dt} \), 
+
+\begin{equation}
+    \frac{dr}{dt} = \pm \sqrt{2(E-V(r))} \implies \int \frac{dr}{\sqrt{2(E-V(r))} } = \pm \int dt = \pm t + C. 
+\end{equation}
+
+\example{Phase Space of a Simple Harmonic Oscillator}
+{Plot the integral curves in phase space and explain the motion in phase space for a simple harmonic oscillator.}
+{For a simple harmonic oscillator,
+
+\begin{equation}
+    \ddot{r} = f(r) = -kr \implies  \frac{1}{2}v^2 + \frac{1}{2}kr^2 = E . 
+\end{equation}
+
+This equation describes an ellipse in phase space centered on \((r,v) = (0,0)\), with axes of length \(\sqrt{2E} \text { and } \sqrt{\frac{2E}{k} }  \) as shown in \cref{shmphasespace}:
+\onefig{shmphasespace}{scale=0.3} 
+
+The potential \(V(r) = \frac{1}{2} kr^2 \) has a minimum at \(r=0\) and all curves in phase space oscillate around this point perpetually.  
+} 
+
+\example{Phase Space of a Pendulum}
+{Plot the integral curves in phase space and explain the motion in phase space for a pendulum.}
+{For a pendulum we have
+
+\begin{equation}
+    \ddot{\theta } = -k\sin \theta \implies \frac{1}{2}\omega ^2-k\cos \theta = E \implies \omega (\theta ) = \pm \sqrt{2(E+k\cos \theta )}.   
+\end{equation}
+
+The integral curves are shown in \cref{pendulumphasespace} below.
+\onefig{pendulumphasespace}{scale=0.3} 
+
+The potential \(V(\theta ) = -k\cos \theta \) has a minimum at \(\theta = 2n\pi \) corresponding to the lowest point and a maximum at \(\theta = (2n+1)\pi \) corresponding to the highest point, where n is an integer. 
+
+At \(E = -k\), the term inside the square root is only real when \(\cos \theta = 1 \implies \theta = 0\), so the pendulum is at rest at the potential minimum, a stable fixed point. 
+
+For \(E \gtrsim -k\), we have \(\cos \theta \approx 1-\frac{1}{2}\theta ^2 \) and we would get \(\frac{1}{2}\omega ^2 + \frac{1}{2}k \theta ^2 = E  \) which is a simple harmonic oscillator as described above. 
+
+If \(-k < E < k\), the pendulum goes back and forth around \((\theta ,\omega ) = (0,0)\) but the shape of the curve is not an ellipse.
+
+When \(E = k\), the pendulum is fixed at \((\theta ,\omega ) = (\pi ,0)\) whihc is an unstable fixed point.
+
+For \(E>k\), the pendulum goes around perpetually respectively either with \(\omega > 0 \text { or } \omega <0\) throughout the evolution, since the pendulum has enough energy to overcome the potential barrier at the highest point.
+
+
+} 
+
+\section{Nonconservative Systems}
+
+In this section we lessen the restriction on \(f(r,v)\) and consider the case where \(f(r,v)\) depends on both position and velocity.  
+
+In some cases, the second order differential equation can still be reduced to an analytically solvable first order differential equation (though it may not be separable), such as the example below:
+
+\example{Phase Space of a Damped Harmonic Oscillator (1)}
+{Plot the integral curves in phase space and explain the motion in phase space for the damped harmonic oscillator.}
+{For a damped simple harmonic oscillator,
+
+\begin{equation}
+    \ddot{r} = f(r,v) = -kr- \gamma v \implies \frac{dv}{dr} = -\gamma - k \frac{r}{v}.  
+\end{equation}
+
+This is no longer a separable differential equation but a homogeneous one, which can be solved by substiuting \(z = \frac{v}{r} \) (not \(\frac{r}{v} \)). Solving, we get the implicit solution 
+
+\begin{equation}
+    \frac{1}{2}\ln \abs{u^2+D} - \frac{\gamma }{2\sqrt{D} }\arctan {\frac{u}{\sqrt{D} } } = -\ln \abs{r} + C,    
+\end{equation}
+
+where \(u = z + \frac{1}{2} \gamma \text { and } D = k - \frac{1}{4}\gamma ^2  \). A parametric solution \((v(u), r(u))\) may be derived directly from this equation by solving for \(r\), which gives
+
+\begin{equation}
+    r(u) = \pm \frac{C_2 }{\sqrt{r^2+D} } e^{\frac{\gamma }{2\sqrt{D} } \arctan {\frac{u}{\sqrt{D} } } } \text { and } v(u) = z(u)r(u) = (u - \frac{1}{2}\gamma  ) r(u).  
+\end{equation}
+
+which is plotted in \cref{dampedshmphasespace}. 
+\onefig{dampedshmphasespace}{scale=0.3}  
+} 
+
+For a more general case, where the first order differential equation is not analytically solvable, we employ the pertubation method to obtain qualitative understanding of the system. 
+
+We start with the more general equation 
+
+\begin{equation}
+    \ddot{r} = f(r) -\gamma v \implies \frac{dv}{dr} = \frac{f(r)}{v} - \gamma \implies \frac{d}{dr} (\frac{1}{2} v^2 + V(r) ) = -\gamma v. 
+\end{equation}
+
+If \(\gamma \) is sufficiently small, we may obtain the solution perturbatively around a known solution as
+
+\begin{equation}
+    v(r) = v_0 (r) + \delta v(r), 
+\end{equation}
+
+where \(v_0 \) is defined to be the solution to the same equation without the damping term, so
+
+\begin{equation}
+    \frac{dv}{dr} = \frac{f(r)}{v} \implies \frac{1}{2} v_0  + V(r) = E \implies v_0 (r) = \pm \sqrt{2(E-V(r))} .  
+\end{equation}
+
+Substituting \(v = v_0  + \delta v\), we have 
+
+\begin{equation}
+    \frac{d}{dr}(v_0 \delta v) = -\gamma (v_0 +\delta v), 
+\end{equation}
+
+which is a first order linear differential equation which can be solved with the techniques introduced in the last chapter.
+
+\begin{equation}
+    v_0 '\delta v + v_0  \delta v' = -\gamma v_0 -\gamma \delta v \implies \delta v' + \left( \frac{v_0 '}{v_0 } + \gamma  \right) \delta v = -\gamma  \implies \delta v' + (f(r) + \gamma )\delta v = -\gamma,
+\end{equation}
+
+where in the last equality we used the definition of \(v_0 (r)\). 
+
+
+
+
+
+
+
+
+
+
+\example{Phase Space of a Damped Harmonic Oscillator (2)}
+{}
+{We start with the same equation \(\ddot{r} = -kr-\gamma v \) and rearrange it to be
+
+\begin{equation}
+    \frac{d}{dr}\underbrace{\frac{1}{2}v^2+V(r) }_{E(r,v)} = -\gamma v. 
+\end{equation}
+
+If \(\gamma \) is sufficiently small, we may obtain the solution perturbatively around a known solution, assuming that it may be written as 
+
+\begin{equation}
+    v(r) = v_0 (r) + \delta v(r),
+\end{equation}
+
+where \(v_0 (r)\) is the known solution for the case of \(\gamma  = 0\).   
+
+}  
+
+
+\chapter{Linear Differential Equations}
+
+In this chapter we examine the \(n^{\text{th }} \) order linear differential equation with the general form
+
+\begin{equation}
+    a_{n}(x) y^{(n)} + a_{n-1}(x)y^{(n-1)} + \cdots + a_1 (x)y' + a_0 (x)y = f(x).    
+\end{equation}
+
+We start by noticing that if \(y_1 \text { and } y_2 \) are two solutions then their difference \(y_1 -y_2 \) solves the corresponding homogeneous equation which can be easily verified by direct substitution.
+
+This suggest that the general solution must be written in the form of
+
+\begin{equation}
+    y(x) = y_{H}(x) + y_{P}(x).  
+\end{equation}
+
+Here \(y_{H}(x) \) is the general solution of the corresponding homogeneous equation which comprise of an \(n\)-parameter family of curves and \(y_{P}(x) \) is one particular solution of the inhomogeneous equation so that for any two solutions \(y_1 (x) \text { and } y_2 (x)\) having the same \(y_{P}(x) \) but different \(y_{H_1 }(x) \text { and } y_{H_2 }(x)  \), their difference \(y_{H_1 }(x) - y_{H_2 }(x)\) will always satisfy the homogeneous equation.     
+
+\section{Linear Homogeneous}
+
+If \(y_1 \text { and } y_2  \) are solutions to a linear homogeneous differential equation, then the linear combination of them \(C_1 y_1 + C_2 y_2 \) (where \(C_1 \text { and } C_2\) may be complex) will also be a solution the the equation, which can be easily verified by direct substitution. 
+
+Combining with the fact that there are \(n\) integration constants, this suggest that the general solution to a linear homogeneous differential equation can be written in the form of 
+
+\begin{equation}
+    y(x) = C_1 y_1 (x) + C_2 y_2 (x) + \cdots + C_{n}y_{n}(x),  
+\end{equation}
+
+where \(y_1 (x), y_2 (x), \ldots , y_{n}(x) \) are each solutions to the equation and linearly independent of each other (or else at least one of the terms in the above equation is redundant and there will be less than \(n\) integration constants).
+
+To ensure linear independency, we must have
+
+\begin{equation}
+    \begin{aligned}
+        C_1 y_1 (x) + C_2 y_2 (x) &+ \cdots + C_{n}y_{n}(x) = 0 \\
+        C_1 y'_1 (x) + C_2 y'_2 (x) &+ \cdots + C_{n}y'_{n} (x) = 0 \\
+        &\text{~~~} \vdots \\
+        C_1 y_1 ^{(n-1)} + C_2 y_2 ^{(n-1)}(x) &+ \cdots + C_{n}y^{(n-1)}_{n}(x) = 0,       
+    \end{aligned}
+\end{equation}
+
+or equivalently
+
+\begin{equation}
+    \begin{pmatrix}
+        y_1 (x) & y_2 (x) & \cdots  & y_{n}(x)   \\
+        y'_1(x) & y'_2 (x) & \cdots  & y'_{n}(x)   \\
+        \vdots  & \vdots  &  & \vdots   \\
+        y^{(n-1)}_1(x)  & y^{(n-1)}_2(x)  & \cdots  & y^{(n-1)}_{n} (x)
+    \end{pmatrix} 
+    \begin{pmatrix}
+         C_1  \\
+         C_2  \\
+         \vdots  \\
+         C_{n}  \\
+    \end{pmatrix}
+    = \begin{pmatrix}
+         0 \\
+         0 \\
+         \vdots  \\
+         0 \\
+    \end{pmatrix}
+\end{equation}
+
+for all \(x\) only if \(C_1 = C_2 = \cdots  = C_{n} = 0 \).
+
+Therefore, the determinant of the leftmost matrix \(W(x)\), known as the Wronskian must not vanish. So
+
+\begin{equation}
+    W(x) \equiv \begin{vmatrix}
+        y_1 (x) & y_2 (x) & \cdots  & y_{n}(x)   \\
+        y'_1(x) & y'_2 (x) & \cdots  & y'_{n}(x)   \\
+        \vdots  & \vdots  &  & \vdots   \\
+        y^{(n-1)}_1(x)  & y^{(n-1)}_2(x)  & \cdots  & y^{(n-1)}_{n} (x)
+    \end{vmatrix} \neq 0.
+\end{equation}
+
+It must be noted, however, that the vanishing of the Wronskian does not imply that the solutions are linearly dependent.
+
+\section{Linear Second Order}
+
+\subsection{Variation of Parameters}
+
+The general form of a second order linear differential equation is
+
+\begin{equation}
+    y'' + a(x) y' + b(x)y = f(x).
+\end{equation}
+
+There is no analytic solution for a general second order differential equations. However, if we know one of the solution we can use the method of variation of parameters to find the general solution. Specifically, if \(y_1 (x)\) is a solution, we look for another independent solution in the form of
+
+\begin{equation}
+    y_{2} (x) = \psi (x) y_{1}(x).   
+\end{equation}
+
+Substituting into the equation, we have
+
+\begin{equation}
+    \begin{aligned}
+     (\psi y''_{1} + 2\psi 'y'_{1} + \psi ''y_{1}) + a(x) (\psi y'_{1} + \psi ' y_{1}) + b(x) \psi y_{1} &= f(x) \\
+    \implies ( y''_{1} + a(x) y'_{1} + b(x)y_{1}   ) \psi + (2 y'_{1} + a(x) y_{1}) \psi ' +  y_{1}\psi '' &= f(x). 
+    \end{aligned}
+\end{equation}
+
+But the term proportional to \(\psi \) is zero since \(y_{1} \) solve the original differential equation so we have the first order differential equation (in \(\psi '\))
+
+\begin{equation} \label{psi'} 
+    \psi '' + \left( 2 \frac{y_1 '}{y_1 } + a(x)  \right) \psi = \frac{f(x)}{y_1} 
+\end{equation}
+
+The integrating factor of this equation is 
+
+\begin{equation}
+    \mu (x) = \exp \left(\int \left( 2\frac{y_1 '}{y_1 } + a(x) \right)dx\right) = \exp \left( 2 \int \frac{d(\ln (y_1 ))}{dx}dx + \int a(x) dx  \right) = y_1 ^2 e^{\int a(x)dx}
+\end{equation}
+
+so the solution is 
+
+\begin{equation}
+    \psi ' (x) = \frac{1}{\mu (x)} \left( \int \frac{\mu (x)f(x)dx}{y_1 (x)}  + C \right) \footnote{Here the integration constant \(C\) is introduced from the integration \(\int d(\psi ' (x) \mu (x))\). The integral \(\int \mu(x)f(x)dx\) would give another integration constant but it will simply combine with \(C\) which is consistent with the fact that integrating a differential equation once gives one integration constant. Normally, \(C\) can be omitted and be introduced only when the second integral is carried out. But since the second integral is not carried out in this case we add the integration constant earlier. If it is not added here, we would still get the correct result, as the first term in \cref{psi(x)} would vanish but is encoded in the inner integral of the second term. Now we do not have to add an integration constant when evaluating this integral.} 
+\end{equation}
+
+and thus
+
+\begin{equation} \label{psi(x)} 
+    \psi (x) = C \int \frac{dx}{\mu (x)} + \int \frac{1}{\mu (x)} \left( \int \frac{\mu (x)f(x)dx}{y_1 (x)} dx \right) dx .
+\end{equation}
+
+where the integration constant is omitted since it would just give the original solution \(y_1(x)\).  
+
+\todo{order of integration simplify} 
+
+\subsection{Finding the First Solution}
+
+There is no better method than guessing for finding the first solution. If the coefficient funcions \(a(x) \text { and } b(x)\) are polynomials, the following order of guessing is recommended: \(e^{\lambda x} \rightarrow x^{n} \rightarrow c_1 x + c_2 x^2+ \cdots + c_{n-1} x^{n-1} + x^{n} \rightarrow (c_1 x + c_2 x^2+ \cdots + c_{n-1} x^{n-1} + x^{n})e^{\lambda x}\).  
+
+\section{Linear Constant Coefficients}
+
+An important case where the solution can be obtained analytically  is when the coefficients are constant numbers, where we guess the solution \(y(x) = e^{\lambda x} \) to get a \(n^{\text{th }} \) degree polynomial with \(n\) (generally complex) roots, corresponding to the \(n\) linearly independent solutions\footnote{If all the coefficents \((a_1 ,\ldots ,a_{n} )\) are real, then the complex solutions come in pairs, \ie if \(\lambda \) is a root, then its complex conjugate \(\lambda ^*\) must also be a root. This can be shown by taking the complex conjugte on both sides of the equation after substituting one of the solutions.}.
+
+In the case where there are repeated roots, we have to look for additional solutions which is not in the form of \(y(x) = e^{\lambda x} \). Instead we use the method of variation of parameters outlined above (see \cref{psi'} ) to get
+
+\begin{equation}
+    \psi '' + 2 \left(\frac{y_1 '}{y_1 } + a(x) \right)\psi = \psi '' + (2\lambda + \frac{a_1 }{a_2 } )\psi  = \psi '' = \frac{f(x)}{y_1 } = 0,
+\end{equation}
+
+where \(2\lambda + \frac{a_1 }{a_2 } \) is set to zero, since \(\lambda = -\frac{a_1 }{2a_2 } \) is a repeated root. Thus, we get
+
+\begin{equation}
+    \psi '' = 0 \implies \psi = (C_1 + C_2 x).
+\end{equation}
+
+This can be generalized to higher dimensions easily. For example, if the characteristic polynomial of some \(7^{\text{ th }} \) order linear homogeneous differential equation is \((\lambda -a)^3 (\lambda -b)(\lambda - c)(\lambda - d)\), then the general solution of the ODE is \(y(x) = (C_1 +C_2 x+C_3 ^2)e^{ax} + (C_4 +C_5x )e^{bx} + C_6 e^{cx} + C_7 e^{dx}    \).    
+
+The table below shows some common solutions to a second order linear homogenous equation
+
+\renewcommand{\arraystretch}{1.5} % Adjust row spacing (1.5x the default)
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+$\lambda_1$ & $\lambda_2$ & $y(x)$ & $y(x)$ (alternative form) & $y(x)$ (alternative form 2) \\ \hline
+$0$ & $0$ & $C_1 + C_2 x$ &--- &--- \\ \hline
+$\kappa$ & $\kappa$ & $(C_1 + C_2 x)e^{\kappa x}$ &--- & ---\\ \hline
+$\kappa_1$ & $\kappa_2$ & $C_1 e^{\kappa_1 x} + C_2 e^{\kappa_2 x}$ & $C_1 \sinh(\kappa_1 x) + C_2 \cosh(\kappa_1 x)$ & ---\\ \hline
+$i\omega$ & $-i\omega$ & $C_1 \sin(\omega x) + C_2 \cos(\omega x)$ & $C \cos(\omega x + \delta)$ & $\mathfrak{Re} (C e^{i\delta} e^{i\omega x})$ \\ \hline
+$\kappa + i\omega$ & $\kappa - i\omega$ & $[C_1 \sin(\omega x) + C_2 \cos(\omega x)] e^{\kappa x}$ & $C \cos(\omega x + \delta) e^{\kappa x}$ & $\mathfrak{Re} (C e^{i\delta} e^{\kappa x + i\omega x})$ \\ \hline
+\end{tabular}%
+}
+
+To find the particular solution, we substitute \(y_{H} = e^{\lambda _{1} x }  \) (or \(e^{ \lambda _{2}x} \)) into \cref{psi'}, 
+
+
+\begin{equation}
+    \psi '' + \left(2\lambda _{1} + \frac{a_1 }{a_2 } \right)  \psi ' = \frac{1}{a_2 } e^{-\lambda _{1}x }f(x) \implies \psi '' + \left(\lambda _{1}  - \lambda _{2} \right) \psi ' = \frac{1}{a_2 } e^{-\lambda _{1} x } f(x), 
+\end{equation}
+
+where we have used the sum of root \(\lambda _{1} + \lambda _{2} = -\frac{a_1 }{a_{2}}  \).
+
+The integrating factor is \(\mu  (x) = e^{\int (\lambda _{1} - \lambda _{2}  ) dx} = e^{(\lambda _{1} - \lambda _{2}  )x}  \), so
+
+\begin{equation}
+    \psi'(x) = \frac{1}{\mu (x)} \int^x \mu (u) \left[ \frac{1}{a_2} e^{-\lambda_1 u} f(u) \right] du = \frac{e^{(\lambda_2 - \lambda_1)x}}{a_2} \int^x e^{-\lambda_2 u} f(u) du,
+\end{equation}
+
+which upon integration gives
+
+\begin{equation}
+    \begin{aligned}
+    \psi(x) &= \int^x \psi'(v) dv = \int^x \frac{e^{-(\lambda_2 - \lambda_1) v}}{a_2} \int^v e^{-\lambda_2 u} f(u) du \, dv \\
+    & = \int^x \left( \int^x_u \frac{e^{(\lambda_2 - \lambda_1) v}}{a_2} \, dv \right) e^{-\lambda_2 u} f(u) \, du = \int^x \frac{\left[e^{(\lambda_2 - \lambda_1) x} - e^{(\lambda_2 - \lambda_1) u}\right] e^{-\lambda_2 u} f(u)}{a_2 (\lambda_2 - \lambda_1)} \, du \\
+    &= \frac{e^{(\lambda_2 - \lambda_1) x} \int^x e^{-\lambda_2 u} f(u) \, du - \int^x e^{-\lambda_1 u} f(u) \, du}{a_2 (\lambda_2 - \lambda_1)}
+    \end{aligned}
+\end{equation}
+
+Here we omit the integration constant since it would give back the homogeneous solution. The notation \(\int ^x\) is simply to change back the variable to \(x\) but is not the upper bound of integration because we are doing indefinite integral.  
+
+\todo{same as above order of integration} 
+
+The result of the integration of some common driving function \(f(x)\) is summarized in the table below.  
+\[
+\renewcommand{\arraystretch}{1.5} % Adjust row spacing (1.5x the default)
+\begin{array}{|c|c|}
+\hline
+f(x) & y_P(x) \\ \hline
+b = \text{constant} & \frac{b}{a_0} \\ \hline
+b x^k & c_0 + c_1 x + c_2 x^2 + \cdots + c_k x^k \\ \hline
+b e^{\alpha x} \quad (\alpha \notin \{\lambda_1, \ldots, \lambda_n\}) & c e^{\alpha x} \\ \hline
+b x^k e^{\alpha x} \quad (\alpha = \lambda_i \text{ of multiplicity } k) & (c_0 + c_1 x + \cdots + c_k x^k) e^{\alpha x} \\ \hline
+b \sin(ax) \quad (a \notin \{i\lambda_1, \ldots, i\lambda_n\}) & c \sin(ax) + d \cos(ax) \\ \hline
+b \cos(ax) \quad (a \notin \{i\lambda_1, \ldots, i\lambda_n\}) & c \sin(ax) + d \cos(ax) \\ \hline
+b x^k e^{\alpha x} \quad (\alpha \notin \{\lambda_i\}) & (c_0 + c_1 x + c_2 x^2 + \cdots + c_k x^k) e^{\alpha x} \\ \hline
+b x^k \sin(ax) \quad (a \in \{\lambda_i\}) & \left\{ \begin{array}{l} (c_0 + c_1 x + c_2 x^2 + \cdots + c_k x^k) \sin(ax)+ \\ +(d_0 + d_1 x + d_2 x^2 + \cdots + d_k x^k) \cos(ax) \end{array} \right. \\ \hline
+b x^k \cos(ax) \quad (a \notin \{\lambda_i\}) & \left\{ \begin{array}{l} (c_0 + c_1 x + c_2 x^2 + \cdots + c_k x^k) \sin(ax)+ \\ +(d_0 + d_1 x + d_2 x^2 + \cdots + d_k x^k) \cos(ax) \end{array} \right. \\ \hline
+\sum_{i=1}^k f_i(x) \quad (f_i(x) \text{ are the functions above}) & \sum_{i=1}^k y_{P_i}(x) \quad (y_{P_i}(x) \text{ are the functions above}) \\ \hline
+\end{array}
+\]
+
+
+\example{Forced Damped Harmonic Oscillator}
+{Find the solution \(y(t)\) of the forced damped harmonic oscillator.}
+{The equation for the forced damped harmonic oscillator will be in the form of 
+
+\begin{equation}
+    \ddot{y} + 2\gamma \dot{y} + \omega _{0} ^2 y = F_0 e^{i \omega t}   
+\end{equation}
+
+The homogeneous solution is 
+
+\begin{equation}
+    y_{H} = Ae^{\lambda _{+} t} + Be^{\lambda _{-}t }, \text{ where } \lambda _{\pm } = -\frac{\gamma }{2} \pm \sqrt{\gamma ^2 - \omega _{0}^2 }.        
+\end{equation}
+
+Depending on sign of the discriminant, there are 3 cases: overdamping when the determinant is positive where there is no oscillation; underdamping when there is osillation; and critical damping in the critical case (where an extra solution linear to \(t\) is needed as there are repeated roots). 
+
+For the particular solution, we guess
+
+\begin{equation}
+    y_{P} = Ce^{i \omega t}.  
+\end{equation}
+
+Upon substitution, we get
+
+\begin{equation}
+    C = \frac{F_0 }{\omega _{0}^2 -\omega ^2 + 2i\gamma \omega  } = \frac{F_0 }{\sqrt{4\gamma ^2\omega ^2+ (\omega _{0}^2 - \omega ^2)^2} }e^{-i\varphi }, \text{ where }  \varphi = \arctan \left({\frac{2\gamma \omega }{\omega _{0}^2 - \omega ^2 }}\right).    
+\end{equation}
+
+Taking the real part and combinnig the homogeneous and inhomogeneous solution, we have
+
+\begin{equation}
+    y = y_{H} + y_{P} = e^{-\frac{\gamma }{2}t } ((Ae^{ \sqrt{\gamma ^2 - \omega _{0}^2 } t } + Be^{ \sqrt{\gamma ^2 - \omega _{0}^2 } t } )) + \frac{F_0 }{\sqrt{4\gamma ^2\omega ^2+ (\omega _{0}^2 - \omega ^2 )^2} } \cos  (\omega t+\varphi ).
+\end{equation}
+
+If The driving force is not a pure \(\cos \) function, then simply add a term \(e^{i \delta } \) after \(F_0 \), or add a tilda symbol on \(F_0 \) as \(\tilde{F_0 } \) to account for the phase difference. 
+
+This is not the complete solution though. We have to still consider the case where (\(i\) times)  the driving frequency (\(i \omega \)) is the same as the root the characteristic equation (\(\lambda _{+} \text { or } \lambda _{-}  \)). Because if we proceed as normal, we get
+
+\begin{equation}
+     C((i\omega) ^2 + 2\gamma (i\omega) + \omega _{0}^2) = 0 = F_0,
+\end{equation}
+
+So the LHS of the above equation is zero and \(C\) can be any arbitrary constant.
+
+Since \(i \omega \) is pure imaginary, this special case only occurs when the real part of \(\lambda _{+} \text { or } \lambda _{-}  \) is zero, which is when \(\gamma  = 0\), thus \(\lambda = \pm i \omega _{0} \), which implies that \(\omega = \pm \omega _{0} \).
+
+To find the particular solution in this case, we first consider the case when \(\omega \) is close to \(\pm \omega _{0} \), then take the limit as \(\omega \rightarrow \pm \omega _{0} \). The particular solution is now
+
+\begin{equation}
+    x_{P} = \frac{F_0 e^{i \omega t} }{(i\omega) ^2 + 2\gamma (i\omega) + \omega _{0} ^2} =  \frac{F_0 (e^{i\omega t} - e^{\pm i \omega _{0}  t})  }{(i\omega) ^2 + 2\gamma (i\omega)  + \omega _{0} ^2}.
+\end{equation}
+
+The last equility is valid since the term with \(e^{\pm i \omega _{0}  t} \) vanishes when we substitute into the differential equation. 
+
+Taking the limit \(\omega \rightarrow \omega _{0} \) by Taylor's series or l'Hospital's rule, 
+
+\begin{equation}
+    x_{P} = F_0 \lim_{\omega  \to \pm \omega _{0}  } \left(  \frac{e^{i \omega t} - e^{\pm i \omega _{0}  t}  }{(i\omega) ^2 + 2\gamma (i\omega)  + \omega _{0} ^2} \right) = F_0 \lim_{\omega  \to \pm \omega _{0} } \left(\frac{ite^{i \omega t} }{-2\omega + 2\gamma } \right) = \frac{F_0 t \sin (\omega _{0}t )}{2 \omega _{0} }
+\end{equation}
+
+for both \(\omega = + \omega _{0} \text { and } \omega = - \omega _{0} \)\footnote{If \(\lambda _{+} = \lambda _{-}  \), \ie the roots of the characteristic equation is repeated, then this repeated root is also the root of the differentiated polynomial (since \(2a(-\frac{b}{2a} ) + b = 0\)), so the denominator will still be zero after taking the limit. In this case we repeat the argument above (add an extra term and take the limit again), where instead of proportional to \(t\) we get the particular solution to be proportional to \(t^2\).}.
+
+The resonance frequency is defined to be the driving frequency at which the response has maximum amplitiude. We can find the resonance frequency by differentiating the amplitude with respect to frequency, and we have\footnote{If the response we are interested is velocity or (current in electricity analogy), then the resonance frequency will be the natural frequency}
+
+\begin{equation}
+    \omega _{r} = \sqrt{\omega _{0}^2 - 4\gamma ^2 }.
+\end{equation}
+
+} 
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
+        

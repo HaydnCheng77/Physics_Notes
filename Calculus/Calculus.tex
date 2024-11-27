@@ -1,0 +1,62 @@
+\documentclass[english,a4paper,12pt]{report}
+\usepackage{mypackage}
+
+\title{Calculus}
+
+\author{Haydn Cheng}
+
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+    
+\chapter{Integrals}
+
+\section{Line Integrals}
+
+
+
+\section{Surface Integrals}
+
+As with line integrals, integrals over surfaces can involve vector and scalar fields. There are four kinds of suface integrals, namely 
+
+\begin{equation}
+    \int_{S}^{} \phi dS, ~~ \int_{S}^{} \phi d\vb{S} , ~~ \int_{S}^{} \vb{a} \cdot d\vb{S} \text { and } \int_{S}^{} \vb{a} \cross d\vb{S},    
+\end{equation}
+
+where \(d\vb{S} = \vu{n} dS\) is the infinitesimal vector area element. The direction of \(\vu{n} \) is conventionally assumed to be directed outwards from the nclosed volume if the surface is closed; or given by the right-hand rule if the surface is open and spans some perimeter curve \(C\). 
+
+We start with the first and simplest surface integral involving only scalars \(\int_{S}^{} \phi dS\). In Cartesian coordinates, 
+
+\begin{equation}
+    I = \int_{S}^{} f(x,y) dS = \iint_{S}^{} f(x,y) dx dy  
+\end{equation}
+
+where one or two integral signs are used depending on whether \(dS = dx dy \) is written explicitly.  
+
+Refering to \cref{doubleintegral}, we can see that the integral can be evaluated two different ways. 
+
+\onefig{doubleintegral}{scale=0.3} 
+
+The first is to sum up all the horizontal strips, then 
+
+\begin{equation}
+    I = \int_{c}^{d} \int_{x_1 (y)}^{x_2 (y)} f(x,y) dx dy,   
+\end{equation}
+
+where \(x_1 (y) \text { and } x_2 (y)\) are the equations of the curves \(TSV \text { and } TUV\) respectively. 
+
+For a specific range \(y \rightarrow y+dy\) , the inner integral calculates the contribution to \(I\) by the horizontal strip located from \(y\) to \(y+dy\). The outer integral then sums up the contributions of these horizontal strips.
+
+The second way is to sum up all the vertical strips, then
+
+\begin{equation}
+    I = \int_{a}^{b} \int_{y_1 (x)}^{y_2 (x)} f(x,y) dy dx,
+\end{equation}
+
+where \(y_1 (x) \text { and } y_2 (x)\) are the equations of the curves \(STU \text { and } SVU\) respectively.   
+
+
+
+\end{document}

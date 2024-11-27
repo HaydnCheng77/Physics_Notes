@@ -1,0 +1,289 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage{mypackage}
+
+
+\title{Quantum mechanics}
+
+\author{Haydn Cheng}
+
+\date{}
+
+\begin{document}
+\maketitle
+\tableofcontents
+	
+\chapter{The Wave Function}
+	
+\section{The Schrödinger Equation}
+	
+In classical mechanics, the total energy \(E\) of a particle can be written as 
+
+
+\begin{equation}
+  E=\frac{1}{2} mv^2 + V(x) = \frac{p^2}{2m} + V(x) \label{classenergy}
+\end{equation}
+
+Since we know that all particles are actually waves of frequency \(\omega\) and wavenumber \(\vb{k}\), so \cref{classenergy} becomes
+
+\begin{equation} 
+  \hbar \omega = \frac{\hbar^2k^2}{2m} + V(x) \label{quanenergy}
+\end{equation}
+
+We know introduce the wave function of a particle \(\Psi \) as
+
+\begin{equation}
+  \Psi (\vb{r} ,t) = Ae^{i(\vb{k} \dot{\vb{r} } - \omega t )} \label{3dwavefuc} 
+\end{equation}
+
+In one-dimensional case, \cref{3dwavefuc} reduces to
+
+\begin{equation}
+  \Psi (x,t) = Ae^{i(kx - \omega t)} \label{1dwavefuc}  
+\end{equation}
+
+where \(\abs{\Psi (x,t)}^2 dx\) is the probability of finding the particle between \(x\) and \(x + dx\) at time t (so \(\Psi\) is actually a probability density function) and \(A\) is chosen such that \(\Psi\) is normalized, \ie
+
+\begin{equation}
+  \int_{-\infty}^{\infty} \abs{\Psi (x,t)}^2 dx = 1
+\end{equation}
+
+Noting that \(\frac{\partial \Psi }{\partial t} = -i \omega\Psi \) and \(\frac{\partial^2\Psi }{\partial x^2 } = -k^2\Psi \), \(\Psi\) times \cref{quanenergy} becomes
+
+\begin{equation}
+  \Psi \hbar\omega = \Psi (\frac{\hbar ^2 k^2 }{2m} + V(x)) = \hbar \frac{1}{-i} \frac{\partial\Psi}{\partial t} = \frac{-\hbar ^2 }{2m} \frac{\partial^2\Psi }{\partial x^2} + V(x)\Psi \label{fma} 
+\end{equation}
+
+Rearranging, we obtain the time-dependent Schrödinger equation
+
+\begin{equation}
+  i \hbar \frac{\partial \Psi}{\partial t}=-\frac{\hbar^2}{2 m} \frac{\partial^2 \Psi}{\partial x^2}+V \Psi \label{scr}
+\end{equation}
+
+The Schrödinger equation in quantum mechanics plays a similar role to Newton's second law in classical mechanics. Given suitable initial conditions (typically, $\Psi(x, 0)$), the Schrödinger equation determines $\Psi(x, t)$ for all future time, just as Newton's second law determines $x(t)$ for all future time.
+
+\example{Griffith 3rd ed. P.14-15}
+{Show that once the wave function is normalized at t = 0, it remains normalized for any later time}
+{Consider
+
+\begin{equation}
+  \frac{\partial }{\partial t} \abs{\Psi }^2 = \frac{\partial }{\partial t} (\Psi^*\Psi ) = \Psi ^* \frac{\partial \Psi }{\partial t} + \Psi \frac{\partial \Psi ^*}{\partial t}.   
+\end{equation}
+
+\(\frac{\partial \Psi }{\partial t} \) is given in the Schrödinger equation (\cref{scr}), while \(\frac{\partial \Psi ^*}{\partial t} \) can be found by taking the complex conjugate of the Schrödinger equation (by changing the sign of the exponential in \cref{3dwavefuc})
+		
+\begin{equation}
+  -i \hbar \frac{\partial \Psi^*}{\partial t}=-\frac{\hbar^2}{2 m} \frac{\partial^2 \Psi^*}{\partial x^2}+V\Psi^*.
+\end{equation}
+		
+So
+		
+\begin{equation}
+  \begin{aligned}
+    &~~~\dv{t} \int_{\infty}^{\infty}   \abs{\Psi(x,t)}^2 dx \\ &= \int_{\infty}^{\infty}   \pdv{t} \abs{\Psi(x,t)}^2 dx \\ &= \int_{\infty}^{\infty}   (\Psi^*(\frac{i\hbar}{2m}\pdv[2]{\Psi}{x} - \frac{i}{\hbar}V\Psi^*) + \Psi(-\frac{i\hbar}{2m}\pdv[2]{\Psi^*}{x} + \frac{i}{\hbar}V\Psi^*))dx \\ &= \int_{\infty}^{\infty}   \frac{i\hbar}{2m}(\Psi^*\pdv[2]{\Psi}{x} - \Psi\pdv[2]{\Psi^*}{x})dx \\ &= \frac{i\hbar}{2m}\int_{\infty}^{\infty}  \pdv{x}(\Psi^*\pdv{\Psi}{x} - \Psi\pdv{\Psi^*}{x})dx \\ &= \frac{i\hbar}{2m} \eval{(\Psi^*\pdv{\Psi}{x} - \Psi\pdv{\Psi^*}{x})}_{-\infty}^{+\infty} = 0. \label{ddtpsi2}
+  \end{aligned}
+\end{equation}
+
+where in the last equality we invoked the fact that \(\Psi\) and \(\Psi^*\) must goes to zero as \(x\) goes to \(\infty\) otherwise the wave function will not be normalizable.
+		
+Therefore, since \(\frac{ d}{ dt} \int_{-\infty}^{\infty} \abs{\Psi (x,t)}^2 dx = 0\), it implies that \(\int_{-\infty}^{\infty}   \abs{\Psi(x,t)}^2 dx\) is a constant. But we know that \(\int_{-\infty}^{\infty}   \abs{\Psi(x,t)}^2 dx\) at \(t = 0\) is 1. Therefore the wave function remains normalized all the time.}		\todo{1.5}
+		
+\example{Griffith 3rd ed. Problem 1.8}
+{Show that the effect of adding a constant potential \(V_0\) introduce an extra phase \(\frac{V_0t}{h}\) to the wave function}
+{By substituting \(\Psi_0 = \Psi e^{-\frac{iV_0\hbar}{t}}\) into the \screq with potential \(V + V_0\), where \(\Psi\) satisfies the normal \screq with potential \(V\), we can verfify that \(\Psi_0\) indeed satisfies the modified \screq: 
+			
+\begin{equation}
+	\begin{aligned}
+		i \hbar \frac{\partial \Psi_0}{\partial t} & =i \hbar \frac{\partial \Psi}{\partial t} e^{-i V_0 t / \hbar}+i \hbar \Psi\left(-\frac{i V_0}{\hbar}\right) e^{-i V_0 t / \hbar} \\ &=\left[-\frac{\hbar^2}{2 m} \frac{\partial^2 \Psi}{\partial x^2}+V \Psi\right] e^{-i V_0 t / \hbar}+V_0 \Psi e^{-i V_0 t / \hbar} =-\frac{\hbar^2}{2 m} \frac{\partial^2 \Psi_0}{\partial x^2}+\left(V+V_0\right) \Psi_0 .
+	\end{aligned}
+\end{equation}
+		
+This, however has no effect on the average value of other dynamical variables such as momentum as the extra phase is independent of \(x\), so it vanishes after the absolute value of the wave function is taken.}
+		
+\example{Griffiths 3rd ed. Problem 1.9}
+{Consider the wave function \(\Psi = Ae^{-a(\frac{mx^2}{\hbar}) + it}\). Find \(V(x)\) such that this is a solution to \screq. Then confirm the uncertainty principle by calculating \(\sigma_x \text { and }  \sigma_p\).}
+{From the wave function given, we obtain
+			
+\begin{equation}
+  \frac{\partial \Psi }{\partial t} = -ia\Psi , \frac{\partial \Psi }{\partial t} = -\frac{2amx}{\hbar }\Psi    
+\end{equation}
+
+and
+		
+\begin{equation}
+  \frac{\partial^2 \Psi }{\partial x^2} = -\frac{2am}{\hbar }(\Psi + x\frac{\partial \Psi }{\partial x} ) = -\frac{2am}{\hbar }(1-\frac{2amx^2 }{\hbar } )\Psi .  
+\end{equation}
+		
+From the \screq, we have 
+		
+\begin{equation}
+  V\Psi = i\hbar\pdv{\Psi}{t} + \frac{\hbar^2}{2m}\pdv[2]{\Psi}{x} = i\hbar(-ia\Psi) + \frac{\hbar^2}{2m}(-\frac{2am}{\hbar})(1-\frac{2amx^2}{\hbar}\Psi) = 2a^2mx^2\Psi.
+\end{equation}
+		
+		
+So \(V(x) = 2ma^2x^2\).
+		
+To obtain \(\sigma_x\) and \(\sigma_p\), we have to first normalize the function by requiring
+
+\begin{equation}
+  \int_{-\infty}^{\infty} \abs{\Psi (x,t)}^2 dx = \abs{A} ^2  \int_{-\infty}^{\infty} e^{-\frac{2amx^2 }{\hbar } } dx = \abs{A} ^2 \sqrt{\frac{\pi \hbar }{2am} }     
+\end{equation}
+
+since the absolute value of \(Ae^i\theta\) is simply \(A\).
+		
+So \(A = (\frac{2am}{\pi\hbar})^{\frac{1}{4} }\).
+		
+Now \(\avg{x}, \avg{x^2}, \avg{p}\) and \(\avg{p^2}\) can be straightforwardly calculated from integrations to get \(\avg{x} = \avg{p} = 0\) as expected, \( \avg{x^2} = \frac{\hbar}{4am}\) and \(\avg{p^2} = am\hbar\).
+		
+Therefore \(\sigma_x = \sqrt{\avg{x^2} - \avg{x}^2} = \sqrt{\frac{\hbar}{4am}}\) and \(\sigma_p = \sqrt{\avg{p^2} - \avg{p}^2} = \sqrt{am\hbar}\). \(\sigma_x \sigma_p = \frac{\hbar}{2}\) is just consistent with the uncertainty principle.}
+
+\section{The Copenhagen interpretation}
+	
+In this set of notes, we adopt the Copenhagen interpretation of quantum mechanics, as it is the most widely recognized view in today's physics's landscape. 
+
+According to this view, as long as nothing tries to interact with the particle, it is on every possible position allowed by its wave function each with the probability \(\abs{\Psi(x,t)}^2 dx\) for position located between \(x\) and \(x + dx\). Upon measurement, however, the wave function collapses.
+
+Here, we have to be very careful with the term ``measurement'' and ``collapses''. A ``measurement'' is broadly defined as any interaction with the wave function that eliminate some possibilities of its possible location. ``Collapses'' thus implies some possible positions of electrons are eliminated.
+
+In ideal case, the wave function is localized at a point in space and becomes a dirac delta function. Soon, however, it spreads out according to the Schrödinger equation. In other cases, however, the wave function \href{https://arxiv.org/pdf/2106.00466}{partially collapses} and we are only certain that the particle is located at a certain range of positions bit and also not located at a certain range of positions.
+
+This idea is best illustrated by the double slit experiment: \onefig{double_slit}{width=\textwidth}
+
+Consider one electron\footnote{Here electron is just a replacement of photon just to illustrates the fact that any particle is a wave.} that is emitted by the source. When its wave function reaches the slits, the wave function evolves as shown in \cref{double_slit}. If we probe the intermediate screen (where the slits are located), the wave function will collapses to either state: 
+
+\begin{enumerate}
+  \item a state where the particle hits the intermediate screen and we see a spot on the intermediate screen, or
+  \item a state where the electron passes through the slits.
+\end{enumerate}
+
+In the latter state, however, we still have no idea which slit the electron has passed through, therefore the electron is still simultaneously passing through both slits. Then, from the Huygen's principle we can regard the wave function as two secondary waves with origin located at the slits. These two waves superpose each other and thus at the screen, the wave function looks like an diffraction plus an interference pattern (\(\Psi\) in this case is analogous to \(E\) in optic's interference). If the electron random picks a position according to this probability distribution function, then as the number of electrons emitted becomes sufficiently large, an interference pattern will be shown on the screen.
+
+However, by measuring which slit the electron goes through, the wave function of the electron becomes only one secondary wave with origin located at one of the slit. And the resulting wave function at the screen for the electron will be reminiscent of the diffraction pattern in ordinary optics without interference. As the number of electrons becomes sufficiently large, then an overlapping pattern (superposition) of diffraction from the two slits will be shown on screen.
+
+From a mathematical standpoint, the dispcrepancy arise from the fact that \(\abs{\Psi_1 + \Psi_2}^2 \neq \abs{\Psi_1}^2 + \abs{\Psi_2}^2\). In optics, this is analogous to the fact that the last term in \(I_{12} = I_1 + I_2 + 2\sqrt{I_1I_2} \cos(\phi_2 - \phi_1)\) doesn't exist when there is no interference. 
+
+From a philosophical standpoint, this result has profound impact on how observation correlates to reality. This quantum effect begs to answer the famous philosophical question ``If a tree falls in a forest and no one is around to hear it, does it make a sound?''. And the answer seems to be that as long as we are not certain that something happen (upon measurement), every possibilities remain possible. During the flight of the electron, it must have collided with some air particles in its way that forces it to localize at a point. However, as long as we don't probe the air particles, we don't know whether that have been collided with the electron and thus the electron remains in all possible paths.
+
+\section{Momentum}
+	
+The momentum \(p\) can be defined identically as in classical mechanics as \(p=mv=m\frac{d\avg{x}}{dt}\), where \(\frac{d\avg{x}}{dt}\) can be computed straightforwardly as 
+	
+\begin{equation}
+  \begin{aligned}
+    \frac{ d\avg{x} }{ dt} = \int_{-\infty}^{\infty} \frac{\partial }{\partial t} x \abs{\Psi }^2 dx &= \frac{i\hbar }{2m} \int_{-\infty}^{\infty} x \frac{\partial }{\partial x} (\Psi ^* \frac{d\Psi}{dx} )dx \\ &= -\frac{i\hbar }{2m} \int_{-\infty}^{\infty} (\Psi ^* \frac{ d\Psi }{ dx} - \Psi \frac{ d\Psi ^*}{ dx} ) dx = -\frac{i\hbar }{m} \int_{-\infty}^{\infty} \Psi ^* \frac{\partial \Psi }{\partial x} dx          
+  \end{aligned}
+\end{equation}
+	
+where we used the result in \cref{ddtpsi2} in the second equality and have performed integration by part twice at the end.
+	
+Therefore,
+
+\begin{equation}
+  \avg{p} = \int_{-\infty}^{\infty} \Psi ^* [-i\hbar \frac{\partial }{\partial x} ] \Psi dx.
+\end{equation}
+
+and \([i\hbar \frac{\partial }{\partial x} ]\) is the momentum operator. The coresponding operator that calculates the position is simply \(x\).
+	
+For any quantity \(Q(x,p)\) such as angular momentum and kinetic energy, the expected value or the average value can be simply calculated by 
+	
+\begin{equation}
+  \avg{Q(x,p)} = \int_{-\infty}^{\infty} \Psi ^* [Q(x, -i\hbar \frac{\partial }{\partial x} )] \Psi dx. 
+\end{equation}
+
+For example, the average value of the kinetic energy is 
+	
+\begin{equation}
+  \avg{T} = -\frac{\hbar ^2 }{2m} \int_{-\infty}^{\infty} \Psi ^* \frac{\partial^2 \Psi }{\partial x^2} dx.  
+\end{equation}
+
+\example{Griffiths 3rd ed. Problem 1.7}
+{Calculate \(\frac{\partial \avg{p} }{\partial t} \).}
+{Since 
+		
+\begin{equation}
+	\begin{aligned}
+		\frac{\partial}{\partial t}\left(\Psi^* \frac{\partial \Psi}{\partial x}\right) & =\frac{\partial \Psi^*}{\partial t} \frac{\partial \Psi}{\partial x}+\Psi^* \frac{\partial}{\partial x}\left(\frac{\partial \Psi}{\partial t}\right) \\
+		& =\left[-\frac{i \hbar}{2 m} \frac{\partial^2 \Psi^*}{\partial x^2}+\frac{i}{\hbar} V \Psi^*\right] \frac{\partial \Psi}{\partial x}+\Psi^* \frac{\partial}{\partial x}\left[\frac{i \hbar}{2 m} \frac{\partial^2 \Psi}{\partial x^2}-\frac{i}{\hbar} V \Psi\right] \\
+		& =\frac{i \hbar}{2 m}\left[\Psi^* \frac{\partial^3 \Psi}{\partial x^3}-\frac{\partial^2 \Psi^*}{\partial x^2} \frac{\partial \Psi}{\partial x}\right]+\frac{i}{\hbar}\left[V \Psi^* \frac{\partial \Psi}{\partial x}-\Psi^* \frac{\partial}{\partial x}(V \Psi)\right]
+	\end{aligned}
+\end{equation}
+		
+Therefore
+
+\begin{equation}
+  \begin{aligned}
+    \frac{\partial \avg{p} }{\partial t} &= -i\hbar \int_{-\infty}^{\infty} \frac{\partial }{\partial t} (\Psi ^* \frac{\partial \Psi }{\partial x} ) dx \\ &= -i\hbar  \int_{-\infty}^{\infty} (\frac{i\hbar }{2m} [\Psi ^* \frac{\partial ^3 \Psi }{\partial x^3} - \frac{\partial^2 \Psi ^*}{\partial x^2} \frac{\partial \Psi }{\partial x} ]+ \frac{i}{\hbar } [V \Psi ^* \frac{\partial \Psi }{\partial x} - \Psi ^* \frac{\partial }{\partial x} (V\Psi )  ]  )dx \\ &= (-i\hbar ) (\frac{i\hbar }{2m }  )(\eval{\Psi ^* \frac{\partial^2 \Psi }{\partial x^2} }_{-\infty}^{+\infty} - (\eval{\frac{\partial \Psi ^*}{\partial x} \frac{\partial \Psi }{\partial x} }_{-\infty}^{+\infty}-\int_{-\infty}^{\infty} \frac{\partial^2 \Psi ^*}{\partial x^2} \frac{\partial \Psi }{\partial x} dx  ) \\ &-\int_{-\infty}^{\infty} \frac{\partial^2 \Psi ^*}{\partial x^2} \frac{\partial \Psi }{\partial x} dx) +(-i\hbar ) (\frac{i}{\hbar } ) \int_{-\infty}^{\infty} (V\Psi ^* \frac{\partial \Psi }{\partial x} + \Psi \frac{\partial V}{\partial x} )dx \\ & = 0 + \int_{-\infty}^{\infty} -\Psi \Psi ^* \frac{\partial V}{\partial x}dx = \avg{-\frac{\partial V}{\partial x} } .   
+  \end{aligned}
+\end{equation}
+	
+which is almost identical to the classical result that predicts 
+
+\begin{equation}
+  \frac{\partial \avg{p} }{\partial x} = -\frac{\partial }{\partial x} V(\avg{x} ) 
+\end{equation}
+
+according to Ehrenfest's theorem.}
+	
+\example{Griffiths 3rd ed. Problem 1.11 and 1.12}
+{In this question, we try to model the behaviour of wave function with classical formalism. Consider a classical particle with energy \(E\) in a potential well \(V(x)\) of the case of simple harmonic oscillator where \(V(x) = \frac12 kx^2\) and find \(\rho(x),\rho(p), \avg{x^2}, \avg{p^2}, \sigma_x\) and \(\sigma_p\), where \(\rho(x)dx\) and \(\rho(p)dp\) are the probability of the particle located at \(x\) and have the a momentum \(p\) if we choose a random instant.}
+{The speed of the particle is
+	
+\begin{equation}
+  V(x) = \sqrt{\frac{2}{m} (E - V(x))} = \sqrt{\frac{2}{m} (E - \frac{1}{2} kx^2 )}.  
+\end{equation}
+		
+The period of the particle is  \(T = 2\pi \sqrt{\frac{m}{k}}\).
+		
+So the probability density function \(\rho(x)\) can be found by
+		
+\begin{equation}
+  \rho (x) dx = \frac{dt}{\frac{T}{2} } = \frac{2dx}{v(x)T}  
+\end{equation}
+		
+If we let \(-a\) and \(a\) to be the end points of the particle, then \(E = \frac{1}{2}  ka^2\) and
+		
+\begin{equation}
+  \rho (x) = \frac{2}{T} \frac{1}{\sqrt{\frac{2}{m} (E - \frac{1}{2} kx^2 )} } = \frac{1}{\pi \sqrt{b^2 -x^2 } }.  
+\end{equation}
+
+So 
+		
+\begin{equation}
+  \avg{x^2 } = 2\int_{0}^{a} \frac{x^2 dx}{\pi \sqrt{b^2 -x^2 } } =  \frac{E}{k}    
+\end{equation}
+
+and 
+
+\begin{equation}
+  \sigma _{x} = \sqrt{\avg{x^2 } - \avg{x} ^2  } = \sqrt{\avg{x^2 } } = \sqrt{\frac{E}{k} }.   
+\end{equation}
+
+For the probability density function of with respect to momentum \(\rho(p)\), 
+
+\begin{equation}
+  \rho (p)dp = \frac{dt}{T}  = \frac{dx}{v(x)T}  
+\end{equation}}
+
+	
+	
+
+
+
+
+
+
+
+
+
+	
+
+
+
+\end{document}
+
+
+
+
+
+
+
+

@@ -1,0 +1,1073 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage{mypackage}
+
+\title{Classical Mechanics}
+
+\author{Haydn Cheng}
+
+\date{Aug 2024}
+
+\begin{document}
+\maketitle
+\tableofcontents
+	
+\chapter{Newtonian mechanics}
+\section{Point particle}
+
+To solve for the motion of objects, one may employ the vectorial approach with Newton's second law
+
+\begin{equation}
+	\vb{F} = \dv{\vb{p} }{t} = \dv{(m\vb{v} )}{t}. \label{new2} 
+\end{equation}
+
+In a special case where the mass of the body is changing, the law becomes
+
+\begin{equation}
+	\vb{F} = m\vb{a} - \vb{v} _{rel} \dv{m}{t} \label{new2prime} 
+\end{equation}
+
+which can be derived easily by using \cref{new2} in an infinitesimal time interval (also known as the force-impulse theorem) as depicted \href{https://en.wikipedia.org/wiki/Variable-mass_system}{here}. 
+
+Of course, \cref{new2} still works but \cref{new2prime} provides more useful information that allows us to solve for the motion of the mass. A classic example would be the rocket equation.
+
+To account for the rotational motion of an object, torque \(\boldsymbol{\tau } \) and angular momentum \(\vb{L} \) \footnote{One may question the necessity to introduce the concept of torque and angular momentum. Indeed, with Newton's second law, one can virtually solve all mechanics problems without resorting to other physical laws. However, when analyzing rigid bodies with spatial extent (in contrast to a point particle), torque becomes useful because the internal forces in these bodies are generally very complicated. In fact, \(\boldsymbol{\tau } = \dv{\vb{L} }{t} \) is merely an extension of Newton's second law as explained and derived \href{https://knzhou.github.io/handouts/M2Sol.pdf}{here}. With a different viewpoint, Noether's theorem dictates that since the universe is rotationally symmetric, so \(\vb{L} \) must be conserved, in some sense \(\vb{L}\) is just some useful conserved quantity that is a consequence of a certain symmetry just like how the Laplace-Runge-Lenz vector is the repercussion of some hidden symmetry in higher dimensions.} are introduced, defined by
+
+
+\begin{equation} 
+	\boldsymbol{\tau }  = \vb{r} \cross \vb{F} \text{ and }   \vb{L} = \vb{r} \cross \vb{p} .
+\end{equation}
+
+We can see that both \(\boldsymbol{\tau } \text{ and } \vb{L} \) depend on the origin defined as \(\vb{r} \) is the position vector.
+
+Taking the derivatives of the angular momentum, we yield ``Newton's second law for rotation"
+
+\begin{equation}
+	\dv{\vb{L} }{t} = \dv{t} (\vb{r} \cross \vb{p} ) = \vb{r} \cross \dv{\vb{p} }{t} + \dv{\vb{r} }{t} \cross \vb{p} = \vb{r} \cross \vb{F} + \vb{v} \cross (m\vb{v} ) = \vb{r} \cross \vb{F} = \boldsymbol{\tau}  
+\end{equation}
+
+Another quantity that is introduced to simplify the matter (which ultimately comes from the symmetry of time) is kinetic energy \(\vb{T} \) and potential energy  \(U\) defined by   
+
+\begin{equation}
+	T = \frac{1}{2} mv^2 \text{ and } \vb{F}=-\grad{V} 
+\end{equation}
+
+This definition is motivated when considering the work done on a constant mass \(m\) by a net force \(\vb{F} _{net} \)
+
+\begin{equation}
+	W = \int_{1}^{2} \vb{F_{net} } \cdot d\vb{r} = \int_{1}^{2} \dv{(m\vb{v}) }{t} \cdot d\vb{r} = m \int_{1}^{2} d\dot{\vb{r} } \cdot \dv{\vb{r} }{t}   = \frac{m}{2} \int_{1}^{2} d(v^2) = \frac{1}{2} mv_{2} ^2 - \frac{1}{2} mv_{1} ^2  
+\end{equation}
+
+so that we can say the work done by the net force is equal to the change in the kinetic energy (also known as the work-energy theorem)
+
+\begin{equation}
+	 W  = W_{con} + W_{non-con} = \Delta T. \label{wet}  \footnote{Some authors use \(\Delta W \) to denote work done, however, as work done should not be interpreted as changes, which would be meaningless, the \(\Delta \) symbol is omitted. Formally, \(\inexactd W\) is used to denote the inexact differential, but the complexity of the symbol forbids me to consistently type it in latex.} 
+ \end{equation} 
+
+
+If we define \(\vb{F} _{net} = \vb{F} _{con} + \vb{F} _{non-con} \) which is comprised of both conservative forces such as gravity where \(\vb{F} \propto \frac{\vu{r} }{r^2} \) as well as non-conservative forces such as friction.
+
+The defining properties of conservative forces are:
+
+\begin{enumerate}
+	\item \(\oint \vb{F} \cdot d\vb{r} = 0\), or equivalently, from the Stoke's theorem,
+
+	\item \(\curl{\vb{F} } = 0\), which both imply
+
+	\item The work done by conservative forces is independent of the path taken, as if the work done by the conservative force from point \(1\) to \(2\) is a constant value and by switching the sign of \(d\vb{r} \text{ in } W = \int_{1}^{2} \vb{F} \cdot d\vb{r}  \), we see that the work done from point \(2\) to \(1\) adds a negative sign to that constant value and thus the work done of a loop is zero which is equivalent to \(\oint \vb{F} \cdot d\vb{r} =0\).
+\end{enumerate}
+
+Thus from the vector identity \(\curl{(\grad{V}) } = 0\) and the second item above (\(\curl{\vb{F} } =0)\) , we can define the potential energy as mentioned and the work-energy theorem (\cref{wet}) becomes the conservation of energy
+
+\begin{equation}
+	W_{non-con} = T + V. \label{con} 
+\end{equation}
+
+
+
+
+\section{System of particles}
+Having laid out the rudimentary principles, we now investigate the motion of a system of particles.
+
+The translational equation of motion of the \(i \text{th} \) particle is 
+
+\begin{equation}
+	\vb{F} _{i} = \sum_{j}^{} \vb{F} _{j \rightarrow i} + \vb{F} _{i, ext} = \dv[2]{(m_{i} \vb{r} _{i} )}{t}     .
+\end{equation}
+ 
+Summing over all particles,
+
+\begin{equation}
+	\sum_{i}^{} \sum_{j}^{} \vb{F} _{j \rightarrow i} + \sum_{i}^{} F_{i,ext} = F_{ext, net } =  \sum_{i}^{} \dv[2]{(m_{i} \vb{r} _{i} )}{t} = \dv[2]{t} \sum_{i}^{} m_{i} \vb{r} _{i} =  (\sum_{i}^{} m_{i} ) \ddot{\vb{R} },
+\end{equation}
+
+where we have used Newton's third law, stating that \(\vb{F} _{i \rightarrow j} = -\vb{F} _{j \rightarrow i} \) and  
+
+\begin{equation}
+	\vb{R} = \frac{\sum_{i}^{} m_{i} \vb{r} _{i} }{\sum_{i}^{} m_{i}  } 
+\end{equation}
+
+is defined as the position vector of the center of mass of the system.
+
+This tells us that the total linear momentum of the system is the same as if the entire mass were concentrated at the center of mass and moving with it
+
+Now for the rotational equation of motion of the \(i \text{th} \) particle, we have
+
+\begin{equation}
+	 \vb{r }_{i}  \cross \vb{F} _{i} = \vb{r} _{i} \cross \vb{F} _{i, ext} + \vb{r} _{i} \cross \sum_{j}^{} \vb{F} _{j \rightarrow i} = \dv{\vb{L} _{i}  }{t}. 
+\end{equation}
+
+Summing over all particles, 
+
+\begin{equation}
+	\sum_{i}^{} (\vb{r} _{i} \cross \vb{F} _{i,ext}) + \sum_{i}^{} (\vb{r} _{i} \cross \sum_{j}^{} \vb{F} _{j \rightarrow i}) = \boldsymbol{\tau }_{ext}  + \sum_{i}^{} ((\vb{r} _{i} - \vb{r} _{j} ) \cross  \vb{F} _{j \rightarrow  i } ) = \boldsymbol{\tau } _{ext} = \sum_{i}^{} \dv{\vb{L} _{i} }{t} = \dot{\vb{L}_{tot}}. 
+\end{equation}
+
+where we again used Newton's third law and assumed that the internal forces are central, \ie the force between two particles act on the line connecting them.
+
+To express \(\vb{L} _{tot} \) in a more convenient form, we define \(\vb{r}'_{i} = \vb{r} _{i} - \vb{R}  \)\footnote{We will adopt this convention for the rest of this set of notes}  as shown in \cref{riprime}  \onefig{riprime}{scale=0.3}, thus \(\vb{p} _{i} = m_{i}\dot{\vb{r} '_{i} }  + m_{i} \dot{\vb{R} }  \) and the total angular momentum becomes 
+
+\begin{equation}
+	\vb{L} _{tot} = \sum_{i}^{} \vb{r} _{i} \cross \vb{p} _{i} = \sum_{i}^{}  ((\vb{r} '_{i} + \vb{R} ) \cross (m_{i}\dot{\vb{r} '_{i} }  + m_{i} \dot{\vb{R} } )) = (\sum_{i}^{} m_{i}) \vb{R} \cross \dot{\vb{R} } + \sum_{i}^{} m_{i} (\vb{r} '_{i} \cross \dot{\vb{r} '_{i} } )  \label{L1}   
+\end{equation}
+
+where the cross terms \(\sum_{i}^{} (\vb{R} \cross m_{i} \dot{\vb{r} '_{i} }  + \vb{r} '_{i} \cross m_{i}  \dot{\vb{R} } ) \) are omitted since \(\sum_{i}^{} m_{i} \vb{r} '_{i} = 0 \) from the definition of the center of mass.
+
+So we see that the total angular momentum of a system of particles (due to \(\dot{\vb{r} } \))  can be split into two parts. The first term is due to the orbital motion of the center of mass about the origin due to transnational motion (due to \(\dot{\vb{R} } \))  and the second is due to the spinning motion of the particles around their center of mass (due to \(\dot{\vb{r} '} \)).
+
+The same reasoning applies to the kinetic energy for a system of particles, where one term is attributed to the collective movement, while another arises from the rotational motion about the center of mass
+
+\begin{equation}
+	T = \sum_{i}^{} \frac{1}{2} m_{i} v_{i} ^2 = \frac{1}{2}  \sum_{i}^{}  m_{i} (\dot{\vb{r} '_{i} } + \dot{\vb{R} } )^2 = \frac{1}{2} \sum_{i}^{} m_{i} \dot{\vb{r} '_{i} } ^2 + \frac{1}{2} (\sum_{i}^{} m_{i} ) \dot{\vb{R} } ^2  \label{T1}   
+\end{equation}
+
+where we neglect the cross term \(\sum_{i}^{} m_{i} (\dot{\vb{r} '_{i} } \cdot \dot{\vb{R} })  \) for the same reason explained above. \todo{virial theorem var}
+
+
+
+
+\newpage
+\section{Rigid Body Mechanics}
+\subsection{Prerequisites}
+If one were to choose a theorem that represents the crux of rigid body motion, one would have to pick Chasles' Theorem, which states that it is always possible to describe an arbitrary displacement of a rigid body by a translation of its center of mass plus a rotation around its center of mass (it can rotate about an arbitrary point but the center of mass is the most convenient choice). \footnote{Another way to construct any displacement is first to do a rotation and then translate parallel to the axis of rotation, we reverse the order of translation and rotation while adding a constraint on the translating direction.} \footnote{Yet another interesting and useful fact is that if the motion of the body is planer (\ie the angular velocity is perpendicular to the linear velocity), then there always exists an instantaneous axis of rotation (which need not be inside the rigid body) that is parallel to the angular velocity such that any infinitesimal displacement can be constructed by rotating around this axis (This is the third way in which a displacement of a rigid body can be constructed). The proof of this fact is given \href{https://physics.stackexchange.com/q/541554}{here}. The instantaneous axis of rotation can be constructed geometrically mentioned in idea 33 of \href{https://www.ioc.ee/~kalda/ipho/kin_ENG.pdf}{this handout} by Jaan Kalda.}  The formal proof requires complex matrix algebra but a simple way to demonstrate the theorem is given in \cref{ap1}. Since the translational and the rotational motion of a rigid body are separable, so we almost always assume that the translational motion has already been accounted for. In fact, we will assume that the center of mass is at rest for the rest of this section.
+
+If one were to pick a second theorem, then it would be Euler's Theorem, which states that any displacement of a rigid body such that a point on the rigid body remains fixed is equivalent to a single rotation about some axis that runs through the fixed point. Since the center of mass is always fixed as established above, it tells us that rotation about the center of mass means that all points on the rigid body undergo circular motion with respect to the closest point on an axis that runs through the center of mass where the direction of the axis defines the rotational motion and is in the same direction as the angular velocity which will be explored more in the next subsection. The proof of Euler's Theorem will not be given here due to its complexity.
+
+Before diving into the physics of rigid body motion, some conventions of notations used in this set of notes should be explicitly stated first, as different texts would use different notations. 
+
+\begin{enumerate}
+	\item The spaced-fixed coordinate system, which is stationary in the lab frame has axes \((\vu{x}, \vu{y} \text{ and } \vu{z} )\) which obeys the right-hand rule. Quantities observed from the lab frame (or the space frame) are the same as quantities measured from the spaced-fixed coordinate system.
+
+	\item The body-fixed coordinate system has axes \((\vu{1 }, \vu{2 } \text{ and } \vu{3 })\) which also follows the right-hand rule and always coincide with the principle axes of the body. Quantities observed from the body frame are the same as quantities measured from the body-fixed coordinate system.
+
+	\item The instantaneous inertial frame with axes labeled \(\vu{e} _{1},\vu{e} _{2} \text{ and } \vu{e} _{3} \) is an inertial frame which its axes coincide with the body's principal axes only at time instant \(t\). This frame is not rotating with respect to the lab frame so it is equally superior. 
+	
+	\item The Euler angles that are used to transform between these two coordinate systems are rotated in the \(z-x-z\) sequence. 
+\end{enumerate}
+
+\subsection{Angular velocity vector}
+Before handling the rather complicated mathematical treatments, it is useful to define what do we mean by angular velocity. 
+
+Angular velocity, similar to linear velocity, is a quantity describing a body's (more rigorously, the body-fixed frame's) motion that is independent of the choice of a coordinate system or origin. One may imagine there is an ``angular-speedometer" that can measure the angular velocity of a rigid body undergoing any general motion. However, it is frame-dependent, meaning that the angular velocity observed in the lab frame is different from that observed from another. 
+
+Suppose we have 3 orthogonal frames: the lab frame, which is not rotating and fixed in space \footnote{From the similarity between angular velocity and linear velocity, one may think there is no universally superior frame of reference when analyzing rotational motion due to relativity. However, rotation is absolute as one may determine whether it is rotating from local measurement, e.g. whether the equipotential surface of a bucket of water is parabolic or horizontal. Although there is still debate on this topic, e.g. \href{https://en.wikipedia.org/wiki/Mach\%27s_principle}{here}, we take this fact for granted as we are still in the realm of Newtonian physics.}. And two other frames whose origins remained fixed (as our interests do not lie on the translational motions and rotational motions can be analyzed separately from translational motions) and can rotate freely about their origins. Each of these two frames possess their own angular velocity vector as observed from the fixed lab frame, which passes through their origins and the direction defines their rotational motion as guaranteed by Euler's theorem, where every points co-rotating with the frame trace out a circle with the center at the closet point to the rotation axis.
+
+As linear velocity is defined as the time derivative of the displacement vector, one may be tempted to define an ``angular displacement vector", describing how an object undergo rotation and the angular velocity can be simply defined as the time derivative of the ``angular displacement vector". However, this is not possible for the fact that finite rotations do not commute in 3-dimensional space (for 2D case, rotations do commute as there are only 2 degrees of freedom which can be assigned to positive and negative signs) as one can play with literally any object to try it out, so 
+
+\begin{equation}
+	\Delta \boldsymbol{\theta } \stackrel{?}{=} \Delta \theta_{x} \vu{x} + \Delta \theta_{y} \vu{y} \neq \Delta \theta_{y} \vu{y} + \Delta \theta_{x } \vu{x} . 
+\end{equation}
+
+However, we \emph{can} define an ``infinitesimal angular displacement vector" as angular infinitesimal displacements do commute (less obvious but one still gets a feeling by playing with an object but limiting the angles rotated to be very small), so 
+
+\begin{equation}
+	\delta \boldsymbol{\theta } = \delta \theta _{x} \vu{x} + \delta \theta _{y} \vu{y} = \delta \theta _{y} \vu{y} + \delta \theta _{x} \vu{x}  .
+\end{equation}
+
+
+To prove the above result, we consider \cref{av3}. Without loss of generality, we define the \(z-\) axis of the lab frame (which is arbitrarily defined) to coincide with the angular velocity vector of the rotating frame, and the \(\vb{r} \) vector to be the position vector of any point co-rotating with the rotating frame. The direction of rotation \(\delta \boldsymbol{\theta } \) can be \(x \text { or } y\) axis in the above equation.
+
+\onefig{av3}{scale=0.3} From it, it is clear that
+
+\begin{equation}
+	\delta \vb{r} = \delta \boldsymbol{\theta }  \cross \vb{r} . \label{vrel} 
+\end{equation}
+
+Considering two successive rotation through \(\delta \boldsymbol{\theta } _{1} \text{ and }  \delta \boldsymbol{\theta } _{2}  \), we have 
+
+\begin{equation}
+	\delta \vb{r} _{12} = \delta \boldsymbol{\theta } _{1} \cross \vb{r} + \delta \boldsymbol{\theta } _{2}  \cross (\vb{r} +\delta \vb{r} ) = (\delta \boldsymbol{\theta } _{1}  + \delta \boldsymbol{\theta } _{2}  ) \cross \vb{r} = \delta \vb{r} _{21}  
+\end{equation}
+
+if we neglect the higher-order term. An alternate proof providing more intuition but more tedious is given in \cref{ap2}.
+
+Dividing \cref{vrel} by \(\delta t\), we have
+
+\begin{equation}
+	\vb{v} = \frac{\delta \vb{r}  }{\delta t} = \frac{\delta \boldsymbol{\theta } }{\delta t} \cross \vb{r} .
+\end{equation}
+
+
+In a more general case where the origin is moving at a velocity \(\vb{v} _{O} \), then the velocity of point \(P\) in the rigid body will be 
+
+\begin{equation}
+	\vb{v} _{P} = \vb{v} _{O} + \boldsymbol{\omega } \cross \vb{r} _{O \rightarrow  P} \label{vrelim} 
+\end{equation}
+
+which is a very useful equation since it relates the velocity of any two points in the rigid body with the common angular velocity (note that \(O \) need not be the center of mass of the rigid body, as if true, \(\vb{v} _{P} = \vb{v} _{c.m. } + \boldsymbol{\omega } \cross \vb{r} _{c.m. \rightarrow \vb{P} } \text{ and } \vb{v} _{\vb{O}}  = \vb{v} _{c.m. } + \boldsymbol{\omega } \cross \vb{r} _{c.m. \rightarrow \vb{O} }   \) yields the general result. In fact, \cref{vrelim} can be regarded as the mathematical definition for the angular velocity vector.
+
+Another very useful property of the angular velocity vector is that the law of angular velocity addition to find the relative angular velocity between different frames is exactly analogous to the law of linear velocity addition, where
+
+\begin{equation}
+	\boldsymbol{\Omega }  _{1 \text{rel.} 2} = \boldsymbol{\Omega} _{ 1 \text{rel.} 3}- \boldsymbol{\Omega }_{ 2 \text{rel.} 3}. \label{avad} 
+\end{equation}
+
+To prove this, we first define clearly what do we mean by relative velocity in the linear case. Suppose we have a point \(P_1\) co-rotating with \(S_1\) and \(P_2\) fixed in \(S_2\). In the lab frame \(S_3\), the displacement vectors of \(P_1\) and \(P_2\) are defined as the changes in their linear positions as measured in the lab frame. The linear velocity vectors are defined as the displacement vectors divided by a regular time interval, and the relative velocity of the 2 points (or 2 frames) is the difference in their linear velocity vectors. In the angular velocity case, we can simply follow the same argument as ``angular displacement vector" is well defined as long as the time interval concerned tends to zero. It is helpful to visualize the ``angular displacement vector" in the 2D case, where the time interval concerned is not limited to infinitesimally small, then it becomes clear that angular velocity vectors do add like linear velocity vectors by considering the most simple case: \(S_1\) rotating with the angular velocity \(\omega _{1} \vu{z} \) and \(S_2\) with \(\omega _{2} \vu{z} \), then after a time interval \(\Delta t\), the angular displacement vectors are \(\boldsymbol{\theta } _{1}  = \omega _{1}  \Delta t \vu{z} \text{ and } \boldsymbol{\theta } _{2}   = \omega _{2} \Delta t \vu{z} \) and the relative displacement vector is \(\boldsymbol{\theta }  _{1 rel. 2} = (\omega _{1} - \omega _{2}) \Delta t \vu{z} \) thus the relative angular velocity vector is \(\boldsymbol{\omega }  _{1 rel. 2} = (\omega _{1} - \omega _{2} )\vu{z} \). The same thing applies in our 3D world, just that \(\Delta \rightarrow \delta \) and it is harder to visualize the entire process. 
+
+
+
+\section{Tensor of Inertia}
+
+\subsection{Angular Momentum and Energy}
+
+
+Now we return to \cref{L1} and try to evaluate the abstract summation form of the spin angular momentum due to rotation about the center of mass \(\vb{L} _{rot} = \sum_{i}^{} m_{i} (\vb{r} '_{i} \cross \dot{\vb{r} '_{i} } )  \) when the rigid body is rotating about its center of mass at an angular velocity \(\boldsymbol{\omega } \).
+
+Now from \cref{av3} we can conclude the general relationship that if a vector \(\vb{r} \)  is rotating about a fixed origin with angular velocity \(\boldsymbol{\omega } \), then we have the relation 
+
+\begin{equation}
+	\dv{\vb{r} }{t} =  \boldsymbol{\omega } \cross \vb{r} . \label{rotchange}  
+\end{equation}
+
+Therefore, \(\vb{L} _{rot} \)  becomes
+
+\begin{equation}
+	\vb{L} _{rot} = \sum_{i}^{} m_{i} (\vb{r} '_{i} \cross \dot{\vb{r} '_{i} } ) = \sum_{i}^{} m_{i} (\vb{r} '_{i} \cross (\boldsymbol{\omega } \cross \vb{r} '_{i}) ) = \sum_{i}^{} m_{i} (\left| \vb{r} '_{i}  \right| ^2 \boldsymbol{\omega } - \vb{r} '_{i} (\vb{r} '_{i} \cdot \boldsymbol{\omega } )). 
+\end{equation}
+
+From here, we can explicitly write out the \(x,y \text{ and } z\) components of \(\vb{L} _{rot} \) as
+
+\begin{equation}
+	\begin{aligned}
+		L_{rot,x} &= \sum_{i}^{} m_{i} ((x'_{i} ^2 + y'_{i} ^2 + z'_{i} ^2)\omega  _{x} - x'_{i} (x'_{i} \omega _{x} + y'_{i} \omega _{y} + z'_{i} \omega _{z} )) \\ 
+		      &= \sum_{i}^{} m_{i} ((y'_{i} ^2 + z'_{i} ^2)\omega _{x} - (x'_{i} y'_{i} )\omega _{y} - (x'_{i} z'_{i}) \omega '_{z}) , \\ 
+		L_{rot,y} &= \sum_{i}^{} (m_{i} (x'_{i} ^2 + z'_{i} ^2)\omega _{y} - (y'_{i} z'_{i} )\omega _{z} - (x'_{i} y'_{i} )\omega _{x}), \\ 
+		\text{ and }  L_{rot,z} &= \sum_{i}^{} m_{i} ((x'_{i} ^2 + y'_{i} ^2) \omega _{z} - (x'_{i} z'_{i} )\omega _{x} - (y'_{i} z'_{i} )\omega _{y}) . 
+	\end{aligned}
+\end{equation}
+
+In matrix form, 
+
+\begin{equation}
+	\vb{L}_{rot}  = 
+	\begin{pmatrix}
+	L_{rot,x} \\
+	L_{rot,y} \\
+	L_{rot,z} 
+	\end{pmatrix}
+	= \begin{pmatrix}
+	I_{xx}  & I_{xy}  & I_{xz} \\
+	I_{yx}  & I_{yy}  & I_{yz} \\
+	I_{zx}  & I_{zy}  & I_{zz} 
+	\end{pmatrix}
+	\begin{pmatrix}
+	\omega _{x} \\
+	\omega _{y} \\
+	\omega _{z} 
+	\end{pmatrix}
+	=\tilde{\vb{I} } \boldsymbol{\omega } .		
+\end{equation}
+
+Similarly, for the abstract sum for the kinetic energy in \cref{T1} due to the rotational motion, it now becomes
+
+\begin{equation}
+	T_{rot} = \frac{1}{2} \sum_{i}^{} m_{i} \dot{\vb{r} '_{i} } ^2 = \frac{1}{2} \sum_{i}^{} m_{i} (\boldsymbol{\omega } \cross \vb{r} '_{i} ) \cdot (\boldsymbol{\omega } \cross \vb{r} '_{i} ) = \frac{1}{2} \boldsymbol{\omega } \cdot \sum_{i}^{} m_{i} \vb{r} '_{i} \cross (\boldsymbol{\omega } \cross \vb{r} '_{i} ) = \frac{1}{2} \boldsymbol{\omega }  \cdot \vb{L}  \label{T2} 
+\end{equation}
+
+where we used the vector identity \((\vb{A} \cross \vb{B} )\cdot \vb{C} = \vb{A} \cdot (\vb{B} \cross \vb{C} )\). 
+
+Now one of the great advantages of the use of principal axes is the simplification of \cref{T2}, as it now becomes \todo{var 13.7 diagonalization and inertia tensor} 
+
+\begin{equation}
+	T_{rot} = \frac{1}{2} I_{xx} \omega _{x} ^2 + \frac{1}{2} I_{yy} \omega _{y} ^2 + \frac{1}{2} I_{zz} \omega _{z} ^2.  
+\end{equation}
+
+\subsection{Parallel Axis Theorem}
+
+If the tensor of inertia about the center of mass \(\tilde{\vb{I} } _{c.m. } \) and the displacement vector pointing from the center of mass to point \(P = X \vu{i} + Y \vu{j} + Z\vu{k} \) are known, then the tensor of inertia about point \(P\) will be 
+
+\begin{equation}
+\begin{aligned}
+	I_{xx,P} &= \sum_{i}^{} m_{i} (y_{i,P}' ^2 + z_{i,P}' ^2) = \sum_{i}^{} m_{i} ( (y_{i,c.m. }' - Y)^2 + (z_{i,c.m. }' -Z)^2) \\ &= \sum_{i}^{} m_{i} ((y_{i,c.m.} ^2 + z_{i,c.m.} ^2)+(Y^2+Z^2) -2(y_{i,c.m. } Y+Z_{i,c.m. } Z)) \\ &= I_{xx,c.m. } + \sum_{i}^{ } m_{i} (Y^2+Z^2)  \\ \\
+	\text{ and } I_{xy,P} &= -\sum_{i}^{} m_{i} ( x_{i,P} y_{i,P} ') = \sum_{i}^{} m_{i} ((x_{i,c.m. } -X)(y_{i,c.m. } -Y) \\ &= \sum_{i}^{} m_{i} ((x_{i,c.m. } y_{i,c.m. } ) - XY -(Xy_{i,c.m. } + x_{i,c.m. } Y)) \\ &= I_{xy,c.m. } - \sum_{i}^{} m_{i} XY \italic{~~~etc.} 
+\end{aligned}
+\end{equation}
+
+where the last term in each of the equations vanishes due to the property of the center of mass.
+
+\subsection{Euler's Equations}
+With all the prerequisites explained, we are now ready to tackle the seemingly simple differential equation \(\boldsymbol{\tau } = \dv{\vb{L} }{t} \). Consider a time instant \(t\) when a rigid body is rotating with \(\boldsymbol{\omega } \). Since the body frame is non-inertial, we cannot apply this rotational Newton's law here. What we can do, however, is to consider an inertial frame that only coincides with the body frame at time \(t\). 
+
+It is very important to have this picture in mind: at time \(t\), the inertial frame axes \(\vu{e} _{1}, \vu{e} _{2}, \vu{e} _{3} \) are the same as the body axes \(\vu{1}, \vu{2},\vu{3} \). Then, after time \(dt\), the axes of the body-fixed coordinate system rotate by an angle of \(\omega dt\) along \(\boldsymbol{\omega } \) while the inertial frame axes remained stationary. So from the inertial frame, the body axes actually rotate with \(\boldsymbol{\omega } \). We then repeat this procedure infinite time.
+
+Writing out the equation of motion in this inertial coordinate system, we have
+
+\begin{equation}
+	\begin{aligned}
+		\boldsymbol{\tau } = \dv{\vb{L} }{t} &= \dv{t} (L_1 \vu{1} + L_2 \vu{2} + L_3 \vu{3}  ) = \dv{L_{1} }{t} \vu{1}  + L_{1} \dv{\vu{1}  }{t} + \dv{L_{2} }{t} \vu{2}  + L_{2} \dv{\vu{2}  }{t} + \dv{L_{3} }{t} \vu{3}  + L_{3} \dv{\vu{3  }}{t}    \\ 
+		&= \dv{L_{1} }{t} \vu{1}  + \dv{L_{2} }{t} \vu{2} + \dv{L_{3} }{t} \vu{3}   + (\boldsymbol{\omega } \cross \vu{1}  )L_{1} + (\boldsymbol{\omega } \cross \vu{2}  )L_{2}  + (\boldsymbol{\omega } \cross \vu{3}  )L_{3} 
+	\end{aligned}
+\end{equation}
+
+where \(i = 1,2 \text{ and } 3\) and we used \cref{rotchange} since the body-fixed axes \((\vu{1} ,\vu{2} \text{ and } \vu{3} )\) are rotating angular velocity \(\boldsymbol{\omega } \) about the inertial instantaneous frame as mentioned.
+
+Splitting the vector equation into three components, we have three non-linear coupled first-order differential equations 
+
+\begin{equation}
+	\begin{aligned}
+		\tau _{1} &= I_1 \dot{\omega _{1} } + \omega _{2} \omega _{3} (I_3-I_2) \\
+		\tau _{2} &= I_2 \dot{\omega _{2} } + \omega _{3} \omega _{1} (I_1-I_3) \\
+		\tau _{3}  &= I_3 \dot{\omega _{3} } + \omega _{1} \omega _{2} (I_2 -I_1).
+	\end{aligned}
+\end{equation}
+
+An alternate derivation of Euler's equations with discrete time interval considerations can be found in Chapter 8.7.2 of Kleppner. An alternate proof of Euler's equations by the Euler-Lagrange equation can be found in Chapter 13.18 of Cline.
+
+One has to be reminded that although the set of equations are given in body-fixed coordinates and thus are only valid at time \(t\) where the body frame coincides with the inertial frame, since \(t\) is arbitrarily chosen, the equations of motion tell us things that are more general than the behaviors of the system at that mere instant. In fact, we can create an infinite number of instantaneous inertial frames such that Euler's equations are always valid. In retrospect, the introduction of an instantaneous inertial frame was merely to derive Euler's equations and nothing more. From now on there are only 2 frames that matter: the body frame and the lab frame.
+
+Also, since the Euler equations only depend on the principal moments of inertia \(I_1, I_2 \text{ and } I_3\), thus all bodies having the same principal moments of inertia will behave exactly the same even though the bodies may have very different shapes. The simplest geometrical shape of a body having three different principal moments is a homogeneous ellipsoid. Thus, the rigid body motion often is described in terms of the equivalent ellipsoid that has the same principal moments of inertia. 
+
+\example{Kleppner (3rd. ed) Example 8.16}{Due to \(\boldsymbol{\omega } \) not necessarily parallel to  \(\vb{L} \), many peculiar phenomena are observed in rigid body motion. One of which is the Tennis Racket Theorem (also known as the Intermediate axis theorem), which states that the rotations about the 2 principal axes which have the largest and the smallest moment of inertia are stable while the rotation about the intermediate axis is not. Prove it.}{
+
+To explain this phenomenon, we suppose that the body initially spins with \(\boldsymbol{\omega } = \omega _{1} \hat{\vb{e} _{1}  }\) and receives small perturbations on \(\omega _{2} \text{ and } \omega _{3} \). Then according to the Euler's equations, we have \(\omega _{1} = \text{constant} \) and 
+
+\begin{equation}
+	\dv[2]{\omega _{2} }{t} + (\frac{(I_1-I_2)(I_1-I_3)}{I_2I_3} \omega _{1} ^2)\omega _{2} = 0
+\end{equation}
+
+as one can easily verify. So we see that \(\omega _{2} \) undergo simple harmonic motion if \(I_1\) is the largest or the smallest moment of inertia, but increase exponentially with time and the motion is unstable.\footnote{For a more intuitive explanation, refer to the \href{https://mathoverflow.net/a/82020}{explanation} given by the famous mathematician Terrance Tao as well as this \href{https://www.youtube.com/watch?v=1VPfZ_XzisU}{video} by the famous YouTuber Veritasium.} }
+
+\example{Kleppner (3rd. ed) Example 8.17}{A uniform rod is mounted on a horizontal frictionless axle through its center. The axle is carried on a turntable rotating at a constant angular velocity \(\boldsymbol{\Omega } \) as depicted in \cref{ex817} . Find \(\theta (t)\) shown in the figure. }{Referring to the figures, we have \(\omega _{1} = \dot{\theta } , \omega _{2} = \Omega \sin \theta \text{ and } \omega _{3} = \Omega \cos \theta \). Substituting them into the Euler's equations and leveraging the small angle approximation \(\sin \theta \approx \theta \) gives 
+\begin{equation}
+	\ddot{\theta } + (\frac{I_3-I_2}{I_1} ) \Omega ^2 \theta = 0.
+\end{equation}
+
+So we conclude that \(\theta \) undergo simple harmonic motion with angular frequency \(\gamma = \sqrt{\frac{I_3-I_2}{I_1} } \Omega \) .
+} 
+\twofig{ex817a}{width=\textwidth}{ex817b}{width=\textwidth}{ex817} 
+
+\section{Torque-free Precession}
+
+One of the most classic applications of Euler's equations is a torque-free procession. Consider a symmetric top with \(I_1\) being the moment of inertia about the symmetric axis and \(I_2 = I_3 = I_{\perp } \). Then the equations give \(\omega _{1} = \text{constant} = \omega _{s}  \) and 
+
+\begin{equation}
+	\dv[2]{\omega _{2} }{t} + (\frac{I_1-I_{\perp } }{I_{\perp } } )^2 \omega _{s} ^2 \omega _{2} = 0 .
+\end{equation}
+
+So \(\omega _{2} \) undergo simple harmonic motion with angular frequency \(\gamma = \left| \frac{I_1-I_{\perp } }{I_{\perp } }  \right| \omega _{s}  \) 
+
+\begin{equation}
+	\omega _{2} = \omega _{\perp } \cos \gamma t
+\end{equation}
+where \(\omega _{\perp }  \) depends on the initial condition .
+
+Further calculation would give that 
+\begin{equation}
+	\omega _{3} = \pm ~ \omega _{\perp } \sin \gamma t
+\end{equation}
+
+where the positive sign corresponds to the case where \(I_1 > I_{\perp } \) indicates the body is short and fat so the spin is clockwise, and vice versa.
+
+To get qualitatively what really happens, refer to \cref{torquefree} .\onefig{torquefree}{scale=0.3} 
+
+\(\omega _{1} = \omega _{s} = \text{constant}  \) simply means that in the body frame, the component of  \(\boldsymbol{\omega } \) on \(\vu{1} \) has a fixed magnitude \(\omega _{s} \). \footnote{This also means that at every time instant \(t\), \(\vu{2} \text{ and } \vu{3} \) revolve about \(\vu{e} _{1}  \) (technically not \(\vu{1} \) since \(\vu{1} \) is not fixed in the instantaneous inertial frame so it is meaningless to talk about rotation around \(\vu{1} \) in this frame and also \(\vu{1}, \vu{2} \text{ and } \vu{3} \) are relatively fixed so no axis is rotating about another axis but since \(\vu{1} \text{ and } \vu{e} _{1} \) coincide at that moment, this saying is generally accepted) at constant angular speed \(\omega _{s} \) when observed from the instantaneous inertial frame.}    
+
+The solution for \(\omega _{2} \text{ and } \omega _{3} \) means that they are actually components of \(\boldsymbol{\omega }  _{\perp } \) on \(\vu{2} \text{ and } \vu{3} \)  respectively when \(\boldsymbol{\omega } _{\perp } \) is rotating about \(\vu{1} \)  at the angular speed \(\gamma \) when observed in the body frame.
+
+Combining these two insights, we can say that \(\boldsymbol{\omega } _{\perp } \) rotate about \(\vu{1} \) at the angular speed \(\gamma + \omega _{s} \) when observed from the lab frame by simple angular velocity addition.
+
+Furthermore, since \(I_2=I_3=I_{\perp } \) and \(\vb{L} _{2} = I_2 \boldsymbol{\omega } _{2} \text{ and } \vb{L} _{3} = I_3 \boldsymbol{\omega } _{3}  \) therefore \(\vb{L} _{\perp } = \vb{L} _{2} +\vb{L} _{3} = I_{\perp } (\boldsymbol{\omega }  _{2} + \boldsymbol{\omega } _{3}) = I_{\perp }  \boldsymbol{\omega } _{\perp } \) which means that \(\vu{1} , \boldsymbol{\omega } _{1} = \omega _{s} \vu{1}, \vb{L} _{1} = I_1\boldsymbol{\omega } _{1} ,  \boldsymbol{\omega } _{\perp } , \vb{L} _{\perp } = I_{\perp } \boldsymbol{\omega } _{\perp }, \boldsymbol{\omega } = \boldsymbol{\omega } _{1} + \boldsymbol{\omega } _{\perp } , \vb{L} = \vb{L} _{1} + \vb{L} _{\perp } \) are all in the same plane, and since \(\vu{1} \) is fixed in the body frame, the only degree of freedom is that all the vectors mentioned above rotate about \(\vu{1} \) with the same angular speed.\footnote{The fact that the angles between all the vectors are fixed is trivial in the body frame considering the mathematical form of each vector listed above. To prove this fact in space frame, notice that \(\vb{L} \) of the body is fixed in \emph{torque-free} precession, and we have shown that \(\omega _{1} = \omega _{s} = \text{constant} \) and \(\omega _{\perp } \) is constant as well, so \(\alpha \) shown in \cref{torquefree1}  must be constant. To be extra cautious, we can say since \(T_{rot} = \frac{1}{2} \boldsymbol{\omega } \cdot \vb{L} = \frac{1}{2} \omega L \cos \alpha  \) (\cref{T2} ) must be constant since there is no external work done, so \(\alpha \) must be constant.  }  But we already found out that one of the vectors, namely  \(\boldsymbol{\omega } _{\perp } \) has an angular speed of \(\gamma \), so all the vectors mentioned have the same angular velocity \(\gamma \vu{1} \). 
+
+We have already solved the problem in the body frame, next we transform it back into the lab frame, which is what we care about the most.
+
+In the space-fixed inertial frame, since there are no external torques in torque-free precession, \(\vb{L} \) is now fixed in place. 
+
+From the analysis done in the body frame, we must bear this fact in mind: all the vectors concerned in this problem are in the same plane. To visualize, it is helpful to imagine that all the vectors are on a piece of paper with \(\vu{1} \) and \(\boldsymbol{\omega } _{\perp } \) being the two adjacent edges of the paper and \(\vb{L} \) being the diagonal (it is always possible since the size of the paper is arbitrary). In the body frame, \(\vu{1} \) is held still so the piece of paper rotates about one vertical edge with angular speed \(\gamma \) similar to how a door rotates about a door hinge.  
+
+However, refer to \cref{torquefree1} where now we wish to fix \(\vb{L} \) in place in space frame meaning that the 2 corners (the tip and the tail of \(\vb{L} \)) are now stationary and the piece of paper rotates about \(\vb{L} \). This picture explains intuitively why although \(\boldsymbol{\omega } \text{ and } \vb{L}\) has the same angular velocity in the body frame but when switched to the lab frame, where \(\vb{L} \) is fixed, \(\boldsymbol{\omega } \) is not fixed but is now co-rotating with \(\vu{1} \) about \(\vb{L} \) with the same angular speed \(\Omega _{p} \). Mathematically, \(\vb{L} \) is also rotating with the angular speed \(\Omega _{p} \), just that the axis of rotation is \(\vb{L} \) itself, so it is equivalent to having no rotation at all.    
+
+To find this new common angular speed \(\Omega _{p} \), we can utilize the angular velocity addition formula \cref{avad}, where frame 1 is a frame where \(\boldsymbol{\omega } \) is at rest, frame 2 is lab frame and frame 3 is the body frame. So
+
+\begin{equation}
+	\boldsymbol{\Omega } _{\boldsymbol{\omega }  \text{ rel. lab} } = \boldsymbol{\Omega } _{\boldsymbol{\omega } \text{ rel. body}   } - \boldsymbol{\Omega } _  \text{ lab rel. body} .
+\end{equation}
+
+or
+
+\begin{equation}
+	\Omega _{p} \vu{z} = \gamma \vu{1} - (-\boldsymbol{\omega } ).
+\end{equation}
+
+
+Resolving this vector equation along \(\vu{1} \) gives
+
+\begin{equation}
+	\begin{aligned}
+		\Omega _{p}\cos \alpha  &= \gamma + \omega _{s} \\
+		\Omega _{p} &= \frac{I_1 \omega _{s} }{I_{\perp } \cos \alpha } .
+	\end{aligned}
+\end{equation}
+
+
+\onefig{torquefree1}{scale=0.6} 
+
+
+The intuitive explanation as to why \(\Omega _{p} \cos \alpha = \gamma + \omega _{s}\) is as follows: 
+
+Firstly, as mentioned, \(\omega _{1} = \omega _{s} = \text{constant} \) implies that \(\vu{2} \text{ and } \vu{3} \) revolve around \(\vu{1} \) (technically, \(\vu{e} _{1} \))  at \(\omega _{s} \). However, even then, we have calculated that \(\boldsymbol{\omega } _{\perp } \) (and also  \(\boldsymbol{\omega } \) and other relevant vectors) still have angular speed \(\gamma \) in the body frame where \(\vu{2} \text{ and } \vu{3} \) are at rest. This means that those sets of vectors rotate at the angular speed \(\gamma + \omega _{s}\) about \(\vu{1} \) in the lab frame.
+
+Secondly, we resort to the ``2D paper model" developed above. We now know that for the ``door hinge" mode (rotate about \(\vu{1} \)), the angular speed observed from the lab frame is \(\gamma + \omega _{s} \).  We want to know what the angular speed observed from the lab frame is when rotating about \(\vb{L} \). To answer this, we have to remember the vector property of angular velocity \(\boldsymbol{\Omega } _{p} \). We utilize this fact and resolve \(\boldsymbol{\Omega } _{p} \) along \(\vu{1} \) (and its perpendicular direction). The former angular speed which equals to \(\Omega _{p} \cos \alpha \) should be identical to the angular speed of the set of vectors when \(\vu{1} \) is fixed which we calculated to be \(\gamma + \omega _{s} \).  
+
+\subsection{Euler Angles}
+
+The description of rigid body rotation is greatly facilitated by transforming from the space-fixed (lab) coordinates \((\vu{x} ,\vu{y} ,\vu{z} )\)  to the body-fixed coordinates \((\vu{\boldsymbol{1}  }, \vu{\boldsymbol{2}}, \vu{\boldsymbol{3}  })\) since the inertia tensor measured with this coordinate is always diagonal. They can be related, as introduced in the ``Maths'', by
+
+\begin{equation}
+	(\vu{1} ,\vu{2} , \vu{3 }) = \boldsymbol{\lambda } (\vu{x} ,\vu{y} ,\vu{z} ). 
+\end{equation}
+
+As mentioned in ``Maths'', only 3 independent angles are needed for any rotational transformation. By convention, the Euler angles \(\phi,\theta,\psi \) are used. Refer to \cref{eulerangles}. \onefig{eulerangles}{scale=0.3}The unit vector defined by \(\vu{n} = \vu{z} \cross \vu{\boldsymbol{3}  } \) is called the line of nodes. 
+
+Firstly, \(\vu{x} \) is made to coincide with the line of node \(\vu{n} \), then while keeping \(\vu{x} \) unchanged, \(\vu{z} \) is made to coincide with \(\vu{3} \)  (which is possible since the line of node is defined to be \(\vu{n} = \vu{z} \cross \vu{\boldsymbol{3}  }\)). Lastly, while keeping \(\vu{z} \) uncharged, \(\vu{x} \) is made to be coincide with 1 axis. As \(\vu{x} \text{ and } \vu{z} \) are in place, due to the orthogonality of the systems, \(\vu{y} \) is bound to coincide with \(\vu{2} \) .        
+
+The rotational matrices of each rotation are
+
+\begin{equation}
+	\boldsymbol{\lambda } _{\phi } = \begin{pmatrix}
+	\cos \phi  & \sin \phi  & 0\\
+	-\sin \phi  & \cos \phi  & 0\\
+	0 & 0 & 1
+	\end{pmatrix}
+	,~~~~~\boldsymbol{\lambda } _{\theta } = \begin{pmatrix}
+	1 & 0 & 0\\
+	0 & \cos \theta  & \sin \theta \\
+	0 & -\sin \theta  & \cos \theta 
+	\end{pmatrix}
+	,~~~~~ \text{ and }~~~~~ \boldsymbol{\lambda } _{\psi } = \begin{pmatrix}
+	\cos \psi  & \sin \psi  & 0\\
+	-\sin \psi  & \cos \psi  & 0\\
+	0 & 0 & 1
+	\end{pmatrix}
+	. 
+\end{equation}
+
+Therefore the total rotational matrix is
+
+\begin{equation}
+	\boldsymbol{\lambda } = \boldsymbol{\lambda } _{\phi } \boldsymbol{\lambda } _{\theta } \boldsymbol{\lambda } _{\psi } = \begin{pmatrix}
+	\cos \phi \cos \psi - \sin \phi \cos \theta \sin \psi  & \sin \phi \cos \psi  + \cos \phi \cos \theta \sin \psi  & \sin \theta \sin \psi \\
+	-\cos \phi \sin \psi -\sin \phi \cos \theta \cos \psi  & -\sin \phi \sin \psi  + \cos \phi \cos \theta \cos \psi  & \sin \theta \cos \psi \\
+	\sin \phi \sin \theta  & -\cos \phi \sin \theta  & \cos \theta 
+	\end{pmatrix}
+	.
+\end{equation}
+
+The angular velocity will be 
+
+\begin{equation}
+	\boldsymbol{\omega } = \dot{\phi } \vu{z} + \dot{\theta } \vu{n} + \psi \vu{3}. 
+\end{equation}
+
+Expressing \(\vu{z} \text{ and } \vu{n} \) in terms of the body-fixed coordinates, we have
+
+\begin{equation}
+	\begin{aligned}
+		\vu{z} &= \sin \theta \sin \psi \vu{1 } + \sin \theta \cos \psi \vu{2 }+ \cos \theta \vu{3 }\\
+		\vu{n} &= \cos \psi \vu{1 } - \sin \psi \vu{2 }.
+	\end{aligned}
+\end{equation}
+
+So 
+
+\begin{equation}
+	\boldsymbol{\omega } = \dot{\phi } \sin \theta \sin \psi  + \dot{\theta } \cos \psi )\vu{1 } + (\dot{\phi } \sin \theta \cos \psi  - \dot{\theta } \sin \psi )\vu{2 }+ (\dot{\psi } + \dot{\phi } \cos \theta )\vu{3 }. 
+\end{equation}
+
+By playing a similar game, the angular velocity can be expressed in terms of the space-fixed coordinates, with
+
+\begin{equation}
+	\boldsymbol{\omega } = (\dot{\theta } \cos \phi  + \dot{\psi } \sin \theta \sin \phi )\vu{x} + (\dot{\theta } \sin \phi  - \dot{\psi } \sin \theta \cos \phi )\vu{y} + (\dot{\phi } + \dot{\psi } \cos \theta ) \vu{z} .
+\end{equation}
+
+The validity of the results can be verified by confirming that the dot product of \(\boldsymbol{\omega } \) with itself
+
+\begin{equation}
+	\boldsymbol{\omega } \cdot \boldsymbol{\omega } = \omega _{1} ^2 + \omega _{2} ^2 + \omega _{3} ^2 = \omega _{x} ^2 + \omega _{y} ^2 + \omega _{z} ^2 = \dot{\phi } ^2 + \dot{\theta } ^2 + \dot{\psi } ^2 + 2\dot{\phi } \dot{\psi } \cos \theta 
+\end{equation}
+
+is an invariant under coordinates transformation as any scalar properties like mass, Lagrangian, or Hamiltonian should.
+
+The advantage of working in the body-fixed coordinates is that the inertia tensor is diagonal, which greatly simplifies the work needed in expressing the kinetic energy as
+
+\begin{equation}
+	T_{rot} = \frac{1}{2} (I_1(\dot{\phi } \sin \theta \sin \psi + \dot{\theta } \cos \psi )^2 + I_2(\dot{\phi } \sin \theta \cos \psi -\dot{\theta } \sin \psi )^2) + I_3(\dot{\phi } \cos \theta + \dot{\psi } )^2).
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Lagrangian mechanics}
+\subsection{Constraints}
+If the conditions of constraint can be expressed as equations in the form 
+
+\begin{equation}
+	f(\vb{r} _{1} , \vb{r} _{2} , \vb{r} _{3} , ..., t) = 0,
+\end{equation}
+
+then the constraints are said to be holonomic. For example, the constraint for a rigid body is that the distance of any two points in the body is fixed, \ie 
+
+\begin{equation}
+	\left| \vb{r} _{i} - \vb{r} _{j}  \right| = c_{ij} .
+\end{equation}
+
+With Cartesian coordinates, there are initially \(3N\) degrees of freedom thus \(3N\) independent equations. If there are \(k\) holonomic constraints, then we can use them to eliminate variables and solve for the \(3N\) variables as well as the \(k\) constraint forces. In another viewpoint, we can introduce \(3N - k\) independent variables (also known as generalized coordinates \footnote{In some sense, generalized coordinates are just the minimum numbers of variables which can satisfy the whole system.} ) \(q_{1} , q_{2}, ...,q_{3N - k} \) in terms of the old coordinates \(\vb{r} _{1} , \vb{r} _{2} , ..., \vb{r} _{N} \) and time.  
+
+In contrary, a constraint on the particle's motion that cannot be expressed in the above form is called a nonholonomic constraint. For example, consider a disk with radius \(a\) rolling on the horizontal \(x-y\) plane such that the plane of the disk is always vertical. In addition to the \(x \text{ and }  y\) coordinates, we use \(\theta \) to specify the angle between the axis of the disk and the \(x\) axis and \(\phi \) to denote the angle of rotation about the axis of the disk. The constraint in this case is that the relative velocity of the contact point between the disk and the plane must be zero, \ie 
+
+\begin{equation}
+\begin{aligned}
+	(\dot{x} \vu{x} + \dot{y} \vu{y} ) + \dot{\phi } (\cos \theta \vu{x} + \sin \theta \vu{y} ) \cross (-a\vu{z} ) &= 0 \\
+	(\dot{x} \vu{x} + \dot{y} \vu{y} ) + a\dot{\phi } \cos \theta \vu{y} - a\dot{\phi } \sin \theta \vu{x} &= 0 \\
+	(\vb{x} - a\dot{\phi } \sin \theta) \vu{x} + (\vb{y} + a\dot{\phi } \cos \theta)\vu{y} &= 0 \\
+	\vb{x} = a\dot{\phi } \sin \theta ~~~~\text{ and }~~~~ \vb{y} = -a\dot{\phi } \cos \theta.
+\end{aligned}
+\end{equation}
+
+However, neither of these equations can be integrated without first solving the problem itself, so there are nonholonomic.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{appendices}
+\chapter{Rigid Body Mechanics} 
+\section{Chasles' Theorem} \label{ap1}
+
+We begin by considering two masses \(m_{1} \text{ and }  m_{2} \) located at \(\vb{r} _{1} \text{ and } \vb{r} _{2}  \) respectively connected by a thin, rigid and massless rod. 
+
+The ``rigid body condition'' is that the distance between the two masses remained unchanged, \ie 
+
+\begin{equation}
+\begin{aligned}
+	d(\left| \vb{r} _{1} - \vb{r} _{2}  \right| ) &= 0 \\
+	\left| \vb{r} _{1} - \vb{r} _{2}  \right| &= c \\
+	\left| \vb{r} _{1} - \vb{r} _{2}  \right| ^2 = (\vb{r} _{1} - \vb{r} _{2} ) \cdot (\vb{r} _{1} -\vb{r} _{2} ) &= c^2 \\
+	d((\vb{r} _{1} - \vb{r} _{2} ) \cdot (\vb{r} _{1} -\vb{r} _{2} ))& = 2(\vb{r} _{1} - \vb{r} _{2} ) \cdot d(\vb{r} _{1} - \vb{r} _{2} ) = 0\\
+	d\vb{r} _{1} = d\vb{r} _{2} &\text { or } (d\vb{r} _{1} - d\vb{r} _{2} ) \perp (\vb{r} _{1} - \vb{r} _{2} ) 
+\end{aligned}
+\end{equation}
+
+Now since \(d\vb{r} '_{1} = d\vb{r} _{1} - d\vb{\vb{R} } = (\frac{m_{2} }{m_{1} + m_{2} }) (d\vb{r} _{1} - d\vb{r} _{2} ) \text{ and }  d\vb{r} '_{2} = d\vb{r} _{2} - d\vb{R} = -(\frac{m_{1} }{m_{1} + m_{2} } )(d\vb{r} _{1} - d\vb{r} _{2} )\), so when \(d\vb{r} _{1} = d\vb{r} _{2} \) in the first case, it means that the body undergo pure translation without rotating. And the second case corresponds to a case of translation plus rotation since 
+
+\begin{enumerate}
+	\item \(d\vb{r}'_{1} \perp (\vb{r} _{1} - \vb{r} _{2} ) \) :
+		\begin{equation}
+			d\vb{r} '_{1} \cdot (\vb{r} _{1} -\vb{r} _{2} ) = (\frac{m_{2} }{m_{1} + m_{2} } )(d\vb{r} _{1} - d\vb{r} _{2} )\cdot (\vb{r} _{1} - \vb{r} _{2} ) = 0
+		\end{equation}
+	\item \(d\vb{r} '_{2} \perp (\vb{r} _{1} - r_{2} )\) : the proof is the same as above
+	\item \(\frac{d\vb{r} '_{1} }{r'_{1} } = -\frac{d\vb{r} '_{2} }{r'_{2} } \) : 
+		\begin{equation}
+			\frac{d\vb{r} '_{1} }{r'_{1} } = (\frac{m_{2} }{m_{1} + m_{2} } )\frac{(d\vb{r} _{1} - d\vb{r} _{2} )}{r'_{1} } = (\frac{m_{1} }{m_{1} + m_{2} } )\frac{(d\vb{r} _{1} -\vb{r} _{2} )}{r'_{2} } = -\frac{d\vb{r} '_{2} }{r'_{2} } .
+		\end{equation}		
+\end{enumerate}
+
+\section{Noncommutability of finite rotations} \label{ap2}
+\cref{av}  illustrates the essence of the general proof of this fact, where we consider the rotation of the position vector \(\vb{r} = r \vu{i}  \) through an angle \(\alpha \) about the \(z\) axis and \(\beta \) about the \(y\) axis but in different order. Rotating about \(z\) axis by an angle \(\alpha \), \(\vu{i} \) becomes \(\cos \alpha \vu{i} + \sin \alpha \vu{j} \) while rotating about \(y\) axis by an angle \(\beta \), \(\vu{i} \) becomes \(\cos \beta \vu{i} - \sin \beta \vu{k} \), so
+\twofig{av1}{width=\textwidth}{av2}{width=\textwidth}{av} 
+
+\begin{equation}
+\begin{aligned}
+	\vb{r} _{\alpha \beta } &= r\cos \alpha (\cos \beta \vu{i} - \sin \beta \vu{k} ) + r\sin \alpha \vu{j} = r\cos \alpha \cos \beta \vu{i} + r\sin \alpha \vu{j} - r\cos \alpha \sin \beta \vu{k} \\
+	\text{ and } \vb{r} _{\beta \alpha } &= r\cos \alpha \cos \beta \vu{i} + r\cos \beta \sin \alpha \vu{j} - r\sin \beta \vu{k} .
+\end{aligned}
+\end{equation}
+
+It is evident that while finite size of \(\alpha  \text{ and } \beta \) would result in a difference between  \(\vb{r} _{\alpha \beta  } \text{ and } \vb{r} _{\beta \alpha } \), but if we take the limit \(\alpha \ll 1 \text{ and } \beta \ll 1 \), then \(\vb{r} _{\alpha \beta } = \vb{r} _{\beta \alpha } \) and the angular displacement vector \(\Delta \boldsymbol{\theta }  = \Delta \alpha \vu{k} +\Delta  \beta  \vu{j} \) is well defined. In particular, the displacement of \(\vb{r} \) is 
+
+\begin{equation}
+	\Delta \vb{r} = \vb{r} _{\alpha  \beta } - \vb{r}  = \vb{r} _{\beta \alpha } - \vb{r}   = r\alpha \vu{j} - r\beta \vu{k}  = \Delta \boldsymbol{\theta } \cross \vb{r} .
+\end{equation}
+
+The linear velocity will then be
+
+\begin{equation}
+	\vb{v} = \lim_{\Delta  t\to_0} \frac{\Delta \vb{r} }{\Delta t} = \lim_{\Delta t\to_0} \frac{\Delta \boldsymbol{\theta } \cross \vb{r} }{\Delta t} = \boldsymbol{\omega } \cross \vb{r} .    
+\end{equation}
+
+where the angular velocity vector \(\boldsymbol{\omega } \) is defined as 
+
+\begin{equation}
+	\boldsymbol{\omega } = \lim_{\Delta t\to 0} \frac{\Delta \theta }{\Delta t} 
+\end{equation}
+
+In this case, \(\boldsymbol{\omega } = \dv{\beta }{t} \vu{j} + \dv{\alpha }{t} \vu{k} \). 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{appendices}
+\end{document}
