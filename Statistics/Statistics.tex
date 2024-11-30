@@ -1,0 +1,75 @@
+\documentclass[english,a4paper,12pt]{report}
+\usepackage{mypackage}
+
+\title{Statistics}
+
+\author{Haydn Cheng}
+
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+    
+\chapter{Statistics}
+		
+\section{Standard Deviation}
+
+For a set of data which contains of \(N\) distinct values \(j_1, j_2 \cdots j_i \cdots j_N\) and each with frequency \(f_1, f_2 \cdots f_i \cdots f_N\), we can define \(P_i = \frac{f_i}{\sum_{i=1}^{N} f_i}\) as the probability of selecting the data \(j_i\), then the average value of any function \(g(j)\) can be written as 
+	
+\begin{equation}
+	 \avg{g(j)}  = \frac{f_1 g(j_1) + f_2 g(j_2) + \cdots + f_N g(j_N)}{f_1 + f_2 + \cdots + f_N} = \sum_{i=0}^{N} P_j g(j_i). \label{prob} 
+\end{equation}
+	
+To measure the dispersion of the set of data, the most intuitive way is to calculate the average of difference between each data and the mean
+
+\begin{equation} 
+	\sigma' = \frac{f_1(j_1 - \avg{ j }) + f_2(j_2 - \avg{ j }) + \cdots + f_N(j_N - \avg{ j })}{f_1 + f_2 + \cdots + f_N}. \label{abc} 
+\end{equation}
+
+However, \(\sigma'\) always equals to zero since \(\sum_{i=1}^{N} f_i j_i = \avg{ j } \sum_{i=1}^{N} f_i \). So, either we take the absolute value of each term or we square each term in \cref{abc} such that the result is non trivial. We adopt the latter choice since the former is tedious. We introduce the quantity standard deviation \(\sigma\) defined by
+
+\begin{equation} 
+	\sigma^2 = \frac{f_1(j_1 - \avg{ j })^2 + f_2(j_2 - \avg{ j })^2 + \cdots + f_N(j_N - \avg{ j })^2}{f_1 + f_2 + \cdots + f_N} = \sum_{i=0}^{N} P_j (j_i - \avg{ j })^2. \label{sigma} 
+\end{equation}
+
+Note that \(\sigma\) in \cref{sigma} is squared so that the standard deviation has the same dimension as \(j\).
+
+By expanding the bracket in \cref{sigma} and applying \cref{prob}, we have
+
+\begin{equation} 
+	\begin{aligned} 
+		\sigma^2 &= \sum_{i=1}^{N} P_i (j_i^2 - 2j_i\avg{ j } + \avg{ j }^2) \\ &= \sum_{i=1}^{N} (j_i)^2 P_i - 2 \avg{ j } \sum_{i=1}^{N} (j_i) P_i + \avg{ j }^2 \sum_{i=1}^{N} P_i \\ &= \avg{ j^2 } - 2\avg{ j } \avg{ j } + \avg{ j }^2 = \avg{ j^2 } - \avg{ j }^2. 
+	\end{aligned} 
+\end{equation}
+
+Therefore, we have the useful identity
+
+\begin{equation} 
+	\sigma = \sqrt{\avg{ j^2 } - \avg{ j }^2}. 
+\end{equation}
+	
+\section{Probability Density Function}
+	
+When we consider continuous variable, the probability of obtaining a certain value becomes meaningless now as there are infinite choices now so we define the probability density function \(\rho(x)\) such that the probability of obtaining a value between \(x\) and \(x + dx\) equals to \(\rho(x)dx\). Therefore, just like the previous section, we have the relations
+	
+\begin{equation} 
+	\int_{-\infty}^{+\infty} \rho(x)dx = 1 
+\end{equation}
+	
+and 
+	
+\begin{equation} 
+	\avg{ f(x) } = \int_{-\infty}^{+\infty} f(x)\rho(x) dx 
+\end{equation}
+	
+\example{Griffith(3rd ed.) Example 1.2}
+{Consider an object being released at height \(h\). Find the average distance \(\avg{x}\) from the point of release if a random instant is chosen.}
+{Let \(\rho(x)dx\) be the probability of a random instant being located between \(x\) and \(x + dx\) which is equals to \(\frac{dt}{T}\). Since \(v = \dv{x}{t} = gt\) and \(T = \sqrt{\frac{2h}{g}}\), so we have \(\rho(x) = \frac{1}{2\sqrt{hx}}\).\(\avg{x}\) can then be obtained from straightforward integration 
+\begin{equation} 
+	\avg{x} = \int_{0}^{h} \frac{x}{2\sqrt{hx}} dx = \frac{h}{3}
+\end{equation}}
+
+
+
+\end{document}

@@ -88,8 +88,12 @@ is an invariant (does not depend on which reference frame you are measuring it f
 There are 3 possible signs for \((\Delta s)^2\):
 
 \begin{enumerate}
-    \item \((\Delta s)^2 > 0 \implies \abs{\frac{x}{t} } < c \): We can always possible to find a frame \(S'\) in which the two events happen at the same place, since \(\Delta x' = \gamma (\Delta x - v\Delta t)\) can be equals to zero. This implies that it is possible for an object to travel from one event to the other.
-    \item \((\Delta s)^2 < 0 \implies \abs{\frac{x}{t} } > c \): 
+    \item \((\Delta s)^2 > 0 \implies \abs{\frac{x}{t} } < c \) (timelike separation): We can always find a frame \(S'\) in which the two events happen at the same place, since \(\Delta x' = \gamma (\Delta x - v\Delta t)\) can be equals to zero. This implies that it is possible for an object to travel from one event to the other. 
+    In this case, the invariatn interval \(\Delta s\) is equals to the proper time \(\tau \), since \(\Delta x = \Delta y = \Delta z\) in the frame \(S'\) where the two events happen at the same place.    
+    \item \((\Delta s)^2 < 0 \implies \abs{\frac{x}{t} } > c \) (spacelike separation): We can always find a frame \(S'\) in which the two events happen at the same time, since \(\Delta t' = \gamma (\Delta t - v\Delta x)\) can be equals to zero.
+    Now the invariant interval \(\Delta s\) is no longer proper time, since there is no frame in which the two events happen in the same place. 
+    The invariant interval \(\Delta s\) is now the negative of proper length, since \(\Delta t = 0\) in the frame \(S'\) where the two events happen at the same time.
+    \item \((\Delta s)^2 = 0 \implies \abs{\frac{x}{t} } = c \) (lightlike separation): It is not possible to find a frame \(S'\) in which the two events happen at the same place or the same time. However, a hpoton emitted at one of the events will arrive at the other in every frame.       
 \end{enumerate}
 
 
@@ -198,8 +202,10 @@ which is the correct transformation for the first component of \(C\) under Loren
 The inner product of two 4-vectors \(A \text { and } B\) are defined as 
 
 \begin{equation}
-    A \cdot B \equiv A_0 B_0 - A_1 B_1  - A_2 B_2 - A_3 B_3.
+    \sum_{\mu} A ^{\mu }B _{\mu } \equiv A ^{\mu } B _{\mu}  \equiv  \vb{A}  \cdot B  \equiv A_0 B_0 - A_1 B_1  - A_2 B_2 - A_3 B_3,
 \end{equation}
+
+where \(\vb{P} _{\mu } = (\text{diag}(1,-1,-1,-1) \vb{p} ^{\mu }  )^T \).  
 
 It can be shown (by direct substitution) that the inner product is an invariant. This invariance under Lorentz Transformation (by multiplying the Lorentz matrix) is analogous to the invariance of the scalar (dot) product \(\vb{A} \cdot \vb{B} = \abs{A}\abs{B}\cos \theta   \) under rotations (by multiplying the rotational matrix) in 3-space (since neither \(\abs{\vb{A} }, \abs{\vb{B} }   \) nor \(\theta \) is affected by rotation ). 
 
@@ -365,13 +371,143 @@ By conservation of energy and momentum,
 Again, the energy-momentum vector introduce no new physics, it simply write the conservation laws in a way that help simplify the algebra using the ``norm squared equals mass'' property.
 } 
 
-The only non-trivial property of the energy-momentum vector is that since the sum of the energy-momentum 4-vectors of a collection of particles is also a 4-vector due to linearity, 
+The only non-trivial property of the energy-momentum vector is that since the sum of the energy-momentum 4-vectors of a collection of particles is also a 4-vector due to linearity, the norm squared of this 4-vector
 
 \begin{equation}
     \left( \sum_{}^{} P \right)^2 = \left( \sum_{}^{} E \right) ^2 - \left( \sum_{}^{} \vb{p}   \right) ^2 
 \end{equation}
 
 is also an invariant. Note that the sums are taken before squaring in the above equation. If we sqaure before the addition it would simply give the sum of the squares of the masses (which of course is also an invariant but is trivial why).
+
+\example{Threshold Kinetic Energy}{What is the threshold kinectic energy in lab frame for production of an electron pair by collision of an incident electrron with mass \(m_{e} \) with a stationary electron? }
+{Since \(\sum \vb{p}_{\text{c.m.}}  =0 \text { and } \sum E_{\text{c.m.}} = \sum \gamma _{\text{c.m.}}m  \), the kinetic energy in center of mass frame is minimized if \(\gamma _{i} = 0 ~~\forall~ i \). 
+
+Using the subscript ``lab'' and ``c.m.'' to distinguish the lab frame and the center of mass frame; primed and unprimed to distinguish the quanitity before or after collision, we have 4 equal quantities:
+
+The norm squared of the sum of the energy-momentum 4-vectors of all the particles in the center of mass frame after the collision as 
+
+\begin{equation}
+    \left( \sum P_{\text{c.m.}}' \right)^2 = \left( \sum_{}^{} E_{\text{c.m.}}'  \right) ^2 - \left( \sum_{}^{} \vb{p}_{\text{c.m.}}'    \right) ^2  = \left( \sum m \right)^2 = 4 m_{e}^2,
+\end{equation}
+
+which must be equals to the normed squared of the sum of the energy-momentum 4-vectors of all the particles in the lab frame after the collsion on the other hand is due to 4-vector property
+
+\begin{equation}
+    \left(\sum P_{\text{lab} }' \right)^2 = \left(\sum E_{\text{lab} }'\right)^2 - \left( \sum \vb{p} _{\text{lab} }' \right)^2 \text{(not important)},
+\end{equation}
+
+which must be equals to the normed squared of the sum of the energy-momentum 4-vectors of all the particles in the lab frame before the collsion due to energy and momentum conservation
+
+\begin{equation}
+    \left(\sum P_{\text{lab} } \right)^2 = \left(\sum E_{\text{lab} }\right)^2 - \left( \sum \vb{p} _{\text{lab} } \right)^2 = (E+m_{e} )^2 - p^2 = (E+m_{e} )^2 - E^2 + m_{e}^2. 
+\end{equation}
+
+which must be equals to the normed squared of the sum of the energy-momentum 4-vectors of all the particles in the center of mass frame before the collsion due to 4-vector property
+
+\begin{equation}
+    \left(\sum P_{\text{c.m.} } \right)^2 = \left(\sum E_{\text{c.m.} }\right)^2 - \left( \sum \vb{p} _{\text{c.m.} } \right)^2 \text{(not important)}. 
+\end{equation}
+
+Alternatively, we can use the lorentz transformation of the energy-momentum 4-vectors. Here there is only one \(\gamma ~(\text {or } \beta )\) is important, since the \(\gamma \) of the particle in the center of mass frame is equals to the \(\gamma \) of the center of mass frame relative to the lab frame, as one of the electron is originally at rest.   
+
+In the center of mass frame before the collision, we have 
+
+\begin{equation}
+    \sum P_{\text{c.m.} }  = \begin{pmatrix}
+         2\gamma  m_{e}  \\
+         0 \\
+    \end{pmatrix}.
+\end{equation}
+
+Boosting into the lab frame before the collision, we have
+
+\begin{equation}
+    \sum P_{\text{lab} } = \begin{pmatrix}
+         2 m_{e} \gamma^2   \\
+         -2 m_{e} \gamma\beta  \\
+    \end{pmatrix}.
+\end{equation}
+
+By conservation of energy and momentum, we have
+
+\begin{equation}
+    \sum P_{\text{lab}}' = \begin{pmatrix}
+         2 m_{e} \gamma ^2 \\
+         -2 m_{e} \gamma \beta  \\
+    \end{pmatrix}. 
+\end{equation}
+
+Boosting into the center of mass frame after the collision, we have
+
+\begin{equation}
+    \sum P_{\text{c.m.} }' = \begin{pmatrix}
+         2 m_{e} \gamma  \\
+         0 \\
+    \end{pmatrix}.
+\end{equation}
+
+However, we also know that in the center of mass frame all the particles are at rest, so 
+
+\begin{equation}
+    \sum P_{\text{c.m.} }' = \begin{pmatrix}
+         4 m_{e}  \\
+         0 \\
+    \end{pmatrix}.
+\end{equation}
+
+Threrfore we have \(\gamma = 2\).
+
+Both methods yields \(E = 7m_{e} \implies K.E. = 6m_{e} \). 
+}
+
+\example{Photon Emission}
+{Show that a free electron moving in a vacuum cannot emit a single photon.}
+{An incomplete approach would be to write down the energy and momentum conservation laws in the lab frame, since the the direction of photon emission need not be the same with the direction in which the electron is originally moving. Working in the center of mass frame, we have
+
+\begin{equation}
+    \begin{pmatrix}
+         m_{e}  \\
+         0  \\
+    \end{pmatrix} = \begin{pmatrix}
+         \gamma m_{e}  \\
+         \gamma \beta m_{e}  \\
+    \end{pmatrix} + \begin{pmatrix}
+         E_{p}  \\
+         E_{p}  \\
+    \end{pmatrix}. 
+\end{equation}
+
+The only solution is that \(\gamma = 1, E_{p}=0, \beta = 0\), which means that there is no emission of photon.
+
+} 
+
+\example{Decay of an Atom}{An atom in an excited state of energy \(Q_0 \) (as measured in its rest frame) above the ground state is moving with velocity \(v\) as observed from the lab frame. The atom decays to its ground state by emitting a photon of energy \(Q\) and comes completely at rest. Find \(Q\) if the mass of the atom is \(M\).}
+{Comparing the norm squared of the energy-momentum 4-vector between the center of mass frame before the decay and the lab frame after the decay, we have
+
+\begin{equation}
+    \left( \sum P \right)^2 = (Q_0 + M)^2 = (M + Q)^2 - Q^2 \implies Q = Q_0 \left( 1 + \frac{Q_0 }{2Mc^2} \right).
+\end{equation}
+
+Alternatively, we have
+
+\begin{equation}
+    \begin{pmatrix}
+         Q_0 + M \\
+         0 \\
+    \end{pmatrix}_{\text{c.m.} }  \rightarrow \begin{pmatrix}
+         \gamma (Q_0 + M) \\
+         v \gamma (Q_0 + M) \\
+    \end{pmatrix}_{\text{lab} } = \begin{pmatrix}
+         Q + M \\
+         Q \\
+    \end{pmatrix}'_{\text{lab} }.
+\end{equation}
+
+Therfore, we have \(\gamma = \frac{Q+M}{Q_0 + M} \text { and } v\gamma = \frac{Q}{Q_0 + M}\). Using the identity \(\gamma ^2- \beta ^2\gamma ^2 = 1\), we get the same result \(Q = Q_0 \left( 1 + \frac{Q_0 }{2Mc^2} \right)\).
+
+The important point here to note is the the internal energy \(Q_0 \) is added to \(M\) are transformed together, thus internal energy is equivalent to mass.  
+} 
+
 
 
 \section{Force}
