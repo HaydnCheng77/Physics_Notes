@@ -2694,6 +2694,20 @@ as one can easily see by trying out random numbers.
 
 
 \begin{appendices}
+\chapter{Basic Definition}
+
+Here we will formally define set, group, field and vector space.
+
+\begin{enumerate}
+\item  *A set is a collection of mathematical objects.
+
+\item  A set \( G \) with a binary operation that combines two elements in the set to yield another element in the set is called a group. Mathematically this can be written as \( G \times G \to G \). This operation has to have certain properties (also called the axioms), and together with the set these constitute the algebraic structure of the group. Specifically, for a group these are closure, associativity, the existence of an identity element, and the existence of inverse elements. If the operation also commutes (\ie  it does not depend on the order in which the elements are written in the operation), then the group is said to be a commutative or an Abelian group.
+
+\item  A set with two binary operations of addition and multiplication is called a field \( F \). These must satisfy six field axioms, namely associativity, commutativity, the existence of additive and multiplicative identity, and the existence of additive and multiplicative inverses, as well as distributivity. We see the complexity of the structure is increasing; in particular, we note that a field is an Abelian group under both addition and multiplication, the two being connected via the requirement of distributivity. Note that the set of rationals \( \mathbb{Q} \), real numbers \( \mathbb{R} \), and complex numbers \( \mathbb{C} \) are all fields, but the set of integers \( \mathbb{Z} \) is not a field as the multiplicative inverse of every integer is not necessarily another integer (e.g., the multiplicative inverse of \( 2 \) is \( 1/2 \), not an integer). The integers are, instead, a ring. Rings generalize fields: they too have two operations, but multiplication does not have to be commutative, and multiplicative inverses need not exist.
+
+\item  A vector space over a field \( F \) is a set \( V \) together with two binary operations: vector addition \( (V \times V \to V) \) and scalar multiplication \( (V \times F \to V) \). Note the difference with the definition of a field: the notion of multiplication between vectors is not part of the fundamental algebraic structure of a vector space. In fact, as we know there are multiple ways to multiply vectors, and the multiplicative inverse (\ie  vector division) is not defined. The elements of the field are called scalars to distinguish them from the elements of the vector space (vectors), and because the definition of multiplication acts to scale the vectors. We will typically be interested in vector spaces defined over \( \mathbb{R} \): this is called a real vector space. Eight axioms must be satisfied for the operations permitted on a vector space: associativity and commutativity of addition, the existence of identity elements for addition and scalar multiplication, the existence of additive inverses, compatibility of scalar multiplication with respect to field addition, and compatibility of scalar and field multiplication.
+\end{enumerate}
+
 \chapter{Rigorous Proofs}
 
 \section{A Sub Vector Space is a Vector Space} \label{subvectorvector} 

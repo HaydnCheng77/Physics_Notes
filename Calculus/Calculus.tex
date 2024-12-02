@@ -1214,6 +1214,39 @@ The second way is to sum up all the vertical strips, then
 
 where \(y_1 (x) \text { and } y_2 (x)\) are the equations of the curves \(STU \text { and } SVU\) respectively.   
 
+A useful trick invovle Pappus' second theorem, which states that the surface of revolution of a plance curve is given by the length of the curve \(L\) multiplied by the distance moved by its centroid, since the suface area generated is given by \(S = \int 2\pi y ds = 2 \pi \overline{y} L\), where \(\overline{y} = \frac{1}{L} \int y ds \) is the definition of the centroid. 
+
+\section{Volume Integrals}
+
+\example{Volume of a Tetrahedron}
+{Find the volume of the tetrahedron bounded by the three coordinate surfaces \(x=0, y=0 \text { and }  z=0\) and the plane \(\frac{x}{a} + \frac{y}{b} + \frac{z}{c} =1\) as shown in \cref{tetrahedron}
+\onefig{tetrahedron}{scale=0.3} }
+{\(V = \int_{0}^{a} \int_{0}^{b-\frac{bx}{a} } \int_{0}^{c(1-\frac{y}{b} - \frac{x}{a}  )} dxdydz\). The limit of integral over \(z\) can be obtained as integration over \(z\) adds up the boxeds frmo the shaded column in the figure. A quicker way is to simply sum up all the vertical columns as \(V = \int_{0}^{a} \int_{0}^{b-\frac{bx}{a} dy c \left( a-\frac{y}{b} - \frac{x}{a}\right)}\) which skips the step of integration over \(z\) as it is trivial. The result is \(V = \frac{abc}{6} \). } 
+
+
+A useful trick invovle Pappus' first theorem, which states that the volume of revolution of a plance surface is given by the area of the surface \(A\) multiplied by the distance moved by its centroid, since the suface area generated is given by \(S = \int 2\pi y dA = 2 \pi \overline{y} A\), where \(\overline{y} = \frac{1}{A} \int y dA \) is the definition of the centroid. 
+
+\section{Chnage of Variables}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \begin{appendices}
 \chapter{Rigorous Proofs}
 \section{Leibnitz' Theorem} \label{leibnitzapp} 
