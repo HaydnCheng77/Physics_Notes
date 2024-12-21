@@ -68,7 +68,7 @@ and therfore the charge density is zero and any unbalanced charge resides on the
 
 \subsection{The General Definition}
 
-Consider a region of space in which an electromagnetic field is present. In the most general sense, any closed path \(C\) (or loop) within this region will be called a ``circuit'' (which need not consist of a real conducting wire or energy sources). We arbitrarily assign a positive direction of traversing the loop \(C\) (which determines the direction of the normal vector (or the area vector \(\vb{a} \)\footnote{We use \(\vb{a} \) instead of \(\vb{A} \) to denote the area vector to avoid confusoin with the magnetic potential \(\vb{A} \)}) of \(C\)), and we consider an element \(d \vb{l} \) of \(C\) oriented in the positive direction. 
+Consider a region of space in which an electromagnetic field is present. In the most general sense, any closed path \(C\) (or loop) within this region will be called a ``circuit'' (which need not consist of a real conducting wire or energy sources). We arbitrarily assign a positive direction of traversing the loop \(C\) (which determines the direction of the normal vector (or the area vector \(\vb{S} \) of \(C\)), and we consider an element \(d \vb{l} \) of \(C\) oriented in the positive direction. 
 
 \begin{center}
     \begin{tikzpicture}
@@ -306,13 +306,13 @@ We have shown that a changing magnetic field would ``induce'' an electric field.
 Suppose you have two loops of wire, with current \(I_1 \text { and } I_2 \) producing magnetic field \(\vb{B} _{1} \text { and } \vb{B} _{2}\) respectively. From Biot-Savart law \(\vb{B} _{1} = \frac{\mu _{0} }{4\pi } I_1 \oint_{C}\frac{d \vb{l} \cross \hrcurs }{\rcurs ^2 }   \), we can easily see that the magnetic field is proportional to the current \(I_1 \), so is the flux through loop 2 
 
 \begin{equation} \label{Phi2} 
-    \Phi _{21} = \oint_{\mathcal{S}} \vb{B} _{1} \cdot d\vb{a} = M_{21} I_1 ,    
+    \Phi _{21} = \oint_{S} \vb{B} _{1} \cdot d\vb{S} = M_{21} I_1 ,    
 \end{equation}
 
 where \(M_{21} \) is the constant of proportionality, known as the mutual inductance of the two loops (since, as we will see, \(M_{12} = M_{21}  \)). In fact, it can be found explicitly by
 
 \begin{equation}
-    \Phi _{21} = \oint_{\mathcal{S}} \vb{B} _{1} \cdot d \vb{A} _{2} = \oint_{\mathcal{S}} (\curl{\vb{A} _{1} }  ) \cdot d\vb{a} _{2} = \oint_{C_2 } \vb{A} _{1} \cdot d \vb{l} _{2} = \oint_{C_2 } \frac{\mu _{0} I_1  }{4\pi }\oint_{C_1 } \frac{d \vb{l} _{1} d \vb{l} _{2}  }{\rcurs },            
+    \Phi _{21} = \oint_{S} \vb{B} _{1} \cdot d \vb{S} _{2} = \oint_{S} (\curl{\vb{A} _{1} }  ) \cdot d\vb{S} _{2} = \oint_{C_2 } \vb{A} _{1} \cdot d \vb{l} _{2} = \oint_{C_2 } \frac{\mu _{0} I_1  }{4\pi }\oint_{C_1 } \frac{d \vb{l} _{1} d \vb{l} _{2}  }{\rcurs },            
 \end{equation}
 
 so evidently

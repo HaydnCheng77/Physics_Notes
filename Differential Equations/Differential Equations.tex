@@ -576,7 +576,7 @@ where the integration constant is omitted since it would just give the original 
 
 \subsection{Finding the First Solution}
 
-There is no better method than guessing for finding the first solution. If the coefficient funcions \(a(x) \text { and } b(x)\) are polynomials, the following order of guessing is recommended: \(e^{\lambda x} \rightarrow x^{n} \rightarrow c_1 x + c_2 x^2+ \cdots + c_{n-1} x^{n-1} + x^{n} \rightarrow (c_1 x + c_2 x^2+ \cdots + c_{n-1} x^{n-1} + x^{n})e^{\lambda x}\).  
+There is no better method than guessing for finding the first solution. If the coefficient funcions of a \(n^{\text{th }} \) order differential equation are  \(a(x) \text { and } b(x)\) are polynomials, the following order of guessing is recommended: \(e^{\lambda x} \rightarrow x^{n} \rightarrow c_1 x + c_2 x^2+ \cdots + c_{n-1} x^{n-1} + x^{n} \rightarrow (c_1 x + c_2 x^2+ \cdots + c_{n-1} x^{n-1} + x^{n})e^{\lambda x} \rightarrow x^{r} \).  
 
 \section{Linear Constant Coefficients}
 
@@ -694,7 +694,7 @@ Taking the real part and combinnig the homogeneous and inhomogeneous solution, w
     y = y_{H} + y_{P} = e^{-\frac{\gamma }{2}t } ((Ae^{ \sqrt{\gamma ^2 - \omega _{0}^2 } t } + Be^{ \sqrt{\gamma ^2 - \omega _{0}^2 } t } )) + \frac{F_0 }{\sqrt{4\gamma ^2\omega ^2+ (\omega _{0}^2 - \omega ^2 )^2} } \cos  (\omega t+\varphi ).
 \end{equation}
 
-If The driving force is not a pure \(\cos \) function, then simply add a term \(e^{i \delta } \) after \(F_0 \), or add a tilda symbol on \(F_0 \) as \(\tilde{F_0 } \) to account for the phase difference. 
+If the driving force is not a pure \(\cos \) function, then simply add a term \(e^{i \delta } \) after \(F_0 \), or add a tilda symbol on \(F_0 \) as \(\tilde{F_0 } \) to account for the phase difference. 
 
 This is not the complete solution though. We have to still consider the case where (\(i\) times)  the driving frequency (\(i \omega \)) is the same as the root the characteristic equation (\(\lambda _{+} \text { or } \lambda _{-}  \)). Because if we proceed as normal, we get
 
@@ -725,7 +725,7 @@ for both \(\omega = + \omega _{0} \text { and } \omega = - \omega _{0} \)\footno
 The resonance frequency is defined to be the driving frequency at which the response has maximum amplitiude. We can find the resonance frequency by differentiating the amplitude with respect to frequency, and we have\footnote{If the response we are interested is velocity or (current in electricity analogy), then the resonance frequency will be the natural frequency}
 
 \begin{equation}
-    \omega _{r} = \sqrt{\omega _{0}^2 - 4\gamma ^2 }.
+    \omega _{r} = \sqrt{\omega _{0}^2 - 2\gamma ^2 }.
 \end{equation}
 
 } 

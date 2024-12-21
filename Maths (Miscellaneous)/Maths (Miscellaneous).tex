@@ -1,0 +1,289 @@
+\documentclass[english,a4paper,12pt]{report}
+\usepackage{mypackage}
+
+\title{Maths (Miscellaneous)}
+
+\author{Haydn Cheng}
+
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\chapter{Complex Numbers}
+
+A complex number is most conveniently thought of as a vector with the \(x\)-axis replaced by the real axis with unit vector \(1\) and the \(y\)-axis replaced by the imaginary axis with unit vector \(i = \sqrt{-1} \). An arbitrary vector can then be represented in polar form or Cartesian form
+
+\begin{equation}
+	z = re^{i \theta } = x + iy, 
+\end{equation}
+
+where \(r = \abs{z} = \sqrt{x^2 + y^2} \text { and } \theta = \arg (z) = \arctan {\frac{y}{x} }\) runs from \(-\pi \) to \(\pi \). 
+
+In particular, if \(r=1\), then it is easy to show that 
+
+\begin{equation}
+	e^{i \theta } = \cos \theta + i\sin \theta ,
+\end{equation}
+
+since we simply decompose a complex number (vector) into its components. This equation can also be verified using the Taylors' expansion of the exponential, sine and cosine function.
+
+Raising both sides of the above equation to the power \(n\), we have
+
+\begin{equation}
+	(\cos \theta + i \sin \theta )^{n} = e^{i n \theta } = \cos (n \theta ) + i \sin (n \theta ).
+\end{equation}
+
+Using the polar form, it is trivial to derive the relations
+
+\begin{equation}
+	\abs{z_1 z_2 } = \abs{z_1 }\abs{z_2 } \text { and } \arg (z_1 z_2 ) = \arg (z_1 ) + \arg (z_2 ).
+\end{equation}
+
+Hence multiplying two complex numbers(vectors) together can be thought separately as two process. First, the modulus(length) of the new complex number(vector) is the product of the modulus(length) of the two complex numbers(vectors). Second, the argument of the new complex number(vector) is the sum of the arguments of the two complex numbers(vectors).
+
+The complex conjugate of a complex number is defined as 
+
+\begin{equation}
+	z^* = x-iy = re^{-i \theta }.
+\end{equation}
+
+For complex number with a more complicated form, we simply replace all \(i\)s by \(-i\)s. This follows from the fact that \((z_1 + z_2 )^* = z_1 ^* + z_2 ^*\) and \((z_1 z_2 )^* = z_1 ^* z_2 ^*\).  
+
+Geometrically, we flip the imaginary axis (\(y\)-axis) upside down. Therefore, \(z \text { and } z^*\) are two complex numbers (vectors) reflected about the real axis (\(x\)-axis). Thus we have
+
+\begin{equation}
+	z z^* = \abs{z}^2 
+\end{equation}
+
+
+
+
+The fundamental theorem of algebra states that a \(n^{\text{th }} \) order polynomial equation will have exactly \(n\) roots. 
+
+\chapter{Fourier Series and Integral Transforms}
+
+\section{Fourier Series}
+
+The Fourier series expansion of the function \(f(x)\) with period \(L\) is conventionally written as 
+
+\begin{equation}
+    f(x) = \frac{a_0 }{2} + \sum_{r=1}^{\infty} \left( a_{r} \cos \left( \frac{2\pi rx}{L}  \right) + b_{r} \sin \left( \frac{2\pi rx}{L}  \right)  \right). 
+\end{equation}
+
+All the terms of a Fourier series are mutually orthogonal, \textit{i.e.,} 
+
+\begin{equation}
+    \begin{aligned}
+        \int_{x_0}^{x_0+L} \sin\left(\frac{2\pi r x}{L}\right) \cos\left(\frac{2\pi p x}{L}\right) dx &= 0 \quad \text{for all } r \text{ and } p, \\
+        \int_{x_0}^{x_0+L} \cos\left(\frac{2\pi r x}{L}\right) \cos\left(\frac{2\pi p x}{L}\right) dx &=
+\begin{cases} 
+    0 & \text{for } r = p = 0, \\
+    \frac{L}{2} & \text{for } r = p > 0, \\
+    0 & \text{for } r \neq p,
+\end{cases} \\
+\int_{x_0}^{x_0+L} \sin\left(\frac{2\pi r x}{L}\right) \sin\left(\frac{2\pi p x}{L}\right) dx &=
+\begin{cases} 
+    0 & \text{for } r = p = 0, \\
+    \frac{L}{2} & \text{for } r = p > 0, \\
+    0 & \text{for } r \neq p.
+\end{cases}
+    \end{aligned}
+\end{equation}
+
+Thus, the Fourier coefficient of a certain cosine or sine function with a particular \(r\) can be found by multiplying \(f(x)\) same cosine and sine function and then integrate, which would yield the result \(\frac{a_{r} L}{2} \text { or } \frac{b_{r}L }{2} \). Thus the Fourier coefficients are given by 
+
+\begin{equation}
+    a_{r} = \frac{2}{L} \int_{x_0}^{x_0 + L} f(x) \cos \left( \frac{2\pi rx}{L}  \right) dx \text { and } b_{r} = \frac{2}{L} \int_{x_0 }^{x_0 + L} f(x) \sin \left( \frac{2\pi rx}{L}  \right) dx.   
+\end{equation}
+
+\subsubsection{Symmetry considerations}
+
+Any arbitrary function \(f(x)\) can be decomposed into the sum of an even and an odd function, since
+
+\begin{equation}
+    f(x) = \frac{1}{2}(f(x) + f(-x)) + \frac{1}{2} (f(x) - f(-x)) = f_{\text{odd} }(x) + f_{\text{even} }(x).
+\end{equation}
+
+Comparing the above equation with the Fourier expansion of \(f(x)\), we see that all the cosines terms sum up to \(f_{\text{even}}(x)\) and all the sines terms sum up to \(f_{\text{odd} }(x)\). 
+
+Therefore, if the function \(f(x)\) is even, the all the coefficients of the sines terms are zero and vice versa. 
+
+For a function \(f(x)\) that is symmetric (even or odd) about \(\frac{L}{4} \), \textit{i.e.,} \(f(\frac{L}{4}-x ) = \pm f(x - \frac{L}{4} )\), we make the substitution \(s = x-\frac{L}{4} \) and we have 
+
+\begin{equation}
+    \begin{aligned} 
+    b_{r} &= \frac{2}{L} \int_{x_0 }^{x_0 + L} f(s) \sin \left( \frac{2 \pi rs}{L} + \frac{\pi r}{2} \right) ds \\ &= \frac{2}{L} \int_{x_0 }^{x_0 + L} f(s) \left( \sin \left( \frac{2 \pi  rs}{L}  \right) \cos \left( \frac{\pi r}{2}  \right) + \cos \left( \frac{2 \pi rs}{L}  \right) \sin \left( \frac{\pi r}{2} \right)\right) ds.        
+    \end{aligned} 
+\end{equation}
+
+If \(r\) is even then the second term in the integrand vanishes. The integral becomes the normal Fourier coefficient, but the dummy variable is now \(s\) instead of \(x\). If \(f(s)\) is also even, then we can conclude that the integral is zero, as for all even function the fourier coefficient \(b_{r} = 0\). By similar means, we can conclude that 
+
+\begin{enumerate}
+    \item If \(f(x)\) is even about \(\frac{L}{4} \) then \(a_{2r+1} = 0 \text { and } b_{2r} = 0 \).
+    \item If \(f(x)\) is odd about \(\frac{L}{4} \) then \(a_{2r} = 0 \text { and } b_{2r+1} = 0 \).      
+\end{enumerate}
+
+For non-periodic function in a finite range we can simply extend the function to make it periodic. However, if the periodic function has discontinuity then the value obtained from the Fourier series will converge to a value halfway between the upper and lower values.
+
+Leveraging the Euler's identity \(e^{irx} = \cos (rx) + i\sin (rx) \), the Fourier series can be written in a more compact form
+
+\begin{equation}
+    f(x) = \sum_{r=-\infty}^{+\infty} c_{r} e^{\left( \frac{2\pi i rx}{L}  \right)}dx,  
+\end{equation}
+
+where the coefficients are 
+
+\begin{equation}
+    c_{r} = \frac{1}{L} \int_{x_0 }^{x_0 + L} f(x)e^{\left( -\frac{2\pi irx}{L}  \right)}dx,     
+\end{equation}
+
+since
+
+\begin{equation}
+    \int_{x_0 }^{x_0 + L} e^{\left( -\frac{2\pi ipx}{L}\right)} e^{\left( \frac{2\pi irx}{L} \right)} dx = \begin{cases} L & \text{for } r=p, \\ 0 & \text{for } r\neq p.\end{cases}   
+\end{equation}
+
+To relate \(a_{r},b_{r} \text { and } c_{r}  \), we have
+
+\begin{equation}
+    c_{r} = \frac{1}{2} (a_{r} -ib_{r}  ) \text { and } c_{-r} = \frac{1}{2}(a_{r} + ib_{r}  ).   
+\end{equation}
+
+If \(f(x)\) is real then \(c_{-r} = c_{r}^*  \).
+
+Parseval's theorem states that 
+
+\begin{equation}
+    \frac{1}{L} \int_{x_0 }^{x_0 + L} \abs{f(x)}^2 dx = \sum_{r=-\infty}^{+\infty} \abs{c_{r} }^2 = (\frac{a_0 }{2} )^2 + \frac{1}{2} \sum_{r=1}^{\infty} (a_{r}^2 + b_{r}^2).         
+\end{equation}
+
+To prove this theorem, consider two functions \(f(x) \text { and } g(x)\) with Fourier series 
+
+\begin{equation}
+    f(x) = \sum_{r=-\infty}^{+\infty} c_{r} e^{\left( \frac{2\pi irx}{L}  \right)} ~\text { and }~ g(x) = \sum_{p=-\infty}^{+\infty} d_{p} e^{\left( \frac{2\pi ipx}{L}  \right)}.      
+\end{equation}
+
+Now consider 
+
+\begin{equation}
+    \begin{aligned} 
+    \frac{1}{L} \int_{x_0 }^{x_0 + L} f(x)g^*(x)dx &= \sum_{r=-\infty}^{+\infty} c_{r} \frac{1}{L} \int_{x_0 }^{x_0 + L} g^*(x) e^{\frac{2\pi irx}{L} }dx \\ &= \sum_{r=-\infty}^{+\infty} c_{r} \left( \frac{1}{L} \int_{x_0 }^{x_0 + L} g(x) e^{\left( \frac{-2\pi irx}{L}  \right)}   \right)^* = \sum_{r=-\infty}^{+\infty} c_{r} \gamma _{r}^*.            
+    \end{aligned} 
+\end{equation}
+
+\section{Fourier Transforms}
+
+Replacing the general variable \(x\) with time \(t\), we can express any time-varing function with period \(T\) as 
+
+\begin{equation}
+    f(t) = \sum_{r=-\infty}^{+\infty} c_{r} e^{\left( \frac{2\pi irt}{T}  \right)} = \sum_{r=-\infty}^{+\infty} c_{r} e^{i\omega _{r} t }, ~~~ c_{r} = \frac{1}{T} \int_{-\frac{T}{2} }^{\frac{T}{2} } f(t) e^{-\frac{2\pi irt}{T} }dt = \frac{\Delta \omega }{2\pi } \int_{-\frac{T}{2} }^{\frac{T}{2} } f(t) e^{-i \omega _{r} t} dt    .         
+\end{equation}
+
+where \(\omega _{r} = \frac{2\pi r}{T} \implies \Delta \omega = \frac{2\pi }{T} \). 
+
+For function with no periodicity, we have \(T \to \infty\) and \(\Delta \omega = \frac{2\pi }{T} \to 0 \). Thus we have
+
+\begin{equation}
+    \begin{aligned} 
+    f(t) &= \sum_{r=-\infty}^{+\infty} \frac{\Delta \omega }{2\pi } \left( \int_{-\infty}^{\infty } f(t) e^{- i \omega _{r} t} dt \right) e^{i \omega _{r} t} \\
+    &= \frac{1}{2\pi } \int_{-\infty}^{+\infty} e^{i \omega t}  \left( \int_{-\infty}^{\infty } f(t) e^{- i \omega t} dt \right) d \omega 
+    \end{aligned} 
+\end{equation}
+
+The integral in the bracket (times \(\frac{1}{\sqrt{2\pi } } \)) is defined to be the Fourier transform of \(f(t)\), denoted by 
+
+\begin{equation}
+    \tilde{f}(\omega ) = \frac{1}{\sqrt{2\pi } } \int_{-\infty}^{+\infty} f(t) e^{i \omega t}dt.     
+\end{equation}
+
+The whole integral is the inverse Fourier transform, denoted by 
+
+\begin{equation}
+    f(t) = \frac{1}{\sqrt{2\pi } } \int_{-\infty}^{+\infty} \tilde{f}(\omega )e^{i \omega t} d \omega .     
+\end{equation}
+
+\example{The Uncertainty Principle}
+{Find the Fourier transform of the normalized Gaussian distribution 
+
+\begin{equation}
+    f(t) = \frac{1}{\tau \sqrt{2\pi } } e^{-\frac{t^2}{2\tau ^2} }.
+\end{equation}~
+}
+{The Fourier transform of \(f(t)\) is given by 
+
+\begin{equation}
+    \begin{aligned} 
+    \tilde{f}(\omega ) &= \frac{1}{\sqrt{2\pi } } \int_{-\infty}^{+\infty} \frac{1}{\tau \sqrt{2\pi } } e^{-\frac{t^2}{2\tau ^2} } e^{-i \omega t}dt \\
+    &= \frac{1}{\sqrt{2\pi } } \int_{-\infty}^{+\infty} \frac{1}{\tau \sqrt{2\pi } } e^{-\frac{1}{2\tau ^2} (t^2 + 2\tau ^2i \omega t + (\tau ^2i \omega )^2 - (\tau ^2 i \omega )^2) } \\
+    &= \frac{e^{-\frac{1}{2\tau ^2\omega ^2} } }{\sqrt{2\pi } } \left( \frac{1}{\sqrt{2\pi } }  \right) \int_{-\infty}^{+\infty} e^{-\frac{(t+i\tau ^2\omega ^2)}{2\tau ^2} }dt \\
+    &= \frac{1}{\sqrt{2\pi } } e^{\frac{-\tau ^2\omega ^2}{2} },     
+    \end{aligned}         
+\end{equation}
+
+which is another Gaussian distribution with a root mean square deviation of \(\frac{1}{\tau } \). Thus the standard deviation in \(t \text { and } \tau \) is inversely related, \textit{i.e.,} \(\sigma _{t}\sigma _{\omega }=1  \), independent of the value of \(\tau \). 
+
+In quantum mechanics, \(f(t) \text { or }  f(x)\) represents a wave function evoluting in time or space and the probability of finding the particle at position \(x\) at time \(t\) is given by \(\abs{f(x)}^2 \text { or } \abs{f(t)}^2  \), which is also a Gaussian but with the standard deviation multiplied by a factor of \(\frac{1}{\sqrt{2} } \). 
+
+Similarly, the probability distribution in terms of frequency and wave vector is given by \(\abs{f(\omega )}^2 \text { or } \abs{f(k)}^2 \). 
+
+Therefore, since \(p = \hbar k \text { and } E = \hbar \omega \), we have 
+
+\begin{equation}
+    \Delta E \Delta t = \frac{\hbar }{2} ~\text { and }~ \Delta p\Delta x = \frac{\hbar }{2}.  
+\end{equation}
+
+
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

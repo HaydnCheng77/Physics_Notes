@@ -50,7 +50,7 @@ They are useful because a general vector in \(\mathbb{R} ^{n} \) can then be wri
 It is important to note that the concept of ``standard unit vectors'' is only appliacble to \(\mathbb{F}^{n} \). However, in later sections, we would introduce another concept (orthogonality) which extends this concept to any vector space.
 
   
-\example{Google's search alogorithm}
+\example{Google's search alogorithm.}
 {Consider an internet with \(n\) websites labeled by \(k = 1, \ldots , n\). The site labeled as \(k\) has been referenced to by other sites \(L_{k} \subset {1, \ldots , n}\). Assign a page rank to each website representing the relative significance of each website.}
 {A first attempt would be to define the page rank as the number of pages that reference this page, so 
 
@@ -150,7 +150,7 @@ A vector space V over a field F is a set with two operations:
 
 And for all \(\vb{u} ,\vb{v} ,\vb{w} \in V\) and all \(\alpha ,\beta \in F\), these operations have to satisfy the following rules:
 
-\begin{enumerate}[label=(A\arabic*)]\label{vectorspace} 
+\begin{enumerate}[label=(\(A\)\arabic*)]\label{vectorspace} 
     \item ``Associativity'': \((\vb{u} + \vb{v} ) + \vb{w}  = \vb{u}  + (\vb{v} + \vb{w} )\) .
     \item ``Neutral element'': There exists a ``zero vector'', \(\boldsymbol{0} \in V\) so that \(0 + \vb{v} = \vb{v} \)  .
     \item ``Inverse element'': There exists an inverse, \(-\vb{v} \) with \(\vb{v} + (-\vb{v} ) = 0\).
@@ -164,12 +164,12 @@ And for all \(\vb{u} ,\vb{v} ,\vb{w} \in V\) and all \(\alpha ,\beta \in F\), th
 The elements \(\vb{v} \in V\) are called ``vectors'', the elements \(\alpha \in F\) of the field are called ``scalars''.  
 \end{definition}
 
-\begin{definition}[Definition of a Sub Vector Space] \label{subvectorspace} 
-A sub vector space \(W \subset V \) is a non-empty subset of a vector space \(V\) which is closed under vector addition and scalar multiplication, \ie\footnote{The rigorous proof of a sub vector space is a vector space itself is provided in \cref{subvectorvectorapp}.} 
+\begin{definition}[Definition of a Sub Vector Space]\label{subvectorspace} 
+A sub vector space \(W \subset V \) is a non-empty subset of a vector space \(V\) which is closed under vector addition and scalar multiplication, \textit{i.e.,}\footnote{The rigorous proof of a sub vector space is a vector space itself is provided in \cref{subvectorapp}.} 
 
-\begin{enumerate}[label=(B\arabic*)]
-    \item \(\vb{w} _{1} + \vb{w} _{2} \in W ~~~ \forall ~ \vb{w} _{1} , \vb{w} _{2} \in W\).
-    \item \(\alpha \vb{w} \in W ~~~ \forall ~ \alpha \in \vb{F} \text { and } \vb{w} \in W\).     
+\begin{enumerate}[label=(\(B\)\arabic*)]
+    \item \(\vb{w} _{1} + \vb{w} _{2} \in W \text{ for all } \vb{w} _{1} , \vb{w} _{2} \in W\).
+    \item \(\alpha \vb{w} \in W \text{ for all } \alpha \in \vb{F} \text { and } \vb{w} \in W\).     
 \end{enumerate}
 \end{definition}
 
@@ -187,7 +187,7 @@ A sub vector space \(W \subset V \) is a non-empty subset of a vector space \(V\
 Let \(V\) be a vector space over \(F\) and \(\alpha _{1}, \ldots , \alpha _{k} \in  F  \) scalars. A set of vectors \(\vb{v} _{1}, \ldots , \vb{v} _{k} \in V\) is called linearly independent if 
 
 \begin{equation}
-    \sum_{i=1}^{} \alpha _{i} \vb{v} _{i} = \boldsymbol{0} \implies \alpha _{i} = 0 ~~~ \forall ~ i.      
+    \sum_{i=1}^{} \alpha _{i} \vb{v} _{i} = \boldsymbol{0} \implies \alpha _{i} = 0 \text{ for all } i.      
 \end{equation}
 
 Otherwise, the vectors are called linearly dependent. 
@@ -209,7 +209,7 @@ where we expressed \(\vb{v} _{i} \) as a linear combination of the other vectors
 \end{proof}
 
 
-\example{Linear Independence of Vectors in \(\mathbb{R}^3 \) }
+\example{Linear Independence of Vectors in \(\mathbb{R}^3 \).}
 {Verify the following vectors in \(\mathbb{R}^3 \) are linearly independent 
 
 \begin{equation}
@@ -240,7 +240,7 @@ where we expressed \(\vb{v} _{i} \) as a linear combination of the other vectors
 we find that it only has the solution \((\alpha _{1}, \alpha _{2}, \alpha _{3}   ) = (0,0,0)\). Therefore the vectors are linearly independent.
 } 
 
-\example{Linear Independence of Solutions to Differential Equations}
+\example{Linear Independence of Trigonometric Functions.}
 {Prove that the solutions \(y(x) = \cos x \text { and } y(x) = \sin x\)  to the homogeneous, linear second order differential equation 
 
 \begin{equation}
@@ -259,11 +259,11 @@ and since the equation has to be satisfied for all \(x\),  setting \(x=0\) we le
 
 \section{Basis and Dimension}
 \begin{definition}[Definition of a Basis]
-A set \(\vb{v} _{1}, \ldots , \vb{v} _{n} \in V \) of vectors is called a basis of \(V\) if and only if 
+A set \(\vb{v} _{1}, \ldots , \vb{v} _{n} \in V \) of vectors is called a basis of \(V\) if and only if:
 
-\begin{enumerate}[label=(C\arabic*)] \label{basis} 
+\begin{enumerate}[label=(\(C\)\arabic*)] \label{basis} 
     \item \(\vb{v} _{1}, \ldots , \vb{v} _{n}  \) are linearly independent.
-    \item \(V = \text{Span}(\vb{v} _{1}, \ldots , \vb{v} _{n}  ) \)  
+    \item \(V = \text{Span}(\vb{v} _{1}, \ldots , \vb{v} _{n}  ) \).
 \end{enumerate}
 \end{definition}
 
@@ -279,7 +279,7 @@ If \(\vb{v} _{1}, \ldots ,\vb{v} _{n}  \) is a basis of \(V\), every vector \(\v
 \begin{proof}
 Firstly we must be able to write \(\vb{v} \) as a linear combination of the basis, since \(\vb{v} \in V \text { and } V = \text{Span} (\vb{v}_1, \cdots, \vb{v}_n ) \).   
 
-Now assume that \(\vb{v} \) can be written as two different linear combinations of the basis, \ie 
+Now assume that \(\vb{v} \) can be written as two different linear combinations of the basis, \textit{i.e.,} 
 
 \begin{equation}
     \vb{v} = \sum_{i=1}^{n} \alpha _{i}\vb{v} _{i} = \sum_{i=1}^{n} \beta _{i} \vb{v} _{i}.  
@@ -291,7 +291,7 @@ Taking the difference of these two equations implies
     \sum_{i=1}^{n} (\alpha _{i} - \beta _{i}  )\vb{v} _{i} =0
 \end{equation}
 
-and from linear independence of the basis, it follows that all \(\alpha _{i} - \beta _{i} = 0  \), so that indeed \(\alpha _{i} = \beta _{i}  \). 
+and from linear independence of the basis, it follows that all \(\alpha _{i} - \beta _{i} = 0  \) for all \(i\), so indeed \(\alpha _{i} = \beta _{i}  \). 
 \end{proof}
 
 We would like to call the number of vectors in a basis the dimension of the vector space. First, however, we have to proof that the number of vectors in a basis of a vector space is an invariant.
@@ -330,7 +330,7 @@ which shows that the vectors \(\vb{w}_{1}, \ldots, \vb{w}_m\) are linearly depen
 For a basis \(\vb{v}_{1}, \ldots, \vb{v}_n \) of a vector space \(V\) over \(F\) we call \(\dim _{F} (V) \equiv n \) the dimension of \(V\) over \(F\) . 
 \end{definition}
 
-\example{Standard Unit Vectors form a Basis}
+\example{Standard Unit Vectors form a Basis.}
 {Prove that the standard unit vectors \(\vb{e}_1, \cdots, \vb{e}_n \) form a basis over the vector space \(\mathbb{R}^{n} \text { and } \mathbb{C}^{n} \). }
 {Set the linear combination of the standard unit vectors to zero, 
 
@@ -342,7 +342,7 @@ For a basis \(\vb{v}_{1}, \ldots, \vb{v}_n \) of a vector space \(V\) over \(F\)
     \end{pmatrix} =0
 \end{equation}
 
-which is only true if \(\alpha _{i} = 0 ~ \forall ~ i\).
+which is only true if \(\alpha _{i} = 0 \text{ for all } i\).
 
 Thus the standard unit vectors \(\vb{e}_{1}, \ldots, \vb{e}_n \) form a basis of \(\mathbb{R}^{n} \text { and } \mathbb{C}^{n}  \) seen as vector spaces of the fields \(\mathbb{R}\text { and } \mathbb{C}\), respectively, where the dimensions are 
 
@@ -353,17 +353,17 @@ Thus the standard unit vectors \(\vb{e}_{1}, \ldots, \vb{e}_n \) form a basis of
 However, note that \(\mathbb{C}^{n} \) as a vector space over \(\mathbb{R}\) has a basis \(\vb{e}_{1}, \ldots, \vb{e}_n, i \vb{e} _{1}, \ldots , i \vb{e} _{n}   \) and therefore \(\dim _{\mathbb{R}} (\mathbb{C}^{n} ) = 2n\). 
 } 
 
-\example{Basis of a Polynomial}
+\example{Basis of a Polynomial.}
 {Prove that the monomials \(1,x,^2,\ldots ,x^{d} \) form a basis over a vector space containing all real polynomials of degree \(d\).}
 {We start with setting  
 \begin{equation}
     \sum_{i=0}^{d} \alpha _{i} \vb{x} ^{i} =0 
 \end{equation}
 
-to check if there is any non-trivial solution. However, by taking the \(k^{\text{th }} \)derivative with respect to \(x\) and then set \(x=0\) (since it has to satisfy for all \(x\)), this immediately implies that \(\alpha _{k} = 0 ~ \forall ~  k\) and hence the monomials are linearly independent and form a basis and the vector space has dimension \(d+1\).
+to check if there is any non-trivial solution. However, by taking the \(k^{\text{th }} \)derivative with respect to \(x\) and then set \(x=0\) (since it has to satisfy for all \(x\)), this immediately implies that \(\alpha _{k} = 0 \text{ for all }  k\) and hence the monomials are linearly independent and form a basis and the vector space has dimension \(d+1\).
 }
 
-\example{Basis of a \(n \times m\) matrix }
+\example{Basis of a \(n \times m\) matrix.}
 {Find a basis and the dimension of the vector space containing all \(n \times m\) matrices with real entries.}
 {The analogy of standard unit vectors for matrices is
 
@@ -376,7 +376,7 @@ to check if there is any non-trivial solution. However, by taking the \(k^{\text
         0 & \ldots  & 0 & 0 & 0 & \ldots  &  0 \\
         \vdots  &  & \vdots  & \vdots  & \vdots  &  &  \vdots  \\
         0 & \ldots  & 0 & 0 & 0 & \ldots  &  0 \\
-    \end{pmatrix}\footnote{Here the subscript \((i,j)\) has been used to indicate the row and column which have been changed rather than specific entries of the matrix. } 
+    \end{pmatrix},\footnote{Here the subscript \((i,j)\) has been used to indicate the row and column which have been changed rather than specific entries of the matrix. } 
 \end{equation}
 
 where \(i=1,\ldots ,n \text { and } j= 1,\ldots ,m\) and the ``1'' appears in the \(i^{\text{th }} \)row and the \(j^{\text{th }} \)column with all other entries zero. Clearly these matrices form a basis, in complete analogy with the standard unit vectors. Therefore the vector space of \(n\times m\) matrices has dimension \(nm\).    
@@ -385,18 +385,18 @@ where \(i=1,\ldots ,n \text { and } j= 1,\ldots ,m\) and the ``1'' appears in th
 \begin{lemma}[Properties of a Vector Space]
 For a vector sapce \(V\) spanned by a finite number of vectors we have:
 
-\begin{enumerate}[label=(D\arabic*)] 
+\begin{enumerate}[label=(\(D\)\arabic*)] 
     \item \(V \) has a basis.
     \item Every linearly independent set \(\vb{v}_{1}, \ldots, \vb{v}_k \in V\) that is not already a basis of \(V\) can be completed by some other vectors in \(V\) to form a basis.
     \item If \(n = \dim (V)\), any linaerly independent set of vectors \(\vb{v}_{1}, \ldots, \vb{v}_n \) forms a basis.
-    \item If \(\dim _{F} (V) = \dim _{F} (W)\) and \(V \subset W\) for two vector spaces \(V,W\) then \(V=W\).      
+    \item If \(\dim _{F} (V) = \dim _{F} (W)\) and \(V \subset W\) for two vector spaces \(V \text { and } W\) then \(V=W\).      
 \end{enumerate}
 
 \end{lemma}
 
 \begin{proof}
 
-\begin{enumerate}[label=(D\arabic*)] 
+\begin{enumerate}[label=(\(D\)\arabic*)] 
     \item Since \(V = \text{Span}(\vb{v}_{1}, \ldots, \vb{v}_k ) \), If these vectors are linearly independent we have found a basis. If not, one of the vectors, say \(v_{k} \) can be written as a linear combination of the others and can, hence, be dropped without changing the spoan, so \(V = \text{Span}(\vb{v}_{1}, \ldots, \vb{v}_{k-1}) \). This process can be continued until the remainng set of vectors is linaerly independent.
     \item If \(V= \text{Span}(\vb{v}_{1}, \ldots, \vb{v}_k) \) we are finished. If not there exists a vector \(\vb{v} _{k+1} \notin Span(\vb{v}_{1}, \ldots, \vb{v}_k) \). Hence the vectors \(\vb{v}_{1}, \ldots, \vb{v}_k, \vb{v} _{k+1} \) must be linaerly independent. We can continue adding vectors to the list until it spans the whole space. This process must terminate after a finite number of steps or else we would contradict the exchange \cref{exchangelemma}, which states that the number of vectors in a basis is an invariant.
     \item If \(\dim (V) = n\) and the linearly independent set \(\vb{v}_{1}, \ldots, \vb{v}_n \) did not span \(V\) then from (D2) it could be completed to a basis with more than \(n\) elements. However this is a contradiction since according to the exchange \cref{exchangelemma} the number of vectors in a basis is an invariant. So the vectors \(\vb{v}_{1}, \ldots, \vb{v}_n \) must span the space and they form a basis.
@@ -425,7 +425,7 @@ The dot product satisfies a number of obvious properties, namely
     \item \(\vb{a} \cdot \vb{b} = a_{i} b_{i} = b_{i} a_{i} = \vb{b} \cdot \vb{a}  \)
     \item \(\vb{a} \cdot (\vb{b} + \vb{c} ) = a_{i} (b_{i} + c_{i}  ) = a_{i}b_{i} + a_{i}c_{i}   = \vb{a} \cdot \vb{b} + \vb{a} \cdot \vb{c}  \)
     \item \(\vb{a} \cdot (\beta \vb{b} ) = a_{i}(\beta b_{i} ) = \beta a_{i}b_{i} = \beta \vb{a} \cdot \vb{b}    \)
-    \item \(\vb{a} \cdot \vb{a}  = \sum_{i=1}^{n} a_{i}^2 > 0 \text{for} \vb{a} \neq \boldsymbol{0}  \)
+    \item \(\vb{a} \cdot \vb{a}  = \sum_{i=1}^{n} a_{i}^2 > 0 \text{ for } \vb{a} \neq \boldsymbol{0}  \)
 \end{enumerate}
 
 The last property allows us to define the length of a vector as 
@@ -569,7 +569,7 @@ Let \(f:X \rightarrow Y\) be a map between two sets \(X \text { and } Y\). The m
     \item Injective: if every element of the co-domain is the image of at most one element of the domain. Mathematically,
     
     \begin{equation}
-        f(x) = f(\tilde{x} ) \implies x = \tilde{x} ~~~ \forall ~ x,\tilde{x} \in X.
+        f(x) = f(\tilde{x} ) \implies x = \tilde{x} \text{ for all } x,\tilde{x} \in X.
     \end{equation}
 
     \item Surjective: if every element of the co-domain is the image of at least one element of the domain. Mathematically,
@@ -578,7 +578,7 @@ Let \(f:X \rightarrow Y\) be a map between two sets \(X \text { and } Y\). The m
         \Im (f) = Y
     \end{equation}
     
-    \item Bijective: if it is injective and surjective, \ie if every element of the co-domain is the image of precisely one element of the domain.
+    \item Bijective: if it is injective and surjective, \textit{i.e.,} if every element of the co-domain is the image of precisely one element of the domain.
    
 \end{enumerate}
 
@@ -602,10 +602,10 @@ From this definition it is easy to show that map composition is associative
 since \((h \circ (g \circ f))(x) = h((g \circ f)(x)) = h(g(f(x))) = (h \circ g)(f(x)) = ((h \circ g) \circ f)(x)\).
 
 \begin{definition}[Definition of an Identity Map]
-A identity map \(\mathrm{id}_{X} : X \rightarrow X\)  maps every element in \(X\) onto itself, \ie 
+A identity map \(\mathrm{id}_{X} : X \rightarrow X\)  maps every element in \(X\) onto itself, \textit{i.e.,} 
 
 \begin{equation}
-    \mathrm{id}_{X} (x) = x ~~~  \forall ~ x \in  X.
+    \mathrm{id}_{X} (x) = x \text{ for all } x \in  X.
 \end{equation}
 \end{definition}
 
@@ -623,11 +623,11 @@ The map \(f: X \rightarrow Y\) has an inverse if and only if \(f\) is bijective.
 \end{theorem}
 
 \begin{proof}
-    If the map is not surjective, an inverse map could not exist since some \(y\) are not in the image of \(f\). If the map is not injective, an inverse map could not exist as well since some \(y \in  Y\) are the images of more than one element in the domain\footnote{The rigorous proof of this theorem can be found in \cref{bijectiveinverseapp}.}.
+    If the map is not surjective, an inverse map could not exist since some \(y\) are not in the image of \(f\). If the map is not injective, an inverse map could not exist as well since some \(y \in  Y\) are the images of more than one element in the domain.\footnote{The rigorous proof of this theorem can be found in \cref{bijectiveinverseapp}.}
 \end{proof}
 
 \begin{theorem} [Inverse of a Composite Map] \label{compositeinversetheo} 
-If the maps \(f: X \rightarrow Y\) and \(g: Y \rightarrow Z\) are both bijective, then the composite map \(f \circ g: Y \rightarrow Z\) is also bijective and hence by \cref{bijectiveinverse} has an inverse given by\footnote{The theorem is intuitive and trivial but the rigorous proof is given in \cref{compositeinverseapp}.}.
+If the maps \(f: X \rightarrow Y\) and \(g: Y \rightarrow Z\) are both bijective, then the composite map \(f \circ g: Y \rightarrow Z\) is also bijective and hence by \cref{bijectiveinverse} has an inverse given by\footnote{The theorem is intuitive and trivial but the rigorous proof is given in \cref{compositeinverseapp}.}
 
 \begin{equation} \label{compositeinverseeq} 
     (f \circ g)^{-1} = g^{-1} \circ f^{-1} 
@@ -639,11 +639,11 @@ If the maps \(f: X \rightarrow Y\) and \(g: Y \rightarrow Z\) are both bijective
 \section{Linear Maps}
 
 \begin{definition}[Definition of a Linear Map] \label{linearmap} 
-A map \(f:V \rightarrow W\) between two vector spaces \(V \text { and }  W\) over a field \(F\) is called linear if 
+A map \(f:V \rightarrow W\) between two vector spaces \(V \text { and }  W\) over a field \(F\) is called linear if:
 
-\begin{enumerate}[label=(E\arabic*)]
-    \item \(f(\vb{v} _{1} + \vb{v} _{2}  ) = f(\vb{v} _{1} ) + f(\vb{v} _{2} )\)
-    \item \(f(\alpha \vb{v} ) = \alpha f(\vb{v} )\)  
+\begin{enumerate}[label=(\(E\)\arabic*)]
+    \item \(f(\vb{v} _{1} + \vb{v} _{2}  ) = f(\vb{v} _{1} ) + f(\vb{v} _{2} )\).
+    \item \(f(\alpha \vb{v} ) = \alpha f(\vb{v} )\).
 \end{enumerate}
 
 for all \(\vb{v} ,\vb{v} _{1}, \vb{v} _{2}\in V  \) and for all \(\alpha \in  F\). 
@@ -662,7 +662,7 @@ For a map \(f: V \rightarrow W\), the subset of \(V\) which consists of all vect
 \begin{lemma}[Properties of a Linear Map (1)] \label{linearmapprop1} 
 A linaer map \(f:V \rightarrow W\) between two vector spaces \(V \text { and }  W\) over \(F\) has the following properties:\footnote{Since the properties are rather intuitive and trivial, the rigorous proof for these properties is provided in \cref{linearmapprop1app}.} 
 
-\begin{enumerate}[label=(F\arabic*)]
+\begin{enumerate}[label=(\(F\)\arabic*)]
     \item The zero vectors are mapped onto each other, so \(f(\boldsymbol{0} ) = 0\). Hence \(\boldsymbol{0} \in \ker (f) \).
     \item The kernel of \(f\) is a sub vector space of V.
     \item The image of \(f\) is a sub vector space of \(W\) .
@@ -670,7 +670,7 @@ A linaer map \(f:V \rightarrow W\) between two vector spaces \(V \text { and }  
     \item \(f\) is injective \(\iff \ker (f) = \left\{ \boldsymbol{0}  \right\} \iff \dim \ker (f) = 0\)
     \item The scalar multiple \(\alpha f\), where \(\alpha \in  F\), is linear.
     \item For another linear map \(g: V \rightarrow W\), the sum \(f+g\) is linear.
-    \item For another linear map \(g: W \rightarrow  U\), the composition \(g \circ f\) is linear\footnote{From (F7) and (F8), since the scalar multiple of a linear map and the sum of two linear maps is again a linear map, the set of linear maps does indeed form a vector space iteself, denoted \(\text{Hom}(V,W)\), called the homomorphisms from \(V\) to W.}.  
+    \item For another linear map \(g: W \rightarrow  U\), the composition \(g \circ f\) is linear.\footnote{From (F7) and (F8), since the scalar multiple of a linear map and the sum of two linear maps is again a linear map, the set of linear maps does indeed form a vector space iteself, denoted \(\text{Hom}(V,W)\), called the homomorphisms from \(V\) to W.}
 \end{enumerate}
 \end{lemma}
 
@@ -683,13 +683,13 @@ The dimension of the image of a linear map \(f\) is called the rank of \(f\). In
     
 \end{definition}
 
-To be concrete, consider a linear map \(f:\mathbb{R}^3 \rightarrow \mathbb{R}^2\) and assume that \(\dim \ker (f) = 2\). \ie the kernel of \(f\) is a plane through the origin (since any sub vector space contains the zero vector) in \(\mathbb{R}^3 \). Now consider two vectors \(\vb{v} _{1}  ,\vb{v} _{2}  \in \ker (f) + \vb{k}  \) which both lie in a plane parallel to \(\ker (f)\), shifted by a vector \(\vb{k} \). Then we have \(\vb{v} _{1} - \vb{v} _{2} \in \ker (f) \) so that \(f(\vb{v} _{1} - \vb{v} _{2} )=0\) and, hence, by linearity \(f(\vb{v} _{1} ) = f(\vb{v} _{2} )\). Therefore, not only do all vectors in the kernel get mapped to the zero vector, but all vectors in a plane parallel to the kernel get mapped to the same non-zero vector. Effectively, the action of the linear map ``removes '' the two dimensions parallel to the kernel plane and only keeps the remaining dimension perpendicular to it. Hence, the image of this linear map is one-dimensional, which is a line through the origin. This example suggests the following theorem:
+To be concrete, consider a linear map \(f:\mathbb{R}^3 \rightarrow \mathbb{R}^2\) and assume that \(\dim \ker (f) = 2\), \textit{i.e.,} the kernel of \(f\) is a plane in \(\mathbb{R}^3 \) (which passes through the origin since any sub vector space contains the zero vector). Now consider two vectors \(\vb{v} _{1}  ,\vb{v} _{2}  \in \ker (f) + \vb{k}  \) which both lie in a plane parallel to \(\ker (f)\), shifted by a vector \(\vb{k} \). Then we have \(\vb{v} _{1} - \vb{v} _{2} \in \ker (f) \) so that \(f(\vb{v} _{1} - \vb{v} _{2} )=0\) and, hence, by linearity \(f(\vb{v} _{1} ) = f(\vb{v} _{2} )\). Therefore, not only do all vectors in the kernel get mapped to the zero vector, but all vectors in a plane parallel to the kernel get mapped to the same non-zero vector. Effectively, the action of the linear map ``removes '' the two dimensions parallel to the kernel plane and only keeps the remaining dimension perpendicular to it. Hence, the image of this linear map is one-dimensional, which is a line through the origin. This example suggests the following theorem:
 
 \begin{theorem}[Dimension Formula]\label{dimensionformulatheo}
 For a linear map \(f:V \rightarrow  W\) we have
 
 \begin{equation}
-    \dim \ker (f) + \rank (f) = \dim (V)\footnote{Since this formula is relatively intuitive and imaginable, the rigorous proof is given in \cref{dimensionformulaapp}.}. \label{dimensionformulaeq} 
+    \dim \ker (f) + \rank (f) = \dim (V).\footnote{Since this formula is relatively intuitive and imaginable, the rigorous proof is given in \cref{dimensionformulaapp}.} \label{dimensionformulaeq} 
 \end{equation}
 
 \end{theorem}
@@ -697,7 +697,7 @@ For a linear map \(f:V \rightarrow  W\) we have
 \begin{lemma}[Properties of a Linear Map (2)]\label{linearmapprop2} 
 For a linaer map \(f:V \rightarrow W\) we have:\footnote{The rigorous proof is given in \cref{linearmapprop2app} due to its simplicity and imaganability.} 
 
-\begin{enumerate}[label=(G\arabic*)]
+\begin{enumerate}[label=(\(G\)\arabic*)]
     \item \(f\) is bijective \(\implies \dim (V) = \dim (W)\).
     \item If \(f\) is invertible then the inverse \(f^{-1} :W \rightarrow V\) is also a linear map. 
 \end{enumerate}
@@ -774,7 +774,7 @@ Using this notation it is straightforward to verify if matrix multiplication def
     \end{aligned}
 \end{equation}
 
-In above, we have proved that every matrix multiplication represent a linear map action. However, we have not show the converse is true, \ie whether every linear map action can be represented by a matrix multiplication.
+In above, we have proved that every \(m \times n\) matrix multiplication represent a linear map action from \(F^{n}\) to \(F^{m} \). However, we have not shown the converse is true, \textit{i.e.,} whether every linear map action from \(\vb{F} ^{n} \) to \(\vb{F} ^{m} \) can be represented by a \(m \times  n\) matrix.
 
 To prove this, we start with the standard unit vectors \(\vb{e} _{j} \) of \(F ^{n} \) and \(\tilde{\vb{e} }_{i}  \) of \(F^{m} \). The images, \(f(\vb{e} _{j} ) \in F^{m} \), of the standard unit vectors of \(F^{n} \) can be written as 
 
@@ -785,7 +785,7 @@ To prove this, we start with the standard unit vectors \(\vb{e} _{j} \) of \(F ^
 for some suitable set of coefficients \(a_{ij} \). Now consider an arbitrary vector \(\vb{v} \in F^{n} \) as a linear combination \(\vb{v} = \sum_{j=1}^{n} v_{j} \vb{e} _{j} \). The image of this vector under \(f\) is
 
 \begin{equation} 
-    f(\vb{v} ) = f \left( \sum_{j=1}^{n} v_{j} \vb{e} _{j}  \right) = \sum_{j=1}^{n} v_{j} f(\vb{e} _{j} ) = \sum_{j=1}^{n} v_{j} \sum_{i=1}^{m} a_{ij} \tilde{\vb{e} }_{i} = \sum_{i=1}^{m} \left( \sum_{j=1}^{n} a_{ij} v_{j}  \right) \tilde{\vb{e} } _{i} \footnote{This changing of order of summation is similar to what has been done in \cref{rowcolumnrankapp}.}. 
+    f(\vb{v} ) = f \left( \sum_{j=1}^{n} v_{j} \vb{e} _{j}  \right) = \sum_{j=1}^{n} v_{j} f(\vb{e} _{j} ) = \sum_{j=1}^{n} v_{j} \sum_{i=1}^{m} a_{ij} \tilde{\vb{e} }_{i} = \sum_{i=1}^{m} \left( \sum_{j=1}^{n} a_{ij} v_{j}  \right) \tilde{\vb{e} } _{i} .\footnote{This changing of order of summation is similar to what has been done in \cref{rowcolumnrankapp}.}
 \end{equation}
 
 Hence for the \(i^{\text{th }} \) component of this image we have
@@ -797,10 +797,10 @@ Hence for the \(i^{\text{th }} \) component of this image we have
 where we used \cref{matmul} to establish the second equality.
 
 \begin{lemma}\label{matrixlinearmap} 
-Every linear map \(f: F^{n} \rightarrow F^{m}  \) can be written in terms of an \(m \times  n\) matrix \(A\), such that \(f(\vb{v} ) = A\vb{v} ~\forall ~ \vb{v} \in F^{n} \). If \(f(\vb{e} _{j} ) = \sum_{i=1}^{m} a_{ij} \tilde{\vb{e} } _{i} \) for the standard unit vectors \(\vb{e} _{i} \) of \(F^{n} \) and \(\tilde{\vb{e} } _{i} \) of \(F^{m} \), then \(a_{ij} \) are the entries of \(A\).         
+Every linear map \(f: F^{n} \rightarrow F^{m}  \) can be written in terms of a \(m \times  n\) matrix \(A\), such that \(f(\vb{v} ) = A\vb{v} \text{ for all } \vb{v} \in F^{n} \). If \(f(\vb{e} _{j} ) = \sum_{i=1}^{m} a_{ij} \tilde{\vb{e} } _{i} \) for the standard unit vectors \(\vb{e} _{i} \) of \(F^{n} \) and \(\tilde{\vb{e} } _{i} \) of \(F^{m} \), then \(a_{ij} \) are the entries of \(A\).         
 \end{lemma}
 
-\example{Cross Product as Matrix}
+\example{Cross Product as Matrix.}
 {Prove that cross product is a linear map and find the matrix corresponding to it.}
 {Consider a fixed vector \(\vb{n} \in \mathbb{R}^3 \) and a map \(f:\mathbb{R}^3 \rightarrow \mathbb{R}^3 \) defined by \(f(\vb{v} ) = \vb{n} \times \vb{v} \). From the properties of the vector product, it is easy to show that this map is linear as it satisfies the linearity conditions (E1) and (E2)
 
@@ -825,7 +825,7 @@ Hence we know from \cref{matrixlinearmap} that \(f\) can be described by a \(3 \
 
 From \cref{matrixlinearmap} we know that the coefficients which appear in the expression for \(f(\vb{e} _{j})\) form the \(j^{\text{th }} \) column of the matrix \(A\). Hence the desire matrix is 
 
-\begin{equation}
+\begin{equation} \label{antisym} 
     A = \begin{pmatrix}
         0 & -n_3  & n_{2}   \\
         n_3  & 0 & -n_{2}   \\
@@ -845,7 +845,7 @@ which is in agreement with the explicit form of matrix \(A\).}
 
 
 
-\subsection{Basic Properties}
+\subsection{Basic Properties of Matrices}
 
 A very specific matrix is the identity (or unit) matrix \(\mathbb{I}_{n}: F^{n} \rightarrow  F^{n} \) given by 
 
@@ -859,7 +859,7 @@ A very specific matrix is the identity (or unit) matrix \(\mathbb{I}_{n}: F^{n} 
 
 So, seen as linear map, the identity matrix corresponds to the identity map.
 
-More generally, a diagonal matrix is a matrix \(D\) with non-zero entries only along the diagonal, so \(D_{ij} = 0 ~\forall ~ i \neq j \). It can be written as 
+More generally, a diagonal matrix is a matrix \(D\) with non-zero entries only along the diagonal, so \(D_{ij} = 0 \text{ for all } i \neq j \). It can be written as 
 
 \begin{equation}
     D = \begin{pmatrix}
@@ -877,11 +877,11 @@ The transpose of an \(n\times m\) matrix \(A: F^{m} \rightarrow F^{n}   \) is a 
 
 A square matrix \(A\) is said to be symmetric if \(A = A^{T}, \text { or } A_{ij} = A_{ji}   \) for all entries, and is called anti-symmetric if \(A = -A^{T}, \text { or } A_{ij} = -A_{ji}   \) for all entries (note that all diagonal entries \(A_{ii} \) of an anti-symmetric matrix vanish).        
 
-A combination of the previous two operations is the hermitian conjugate of a \(n\times m\) matrix \(A: F^{m} \rightarrow F^{n} \) which is defined as a \(m\times n\) matrix \(A^{\dagger} : F^{n} \rightarrow F^{m}  \) obtained by taking the complex conjugate of the transpose of \(A\) , \ie \(A^{\dagger} \equiv (A^{T} )^{*} \). A quadratic matrix \(\) is said to be hermitian if the matrix is invariant under hermitian conjugation, \ie if \(A = A^{\dagger} \), and anti-hermitian if \(A = -A^{\dagger} \). 
+A combination of the previous two operations is the hermitian conjugate of a \(n\times m\) matrix \(A: F^{m} \rightarrow F^{n} \) which is defined as a \(m\times n\) matrix \(A^{\dagger} : F^{n} \rightarrow F^{m}  \) obtained by taking the complex conjugate of the transpose of \(A\), \textit{i.e.,} \(A^{\dagger} \equiv (A^{T} )^{*} \). A quadratic matrix \(\) is said to be hermitian if the matrix is invariant under hermitian conjugation, \textit{i.e.,} if \(A = A^{\dagger} \), and anti-hermitian if \(A = -A^{\dagger} \). 
 
 Trivially, \((A+B)^{\dagger} = A^{\dagger} + B^{\dagger} \text { and } (\alpha A)^{\dagger} = \alpha ^{*} A^{\dagger}\).   
 
-\subsection{Rank of a Matrix}
+\subsection{Rank of Matrices}
 
 From \cref{matrixmultiplication} we see that the image of \(\vb{v} \) is given by a linear combination of the column vectors \(\vb{A} ^{i}\) with coefficients equatl to the component of \(\vb{v} \). Thus    
 
@@ -904,10 +904,10 @@ We have earlier define the rank of a linear map as the dimension of its image, s
 For obvious reasons this is also sometimes called the column rank of the matrix A. This terminology suggests we can also define the row rank of the matrix A as the maximal number of linearly independent row vectors of A. Having two types of ranks available for a matrix seems awkward but fortunately have
 
 \begin{theorem}\label{rowcolumnrank} 
-Row and column rank are equal for any matrix\footnote{The proof of this non-trivial theorem is not given here due to its length and relative insignificance, but provided in \cref{rowcolumnrankapp}.}.
+Row and column rank are equal for any matrix.\footnote{The proof of this non-trivial theorem is not given here due to its length and relative insignificance, but provided in \cref{rowcolumnrankapp}.}
 \end{theorem}
 
-\example{Kernel and Image of A Matrix}
+\example{Kernel and Image of A Matrix.}
 {Consider the \(3 \times 3\) matrix
 
 \begin{equation}
@@ -941,7 +941,7 @@ Find the kernel and the image of this matrix.}
     \end{pmatrix} \right). 
 \end{equation}} 
 
-\subsection{Matrix Multiplication}
+\subsection{Multiplication of Matrices}
 
 We have proved earlier in (F8) of \cref{linearmapprop1} that the composition of linear maps is again linear. Since all linear maps between column vectors are matrices. Hence, the composition of two matrices must again be a matrix. 
 
@@ -976,24 +976,24 @@ A useful relationship involving multiplication and transposition of matrices is
 
 For complex case, since \((AB)^* = A^*B^*\), we have \((AB)^{\dagger} = B^{\dagger} A^{\dagger}\). 
 
-Using matrix terminology, the dot product of two \(m\)-dimensional column vectors \(\vb{v} \text { and } \vb{w} \) can be written as 
+Using matrix terminology, the dot product of two column vectors with the same dimension \(\vb{v} \text { and } \vb{w} \) can be written as 
 
 \begin{equation}
     \vb{v} \cdot \vb{w} = \vb{v} ^{T} \vb{w}.
 \end{equation}
 
-\subsection{Inverse of a Matrix}
+\subsection{Inverse of Matrices}
 
-For a matrix \(A: F^{n} \rightarrow F^{m}  \) representing a linear map \(f: V \rightarrow W\)  to have an inverse, it must be bijective as proved in \cref{bijectiveinverse}. Thus from (F5) and (G1) we have \(\dim \ker (f) = \boldsymbol{0} \text { and } \dim (V) = \dim (W)\), which implies \(\rank (f) = n = m\) using \cref{dimensionformulaeq} 
+For a matrix \(A\) representing a linear map \(f:F^{n} \rightarrow F^{m} \) to have an inverse, it must be bijective as proved in \cref{bijectiveinverse}. Thus from (F5) and (G1) we have \(\dim \ker (f) = \boldsymbol{0} \text { and } \dim (V) = \dim (W)\), which implies \(\rank (f) = n = m\) using \cref{dimensionformulaeq}.
 
 \begin{lemma}[Properties of Matrix Inverse] \label{matrixinverseprop} 
-A quadratic \(n \times n\) matrix \(A:F^{n}\rightarrow F^{n}  \) is invertible if and only if its rank is maximal, \ie \(\rank (A) = n\). If \(A, B\) are two invertible \(n\times n\) matrices we have\footnote{The proof is given in \cref{matrixinversepropapp} as always.} 
+A quadratic \(n \times n\) matrix \(A:F^{n}\rightarrow F^{n}  \) is invertible if and only if its rank is maximal, \textit{i.e.,} \(\rank (A) = n\). If \(A \text { and } B\) are two invertible \(n\times n\) matrices we have:\footnote{The proof is given in \cref{matrixinversepropapp} as always.} 
 
-\begin{enumerate}[label=(H\arabic*)]
+\begin{enumerate}[label=(\(H\)\arabic*)]
     \item The inverse matrix, denoted \(A^{-1} \), is the unique matrix satisfying \(AA^{-1} = A^{-1} A = \mathbb{I}_{n} \).
-    \item \((AB)^{-1} = B^{-1} A^{-1} \)
-    \item \(A^{-1} \) is invertible and \((A^{-1} )^{-1} = A\)
-    \item \(A^{T} \) is invertible and \((A^{T} ) ^{-1} = (A^{-1} )^{T} \)       
+    \item \((AB)^{-1} = B^{-1} A^{-1} \).
+    \item \(A^{-1} \) is invertible and \((A^{-1} )^{-1} = A\).
+    \item \(A^{T} \) is invertible and \((A^{T} ) ^{-1} = (A^{-1} )^{T} \).   
 \end{enumerate}
 
 \end{lemma}
@@ -1002,9 +1002,9 @@ A quadratic \(n \times n\) matrix \(A:F^{n}\rightarrow F^{n}  \) is invertible i
 \subsection{Gaussian Elimination}
 
 \begin{definition}
-The following manipulations of a matrix are called elementary row\footnote{Analogous definitions hold for elementary column operations.} operations.
+The following manipulations of a matrix are called elementary row operations:\footnote{Analogous definitions hold for elementary column operations.}
 
-\begin{enumerate}[label=(I\arabic*)]
+\begin{enumerate}[label=(\(I\)\arabic*)]
     \item Exchange two rows.
     \item Add a multiple of one row to another.
     \item Multiply a row with a non-zero scalar.
@@ -1012,7 +1012,7 @@ The following manipulations of a matrix are called elementary row\footnote{Analo
 
 \end{definition}
 
-The kind of matrix we want to reduce to is called (upper) echelon form\footnote{A neat fact about elementary row operations is that they can be generated by multiplying with certain matrices from the left. In other words, to perform a row operation on a matrix \(A\), we can always find a suitable matrix \(P\) such that the row operation is generated by \(A \rightarrow PA\)\footnote{The explicit form of the matrices are given in \cref{APA}.}. This means we can bring a matrix \(A\) into upper echelon form by matrix multiplications \(P_{k} \ldots P_{1}A \).} \todo{magic squares and coding theory}, where the entries \(a_{ij_{i} } \) are non-zero for all \(i = 1, ..., r\), all other entries above are arbitary and all entries below are zero which has the form
+The kind of matrix we want to reduce to is called (upper) echelon form\footnote{A neat fact about elementary row operations is that they can be generated by multiplying with certain matrices from the left. In other words, to perform a row operation on a matrix \(A\), we can always find a suitable matrix \(P\) such that the row operation is generated by \(A \rightarrow PA\) (The explicit form of the matrices are given in \cref{APA}). This means we can bring a matrix \(A\) into upper echelon form by matrix multiplications \(P_{k} \ldots P_{1}A \).} \todo{magic squares and coding theory} where the entries \(a_{ij_{i} } \) are non-zero for all \(i = 1, ..., r\), all other entries above are arbitary and all entries below are zero which has the form
 
 \begin{equation}
     A = \begin{pmatrix}
@@ -1026,7 +1026,7 @@ The kind of matrix we want to reduce to is called (upper) echelon form\footnote{
 
 
 \begin{lemma} \label{rowvec} 
-The first \(r\) row vectors in this matrix are linearly independent\footnote{The proof of this lemma is provided in \cref{rowvecapp}.}. 
+The first \(r\) row vectors in this matrix are linearly independent.\footnote{The proof of this lemma is provided in \cref{rowvecapp}.}
 \end{lemma}
 
 
@@ -1059,7 +1059,7 @@ To devise an algorithm to compute the inverse of a matrix, using elementary row 
 
 In the first step, we bring \(A\) into upper echelon form by the algorithm already discussed. At this point we can read off the rank of the matrix. If \(\rank (A)<n\) the inverse does not exist and we can stop. On the other hand, if \(\rank (A) = n\) then all diagonal entries \(a'_{ii} \) in the upper echelon form must be non-zero.
 
-Therefore in the second step we can make all entries above the diagonal zero. In this way we arrive at a diagonal matrix with diagonal entries \(a'_{ii} \neq 0 \) which in the final step can be converted into the identity matrix by multiplying every row with a sultible scalar. 
+Therefore in the second step we can make all entries above the diagonal zero. In this way we arrive at a diagonal matrix with diagonal entries \(a'_{ii} \neq 0 \) which in the final step can be converted into the identity matrix by multiplying every row with a suitable scalar. 
 
 This process also means that we can find a set of matrices \(P_{1} ,\ldots ,P_{k}\) generating appropriate elementary row operations such that 
 
@@ -1111,80 +1111,22 @@ where \(\tilde{\vb{e} }_{i}  \) are the standard unit vectors in \(F^{m} \). Com
 
 Thus we extend \cref{matrixlinearmap} to general basis vectors \(\vb{v}_{i}  \in  V\) (not just \(\vb{e} _{i} \in F^{n}\)).   
 
-\begin{lemma} \label{matrixlinearmap2} 
+\begin{lemma}[Essence of Linear Algebra] \label{matrixlinearmap2} 
 Let \(f:V \rightarrow W\) be a linear map, \(\vb{v}_{1}, \ldots, \vb{v}_n \) a basis of \(V\) and \(\vb{w}_{1}, \ldots, \vb{w}_n \) a basis of \(W\). The entries \(a_{ij} \) of the \(m \times n\) matrix \(A\) which describes this linear map relative to this choice of basis can be read off from the images of the basis vectors as 
 
 \begin{equation}
     f(\vb{v} _{j} ) = \sum_{i=1}^{m} a_{ij}\vb{w} _{i} . 
 \end{equation}
 
-We have \(\rank (A)\) = rank(f) and, in particular, \(A\) is invertible if and only if \(f\) is\footnote{The proof of this claim is provided in \cref{matrixlinearmap2app}.}.  
+We have \(\rank (A)\) = rank(f) and, in particular, \(A\) is invertible if and only if \(f\) is.\footnote{The proof of this claim is provided in \cref{matrixlinearmap2app}.} 
 
 \end{lemma}
 
-\example{}
-{}
-{For example, consider the linear map \(B: \mathbb{R}^2 \rightarrow \mathbb{R}^2\) defined by the matrix
-
-\begin{equation}
-    B = \begin{pmatrix}
-        1 &  0 \\
-        0 &  -2 \\
-    \end{pmatrix},
-\end{equation}  
-
-For simplicity, we choose the same basis for the domain and the co-domain, namely \(\vb{v} _{1} = \vb{w} _{1} = \begin{pmatrix}
-     1 \\
-     2 \\
-\end{pmatrix} \text { and } \vb{v} _{2} = \vb{w} _{2} = \begin{pmatrix}
-     -1 \\
-     1 \\
-\end{pmatrix}    \). Then, the images of the basis vectors under \(B\)are
-
-\begin{equation}
-    B\vb{v} _{1} = \begin{pmatrix}
-         1 \\
-         -1 \\
-    \end{pmatrix} = -1\vb{w} _{1}  - 2 \vb{w} _{2} \text { and } B\vb{v} _{2} = \begin{pmatrix}
-         -1 \\
-         -2 \\
-    \end{pmatrix} = -1\vb{w} _{1} +0\vb{w} _{2} . 
-\end{equation}
-
-By arranging the coefficients from \(B\vb{v} _{1} \) into the first column of a matrix the coefficients from \(B\vb{v} _{2} \) into the second column we get the matrix  
-
-\begin{equation}
-    B' = \begin{pmatrix}
-        -1 &  -1 \\
-        -2 &  0 \\
-    \end{pmatrix},
-\end{equation}
-
-which is the matrix representing the linear map \(B\) relative to the basis \({\vb{v} _{1} ,\vb{v} _{2} }\).   
-
-To get what this exactly means, write an arbitrary 2-dimensional vector in \(\mathbb{R}^{2}\)  as
-
-\begin{equation}
-    \begin{pmatrix}
-         x \\
-         y \\
-    \end{pmatrix} = x'\vb{v} _{1}  + y'\vb{v} _{2} = \begin{pmatrix}
-         x'-y' \\
-         2x'+y' \\
-    \end{pmatrix}  
-\end{equation}
-
-so that a vector \(\begin{pmatrix}
-     x \\
-     y \\
-\end{pmatrix} \) is described relative to the basis \({\vb{w} _{1}, \vb{w} _{2}  }\) by the coordinate vector \(\begin{pmatrix}
-     x' \\
-     y' \\
-\end{pmatrix}\).    } 
-
 \section{Change of Basis}
 
-We consider a linear map \(f:V \rightarrow V\) from a vector space to itself. The two sets of basis vectors, coordinate maps and representing matrices are then dentoed by
+\subsection{Linear Maps \(f:V \rightarrow V\)}
+
+We consider a linear map \(f:V \rightarrow V\) from a vector space to itself and we would like to change the basis in both vector spaces. The two sets of basis vectors, coordinate maps, coordinate vectors and the representing matrices are then dentoed by
 
 \begin{equation}
 \begin{array}{cccc}
@@ -1194,7 +1136,7 @@ We consider a linear map \(f:V \rightarrow V\) from a vector space to itself. Th
 \end{array}
 \end{equation}
 
-We would like to then find a relationship between \(A\) and \(A'\), \ie between the representing matrices for \(f\) relative to the unprimed and the primed basis, so
+We would like to then find a relationship between \(A\) and \(A'\), \textit{i.e.,} between the representing matrices for \(f\) relative to the unprimed and the primed basis, so
 
 \begin{equation} \label{changeofbasis} 
     \begin{aligned}
@@ -1203,70 +1145,185 @@ We would like to then find a relationship between \(A\) and \(A'\), \ie between 
     \end{aligned}
 \end{equation}
 
+When acting the above equation on a primed coordinate vector \(\boldsymbol{\alpha '} \), the first thing we obtain on the RHS is \(P^{-1} \boldsymbol{\alpha '} \), which is the corresponding unprimed coordinate vector on which the matrix \(A\) on the RHS can sesibly act, converting it into another unprimed coordinate vector, representing the action of the linear map. The final action of \(P\) converts this back into a primed coordinate vector. Altogether, this is the action of the matrix \(A'\) on \(\boldsymbol{\alpha '} \). 
+
 The interpretation of \(P = \varphi '^{-1} \circ \varphi \) can be seen from 
 
 \begin{equation}
     \boldsymbol{\alpha '} = \varphi '^{-1} (\vb{v} ) = \varphi '^{-1} \circ \varphi (\boldsymbol{\alpha } ) = P \boldsymbol{\alpha }.  
 \end{equation}
 
-Hence, \(P \) converts unprimed coordinate vectors \(\boldsymbol{\alpha } \) into the corresponding primed coordinate vector \(\boldsymbol{\alpha '} \). Note that there is a intuitive explanation to \cref{changeofbasis}: When acting the equation on  a primed coordinate vector \(\boldsymbol{\alpha '} \), the first thing we obtain on the RHS is \(P^{-1} \boldsymbol{\alpha '} \), which is the corresponding unprimed coordinate vector on which the matrix \(A\) on the RHS can sesibly act, converting it into another unprimed coordinate vector. The final action of \(P\) converts this back into a primed coordinate vector. Altogether, this is the action of the matrix \(A'\) on \(\boldsymbol{\alpha '} \). 
+Hence, \(P \) converts unprimed coordinate vectors \(\boldsymbol{\alpha } \) into the corresponding primed coordinate vector \(\boldsymbol{\alpha '} \). 
 
 To compute \(P\), we can simply use \cref{matrixlinearmap2}.
 
-\example{Basis Transformation of a Matrix}
-{Relative to the unprimed basis \(\vb{v} _{1} = \vb{e} _{1} \text { and } \vb{v} _{2} = \vb{e} _{2}\) of standard unit vectors, a linear map \(f: \mathbb{R}^2 \rightarrow \mathbb{R}^2\) is described by the matrix \(A = \begin{pmatrix}
-    1 &  0 \\
-    0 &  -1 \\
-\end{pmatrix}.\) Determine the matrix \(A'\) which dexcribes the same linear map relative to the basis \(\vb{v} _{1}' = \frac{1}{\sqrt{2} } \begin{pmatrix}
+\example{Change of Basis of Linear Map \(f:\mathcal{R}^2 \to \mathcal{R}^2\).}
+{Consider the linear map \(f: \mathbb{R}^2 \rightarrow \mathbb{R}^2\) represented by the matrix    \(A = \begin{pmatrix}
+        1 &  0 \\
+        0 &  -2 \\
+    \end{pmatrix}\). By default, the matrix is described relative to the standard unit vectors \(\vb{e} _{1} = \begin{pmatrix}
      1 \\
+     0 \\
+\end{pmatrix} \text { and } \vb{e} _{2} = \begin{pmatrix}
+     0 \\
+     1 \\
+\end{pmatrix}  \). Now determine the matrix \(A'\) which describes the same linear map relative to the basis \(\vb{v} _{1} = \begin{pmatrix}
+     1 \\
+     2 \\
+\end{pmatrix} \text { and }  \vb{v} _{2} = \begin{pmatrix}
      -1 \\
-\end{pmatrix} \text { and } \vb{v} _{2}' = \frac{1}{\sqrt{2} } \begin{pmatrix}
      1 \\
-     1 \\
-\end{pmatrix}.  \)   }
-{The fist way is to use \cref{matrixlinearmap2} and compute the images of the basis vectors in the domain
+\end{pmatrix}    \) in both domain and co-domain.}
+{The images of the basis vectors under \(A\) are
 
 \begin{equation}
-    A
+    A\vb{v} _{1} = \begin{pmatrix}
+         1 \\
+         -1 \\
+    \end{pmatrix} = -1\vb{v} _{1}  - 2 \vb{v} _{2} ~\text { and }~  A\vb{v} _{2} = \begin{pmatrix}
+         -1 \\
+         -2 \\
+    \end{pmatrix} = -1\vb{v} _{1} +0\vb{v} _{2} . 
 \end{equation}
 
- } 
+Using the \cref{matrixlinearmap2}, we arrange the coefficients from \(A\vb{v} _{1} \) into the first column amd the coefficients from \(A\vb{v} _{2} \) into the second column we get the matrix  
 
+\begin{equation}
+    A' = \begin{pmatrix}
+        -1 &  -1 \\
+        -2 &  0 \\
+    \end{pmatrix},
+\end{equation}
+
+which is the matrix representing the linear map \(f\) relative to the basis \(\vb{v} _{1} \text { and } \vb{v} _{2} \).   
+
+Alternatively, we can figure out the change of basis matrix \(P\) from the relation between the coordinates vector
+
+\begin{equation}
+    \alpha _{1}\vb{e} _{1}+\alpha _{2}\vb{e} _{2} = \begin{pmatrix}
+         \alpha _{1}  \\
+         \alpha _{2}  \\
+    \end{pmatrix}  =  \alpha _{1}' \vb{v} _{1}+ \alpha _{2}'\vb{v} _{2} = \begin{pmatrix}
+         \alpha _{1}' - \alpha _{2}'   \\
+         2\alpha _{1}' + \alpha _{2}'   \\
+    \end{pmatrix} .
+\end{equation}
+
+So we have
+
+\begin{equation}
+    P^{-1} = \begin{pmatrix}
+        1 &  -1 \\
+        2 &  1 \\
+    \end{pmatrix} \implies A' = PAP^{-1} = \begin{pmatrix}
+        -1 &  -1 \\
+        -2 &  0 \\
+    \end{pmatrix}.
+\end{equation}
+} 
+
+\example{Change of Basis of Linear Map \(f:\mathcal{R}^3 \to \mathcal{R}^2\).}
+{Consider the linear map \(f:\mathcal{R}^3 \to \mathcal{R}^2\) represented by the matrix \(A = \begin{pmatrix}
+    1 & 0 &  0 \\
+    0 & 1 &  0 \\
+\end{pmatrix}\) which project a 3-dimensional vector into the \(xy\)-plane. By default, the matrix is described relative to the standard unit vectors \(\vb{e} _{1} = \begin{pmatrix}
+     1 \\
+     0 \\
+     0 \\
+\end{pmatrix}, \vb{e} _{2} = \begin{pmatrix}
+     0 \\
+     1 \\
+     0 \\
+\end{pmatrix} \text { and } \vb{e} _{3} = \begin{pmatrix}
+     0 \\
+     0 \\
+     1 \\
+\end{pmatrix}\). Now determine the matrix \(A'\) which describes the same linear mape relative to the basis \(\vb{e} _{1}\text { and } \vb{e} _{2}  \) in the domain and \(\vb{v} _{1} = \begin{pmatrix}
+     1 \\
+     1 \\
+\end{pmatrix} \text { and } \vb{v} _{2} = \begin{pmatrix}
+     -1 \\
+     1 \\
+\end{pmatrix} \) in the co-domain.    }
+{The first method is to use \cref{matrixlinearmap2}, and compute the images of the basis vectors in the domain \(\vb{e} _{1} \text { and } \vb{e} _{2} \) in terms of the basis vectors in the co-domain \(\vb{v} _{1} \text { and } \vb{v} _{2} \)
+
+\begin{equation}
+    A \vb{e} _{1} = \begin{pmatrix}
+         1 \\
+         0 \\
+    \end{pmatrix} = \frac{1}{2}(\vb{v} _{1} - \vb{v} _{2}  ),  A\vb{e} _{2} = \begin{pmatrix}
+         0 \\
+         1 \\
+    \end{pmatrix} = \frac{1}{2} (\vb{v} _{1}+ \vb{v} _{2}  ) \text { and } A\vb{e} _{3} = \begin{pmatrix}
+         0 \\
+         0 \\
+    \end{pmatrix}.
+\end{equation}
+
+Arranging the coefficients into columns, we have the transformed matrix \(A' = \frac{1}{2} \begin{pmatrix}
+    1 &  1 & 0 \\
+    -1 &  1 & 0 \\
+\end{pmatrix}\). 
+} 
+
+
+\section{Systems of Linear Equations}
+
+\subsection{General Structures of Solutions}
+
+Consider a linear map \(f:V \to W\). We would like to find all solutions \(\vb{x} \in V\) of the inhomogeneous equation \(f(\vb{x} ) = \vb{b} \), where \(\vb{b} \in W\) is a fixed vector. In other words, which vectors \(\vb{x}  \in V\) get mapped to \(\vb{b} \in W\). We need to find first the solution to the associated homogenous equation \(f(\vb{x} ) = \boldsymbol{0} \), where the general solution is \(\ker (f)\).       
+
+\begin{lemma}
+If \(\vb{x} _{0} \in V\) solves the inhomogenous equation, \textit{i.e.,} \(f(\vb{x} _{0} ) = \vb{b}\), then \(\vb{x} _{0} + \ker (f) \) is the general solution of the inhomogenous equation.   
+\end{lemma}
+
+\begin{proof}
+If \(\vb{x} \) is a solution to \(f(\vb{x} ) = \vb{b} \) then \(f(\vb{x} - \vb{x} _{0} ) = f(\vb{x} ) - f(\vb{x} _{0} ) = \vb{b} -\vb{b} =\boldsymbol{0} \), so \(\vb{x} - \vb{x} _{0} \in \ker (f) \).     
+\end{proof}
+
+The geometry of the solutions is schematically as indicated in \cref{generalstructure}.
+
+\onefig{generalstructure}{scale=0.3} 
+
+To summarize the general structure of the solution to \(A\vb{x} = \vb{b} \), we should distinguish two cases:
+
+\begin{enumerate}
+    \item \(\rank (A) = m\): \(\vb{b} \in F^{m} = \text{Im} (A)\), thus we have a solution \(\vb{x} _{0} \) for any choice of \(\vb{b} \) and the general solution is given by \(\vb{x} _{0} + \ker (A) \) and the number of free parameters in this solution equals \(\dim (\ker (A)) = n - \rank (A) = n-m\).     
+    \item \(\rank (A) < m\): \begin{enumerate}
+        \item \(\vb{b} \in  \text{Im}(A) \): We have a solution with \(\dim (\ker (A)) = n - \rank (A)\) free parameters.
+        \item \(\vb{b} \notin \text{Im}(A) \): There is no solution.  
+    \end{enumerate}  
+\end{enumerate}
+
+\subsection{Solutions by Row Reductions}
+
+Suppose we want to solve \(m\) linear equations with \(n\) variables. We first write the system of linear equation \(A\vb{x} = \vb{b} \) as a single augmented matrix \(A' = (A \mid \vb{b} )\), where \(A\) is a \(m \times n\) matrix, and \(\vb{x} \text { and } \vb{b} \) are \(n- \text { and } m-\)dimensional vectors respectively. 
+
+Since elementary row operations do not change the solutions to the system, we can first simply the augmented matrix by row reducing it into upper echelon form.
+
+For there to be a solution, we require that \(\vb{b} \in  \text{Im}(A) \implies \rank (A) = \rank (A')\). This is equivalent to saying that we would not have any rows giving inconsistent equations, such as \(0=3\).
+
+Assuming the equations are consistent, we would either have \(0=0\), which implies a free parameter, or an actual equation of \(\vb{x} \).  
 
 \chapter{Determinants}
 
 \section{Definition of a Determinant}
 
-\begin{definition}
-    A determinant maps \( n \) vectors \(\vb{a}_1, \ldots, \vb{a}_n \in F^n\) to a number, denoted \(\det(\vb{a}_1, \ldots, \vb{a}_n) \in F\), such that the following properties are satisfied:
-    \begin{enumerate}[label=(J\arabic*)]
-        \item \(\det(\ldots, \alpha \vb{a} + \beta \vb{b}, \ldots) = \alpha \det(\ldots, \vb{a}, \ldots) + \beta \det(\ldots, \vb{b}, \ldots)\)\\
-        \textit{This means the determinant is linear in each argument.}
-        
-        \item \(\det(\ldots, \vb{a}, \ldots, \vb{b}, \ldots) = -\det(\ldots, \vb{b}, \ldots, \vb{a}, \ldots)\)\\
-        \textit{This means the determinant is completely anti-symmetric.}
-        
-        \item \(\det(\vb{e}_1, \ldots, \vb{e}_n) = 1\)\\
-        \textit{The determinant of the standard unit vectors is one.}
-    \end{enumerate}
-    The determinant of an \( n \times n \) matrix \( A \) is defined as the determinant of its column vectors, so \(\det(A) := \det(\vb{A}^1, \ldots, \vb{A}^n)\).
-\end{definition}
-
-An easy but important conclusion from these properties is that the determinant with two same arguments must vanish, so from (J2) it follows that \(\text{det}(\ldots , \vb{a} , \ldots , \vb{a} , \ldots ) = - \text{det}(\ldots ,\vb{a} ,\ldots ,\vb{a} ,\ldots )  \), which means that \(\text{det }(\ldots , \vb{a} ,\ldots ,\vb{a} ,\ldots ) = 0  \). 
+\subsection{Permutations of Elements}
 
 Before we can find an explicit form of a determinant, we have to introduce the concept of permutation, which is an operation which changes the order of a certain set of \(n\) objects. Mathematically, the set of all permutations of \(n\) objects is given by 
 
 \begin{equation}
-    S_{n} \equiv \{\sigma : \{1,\ldots ,n\} \rightarrow \{1,\ldots ,n\} \mid  \sigma \text{ is bijective } \}, 
+    S_{n} \equiv \{\sigma : \{1,\ldots ,n\} \rightarrow \{1,\ldots ,n\} \mid  \sigma \text{ is bijective} \}, 
 \end{equation}
 
-and this at has \(n!\) elements. A useful notation for a permutation mapping \(1 \rightarrow  \sigma (1), \ldots , n \rightarrow \sigma (n)\) is\footnote{Note, dispite the similar notation, this is not a matrix}
+and this has \(n!\) elements. A useful notation for a permutation mapping \(1 \rightarrow  \sigma (1), \ldots , n \rightarrow \sigma (n)\).
 
 \begin{equation}
     \sigma = \begin{pmatrix}
         1 & \ldots  &  n \\
         \sigma (1) & \ldots  & \sigma (n)  \\
-    \end{pmatrix}.
+    \end{pmatrix}.\footnote{Note, dispite the similar notation, this is not a matrix.}
 \end{equation}
 
 The specific permutations which only swap two numbers and leave all other numbers unchanged are called transpositions. A basic and important fact about permutations, is that every permutation can be written as a composition of transpositions, so any \(\sigma \in  S_{n} \) can be written as \(\sigma = \tau _{1}  \circ \ldots \circ \tau _{k}  \), where \(\tau _{1}, \ldots , \tau _{k} \in  S_{n}  \) are transpositions. It can be shown also that the number of transpositions required is always either even or odd for a given transposition. It therefore makes sense to define the sign of permutation as 
@@ -1281,17 +1338,30 @@ The specific permutations which only swap two numbers and leave all other number
 
 Some direct consequences from this definitions are \(\text{sgn}(\sigma _{1} \circ \sigma _{2}  ) = \text{sgn}(\sigma _{1} ) \text{sgn}(\sigma _{2} ) \text { and } 1 = \text{sgn}(\sigma \circ \sigma ^{-1} ) = \text{sgn}(\sigma )\text{sgn}(\sigma ^{-1} ) \implies \text{sgn}(\sigma ^{-1} ) = \text{sgn}(\sigma ).        \) 
 
-To derive an explicit formula for the determinant, we start with an \(n \times n\) matrix \(A\) with entries \(a_{ij} \) whose column vectors we write as linear combinations of the standard unit vectors: 
+\subsection{Leibniz Formula for Determinants}
 
-\begin{equation}
-    \vb{A} ^{i} = \begin{pmatrix}
-         a_{1i}  \\
-         \vdots  \\
-         a_{ni} \\
-    \end{pmatrix} = \sum_{j}^{} a_{ji} \vb{e} _{j}.  
-\end{equation}
+\begin{definition}
+    A determinant maps \( n \) vectors \(\vb{a}_1, \ldots, \vb{a}_n \in F^n\) to a number, denoted \(\det(\vb{a}_1, \ldots, \vb{a}_n) \in F\), such that the following properties are satisfied:
+    \begin{enumerate}[label=(\(J\)\arabic*)]
+        \item \(\det(\ldots, \alpha \vb{a} + \beta \vb{b}, \ldots) = \alpha \det(\ldots, \vb{a}, \ldots) + \beta \det(\ldots, \vb{b}, \ldots)\)\\
+        \textit{This means the determinant is linear in each argument.}
+        
+        \item \(\det(\ldots, \vb{a}, \ldots, \vb{b}, \ldots) = -\det(\ldots, \vb{b}, \ldots, \vb{a}, \ldots)\)\\
+        \textit{This means the determinant is completely anti-symmetric.}
+        
+        \item \(\det(\vb{e}_1, \ldots, \vb{e}_n) = 1\)\\
+        \textit{The determinant of the standard unit vectors is one.}
+    \end{enumerate}
+    The determinant of an \( n \times n \) matrix \( A \) is defined as the determinant of its column vectors, so \(\det(A) \equiv  \det(\vb{A}^1, \ldots, \vb{A}^n)\).
+\end{definition}
 
-We find
+An easy but important conclusion from these properties is that the determinant with two same arguments must vanish, so from (J2) it follows that \(\text{det}(\ldots , \vb{a} , \ldots , \vb{a} , \ldots ) = - \text{det}(\ldots ,\vb{a} ,\ldots ,\vb{a} ,\ldots )  \), which means that \(\text{det }(\ldots , \vb{a} ,\ldots ,\vb{a} ,\ldots ) = 0  \). 
+
+To derive an explicit formula for the determinant, we start with a \(n \times n\) matrix \(A\) with entries \(a_{ij} \) whose column vectors we write as linear combinations of the standard unit vectors: \(\vb{A} ^{i} = \begin{pmatrix}
+         a_{1i}  &
+         \cdots  &
+         a_{ni} 
+    \end{pmatrix}^T = \sum_{j=1}^{n} a_{ji} \vb{e} _{j}\). We find then
 
 \begin{equation} \label{detdef} 
 \begin{aligned}
@@ -1299,19 +1369,17 @@ We find
 \end{aligned}
 \end{equation}
 
-where in the second step of the second line we replace \(\sum_{j_1 ,..., j_{n} }^{} \) as \(\sum_{\sigma \in S_{n} }^{} \) since when we sum over all \(j_{i}\) for \(i = 1,\ldots ,n\), consider the term when \((j_1 , ..., j_{k}, ..., j_{n}) = (2,\ldots ,6,\ldots ,1)\), since it is a possible permutation of \((1,\ldots ,n)\), it is in \(S_{n} \). For the cases such as \((j_1 , ..., j_{k}, ..., j_{n}) = (5,\ldots ,5,\ldots ,2)\), where since it is not a possible permutation of \((1,\ldots ,n)\), it is not included in \(S_{n} \), the term is zero since the determinant of any set of vectors consisting of two identical vectors is always zero as shown before.
-
-
+where in the first equality of the second line can be seen by first decomposing the determinant into \(n\) terms using \((J1)\) and appplying it to the first column vector \(\vb{A} ^{1} \). Repeating this step for other column vectors would yield the desired result. In the second step of the second line we replace \(\sum_{j_1 ,..., j_{n} }^{} \) as \(\sum_{\sigma \in S_{n} }^{} \) since when we sum over all \(j_{i}\) for \(i = 1,\ldots ,n\), consider the term when \((j_1 , ..., j_{k}, ..., j_{n}) = (2,\ldots ,6,\ldots ,1)\), since it is a possible permutation of \((1,\ldots ,n)\), it is in \(S_{n} \). For the cases such as \((j_1 , ..., j_{k}, ..., j_{n}) = (5,\ldots ,5,\ldots ,2)\), where since it is not a possible permutation of \((1,\ldots ,n)\), it is not included in \(S_{n} \), the term is zero since the determinant of any set of vectors consisting of two identical vectors is always zero as shown before.
 
 Using the \(n\)-dimensional generalization of the Levi-Civita symbol, defined by 
 
 \begin{equation}
     \epsilon_{i_1 \ldots  i_n} = 
     \begin{cases} 
-    +1 & \text{if } i_1, \ldots, i_n \text{ is an even permutation of } 1, \ldots, n \\ 
-    -1 & \text{if } i_1, \ldots, i_n \text{ is an odd permutation of } 1, \ldots, n \\ 
-    0 & \text{otherwise} 
-    \end{cases},
+    +1 & \text{if } i_1, \ldots, i_n \text{ is an even permutation of } 1, \ldots, n, \\ 
+    -1 & \text{if } i_1, \ldots, i_n \text{ is an odd permutation of } 1, \ldots, n, \\ 
+    ~0 & \text{otherwise}, 
+    \end{cases}
 \end{equation}
     
 the determinant of a matrix \(A\) can be written by
@@ -1337,7 +1405,7 @@ In three dimensions we find
     \end{aligned}
 \end{equation}
 
-An interesting class of matrices for which the determinant is simple consists of upper (or lower) triangular matrices, \ie matrices with all entries below (or above) the diagonal vanishing. In this case
+An interesting class of matrices for which the determinant is simple consists of upper (or lower) triangular matrices, \textit{i.e.,} matrices with all entries below (or above) the diagonal vanishing. In this case
 
 \begin{equation}
     \det \begin{pmatrix}
@@ -1347,12 +1415,13 @@ An interesting class of matrices for which the determinant is simple consists of
     \end{pmatrix} = a_1 \ldots a_{n} 
 \end{equation}
 
-so the determinant is simply the produce of the diagonal elements.
+so the determinant is simply the product of the diagonal elements.
 
-\section{Properties of a Determinant} \label{detprop} 
+For a large matrix, it is usually easier to first convert the matrix in to upper triangular form, by elementary row operations, which then the determinant is just the product of the diagonal entries. 
 
-We now investigate some important properties of determinants We begin with the following lemma:
+The effect of the operations to the determinant is minimal, since exchanging rows only change the sign of a determinant, multiplying a row with a non-zero scalar only change the determinant by the same factor, and adding a multiple of one row to another leaves the determinant unchanged. This is true because it is equivalent of adding a multiple of one column to another because of \(\det (A^{T} ) = \det (A) \). Thus, \(\det (\vb{A} ^{1}, \ldots , \vb{A} ^{j}, \ldots , \vb{A} ^{k} + \lambda \vb{A} ^{j}, \ldots , \vb{A} ^{n}    ) = \det (\vb{A} ^{1}, \ldots , \vb{A} ^{n}    ) + \lambda \det (\vb{A} ^{1}, \ldots , \vb{A} ^{j}, \ldots , \vb{A} ^{j}, \ldots , \vb{A} ^{n}    ) = \det (\vb{A} ^{1}, \ldots ,  \vb{A} ^{n}    )\).   
 
+\section{Properties of Determinants} \label{detprop} 
 
 \begin{lemma}
 The determinant of a matrix and its transpose are the same, so $\det(A) = \det(A^T)$.
@@ -1380,13 +1449,7 @@ From this observation, the determinant can be written as
 \end{theorem}
 
 \begin{proof}
-Since \((AB)_{ij} = \sum_{k}^{} A_{ik}B_{kj}   \), so the \(j^{\text{th }} \) column of \(AB\) is 
-
-\begin{equation}
-    (AB)^{j} = \sum_{k}^{} B_{kj}\vb{A} ^{k},
-\end{equation}
-
-where \(\vb{A} ^{k} \) are the columns of \(A\). Hence
+Since \((AB)_{ij} = \sum_{k}^{} A_{ik}B_{kj}   \), so the \(j^{\text{th }} \) column of \(AB\) is \((AB)^{j} = \sum_{k}^{} B_{kj}\vb{A} ^{k}\). Hence
 
 \begin{equation}
     \begin{aligned}
@@ -1403,7 +1466,7 @@ where \(\vb{A} ^{k} \) are the columns of \(A\). Hence
 For an \(n \times n\) matrix \(A\) we have:
 
 \begin{equation}
-    A \text{is bijective (\ie \(A\) has an inverse)} \iff \det (A) \neq 0  
+    A \text{ is bijective (\textit{i.e.,} \(A\) has an inverse)} \iff \det (A) \neq 0  
 \end{equation}
 
 If \(A\) is invertible then \(\det (A^{-1} ) = (\det (A))^{-1} \). 
@@ -1420,8 +1483,16 @@ This implies that the determinant remains unchanged under basis transformations 
     \det (PAP^{-1} ) = \det (P)\det (A)\det (P)^{-1} =\det (A).
 \end{equation}
 
-Our next goal is to find a recursive method to calculate the determinant, essentially by writing the determinant of a matrix in terms of determinants of sub-matrices. For an \(n\times n\) matrix \(A\) , we define the associated \(n \times  n\)  matrix as
+\section{Laplace's Expansion of Determinants}
 
+
+The co-factor of a \(n \times n\) matrix \(A\) is defined as 
+
+\begin{equation}
+    C_{ij} \equiv \det (\tilde{A}_{(i,j)}  ) = (-1)^{i+j} \det (A_{(i,j)} ) ,
+\end{equation}
+
+where \(\tilde{A}_{(i,j)} \) is an associated matrix of \(A\) with \(i^{\text{th }} \) row and \(j^{\text{th }} \) column changed to all zeros except for the overlapped entries where it is changed to 1.  
 
 \begin{equation}
     \tilde{A}_{(i,j)} = 
@@ -1437,13 +1508,7 @@ Our next goal is to find a recursive method to calculate the determinant, essent
 \leftarrow i^{\text{th }}  \text{ row}
 \end{equation}
 
-The co-factor matrix is then defnied as a \(n\times n\) matrix \(C\) with entries 
-
-\begin{equation}
-    C_{ij} \equiv \det (\tilde{A}_{(i,j)}  ) = (-1)^{i+j} \det (A_{(i,j)} ) ,
-\end{equation}
-
-where \(A_{(i,j)} \) is a \((n-1)\times (n-1)\) matrix where the \(i^{\text{th }} \) row and the \(j^{\text{th }} \) column is deleted. The \((-1)^{i+j} \) factor comes from the process of permuting the rows and column of \(\tilde{A}_{i+j}  \) before deleting the \(i^{\text{th }} \) row and the \(j^{\text{th }} \) column such that the determinant would remains unchanged after the deletion.
+and \(A_{(i,j)} \) is a \((n-1)\times (n-1)\) matrix where the \(i^{\text{th }} \) row and the \(j^{\text{th }} \) column of \(\tilde{A}_{(i,j)}  \)  are deleted. The \((-1)^{i+j} \) factor comes from the process of permuting the rows and column of \(\tilde{A}_{(i,j)}  \) such that the \(i^{\text{th }} \) row and the \(j^{\text{th }} \) column are at the \(1^{\text{st } }\) row and column respectively before deleting the \(i^{\text{th }} \) row and the \(j^{\text{th }} \) column such that the determinant would remains unchanged after the deletion.
 
 \begin{lemma} \label{cofactor} 
 For an \(n \times  n\) matrix \(A\) with associated co-factor matrix \(C\), we have 
@@ -1454,14 +1519,14 @@ For an \(n \times  n\) matrix \(A\) with associated co-factor matrix \(C\), we h
 \end{lemma}
 
 \begin{proof}
-    This follows from the definition of the co-factor matrix, more or less by direct calculation.
+    This follows from the definition of the co-factor matrix, more or less by direct calculation.\todo{why the second line is true} 
 
     \begin{equation}
     \begin{aligned}
     (C^T A)_{ij} &= \sum_k (C^T)_{ik} A_{kj} = \sum_k A_{kj} C_{ki} = \sum_k A_{kj} \det(\tilde{A}_{(k,i)}) \\
     &= \sum_k A_{kj} \det(\mathbf{A}^1, \ldots, \mathbf{A}^{i-1}, \mathbf{e}_k, \mathbf{A}^{i+1}, \ldots, \mathbf{A}^n) \\
     &= \det\left(\mathbf{A}^1, \ldots, \mathbf{A}^{i-1}, \sum_k A_{kj} \mathbf{e}_k, \mathbf{A}^{i+1}, \ldots, \mathbf{A}^n\right) \\
-    &= \det(\mathbf{A}^1, \ldots, \mathbf{A}^{i-1}, \mathbf{A}^j, \mathbf{A}^{i+1}, \ldots, \mathbf{A}^n) \overset{(5.1)}{=} \delta_{ij} \det(A) = (\det(A) I_n)_{ij}
+    &= \det(\mathbf{A}^1, \ldots, \mathbf{A}^{i-1}, \mathbf{A}^j, \mathbf{A}^{i+1}, \ldots, \mathbf{A}^n) \overset{(5.1)}{=} \delta_{ij} \det(A) = (\det(A) \mathbb{I})_{ij}
     \end{aligned}
     \end{equation}
     
@@ -1476,25 +1541,20 @@ An immediate conclusion from \cref{cofactor}  is
 
 This is known as the Laplace expansion of the determinant. Note that we can choose any column \(j\) and computet the determinant of \(A\) by summing over the entries \(i\) in this column times the determinants of the corresponding sub-matrices \(A_{(i,j)} \). 
 
-Also, \cref{cofactor} is a new method to computet the inver of a matrix. If \(A\) is invertible, then from \cref{invertibledeterminant} \(\det (A) \neq 0\) and we can divide by \(\det (A)\) to get 
+Also, \cref{cofactor} is a new method to compute the inverse of a matrix. If \(A\) is invertible, then from \cref{invertibledeterminant} \(\det (A) \neq 0\) and we can divide by \(\det (A)\) to get 
 
 \begin{equation}
-    A^{-1} = \frac{1}{\det (A)}C^{T}.   
+    A^{-1} = \frac{C^{T} }{\det (A)}.   
 \end{equation}
-
-For a large matrix, it is usually easier to first convert the matrix in to upper triangular form, since exchanging rows only change the sign of a determinant, multiplying a row with a non-zero scalar only change the determinant by the same factor, and adding a multiple of one row to another leaves the determinant unchanged, since this is equivalent of adding a multiple of one column to another because of \(\det (A^{T} ) = \det (A) \), thus, \(\det (\vb{A} ^{1}, \ldots , \vb{A} ^{j}, \ldots , \vb{A} ^{k} + \lambda \vb{A} ^{j}, \ldots , \vb{A} ^{n}    ) = \det (\vb{A} ^{1}, \ldots , \vb{A} ^{n}    ) + \lambda \det (\vb{A} ^{1}, \ldots , \vb{A} ^{j}, \ldots , \vb{A} ^{j}, \ldots , \vb{A} ^{n}    ) = \det (\vb{A} ^{1}, \ldots ,  \vb{A} ^{n}    )\).   
-
 \section{Cramer's Rule}
 
-Here we introduce Cramer's Rule, which uses determinants to solve systemas of linear equations \(A\vb{x} = \vb{b} \) for the cases of quadratic and invertible \(n \times n\) matrices \(A\) and where \(\vb{x} = \begin{pmatrix}
-    x_1  & \ldots  & x_{n}   \\
-\end{pmatrix}^{T} \) . We first define the matrices
+To solve the equation \(A\vb{x} = \vb{b} \) (A here must be a square matrix) with determinants, we first define the matrices 
 
 \begin{equation}
 B_{(i)} \equiv  (\mathbf{A}^1, \ldots, \mathbf{A}^{i-1}, \mathbf{b}, \mathbf{A}^{i+1}, \ldots, \mathbf{A}^n), 
 \end{equation}
 
-Then we find
+where their determinants are
 
 \begin{equation}
 \begin{aligned}
@@ -1504,7 +1564,7 @@ Then we find
 \end{aligned}
 \end{equation}
 
-where we have used \cref{weirdmat} to express \(\vb{b}  = \sum_{j}^{} x_{j}\vb{A} ^{j}  \).  
+where we have used \cref{matrixmultiplication} to express \(\vb{b}  = \sum_{j}^{} x_{j}\vb{A} ^{j}  \).  
 
 Thus
 
@@ -1522,47 +1582,31 @@ x_i = \frac{\det(B_{(i)})}{\det(A)} = \frac{\det(\mathbf{A}^1, \ldots, \mathbf{A
 
 \chapter{Scalar Products}
 
-We have introduced the standard scalar product on \(\mathbb{R}^{n} \) (the dot product). Here we study its generalizations to arbitrary real and complex vector spaces.
-
 \section{Real and Hermitian Scalar Products}
 
 \begin{definition} \label{scalarproduct} 
-    A real (hermitian) scalar product on a vector space \( V \) over \( F = \mathbb{R} \) (\( F = \mathbb{C} \)) is a map \(\langle \cdot, \cdot \rangle : V \times V \rightarrow \mathbb{R} \) (\( \mathbb{C} \)) satisfying
-    \begin{enumerate}[label=(K\arabic*)]
-        \item \(\langle \vb{v}, \vb{w} \rangle = \langle \vb{w}, \vb{v} \rangle\), for a real scalar product, \( F = \mathbb{R} \)\\
-              \(\langle \vb{v}, \vb{w} \rangle = \langle \vb{w}, \vb{v} \rangle^*\), for a hermitian scalar product, \( F = \mathbb{C} \)
-        \item \(\langle \vb{v}, \alpha \vb{u} + \beta \vb{w} \rangle = \alpha \langle \vb{v}, \vb{u} \rangle + \beta \langle \vb{v}, \vb{w} \rangle\)
-        \item \(\langle \vb{v}, \vb{v} \rangle > 0\) if \(\vb{v} \neq 0\)
+    A real (hermitian) scalar product on a vector space \( V \) over \( F = \mathbb{R} \) (\( F = \mathbb{C} \)) is a map \(\langle \cdot, \cdot \rangle : V \times V \rightarrow \mathbb{R} \) (\( \mathbb{C} \)) satisfying:
+    \begin{enumerate}[label=(\(K\)\arabic*)]
+        \item \(\langle \vb{v}, \vb{w} \rangle = \langle \vb{w}, \vb{v} \rangle\), for a real scalar product, \( F = \mathbb{R} \),\\
+              \(\langle \vb{v}, \vb{w} \rangle = \langle \vb{w}, \vb{v} \rangle^*\), for a hermitian scalar product, \( F = \mathbb{C} \),
+        \item \(\langle \vb{v}, \alpha \vb{u} + \beta \vb{w} \rangle = \alpha \langle \vb{v}, \vb{u} \rangle + \beta \langle \vb{v}, \vb{w} \rangle\),
+        \item \(\langle \vb{v}, \vb{v} \rangle > 0\) if \(\vb{v} \neq 0\),
     \end{enumerate}
     for all vectors \(\vb{v}, \vb{u}, \vb{w} \in V\) and all scalars \(\alpha\), \(\beta \in F\).
     
     If (K1) and (K2), but not necessarily (K3) are satisfied, then \(\langle \cdot, \cdot \rangle\) is called a bi-linear form (in the real case \( F = \mathbb{R} \)) or a sesqui-linear form (in the complex case \( F = \mathbb{C} \)).
 \end{definition}
 
-In the real case, (K1) and (K2) imply that 
+Since properties \((K1) \text { and } (K3)\) imply that \(\avg{\vb{v} ,\vb{v} } \) is real and non-negative, respectively, we can sensibly define the norm (or length) of a vector as 
 
 \begin{equation}
-    \avg{\alpha \vb{v} + \beta \vb{u} } = \alpha \avg{\vb{v} ,\vb{w} } + \beta \avg{\vb{u} ,\vb{w} },   
+    \abs{\vb{v} } = \sqrt{\avg{\vb{v} ,\vb{v} } }.
 \end{equation}
 
-while in the complex case, they imply that 
+The Cauchy-Schwarz inequality and the triangle inequality are 
 
 \begin{equation}
-    \avg{\alpha \vb{v} + \beta \vb{u} , \vb{w} } = \alpha ^*\avg{\vb{v} ,\vb{w} } + \beta ^* \avg{\vb{u} ,\vb{w} }.   
-\end{equation}
-
-Property (K3) ensure that we can sensibly define the norm (or length) of a vector as 
-
-\begin{equation}
-    \abs{\vb{v} } = \sqrt{\avg{\vb{v} ,\vb{v} } }  
-\end{equation}
-
-since \(\avg{\vb{v} ,\vb{v} } \) must be greater than zero. Also, property (K1) demands that \(\avg{\vb{v} ,\vb{v} } \) is real since \(\avg{\vb{v} ,\vb{v} } = \avg{\vb{v} ,\vb{v} }^*  \). 
-
-The Cauchy-Schwarz inequality and the triangle inequality are then 
-
-\begin{equation}
-    \abs{\avg{\vb{v} ,\vb{w} } } \le \abs{\vb{v} }\abs{\vb{w} } \text { and } \abs{\vb{v} + \vb{w} } \le \abs{\vb{v} } + \abs{\vb{w} }.      
+    \abs{\avg{\vb{v} ,\vb{w} } } \le \abs{\vb{v} }\abs{\vb{w} } ~\text { and }~  \abs{\vb{v} + \vb{w} } \le \abs{\vb{v} } + \abs{\vb{w} }.      
 \end{equation}
 
 For a real scalar product, in analogy with the dot product, the Cauchy-Schwarz inequality allows the definition of the angle \(\sphericalangle (\vb{v} ,\vb{w} ) \in  [0,\pi ]\) between two non-zero vectors \(\vb{v} ,\vb{w} \) by
@@ -1571,111 +1615,77 @@ For a real scalar product, in analogy with the dot product, the Cauchy-Schwarz i
     \cos (\sphericalangle (\vb{v} ,\vb{w} )) \equiv \frac{\avg{\vb{v} ,\vb{w} } }{\abs{\vb{v} }\abs{\vb{w} }  }. 
 \end{equation}
 
-For any scalar product, the two vectors \(\vb{v} \text { and } \vb{w} \) are called orthogonal if and only if \(\avg{\vb{v} ,\vb{w} } = 0\).  
 
+Apart from the standard scalar product on \(\mathbb{R}^{n} \) (the dot product), examples of scalar products include:
 
-For example, the standard scalar product in \(\mathbb{C}^{n} \) is defined as \(\avg{\vb{v} ,\vb{w} } = \vb{v} ^{\dagger} \vb{w} = \sum_{i=1}^{n} v_{i}^*w_{i}    \) and the Minkowski product in \(\mathbb{R}^{4} \) is defined as \(\avg{\vb{v} ,\vb{w} } = \vb{v} ^{T} \eta \vb{w} = -v_0 w_0 + v_1 w_1 +v_2 w_2 +v_3 w_3    \) where \(\eta = \text{diag}  (-1,1,1,1)\). Note that the Minkowski product thus not satisfies property (K3), for example, for \(\vb{v} = \begin{pmatrix}
-    -1 & 1 & 1 &  1 \\
-\end{pmatrix}^{T} , \avg{\vb{v} ,\vb{v} }  = -1\). These kind of scalar products are called a bi-linaer form (or a sesqui-linaer form in the complex case where \(F = \mathbb{C}\)).
+\begin{enumerate}
+    \item The standard scalar product in \(\mathbb{C}^{n} \):\(\avg{\vb{v} ,\vb{w} } = \vb{v} ^{\dagger} \vb{w} = \sum_{i=1}^{n} v_{i}^*w_{i} \).
+    \item The Minkowski product in \(\mathbb{R}^{4} \): \(\avg{\vb{v} ,\vb{w} } = \vb{v} ^{T} \eta \vb{w} = -v_0 w_0 + v_1 w_1 +v_2 w_2 +v_3 w_3    \) where \(\eta = \text{diag}  (-1,1,1,1)\). Note that the Minkowski product does not satisfies property \((K3)\), for example, for \(\vb{v} = \begin{pmatrix}
+        -1 & 1 & 1 &  1 \\
+    \end{pmatrix}^{T} , \avg{\vb{v} ,\vb{v} }  = -1\).
+    \item The scalar product for (real or complex-valued) functions \(f: [a,b] = \mathbb{R}\text { or } \mathbb{C}\) on an interval \([a,b] \subset \mathbb{R}\): \(\avg{f,g} \equiv \int_{a}^{b} dx f(x)^{*} g(x)\). 
+    \item The scalar product for real matrices: \(\avg{A, B} \equiv \Tr (A^{T}B ) = \sum_{i,j}^{} A_{ij} B_{ij}\).
+    \item The scalar product for complex matrices: \(\avg{A, B} \equiv \Tr (A^{\dagger} B ) = \sum_{i,j}^{} A_{ij}^* B_{ij}\).
+\end{enumerate}
 
-Since \cref{scalarproduct} can also be used to define scalar products in arbitrary vector spaces. Consider the vector space of (real or complex-valued) functions \(f: [a,b] = \mathbb{R}\text { or } \mathbb{C}\) on an interval \([a,b] \subset \mathbb{R}\). A scalar product for such functions can be defined by 
-
-\begin{equation}
-    \avg{f,g} \equiv \int_{a}^{b} dx f(x)^{*} g(x).   
-\end{equation}
-
-A scalar product can also be defined for real matrices, since the real \(n \times n\) matrices form a vector space \(V\), where
-
-\begin{equation} \label{matricesscalarproduct} 
-    \avg{A, B} \equiv \Tr (A^{T}B ) = \sum_{i,j}^{} A_{ij} B_{ij}. 
-\end{equation}
-
-For complex matrices a scalar product can be defined analogously simply by replacing the transpose with a hermitian conjugate.
-
-\section{Orthonormal Basis, Gram-Schmidt Procedure}
-
-An important observation is the following lemma:
+\section{Orthonormal Basis}
 
 \begin{lemma}
-Pairwise orthogonal and non-zero vectors \(\vb{v} _{1}, \hdots , \vb{v} _{k}  \) are linearly independent.  
+Any two vectors \(\vb{v} \text { and } \vb{w} \) are called orthogonal if \(\avg{\vb{v} ,\vb{w} } = 0\). Pairwise orthogonal and non-zero vectors \(\vb{v} _{1}, \hdots , \vb{v} _{k}  \) are linearly independent.  
 \end{lemma}
 
 \begin{proof}
-Start with 
-
-\begin{equation}
-    \sum_{i=1}^{k} \alpha _{i}\vb{v} _{i} = 0 
-\end{equation}
-
-and take the scalar product of this equation with one of the vectors, say \(\vb{v} _{j} \). Since \(\avg{\vb{v} _{i} , \vb{v} _{j} } = 0 ~~~\forall ~ i \neq j\) it follows that \(\alpha _{j}\abs{\vb{v} _{j} }^2 = 0  \). Since \(\vb{v} _{j} \neq 0 \) its norm is positive, \(\abs{\vb{v} _{j} } > 0 \), so \(\alpha _{j} = 0 \).       
+Start with \(\sum_{i=1}^{k} \alpha _{i}\vb{v} _{i} = 0 \) and take the scalar product of this equation with one of the vectors, say \(\vb{v} _{j} \). Since \(\avg{\vb{v} _{i} , \vb{v} _{j} } = 0 \text{ for all } i \neq j\) it follows that \(\alpha _{j}\abs{\vb{v} _{j} }^2 = 0  \). Since \(\vb{v} _{j} \neq 0 \) its norm is positive, \(\abs{\vb{v} _{j} } > 0 \), so \(\alpha _{j} = 0 \).       
 
 \end{proof}
 
-This motivates the following definition:
-
 \begin{definition}
-A basis \(\boldsymbol{\epsilon  }_{1} , \ldots   , \boldsymbol{\epsilon}_{n}    \) of a vector space \(V\) with a scalar product is called ortho-normal if and only if
+A basis \(\boldsymbol{\epsilon  }_{1} , \ldots   , \boldsymbol{\epsilon}_{n}    \) of a vector space \(V\) with a scalar product is called orthonormal if and only if
 
 \begin{equation}
-    \avg{\boldsymbol{\epsilon }_{i} , \boldsymbol{\epsilon } _{j}   } = 0,
+    \avg{\boldsymbol{\epsilon }_{i} , \boldsymbol{\epsilon } _{j}   } = \delta _{ij},
 \end{equation}
 
-\ie if the basis vectors are pairwise orthogonal and have length one.
+\textit{i.e.,} if the basis vectors are pairwise orthogonal and have length one.
 
 \end{definition}
 
-For example, the basis of standard unit vectors, \(\vb{e}_1, \ldots, \vb{e}_n \) of \(\mathbb{R}^{n} (\mathbb{C}^{n} ) \) is an ortho-normal basis with respect to the standard scalar product on \(\mathbb{R}^{n} (\mathbb{C}^{n} ) \).
+Examples of orthonormal basis include:
 
-The vectors 
+\begin{enumerate}
+    \item The basis of standard unit vectors, \(\vb{e}_1, \ldots, \vb{e}_n \) of \(\mathbb{R}^{n}\) with respect to the standard scalar product in \(\mathbb{R}^{n}\).
+    \item The basis of standard unit vectors, \(\vb{e}_1, \ldots, \vb{e}_n \) of \(\mathbb{C}^{n}\) with respect to the standard scalar product in \(\mathbb{C}^{n}\).
+    \item The vectors \(    \boldsymbol{\epsilon } _{1} = \frac{1}{\sqrt{2} } \begin{pmatrix}
+        1 \\
+        1 \\
+   \end{pmatrix} \text { and } \boldsymbol{\epsilon } _{2} = \frac{1}{\sqrt{2} } \begin{pmatrix}
+        1 \\
+        -1 \\
+   \end{pmatrix}  \) with respect to the standard scalar product in \(\mathbb{R}^{n} \). 
+   \item The vectors \(    \boldsymbol{\epsilon }_{1} = \frac{1}{\sqrt{5} } \begin{pmatrix}
+    2 \\
+    i \\
+\end{pmatrix} \text { and } \boldsymbol{\epsilon }_{2}= \frac{1}{\sqrt{5} } \begin{pmatrix}
+    1 \\
+    -2i \\
+\end{pmatrix}   \) with respect to the standard scalar product in \(\mathbb{C}^{n} \). 
+\item The matrices \(E_{(ij)} \) defined in \cref{matricesbasis} of the fector space of real \(n \times  n\) matrices with respect to the scalar product for real matrices.  
+\end{enumerate}
 
-\begin{equation}
-    \boldsymbol{\epsilon } _{1} = \frac{1}{\sqrt{2} } \begin{pmatrix}
-         1 \\
-         1 \\
-    \end{pmatrix} \text { and } \boldsymbol{\epsilon } _{2} = \frac{1}{\sqrt{2} } \begin{pmatrix}
-         1 \\
-         -1 \\
-    \end{pmatrix}    
-\end{equation}
-
-also form an orthonormal basis on \(\mathbb{R}^2\) with respect to the standard scalar product, \ie \(\boldsymbol{\epsilon }_{i}^{T}\boldsymbol{\epsilon }_{j} = \delta _{ij}     \). 
-
-The vectors
-
-\begin{equation}
-    \boldsymbol{\epsilon }_{1} = \frac{1}{\sqrt{5} } \begin{pmatrix}
-         2 \\
-         i \\
-    \end{pmatrix} \text { and } \boldsymbol{\epsilon }_{2}= \frac{1}{\sqrt{5} } \begin{pmatrix}
-         1 \\
-         -2i \\
-    \end{pmatrix}     
-\end{equation}
-
-on the other hand, form an orthonomral basis on \(\mathbb{C}^2\) with respect to the standard scalar product, \ie \(\boldsymbol{\epsilon }_{i}^{\dagger} \boldsymbol{\epsilon }_{i} = \delta _{ij}\).     
-
-For the vector space of real \(n \times n\) matrices, the matrices \(E_{(ij)} \) defined in \cref{matricesbasis} form an ortho-normal basis with respect to the scalar product defined in \cref{matricesscalarproduct}    
-
-An ortho-normal basis has many advantages compared to an arbitrary basis of a vector space. For example, consider the coordinates of a vector \(\vb{v} \in V\) relative to an ortho-normal basis \(\{\boldsymbol{\epsilon}_1, \hdots, \boldsymbol{\epsilon}_n\}\). Of course, we can write \(\vb{v}\) as a linear combination \(\vb{v} = \sum_{i=1}^n \alpha_i \boldsymbol{\epsilon}_i\) with some coordinates \(\alpha_i\), but, in the general case, these coefficients need to be determined by solving a system of linear equations. For an ortho-normal basis, we can just take the scalar product of this equation with \(\boldsymbol{\epsilon}_j\), leading to
+An orthonormal basis has many advantages compared to an arbitrary basis of a vector space. For example, consider the coordinates of a vector \(\vb{v} \in V\) relative to an orthonormal basis \(\{\boldsymbol{\epsilon}_1, \hdots, \boldsymbol{\epsilon}_n\}\). Of course, we can write \(\vb{v}\) as a linear combination \(\vb{v} = \sum_{i=1}^n \alpha_i \boldsymbol{\epsilon}_i\) with some coordinates \(\alpha_i\), but, in the general case, these coefficients need to be determined by solving a system of linear equations. For an orthonormal basis, we can just take the scalar product of this equation with \(\boldsymbol{\epsilon}_j\), leading to
 
 \begin{equation}
-\langle \boldsymbol{\epsilon}_j, \vb{v} \rangle = \left\langle \boldsymbol{\epsilon}_j, \sum_{i=1}^n \alpha_i \boldsymbol{\epsilon}_i \right\rangle = \sum_{i=1}^n \alpha_i \langle \boldsymbol{\epsilon}_j, \boldsymbol{\epsilon}_i \rangle = \sum_{i=1}^{n} \alpha_i \delta_{ij} = \alpha_j
+\langle \boldsymbol{\epsilon}_j, \vb{v} \rangle = \left\langle \boldsymbol{\epsilon}_j, \sum_{i=1}^n \alpha_i \boldsymbol{\epsilon}_i \right\rangle = \sum_{i=1}^n \alpha_i \langle \boldsymbol{\epsilon}_j, \boldsymbol{\epsilon}_i \rangle = \sum_{i=1}^{n} \alpha_i \delta_{ij} = \alpha_j.
 \end{equation}
 
-So in summary, the coordinates of a vector \(\vb{v}\) relative to an ortho-normal basis \(\{\boldsymbol{\epsilon}_1, \hdots, \boldsymbol{\epsilon}_n\}\) can be computed as
-
-\begin{equation}
-\vb{v} = \sum_{i=1}^n \alpha_i \boldsymbol{\epsilon}_i \quad \Longleftrightarrow \quad \alpha_i = \langle \boldsymbol{\epsilon}_i, \vb{v} \rangle.
-\end{equation}
-
-We now introduce the Gram-Schmidt procedure, which states and tells us which transform any basis of a vector space into an ortho-normal basis: 
+\section{Gram-Schmidt Procedure}
 
 \begin{theorem}[Gram-Schmidit Procedure]
-If \({\vb{v}_1, \ldots, \vb{v}_n }\) is a basis of vector space \(V\), then there exists an ortho-normal basis \({\boldsymbol{\epsilon }_{1}, \ldots , \boldsymbol{\epsilon }_{n}    }\) of \(V\) such that \(\text{Span}(\boldsymbol{\epsilon }_{1}, \ldots ,\boldsymbol{\epsilon }_{k} ) = \text{Span}(\vb{v}_1, \ldots, \vb{v}_k ) ~~~\forall ~ k = 1,\ldots ,n \).     
+If \({\vb{v}_1, \ldots, \vb{v}_n }\) is a basis of vector space \(V\), then there exists an orthonormal basis \({\boldsymbol{\epsilon }_{1}, \ldots , \boldsymbol{\epsilon }_{n}    }\) of \(V\) such that \(\text{Span}(\boldsymbol{\epsilon }_{1}, \ldots ,\boldsymbol{\epsilon }_{k} ) = \text{Span}(\vb{v}_1, \ldots, \vb{v}_k ) \text{ for all } k = 1,\ldots ,n \).     
 \end{theorem}
 
 \begin{proof}
-The proof is constructive. The first vector of our prospective ortho-normal basis is obtained by simply normalizing \(\vb{v} _{1} \), \ie
+The proof is constructive. The first vector of our prospective orthonormal basis is obtained by simply normalizing \(\vb{v} _{1} \), \textit{i.e.,}
 
 \begin{equation}
     \boldsymbol{\epsilon }_{1} = \frac{\vb{v} _{1} }{\abs{\vb{v} _{1} } }.   
@@ -1684,7 +1694,7 @@ The proof is constructive. The first vector of our prospective ortho-normal basi
 Clearly, \(\abs{\boldsymbol{\epsilon}_1} = 1\) and \(\operatorname{Span}(\boldsymbol{\epsilon}_1) = \operatorname{Span}(\vb{v}_1)\). Suppose we have already constructed the first \(k - 1\) vectors \(\boldsymbol{\epsilon}_1, \ldots, \boldsymbol{\epsilon}_{k-1}\), mutually orthogonal, normalized and such that \(\operatorname{Span}(\boldsymbol{\epsilon}_1, \ldots, \boldsymbol{\epsilon}_j) = \operatorname{Span}(\vb{v}_1, \ldots, \vb{v}_j)\) for all \(j = 1, \ldots, k - 1\). The next vector, \(\boldsymbol{\epsilon}_k\), is then constructed by first subtracting from \(\vb{v}_k\) its projections onto \(\boldsymbol{\epsilon}_1, \ldots, \boldsymbol{\epsilon}_{k-1}\) and then normalizing, so
 
 \begin{equation}
-\vb{v}'_k = \vb{v}_k - \sum_{i=1}^{k-1} \langle \boldsymbol{\epsilon}_i, \vb{v}_k \rangle \boldsymbol{\epsilon}_i, \quad \boldsymbol{\epsilon}_k = \frac{\vb{v}'_k}{\abs{\vb{v}'_k}}.
+\vb{v}'_k = \vb{v}_k - \sum_{i=1}^{k-1} \langle \boldsymbol{\epsilon}_i, \vb{v}_k \rangle \boldsymbol{\epsilon}_i \implies \boldsymbol{\epsilon}_k = \frac{\vb{v}'_k}{\abs{\vb{v}'_k}}.
 \end{equation}
 
 Obviously, \(\abs{\boldsymbol{\epsilon}_k} = 1\) and for any vector \(\boldsymbol{\epsilon}_j\) with \(j < k\) we have
@@ -1698,9 +1708,9 @@ Hence, \(\boldsymbol{\epsilon}_k\) is orthogonal to all vectors \(\boldsymbol{\e
 
 \end{proof}
 
-A useful application of the Gram-Schmidt procedure is to consider the vector space of quadratic polynomials in one variable \(x \in [1,-1]\) with real coefficients and a scalar product defined by \(\avg{f,g} = \int_{-1}^{1} f(x)g(x)dx \)
-
-We start with the standard monomial basis \(v_1 = 1, v_2 = x, v_3 =x^2\)  (which is not ortho-normal since, say, \(\int_{-1}^{1} (1)(x)dx \neq 0  \) ). To find \(\boldsymbol{\epsilon _{1} }\). To find an ortho-normal basis, we apply the Gram-Schmidt procedure
+\example{Gram-Schmidt Procedure for Polynomials.}
+{Consider the vector space of quadratic polynomials in one variable \(x \in [1,-1]\) with real coefficients and a scalar product defined by \(\avg{f,g} = \int_{-1}^{1} f(x)g(x)dx \). Find an orthonomral basis for this vector space.}
+{We start with the standard monomial basis \(\vb{v} _1 = 1, \vb{v} _2 = x, \vb{v} _3 =x^2\)  (which is not orthonormal since, say, \(\int_{-1}^{1} (1)(x)dx \neq 0  \)). To find an orthonormal basis, we apply the Gram-Schmidt procedure
 
 \begin{enumerate}
     \item To find \(\boldsymbol{\epsilon}_1\):
@@ -1727,59 +1737,47 @@ We start with the standard monomial basis \(v_1 = 1, v_2 = x, v_3 =x^2\)  (which
     \end{equation}
 \end{enumerate}
 
-So, in summary, the ortho-normal polynomial basis is
+So, in summary, the orthonormal polynomial basis is
 \begin{equation}
 \boldsymbol{\epsilon}_1 = \frac{1}{\sqrt{2}}, \quad \boldsymbol{\epsilon}_2 = \sqrt{\frac{3}{2}} \, x, \quad \boldsymbol{\epsilon}_3 = \sqrt{\frac{5}{8}} (3x^2 - 1).
 \end{equation}
 
-These are the first three of an infinite family of ortho-normal polynomials, referred to as Legendre polynomials, which play an important role in mathematical physics.
+These are the first three of an infinite family of orthonormal polynomials, referred to as Legendre polynomials.} 
 
-To see how an ortho-nomral basis helps simplify things, we start with two vectors 
+\section{Matrix Elements of Linear Maps}
 
-\begin{equation}
-    \mathbf{v} = \sum_i \alpha_i \boldsymbol{\epsilon}_i, \quad \alpha_i = \langle \boldsymbol{\epsilon}_i, \mathbf{v} \rangle
-\end{equation}
-
-\begin{equation}
-    \mathbf{w} = \sum_i \beta_i \boldsymbol{\epsilon}_i, \quad \beta_i = \langle \boldsymbol{\epsilon}_i, \mathbf{w} \rangle
-\end{equation}
-
-and compute their scalar product
+To see how an orthonormal basis helps simplify things, we start with two vectors \(\mathbf{v} = \sum_i \alpha_i \boldsymbol{\epsilon}_i, \alpha_i = \langle \boldsymbol{\epsilon}_i, \mathbf{v} \rangle \text { and } \mathbf{w} = \sum_i \beta_i \boldsymbol{\epsilon}_i, \beta_i = \langle \boldsymbol{\epsilon}_i, \mathbf{w} \rangle\) and compute their scalar product
 
 \begin{equation}
     \langle \mathbf{v}, \mathbf{w} \rangle = \sum_{i,j} \alpha_i^* \beta_j \langle \boldsymbol{\epsilon}_i, \boldsymbol{\epsilon}_j \rangle = \sum_i \alpha_i^* \beta_i = \sum_i \langle \mathbf{v}, \boldsymbol{\epsilon}_i \rangle \langle \boldsymbol{\epsilon}_i, \mathbf{w} \rangle.
 \end{equation}
 
-Suppose we would like to compute the representing matrix $A$ of a linear map $f : V \to V$ relative to an ortho-normal basis $\{ \boldsymbol{\epsilon}_1, \ldots, \boldsymbol{\epsilon}_n \}$ of $V$. In general, following \cref{matrixlinearmap} , the entries $A_{ij}$ of the matrix $A$ can be obtained from
-
-\begin{equation}
-    f(\boldsymbol{\epsilon}_j) = \sum_i A_{ij} \boldsymbol{\epsilon}_i.
-\end{equation}
-
-Taking the scalar product of this equation with \(\boldsymbol{\epsilon } _{k} \) results in the simple formula
+Suppose we would like to compute the representing matrix $A$ of a linear map $f : V \to V$ relative to an orthonormal basis $\{ \boldsymbol{\epsilon}_1, \ldots, \boldsymbol{\epsilon}_n \}$ of $V$. Following \cref{matrixlinearmap2}, the entries $a_{ij}$ of the matrix $A$ can be obtained from
 
 \begin{equation} \label{matricesentries} 
-    A_{ij}= \avg{\boldsymbol{\epsilon } _{i}, f(\boldsymbol{\epsilon }_{j}  ) }.  
+    f(\boldsymbol{\epsilon}_j) = \sum_i a_{ij} \boldsymbol{\epsilon}_i.
 \end{equation}
 
-In physics, the RHS of this expression is often referred to as a matrix element of the map \( f \). It is worth noting that a linear map is uniquely determined by its matrix elements.
+Taking the scalar product of this equation with \(\boldsymbol{\epsilon } _{k} \), we thus obtain a simple formula for converting a linear map \(f\) to its representing matrix \(A\)
 
-\begin{lemma} \label{uniquelinearmap} 
-If two linear maps \( f : V \rightarrow V \) and \( g : V \rightarrow V \) satisfy \( \langle \mathbf{v}, f(\mathbf{w}) \rangle = \langle \mathbf{v}, g(\mathbf{w}) \rangle \) (or \( \langle f(\mathbf{v}), \mathbf{w} \rangle = \langle g(\mathbf{v}), \mathbf{w} \rangle \)) for all \( \mathbf{v}, \mathbf{w} \in V \) then \( f = g \).
+\begin{equation}
+    a_{ij}= \avg{\boldsymbol{\epsilon } _{i}, f(\boldsymbol{\epsilon }_{j}  ) },
+\end{equation}
+
+which are the matrix elements of the linear map \(f\).
+
+\begin{lemma} \label{linearuniquemap} 
+If two linear maps \( f : V \rightarrow V \) and \( g : V \rightarrow V \) satisfy \( \langle \mathbf{v}, f(\mathbf{w}) \rangle = \langle \mathbf{v}, g(\mathbf{w}) \rangle \) (or \( \langle f(\mathbf{v}), \mathbf{w} \rangle = \langle g(\mathbf{v}), \mathbf{w} \rangle \)) for all \( \mathbf{v}, \mathbf{w} \in V \) then \( f = g \), \textit{i.e.,} a linear map is uniquely determined by its matrix elements.\footnote{The proof for this trivial fact is given in \cref{linearuniqueapp}.} 
 \end{lemma}
 
-\begin{proof}
-By linearity of the scalar product in the second argument the assumption implies that \( \langle \mathbf{v}, f(\mathbf{w}) - g(\mathbf{w}) \rangle = 0 \) for all \( \mathbf{v}, \mathbf{w} \in V \). In particular, if we choose \( \mathbf{v} = f(\mathbf{w}) - g(\mathbf{w}) \), it follows that \( f(\mathbf{w}) - g(\mathbf{w}) = 0 \). Since this holds for all \( \mathbf{w} \) it follows that \( f = g \). The alternative statement follows simply by applying (K1) in \cref{scalarproduct}
-\end{proof}
-
-\example{AL Example 6.5}
+\example{Matrix Elements of a Linear Map}
 {For a fixed vector \(\mathbf{n} \in \mathbb{R}^3\), we consider the linear map \(f : \mathbb{R}^3 \to \mathbb{R}^3\) defined by
 
 \begin{equation}
 f(\mathbf{v}) = (\mathbf{n} \cdot \mathbf{v}) \mathbf{n}.
 \end{equation}
 
-Evidently, this map projects vectors into the direction of \(\mathbf{n}\). Compute the matrix \(A\) representing this linear map relative to the ortho-normal basis given by the three standard unit vectors \(\vb{e}_i\).
+Evidently, this map projects vectors into the direction of \(\mathbf{n}\). Compute the matrix \(A\) representing this linear map relative to the orthonormal basis given by the three standard unit vectors \(\vb{e}_i\).
 }
 {Using \cref{matricesentries}, we have
 
@@ -1797,83 +1795,53 @@ n_1 n_3 & n_2 n_3 & n_3^2
 \end{pmatrix}
 \end{equation}} 
 
-We end this sectinon by introducing perpendicular spaces, which is defined as 
+\section{Perpendicular Spaces}
+
+The perpendicular space \(W^{\perp } \) is defined as 
 
 \begin{equation}
-    W^{\perp } = {\vb{v} \in V \mid \avg{\vb{w} ,\vb{v} }= 0 ~~~\forall ~ \vb{w} \in W }.
+    W^{\perp } = \left\{\vb{v} \in V \mid \avg{\vb{w} ,\vb{v} }= 0 \text{ for all } \vb{w} \in W \right\}.
 \end{equation}
 
-In other words, \(W^{\perp } \) consists of all vectors which are orthogonal to all vector in \(W\). For example, if \(W \subset \mathbb{R}^3 \), is a plane through the origin then \(W^{\perp } \)  is the line through the origin perpendicular to this plane. The following statements are intuitive and will be helpful for our treatment of eigenvectors and eigenvalues in the next section.    
+In other words, \(W^{\perp } \) consists of all vectors which are orthogonal to all vector in \(W\). For example, if \(W \subset \mathbb{R}^3 \) is a plane through the origin then \(W^{\perp } \)  is the line through the origin perpendicular to this plane.   
 
+\begin{lemma} \label{perpspacesprop} 
 
-
-\begin{lemma} \label{perpspaceprop} 
-
-For a sub vector space \(W \subset V\) of a finite dimensional vector space \(V\) with a scalar product, the following holds:
-\begin{enumerate}[label=(L\arabic*)]
+For a sub vector space \(W \subset V\) of a finite dimensional vector space \(V\) with a scalar product:\footnote{The proofs of these obvious properties are given in \cref{perpspacespropapp}.} 
+\begin{enumerate}[label=(\(L\)\arabic*)]
     \item \(W^\perp\) is a sub vector space of \(V\).
-    \item \(W \cap W^\perp = \{0\}\)
-    \item \(\dim(W) + \dim(W^\perp) = \dim(V)\)
+    \item \(W \cap W^\perp = \{0\}\).
+    \item \(\dim(W) + \dim(W^\perp) = \dim(V)\).
 \end{enumerate}
 \end{lemma}
 
-\begin{proof}
-\begin{enumerate}[label=(L\arabic*)]
-    \item If \(\mathbf{v}_1, \mathbf{v}_2 \in W^\perp\) then clearly \(\alpha \mathbf{v}_1 + \beta \mathbf{v}_2 \in W^\perp\) so from Def. 1.2, \(W^\perp\) is a sub vector space.
-    \item If \(\mathbf{v} \in W \cap W^\perp\) then \(\langle \mathbf{v}, \mathbf{v} \rangle = 0\), but from (K3) in \cref{scalarproduct}  this implies that \(\mathbf{v} = 0\).
-    \item Choose an ortho-normal basis \(\{\bm{\epsilon}_1, \ldots, \bm{\epsilon}_k\}\) of \(W\) and define the linear map \(f : V \to V\) by \(f(\mathbf{v}) = \sum_{i=1}^{k} \langle \bm{\epsilon}_i, \mathbf{v} \rangle \bm{\epsilon}_i\) (a projection onto \(W\)). Clearly \(\text{Im}(f) \subset W\). For \(\mathbf{w} \in W\) it follows that \(f(\mathbf{w}) = \mathbf{w}\) so that \(\text{Im}(f) = W\). Moreover, \(\text{Ker}(f) = W^\perp\) and the claim follows from \cref{dimensionformulaeq}  applied to the map \(f\).
-\end{enumerate}
-\end{proof}
-
-\section{Adjoint Linear Maps}
-
-The definition of adjoint linaer map is:
+\section{Adjoint Maps}
 
 \begin{definition}
 For a linear map \(f : V \to V\) on a vector space \(V\) with scalar product, an adjoint linear map, \(f^\dagger : V \to V\) is a map satisfying
     
     \begin{equation}
-    \langle \mathbf{v}, f \mathbf{w} \rangle = \langle f^\dagger \mathbf{v}, \mathbf{w} \rangle
+    \langle \mathbf{v}, f \mathbf{w} \rangle = \langle f^\dagger \mathbf{v}, \mathbf{w} \rangle for all \mathbf{v}, \mathbf{w} \in V.
     \end{equation}
 
-for all \(\mathbf{v}, \mathbf{w} \in V\).
 \end{definition}
     
-In other words, a linear map can be “moved” into the other argument of the scalar product by taking its adjoint. The following properties of the adjoint map are relatively easy to show.
-    
-\begin{lemma}[Properties of the adjoint] \label{adjointprop} 
-    For the adjoint \(f^{\dagger} \) of the linear map \(f\),  
-    \begin{enumerate}[label=(M\arabic*)]
+\begin{lemma}[Properties of Adjoint Maps] \label{adjointprop} 
+    For the adjoint \(f^{\dagger} \) of the linear map \(f\):\footnote{The proofs of these not very trivial properties are given in \cref{adjointpropapp}.} 
+    \begin{enumerate}[label=(\(M\)\arabic*)]
         \item \(f^\dagger\) is uniquely determined.
-        \item \((f^\dagger)^\dagger = f\)
-        \item \((f+g)^\dagger = f^\dagger + g^\dagger\)
-        \item \((\alpha f)^\dagger = \alpha^* f^\dagger\)
-        \item \((f \circ g)^\dagger = g^\dagger \circ f^\dagger\)
+        \item \((f^\dagger)^\dagger = f\).
+        \item \((f+g)^\dagger = f^\dagger + g^\dagger\).
+        \item \((\alpha f)^\dagger = \alpha^* f^\dagger\).
+        \item \((f \circ g)^\dagger = g^\dagger \circ f^\dagger\).
         \item \((f^{-1})^\dagger = (f^\dagger)^{-1}\), if \(f\) is invertible.
     \end{enumerate}
 \end{lemma}
 
-\begin{proof}
-    \begin{enumerate}[label=(M\arabic*)]
-        \item For two adjoints \(f_1, f_2\) for \(f\) we have \(\langle f_1(\mathbf{v}), \mathbf{w} \rangle = \langle \mathbf{v}, f(\mathbf{w}) \rangle = \langle f_2(\mathbf{v}), \mathbf{w} \rangle\) for all \(\mathbf{v}, \mathbf{w} \in V\). Then \cref{uniquelinearmap} implies that \(f_1 = f_2\).
-        \item \(\langle (f^\dagger)^\dagger(\mathbf{v}), \mathbf{w} \rangle = \langle \mathbf{v}, f^\dagger(\mathbf{w}) \rangle = \langle f(\mathbf{v}), \mathbf{w} \rangle\). Comparing the LHS and RHS together with \cref{uniquelinearmap} shows that \((f^\dagger)^\dagger = f\).
-        \item \(\langle (f+g)^\dagger(\mathbf{v}), \mathbf{w} \rangle = \langle \mathbf{v}, (f+g)(\mathbf{w}) \rangle = \langle \mathbf{v}, f(\mathbf{w}) \rangle + \langle \mathbf{v}, g(\mathbf{w}) \rangle = \langle f^\dagger(\mathbf{v}), \mathbf{w} \rangle + \langle g^\dagger(\mathbf{v}), \mathbf{w} \rangle = \langle (f^\dagger + g^\dagger)(\mathbf{v}), \mathbf{w} \rangle\) and the claim follows from \cref{uniquelinearmap}.
-        \item \(\langle (\alpha f)^\dagger(\mathbf{v}), \mathbf{w} \rangle = \langle \mathbf{v}, (\alpha f)(\mathbf{w}) \rangle = \alpha \langle \mathbf{v}, f(\mathbf{w}) \rangle = \alpha \langle f^\dagger(\mathbf{v}), \mathbf{w} \rangle = \langle (\alpha^* f^\dagger)(\mathbf{v}), \mathbf{w} \rangle\) and \cref{uniquelinearmap} leads to the stated result.
-        \item \(\langle (f \circ g)^\dagger(\mathbf{v}), \mathbf{w} \rangle = \langle \mathbf{v}, (f \circ g)(\mathbf{w}) \rangle = \langle f^\dagger(\mathbf{v}), g(\mathbf{w}) \rangle = \langle g^\dagger \circ f^\dagger(\mathbf{v}), \mathbf{w} \rangle\).
-        \item From (v) we have \(\text{id}_V = (f \circ f^{-1})^\dagger = f^\dagger \circ (f^{-1})^\dagger\). This means \((f^{-1})^\dagger\) is the inverse of \(f^\dagger\) and, hence, \((f^\dagger)^{-1} = (f^{-1})^\dagger\).
-    \end{enumerate}
-\end{proof}
-
-Let us now consider two matrices \(A\text { and } B\) describing \(f \text { and } f^{\dagger} \) relative to an ortho-normal basis \(\boldsymbol{\epsilon }_{1}, \ldots , \boldsymbol{\epsilon }_{n}   \) of \(V\), so \(A\text { and } B\) are given by 
+Let us now consider two matrices \(A\text { and } B\) describing \(f \text { and } f^{\dagger} \) relative to an orthonormal basis \(\boldsymbol{\epsilon }_{1}, \ldots , \boldsymbol{\epsilon }_{n}   \) of \(V\), so \(A\text { and } B\) are given by 
 
 \begin{equation}
-    A_{ij}= \avg{\boldsymbol{\epsilon }_{i}, f(\boldsymbol{\epsilon }_{j}  )  } \text { and } B_{ij}=\avg{\boldsymbol{\epsilon }_{i}, f^{\dagger} (\boldsymbol{\epsilon }_{j}  )  }.    
-\end{equation}
-
-These matrices are related by
-
-\begin{equation}
-    B_{ij} = \avg{\boldsymbol{\epsilon  }_{i} , f^{\dagger} (\boldsymbol{\epsilon }_{j}  )} = \avg{f^{\dagger} (\boldsymbol{\epsilon }_{j}  ), \boldsymbol{\epsilon }_{i}  }^{*} = \avg{\boldsymbol{\epsilon }_{j}, f(\boldsymbol{\epsilon } _{i} )  }^{*} = A_{ji}^{*} = A^{\dagger} _{ij}.         
+    A_{ij}= \avg{\boldsymbol{\epsilon }_{i}, f(\boldsymbol{\epsilon }_{j}  )  } ~\text { and }~  B_{ij}=\avg{\boldsymbol{\epsilon }_{i}, f^{\dagger} (\boldsymbol{\epsilon }_{j}  )  }= \avg{f^{\dagger} (\boldsymbol{\epsilon }_{j}  ), \boldsymbol{\epsilon }_{i}  }^{*} = \avg{\boldsymbol{\epsilon }_{j}, f(\boldsymbol{\epsilon } _{i} )  }^{*} = A_{ji}^{*} = A^{\dagger} _{ij}.    
 \end{equation}
 
 Therefore, if \(A\) represents \(f\) then the hermitian conjugate \(A^{\dagger} \) represents \(f^{\dagger} \). Also this show that by reversing the above argument and defining \(f^{\dagger} \) as the linear map associated to \(A^{\dagger} \), the adjoint of a linear map always exist, which was non-trivial from the definition.
@@ -1884,52 +1852,39 @@ We can verify this in the case of the standard scalar product in \(\mathbb{R}^{n
     \avg{\vb{v} ,A\vb{w} } = \vb{v} ^{\dagger} A \vb{w}  = (A^{\dagger} \vb{v} )^{\dagger} \vb{w} = \avg{A^{\dagger} \vb{v} ,\vb{w} }.   
 \end{equation}
 
-A particularly important class of linear maps are those which coincide with their adjoint. 
-
 \begin{definition}
-A linear map \(f:V \rightarrow V\) on a vector space \(V\) with scalar product is called self-adjoint(or hermitian) if and only if \(f= f^{\dagger} \).
+A linear map \(f:V \rightarrow V\) on a vector space \(V\) with scalar product is called self-adjoint (or hermitian) if and only if \(f= f^{\dagger} \).
 
 
 \end{definition}
 
-For a more abstract example of a self-adjoint linear map, consider the vector space of (infinitely many times) differentiable functions $\varphi : [a, b] \to \mathbb{C}$, satisfying $\varphi(a) = \varphi(b)$, with scalar product
-
-\begin{equation}
-\langle \varphi, \psi \rangle = \int_a^b dx \, \varphi(x)^* \psi(x).
-\end{equation}
-
-The derivative operator
-
-\begin{equation}
-D = -i \frac{d}{dx}
-\end{equation}
-
-defines a linear map on this space, and we would like to check that it is self-adjoint. Performing an integration by parts, we find
+For an abstract example of a self-adjoint linear map, consider the vector space consisting of all differentiable functions $\varphi : [a, b] \to \mathbb{C}$, satisfying $\varphi(a) = \varphi(b)$, with the scalar product \(\langle \varphi, \psi \rangle = \int_a^b dx \, \varphi(x)^* \psi(x)\) and the derivative operator \(D = -i \frac{d}{dx}\) which defines a linear map on this vector space. Peforming an integration by parts, we find
 
 \begin{equation}
 \begin{aligned}
-\langle \varphi, D\psi \rangle &= -i \int_a^b dx \, \varphi(x)^* \frac{d\psi}{dx}(x) = -i \left[ \varphi(x)^* \psi(x) \right]_{a}^{b} + i \int_a^b dx \, \frac{d\varphi}{dx}(x)^* \psi(x) \\ &= \int_a^b dx , (D\varphi)(x)^* \psi(x) = \langle D\varphi, \psi \rangle.
+\langle \varphi, D\psi \rangle &= -i \int_a^b dx \, \varphi(x)^* \frac{d\psi}{dx}(x) = -i \left[ \varphi(x)^* \psi(x) \right]_{a}^{b} + i \int_a^b dx \, \frac{d\varphi}{dx}(x)^* \psi(x) \\ &= \int_a^b dx \, (D\varphi)(x)^* \psi(x) = \langle D\varphi, \psi \rangle.
 \end{aligned}
 \end{equation}
 
-Hence, $D$ is indeed Hermitian. Note that the boundary term vanishes due to the boundary condition on our functions and that including the factor of $i$ in the definition of $D$ is crucial for the sign to work out correctly. In quantum mechanics, physical quantities are represented by Hermitian operators. In this context, the present operator $D$ plays an important role as it corresponds to linear momentum.
+Hence, $D$ is indeed self-adjoint. Note that the boundary term vanishes due to the boundary condition on our functions and that including the factor of $i$ in the definition of $D$ is crucial for the sign to work out correctly. In quantum mechanics, physical quantities are represented by Hermitian operators. In this context, the present operator $D$ plays an important role as it corresponds to linear momentum.
 
-\section{Unitary Maps}
+\section{Orthogonal and Unitary Maps}
 
-We define a unitary (also known as orthogonal) map as follows:
+\subsection{Definitions of Unitary Maps}
 
 \begin{definition}
 Let \(V\) be a vector space with a real (hermitian) scalar product. A linear map \(f: V \rightarrow V\) is called orthogonal (unitary) if and only if 
-\end{definition}
-
 \begin{equation} \label{unitarydef} 
-    \avg{f(\vb{v} ), f(\vb{w} )} = \avg{\vb{v} ,\vb{w} } ~~~\forall ~ \vb{v} ,\vb{w} \in V. 
+    \avg{f(\vb{v} ), f(\vb{w} )} = \avg{\vb{v} ,\vb{w} } \text{ for all } \vb{v} ,\vb{w} \in V,
 \end{equation}
 
+\textit{i.e.,} The scalar product is an invariant before and after the linear map action.
+\end{definition}
+
 \begin{lemma}[Properties of Unitary Maps]
-For any unitary map \(f\),
-\begin{enumerate}[label=(N\arabic*)]
-    \item  \(f\) can also be characterized by \(f^{\dagger} \circ f = \mathrm{id}_{V} \) 
+For any unitary map \(f\):
+\begin{enumerate}[label=(\(N\)\arabic*)]
+    \item  \(f\) can also be characterized by \(f^{\dagger} \circ f = \mathrm{id}_{V} \).
     \item  \(f\) are invertible and \(f^{-1} = f^{\dagger} \). 
     \item The composition of unitary maps is a unitary map.
     \item The inverse, \(f^{\dagger} \), of \(f\) is unitary.  
@@ -1940,12 +1895,11 @@ For any unitary map \(f\),
 
 
 \begin{proof}
-    \begin{enumerate}[label=(N\arabic*)]
-        \item Using the adjoint map, the condition \cref{unitarydef}  can be re-written as 
-        \(\langle \mathbf{v}, f^\dagger \circ f(\mathbf{w}) \rangle = \langle \mathbf{v}, \text{id}_V(\mathbf{w}) \rangle\).
-        From \cref{adjointprop}  a function is uniquely determined by its matrix elements so that orthogonal and unitary operators can also be defined by the condition \(f^\dagger \circ f = \text{id}_V.\)
+    \begin{enumerate}[label=(\(N\)\arabic*)]
+        \item Using the adjoint map, the condition \cref{unitarydef}  can be rewritten as 
+        \(\langle \mathbf{v}, f^\dagger \circ f(\mathbf{w}) \rangle = \langle \mathbf{v}, \text{id}_V(\mathbf{w}) \rangle\). It follows that \(f^\dagger \circ f = \text{id}_V\).
     
-        \item A direct consequence of (N1).
+        \item A direct consequence of \((N1)\) .
     
         \item For two unitary maps \( f, g \), satisfying \( \langle f(\mathbf{v}), f(\mathbf{w}) \rangle = \langle \mathbf{v}, \mathbf{w} \rangle \) and 
         \( \langle g(\mathbf{v}), g(\mathbf{w}) \rangle = \langle \mathbf{v}, \mathbf{w} \rangle \), it follows that 
@@ -1956,21 +1910,22 @@ For any unitary map \(f\),
     \end{enumerate}
 \end{proof}
 
-We begin with the real case where the condition (N1) turns into
+In the language of matrices, condition \((N1)\)  turns into
+
 \begin{equation} \label{orthogonalmatrices} 
 A^T A = \mathbb{I} \quad \Longleftrightarrow \quad A^{-1} = A^T \quad \Longleftrightarrow \quad \vb{A} ^i \cdot \vb{A} ^j = \delta_{ij},
 \end{equation}
-where the last step can be shown by \((A^{T}A)_{ij}  = A_{ki}A_{kj} = \vb{A} ^{i} \cdot \vb{A} ^{j}   =  \mathbb{I} = \delta _{ij}  \) 
-Matrices \( A \) satisfying this condition are called orthogonal matrices and they can be characterized, equivalently, by either one of the three conditions above. The simplest way to check if a given matrix is orthogonal is usually to verify the condition on the LHS. The condition in the middle tells us it is easy to compute the inverse of an orthogonal matrix—it is simply the transpose. And, finally, the condition on the RHS says that the column vectors of an orthogonal matrix form an ortho-normal basis with respect to the standard scalar product (the dot product). In fact, since a real scalar product, written in terms of an ortho-normal basis, corresponds to the dot product, we expect that orthogonal matrices are precisely those matrices which leave the dot product invariant. Indeed, we have
+
+where the last step can be shown by \((A^{T}A)_{ij}  = A_{ki}A_{kj} = \vb{A} ^{i} \cdot \vb{A} ^{j}   =  \mathbb{I} = \delta _{ij}  \).
+
+
+Taking the determinant of the LHS condition in \cref{orthogonalmatrices} gives 
+
 \begin{equation}
-A^T A = \mathbb{I}_n \quad \Longleftrightarrow \quad (A\vb{v} )^T (A\vb{w} ) = \vb{v} ^T \vb{w}  \quad \text{for all } \vb{v} , \vb{w}  \in \mathbb{R}^n.
-\end{equation}
-The set of all \( n \times n \) orthogonal matrices is also denoted by \( O(n) \). Taking the determinant of the LHS condition in \cref{orthogonalmatrices} gives \( 1 = \det(\mathbb{I}) = \det(AA^T) = \det(A) \det(A^T) = \det(A)^2 \) so that
-\begin{equation}
-\det(A) = \pm 1
+    1 = \det(\mathbb{I}) = \det(AA^T) = \det(A) \det(A^T) = \det(A)^2 \implies \det(A) = \pm 1.
 \end{equation}
 
-for any orthogonal matrix. The subset of orthogonal matrices \(A\) with determinant \(\det (A) = +1\) is called ``special orthogonal matrices or rotations'' and denoted by \(SO(n)\). Since the matrices leave the dot product invariant they do not change the lengths of vectors and angles between vectors and the positive sign condition excludes orthogonal matrices which contain reflections, they describe rotations of a body. The relation between orthogonal matrices with positive and negative determinants is easy to understand. Consider an orthogonal matrix \(A\) with \(\det (A) = -1\) and the orthogonal matrix \(F = \text{diag}  (-1,1,\ldots ,1)\) with \(\det (F) = -1\) which corresponds to a reflection in the first coordinate direction. Then the matrix \(R = FA\) is a rotation since \(\det (R) = \det (F)\det (A) = 1\). This means every orthogonal matrix \(A\) can be written as a product  
+As we will see, an orthogonal matrix can be used to describe a rotation plus and reflection(s), \textit{i.e.,} \(A = R\sum_{i}^{}F_{i}  \), where \(\det (F_{i} ) = -1 \text { and } \det (R) = 1\). 
 
 \begin{equation}
     A = FR
@@ -1978,22 +1933,28 @@ for any orthogonal matrix. The subset of orthogonal matrices \(A\) with determin
 
 of a rotation \(R\) and a reflection \(F\). 
 
-The most prominant example of the applications of orthogonal matrices is to describe rotations in two and three dimensions. 
-
-To find the explicit form of two-dimensional rotation matrices, start with a general \(2 \times 2\) matrix:
+In copmlex case, the characterizing conditions becomes
 
 \begin{equation}
-R = \begin{pmatrix} a & b \\ c & d \end{pmatrix},
+    A^{\dagger} A = 1 \iff A^{-1} = A^{\dagger} \iff (\vb{A} ^{i} )^{\dagger} \cdot  \vb{A} ^{j} = \delta _{ij}
 \end{equation}
 
-where \(a, b, c, d\) are real numbers. We impose the conditions \(R^T R = \mathbb{I}_2\) and \(\det(R) = 1\). This gives:
+Taking the determinant we conclude that 
 
 \begin{equation}
-R^T R = \begin{pmatrix} a^2 + c^2 & ab + cd \\ ab + cd & b^2 + d^2 \end{pmatrix} = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} \text { and } 
+    1 = \det (\mathbb{I}) = \det (A^{\dagger} A) = \det (A)^*\det (A) = \abs{\det (A)}^2 \implies \abs{\det (A)} = 1. 
+\end{equation}
+
+\subsection{Two Dimensional Rotations}
+
+To find the explicit form of two-dimensional rotation matrices, start with a general \(2 \times 2\) matrix: \(R = \begin{pmatrix} a & b \\ c & d \end{pmatrix}\), where \(a, b, c, d\) are real numbers. We impose the conditions \(R^T R = \mathbb{I}\) and \(\det(R) = 1\). This gives:
+
+\begin{equation}
+R^T R = \begin{pmatrix} a^2 + c^2 & ab + cd \\ ab + cd & b^2 + d^2 \end{pmatrix} = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} ~\text { and }~  
 \det(R) = ad - bc = 1.
 \end{equation}
 
-A solution to the equations can be written as \(a = d = \cos(\theta)\), \(c = -b = \sin(\theta)\) for some angle \(\theta\). Thus, the two-dimensional rotation matrices can be written in the form:
+A solution to the equations can be written as \(a = d = \cos\theta\), \(c = -b = \sin\theta\) for some angle \(\theta\). Thus, the two-dimensional rotation matrices can be written in the form:
 
 \begin{equation}
 R(\theta) = \begin{pmatrix} \cos \theta & -\sin \theta \\ \sin \theta & \cos \theta \end{pmatrix}.
@@ -2011,18 +1972,20 @@ For the rotation of an arbitrary vector \(\vb{x} = \begin{pmatrix}
 It is easy to verify explicitly that \(|\mathbf{x}'| = |\mathbf{x}|\), as must be the case, and that the cosine of the angle between \(\mathbf{x}\) and \(\mathbf{x}'\) is given by
 
 \begin{equation}
-\cos(\langle \mathbf{x}', \mathbf{x} \rangle) = \frac{\mathbf{x}' \cdot \mathbf{x}}{|\mathbf{x}'||\mathbf{x}|} = \frac{(x \cos \theta - y \sin \theta)x + (x \sin \theta + y \cos \theta)y}{|\mathbf{x}|^2} = \cos \theta.
+\cos(\sphericalangle (\mathbf{x}', \mathbf{x} )) = \frac{\avg{\vb{x} ',\vb{x} } }{|\mathbf{x}'||\mathbf{x}|} = \frac{(x \cos \theta - y \sin \theta)x + (x \sin \theta + y \cos \theta)y}{|\mathbf{x}|^2} = \cos \theta.
 \end{equation}
 
-This result means we should interpret \(R(\theta)\) as a rotation by an angle \(\theta\). From the addition theorems of sin and cos it also follows easily that
+This result means we should interpret \(R(\theta)\) as a rotation by an angle \(\theta\). From the addition theorems of sine and cosine it also follows easily that
 
 \begin{equation}
 R(\theta_1)R(\theta_2) = R(\theta_1 + \theta_2),
 \end{equation}
 
-\ie the rotation angle adds up for subsequent rotations, as one would expect. Note, the above equation also implies that two-dimensional rotations commute, since \(R(\theta_1)R(\theta_2) = R(\theta_1 + \theta_2) = R(\theta_2 + \theta_1) = R(\theta_2)R(\theta_1)\), again a property intuitively expected.
+\textit{i.e.,} the rotation angle adds up for subsequent rotations, as one would expect. Note, the above equation also implies that two-dimensional rotations commute, since \(R(\theta_1)R(\theta_2) = R(\theta_1 + \theta_2) = R(\theta_2 + \theta_1) = R(\theta_2)R(\theta_1)\), again a property intuitively expected.
 
-To find the explicit form for three-dimensional rotations we could, in principle, use the same approach as in two dimensions and impose all relevant constraints on an arbitrary \( 3 \times 3 \) matrix. However, this leads to a set of equations in 9 variables and is much more complicated. However, it is easy to obtain special three-dimensional rotations from two-dimensional ones. For example, the matrices
+\subsection{Three Dimensional Rotations}
+
+Since two dimensional rotations are basically three dimensional rotations, but with the axis of rotation implicited fixed, we can represent a two-dimensional rotation about the \(x\)-axis as
 
 \begin{equation}
 R_1(\theta_1) = 
@@ -2033,7 +1996,7 @@ R_1(\theta_1) =
 \end{pmatrix}
 \end{equation}
 
-clearly satisfy \( R_1(\theta_1)^T R_1(\theta_1) = \mathbb{I}_3 \) and \( \det(R_1(\theta_1)) = 1 \) and are, hence, rotation matrices. They describe a rotation by an angle \( \theta_1 \) around the first coordinate axis. Analogously, rotation matrices around the other two coordinate axes can be written as
+Analogously, the rotations matrices around \(y \text { and } z\) axes are 
 
 \begin{equation}
 R_2(\theta_2) = 
@@ -2042,8 +2005,7 @@ R_2(\theta_2) =
 0 & 1 & 0 \\
 -\sin \theta_2 & 0 & \cos \theta_2
 \end{pmatrix}\footnote{The odd signs can be easily justified since the columns vectors are the images of \(\vb{e} _{1}, \vb{e} _{2} \text { and } \vb{e} _{3}\).} 
-, \quad
-R_3(\theta_3) = 
+~\text { and }~ R_3(\theta_3) = 
 \begin{pmatrix}
 \cos \theta_3 & -\sin \theta_3 & 0 \\
 \sin \theta_3 & \cos \theta_3 & 0 \\
@@ -2051,44 +2013,37 @@ R_3(\theta_3) =
 \end{pmatrix}.
 \end{equation}
 
-It turns out that general three-dimensional rotation matrices can be obtained as products of the above three special types. For example, we can write a three-dimensional rotation matrix as \( R(\theta_1, \theta_2, \theta_3) = R_1(\theta_1) R_2(\theta_2) R_3(\theta_3) \), \ie as subsequent rotations around the three coordinate axes. Of course, there are different ways of doing this, another choice frequently used in physics being \( R(\psi, \theta, \phi) = R_3(\psi) R_1(\theta) R_3(\phi) \). The angles \( \psi, \theta, \phi \) in this parametrization are also called the \textit{Euler angles} and in this case, the rotation is combined from a rotation by \( \phi \) around the \( z \)-axis, then a rotation by \( \theta \) around the \( x \)-axis and finally another rotation by \( \psi \) around the (new) \( z \)-axis. The Euler angles are particularly useful to describe the motion of tops in classical mechanics.
+We can then write a three-dimensional rotation matrix as \( R(\theta_1, \theta_2, \theta_3) = R_1(\theta_1) R_2(\theta_2) R_3(\theta_3) \), \textit{i.e.,} as subsequent rotations around the three coordinate axes. 
 
-Finally, we note that, unlike their two-dimensional counterparts, three-dimensional rotations do not, in general, commute. For example, apart from special choices for the angles \( R_1(\theta_1) R_2(\theta_2) \neq R_2(\theta_2) R_1(\theta_1) \).
+Another choice that is used more often in physics is \( R(\psi, \theta, \phi) = R_3(\psi) R_1(\theta) R_3(\phi) \). The angles \( \psi, \theta, \phi \) in this parametrization are known as the Euler angles and in this case, the rotation is combined from a rotation by \( \phi \) around the \( z \)-axis, then a rotation by \( \theta \) around the \( x \)-axis and finally another rotation by \( \psi \) around the (new) \( z \)-axis.
 
-Suppose we have a stationary coordinate system with coordinates \(\mathbf{x} \in \mathbb{R}^3\) and another coordinate system with coordinates \(\mathbf{y} \in \mathbb{R}^3\), which is rotating relative to the first one. Such a set-up can be used to describe the mechanics of objects in rotating systems and has many applications, for example to the physics of tops or the laws of motion in rotating systems such as the earth (see below). Mathematically, the relation between these two coordinate systems can be described by the equation
+Unlike two-dimensional rotations, rotations in three dimensions do not commute, \textit{i.e.,} in general, \( R_1(\theta_1) R_2(\theta_2) \neq R_2(\theta_2) R_1(\theta_1) \).
+
+Suppose we have a stationary coordinate system with coordinates \(\mathbf{x} \in \mathbb{R}^3\) and another coordinate system with coordinates \(\mathbf{y} \in \mathbb{R}^3\) which is rotating relative to the first with (relative) angular velocity \(\boldsymbol{\omega } \). Mathematically,
 
 \begin{equation}
 \mathbf{x} = R(t) \mathbf{y} ,
 \end{equation}
 
-where \( R(t) \) are time-dependent rotation matrices. This means the matrices \( R(t) \) satisfy
+where \( R(t) \) is the time-dependent rotation matrix.\footnote{Rotation matrix is usually written in terms of the rotation angles, however, since the angles are related to time by the angular velocity, we write the rotation matrix as a function of time.} 
+
+For example, a roation around the \(z\)-axis with constant angular speed \(\omega \) can be written as 
 
 \begin{equation}
-R(t)^T R(t) = \mathbb{I}_3 ,
+    R(t) = \begin{pmatrix}
+    \cos(\omega t) & -\sin(\omega t) & 0 \\
+    \sin(\omega t) & \cos(\omega t) & 0 \\
+    0 & 0 & 1
+    \end{pmatrix}. \label{simplerotation} 
 \end{equation}
 
-(as well as \(\det(R(t)) = 1\)) for all times \( t \). In practice, we can write rotation matrices in terms of rotation angles. The time-dependence of \( R(t) \) then means that the rotation angles are functions of time. For example, a rotation around the \( z \)-axis with constant angular speed \(\omega\) can be written as
+To understand the relation between the rotation matrix \(R(t)\) and the angular velocity \(\boldsymbol{\omega } \), we use the defining orthogonal properties of the rotation matrix  
 
 \begin{equation}
-R(t) = 
-\begin{pmatrix}
-\cos(\omega t) & -\sin(\omega t) & 0 \\
-\sin(\omega t) & \cos(\omega t) & 0 \\
-0 & 0 & 1
-\end{pmatrix}.
+R(t)^T R(t) = \mathbb{I} \implies R^T \dot{R} + \dot{R}^T R = R^T \dot{R} + (R^T \dot{R})^T \equiv W + W^T = 0.
 \end{equation}
 
-In physics, a rotation is often described by the angular velocity \(\boldsymbol{\omega}\), a vector whose direction indicates the axis of rotation and whose length gives the angular speed. It is very useful to understand the relation between \( R(t) \) and \(\boldsymbol{\omega}\). To do this, define the matrix
-
-\begin{equation}
-W = R^T \dot{R} ,
-\end{equation}
-
-where the dot denotes the time derivative and observe, by differentiating the above equation with respect to time, that
-
-\begin{equation}
-R^T \dot{R} + \dot{R}^T R = 0 .
-\end{equation}
+(and \(\det (R(t)) = 1\)) for all times \(t\). 
 
 Hence, \( W \) is an anti-symmetric matrix and can be written in the form
 
@@ -2105,10 +2060,10 @@ W_{ij} = \epsilon_{ikj} \omega_k .
 
 The three independent entries \(\omega_i\) of this matrix define the angular velocity \(\boldsymbol{\omega} = \begin{pmatrix}
     \omega _{1}  & \omega _{2}  & \omega _{3}   \\
-\end{pmatrix}^T\). To see that this makes sense let us work out the matrix \( W \) for \(R(t)\) .
+\end{pmatrix}^T\). To see that this makes sense let us work out the matrix \( W \) for \(R(t)\) in \cref{simplerotation}.
 
 \begin{equation}
-W = \omega
+W = R^T \dot{R} = \omega
 \begin{pmatrix}
 \cos(\omega t) & \sin(\omega t) & 0 \\
 -\sin(\omega t) & \cos(\omega t) & 0 \\
@@ -2124,34 +2079,31 @@ W = \omega
 0 & -\omega & 0 \\
 \omega & 0 & 0 \\
 0 & 0 & 0
-\end{pmatrix}
-.
+\end{pmatrix},
 \end{equation}
 
-Comparison with the general form of \( W \) then shows that the angular velocity for this case is given by \(\boldsymbol{\omega} = (0, 0, \omega)\), indicating a rotation with angular speed \(\omega\) around the \( z \)-axis, as expected.
+indcating an angular velocity \(\boldsymbol{\omega } = \begin{pmatrix}
+    0 & 0 &  \omega  \\
+\end{pmatrix}^T \), as expected.
 
-In the previous sections we have shown that the multiplication of an anti-symmetric \(3 \times 3\) matrix with a vector can be written as a cross-product, so that
+In \cref{antisym} we have shown that the multiplication of an anti-symmetric \(3 \times 3\) matrix with a vector can be written as a cross-product, so that
 
 \begin{equation}
 W \mathbf{b} = \boldsymbol{\omega} \times \mathbf{b}
 \end{equation}
 
-for any vector \(\mathbf{b} = \begin{pmatrix}
-    b_1  & b_2  & b_3   \\
-\end{pmatrix}^T\). This can also be directly verified using the matrix form of \( W \) together with the definition of the cross product or, more elegantly, by the index calculation \( W_{ij} b_j = \epsilon_{ikj} \omega_k b_j = (\boldsymbol{\omega} \times \mathbf{b})_i \). This relation can be used to re-write expressions involving \( W \) in terms of the angular velocity \(\boldsymbol{\omega}\).
+This can be directly verified by the index calculation \( (W\vb{b})_{i} = W_{ij} b_j = \epsilon_{ikj} \omega_k b_j = (\boldsymbol{\omega} \times \mathbf{b})_i \). This relation can be used to rewrite expressions involving \( W \) in terms of the angular velocity \(\boldsymbol{\omega}\).
 
-For a simple application of this formalism, consider an object moving with velocity \(\dot{\mathbf{y}}\) relative to the rotating system. What is its velocity relative to the stationary coordinate system? Differentiating \(\vb{x} = R(t)\vb{y} \)  gives
+For exaple, to find the velocity of an object, with velocity \(\dot{\vb{y} } \) in the rotating system, relative to the stationary coordinate system, we differentiating \(\vb{x} = R(t)\vb{y} \) to get
+
 \begin{equation}
 \dot{\mathbf{x}} = R \dot{\mathbf{y}} + \dot{R} \mathbf{y} = R (\dot{\mathbf{y}} + W \mathbf{y}) = R (\dot{\mathbf{y}} + \boldsymbol{\omega} \times \mathbf{y}) .
 \end{equation}
-The velocity \(\dot{\mathbf{x}}\) in the stationary system has, therefore, two contributions, namely the velocity \(\dot{\mathbf{y}}\) relative to the rotating system and the velocity \(\boldsymbol{\omega} \times \mathbf{y}\) due to the rotation itself.
-
-We now investigate the Newton's second law in rotating frame.
 
 We start with multiplying \(\vb{F} = m \ddot{\vb{x} } \) on both sides by the rotation matrix \(R(t)\) to get
 
 \begin{equation}
-    \vb{F} _{R} = mR^{T}\ddot{x},   
+    \vb{F} _{R} = mR^{T}\ddot{\vb{x} },   
 \end{equation}
 
 where \(\vb{F} _{R} \) is the force in the rotating coordinate system.
@@ -2159,7 +2111,7 @@ where \(\vb{F} _{R} \) is the force in the rotating coordinate system.
 Taking the time derivatives of \(\vb{x} \), we get 
 
 \begin{equation}
-    \dot{\vb{x} } = R \dot{\vb{y} } + \dot{R} \vb{y} \text { and } \ddot{\vb{x} } = R \ddot{\vb{y} } + 2\dot{R} \dot{y} + \ddot{R} \vb{y} .   
+    \dot{\vb{x} } = R \dot{\vb{y} } + \dot{R} \vb{y} \text { and } \ddot{\vb{x} } = R \ddot{\vb{y} } + 2\dot{R} \dot{\vb{y} } + \ddot{R} \vb{y} .   
 \end{equation}
 
 Substituing \(\ddot{\vb{x} } \), we have
@@ -2175,106 +2127,56 @@ The two extra terms can be simplified further by recalling the definition \(W = 
 \end{equation}
 
 The three extra terms on the right are Coriolis force, centrifugal force and Euler force, respectively.
-
-We now turn to the copmlex case, where the characterizing conditions becomes
-
-\begin{equation}
-    A^{\dagger} A = 1 \iff A^{-1} = A^{\dagger} \iff (\vb{A} ^{i} )^{\dagger} \vb{A} ^{j} = \delta _{ij}
-\end{equation}
-
-and can be verified in \(\mathbb{C}^{n} \) since 
-
-\begin{equation}
-    A^{\dagger} A = \mathbb{I}_{n} \iff (A\vb{v} )^{\dagger} (A\vb{w} ) = \vb{v} ^{\dagger} \vb{w} ~~~\forall ~ \vb{v} ,\vb{w} \in \mathbb{C}^{n}.   
-\end{equation}
-
-The set of all \(n \times  n\) unitary matrices is denoted by \(U(n)\), where naturally \(O(n) \subset U(n)\). From the deterimnant of unitary matrices we conclude that \(1 = \det (\mathbb{I}) = \det (A^{\dagger} A) = \det (A)^*\det (A) = \abs{\det (A)}^2 \). Hence the determinant of unitary matrices has complex modulus of 1, so
-
-\begin{equation}
-    \abs{\det (A)} = 1. 
-\end{equation}
-
-The unitary matrices \(U\) with \(\det (U) = 1\) are called ``special unitary matrices'' and denoted by \(SU(n)\). Naturally, \(SO(n) \subset SU(n)\). 
-
-For an arbitrary unitary \(n \times  n\) matrix \(A\) we can always find a complex phase \(\zeta \) such that \(\zeta ^{n} = \det (A) \). Then, the matrix \(U = \zeta ^{-1} A\) is a special unitary since \(\det (U) = \det (\zeta ^{-1} A) = \zeta ^{-n} \det (A) = 1 \). This means every unitary matrix \(A\) can be written as a product
-
-\begin{equation}
-    A = \zeta U
-\end{equation}
-
-of a special unitary matrix \(U\) and a complex phase \(\zeta \).  
-
-We can find all two-dimensional special unitary matrices by using the same method as for two-dimensional rotations. We start with an arbitrary complex \(2 \times 2\) matrix
-
-\begin{equation}
-U = \begin{pmatrix}
-\alpha & \beta \\
-\gamma & \delta
-\end{pmatrix},
-\end{equation}
-
-where \(\alpha, \beta, \gamma, \delta\) are complex numbers and impose the conditions \( U^\dagger U = \mathbb{I}_2 \) and \(\det(U) = 1\). After a short calculation we find that every two-dimensional special unitary matrix can be written in terms of two complex numbers \(\alpha, \beta\) as
-
-\begin{equation}
-U = \begin{pmatrix}
-\alpha & \beta \\
--\beta^* & \alpha^*
-\end{pmatrix}
-\quad \text{where} \quad |\alpha|^2 + |\beta|^2 = 1.
-\end{equation}
-
-This shows that two-dimensional special unitary matrices depend on two complex parameters \(\alpha, \beta\) subject to the (real) constraint \(|\alpha|^2 + |\beta|^2 = 1\) and, hence, on three real parameters. Inserting the special choice \(\alpha = \cos \theta, \beta = -\sin \theta\) the above equation we recover the two-dimensional rotation matrices we found earlier in the real case, so that \(SO(2) \subset SU(2)\), as expected from our general discussion.
+\todo{dual vector space} 
 
 \chapter{Eigenvectors and Eigenvalues}
 
-Recall from \cref{matrixlinearmap}  that the  matrix representing a linear map is computed by writing the images of the basis vectors as linear combinations of the basis, with the coefficients from each image forming a column of the matrix. Suppose that the image of a basis vector \(\vb{v} \) is simply a multiple of itself, so \(f(\vb{v} = \lambda \vb{v} )\) for some number \(\lambda \). In this case, the corresponding column of the representing matrix only has one non-zero entry, \(\lambda \), in the diagonal. 
-
 \begin{definition}[Definition of Eigenvectors and Eigenvalues]
-For a linear map \(f:V \rightarrow V\) on a vector space \(V\) over \(F\) the number \(\lambda \in F\) is called an eigen value of \(f\) if there is a non-zero vector \(\vb{v} \) such that 
+For a linear map \(f:V \rightarrow V\) on a vector space \(V\) over \(F\) the number \(\lambda \in F\) is called an eigenvalue of \(f\) if there is a non-zero vector \(\vb{v} \) such that 
 
 \begin{equation}
     f(\vb{v} ) = \lambda \vb{v} .
 \end{equation}
 
-In this case, \(\vb{v} \) is called an eigenvector of \(f\) with eigenvalue \(\lambda \).   
+In this case, \(\vb{v} \) is called an eigenvector of \(f\) with eigenvalue \(\lambda \), which is only scaled by the action of a linear map.
 
 \end{definition}
 
-In short, an eigenvector is a vector which is just ``scaled by the action of a linear map''.
-
-To discuss this we first introduce the idea of eigenspaces. The eigenspace for \(\lambda \in F\) is defined by
+\begin{definition}[Definition of Eignespaces]
+The eigenspace for \(\lambda \in F\) is the vector space containing all the eigenvectors for \(\lambda \) 
 
 \begin{equation}
-    \text{Eig}_{f}(\lambda ) = \ker (f - \lambda \mathrm{id}_{V} ),  
+    \text{Eig}_{f}(\lambda ) = \ker (f - \lambda \mathrm{id}_{V} ).
 \end{equation}
+\end{definition}
 
-which collects all the eigenvectors for \(\lambda \).  
+If \(\dim \text{Eig}_{f}(\lambda ) = 1 \) the eigenvalue \(\lambda\) is called non-degenerate, which means that up to re-scaling there is only one eigenvector for \(\lambda \) and if \(\dim \text{Eig}_{f}(\lambda ) > 1  \) the eigenvalue \(\lambda \) is called degenerate, which means there are at least two linearly independent eigenvectors for \(\lambda \).        
 
-Evidently \(\lambda \) is an eigenvalue of \(f\) precisely when \(\dim \text{Eig}_{f}(\lambda ) > 0\). If \(\dim \text{Eig}_{f}(\lambda ) = 1 \) the eigenvalue \(\lambda\) is called non-degenerate, which means that up to re-scaling there is only one eigenvector for \(\lambda \) and if \(\dim \text{Eig}_{f}(\lambda ) > 1  \) the eigenvalue \(\lambda \) is called degenerate, which means there are at least two linearly independent eigenvectors for \(\lambda \).        
-
-We see that \(\lambda \) is an eigenvalue of \(f\) precisely when \(\ker (f - \lambda \mathrm{id}_{V} )\) is non-trivial. From \cref{linearprop2} and \cref{dimensionformulaeq}, they implies that \(f - \mathrm{id}_{V} \) is not bijective thus not invertible which is equivalent to 
+Evidently \(\lambda \) is an eigenvalue of \(f\) when \(\dim (\text{Eig}_{f}(\lambda )) = \dim (\ker (f-\lambda \mathrm{id}_{V} )) > 0\). Thus \cref{linearmapprop2} and \cref{dimensionformulaeq} implies that \(f - \lambda \mathrm{id}_{V} \) is not bijective thus not invertible which implies
 
 \begin{equation}
     \chi _{f}(\lambda ) \equiv \det (f - \lambda \mathrm{id}_{V} ) = 0,
 \end{equation}
 
-where \(\chi _{f}(\lambda ) \) is called the characteristic polynomial of the linear map for the eigenvalue \(\lambda \), which is a polynomial of order \(n\) in \(\lambda \) whose coefficients depend on \(f\). Some general properties of the characteristic polynomial are given below:
+where \(\chi _{f}(\lambda ) \) is called the characteristic polynomial of the linear map for the eigenvalue \(\lambda \), which is a polynomial of order \(n\) in \(\lambda \) whose coefficients depend on \(f\).
 
-\begin{lemma}[Properties of a Characteristic Polynomial]
-The characteristic polynomial \(\chi _{A}(\lambda ) = c_{n}\lambda ^{n} c_{n-1}\lambda ^{n-1} + \ldots + c_1 \lambda +c_0 \) of an \(n \times n\) matrix \(A\) has the following properties:
+\begin{lemma}[Properties of Characteristic Polynomials]
+The characteristic polynomial \(\chi _{A}(\lambda ) = c_{n}\lambda ^{n} c_{n-1}\lambda ^{n-1} + \ldots + c_1 \lambda +c_0 \) of a \(n \times n\) matrix \(A\) has the following properties:
 
-\begin{enumerate}[label=(O\arabic*)]
-    \item \(\chi _{PAP^{-1} } = \chi _{A}  \), so the characteristic polynomial is basis-independent. \label{charpolyinde} 
+\begin{enumerate}[label=(\(O\)\arabic*)]
+    \item \(\chi _{PAP^{-1} } = \chi _{A}  \), so the characteristic polynomial is basis-independent. \label{O1} 
     \item The coeffiecients \(c_{i} \) of the characteristic polynomial are basis-indepedent.
-    \item \(c_{n} = (-1)^{n}, c_{n-1} = (-1)^{n-1}\sum_{i=1}^{n} A_{ii}, c_0 = \det (A).\).    
+    \item \(c_{n} = (-1)^{n}, c_{n-1} = (-1)^{n-1}\sum_{i=1}^{n} A_{ii}, c_0 = \det (A)\).    
 \end{enumerate}
 
 \end{lemma}
 
+\todo{label items} 
+
 \begin{proof}
-\begin{enumerate}[label=(O\arabic*)] 
+\begin{enumerate}[label=(\(O\)\arabic*)] 
     \item \(\chi _{PAP^{-1} }(\lambda ) = \det (PAP^{-1} - \lambda \mathbb{I}) = \det (P(A-\lambda \mathbb{I})P^{-1} ) = \det (P)\det (A-\lambda \mathbb{I}) \det (P^{-1} )\) \(= \det (A - \lambda \mathbb{I}) = \chi _{A}(\lambda )  \).
-    \item This is a direct consequence of \cref{charpolyinde}, since two polynomials are identical only if the coefficients of every power of x are equal, this is due to the fact that the vectors \(1, x, x^2, \ldots \) are linearly independent.
+    \item This is a direct consequence of \cref{O1}, since two polynomials are identical only if the coefficients of every power of x are equal, this is due to the fact that the vectors \(1, x, x^2, \ldots \) are linearly independent.
     \item It is trivial for the \(c_0 \) case. For \(c_1 \text { and } c_2 \), notice that the terms of order \(\lambda ^{n} \text { and } \lambda ^{n-1} \) only receive contributions from the product of the diagonal elements, so that
     \begin{equation}
         \chi _{A}(\lambda ) =   \prod_{i=1}^{n} (A_{ii} - \lambda  ) + \mathcal{O}(\lambda ^{n-2} ) = (-1)^{n} \lambda ^{n} + (-1)^{n-1} \left( \sum_{i=1}^{n} A_{ii}  \right) \lambda ^{n-1} + \mathcal{O}(\lambda ^{n-2} ).     
@@ -2285,40 +2187,29 @@ The characteristic polynomial \(\chi _{A}(\lambda ) = c_{n}\lambda ^{n} c_{n-1}\
 
 \end{proof}
 
-The above lemma shows that the determinant of a matrix is basis-independent, which we have already shown in \cref{detprop}. Further, it shows that the trace of a matrix A 
-
-\begin{equation}
-    \Tr (A) \equiv \sum_{i=1}^{n} A_{ii} 
-\end{equation}
-
-is also basis-independent. However this can be seen more directly by noting that \(\Tr (AB) = \sum_{i,j}^{} A_{ij} B_{ji} = \sum_{i,j}^{} B_{ji} A_{ij} = \Tr (BA)      \), so \(\Tr (PAP^{-1} ) = \Tr (P^{-1} PA) = \Tr (A)\).
+The above lemma shows that the determinant of a matrix is basis-independent, which we have already shown in \cref{detprop}. Further, it shows that the trace of a matrix A \(\Tr (A) \equiv \sum_{i=1}^{n} A_{ii}\) is also basis-independent. However this can be seen more directly by noting that \(\Tr (AB) = \sum_{i,j}^{} A_{ij} B_{ji} = \sum_{i,j}^{} B_{ji} A_{ij} = \Tr (BA)      \), so \(\Tr (PAP^{-1} ) = \Tr (P^{-1} PA) = \Tr (A)\).
 
 \section{Diagonalization of matrices}
 
-In order to diagonalize a matrix, we start with
-
 \begin{definition}
 We say a linear map \(f: V \rightarrow V\) can be diagonalized if there exist a basis of \(V\) such that the matrix which describes \(f\) relative to this basis is diagonal. 
-Further, we say an \(n \times  n\) matrix \(A\) with entries in \(F\) can be diagonalized if there is an invertible \(n \times  n\) matrix \(P\) with entries in \(F\) such that \(\hat{A} \equiv P^{-1} AP \) is diagonal.   
+
+Further, we say a \(n \times  n\) matrix \(A\) with entries in \(F\) can be diagonalized if there is an invertible \(n \times  n\) matrix \(P\) with entries in \(F\) such that \(\hat{A} \equiv P^{-1} AP \) is diagonal.   
 \end{definition}
 
-The key statement relating eigenvectors and eigenvalues to diagonalization of a linear map is
-
 \begin{lemma}
-A linear map \( f : V \to V \) can be diagonalised iff there exists a basis of \( V \) consisting of eigenvectors of \( f \). Relative to such a basis of eigenvectors, \( f \) is described by a diagonal matrix with the eigenvalues along the diagonal.
+A linear map \( f : V \to V \) can be diagonalised if and only if there exists a basis of \( V \) consisting of eigenvectors of \( f \). Relative to such a basis of eigenvectors, \( f \) is described by a diagonal matrix with the eigenvalues along the diagonal.
 \end{lemma}
 
 \begin{proof}
 The entries of the matrix \( A \) which describes \( f \) relative to a basis \( \mathbf{v}_1, \ldots, \mathbf{v}_n \) of \( V \) are obtained from 
 
 \begin{equation}
-    f(\mathbf{v}_j) = \sum_i A_{ij} \mathbf{v}_i,
+    f(\mathbf{v}_j) = \sum_i a_{ij} \mathbf{v}_i,
 \end{equation}
 
-as discussed in \cref{matrixlinearmap} . From this equation, if \( A = \text{diag}(\lambda_1, \ldots, \lambda_n) \) is diagonal, then \( f(\mathbf{v}_j) = \lambda_j \mathbf{v}_j \) and the basis vectors \( \mathbf{v}_j \) are eigenvectors with eigenvalues \( \lambda_i \). 
+as discussed in \cref{matrixlinearmap2}. From this equation, if \( A = \text{diag}(\lambda_1, \ldots, \lambda_n) \) is diagonal, then \( f(\mathbf{v}_j) = \lambda_j \mathbf{v}_j \) and the basis vectors \( \mathbf{v}_j \) are eigenvectors with eigenvalues \( \lambda_j \). 
 \end{proof}
-
-The analogous statement for matrices is
 
 \begin{lemma} \label{diagonalizable} 
 The \( n \times n \) matrix \( A \) with entries in \( F \) can be diagonalized if and only if \( A \) has \( n \) eigenvectors \( \mathbf{v}_1, \ldots, \mathbf{v}_n \) which form a basis of \( F^n \). In this case, if we define the matrix
@@ -2333,7 +2224,7 @@ where \( \lambda_i \) are the eigenvalues for \( \mathbf{v}_i \).
 \end{lemma}
 
 \begin{proof}
-We assume that we have a basis \( \mathbf{v}_1, \dots, \mathbf{v}_n \) of eigenvectors with eigenvalues \( \lambda_i \) so that \(A \mathbf{v}_i = \lambda_i \mathbf{v}_i.\). Define the matrix \(P = (\mathbf{v}_1, \dots, \mathbf{v}_n)\)  whose columns are the eigenvectors of \( A \). Since the eigenvectors form a basis of \( F^n \), the matrix \( P \) is invertible. Then
+We assume that we have a basis \( \mathbf{v}_1, \dots, \mathbf{v}_n \) of eigenvectors with eigenvalues \( \lambda_i \) so that \(A \mathbf{v}_i = \lambda_i \mathbf{v}_i\). Then
 \begin{equation}
 \begin{aligned}
 P^{-1} A P &= P^{-1} A (\mathbf{v}_1, \dots, \mathbf{v}_n) 
@@ -2342,22 +2233,25 @@ P^{-1} A P &= P^{-1} A (\mathbf{v}_1, \dots, \mathbf{v}_n)
            &= P^{-1} (\mathbf{v}_1, \dots, \mathbf{v}_n) 
            = \underbrace{P^{-1} (\mathbf{v}_1, \dots, \mathbf{v}_n)}_{=P} 
            \operatorname{diag}(\lambda_1, \dots, \lambda_n) 
-           = \operatorname{diag}(\lambda_1, \dots, \lambda_n).
+           = \operatorname{diag}(\lambda_1, \dots, \lambda_n),
 \end{aligned}
 \end{equation}
+
+where in second equality we used the concep that a matrix is simply a collection of column vectors and matrix multiplication is simply acting the linear map on each of them separately.
 \end{proof}
+
+
 
 If a matrix \(A\) can be diagonalized, with eigenvalues \(\lambda _{1}, \ldots , \lambda _{n}   \), so that \(P^{-1} AP\) = \(\text{diag}(\lambda _{1}, \ldots , \lambda _{n}  ) \), then the basis-independence of the determinant and the trace implies that
 
 \begin{equation}
-    \det (A) = \prod_{i=1}^{n} \lambda _{i} \text { and } \Tr (A) = \sum_{i=1}^{n} \lambda _{i}.  
+    \det (A) = \prod_{i=1}^{n} \lambda _{i} ~\text { and }~  \Tr (A) = \sum_{i=1}^{n} \lambda _{i}.  
 \end{equation}
 
-While \cref{diagonlizable} provides a general criterion for a matrix to be diagonalizable it requires calculation of all the eigenvectors and checking whether they form a basis. It would be helpful to have a simpler condition, at least for some classes of matrices, which can simply be ``read off'' from the matrix. To this end we prove
-
 \begin{theorem}
-Let \(V\) be a vector space over \(\mathbb{R} (\mathbb{C})\) with real (hermitian) scalar product \(\avg{\cdot ,\cdot } \). If \(f: V \rightarrow V\) is self-adjoint then
-\begin{enumerate}[label=(P\arabic*)]
+Let \(V\) be a vector space over \(\mathbb{R} (\mathbb{C})\) with real (hermitian) scalar product \(\avg{\cdot ,\cdot } \). If \(f: V \rightarrow V\) is self-adjoint then:
+
+\begin{enumerate}[label=(\(P\)\arabic*)]
     \item All eigenvalues of \(f\) are real.
     \item Eigenvectors for different eigenvalues are orthogonal.
 \end{enumerate}
@@ -2365,12 +2259,9 @@ Let \(V\) be a vector space over \(\mathbb{R} (\mathbb{C})\) with real (hermitia
 \end{theorem}
 
 \begin{proof}
-\begin{enumerate}[label=(P\arabic*)]
-    \item For the real case, the first part of the statement is of course trivial. For the complex case, we start with an eigenvector \( \mathbf{v} \neq 0 \) of \( f \) with corresponding eigenvalue \( \lambda \), so that 
-    \begin{equation}
-        f(\mathbf{v}) = \lambda \mathbf{v}.
-    \end{equation}
-    Then
+\begin{enumerate}[label=(\(P\)\arabic*)]
+    \item For the real case, the first part of the statement is trivial. For the complex case, we start with an eigenvector \( \mathbf{v} \neq 0 \) of \( f \) with corresponding eigenvalue \( \lambda \), so that \(f(\mathbf{v}) = \lambda \mathbf{v}\), then
+
     \begin{equation}
         \lambda \langle \mathbf{v}, \mathbf{v} \rangle 
         = \langle \mathbf{v}, \lambda \mathbf{v} \rangle 
@@ -2379,48 +2270,23 @@ Let \(V\) be a vector space over \(\mathbb{R} (\mathbb{C})\) with real (hermitia
         = \langle \lambda \mathbf{v}, \mathbf{v} \rangle 
         = \lambda^* \langle \mathbf{v}, \mathbf{v} \rangle.
     \end{equation}
-    In the third step we have used the fact that \( f \) is self-adjoint and can, hence, be moved from one argument of the scalar product into the other. Since \( \mathbf{v} \neq 0 \) and, hence, \( \langle \mathbf{v}, \mathbf{v} \rangle \neq 0 \), it follows that \( \lambda = \lambda^* \), so the eigenvalue is real.
+    In the third step we have used the fact that \( f \) is self-adjoint and can, hence, be moved from one argument of the scalar product into the other. Since \( \mathbf{v} \neq 0 \), \( \langle \mathbf{v}, \mathbf{v} \rangle \neq 0 \), it follows that \( \lambda = \lambda^* \), so the eigenvalue is real.
     
-    \item Consider two eigenvectors \( \mathbf{v}_1, \mathbf{v}_2 \), so that 
+    \item Consider two eigenvectors \( \mathbf{v}_1, \mathbf{v}_2 \), so that \(f(\mathbf{v}_1) = \lambda_1 \mathbf{v}_1 \quad \text{and} \quad f(\mathbf{v}_2) = \lambda_2 \mathbf{v}_2\), with different eigenvalues, \( \lambda_1 \neq \lambda_2 \). Then
     \begin{equation}
-        f(\mathbf{v}_1) = \lambda_1 \mathbf{v}_1 
-        \quad \text{and} \quad 
-        f(\mathbf{v}_2) = \lambda_2 \mathbf{v}_2,
-    \end{equation}
-    with different eigenvalues, \( \lambda_1 \neq \lambda_2 \). Then
-    \begin{equation}
+        \begin{aligned} 
         (\lambda_1 - \lambda_2) \langle \mathbf{v}_1, \mathbf{v}_2 \rangle 
-        = \langle \lambda_1 \mathbf{v}_1, \mathbf{v}_2 \rangle 
-        - \langle \mathbf{v}_1, \lambda_2 \mathbf{v}_2 \rangle 
-        = \langle f(\mathbf{v}_1), \mathbf{v}_2 \rangle 
-        - \langle \mathbf{v}_1, f(\mathbf{v}_2) \rangle 
+        &= \langle \lambda_1 \mathbf{v}_1, \mathbf{v}_2 \rangle 
+        - \langle \mathbf{v}_1, \lambda_2 \mathbf{v}_2 \rangle \\
+        &= \langle f(\mathbf{v}_1), \mathbf{v}_2 \rangle 
+        - \langle \mathbf{v}_1, f(\mathbf{v}_2) \rangle \\
+        &= \langle \mathbf{v}_1, f(\mathbf{v}_2) \rangle - \langle \mathbf{v}_1, f(\mathbf{v}_2) \rangle
         = 0.
+        \end{aligned} 
     \end{equation}
     Since \( \lambda_1 - \lambda_2 \neq 0 \), this means \( \langle \mathbf{v}_1, \mathbf{v}_2 \rangle = 0 \), and the two eigenvectors are orthogonal.
 \end{enumerate}
 
-\end{proof}
-
-\begin{theorem}
-Let $V$ be a vector space over $\mathbb{C}$ with hermitian scalar product $\langle \cdot, \cdot \rangle$. If $f : V \to V$ is self-adjoint, it has an ortho-normal basis, $\epsilon_1, \ldots, \epsilon_n$ of eigenvectors.
-\end{theorem}
-
-\begin{proof}
-The proof is by induction in $n$, the dimension of the vector space $V$. For $n = 1$, the assertion is trivial. Assume that it is true for all dimensions $k < n$. We would like to show that it is true for dimension $n$. The characteristic polynomial $\chi_f$ of $f$ has at least one zero, $\lambda$, over the complex numbers. Since $f$ is self-adjoint, $\lambda$ is real from the previous theorem. 
-
-Consider the eigenspace $W = \text{Eig}_f(\lambda)$. Since $\lambda$ is an eigenvalue, $\dim(W) > 0$. Vectors $\mathbf{v} \in W^\perp$ and $\mathbf{w} \in W$ are perpendicular, $\langle \mathbf{w}, \mathbf{v} \rangle = 0$, so
-\begin{equation}
-\langle \mathbf{w}, f(\mathbf{v}) \rangle = \langle f(\mathbf{w}), \mathbf{v} \rangle = \langle \lambda \mathbf{w}, \mathbf{v} \rangle = \lambda \langle \mathbf{w}, \mathbf{v} \rangle = 0.
-\end{equation}
-
-This means that $f(\mathbf{v})$ is perpendicular to $\mathbf{w}$ so that, whenever $\mathbf{v} \in W^\perp$, then also $f(\mathbf{v}) \in W^\perp$. As a result, $W^\perp$ is invariant under $f$, and we can restrict $f$ to $W^\perp$, \ie consider $g = f|_{W^\perp}$. Since $\dim(W^\perp) < n$, there is an ortho-normal basis $\epsilon_1, \ldots, \epsilon_k$ of $W^\perp$ consisting of eigenvectors of $g$ (which are also eigenvectors of $f$) by the induction assumption. 
-
-Add to this ortho-normal basis of $W^\perp$ an ortho-normal basis of $W$ (which, by definition of $W$, consists of eigenvectors of $f$ with eigenvalue $\lambda$). Since $\dim(W) + \dim(W^\perp) = n$ (see Lemma 6.3), and pairwise orthogonal vectors are linearly independent, this list of vectors forms an ortho-normal basis of $V$, consisting of eigenvectors of $f$.
-
-In summary, these results mean that every real symmetric (hermitian) matrix can be diagonalized, has an ortho-normal basis $\epsilon_1, \ldots, \epsilon_n$ of eigenvectors with corresponding real eigenvalues $\lambda_1, \ldots, \lambda_n$, and the diagonalizing matrix $P = (\epsilon_1, \ldots, \epsilon_n)$ is orthogonal (unitary), such that
-\begin{equation}
-P^\dagger AP = \text{diag}(\lambda_1, \ldots, \lambda_n).
-\end{equation}
 \end{proof}
 
 \begin{theorem}
@@ -2431,26 +2297,22 @@ P^\dagger AP = \text{diag}(\lambda_1, \ldots, \lambda_n).
 The proof is by induction in $n$, the dimension of the vector space $V$. For $n = 1$, the assertion is trivial. Assume that it is true for all dimensions $k < n$. We would like to show that it is true for dimension $n$. The characteristic polynomial $\chi_f$ of $f$ has at least one zero, $\lambda$, over the complex numbers. Since $f$ is self-adjoint, $\lambda$ is real from the previous theorem. 
     
 Consider the eigenspace $W = \text{Eig}_f(\lambda)$. Since $\lambda$ is an eigenvalue, $\dim(W) > 0$. Vectors $\mathbf{v} \in W^\perp$ and $\mathbf{w} \in W$ are perpendicular, $\langle \mathbf{w}, \mathbf{v} \rangle = 0$, so
+    
 \begin{equation}
-\langle \mathbf{w}, f(\mathbf{v}) \rangle = \langle f(\mathbf{w}), \mathbf{v} \rangle = \langle \lambda \mathbf{w}, \mathbf{v} \rangle = \lambda \langle \mathbf{w}, \mathbf{v} \rangle = 0.
+    \langle \mathbf{w}, f(\mathbf{v}) \rangle = \langle f(\mathbf{w}), \mathbf{v} \rangle = \langle \lambda \mathbf{w}, \mathbf{v} \rangle = \lambda \langle \mathbf{w}, \mathbf{v} \rangle = 0.
 \end{equation}
     
 This means that $f(\mathbf{v})$ is perpendicular to $\mathbf{w}$ so that, whenever $\mathbf{v} \in W^\perp$, then also $f(\mathbf{v}) \in W^\perp$. As a result, $W^\perp$ is invariant under $f$, and we can restrict $f$ to $W^\perp$, \ie consider $g = f|_{W^\perp}$. Since $\dim(W^\perp) < n$, there is an ortho-normal basis $\epsilon_1, \ldots, \epsilon_k$ of $W^\perp$ consisting of eigenvectors of $g$ (which are also eigenvectors of $f$) by the induction assumption. 
     
-Add to this ortho-normal basis of $W^\perp$ an ortho-normal basis of $W$ (which, by definition of $W$, consists of eigenvectors of $f$ with eigenvalue $\lambda$). Since $\dim(W) + \dim(W^\perp) = n$ (see \cref{perpspaceprop} ), and pairwise orthogonal vectors are linearly independent, this list of vectors forms an ortho-normal basis of $V$, consisting of eigenvectors of $f$.
+Add to this ortho-normal basis of $W^\perp$ an ortho-normal basis of $W$ (which, by definition of $W$, consists of eigenvectors of $f$ with eigenvalue $\lambda$). Since $\dim(W) + \dim(W^\perp) = n$ (see Lemma 6.3), and pairwise orthogonal vectors are linearly independent, this list of vectors forms an ortho-normal basis of $V$, consisting of eigenvectors of $f$.
     
 In summary, these results mean that every real symmetric (hermitian) matrix can be diagonalized, has an ortho-normal basis $\epsilon_1, \ldots, \epsilon_n$ of eigenvectors with corresponding real eigenvalues $\lambda_1, \ldots, \lambda_n$, and the diagonalizing matrix $P = (\epsilon_1, \ldots, \epsilon_n)$ is orthogonal (unitary), such that
-\begin{equation}
-P^\dagger AP = \text{diag}(\lambda_1, \ldots, \lambda_n).
-\end{equation}
-\end{proof}
     
-In summary, these results mean that every real symmetric (hermitian) matrix can be diagonalized, has an ortho-normal basis \(\boldsymbol{\epsilon }_{1}, \ldots , \boldsymbol{\epsilon }_{n}    \) of eigenvectors with corresponding real eigenvalues \(\lambda _{1}, \ldots , \lambda _{n}  \) and the diagonalizing matrix \(P = lr(\boldsymbol{\epsilon }_{1}, \ldots , \boldsymbol{\epsilon } _{n}   )\) is orthogonal (unitary), such that 
-
 \begin{equation}
-    P^{\dagger} AP = \text{diag}(\lambda _{1}, \ldots ,\lambda _{n}). 
+    P^\dagger AP = \text{diag}(\lambda_1, \ldots, \lambda_n).
 \end{equation}
 
+\end{proof}
 
 
 
@@ -2701,11 +2563,11 @@ Here we will formally define set, group, field and vector space.
 \begin{enumerate}
 \item  *A set is a collection of mathematical objects.
 
-\item  A set \( G \) with a binary operation that combines two elements in the set to yield another element in the set is called a group. Mathematically this can be written as \( G \times G \to G \). This operation has to have certain properties (also called the axioms), and together with the set these constitute the algebraic structure of the group. Specifically, for a group these are closure, associativity, the existence of an identity element, and the existence of inverse elements. If the operation also commutes (\ie  it does not depend on the order in which the elements are written in the operation), then the group is said to be a commutative or an Abelian group.
+\item  A set \( G \) with a binary operation that combines two elements in the set to yield another element in the set is called a group. Mathematically this can be written as \( G \times G \to G \). This operation has to have certain properties (also called the axioms), and together with the set these constitute the algebraic structure of the group. Specifically, for a group these are closure, associativity, the existence of an identity element, and the existence of inverse elements. If the operation also commutes (\textit{i.e.,}  it does not depend on the order in which the elements are written in the operation), then the group is said to be a commutative or an Abelian group.
 
 \item  A set with two binary operations of addition and multiplication is called a field \( F \). These must satisfy six field axioms, namely associativity, commutativity, the existence of additive and multiplicative identity, and the existence of additive and multiplicative inverses, as well as distributivity. We see the complexity of the structure is increasing; in particular, we note that a field is an Abelian group under both addition and multiplication, the two being connected via the requirement of distributivity. Note that the set of rationals \( \mathbb{Q} \), real numbers \( \mathbb{R} \), and complex numbers \( \mathbb{C} \) are all fields, but the set of integers \( \mathbb{Z} \) is not a field as the multiplicative inverse of every integer is not necessarily another integer (e.g., the multiplicative inverse of \( 2 \) is \( 1/2 \), not an integer). The integers are, instead, a ring. Rings generalize fields: they too have two operations, but multiplication does not have to be commutative, and multiplicative inverses need not exist.
 
-\item  A vector space over a field \( F \) is a set \( V \) together with two binary operations: vector addition \( (V \times V \to V) \) and scalar multiplication \( (V \times F \to V) \). Note the difference with the definition of a field: the notion of multiplication between vectors is not part of the fundamental algebraic structure of a vector space. In fact, as we know there are multiple ways to multiply vectors, and the multiplicative inverse (\ie  vector division) is not defined. The elements of the field are called scalars to distinguish them from the elements of the vector space (vectors), and because the definition of multiplication acts to scale the vectors. We will typically be interested in vector spaces defined over \( \mathbb{R} \): this is called a real vector space. Eight axioms must be satisfied for the operations permitted on a vector space: associativity and commutativity of addition, the existence of identity elements for addition and scalar multiplication, the existence of additive inverses, compatibility of scalar multiplication with respect to field addition, and compatibility of scalar and field multiplication.
+\item  A vector space over a field \( F \) is a set \( V \) together with two binary operations: vector addition \( (V \times V \to V) \) and scalar multiplication \( (V \times F \to V) \). Note the difference with the definition of a field: the notion of multiplication between vectors is not part of the fundamental algebraic structure of a vector space. In fact, as we know there are multiple ways to multiply vectors, and the multiplicative inverse (\textit{i.e.,}  vector division) is not defined. The elements of the field are called scalars to distinguish them from the elements of the vector space (vectors), and because the definition of multiplication acts to scale the vectors. We will typically be interested in vector spaces defined over \( \mathbb{R} \): this is called a real vector space. Eight axioms must be satisfied for the operations permitted on a vector space: associativity and commutativity of addition, the existence of identity elements for addition and scalar multiplication, the existence of additive inverses, compatibility of scalar multiplication with respect to field addition, and compatibility of scalar and field multiplication.
 \end{enumerate}
 
 \chapter{Rigorous Proofs}
@@ -2714,7 +2576,7 @@ Here we will formally define set, group, field and vector space.
 
 Here we provide a rigorous proof that the sub vector space \(W \subset V\) satisfy all the requirements in \cref{vectorspace}.
 \begin{lemma}
-    \(0 \cdot \vb{v} = \boldsymbol{0} ~~~ \forall ~ \vb{v} \in V\).  
+    \(0 \cdot \vb{v} = \boldsymbol{0} \text{ for all } \vb{v} \in V\).  
 \end{lemma}
     
 \begin{proof}
@@ -2722,7 +2584,7 @@ Here we provide a rigorous proof that the sub vector space \(W \subset V\) satis
 \end{proof}
     
 \begin{lemma} 
-        \((-1)\vb{v} = -\vb{v} ~~~ \forall ~\vb{v} \in V\). 
+        \((-1)\vb{v} = -\vb{v} \text{ for all }\vb{v} \in V\). 
 \end{lemma}
         
 \begin{proof}
@@ -2755,7 +2617,7 @@ Here we provide a rigorous proof for the properties of linear map in \cref{linea
 
 \begin{proof}
 
-\begin{enumerate}[label=(F\arabic*)]
+\begin{enumerate}[label=(\(F\)\arabic*)]
     \item \(f(\boldsymbol{0}) = f(0 \boldsymbol{0} ) \stackrel{(E2)}{=} \boldsymbol{0}  \).
     \item Checking the two conditions in \cref{subvectorspace}, if \(\vb{v} _{1}, \vb{v} _{2} \in \ker (f)  \), then by definition of the kernel, \(f(\vb{v} _{1} ) = f(\vb{v} _{2} ) = \boldsymbol{0} \). It follows that \(f(\vb{v} _{1} + \vb{v} _{2}  ) \stackrel{E1}{=} f(\vb{v} _{1} ) + f(\vb{v} _{2} ) = \boldsymbol{0} \) so \(\vb{v} _{1} + \vb{v} _{2} \in \ker (f) \) and condition (B1) is satisfied. For (B2), if \(\vb{v} \in \ker (f)\) so that \(f(\vb{v} ) = \boldsymbol{0} \) it follows that \(f(\alpha \vb{v} ) \stackrel{(E2)}{=} \alpha f(\vb{v} ) = \boldsymbol{0}  \), hence \(\alpha \vb{v} \in \ker (f)\).         
     \item If \(\vb{w} _{1}, \vb{w} _{2} \in \Im (f)  \), then by the definition of image we have \(f(\vb{v} _{1} ) = \vb{w} _{1} \text { and } f(\vb{v} _{2} ) = \vb{w} _{2}   \) for some vectors \(\vb{v} _{1}, \vb{v} _{2} \in V  \). So \(\vb{w} _{1} + \vb{w} _{2} = f(\vb{v} _{1} ) + f(\vb{v} _{2} ) \stackrel{(E1)}{=}  f(\vb{v} _{1}+ \vb{v} _{2}   ) \in \Im (f)\), hence condition (B1) is satisfied. For (B2), if \(f(\vb{v} ) = \vb{w} \) where \(\vb{v}  \in  V \text { and } \vb{w} \in \Im (f)\), then \(f(\alpha \vb{v} ) \stackrel{(E1)}{=} \alpha f(\vb{v} ) \) 
@@ -2815,7 +2677,7 @@ Altogether, it follows that \(f(\vb{v} _{k+1} ), \ldots , f(\vb{v} _{n} )\) form
 Here we provide a rigorous proof for the properties of linear map in \cref{linearmapprop2}
 
 \begin{proof}
-    \begin{enumerate}[label=(G\arabic*)]
+    \begin{enumerate}[label=(\(G\)\arabic*)]
         \item If \(f\)  is bijective, it is also injective and surjective. So from (F4) and (F5) in \cref{linearmapprop1}, \(\dim \ker (f) = 0\) and \(\dim \Im (f) = \dim (W)\). Then from \cref{dimensionformulaeq}, \(\dim (V) = \dim \ker (f) + \dim \Im (f) = 0 + \dim (W) = \dim (W)\).
         \item We set \(\vb{w} _{1} = f(\vb{v} _{1} ), \vb{w} _{2}  = f(\vb{v} _{2} ) \text { and } \vb{w} = f(\vb{v} )\) and check the linearity conditions (E1): \(f^{-1} (\vb{w} _{1} +\vb{w} _{2} ) = f^{-1} f((\vb{v} _{1}) + f(\vb{v} _{2} )) = f^{-1} (f(\vb{v} _{1} + \vb{v} _{2} )) = \vb{v} _{1} + \vb{v} _{2}  = f^{-1} (\vb{w} _{1}  ) + f^{-1} (\vb{w} _{2} )\) and (E2): \(f^{-1} (\alpha \vb{w} ) = f^{-1} (\alpha f(\vb{v} )) = f^{-1} (f(\alpha \vb{v} )) = \alpha \vb{v} = \alpha f^{-1}\)
     \end{enumerate}
@@ -2859,14 +2721,14 @@ Here we provide a proof for \cref{rowcolumnrank}.
     \end{equation}
 
     \begin{lemma}
-    The entries of \(\vb{A} _{1} \) are irrelevant for the linear independence of the column vectors \(\vb{A} _{i} \), \ie if the \(n\) column vectors \(\vb{b} _{i} \) are linearly independent, then the \(n\) column vectors \(\vb{A} ^{i} \) are also linearly independent and vice versa.   
+    The entries of \(\vb{A} _{1} \) are irrelevant for the linear independence of the column vectors \(\vb{A} _{i} \), \textit{i.e.,} if the \(n\) column vectors \(\vb{b} _{i} \) are linearly independent, then the \(n\) column vectors \(\vb{A} ^{i} \) are also linearly independent and vice versa.   
     \end{lemma}
     
     \begin{proof}
         If the \(n\) column vectors \(\vb{b} _{i} \) are linearly independent, then we have
         
         \begin{equation}
-        \sum_{i=1}^{n} \beta _{i}\vb{b} _{i} = 0 \iff \beta _{i} = 0 ~~~\forall~ i
+        \sum_{i=1}^{n} \beta _{i}\vb{b} _{i} = 0 \iff \beta _{i} = 0 \text{ for all } i
         \end{equation}
         
         To test whether the first row would make any difference, we try to set the linear combination of \(\boldsymbol{\alpha }\cdot \vb{b} _{i}  \) to be zero
@@ -2880,12 +2742,12 @@ Here we provide a proof for \cref{rowcolumnrank}.
             \end{aligned}
     \end{equation}
     
-    Now since \(\alpha _{2}, \alpha _{3}, \ldots , \alpha _{m}\) are arbitrary, thus the coeffiecients for \(\alpha _{i} \) must be zero for all \(i\). This implies that \(\sum_{i=1}^{n} \gamma _{i} b_{ji} = 0 ~~~\forall~ i\). But we have already proved that this condition implies \(\gamma _{i} = 0 ~~\forall~ i \) above, since the \(n\) column vectors \(\vb{b} _{i} \) are linearly independent. Thus adding the entries from the first row would not affect the linearly dependency of the column vectors. We can use the same argument if the column vectors are linearly dependent instead.
+    Now since \(\alpha _{2}, \alpha _{3}, \ldots , \alpha _{m}\) are arbitrary, thus the coeffiecients for \(\alpha _{i} \) must be zero for all \(i\). This implies that \(\sum_{i=1}^{n} \gamma _{i} b_{ji} = 0 \text{ for all } i\). But we have already proved that this condition implies \(\gamma _{i} = 0 \text{ for all } i \) above, since the \(n\) column vectors \(\vb{b} _{i} \) are linearly independent. Thus adding the entries from the first row would not affect the linearly dependency of the column vectors. We can use the same argument if the column vectors are linearly dependent instead.
     \end{proof}
     
     Then by dropping \(\vb{A} _{1} \) from \(A\) we arrive at a matrix with one less row, but its row rank and column rank unchanged from that of \(A\).
         
-    In this way, we can continue dropping linearly dependent row and column\footnote{Since rows and columns has not inherent difference and we have proven for the case of row vectors, so it must hold for column vectors as well.}  vectors from \(A\) until we arrive at a matrix \(A'\) which has linearly independent row and column vectors and the same row and column ranks as \(A\). But on a purely dimensional standpoint, a matrix with all row vectors and all column vectors linearly independent must be quadratic\footnote{For example, consider a \(3 \times 2\) matrix. Its three 2-dimensional row vectors cannot be linearly independent.}. Therefore the row rank must be equals to the column rank.
+    In this way, we can continue dropping linearly dependent row and column.\footnote{Since rows and columns has not inherent difference and we have proven for the case of row vectors, so it must hold for column vectors as well.}  vectors from \(A\) until we arrive at a matrix \(A'\) which has linearly independent row and column vectors and the same row and column ranks as \(A\). But on a purely dimensional standpoint, a matrix with all row vectors and all column vectors linearly independent must be quadratic\footnote{For example, consider a \(3 \times 2\) matrix. Its three 2-dimensional row vectors cannot be linearly independent.} Therefore the row rank must be equals to the column rank.
 \end{proof}
 
 \section{Properties of an Inverse of a Matrix} \label{matrixinversepropapp} 
@@ -2893,7 +2755,7 @@ Here we provide a proof for \cref{rowcolumnrank}.
 Here we provide proof for the properties listed in \cref{matrixinverseprop}.
 
 \begin{proof}
-    \begin{enumerate}[label=(H\arabic*)]
+    \begin{enumerate}[label=(\(H\)\arabic*)]
         \item This has already been shown in the main text.
         \item These are direct consequences of \cref{compositeinverseeq} for general maps.
         \item From \cref{rowcolumnrank} we know that \(\rank (A^{T} ) = \rank (A) = n\) and from (H1) we have shown that a matrix is invertible if and only if its rank is maximal, we conclude that \(A^{T} \) is indeed invertible which proves the first part of the claim. For the second part, we transpose the equation \(A^{-1} A = AA^{-1} = \mathbb{I}\), to arrive at \(A^{T} (A^{-1} )^{T} = (A^{-1} )^{T}A^{T} = \mathbb{I}    \). On the other hand, we also have \(A^{T}(A^{T} )^{-1} = (A^{T} )^{-1} A^{T} =\mathbb{I} \). Comparing the two equations shows that both \((A^{-1} )^{T} \text { and } (A^{T} )^{-1}  \) provide an inverse for \(A^{T} \) and, hence from the uniqueness of the inverse, they must be equal.       
@@ -2911,7 +2773,7 @@ Here we provide a proof for \cref{rowvec}.
         \vb{A} _{j_{i} } = \sum_{k=1, k \neq i}^{r} \alpha _{k} \vb{A} _{k},  
     \end{equation}
     
-    then by inspection \(\alpha _{k} = 0 ~\forall ~ k<i \) since the entries in \(j_{1}^{\text{th }}  \) column is non-zero only at the first row, so \(\alpha _{1} = 0\) ensures that the entry of the \(j_{i}^ {\text{th }}  \) row vector is zero at \(j_{1}^{\text{th }}  \). The same logic applies to the second row now that \(\alpha _{1} = 0 \) which gives \(\alpha _{2} =0\). This process continue for all \(k < i\). 
+    then by inspection \(\alpha _{k} = 0 \text{ for all } k<i \) since the entries in \(j_{1}^{\text{th }}  \) column is non-zero only at the first row, so \(\alpha _{1} = 0\) ensures that the entry of the \(j_{i}^ {\text{th }}  \) row vector is zero at \(j_{1}^{\text{th }}  \). The same logic applies to the second row now that \(\alpha _{1} = 0 \) which gives \(\alpha _{2} =0\). This process continue for all \(k < i\). 
     
     However, the \(j_{i}^{\text{th }}  \) row vector cannot be expressed in terms of a linear combination of the row vectors for \(k > i \), since all the entries in the \(j_{i}^{\text{th }}  \) column are zero for \(k > i\) but non-zero otherwise. 
     
@@ -2919,19 +2781,52 @@ Here we provide a proof for \cref{rowvec}.
     
 \end{proof}
 
-\section{Matrix Rank is Equals to Linear Map Rank}
+\section{Matrix Rank is Equals to Linear Map Rank} \label{matrixlinearmap2app} 
 
 Here we provide a proof for the last claim in \cref{matrixlinearmap2} 
 
 \begin{proof}
-Since \cref{matrixlinearmap2eq} implies that \(\Im (A) = \psi ^{-1} (\Im (f))\), if we denote by \(\chi \equiv \eval{\psi  ^{-1}}_{\Im (f)}^{}  \) we have \(\dim \ker (\chi ) = 0\) since \(\psi ^{-1} \) is an isomorphism (as are all coordinate maps) and hence \(\dim \ker (\psi ^{-1} ) = 0\). We can then use \cref{dimensionformulaeq} to get
+Since \cref{matrixlinearmap2} implies that \(\Im (A) = \psi ^{-1} (\Im (f))\), if we denote by \(\chi \equiv \eval{\psi  ^{-1}}_{\Im (f)}^{}  \) we have \(\dim \ker (\chi ) = 0\) since \(\psi ^{-1} \) is an isomorphism (as are all coordinate maps) and hence \(\dim \ker (\psi ^{-1} ) = 0\). We can then use \cref{dimensionformulaeq} to get
 
 \begin{equation}
     \rank (A) = \dim \Im (A) = \rank (\chi ) = \dim \Im (f) - \dim \ker (\chi ) = \rank (f).
 \end{equation}
 \end{proof}
 
+\section{Linear Map is Uniquely Determined by Matrix Elements} \label{uniquelinearapp} 
 
+Here we provide a proof for \cref{uniquelinear}.
+
+\begin{proof}
+    By linearity of the scalar product in the second argument the assumption implies that \( \langle \mathbf{v}, f(\mathbf{w}) - g(\mathbf{w}) \rangle = 0 \) for all \( \mathbf{v}, \mathbf{w} \in V \). In particular, if we choose \( \mathbf{v} = f(\mathbf{w}) - g(\mathbf{w}) \), it follows that \( f(\mathbf{w}) - g(\mathbf{w}) = 0 \). Since this holds for all \( \mathbf{w} \) it follows that \( f = g \). The alternative statement follows simply by applying \((K1)\) in \cref{scalarproduct}
+\end{proof}
+
+\section{Properties of Perpendicular Spaces} \label{perpspacespropapp} 
+
+Here we provide a proof for \cref{perpspacesprop}.
+
+\begin{proof}
+    \begin{enumerate}[label=(\(L\)\arabic*)]
+        \item If \(\mathbf{v}_1, \mathbf{v}_2 \in W^\perp\) then clearly \(\alpha \mathbf{v}_1 + \beta \mathbf{v}_2 \in W^\perp\) so from Def. 1.2, \(W^\perp\) is a sub vector space.
+        \item If \(\mathbf{v} \in W \cap W^\perp\) then \(\langle \mathbf{v}, \mathbf{v} \rangle = 0\), but from (K3) in \cref{scalarproduct}  this implies that \(\mathbf{v} = 0\).
+        \item Choose an orthonormal basis \(\{\bm{\epsilon}_1, \ldots, \bm{\epsilon}_k\}\) of \(W\) and define the linear map \(f : V \to V\) by \(f(\mathbf{v}) = \sum_{i=1}^{k} \langle \bm{\epsilon}_i, \mathbf{v} \rangle \bm{\epsilon}_i\) (a projection onto \(W\)). Clearly \(\text{Im}(f) \subset W\). For \(\mathbf{w} \in W\) it follows that \(f(\mathbf{w}) = \mathbf{w}\) so that \(\text{Im}(f) = W\). Moreover, \(\text{Ker}(f) = W^\perp\) and the claim follows from \cref{dimensionformulaeq}  applied to the map \(f\).
+    \end{enumerate}
+\end{proof}
+
+\section{Properties of Adjoint Linear Maps} \label{adjointpropapp}
+
+Here we provide proofs for \cref{adjointprop}.
+
+\begin{proof}
+    \begin{enumerate}[label=(\(M\)\arabic*)]
+        \item For two adjoints \(f_1, f_2\) for \(f\) we have \(\langle f_1(\mathbf{v}), \mathbf{w} \rangle = \langle \mathbf{v}, f(\mathbf{w}) \rangle = \langle f_2(\mathbf{v}), \mathbf{w} \rangle\) for all \(\mathbf{v}, \mathbf{w} \in V\). Then \cref{uniquelinear} implies that \(f_1 = f_2\).
+        \item \(\langle (f^\dagger)^\dagger(\mathbf{v}), \mathbf{w} \rangle = \langle \mathbf{v}, f^\dagger(\mathbf{w}) \rangle = \langle f(\mathbf{v}), \mathbf{w} \rangle\). Comparing the LHS and RHS together with \cref{linearuniquemap} shows that \((f^\dagger)^\dagger = f\).
+        \item \(\langle (f+g)^\dagger(\mathbf{v}), \mathbf{w} \rangle = \langle \mathbf{v}, (f+g)(\mathbf{w}) \rangle = \langle \mathbf{v}, f(\mathbf{w}) \rangle + \langle \mathbf{v}, g(\mathbf{w}) \rangle = \langle f^\dagger(\mathbf{v}), \mathbf{w} \rangle + \langle g^\dagger(\mathbf{v}), \mathbf{w} \rangle = \langle (f^\dagger + g^\dagger)(\mathbf{v}), \mathbf{w} \rangle\) and the claim follows from \cref{uniquelinear}.
+        \item \(\langle (\alpha f)^\dagger(\mathbf{v}), \mathbf{w} \rangle = \langle \mathbf{v}, (\alpha f)(\mathbf{w}) \rangle = \alpha \langle \mathbf{v}, f(\mathbf{w}) \rangle = \alpha \langle f^\dagger(\mathbf{v}), \mathbf{w} \rangle = \langle (\alpha^* f^\dagger)(\mathbf{v}), \mathbf{w} \rangle\) and \cref{uniquelinear} leads to the stated result.
+        \item \(\langle (f \circ g)^\dagger(\mathbf{v}), \mathbf{w} \rangle = \langle \mathbf{v}, (f \circ g)(\mathbf{w}) \rangle = \langle f^\dagger(\mathbf{v}), g(\mathbf{w}) \rangle = \langle g^\dagger \circ f^\dagger(\mathbf{v}), \mathbf{w} \rangle\).
+        \item From (v) we have \(\text{id}_V = (f \circ f^{-1})^\dagger = f^\dagger \circ (f^{-1})^\dagger\). This means \((f^{-1})^\dagger\) is the inverse of \(f^\dagger\) and, hence, \((f^\dagger)^{-1} = (f^{-1})^\dagger\).
+    \end{enumerate}
+\end{proof}
 
 
 

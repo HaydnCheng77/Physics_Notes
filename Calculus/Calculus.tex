@@ -15,7 +15,7 @@
 
 \section{Ordinary Differentiation}
 
-\subsection{Leibnitz' Theorem} \label{leibnitz} 
+\subsection{The Leibnitz' Theorem}[The Leibnitz' Theorem] \label{leibnitz} 
 \begin{theorem}
     The \(n^{\text{th }} \) order derivative of the product of two fucntions \(f(x) = u(x)v(x)\) is\footnote{Proof given in \cref{leibnitzapp}.}  
     \begin{equation}
@@ -23,23 +23,23 @@
     \end{equation}
 \end{theorem}
 
-\subsection{Speecial Points of a Function}
+\subsection{Special Points of Functions}
 
-A stationary piont is characterised by \(\frac{df}{dx} = 0\), and can be further classified into 
+A stationary piont is characterised by \(\displaystyle \frac{df}{dx} = 0\), and can be further classified into 
 
 \begin{enumerate}
-    \item Minimum point: \(\frac{d^2f}{dx^2} > 0\) ,
-    \item Maximum point: \(\frac{d^2f}{dx^2} < 0\) and
-    \item Inflection point (which is also stationary): \(\frac{d^2f}{dx^2} = 0 \text { and }  \frac{d^2f}{dx^2} \)  changes sign.
+    \item Minimum point: \(\displaystyle \frac{d^2f}{dx^2} > 0\),
+    \item Maximum point: \(\displaystyle \frac{d^2f}{dx^2} < 0\) and
+    \item Inflection point (which is also stationary): \(\displaystyle \frac{d^2f}{dx^2} = 0 \text { and }  \frac{d^2f}{dx^2} \)  changes sign.
 \end{enumerate}
 
-If \(\frac{d^2f}{dx^2} = 0\) but it does not change sign before and after the stationary point, it could be either of the three cases; we would have to check higher derivatives to verify its nature. 
+If \(\displaystyle \frac{d^2f}{dx^2} = 0\) but it does not change sign before and after the stationary point, it could be either of the three cases; we would have to check higher derivatives to verify its nature. 
 
-An inflection point (which is not stationary) is when \(\frac{d^2f}{dx^2} = 0\) but \(\frac{df}{dx} \neq 0\) where the concavity of the fucntion changes.  
+An inflection point (which is not stationary) is when \(\displaystyle \frac{d^2f}{dx^2} = 0\) but \(\displaystyle \frac{df}{dx} \neq 0\) where the concavity of the fucntion changes.  
 
 \section{Partial Differentiation}
 
-In this section we investigate how a function with more than one variable changes when the variables change\footnote{It is fine if the variables are themselves connected with each other, say\(y = y(x)\).}. We will restrict ourselves most to functions that depend on two variables, since \(f(x,y)\) can still be visualized by a surface in a three-dimensional space, similar to how we represent \(f(x)\) as a curve in a two-dimensional space. However, it is difficult to visualise functions of more than two variables. 
+In this section we investigate how a function with more than one variable changes when the variables change.\footnote{It is fine if the variables are themselves connected with each other, say \(y = y(x)\).} We will restrict ourselves most to functions that depend on two variables, since \(f(x,y)\) can still be visualized by a surface in a three-dimensional space, similar to how we represent \(f(x)\) as a curve in a two-dimensional space. However, it is difficult to visualise functions of more than two variables. 
 
 \subsection{Partial Derivatives}
 
@@ -95,10 +95,10 @@ Therefore, we have
     A(x,y) = \frac{\partial f}{\partial x} \text { and } B(x,y) = \frac{\partial f}{\partial y}
 \end{equation}
 
-Since \(\frac{\partial^2 f}{\partial x \partial y} = \frac{\partial^2 f}{\partial y \partial x}\), we obtain a necessary (and a sufficient) condition for the differential to be exact, which is
+Since \(\displaystyle \frac{\partial^2 f}{\partial x \partial y} = \frac{\partial^2 f}{\partial y \partial x}\), we obtain a necessary (and a sufficient) condition for the differential to be exact, which is
 
 \begin{equation}
-    \frac{\partial A}{\partial y} = \frac{\partial B}{\partial x}\footnote{Determining whether a differential containing many variables \(x_1, x_2, \ldots, x_{n}\) is exact is a simple extension of the above: a differential \(df = \sum_{i=1}^{n} g_{i}(x_1 ,x_2 ,\ldots , x_{n} )dx_{i}  \) is exact if \(\frac{\partial g_{i} }{\partial x_{j} } = \frac{\partial g_{j} }{\partial x_{i} } \) for all pairs \(i,j\).} .
+    \frac{\partial A}{\partial y} = \frac{\partial B}{\partial x}.\footnote{Determining whether a differential containing many variables \(x_1, x_2, \ldots, x_{n}\) is exact is a simple extension of the above: a differential \(df = \sum_{i=1}^{n} g_{i}(x_1 ,x_2 ,\ldots , x_{n} )dx_{i}  \) is exact if \(\frac{\partial g_{i} }{\partial x_{j} } = \frac{\partial g_{j} }{\partial x_{i} } \) for all pairs \(i,j\).}
 \end{equation}
 
 \subsection{Reciprocity Relation and Cyclic Relation}
@@ -120,7 +120,7 @@ Since \(dx \text { and }  dz\) are independent, we the reciprocity and the cycli
 
 \subsection{Change of Variables}
 
-Again, we emphasize that it is completely fine if the variables are related by some separate relations or cosntriant. Suppose \(x \text { and } y\) are fucntions of some other variable \(u\). Then to find out how \(f(x,y)\) changes with \(u\), we simplify divide the total derivative of \(f\) with respect to \(x \text { and } y\) by \(du\), so
+Again, we emphasize that it is completely fine if the variables are related by some separate relations or cosntriant. Suppose \(x \text { and } y\) are parameterized by some other variable \(u\), \ie, \(x = x(u) \text { and } y = y(u)\). Then to find out how \(f(x,y)\) changes with \(u\), we simplify divide the total derivative of \(f\) with respect to \(x \text { and } y\) by \(du\), so
 
 \begin{equation}
     \frac{df}{du} = \frac{\partial f}{\partial x} \frac{dx}{du} + \frac{\partial f}{\partial y} \frac{dy}{du},
@@ -128,9 +128,9 @@ Again, we emphasize that it is completely fine if the variables are related by s
 
 which is analogous to chain rule in ordinary differentiation.
 
-Suppose now instead of having a constriatn on \(x\text { and } y\), we would like to change the whole set of variables \((x,y)\) to \((u,v)\). Then we have \(x = x(u,v) \text { and } y = y(u,v)\). So the derivatives become
+Suppose now instead of having a constriant on \(x\text { and } y\), we would like to change the whole set of variables from \((x,y)\) to \((u,v)\). Then we have \(x = x(u,v) \text { and } y = y(u,v)\). So the derivatives become
 
-\begin{equation}
+\begin{equation} \label{changeofvar} 
     \frac{\partial f}{\partial u} = \frac{\partial f}{\partial x} \frac{\partial x}{\partial u} + \frac{\partial f}{\partial y} \frac{\partial y}{\partial u} \text { and } \frac{\partial f}{\partial v} = \frac{\partial f}{\partial x} \frac{\partial x}{\partial v} + \frac{\partial f}{\partial y} \frac{\partial y}{\partial v}.  
 \end{equation}
 
@@ -173,7 +173,7 @@ For a minimum point, we require that \(df>0\) for arbitrary \(\Delta x \text { a
     \item Saddle point: \(f_{xx} \text { and } f_{yy}\) have opposite signs (or \(f_{xy}^2 > f_{xx}f_{yy}\)). 
 \end{enumerate}
 
-If \(f_{xy}^2 = f_{xx}f_{yy}\), then \(df\) must be one of the four fomrs \(\pm \frac{1}{2} (\abs{f_{xx} }^{\frac{1}{2} } \Delta x \pm \abs{f_{yy} }^{\frac{1}{2} }\Delta y)^2\), then for some choice of the ration \(\frac{\Delta y}{\Delta x}\) \(df = 0\) so higher order terms are needed to find the nature of the stationary point. 
+If \(f_{xy}^2 = f_{xx}f_{yy}\), then \(df\) must be one of the four forms \(\displaystyle \pm \frac{1}{2} (\abs{f_{xx} }^{\frac{1}{2} } \Delta x \pm \abs{f_{yy} }^{\frac{1}{2} }\Delta y)^2\), then for some choice of the ratio \(\displaystyle \frac{\Delta y}{\Delta x}\), \(df = 0\) so higher order terms are needed to find the nature of the stationary point. 
 
 For functions with more than 2 variables, the conditions for stationary points are 
 
@@ -251,7 +251,7 @@ as shown in \cref{infvol}.
 From \cref{spherical}, the relations of the two set of variables \((x,y,z) \text { and } (r,\theta ,\phi  )\)  are
 
 \begin{equation}
-    \begin{cases} x = r\sin \theta \cos \phi \\ y = r\sin \theta \sin \phi \\ z = r\cos \theta \end{cases} \text { or } \begin{cases} r = \sqrt{x^2+y^2+z^2} \\ \theta = \arctan {\left(\frac{\sqrt{x^2+y^2} }{z} \right)} \\ \phi = \arctan {\left(\frac{y}{x}\right)} \end{cases}. 
+    \begin{cases} x = r\sin \theta \cos \phi \\ y = r\sin \theta \sin \phi \\ z = r\cos \theta \end{cases} \text { or } \begin{cases} r = \sqrt{x^2+y^2+z^2} \\ \displaystyle \theta = \arctan {\left(\frac{\sqrt{x^2+y^2} }{z} \right)} \\ \displaystyle \phi = \arctan {\left(\frac{y}{x}\right)} \end{cases}. 
 \end{equation}
 
 A general position vector can then be written as 
@@ -268,7 +268,7 @@ A general infinitismal displacement vector can be written as
     \end{aligned}
 \end{equation}
 
-where \(\frac{\partial \vb{r} }{\partial r}, \frac{\partial \vb{r} }{\partial \theta } \text { and } \frac{\partial \vb{r} }{\partial \phi } \) can be found by direct differentiaion as 
+where \(\displaystyle \frac{\partial \vb{r} }{\partial r}, \frac{\partial \vb{r} }{\partial \theta } \text { and } \frac{\partial \vb{r} }{\partial \phi } \) can be found by direct differentiaion as 
 
 \begin{equation}
 	\begin{aligned} 
@@ -311,7 +311,7 @@ We can also solve for \((\vu{x} , \vu{y}, \vu{z} )\) in terms of \((\vu{r} , \vu
 From \cref{cylindrical}, the relations of the two set of variables \((x,y,z) \text { and } (\rho , \phi , z)\)  are
 
 \begin{equation}
-    \begin{cases} x = \rho \cos \phi \\ y = \rho \sin \phi \\ z = z \end{cases} \text { or } \begin{cases} \rho  = \sqrt{x^2+y^2} \\ \phi = \arctan {\left( \frac{y}{x}  \right)} \\ z = z \end{cases}. 
+    \begin{cases} x = \rho \cos \phi \\ y = \rho \sin \phi \\ z = z \end{cases} \text { or } \begin{cases} \rho  = \sqrt{x^2+y^2} \\ \displaystyle \phi = \arctan {\left( \frac{y}{x}  \right)} \\ z = z \end{cases}. 
 \end{equation}
 
 A general position vector can be written as 
@@ -328,7 +328,7 @@ A general infinitismal displacement vector can be written as
     \end{aligned}
 \end{equation}
 
-where \(\frac{\partial \vb{r} }{\partial \rho }, \frac{\partial \vb{r} }{\partial \phi } \text { and } \frac{\partial \vb{r} }{\partial z} \) can be found by direct differentiaion as 
+where \(\displaystyle \frac{\partial \vb{r} }{\partial \rho }, \frac{\partial \vb{r} }{\partial \phi } \text { and } \frac{\partial \vb{r} }{\partial z} \) can be found by direct differentiaion as 
 
 \begin{equation}
 	\begin{aligned} 
@@ -408,7 +408,7 @@ In summary, \(\vu{t} , \vu{n} \text { and } \vu{b} \) and their derivatives with
 	\frac{d \vu{t} }{ds} = \kappa \vu{n} , ~~\frac{d \vu{n} }{ds} = \tau \vu{b} - \kappa \vu{t}~~ \text { and } ~~\frac{d \vu{b} }{ds} = -\tau \vu{n} .  
 \end{equation}
 
-\example{Acceleration of a Particle}
+\example{Acceleration of a Particle.}
 {Show that the acceleration of a particle travelling along a trajectory \(\vb{r} (t)\) is given by 
 
 \begin{equation}
@@ -450,7 +450,7 @@ In Cartesian coordinates a surface is given parametrically by
 	\vb{r} (u,v)  = x(u,v) \vu{x} + y(u,v) \vu{y} + z(u,v) \vu{z},
 \end{equation}
 
-or algebrically as \((F(x,y,z)) = 0\). 
+or algebrically as \(F(x,y,z) = 0\). 
 
 The infinitesimal displacement vector is 
 
@@ -461,11 +461,11 @@ The infinitesimal displacement vector is
 and thus the infinitesimal area is 
 
 \begin{equation}
-	da = \abs{\frac{\partial \vb{r} }{\partial u} du \cross \frac{\partial \vb{r} }{\partial v}}.
+	da = \abs{\frac{\partial \vb{r} }{\partial u} du \cross \frac{\partial \vb{r} }{\partial v} dv}.
 \end{equation}
 
-\example{Area of a Sphere}
-{Find the element of area on the surface of a sphere of radius \(a\) , and hence calculate the total surface area of the sphere.}
+\example{Area of a Sphere.}
+{Find the element of area on the surface of a sphere of radius \(a\), and hence calculate the total surface area of the sphere.}
 {We can represent a point \(\vb{r} \)  on the surface of the sphere in terms of the two parameters \(\theta \text { and } \phi \) as
 
 \begin{equation}
@@ -498,11 +498,11 @@ And the total surface area is then
 
 \section{Gradient, Divergence and Curl} 
 
-We start by stating the gerneral form of del operator, gradient, divergence, curl, and Laplacian are defined as
+We start by stating the gerneral form of del operator, gradient, divergence, curl, and Laplacian are defined as\footnote{The del operator is not written as \(\frac{1}{f} \frac{\partial}{\partial u}\vu{u}  + \frac{1}{g} \frac{\partial}{\partial v}\vu{v} + \frac{1}{h} \frac{\partial}{\partial w}\vu{w}\) because in a general coordinates system, unit vector is not a constant but depends on the coordinates of the point in space, so we take the unit vectors out of the partial derivatives to avoid confusion since we are not differentiating them.}
 
 \begin{equation} \label{all} 
 \begin{aligned}
-\grad &= \frac{1}{f}\vu{u}\frac{\partial}{\partial u} + \frac{1}{g}\vu{v}\frac{\partial}{\partial v} + \frac{1}{h}\vu{w}\frac{\partial}{\partial w}\footnote{The del operator is not written as \(\frac{1}{f} \frac{\partial}{\partial u}\vu{u}  + \frac{1}{g} \frac{\partial}{\partial v}\vu{v} + \frac{1}{h} \frac{\partial}{\partial w}\vu{w}\) because in a general coordinates system, unit vector is not a constant but depends on the coordinates of the point in space, so we take the unit vectors out of the partial derivatives to avoid confusion since we are not differentiating them In fact, when we calculate the divergence in \cref{div}, the order of them becomes even more prominent}, \\[10pt]
+\grad &= \frac{1}{f}\vu{u}\frac{\partial}{\partial u} + \frac{1}{g}\vu{v}\frac{\partial}{\partial v} + \frac{1}{h}\vu{w}\frac{\partial}{\partial w}, \\[10pt]
 \grad{t }&= \frac{1}{f} \vu{u} \frac{\partial t}{\partial u} 
 + \frac{1}{g} \vu{v}\frac{\partial t}{\partial v}  
 + \frac{1}{h} \vu{w}\frac{\partial t}{\partial w} , \\[10pt]
@@ -516,7 +516,7 @@ f \vu{u} & g \vu{v} & h \vu{w} \\
 \frac{\partial}{\partial u} & \frac{\partial}{\partial v} & \frac{\partial}{\partial w} \\ 
 fT_{u}  & g T_{v}  & h T_{w}  
 \end{vmatrix}, \\[10pt]
-\laplacian t &= \frac{1}{fgh} \left[
+\laplacian t &= \displaystyle \frac{1}{fgh} \left[
 \frac{\partial}{\partial u} \left( \frac{gh}{f} \frac{\partial t}{\partial u} \right) + 
 \frac{\partial}{\partial v} \left( \frac{fh}{g} \frac{\partial t}{\partial v} \right) + 
 \frac{\partial}{\partial w} \left( \frac{fg}{h} \frac{\partial t}{\partial w} \right)
@@ -547,7 +547,7 @@ From the above equation, it is evident that \(dt\) attains maximum when \(\theta
 
 \todo{problem 1.14, 1.17, 1.1.5}
 	
-Integrating , we get the fundamental theorem for gradients
+Integrating, we get the fundamental theorem for gradients
 
 \begin{equation} 
 	t(\vb{b}) - t(\vb{a}) = \int_{\vb{a}}^{\vb{b}} \grad{t} \cdot d\vb{r}. 
@@ -557,6 +557,14 @@ This equation shows that if one would like to determine the height of Mountain E
 
 A quick corollary is that the integral \(\int_{\vb{a}}^{\vb{b}} \grad{t} \cdot d\vb{r}\) is independent of the path from \(\vb{a}\) to \(\vb{b}\) but only depends on the beginning and end points. Hence, \(\oint_{C} \grad{t} \cdot d\vb{r} = 0\) for any closed loop, since \(t(\vb{b}) - t(\vb{a}) = 0\).
 	
+It can also be shown that the gradient at a point can be written in terms of a surface integral over an infinitesimal surface surrounding the point
+
+\begin{equation}
+	\grad{t } = \lim_{V \to 0} \left( \frac{1}{V} \oint_{S} t  d\vb{S}  \right).
+\end{equation}
+
+However the proof is complicated and is not presented here.
+
 \example{Gradient of \(\rcurs ^{-1} \) in Cartesian Coordinates.}
 {Evaluate \(\grad({\rcurs ^{-1} })\), where \(\rcurs = \abs{\brcurs} = \abs{\vb{r} - \vb{r'}} = \abs{(x - x')\vu{x} + (y - y')\vu{y} + (z - z')\vu{z}} = \sqrt{(x-x')^2+(y-y')^2+(z-z')^2}\). Generalize the result to obtain \(\grad{(\rcurs^n)}\).}
 {\begin{equation} 
@@ -601,6 +609,14 @@ This result can be extended easily. As any arbitary volume can be divided infini
 	
 This is the divergence theorem (also known as the Gauss's theorem or the Green's theorem). From the LHS of \cref{divthm}, it is evident that the divergence of a vector function is a measure of how much the function spreds out and diverges from a given point in space.
 
+It can also be shown that the curl at a point in terms of a surface integral over an infinitesimal surface surrounding the point
+
+\begin{equation}
+	\div{\vb{T} } = \lim_{V \to 0} \left( \frac{1}{V} \oint_{S} \vb{T}  \cdot d\vb{S}  \right).
+\end{equation}
+
+However the proof is comlicated and is not presented here.
+
 If \(\vb{T} \) satisfies \(\div{\vb{T} } = 0 \), then \(\vb{T} = \curl{\vb{T} ' + \grad{t} + \vb{C} } \) can be written as a curl of a vector \(\vb{T} '\), which statisfies \(\curl{\vb{T} '} = 0 \) plus a gradient of a scalar function \(t\) plus a constant vector \(\vb{C} \).        
 
 The divergence in Cartesian and spherical coordinates are stated here for reference:
@@ -627,9 +643,23 @@ With the same argument as \cref{divpre}  to \cref{divthm}, the above equation ca
 	
 This is the Stoke's theorem. From the LHS of \cref{stothm}, it is evident that the curl of a vector function is a measure of how much the function rotates and curls around a given point in space.
 	
-A quick corollary is that the integral \(\int_{S} (\curl{\vb{T}}) \cdot d\vb{A}\) is independent of the surface used but only depends on the boundary line. Hence, \(\oint_{S} (\curl{\vb{T}}) \cdot d\vb{A} = 0\) for any closed surface, since the boundary line, like the mouth of a ballon, shrinks down to a point, and thus \(\oint_{P} \vb{T} \cdot d\vb{r} = 0\).
+From the above equation we can write the gradient at a point in terms of a line integral over a infinitesimal curve surrounding the point
+\begin{equation}
+	(\curl{\vb{T} } \cdot \vu{n} ) = \lim_{A \to 0} \left( \frac{1}{A} \oint_{C} \vb{T} \cdot d\vb{r}  \right). 
+\end{equation}
 
-\(\vb{T} \) is called conservative if \(\int_{A}^{B}  \vb{T} \cdot d\vb{r}  \) is independent of the path taken from \(A\) to \(B\). This implies that \(\oint_{C} \vb{T} \cdot d\vb{r} = 0\) and thus \(\curl{\vb{T} } = 0\) and \(\vb{T} = \grad{t} \) can be written as a gradient of some scalar function \(t\). Also, \(\vb{T} \cdot d\vb{r} \) is an exact differential.      
+An equivalent form is 
+
+\begin{equation}
+	\curl{\vb{T} } = \lim_{V \to 0} \left( \frac{1}{V} \oint_{S} d\vb{S} \cross \vb{T}  \right).
+\end{equation}
+
+However the proof is complicated and is not presented here.
+
+
+A quick corollary is that the integral \(\displaystyle \int_{S} (\curl{\vb{T}}) \cdot d\vb{A}\) is independent of the surface used but only depends on the boundary line. Hence, \(\displaystyle \oint_{S} (\curl{\vb{T}}) \cdot d\vb{A} = 0\) for any closed surface, since the boundary line, like the mouth of a ballon, shrinks down to a point, and thus \(\displaystyle \oint_{P} \vb{T} \cdot d\vb{r} = 0\).
+
+\(\vb{T} \) is called conservative if \(\displaystyle \int_{A}^{B}  \vb{T} \cdot d\vb{r}  \) is independent of the path taken from \(A\) to \(B\). This implies that \(\displaystyle \oint_{C} \vb{T} \cdot d\vb{r} = 0\) and thus \(\curl{\vb{T} } = 0\) and \(\vb{T} = \grad{t} \) can be written as a gradient of some scalar function \(t\). Also, \(\vb{T} \cdot d\vb{r} \) is an exact differential.      
 
 The curl in Cartesian and spherical coordinates are stated here for reference:
 \begin{equation} 
@@ -672,11 +702,11 @@ Here note that
 
 \begin{equation} 
 	\begin{aligned} 
-		(\vb{A} \cdot \grad) \vb{B} &= (A_x\pdv{x} + A_y\pdv{y} + A_z\pdv{z})(B_x\vu{x} + B_y\vu{y} + B_z\vu{z}) \\ &= (A_x\pdv{B_x}{x} + A_y\pdv{B_x}{y} + A_z\pdv{B_x}{z})\vu{x} \\ &+ (A_x\pdv{B_y}{x} + A_y\pdv{B_y}{y} + A_z\pdv{B_y}{z})\vu{y} \\ &+ (A_x\pdv{B_z}{x} + A_y\pdv{B_z}{y} + A_z\pdv{B_z}{z})\vu{z} \\ &\neq \vb{A} \cdot (\grad{\vb{B}}) \\ &= A_x\pdv{B}{x} + A_y\pdv{B}{y} + A_z\pdv{B}{z} 
+		(\vb{A} \cdot \grad) \vb{B} &= (A_x\pdv{x} + A_y\pdv{y} + A_z\pdv{z})(B_x\vu{x} + B_y\vu{y} + B_z\vu{z}) \\ &= (A_x\pdv{B_x}{x} + A_y\pdv{B_x}{y} + A_z\pdv{B_x}{z})\vu{x} \\ &+ (A_x\pdv{B_y}{x} + A_y\pdv{B_y}{y} + A_z\pdv{B_y}{z})\vu{y} \\ &+ (A_x\pdv{B_z}{x} + A_y\pdv{B_z}{y} + A_z\pdv{B_z}{z})\vu{z} \\ &\neq \vb{A} \cdot (\grad{\vb{B}}) \\ &= A_x\pdv{B}{x} + A_y\pdv{B}{y} + A_z\pdv{B}{z} .
 	\end{aligned} 
 \end{equation}
 	
-With the product rules in hand, we can perform the so-called ``Integration by part'' trick. For example, by integrating the first product rule of divergence and using divergence theorem, we have
+With the product rules in hand, we can perform the so-called ``Integration by part'' trick. For example, by integrating the first product rule of divergence and using the divergence theorem, we have
 	
 \begin{equation} 
 	\begin{aligned}
@@ -685,7 +715,7 @@ With the product rules in hand, we can perform the so-called ``Integration by pa
 	\end{aligned}
 \end{equation}
 	
-Here we transform the integrand from the product of one function (\(f\)) and one derivative \(\div{\vb{T}}\) to another integrand of the product of one function that is orginally the derivative \((\vb{T})\) and one derivative which is orginally the function \((\grad{f})\), at a cost of a minus sign and a boundary term \((\oint_{S} (f\vb{T}) \cdot d\vb{A})\), just like integration by part in ordinary derivatives, where
+Here we transform the integrand from the product of one function (\(f\)) and one derivative \(\div{\vb{T}}\) to another integrand of the product of one function that is orginally the derivative \((\vb{T})\) and one derivative which is orginally the function \((\grad{f})\), at a cost of a minus sign and a boundary term \(\displaystyle (\oint_{S} (f\vb{T}) \cdot d\vb{A})\), just like integration by part in ordinary derivatives, where
 	
 \begin{equation} 
 	\int_{a}^{b} f(\dv{g}{x})dx = -\int_{a}^{b} g(\dv{f}{x})dx + \eval{(fg)}_a^b 
@@ -779,7 +809,7 @@ For the 5 second derivatives listed above, only \cref{prelap,curlcurl} are used 
 	
 \subsection{Dirac Delta Function}
 	
-The motivation of the dirac delta function comes from the result of the divergence of the vector function \(\vb{T} = \frac{\vu{r}}{r^2}\):
+The motivation of the dirac delta function comes from the result of the divergence of the vector function \(\displaystyle \vb{T} = \frac{\vu{r}}{r^2}\):
 	
 \begin{equation} 
 	\div{\left(\frac{\vu{r}}{r^2}\right)} = \frac{1}{r^2} \pdv{r}(r^2\left(\frac{1}{r^2}\right)) = 0, \label{notmatchone} 
@@ -793,7 +823,7 @@ which is not consistent with the result we would expect from the divergence theo
 
 
 	
-The root of this problem lies on the fact that the function itself blows up at the origin, so while it is true that the divergence of this function equals to 0 at every point, it does not apply to the origin. The \(4\pi\) contribution in \cref{notmatchtwo} comes entirely from the orgin.
+The root of this problem lies on the fact that the function itself blows up at the origin, so while it is true that the divergence of this function equals to 0 at every point, it does not apply to the origin. The \(4\pi\) contribution in comes entirely from the orgin.
 	
 To describe this behaviour, we introduce the dirac delta function which is defined by
 	
@@ -826,7 +856,7 @@ By changing the variable in \cref{pickout}, we can pick out the value of \(f(x)\
 \end{equation}
 	
 \example
-{Dirac Delta Function (1)}
+{Dirac Delta Function (1).}
 {Show that \(\delta(kx) = \frac{1}{\abs{k}}\delta(x)\).}
 {Consider the integral
 			
@@ -842,9 +872,9 @@ Making the substitution \(u=kx\), we have
 			
 By comparing the integrands, we yield the desired result.}	
 		
-\example{Dirac Delta Function (2)}{Show that \(-\delta(x) = x\dv{x}(\delta(x))\)}
+\example{Dirac Delta Function (2).}{Show that \(-\delta(x) = x\dv{x}(\delta(x))\)}
 
-\example{Dirac Delta Function (3)}{Show that \(\delta(x) = \dv{\theta}{x}\), where \(\theta(x)\) is the Heaviside step function defined as \(\theta(x) = \begin{cases} 0 ~~~ \text{if} ~~ x~\le~0, \\  1 ~~~ \text{if} ~~ x~>~0. \end{cases}\)}
+\example{Dirac Delta Function (3).}{Show that \(\delta(x) = \dv{\theta}{x}\), where \(\theta(x)\) is the Heaviside step function defined as \(\theta(x) = \begin{cases} 0 ~~~ \text{if} ~~ x~\le~0, \\  1 ~~~ \text{if} ~~ x~>~0. \end{cases}\)}
 	
 It is natural to generalize \(\delta(x)\) to three dimensions as follows:
 	
@@ -868,7 +898,7 @@ and
 	
 As in the one-dimensional case, the \(\delta^3(\vb{r} - \vb{a})\) picks out the value of \(f(\vb{r})\) at \(\vb{a}\).
 	
-The inconsistency in \cref{notmatchone,notmatchtwo} can now be resolved as the divergence of the vector function \(\vb{T} = \frac{\vu{r}}{r^2}\) is in fact
+The inconsistency can now be resolved as the divergence of the vector function \(\vb{T} = \frac{\vu{r}}{r^2}\) is in fact
 	
 \begin{equation} 
 	\div{\frac{\vu{r}}{r^2}} = 4\pi\delta^3(\vb{r}). 
@@ -890,90 +920,80 @@ From \cref{gradrcurs}, we have also
 	\laplacian{\left(\frac{1}{\rcurs}\right)} = -4\pi\delta^3(\brcurs). \label{laprj} 
 \end{equation}
 	
-%\example{Griffith (5th ed.) Problem 1.47}
-%{Find the charge density \(\rho(\vb{r})\) for
-%\begin{enumerate}
-%	\item a point charge  \(q\) located at \(\vb{r'}\),\\
-%	\item an electric dipole consisting of a point charge \(-q\) at the origin and \(+q\) at \(\vb{a}\) and\\
-%	\item an infinitesimal sphere of charge \(q\) and radius \(a\) centered at the origin
-%\end{enumerate}}
-%{\begin{enumerate}
-%	\item \(\rho(\vb{r}) = q\delta(\vb{r} - \vb{r'}) \)\\
+\example{Griffith (5th ed.) Problem 1.47}
+{Find the charge density \(\rho(\vb{r})\) for
+\begin{enumerate}
+	\item a point charge  \(q\) located at \(\vb{r'}\),\\
+	\item an electric dipole consisting of a point charge \(-q\) at the origin and \(+q\) at \(\vb{a}\) and\\
+	\item an infinitesimal sphere of charge \(q\) and radius \(a\) centered at the origin
+\end{enumerate}~}
+{\begin{enumerate}
+	\item \(\rho(\vb{r}) = q\delta(\vb{r} - \vb{r'}) \)\\
 
-%	\item \(\rho(\vb{r}) = -q\delta(\vb{r}) + q\delta(\vb{r} - \vb{a})\)\\	
+	\item \(\rho(\vb{r}) = -q\delta(\vb{r}) + q\delta(\vb{r} - \vb{a})\)\\	
 
-%	\item \(\rho(r) = A\delta(r - a)\), where \(A\) can be determined by \(\int_{V} \rho(r) d\tau = \int A\delta(r-a) 4\pi r^2 dr = 4\pi Aa = q\), thus \(A = \frac{q}{4\pi a}\). Therefore, \(\rho(r) = \frac{q}{4\pi a}\delta(r - a)\).
-%\end{enumerate}}
+	\item \(\rho(r) = A\delta(r - a)\), where \(A\) can be determined by \(\int_{V} \rho(r) d\tau = \int A\delta(r-a) 4\pi r^2 dr = 4\pi Aa = q\), thus \(A = \frac{q}{4\pi a}\). Therefore, \(\rho(r) = \frac{q}{4\pi a}\delta(r - a)\).
+\end{enumerate}~}
+
+\example{Vortex Flow.}
+{Consider vortex flow in an incompressible fluid with a velocity field
+
+\begin{equation}
+	\vb{v} = \frac{1}{\rho } \vu{\boldsymbol{\phi } }. 
+\end{equation}
+
+Explain the discrepancy in Stokes' theorem using Dirac delta function.
+}
+{Fro this velocity field \(\curl{\vb{v} } =0\) everywhere except on the axis \(\rho =0\) where \(\vb{v}\) has a singularity. Therefore \(\displaystyle \oint_{C} \vb{v} \cdot d\vb{r} =0\) for any path \(C\) that does not enclose the vortex line on the axis and \(2\pi \) if \(C\) does enclose the axis.
+
+In order for Stokes' theorem to be valid for all paths \(C\), we therefore set 
+
+\begin{equation}
+	\curl{\vb{v} } = 2\pi \delta (\rho ).
+\end{equation}
+
+} 
+
 
 	
 \subsection{Helmholtz Theorem}
-	
-The existence theorem of the Poisson's equation states there always exists an unique solution to the differential equation
+
+\begin{theorem}[Helmoholtz Theorem]
+Given the divergence and curl of a differentiable vector function \(\vb{T}(\vb{r} ) \), it can be written as some gradient of some scalar function \(\Phi(\vb{r} ) \) plus some vector function \(\vb{A}(\vb{r} ) \) if \(\vb{T} \) goes to zero faster than \(\displaystyle \frac{1}{r} \) as \(r \to \infty\), where \(\Phi \text { and } \vb{A} \) are given by
 
 \begin{equation}
-	\laplacian \Phi = -\frac{\rho }{\epsilon_0}  .
+	\Phi(\vb{r} ) = \frac{1}{4\pi } \int_{\text{all space} } \frac{\boldsymbol{\nabla}' \cdot \vb{T} (\vb{r} ')}{\rcurs } d\tau ' + C~\text { and }~ \vb{A} (\vb{r} ) = \frac{1}{4\pi } \int_{\text{all space} } \frac{\boldsymbol{\nabla}' \cross \vb{T} (\vb{r} ')}{\rcurs } d\tau ' + \vb{C} + \grad{D} .
 \end{equation}
 
-The proof of this theorem is mathematically advanced but somewhat trivial because it simply implies that we can assign each point in space an electric potential for any arbitrary charge distribution.
-	
-With this theorem in hand, we can prove an useful theorem in vector calculus which states that any differentiable vector function \(\vb{T} \) can be written as a gradient plus a curl.
-	
-To prove this, we invoke the existence theorem of the Poisson's equation and states that there exists an unique solution to the scalar function \(h\) which satisfies the differential equation 
+Here \(C \text { and }  \vb{C} \) are some constant scalar and vector functions respectively, which does not change \(\vb{T} = \grad{\Phi } + \curl{\vb{A} }\), since the gradient and curl of some constant function is zero. \(\vb{D}\), on the other hand, can be any function since the curl of the gradient is always zero. 
+
+\end{theorem}
+
+\begin{proof}
+
+We start from the existence theorem of the Poisson's equation\footnote{The proof of this theorem is mathematically advanced thus is omitted here but somewhat trivial because it simply implies that we can assign each point in space an electric potential for any arbitrary charge distribution.} and states that there exists an unique solution to the equation
 
 \begin{equation}
-	\laplacian h = t
+	-\laplacian \Phi = - \div{(\grad{\Phi} )} = \div{\vb{T} } \implies \div{(\vb{T} + \grad{\Phi} )} = 0.
 \end{equation}
 
-where \(t = \div{\vb{T} } \) is the divergence of \(\vb{T} \).
-
-So we have 
+But since the divergence of a curl is always zero, we have
 
 \begin{equation}
-	\begin{aligned}
-		\div{(\grad{h} )} &= \div{\vb{T} }  \\
-		\div{(\vb{T} - \grad{h} )} &= 0.
-	\end{aligned}
-\end{equation}
-	
-But we know that \cref{divcurl}, we know that any divergenceless function can be written as the curl of a function. Thus, \(\vb{T} \) can be written as 
-
-\begin{equation}
-	\vb{T} = \grad{h} + \div{\vb{H} } 
+	\vb{T} = - \grad{\Phi } + \curl{\vb{A} }
 \end{equation}
 
-where \(\vb{H} \) is some vector function.
-
-The Helmholtz Theorem states that if a differentiable vector function \(\vb{T} \rightarrow 0 \text{ as } r \rightarrow \infty \text{ faster than } \frac{1}{r} \), then \(\vb{T} \) can be decomposed to
-
-\begin{equation}
-	\vb{T} = -\grad{\Phi } + \curl{\vb{A} } \label{decom} 
-\end{equation}
-	
-where \(\Phi \text{ and }  \vb{A} \) satisfy
-
-\begin{equation}
-	\Phi(\vb{r} ) = \frac{1}{4\pi } \int_{all \text{ } space} \frac{\boldsymbol{\nabla}' \cdot \vb{T} (\vb{r} ')}{\rcurs } d\tau '
-\end{equation}
-
-and 
-
-\begin{equation}
-	\vb{A} (\vb{r} ) = \frac{1}{4\pi } \int_{all \text{ } space} \frac{\boldsymbol{\nabla}' \cross \vb{T} (\vb{r} ')}{\rcurs } d\tau '
-\end{equation}
-
-To ensure that \(\Phi \text{ and }  \vb{A} \) don't diverge, both  \(\boldsymbol{\nabla}' \cdot \vb{T} (\vb{r} ') \text{ and } \boldsymbol{\nabla}' \cross \vb{T} (\vb{r} ')\) have to goes zero faster than \(\frac{1}{r} \) as \(r \rightarrow \infty\) which is guaranteed by the requirement of \(\vb{T} \) above in which \(\vb{T} \rightarrow 0 \) faster than \(\frac{1}{r} \) as \(r \rightarrow  \infty\).
-
-Testing the divergence of \cref{decom}, we have \footnote{Here and after, we will omit the limit of the integrals.}
+Testing the divergence of \(\vb{T} \), we have\footnote{Here and after, we will omit the limit of the integrals.}
 
 \begin{equation}
 	\begin{aligned}
 		\div{\vb{T} } &= -\div{(\grad{\Phi} )} + \div{(\curl{\vb{A} } )} = -\laplacian \Phi \\ 
 		&= -\frac{1}{4\pi } \int \boldsymbol{\nabla}' \cdot \vb{T} (\vb{r} ') \laplacian (\frac{1}{\rcurs } ) d\tau ' \\ 
-		&= \int \boldsymbol{\nabla}' \cdot \vb{T} (\vb{r} ') \delta ^3(\vb{r} -\vb{r} ')d\tau ' = \boldsymbol{\nabla}' \cdot \vb{T} (\vb{r} '). \label{divT}  
+		&= \int \boldsymbol{\nabla}' \cdot \vb{T} (\vb{r} ') \delta ^3(\vb{r} -\vb{r} ')d\tau ' = \boldsymbol{\nabla} \cdot \vb{T} (\vb{r}). \label{divT}  
 	\end{aligned}
 \end{equation}
 
-where \(\boldsymbol{\nabla}' \cdot \vb{T} (\vb{r} ')\) is taken out of the Laplacian since it depends on \(\vb{r} '\) instead of \(\vb{r} \). Also we have used the fact that \(\laplacian (\frac{1}{\rcurs }) = -4\pi \delta ^3(\brcurs )\) (\cref{laprj}).
+where \(\boldsymbol{\nabla}' \cdot \vb{T} (\vb{r} ') d\tau '\) is taken out of the Laplacian since it depends only on \(\vb{r} '\) but not \(\vb{r} \). 
 
 Testing the curl,
 
@@ -981,89 +1001,159 @@ Testing the curl,
 	 \curl{\vb{T}} = -\curl{\grad{\Phi}} + \curl{(\curl{\vb{A}})} = -\laplacian{\vb{A}} + \grad{(\div{\vb{A}})}. \label{int1} 
 \end{equation}
 
-where we have used the identity in \cref{curlcurl}.
-
-Now, the first term is 
-
-\begin{equation}
-	-\laplacian \vb{A} = -\frac{1}{4\pi } \int \boldsymbol{\nabla}' \cross \vb{T} (\vb{r} ') \laplacian (\frac{1}{\rcurs } ) d\tau '= \boldsymbol{\nabla}' \cross \vb{T} (\vb{r} )
-\end{equation}
-	
-in a similar fashion as \cref{divT}.
-
-To prove that the second term equals to zero, we consider
+Now, the first term is simply \(\curl{\vb{T} }\) in a similar fashion as the divergence, and the second term is zero, since 
 
 \begin{equation}
 	\begin{aligned}
-		4\pi (\div{\vb{A} } ) &= \int \div{\frac{\boldsymbol{\nabla}' \cross \vb{T} (\vb{r} ')}{\rcurs }} d\tau ' = \int (\boldsymbol{\nabla}' \cross \vb{T} (\vb{r} ')) \cdot \grad{(\frac{1}{\rcurs } )} d\tau ' \\
-	 	&= -\int (\boldsymbol{\nabla}' \cross \vb{T} (\vb{r} ')) \cdot \boldsymbol{\nabla}'(\frac{1}{\rcurs } ) d\tau ' = \int \frac{1}{\rcurs }\boldsymbol{\nabla}' \cdot (\boldsymbol{\nabla}' \cross \vb{T} (\vb{r} ')) d\tau  - \oint \frac{1}{\rcurs } (\boldsymbol{\nabla}' \cross \vb{T} (\vb{r} ')) \cdot d\vb{A}  \label{com} 
+		4\pi (\div{\vb{A} } ) &= \int \div{\left(\frac{\boldsymbol{\nabla}' \cross \vb{T} (\vb{r} ')}{\rcurs }\right)} d\tau ' \\ 
+		&= \int (\boldsymbol{\nabla}' \cross \vb{T} (\vb{r} ')) \cdot \grad{\left(\frac{1}{\rcurs } \right)} d\tau ' = -\int (\boldsymbol{\nabla}' \cross \vb{T} (\vb{r} ')) \cdot \boldsymbol{\nabla}'\left(\frac{1}{\rcurs } \right) d\tau ' \\
+		&= \int \frac{1}{\rcurs }\boldsymbol{\nabla}' \cdot (\boldsymbol{\nabla}' \cross \vb{T} (\vb{r} ')) d\tau  - \oint \frac{1}{\rcurs } (\boldsymbol{\nabla}' \cross \vb{T} (\vb{r} ')) \cdot d\vb{A}  \\
+        &= - \int \frac{1}{\rcurs } \div{(\curl{\vb{T} (r')} )} d\tau = 0.  	
 	\end{aligned}
 \end{equation}
 
-where we used \cref{int2} and \(\grad{(\frac{1}{\rcurs } )} = - \boldsymbol{\nabla}'(\frac{1}{\rcurs } ) \) since the derivative of \(\rcurs = \left| \vb{r} - \vb{r} ' \right| \) with respect to the primed coordinates differ by a sign from those with respect to unprimed coordinates.
+where we used \(\displaystyle \grad{\left(\frac{1}{\rcurs } \right)} = - \boldsymbol{\nabla}'\left(\frac{1}{\rcurs } \right) \) since the derivative of \(\rcurs = \left| \vb{r} - \vb{r} ' \right| \) with respect to the primed coordinates differ by a sign from that with respect to unprimed coordinates.\footnote{More precisely, \(\frac{\partial }{\partial x} f(x-x') = - \frac{\partial }{\partial x'} f(x-x')\).} Also, we assumed that \(\curl{\vb{T} } \) goes to zero faster than \(\displaystyle \frac{1}{r^2} \) as \(r \to  \infty\) so the surface integral goes to zero.    
 
-Now, the first term in \cref{com} is zero since
-
-\begin{equation}
-	\boldsymbol{\nabla}' \cdot (\boldsymbol{\nabla}' \cross \vb{T} (\vb{r} ')) = - \div{(\curl{\vb{T} (\vb{r} ')})} = 0.
-\end{equation}
-	
-and the second term is also zero as long as \(\boldsymbol{\nabla}' \cross \vb{T} (\vb{r} ') \) goes to zero faster than \(\frac{1}{r^2} \) 
-
-	The uniqueness of the solution doesn't necessary hold, however, since we can add to \(\vb{T} \) a vector function whose divergence and curl both vanish. However, it so happens that there is no function that satisfies both of the requirement and goes to zero at infinity. Therefore, the solution is unique. \todo{proof in 3.1.5}
-
-	So, combining the results above, \(\vb{T} \) can be written as
+Of course we still have to prove that the given forms for the divergence and curl of \(\vb{T} \) converge. At the large \(r'\) limit, they have the form
 
 \begin{equation}
-	\vb{T} (\vb{r} ) = \grad{\frac{1}{4\pi } \int \frac{\boldsymbol{\nabla}' \cdot \vb{T} (\vb{r} ')}{\rcurs }d\tau ' } + \div{\frac{1}{4\pi } \int \frac{\boldsymbol{\nabla}' \cross \vb{T} (\vb{r} ')}{\rcurs } d\tau '} .	
+	\int \frac{X(r')}{r'}r'^2 dr', 
 \end{equation}
-	
-For example, in electrostatics, since \(\div{\vb{E} } = \frac{\rho }{\epsilon_0}  \text{ and } \curl{\vb{E} } = 0\), so
-	
+
+where \(X(r')\) stands for \(\div{\vb{T} } \text { or } \curl{\vb{T} }\).   
+
+Therefore, we also require that the divergence and curl of \(\vb{T} \) goes to zero more repaidly than \(\displaystyle \frac{1}{r^2} \) as \(r \to  \infty\) for the proof to hold. 
+
+The solution is unique in a sense that no function that has zero divergence and zero curl everywhere goes to zero at infinity. Therefore no constant function can be added to \(\vb{T} (\vb{r} )\) which doesn't change the divergence and curl of \(\vb{T} \). 
+
+As a matter of fact, any differentiable vector function regardless of its behavior at infinity can be written as a gradient and a curl, as proved above, just that there solution is not given by the Helmholtz theorem.
+
+\end{proof}
+
+
+
+
+\chapter{Multiple Integration}
+
+Single, double and triple integrals describe integrations over an interval in one dimension, an area in two dimensions and a volume in three dimensions, respectively. The infinitisimal quantities are (in Cartesian coordinates), \(dx, dA = dxdy \text { and } dV = dxdydz\), respectively, which are all scalar quantities. 
+
+The most general forms (in Cartesian coordiantes) are 
+
 \begin{equation}
-	\vb{E} (\vb{r} ) = -\grad{(\frac{1}{4\pi\epsilon_0} \int \frac{\rho (\vb{r} ')}{\rcurs } d\tau ')} = -\grad{V} 
+	\int_{a}^{b} f(x) dx, ~~ \int_{R}^{} f(x,y) dA, ~  \text { and } \int_{V}^{} f(x,y,z) dV.   
 \end{equation}
-	
-where \(V\) is defined as the electric potential.
 
-While in magnetostatics, since \(\div{\vb{B} } = 0 \text{ and } \curl{\vb{B} } = \mu_0 \vb{J} \), so
+Two or three integral signs will be used if \(dA = dxdy \text { or } dV = dxdydz\) are written out explicitly. 
+
+\section{Double Integration}
+
+Refering to \cref{doubleintegral}, we can see that the a double integral can be evaluated in two different ways. 
+
+\onefig{doubleintegral}{scale=0.3} 
+
+The first is to sum up all the horizontal strips, then 
 
 \begin{equation}
-	\vb{B} (\vb{r} ) = \curl{(\frac{\mu_0}{4\pi } \int \frac{\vb{J} (\vb{r} ')}{\rcurs } d\tau ')} = \curl{\vb{A} } 
+    I = \int_{c}^{d} \int_{x_1 (y)}^{x_2 (y)} f(x,y) dx dy,   
 \end{equation}
 
-where \(\vb{A} \) is defined as the magnetic potential.\footnote{In electrodynamics, the boundary condition of requiring the electric field and magnetic field to vanish at infinity is well justified. However, if the charge or current distribution extend to infinity in some artificial problems as well, then we have to rely on symmetric argument to provide sufficient boundary conditions and other means to prove the existence and uniqueness of the Maxwell equations.}
+where \(x_1 (y) \text { and } x_2 (y)\) are the equations of the curves \(TSV \text { and } TUV\) respectively. 
+
+For a specific range \(y \rightarrow y+dy\) , the inner integral calculates the contribution to \(I\) by the horizontal strip located from \(y\) to \(y+dy\). The outer integral then sums up the contributions of these horizontal strips.
+
+The second way is to sum up all the vertical strips, then
+
+\begin{equation}
+    I = \int_{a}^{b} \int_{y_1 (x)}^{y_2 (x)} f(x,y) dy dx,
+\end{equation}
+
+where \(y_1 (x) \text { and } y_2 (x)\) are the equations of the curves \(STU \text { and } SVU\) respectively.   
+
+A useful trick invovle Pappus' second theorem, which states that the surface of revolution of a plance curve is given by the length of the curve \(L\) multiplied by the distance moved by its centroid, since the suface area generated is given by \(\displaystyle S = \int 2\pi y ds = 2 \pi \overline{y} L\), where \(\displaystyle \overline{y} = \frac{1}{L} \int y ds \) is the definition of the centroid. 
+
+\section{Triple Integration}
+\example{Volume of a Tetrahedron}
+{Find the volume of the tetrahedron bounded by the three coordinate surfaces \(x=0, y=0 \text { and }  z=0\) and the plane \(\frac{x}{a} + \frac{y}{b} + \frac{z}{c} =1\) as shown in \cref{tetrahedron}.}
+{\(\displaystyle V = \int_{0}^{a} \int_{0}^{b-\frac{bx}{a} } \int_{0}^{c(1-\frac{y}{b} - \frac{x}{a}  )} dxdydz\). The limit of integral over \(z\) can be obtained as integration over \(z\) adds up the boxes from the shaded column in the figure. A quicker way is to simply sum up all the vertical columns as \(\displaystyle V = \int_{0}^{a} \int_{0}^{b-\frac{bx}{a} dy c \left( a-\frac{y}{b} - \frac{x}{a}\right)}\) which skips the step of integration over \(z\) as it is trivial. The result is \(\displaystyle V = \frac{abc}{6} \). } 
+\onefig{tetrahedron}{scale=0.3}
+
+A useful trick invovle Pappus' first theorem, which states that the volume of revolution of a plance surface is given by the area of the surface \(A\) multiplied by the distance moved by its centroid, since the suface area generated is given by \(\displaystyle S = \int 2\pi y dA = 2 \pi \overline{y} A\), where \(\displaystyle \overline{y} = \frac{1}{A} \int y dA \) is the definition of the centroid. 
+
+\section{Jacobian}
+To change variables in a double integral from \((x,y)\) to \((u,v)\), we have to find the express the infinitisimal area \(dA = dxdy\) in terms of \(u \text { and } v\). 
+
+Refer to \cref{jacobian}, since \(v\) is constant along \(KL\), the line element \(KL\) can be written as \(\displaystyle d\vb{r} _{KL} = \frac{\partial }{\partial u} (x \vu{x} + y \vu{y} ) du = \frac{\partial x}{\partial u} du \vu{x} + \frac{\partial y}{\partial u} du \vu{y}\). Similarly, \(\displaystyle d\vb{r} _{KN}  = \frac{\partial x}{\partial v} dv \vu{x} + \frac{\partial y}{\partial v} dv \vu{y}\). Thus the area of the parallelogram \(KLMN\) is given by
+
+\begin{equation}
+	dA_{uv} = \abs{\frac{\partial x}{\partial u} du \frac{\partial y}{\partial v} dv - \frac{\partial x}{\partial v} dv \frac{\partial y}{\partial u} du} = \abs{\frac{\partial (x,y)}{\partial (u,v)} } dudv,
+\end{equation}
+
+where 
+
+\begin{equation}
+	J = \frac{\partial (x,y)}{\partial (u,v)} \equiv \frac{\partial x}{\partial u} \frac{\partial y}{\partial v} - \frac{\partial x}{\partial v} \frac{\partial y}{\partial u} = \begin{pmatrix}
+		\frac{\partial x}{\partial u}  & \frac{\partial y}{\partial u}   \\
+		\frac{\partial x}{\partial v}  & \frac{\partial y}{\partial v}   \\
+	\end{pmatrix}.
+\end{equation}
+
+is defined as the Jacobian of \((x,y)\) with respect to \((u,v)\).
+
+\onefig{jacobian}{scale=0.3} 
+
+Similar to the Jacobian in double integral, the Jacobian in triple integral is defined as 
+
+\begin{equation}
+	J = \frac{\partial (x,y,z)}{\partial (u,v,w)} = \begin{pmatrix}
+		\frac{\partial x}{\partial u}  & \frac{\partial y}{\partial u}  & \frac{\partial z}{\partial u}   \\
+		\frac{\partial x}{\partial v}  & \frac{\partial y}{\partial v}  & \frac{\partial z}{\partial v}   \\
+		\frac{\partial x}{\partial w}  & \frac{\partial y}{\partial w}  & \frac{\partial z}{\partial w}   \\
+	\end{pmatrix}.
+\end{equation}
+
+For three sets of variables \(x_{i}, y_{i} \text { and } z_{i}\), with \(i\) running from 1 to \(n\). We know from \cref{changeofvar} that
+
+\begin{equation}
+	\frac{\partial x_{i} }{\partial z_{j} } = \sum_{k=1}^{n} \frac{\partial x_{i} }{\partial y_{k} } \frac{\partial y_{k} }{\partial z_{j} }.   
+\end{equation}
+
+Now let \(A, B \text { and } C\) as the matrices whose \(ij^{\text{th }} \) elements are \(\displaystyle \frac{\partial x_{i} }{\partial y_{j} }, \frac{\partial y_{i} }{\partial z_{j} } \text { and } \frac{\partial x_{i} }{\partial z_{j} }\) respectively. We can then rewrite the above equation as 
+
+\begin{equation}
+	c_{ij} = \sum_{k=1}^{n} a_{ik}b_{kj} \implies C = AB \implies \det (C) = \det (A) \det (B) \implies J_{xz} = J_{xy} J_{yz}.   
+\end{equation}
+
+In the special case where \(z_{i} = x_{i}  \), we get \(J_{xy}J_{yx} =1  \).  
 
 
 
 
 
 
-\chapter{Integration}
+\chapter{Line, Surface and Volume Integration}
 
-Different from ordinary integrations, when there are more than one variable, we have to perform integrations over a line, a surface or a volume.
-
-To evaluate integrals involving vectors, we must reduce them into scalar integrals, \ie Cartesian form, since it is the only coordiante system where the unit vectors are fixed (and so can be brought out of the integral sign).
+Line, surface and volume integrals describe integrations over a line, a surface and a volume.\footnote{Thus a volume integral is equivalent to a triple integral. Since an infinitesimal volume has no preferred direction in three-dimensional space.}, respectively, all in three dimensional space. The infinitisimal quantities are (in Cartesian coordinates), \(d\vb{r} = dx \vu{x} + dy \vu{y} + dz \vu{z}, dS\footnote{The general form of \(dS\) is not trivial. It is exactly this property which makes surface integral the hardest type to deal with.}\text { and } dV = dxdydz\), out of which the first two are vectors and the last one is scalar\footnote{Note that if the final form of integrands contain vectors then we must convert it into Cartesian coordinates, since it is the only coordiante system where the unit vectors are fixed (and so can be brought out of the integral sign).}
 
 \section{Line Integrals}
 \subsection{Evaluation}
 
-Integrals along a line can invovle vector and scalar fields. There are three kinds of line integrals, namely
+Integrals along a line can involve vector and scalar fields. There are four kinds of line integrals, namely
 
 \begin{equation}
-	\int_{C}^{} \phi d\vb{r} , ~~ \int_{C}^{} \vb{a} \cdot d\vb{r} ~ \text { and }  \int_{C}^{} \vb{a} \cross d\vb{r} . 
+	\int _{C} f(x,y,z) dr, ~~ \int_{C}^{} f(x,y) d\vb{r} , ~~ \int_{C}^{} \vb{F} (x,y,z) \cdot d\vb{r} ~ \text { and }  \int_{C}^{} \vb{F} (x,y,z) \cross d\vb{r} . 
 \end{equation}
 
 The curve \(C\) can be open, \ie the beginning and end point are not the same; or closed, where \(C\) is a closed loop and we will add a circle to the integral sign as \(\oint_{C} \). For a closed curve the direction of integration is conventionally taken to be anticlockwise.
 
-\example{Line Integral (1)}
+Here the argument \((x,y,z)\) can be unambigously interchanged by \((\vb{r} )\), where \(\vb{r} = x \vu{x} + y \vu{y} + z \vu{z} \) is the position vector. The relation between the two forms can be given explicityl as \(x = r_{x}, y = r_{y}, z = r_{z}\). The only difference is that the latter notation emphasize that the (scalar or vector field) depends only on the location in space and does not specify the usage of Cartesian coordinates and is thus more abstract but general.   
+
+\example{Line Integral (1).}
 {Evaluate the line integral \(I = \int_{C}^{} \vb{a} \cdot d\vb{r}  \) from \((1,1)\) to \((4,2)\), where \(\vb{a}  = (x+y)\vu{x} + (y-x)\vu{y} \), along 
-\begin{enumerate}
+\begin{enumerate}[itemsep=10pt]
 	\item the parabola \(y^2 = x\),
 	\item the curve \(x = 2u^2+u+1, y= 1+u^2\), and
 	\item the line \(y=1\) from \((1,1)\) to \((4,1)\), followed by the line \(x = 4\) from \((4,1)\) to \((4,2)\).      
-\end{enumerate}
-~
+\end{enumerate}~
 }
 {Evaluating the dot product explicitly, we have 
 
@@ -1091,13 +1181,12 @@ The curve \(C\) can be open, \ie the beginning and end point are not the same; o
 		I &= \int_{(1,1)}^{(4,1)} ((x+y)dx + (y-x)dy) + \int_{(4,1)}^{(4,2)} ((x+y)dx + (y-x)dy) \\ &= \int_{1}^{4} (x+1)dx + \int_{1}^{2} (y-4)dy = 8.      
 	\end{aligned} 
     \end{equation}
-\end{enumerate}
-~
+\end{enumerate}~
 } 
 
 
-\example{Line Integrals (2)}
-{Evaluate the line integral \(I = \oint_{C} x dy\), where \(C\) is the circle in the \(xy\)-plane defined by \(x^2 + y^2 = a^2, z=0\). }
+\example{Line Integrals (2).}
+{Evaluate the line integral \(\displaystyle I = \oint_{C} x dy\), where \(C\) is the circle in the \(xy\)-plane defined by \(x^2 + y^2 = a^2, z=0\). }
 {Since \(x\) is not a single-valued function of \(y\), we must divide the path into two parts with \(x = +\sqrt{a^2-y^2} \) for \(x\geq 0\) and \(x = -\sqrt{a^2-y^2} \) for \(x \le 0\). So
 
 \begin{equation}
@@ -1111,8 +1200,8 @@ Alternatively, we can represent the entire circle parametrically, by \(x = a \co
 \end{equation}
 } 
 
-\example{Line Integral (3)}
-{Evaluate the line integral \(I = \int_{C}^{} (x-y)^2 ds \), where \(C\) is the semicircle of radius \(a\) running from \(A = (a,0)\) to \(B = (-a,0)\) and for which \(y \ge 0\).}
+\example{Line Integral (3).}
+{Evaluate the line integral \(\displaystyle I = \int_{C}^{} (x-y)^2 ds \), where \(C\) is the semicircle of radius \(a\) running from \(A = (a,0)\) to \(B = (-a,0)\) and for which \(y \ge 0\).}
 {Introducing a parametric variable \(\phi \) running from \(0\) to \(2\pi \), we have 
 
 \begin{equation}
@@ -1126,15 +1215,173 @@ Thus
 \end{equation}
 } 
 
-\subsection{Green's Theorem}
 
-Green's theorem states that 
+
+\section{Surface Integrals}
+
+As with line integrals, integrals over a surface can involve vector and scalar fields. There are four kinds of surface integrals, namely 
+
+\begin{equation}
+    \int_{S}^{} \phi dS, ~~ \int_{S}^{} \phi d\vb{S} , ~~ \int_{S}^{} \vb{a} \cdot d\vb{S} ~ \text { and } \int_{S}^{} \vb{a} \cross d\vb{S},    
+\end{equation}
+
+where \(d\vb{S} = \vu{n} dS\) is the infinitesimal vector area element. The direction of \(\vu{n} \) is conventionally assumed to be directed outwards from the closed volume if the surface is closed; or given by the right-hand rule if the surface is open and spans some perimeter curve \(C\). 
+
+\(dA\) is used in double integral to represent a flat infinitesimal area element \(\in \mathbb{R}^2\). \(dS\) is used in surface integral to represent an arbitrary infinitesimal surface element \(\in \mathbb{R}^3 \).
+
+To find the genearl form of \(dS\), we project the surface \(S\) onto the \(xy\)-plane. From \cref{dS}, we see that 
+
+\begin{equation} \label{dseq} 
+	dA = \abs{\cos \alpha }dS \implies dS = \frac{dA}{\vu{n} \cdot \vb{k} } = \frac{dA}{\frac{\grad{f} }{\abs{\grad{f} } } \vu{k}  } =  \frac{\abs{\grad{f}}dA }{\frac{\partial f}{\partial z} }, 
+\end{equation}
+
+where \(\alpha \) is the angle between the unit vector \(\vu{k} \) in the \(z\)-direction and the unit normal \(\vu{n} \) to the surface, and \(f(x,y,z)=0\) is the equation which describe the surface. 
+
+\onefig{dS}{scale=0.3} 
+
+Using the above equation, we can convert any surface integral over \(S\) as a double integral over the region \(R\) in the \(xy\)-plane.
+
+Note that in the above discussion, however, tht we assumed any line parallet to the \(z\)-axis only intersects \(S\) once. If this is not the case, we must split up the surface into smaller surfaces \(S_1, S_2 \textit{ etc.}\) Also, sometimes instead of projecting the surface onto the \(xy\)-plane, it might be easier to project it onto the \(zx\)-plane or the \(yz\)-plane.     
+
+\example{Surface Integral.}
+{Evaluate the surface integral \(\displaystyle I = \int_{S}^{} \vb{F} \cdot d\vb{S} \), where \(F = x \vu{x}  \) and \(S\) is the surface of the hemisphere \(x^2 + y^2 + z^2 = a^2\).}
+{Since 
+
+\begin{equation}
+	\vb{F} \cdot d\vb{S}  = x(\vu{x} \cdot \vu{r} )d\vb{S} = (a \sin \theta \cos \phi )(\sin \theta \cos \phi )(a^2\sin \theta d \theta d\phi ),
+\end{equation}
+
+we have 
+
+\begin{equation}
+	I = a^3 \int_{0}^{\frac{\pi }{2} } \sin ^3 \theta d \theta \int_{0}^{2\pi } \cos ^2\phi d\phi = \frac{2\pi a^3 }{3}.    
+\end{equation}
+
+Alternatively, we can describe the surface of the hemisphere as \(f(x,y,z) = x^2 + y^2 + z^2 - a^2 = 0\), so we have 
+
+\begin{equation}
+	\abs{\grad{f} } = 2\abs{\vb{r} } = 2a, ~~ 	\frac{\partial f}{\partial z} = 2z = 2\sqrt{a^2-x^2-y^2} \text { and } \vu{x} \cdot \vu{r} = \vu{x} \cdot \frac{\vb{r} }{\abs{\vb{r} } } = \frac{x}{a}. 
+\end{equation}
+
+Therfore the integral becomes
+
+\begin{equation}
+	I = \int \int_{R}^{} \frac{x^2}{\sqrt{a^2-x^2-y^2} }dxdy = \frac{2\pi a^3 }{3}.    
+\end{equation}
+ } 
+
+\subsection{Vector Areas}
+
+The vector area of a surface \(S\) is defined as
+
+\begin{equation}
+	\vb{S}  = \int_{S}^{} d\vb{S}. 
+\end{equation}
+
+A closed surface will always has a zero vector area, since when projecting onto the \(xy\)-plane, from \cref{dseq} we see that every \(d\vb{S} _{+}  = \frac{dA}{\abs{\vu{n} \cdot \vu{k} } } \) will have an opposite contribution \(d\vb{S} _{-} = \frac{dA}{\abs{- \vu{n} \cdot \vu{k} } } = -d\vb{S} _{+} \). 
+
+This fact implies that the vector area of any open surface \(S\) only depends on its perimeter curve \(C\), since we can construct a closed surface with arbitrary upper and lower surface and their contribution must be equals in magnitude so that the sum is zero. We know that their directions are the same due to right hand rule. 
+
+Specifically, the vector area can be represented by the line integral 
+
+\begin{equation}
+	\vb{S} = \frac{1}{2} \oint_{C} \vb{r} \cross d\vb{r}, 
+\end{equation}
+
+since one of the possible surface spanned by the perimeter \(C\) is a cone with its vertex at the origin with the perimeter of the base \(C\) as shown in \cref{cone} and its area is the sum of all the infinitesimal triangle, each with vector area \(d\vb{S} = \frac{1}{2} \vb{r} \cross d\vb{r}  \).  
+
+\onefig{cone}{scale=0.3}
+
+For a surface confined to the \(xy\)-plane, \(\vb{r} = x \vu{x} + y \vu{y} \text { and } d\vb{r} = dx \vu{x} + dy \vu{y}\), thus \(\vb{r} \cross d\vb{r} = (xdy-ydx)\vu{z}\), so the area is what we have found earlier in \cref{area}.   
+
+
+\subsection{Solid Angle}
+
+The solid angle \(\Omega \) subtended at a point \(O\) by a surface \(S\) is defined as 
+
+\begin{equation}
+	\Omega = \int_{S}^{} \frac{\vu{r} \cdot d\vb{S} }{r^2} . 
+\end{equation}
+
+In particular, when the surface is clossed \(\Omega = 0\) if \(O\) is outside \(S\) and \(\Omega = 4\pi \) if \(O\) is an interior point.  
+
+\section{Volume Integrals}
+
+Since \(dV\) is a scalar, there are only two kinds of volume integrals
+
+\begin{equation}
+	\int_{V}^{} f(x,y,z)dV \text { and } \int_{V}^{} \vb{F} (x,y,z) dV.    
+\end{equation}
+
+
+Similar to how the vector area of a surface \(S\) can be represented by a line integral along its perimeter \(C\), the volume of a volume \(V\)  can be represented by a surface integral over the surface \(S\) that bounds it.
+
+Referring to \cref{cone2}, we have
+
+\begin{equation}
+	V = \int_{V}^{} dV = \frac{1}{3} \oint_{S} \vb{r} \cdot d\vb{S}, 
+\end{equation}
+
+as the volume of each cone is \(dV = \frac{1}{3} \vb{r} \cdot d\vb{S}  \). 
+
+\onefig{cone2}{scale=0.3} 
+
+\section{Integral Theorems}
+
+\subsection{The Divergence Theorem}
+
+\subsubsection{The Divergence Theorem in Three Dimensions}
+The divergence theorem (in three dimensions) states that 
+
+\begin{equation} \label{divthmm} 
+	\int _{V}(\div{\vb{F} } )dV = \oint_{S} \vb{F} \cdot d\vb{S} .
+\end{equation}
+
+\example{Surface Integral by the Divergence Theorem.}
+{Evaluate the surface integral \(I = \int_{S}^{} \vb{F} \cdot d\vb{S}  \), where \(\vb{F} = (y-x)\vu{x} + x^2z \vu{y} + (z+x^2) \vu{z}\) and \(S\) is the open surface of the hemisphere \(x^2 + y^2 + z^2 = a^2, z \ge 0\).}
+{Consider the closed surface \(S' = S + S_1 \), where \(S_1 \) is the circular area in the \(xy\)-plane given by \(x^2 + y^2 \le a^2, z=0\). By the divergence theorem we have
+
+\begin{equation}
+	\int_{V}^{} (\div{\vb{F} } )dV = 0 = \int_{S}^{} \vb{F} \cdot d\vb{S} + \int_{S_1 }^{} \vb{F} \cdot d\vb{S}_{1} .  
+\end{equation}
+
+Therefore we can simly evaluate the surface integral over \(S_1 \) and add a negative sign to get the desired result. Thus
+
+\begin{equation}
+	I = - \int_{S_1 }^{} \vb{F} \cdot d\vb{S} _{1} = \int \int_{R}^{} x^2dxdy = \frac{\pi a^4}{4}.   
+\end{equation}
+} 
+
+\example{The Continuity Equation.}
+{For a compressible fluid with time-varing position-dependent density \(\rho (\vb{r}, t)\) and velocity field \(v(\vb{r}, t)\), in which fluid is neither being created nor destroyed, show that 
+
+\begin{equation}
+	\frac{\partial \rho }{\partial t} + \div{(\rho \vb{v} )} = 0.
+\end{equation}~
+}
+{Consider an arbitrary volume \(V\) in the fluid bounded by \(S\). From conservation of mass, we have
+
+\begin{equation}
+	\frac{dM}{dt} = \frac{d}{dt} \int_{V}^{} \rho dV = - \oint_{S} \rho \vb{v} \cdot d\vb{S} 
+\end{equation}
+
+\begin{equation}
+	\int_{V}^{} \frac{\partial \rho }{\partial t}dV + \int_{V}^{} \div{(\rho \vb{v} )} dV = \int_{V}^{} \left( \frac{\partial \rho }{\partial t} + \div{(\rho \vb{v} )}  \right) dV = 0.    
+\end{equation}
+
+But since the volume \(V\) is arbitrary the integrand must be identically zero, arriving at the desired result.
+
+For the flow of an incompressible fluid \(\rho = \text{constant} \) and the continuity equation becomes simply \(\div{v} = 0\).~
+}
+
+\subsubsection{The Divergence Theorem in Two Dimensions}
+The divergence theorem (in two dimensions) (also known as the Green's theorem in a plane) states that 
 
 \begin{equation}
 	\oint_{C} (Pdx + Qdy) = \int \int_{R}^{} \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}  \right) dxdy.  
 \end{equation}
 
-To prove this theoerem we refer to \cref{doubleintegral}. Let \(y = y_1 (x) \text { and } y = y_2 (x)\) be the equations of the curves \(STU\) and \(SVU\) respectively. We then find
+To prove this theorem we refer to \cref{doubleintegral}. Let \(y = y_1 (x) \text { and } y = y_2 (x)\) be the equations of the curves \(STU\) and \(SVU\) respectively. We then find
 
 \begin{equation}
 	\begin{aligned} 
@@ -1152,11 +1399,11 @@ If we now let \(x= x_1 (y) \text { and } x = x_2 (y)\) as the equations of the c
 
 Subtracting the two equations gives Green's theorem.
 
-\example{Area of an Ellipse}
+\example{Area of an Ellipse.}
 {Show that the area of a region \(R\) enclosed by a simle closed curve \(C\) is given by \(A = \frac{1}{2} \oint_{C}(xdy - ydx) = \oint_{C}xdy = - \oint_{C}y dx\). Hence calculate the area of the ellipse \(x = a \cos \phi , y = b\sin \phi \). }
 {By Green's theorem we have 
 
-\begin{equation}
+\begin{equation} \label{area} 
 	\oint_{C} (xdy- ydx) = \int \int_{R}^{} (1+1) dxdy = 2A.  
 \end{equation}
 
@@ -1171,66 +1418,73 @@ The Green's theorem is also valid for region with holes, however, the line integ
 
 We also see that if the line integral around a closed loop is zero, Green's theorem implies that \(\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x} \), which is equivalent to saying that \(P(x,y) dx + Q(x,y) dy \) is an exact differential such that it equals to the differential for some function \(\phi (x,y)\) and for a closed loop the beginning and the end points are the same thus we evaluate \(\phi \) at the same point and thus the result is zero.
 
+\subsubsection{Green's Theorems}
 
-
-
-\section{Surface Integrals}
-
-As with line integrals, integrals over a surface can involve vector and scalar fields. There are four kinds of surface integrals, namely 
+Consider two scalar functions \(\phi \text { and } \psi \) in some volume \(V\) bounded by a surface \(S\). Applying the divergence theorem to the vector field \(\phi \grad{\psi } \), we get 
 
 \begin{equation}
-    \int_{S}^{} \phi dS, ~~ \int_{S}^{} \phi d\vb{S} , ~~ \int_{S}^{} \vb{a} \cdot d\vb{S} ~ \text { and } \int_{S}^{} \vb{a} \cross d\vb{S},    
+	\oint_{S} \phi \grad{\psi } \cdot d\vb{S} = \int_{V}^{} \div{(\phi \grad{\psi } )}dV = \int_{V}^{} (\phi \laplacian \psi +(\grad{\phi } )\cdot (\grad{\psi } ))dV.   
 \end{equation}
 
-where \(d\vb{S} = \vu{n} dS\) is the infinitesimal vector area element. The direction of \(\vu{n} \) is conventionally assumed to be directed outwards from the nclosed volume if the surface is closed; or given by the right-hand rule if the surface is open and spans some perimeter curve \(C\). 
+This is known as the Green's first theorem. 
 
-We start with the first and simplest surface integral involving only scalars \(\int_{S}^{} \phi dS\). In Cartesian coordinates, 
+Reversing the roles of \(\phi \text { and } \psi \) in the above equation and subtracting the two equations gives
 
 \begin{equation}
-    I = \int_{S}^{} f(x,y) dS = \iint_{S}^{} f(x,y) dx dy  
+	\oint_{S} (\phi \grad{\psi } - \psi \grad{\phi } ) \cdot d\vb{S}  = \int_{V}^{} (\phi \laplacian \psi - \psi \laplacian \phi ) dV. 
 \end{equation}
 
-where one or two integral signs are used depending on whether \(dS = dx dy \) is written explicitly.  
+This is known as the Green's second theorem.
 
-Refering to \cref{doubleintegral}, we can see that the integral can be evaluated two different ways. 
+\subsubsection{Two Other Theorems}
 
-\onefig{doubleintegral}{scale=0.3} 
-
-The first is to sum up all the horizontal strips, then 
+Letting \(\vb{F} \) in \cref{divthmm} to be a gradient of another scalar function, or the cross product of two other vector functions, we get 
 
 \begin{equation}
-    I = \int_{c}^{d} \int_{x_1 (y)}^{x_2 (y)} f(x,y) dx dy,   
+	\int_{V}^{} \grad{f} dV = \oint_{S} fd\vb{S} \text { and } \int_{V}^{} \curl{\vb{F} } dV = \oint_{S} d\vb{S} \cross \vb{F} .     
 \end{equation}
 
-where \(x_1 (y) \text { and } x_2 (y)\) are the equations of the curves \(TSV \text { and } TUV\) respectively. 
+\subsection{Stokes' Theorem}
 
-For a specific range \(y \rightarrow y+dy\) , the inner integral calculates the contribution to \(I\) by the horizontal strip located from \(y\) to \(y+dy\). The outer integral then sums up the contributions of these horizontal strips.
+\subsubsection{Stokes' Theorem in Three Dimensions} 
 
-The second way is to sum up all the vertical strips, then
+The Stokes' Theorem (in three dimensions) states that 
+
+\begin{equation} \label{stothmm} 
+	\int_{S}^{} (\curl{\vb{F} } ) dS = \oint_{C} \vb{F} \cdot d\vb{r} .
+\end{equation}
+
+\example{The Ampere's Law.}
+{Convert the integral form of Ampere's Law into differential form}
+{Amere's law for any circuit \(C\) bounding a surface \(S\) is given by 
 
 \begin{equation}
-    I = \int_{a}^{b} \int_{y_1 (x)}^{y_2 (x)} f(x,y) dy dx,
+	\oint_{C} \vb{B} \cdot d\vb{r} = \int_{S}^{} (\curl{\vb{B} } ) \cdot d\vb{S} =  \mu _{0} I = \mu _{0}  \int_{S}^{} \vb{J} \cdot d\vb{S} .  
 \end{equation}
 
-where \(y_1 (x) \text { and } y_2 (x)\) are the equations of the curves \(STU \text { and } SVU\) respectively.   
+Hence 
 
-A useful trick invovle Pappus' second theorem, which states that the surface of revolution of a plance curve is given by the length of the curve \(L\) multiplied by the distance moved by its centroid, since the suface area generated is given by \(S = \int 2\pi y ds = 2 \pi \overline{y} L\), where \(\overline{y} = \frac{1}{L} \int y ds \) is the definition of the centroid. 
-
-\section{Volume Integrals}
-
-\example{Volume of a Tetrahedron}
-{Find the volume of the tetrahedron bounded by the three coordinate surfaces \(x=0, y=0 \text { and }  z=0\) and the plane \(\frac{x}{a} + \frac{y}{b} + \frac{z}{c} =1\) as shown in \cref{tetrahedron}
-\onefig{tetrahedron}{scale=0.3} }
-{\(V = \int_{0}^{a} \int_{0}^{b-\frac{bx}{a} } \int_{0}^{c(1-\frac{y}{b} - \frac{x}{a}  )} dxdydz\). The limit of integral over \(z\) can be obtained as integration over \(z\) adds up the boxeds frmo the shaded column in the figure. A quicker way is to simply sum up all the vertical columns as \(V = \int_{0}^{a} \int_{0}^{b-\frac{bx}{a} dy c \left( a-\frac{y}{b} - \frac{x}{a}\right)}\) which skips the step of integration over \(z\) as it is trivial. The result is \(V = \frac{abc}{6} \). } 
-
-
-A useful trick invovle Pappus' first theorem, which states that the volume of revolution of a plance surface is given by the area of the surface \(A\) multiplied by the distance moved by its centroid, since the suface area generated is given by \(S = \int 2\pi y dA = 2 \pi \overline{y} A\), where \(\overline{y} = \frac{1}{A} \int y dA \) is the definition of the centroid. 
-
-\section{Chnage of Variables}
+\begin{equation}
+	\int_{S}^{} (\curl{\vb{B} } - \mu _{0} \vb{J}  ) \cdot d\vb{S} = 0.
+\end{equation}
 
 
 
 
+} 
+
+
+\subsubsection{The Stokes' Theorem in Two Dimensions}
+
+The Stokes' Theorem (in two dimensions) is also yields Green's theorem in a plane, just as the divergence theorem did.
+
+\subsubsection{The Two Other Theorems}
+
+Letting \(\vb{F} \) in \cref{stothmm} to be a gradient of another scalar function, or the cross product of two other vector functions, we get 
+
+\begin{equation}
+	\int_{S}^{} d\vb{S} \cross \grad{f} = \oint_{C} fd\vb{r} \text { and } \int_{S}^{} (d\vb{S} \cross \grad{} ) \cross \vb{F} = \oint_{C} d\vb{r} \cross \vb{F} .    
+\end{equation}
 
 
 

@@ -17,24 +17,23 @@
 To solve for the motion of objects, one may employ the vectorial approach with Newton's second law
 
 \begin{equation}
-	\vb{F} = \dv{\vb{p} }{t} = \dv{(m\vb{v} )}{t}. \label{new2} 
+	\vb{F} = \frac{d\vb{p} }{dt}  = \frac{d (m\vb{v}) }{d t} . \label{new2} 
 \end{equation}
 
 In a special case where the mass of the body is changing, the law becomes
 
 \begin{equation}
-	\vb{F} = m\vb{a} - \vb{v} _{rel} \dv{m}{t} \label{new2prime} 
+	\vb{F} = m\vb{a} - \vb{v} _{rel} \frac{dm}{dt}  \label{new2prime} 
 \end{equation}
 
 which can be derived easily by using \cref{new2} in an infinitesimal time interval (also known as the force-impulse theorem) as depicted \href{https://en.wikipedia.org/wiki/Variable-mass_system}{here}. 
 
 Of course, \cref{new2} still works but \cref{new2prime} provides more useful information that allows us to solve for the motion of the mass. A classic example would be the rocket equation.
 
-To account for the rotational motion of an object, torque \(\boldsymbol{\tau } \) and angular momentum \(\vb{L} \) \footnote{One may question the necessity to introduce the concept of torque and angular momentum. Indeed, with Newton's second law, one can virtually solve all mechanics problems without resorting to other physical laws. However, when analyzing rigid bodies with spatial extent (in contrast to a point particle), torque becomes useful because the internal forces in these bodies are generally very complicated. In fact, \(\boldsymbol{\tau } = \dv{\vb{L} }{t} \) is merely an extension of Newton's second law as explained and derived \href{https://knzhou.github.io/handouts/M2Sol.pdf}{here}. With a different viewpoint, Noether's theorem dictates that since the universe is rotationally symmetric, so \(\vb{L} \) must be conserved, in some sense \(\vb{L}\) is just some useful conserved quantity that is a consequence of a certain symmetry just like how the Laplace-Runge-Lenz vector is the repercussion of some hidden symmetry in higher dimensions.} are introduced, defined by
+To account for the rotational motion of an object, torque \(\boldsymbol{\tau } \) and angular momentum \(\vb{L} \)\footnote{One may question the necessity to introduce the concept of torque and angular momentum. Indeed, with Newton's second law, one can virtually solve all mechanics problems without resorting to other physical laws. However, when analyzing rigid bodies with spatial extent (in contrast to a point particle), torque becomes useful because the internal forces in these bodies are generally very complicated. In fact, \(\boldsymbol{\tau } = \frac{d \vb{L}}{t} \) is merely an extension of Newton's second law as explained and derived \href{https://knzhou.github.io/handouts/M2Sol.pdf}{here}. With a different viewpoint, Noether's theorem dictates that since the universe is rotationally symmetric, so \(\vb{L} \) must be conserved, in some sense \(\vb{L}\) is just some useful conserved quantity that is a consequence of a certain symmetry just like how the Laplace-Runge-Lenz vector is the repercussion of some hidden symmetry in higher dimensions.} are introduced, defined by
 
-
-\begin{equation} 
-	\boldsymbol{\tau }  = \vb{r} \cross \vb{F} \text{ and }   \vb{L} = \vb{r} \cross \vb{p} .
+\begin{equation}
+	\boldsymbol{\tau } = \vb{r} \cross \vb{F} ~\text { and }~ \vb{L} = \vb{r} \cross \vb{p} . 
 \end{equation}
 
 We can see that both \(\boldsymbol{\tau } \text{ and } \vb{L} \) depend on the origin defined as \(\vb{r} \) is the position vector.
@@ -42,7 +41,7 @@ We can see that both \(\boldsymbol{\tau } \text{ and } \vb{L} \) depend on the o
 Taking the derivatives of the angular momentum, we yield ``Newton's second law for rotation"
 
 \begin{equation}
-	\dv{\vb{L} }{t} = \dv{t} (\vb{r} \cross \vb{p} ) = \vb{r} \cross \dv{\vb{p} }{t} + \dv{\vb{r} }{t} \cross \vb{p} = \vb{r} \cross \vb{F} + \vb{v} \cross (m\vb{v} ) = \vb{r} \cross \vb{F} = \boldsymbol{\tau}  
+	\frac{d \vb{L}}{t} = \frac{d}{dt} (\vb{r} \cross \vb{p} ) = \vb{r} \cross \frac{d\vb{p} }{dt}  + \frac{d \vb{r}}{dt} \cross \vb{p} = \vb{r} \cross \vb{F} + \vb{v} \cross (m\vb{v} ) = \vb{r} \cross \vb{F} = \boldsymbol{\tau}  
 \end{equation}
 
 Another quantity that is introduced to simplify the matter (which ultimately comes from the symmetry of time) is kinetic energy \(\vb{T} \) and potential energy  \(U\) defined by   
@@ -54,13 +53,13 @@ Another quantity that is introduced to simplify the matter (which ultimately com
 This definition is motivated when considering the work done on a constant mass \(m\) by a net force \(\vb{F} _{net} \)
 
 \begin{equation}
-	W = \int_{1}^{2} \vb{F_{net} } \cdot d\vb{r} = \int_{1}^{2} \dv{(m\vb{v}) }{t} \cdot d\vb{r} = m \int_{1}^{2} d\dot{\vb{r} } \cdot \dv{\vb{r} }{t}   = \frac{m}{2} \int_{1}^{2} d(v^2) = \frac{1}{2} mv_{2} ^2 - \frac{1}{2} mv_{1} ^2  
+	W = \int_{1}^{2} \vb{F_{net} } \cdot d\vb{r} = \int_{1}^{2} \frac{dm\vb{v} }{dt}  \cdot d\vb{r} = m \int_{1}^{2} d\dot{\vb{r} } \cdot \frac{d \vb{r}}{dt}   = \frac{m}{2} \int_{1}^{2} d(v^2) = \frac{1}{2} mv_{2} ^2 - \frac{1}{2} mv_{1} ^2  
 \end{equation}
 
 so that we can say the work done by the net force is equal to the change in the kinetic energy (also known as the work-energy theorem)
 
 \begin{equation}
-	 W  = W_{con} + W_{non-con} = \Delta T. \label{wet}  \footnote{Some authors use \(\Delta W \) to denote work done, however, as work done should not be interpreted as changes, which would be meaningless, the \(\Delta \) symbol is omitted. Formally, \(\inexactd W\) is used to denote the inexact differential, but the complexity of the symbol forbids me to consistently type it in latex.} 
+	 W  = W_{con} + W_{non-con} = \Delta T.\footnote{Some authors use \(\Delta W \) to denote work done, however, as work done should not be interpreted as changes, which would be meaningless, the \(\Delta \) symbol is omitted. Formally, \(\mathchar'26\mkern-12mu d W\) is used to denote the inexact differential, but the complexity of the symbol forbids me to consistently type it in latex.} \label{wet}   
  \end{equation} 
 
 
@@ -76,7 +75,7 @@ The defining properties of conservative forces are:
 	\item The work done by conservative forces is independent of the path taken, as if the work done by the conservative force from point \(1\) to \(2\) is a constant value and by switching the sign of \(d\vb{r} \text{ in } W = \int_{1}^{2} \vb{F} \cdot d\vb{r}  \), we see that the work done from point \(2\) to \(1\) adds a negative sign to that constant value and thus the work done of a loop is zero which is equivalent to \(\oint \vb{F} \cdot d\vb{r} =0\).
 \end{enumerate}
 
-Thus from the vector identity \(\curl{(\grad{V}) } = 0\) and the second item above (\(\curl{\vb{F} } =0)\) , we can define the potential energy as mentioned and the work-energy theorem (\cref{wet}) becomes the conservation of energy
+Thus from the vector identity \(\curl{(\grad{V}) } = 0\) and the second item above (\(\curl{\vb{F} } =0)\), we can define the potential energy as mentioned and the work-energy theorem (\cref{wet}) becomes the conservation of energy
 
 \begin{equation}
 	W_{non-con} = T + V. \label{con} 
@@ -113,13 +112,13 @@ This tells us that the total linear momentum of the system is the same as if the
 Now for the rotational equation of motion of the \(i \text{th} \) particle, we have
 
 \begin{equation}
-	 \vb{r }_{i}  \cross \vb{F} _{i} = \vb{r} _{i} \cross \vb{F} _{i, ext} + \vb{r} _{i} \cross \sum_{j}^{} \vb{F} _{j \rightarrow i} = \dv{\vb{L} _{i}  }{t}. 
+	 \vb{r }_{i}  \cross \vb{F} _{i} = \vb{r} _{i} \cross \vb{F} _{i, ext} + \vb{r} _{i} \cross \sum_{j}^{} \vb{F} _{j \rightarrow i} = \frac{dL_{i} }{dt}. 
 \end{equation}
 
 Summing over all particles, 
 
 \begin{equation}
-	\sum_{i}^{} (\vb{r} _{i} \cross \vb{F} _{i,ext}) + \sum_{i}^{} (\vb{r} _{i} \cross \sum_{j}^{} \vb{F} _{j \rightarrow i}) = \boldsymbol{\tau }_{ext}  + \sum_{i}^{} ((\vb{r} _{i} - \vb{r} _{j} ) \cross  \vb{F} _{j \rightarrow  i } ) = \boldsymbol{\tau } _{ext} = \sum_{i}^{} \dv{\vb{L} _{i} }{t} = \dot{\vb{L}_{tot}}. 
+	\sum_{i}^{} (\vb{r} _{i} \cross \vb{F} _{i,ext}) + \sum_{i}^{} (\vb{r} _{i} \cross \sum_{j}^{} \vb{F} _{j \rightarrow i}) = \boldsymbol{\tau }_{ext}  + \sum_{i}^{} ((\vb{r} _{i} - \vb{r} _{j} ) \cross  \vb{F} _{j \rightarrow  i } ) = \boldsymbol{\tau } _{ext} = \sum_{i}^{} \frac{dL_{i} }{dt}  = \dot{\vb{L}_{tot}}. 
 \end{equation}
 
 where we again used Newton's third law and assumed that the internal forces are central, \ie the force between two particles act on the line connecting them.
@@ -235,7 +234,7 @@ Now we return to \cref{L1} and try to evaluate the abstract summation form of th
 Now from \cref{av3} we can conclude the general relationship that if a vector \(\vb{r} \)  is rotating about a fixed origin with angular velocity \(\boldsymbol{\omega } \), then we have the relation 
 
 \begin{equation}
-	\dv{\vb{r} }{t} =  \boldsymbol{\omega } \cross \vb{r} . \label{rotchange}  
+	\frac{d \vb{r}}{dt} =  \boldsymbol{\omega } \cross \vb{r} . \label{rotchange}  
 \end{equation}
 
 Therefore, \(\vb{L} _{rot} \)  becomes
@@ -248,10 +247,10 @@ From here, we can explicitly write out the \(x,y \text{ and } z\) components of 
 
 \begin{equation}
 	\begin{aligned}
-		L_{rot,x} &= \sum_{i}^{} m_{i} ((x'_{i} ^2 + y'_{i} ^2 + z'_{i} ^2)\omega  _{x} - x'_{i} (x'_{i} \omega _{x} + y'_{i} \omega _{y} + z'_{i} \omega _{z} )) \\ 
-		      &= \sum_{i}^{} m_{i} ((y'_{i} ^2 + z'_{i} ^2)\omega _{x} - (x'_{i} y'_{i} )\omega _{y} - (x'_{i} z'_{i}) \omega '_{z}) , \\ 
-		L_{rot,y} &= \sum_{i}^{} (m_{i} (x'_{i} ^2 + z'_{i} ^2)\omega _{y} - (y'_{i} z'_{i} )\omega _{z} - (x'_{i} y'_{i} )\omega _{x}), \\ 
-		\text{ and }  L_{rot,z} &= \sum_{i}^{} m_{i} ((x'_{i} ^2 + y'_{i} ^2) \omega _{z} - (x'_{i} z'_{i} )\omega _{x} - (y'_{i} z'_{i} )\omega _{y}) . 
+		L_{rot,x} &= \sum_{i}^{} m_{i} ((x'^2_i + y'^2_i + z'^2_i)\omega  _{x} - x'_{i} (x'_{i} \omega _{x} + y'_{i} \omega _{y} + z'_{i} \omega _{z} )) \\ 
+		      &= \sum_{i}^{} m_{i} ((y'^2_i + z'^2_i)\omega _{x} - (x'_{i} y'_{i} )\omega _{y} - (x'_{i} z'_{i}) \omega '_{z}) , \\ 
+		L_{rot,y} &= \sum_{i}^{} (m_{i} (x'^2_i + z'^2_i)\omega _{y} - (y'_{i} z'_{i} )\omega _{z} - (x'_{i} y'_{i} )\omega _{x}), \\ 
+		\text{ and }  L_{rot,z} &= \sum_{i}^{} m_{i} ((x'^2_i + y'^2_i) \omega _{z} - (x'_{i} z'_{i} )\omega _{x} - (y'_{i} z'_{i} )\omega _{y}) . 
 	\end{aligned}
 \end{equation}
 
@@ -297,15 +296,15 @@ If the tensor of inertia about the center of mass \(\tilde{\vb{I} } _{c.m. } \) 
 
 \begin{equation}
 \begin{aligned}
-	I_{xx,P} &= \sum_{i}^{} m_{i} (y_{i,P}' ^2 + z_{i,P}' ^2) = \sum_{i}^{} m_{i} ( (y_{i,c.m. }' - Y)^2 + (z_{i,c.m. }' -Z)^2) \\ &= \sum_{i}^{} m_{i} ((y_{i,c.m.} ^2 + z_{i,c.m.} ^2)+(Y^2+Z^2) -2(y_{i,c.m. } Y+Z_{i,c.m. } Z)) \\ &= I_{xx,c.m. } + \sum_{i}^{ } m_{i} (Y^2+Z^2)  \\ \\
-	\text{ and } I_{xy,P} &= -\sum_{i}^{} m_{i} ( x_{i,P} y_{i,P} ') = \sum_{i}^{} m_{i} ((x_{i,c.m. } -X)(y_{i,c.m. } -Y) \\ &= \sum_{i}^{} m_{i} ((x_{i,c.m. } y_{i,c.m. } ) - XY -(Xy_{i,c.m. } + x_{i,c.m. } Y)) \\ &= I_{xy,c.m. } - \sum_{i}^{} m_{i} XY \italic{~~~etc.} 
+	I_{xx,P} &= \sum_{i}^{} m_{i} (y'^2_{i,P} + z'^2_{i,P}) = \sum_{i}^{} m_{i} ( (y_{i,c.m. }' - Y)^2 + (z_{i,c.m. }' -Z)^2) \\ &= \sum_{i}^{} m_{i} ((y_{i,c.m.} ^2 + z_{i,c.m.} ^2)+(Y^2+Z^2) -2(y_{i,c.m. } Y+Z_{i,c.m. } Z)) \\ &= I_{xx,c.m. } + \sum_{i}^{ } m_{i} (Y^2+Z^2)  \\ \\
+	\text{ and } I_{xy,P} &= -\sum_{i}^{} m_{i} ( x_{i,P} y_{i,P} ') = \sum_{i}^{} m_{i} ((x_{i,c.m. } -X)(y_{i,c.m. } -Y) \\ &= \sum_{i}^{} m_{i} ((x_{i,c.m. } y_{i,c.m. } ) - XY -(Xy_{i,c.m. } + x_{i,c.m. } Y)) \\ &= I_{xy,c.m. } - \sum_{i}^{} m_{i} XY \textit{ etc.}  
 \end{aligned}
 \end{equation}
 
 where the last term in each of the equations vanishes due to the property of the center of mass.
 
 \subsection{Euler's Equations}
-With all the prerequisites explained, we are now ready to tackle the seemingly simple differential equation \(\boldsymbol{\tau } = \dv{\vb{L} }{t} \). Consider a time instant \(t\) when a rigid body is rotating with \(\boldsymbol{\omega } \). Since the body frame is non-inertial, we cannot apply this rotational Newton's law here. What we can do, however, is to consider an inertial frame that only coincides with the body frame at time \(t\). 
+With all the prerequisites explained, we are now ready to tackle the seemingly simple differential equation \(\boldsymbol{\tau } = \frac{d \vb{L}}{t} \). Consider a time instant \(t\) when a rigid body is rotating with \(\boldsymbol{\omega } \). Since the body frame is non-inertial, we cannot apply this rotational Newton's law here. What we can do, however, is to consider an inertial frame that only coincides with the body frame at time \(t\). 
 
 It is very important to have this picture in mind: at time \(t\), the inertial frame axes \(\vu{e} _{1}, \vu{e} _{2}, \vu{e} _{3} \) are the same as the body axes \(\vu{1}, \vu{2},\vu{3} \). Then, after time \(dt\), the axes of the body-fixed coordinate system rotate by an angle of \(\omega dt\) along \(\boldsymbol{\omega } \) while the inertial frame axes remained stationary. So from the inertial frame, the body axes actually rotate with \(\boldsymbol{\omega } \). We then repeat this procedure infinite time.
 
@@ -313,8 +312,8 @@ Writing out the equation of motion in this inertial coordinate system, we have
 
 \begin{equation}
 	\begin{aligned}
-		\boldsymbol{\tau } = \dv{\vb{L} }{t} &= \dv{t} (L_1 \vu{1} + L_2 \vu{2} + L_3 \vu{3}  ) = \dv{L_{1} }{t} \vu{1}  + L_{1} \dv{\vu{1}  }{t} + \dv{L_{2} }{t} \vu{2}  + L_{2} \dv{\vu{2}  }{t} + \dv{L_{3} }{t} \vu{3}  + L_{3} \dv{\vu{3  }}{t}    \\ 
-		&= \dv{L_{1} }{t} \vu{1}  + \dv{L_{2} }{t} \vu{2} + \dv{L_{3} }{t} \vu{3}   + (\boldsymbol{\omega } \cross \vu{1}  )L_{1} + (\boldsymbol{\omega } \cross \vu{2}  )L_{2}  + (\boldsymbol{\omega } \cross \vu{3}  )L_{3} 
+		\boldsymbol{\tau } = \frac{d \vb{L}}{t} &= \frac{d}{dt} (L_1 \vu{1} + L_2 \vu{2} + L_3 \vu{3}  ) = \frac{d L_1}{t} \vu{1}  + L_{1} \frac{d \vu{1}}{t} + \frac{d L_2}{t} \vu{2}  + L_{2} \frac{d \vu{2}}{t} + \frac{d L_3}{t} \vu{3}  + L_{3} \frac{d \vu{3} }{dt}     \\ 
+		&= \frac{d L_1}{t} \vu{1}  + \frac{d L_2}{t} \vu{2} + \frac{d L_3}{t} \vu{3}   + (\boldsymbol{\omega } \cross \vu{1}  )L_{1} + (\boldsymbol{\omega } \cross \vu{2}  )L_{2}  + (\boldsymbol{\omega } \cross \vu{3}  )L_{3} 
 	\end{aligned}
 \end{equation}
 
@@ -1016,7 +1015,7 @@ where the angular velocity vector \(\boldsymbol{\omega } \) is defined as
 	\boldsymbol{\omega } = \lim_{\Delta t\to 0} \frac{\Delta \theta }{\Delta t} 
 \end{equation}
 
-In this case, \(\boldsymbol{\omega } = \dv{\beta }{t} \vu{j} + \dv{\alpha }{t} \vu{k} \). 
+In this case, \(\boldsymbol{\omega } = \frac{d\beta }{dt}  \vu{j} + \frac{d\alpha }{dt}  \vu{k} \). 
 
 
 
