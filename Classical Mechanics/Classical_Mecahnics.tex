@@ -23,10 +23,37 @@ To solve for the motion of objects, one may employ the vectorial approach with N
 In a special case where the mass of the body is changing, the law becomes
 
 \begin{equation}
-	\vb{F} = m\vb{a} - \vb{v} _{rel} \frac{dm}{dt}  \label{new2prime} 
+	\vb{F} = m\vb{a} + \vb{v} _{\text{rel} } \frac{dm}{dt},  \label{new2prime} 
 \end{equation}
 
-which can be derived easily by using \cref{new2} in an infinitesimal time interval (also known as the force-impulse theorem) as depicted \href{https://en.wikipedia.org/wiki/Variable-mass_system}{here}. 
+where \(\vb{v} _{\text{rel} } \) is the velocity of the mass relative to the added mass.
+
+This equation is essentially a statement of the conservation of momentum of the system, and can be proved this way: suppose The added mass \(dm\) has speed \(u\) and the mass \(m\) has speed \(v\) and are together subjected to a force \(F\). After an infinitesmal amount of time, they travel together at the speed \(v+dv\).
+
+The impulse of the system is equals to the momenumtum change, \textit{i.e.,} 
+
+\begin{equation}
+	Fdt= dp = (m+dm)(v+dv)-udm-vm \implies F = ma+\frac{dm}{dt}(v-u).  
+\end{equation}
+
+The same equation works for when mass is being removed. In this case, \(\frac{dm}{dt} \) is negative, and \(\vb{v} _{\text{rel} } \) is the velocity of the mas relative to the removed mass.
+
+\example{Falling Chain (1).}
+{A uniform chain of length \(L\) and mass \(m\) is stretched out on a frictionless horizontal table with part of its length \(h\) hanging down through a hole in the table. Find the time it take for the chain to fall off.}
+{Let \(x\) be the fraction of the chain that has fallen off the table. Using the concept of generalized coordinates, we have 
+
+\begin{equation}
+	xmg = mL \ddot{x}. 
+\end{equation}
+
+Solving, we get \(t = \sqrt{\frac{L}{g} } \cosh^{-1} \left( \frac{L}{h}  \right) \).
+} 
+
+\example{Falling Chain (2).}
+{A uniform chain of length \(L\) and mass \(m\) stetched vertically just above the surface of a weighing scale and then release from rest. Find the reading of the scale as the chain falls onto the scale.}
+{Chain, } 
+
+
 
 Of course, \cref{new2} still works but \cref{new2prime} provides more useful information that allows us to solve for the motion of the mass. A classic example would be the rocket equation.
 

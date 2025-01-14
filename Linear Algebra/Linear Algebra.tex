@@ -14,42 +14,58 @@
 
 \chapter{Vectors and Vector Spaces}
 
-\section{Vectors in \(\mathbb{R}^{n}  \) }
+\section{Vectors in \(\mathbb{F}^{n} \) with the Standard Unit Vectors}
 
-Generally, a field \(F\)  (such as the set of all real numbers \(\mathbb{R}\) or complex numbers \(\mathbb{C}\)\footnote{More examples of fields are given in \cref{fields}.}) is an arena within which ``regular calculations'' involving addition and multiplication of numbers can be carried out. 
+Vectors are mathemtical objects that satisfy certain properties and vector sapces is the set of all vectors of the same kind (as will be discussed in \cref{vspace}). They can be geometrical arrows in space, polynomials, matrices, \textit{etc.} 
 
-By \(F^{n} \) we denote the set of all ordered n-tuples of elements from field \(F\)
+Here \(\mathbb{F}\) is the field which the vector space is defined over, whose elements (called scalars) can be combined (multiplied) with the basis chosen for the vector space to construct any arbitrary vectors in the vector space. Examples of fields include the real numbers \(\mathbb{R}\) (which is the field we choose in most cases) or the complex numbers \(\mathbb{C}\).\footnote{More examples of fields are given in \cref{fields}.} 
 
-\begin{equation}
-    F^{n} = \left\{ (a_1 , a_2 ,\ldots ,a_{n} ) \mid a_{i} \in F, i = 1,2,\ldots ,n  \right\}.
-\end{equation}
-
-As we will see, since \(F^{n} \) satisfies the definition of a vector space, so every n-tuple are already vectors themselves. However, we would usually arrange the elements of the n-tuples into the entries of a \(n\)-dimensional column vector as \(\vb{v} = \begin{pmatrix}
-    a_1  & a_2  & \cdots  & a_{n}   \\
-\end{pmatrix}^T\) for easier manipulation. 
-
-It has a canonical (standard) basis, called the standard unit vectors, which are the \(n\) vectors in \(F^{n} \) where all the entries are zero excpet for the \(i^{\text{th }} \) element:  
-\begin{equation}
-    \vb{e} _{i} = (0,\ldots ,0,\underbrace{1}_{i^{\text{th }} \text{position} }, 0, \ldots , 0) = \begin{pmatrix}
-         0 \\
-         \vdots  \\
-         0 \\
-         1 \\
-         0 \\
-         \vdots  \\
-         1 \\
-    \end{pmatrix} \leftarrow i^{\text{th }} \text{position}.
-\end{equation}
-
-They are useful because a general vector in \(\mathbb{R} ^{n} \) can then be written as a linear combination of the unit vectors
+The simplest \(n\)-dimensional vector space contatining \(n\)-dimensional vectors is \(\mathbb{F}^{n} \) with the standard unit vectors chosen as the basis , which is defined as the set of all ordered n-tuples of elements in \(\mathbb{F}\)
 
 \begin{equation}
-    \vb{v} = v_{1} \vb{e} _{1} + \ldots + v_{n} \vb{e} _{n} = \sum_{i=1}^{n} v_{i} \vb{e} _{i} .  
+    \mathbb{F}^{n} = \left\{ (a_1 , a_2 ,\ldots ,a_{n} ) \mid a_{i} \in F, i = 1,2,\ldots ,n  \right\}.
 \end{equation}
 
-It is important to note that the concept of ``standard unit vectors'' is only appliacble to \(\mathbb{F}^{n} \). However, in later sections, we would introduce another concept (orthogonality) which extends this concept to any vector space.
+The standard unit vectors are the \(n\) vectors in \(\mathbb{F}^{n} \) where \(n-1\) elements chosen to form the \(n\)-tuples are 0, and the remaining element is 1:  
+\begin{equation}
+    \vb{e} _{i} = (0,\ldots ,0,\underbrace{1}_{i^{\text{th }} \text{position} }, 0, \ldots , 0).
+\end{equation}
 
-  
+The elements can also be arranged into a column (called the column vector). For example, an arbitrary vector in \(\mathbb{F}^{n} \) (with the standard unit vectors as the basis) can be written as 
+
+\begin{equation}
+    \begin{aligned} 
+    \vb{v} &= (a_1, a_2, \ldots , a_n) = a_1 (1,0,\ldots ,0) + a_2 (0,1,\ldots ,0) + \cdots + a_{n}(0,0,\ldots ,1) \\
+    &= a_1 \begin{pmatrix}
+        1 \\
+        0 \\
+        \vdots  \\
+        0 \\
+   \end{pmatrix} + a_2 \begin{pmatrix}
+    0 \\
+    1 \\
+    \vdots  \\
+    0 \\
+\end{pmatrix} + \cdots + a_n \begin{pmatrix}
+    0 \\
+    0 \\
+    \vdots  \\
+    1 \\
+\end{pmatrix} = \begin{pmatrix}
+    a_1  \\
+    a_2  \\
+    \vdots  \\
+    a_{n}  \\
+\end{pmatrix}.
+\end{aligned} 
+\end{equation}
+
+When we write a vector in \(\mathbb{F}^{n} \) we assume that the basis chosen is the standard unit vectors, unless otherwise specified. Note that if we have not chosen the standard unit vectors as the basis the \(a_{i} \)s in the second equality would not be the same. If another basis is used, we will add a prime besides the bracket.
+
+As we will see in \cref{relations}, we can define an associated vector (known as the coordinate vector) in the vector space \(\mathbb{F}^{n} \) for every \(n\)-dimensional vector that we want to describe. This is because \(\mathbb{F}^{n} \) simply store \(n\) elements chosen from \(\mathbb{F}\) into an array, which acts as the components (coefficients of basis) of a more complicated vector. 
+
+More often than not it is much easier if we visualize a vector in \(F^{n} \) as a geometrical arrow in space with basis \(\vu{x} , \vu{y}, \vu{z} , \textit{etc.} \), so \(\vb{v} = a_1 \vu{x} + a_2 \vu{y} + a_3 \vu{z} + \cdots  \), as an intermediate between \(\mathbb{F}^{n}\) and an more abstract vector space, since this is the (second) simpliest kind of vector one can think of but it is also much more common and related to physics and daily life.  
+
 \example{Google's search alogorithm.}
 {Consider an internet with \(n\) websites labeled by \(k = 1, \ldots , n\). The site labeled as \(k\) has been referenced to by other sites \(L_{k} \subset {1, \ldots , n}\). Assign a page rank to each website representing the relative significance of each website.}
 {A first attempt would be to define the page rank as the number of pages that reference this page, so 
@@ -136,9 +152,7 @@ where
 
 This equation describes a so-called ``eigenvalue problem'', which we will discuss in a later stage.}
 
-\section{Vector Spaces}
-
-We start by defining a vector space and a sub vector space:
+\section{Vector Spaces} \label{vspace} 
 
 \begin{definition}[Definition of a Vector Space]
 A vector space V over a field F is a set with two operations:
@@ -151,14 +165,14 @@ A vector space V over a field F is a set with two operations:
 And for all \(\vb{u} ,\vb{v} ,\vb{w} \in V\) and all \(\alpha ,\beta \in F\), these operations have to satisfy the following rules:
 
 \begin{enumerate}[label=(\(A\)\arabic*)]\label{vectorspace} 
-    \item ``Associativity'': \((\vb{u} + \vb{v} ) + \vb{w}  = \vb{u}  + (\vb{v} + \vb{w} )\) .
-    \item ``Neutral element'': There exists a ``zero vector'', \(\boldsymbol{0} \in V\) so that \(0 + \vb{v} = \vb{v} \)  .
+    \item ``Associativity'': \((\vb{u} + \vb{v} ) + \vb{w}  = \vb{u}  + (\vb{v} + \vb{w} )\).
+    \item ``Neutral element'': There exists a ``zero vector'', \(\boldsymbol{0} \in V\) so that \(0 + \vb{v} = \vb{v} \).
     \item ``Inverse element'': There exists an inverse, \(-\vb{v} \) with \(\vb{v} + (-\vb{v} ) = 0\).
     \item ``Commutativity'': \(\vb{v} + \vb{w} = \vb{w} + \vb{v} \).
     \item \(\alpha (\vb{v} +\vb{w} ) = \alpha \vb{v} + \alpha \vb{w} \).
     \item \((\alpha +\beta )\vb{v} = \alpha \vb{v} + \beta \vb{w} \).
     \item \((\alpha \beta )\vb{v} = \alpha (\beta \vb{v} )\).
-    \item \(1\cdot \vb{v} = \vb{v} \)      .
+    \item \(1\cdot \vb{v} = \vb{v} \).
 \end{enumerate}
 
 The elements \(\vb{v} \in V\) are called ``vectors'', the elements \(\alpha \in F\) of the field are called ``scalars''.  
@@ -184,7 +198,7 @@ A sub vector space \(W \subset V \) is a non-empty subset of a vector space \(V\
 \end{equation}
 
 \begin{definition}[Definition of Linear Independence]
-Let \(V\) be a vector space over \(F\) and \(\alpha _{1}, \ldots , \alpha _{k} \in  F  \) scalars. A set of vectors \(\vb{v} _{1}, \ldots , \vb{v} _{k} \in V\) is called linearly independent if 
+Let \(V\) be a vector space over\(\mathbb{F}\) and \(\alpha _{1}, \ldots , \alpha _{k} \in  F  \) scalars. A set of vectors \(\vb{v} _{1}, \ldots , \vb{v} _{k} \in V\) is called linearly independent if 
 
 \begin{equation}
     \sum_{i=1}^{} \alpha _{i} \vb{v} _{i} = \boldsymbol{0} \implies \alpha _{i} = 0 \text{ for all } i.      
@@ -257,6 +271,45 @@ are linearly indpendent.}
 and since the equation has to be satisfied for all \(x\),  setting \(x=0\) we learn that \(\beta =0\) and setting \(x=\frac{\pi }{2} \) it follows that \(\alpha = 0\). Hence \(\sin x\) and \(\cos x\)  are linearly independent. 
 } 
 
+\example{Linear Dependence of Three Four-Dimensional Vectors.}
+{Determine whether the vectors \(\begin{pmatrix}
+     1 \\
+     2 \\
+     0 \\
+     -3 \\
+\end{pmatrix}, \begin{pmatrix}
+     2 \\
+     1 \\
+     1 \\
+     4 \\
+\end{pmatrix} \text { and } \begin{pmatrix}
+     -3 \\
+     6 \\
+     -4 \\
+     1 \\
+\end{pmatrix}\) are linearly indpendent. }
+{One way to check their linearly independecy is to check whether setting the linaer combination of them implies that the coefficients of each vector is zero. Alternatively, we can find the rank of the matrix \(A\) formed by the vectors and find its rank. The matrix can be row reduce to
+
+\begin{equation}
+    A = \begin{pmatrix}
+        1 & 2 &  -3 \\
+        2 & 1 &  6 \\
+        0 & 1 &  -4 \\
+        -3 & -4 &  1 \\
+    \end{pmatrix} \to \begin{pmatrix}
+        1 & 2 &  -3 \\
+        0 & 1 &  -4 \\
+        0 & 0 &  0 \\
+        0 & 0 &  0 \\
+    \end{pmatrix}.
+\end{equation}
+
+Therefore the rank of \(A\) is two and the vectors are linearly depedent.
+} 
+
+
+To test whether three three-dimensional vectors are linear indepedence, the fastest why is to compute the determinant and check whether or not it is equals to zero.
+
 \section{Basis and Dimension}
 \begin{definition}[Definition of a Basis]
 A set \(\vb{v} _{1}, \ldots , \vb{v} _{n} \in V \) of vectors is called a basis of \(V\) if and only if:
@@ -327,7 +380,7 @@ which shows that the vectors \(\vb{w}_{1}, \ldots, \vb{w}_m\) are linearly depen
 \end{proof}
 
 \begin{definition}[Definition of Dimension] \label{dimension} 
-For a basis \(\vb{v}_{1}, \ldots, \vb{v}_n \) of a vector space \(V\) over \(F\) we call \(\dim _{F} (V) \equiv n \) the dimension of \(V\) over \(F\) . 
+For a basis \(\vb{v}_{1}, \ldots, \vb{v}_n \) of a vector space \(V\) over\(\mathbb{F}\) we call \(\dim _{F} (V) \equiv n \) the dimension of \(V\) over\(\mathbb{F}\) . 
 \end{definition}
 
 \example{Standard Unit Vectors form a Basis.}
@@ -368,7 +421,7 @@ to check if there is any non-trivial solution. However, by taking the \(k^{\text
 {The analogy of standard unit vectors for matrices is
 
 \begin{equation} \label{matricesbasis} 
-    E_{(ij)}  = \begin{pmatrix}
+    E_{(i,j)}  = \begin{pmatrix}
         0 & \ldots  & 0 & 0 & 0 & \ldots  &  0 \\
         \vdots  &  & \vdots  & \vdots  & \vdots  &  &  \vdots  \\
         0 & \ldots  & 0 & 0 & 0 & \ldots  &  0 \\
@@ -407,17 +460,54 @@ For a vector sapce \(V\) spanned by a finite number of vectors we have:
 
 \todo{magic square} 
 
-\chapter{Vectors in \(\mathbb{R}^{n} \) and its Geometrical Applications }
+\chapter{Geometrical Applications of Vectors in \(\mathbb{R}^{n} \)}
 
-\section{Scalar Product in \(\mathbb{R}^{n} \) }
+\section{Scalar and Vector Products}
+
+\subsection{Kronecker Delta and Levi-Civita Symbol}
+
+The kronecker delta is defined by 
+
+\begin{equation}
+\delta_{ij} =
+\begin{cases} 
+1 & \text{if } i = j, \\
+0 & \text{if } i \neq j.
+\end{cases}
+\end{equation}
+
+The Levi-Civita symbol is defined by 
+
+\begin{equation}
+    \epsilon_{ijk} =
+\begin{cases} 
++1 & \text{if } (i, j, k) = (1, 2, 3), (2, 3, 1), (3, 1, 2), \\
+-1 & \text{if } (i, j, k) = (2, 1, 3), (3, 2, 1), (1, 3, 2), \\
+~0 & \text{otherwise}.
+\end{cases}
+\end{equation}
+
+In Einstein summation convention, there is are pairs of dummy indices and some free indices. The free indices indicate which component of the vector we are describing, and only appear once in a term, but there can be more than one free indices. The repeated (twice) indices are the dummy indices, which implies summation over them. No indices can appear more than twice. 
+
+Note, however, for example, that \(x_{i}^2 \neq x_{i}x_{i}   \) when we use the Einstein summation convention. The former is the square of the \(i^{\text{th }} \) component of the vector \(\vb{x} \), and the latter is summing over the square of all components of the vector \(\vb{x} \).    
+
+One important equality regarding the Levi-Civita Symbol is 
+
+\begin{equation}
+    \epsilon _{ijk}\epsilon _{ilm} = \delta _{jl}\delta _{km} - \delta _{jm}\delta _{kl},      
+\end{equation}
+
+which is true, since \(\epsilon _{ijk}\epsilon _{ilm} = \sum_{i=1}^{3} \epsilon _{ijk}\epsilon _{ilm} = +1  \) if \((j,l) = (k,m)\) and \(\epsilon _{ijk} = -1 \) if \((j,l) = (m,k)\) (and in any other combinations of \((j,k,l,m)\) we get zero).
+
+\subsection{Scalar Product in \(\mathbb{R}^{n} \) }
 
 The scalar (dot) product for two n-demensional column vectors is defined as
 
 \begin{equation}
-    \vb{a} \cdot \vb{b} \equiv \sum_{i=1}^{n} a_{i} b_{i} .
+    \vb{a} \cdot \vb{b} \equiv \sum_{i=1}^{n} a_{i} b_{i} = a_{i}b_{i} = \delta _{ij}a_{i}b_{j},    
 \end{equation}
 
-In Einstein summation convention we simply write \(\vb{a} \cdot \vb{b} = a_{i} b_{i} \), assuming we sum over any index which appears twice in a given term.
+given that the basis is orthogonal. (The dot product for under a general basis will be covered in \cref{dot}).
 
 The dot product satisfies a number of obvious properties, namely
 
@@ -431,10 +521,10 @@ The dot product satisfies a number of obvious properties, namely
 The last property allows us to define the length of a vector as 
 
 \begin{equation}
-    \abs{\vb{a} } \equiv \sqrt{\vb{a} \cdot \vb{a} } = \left( \sum_{i=1}^{n} a_{i}^2  \right) ^{\frac{1}{2} }.   
+    \abs{\vb{a} } \equiv \sqrt{\vb{a} \cdot \vb{a} } = \left( \sum_{i=1}^{n} a_{i}^2  \right) ^{\frac{1}{2} } 
 \end{equation}
 
-The dot product satisfies an important inequality 
+given that the basis is orthogonal.
 
 \begin{lemma}[Cauchy-Schwarz inequality]
 For any two vectors \(\vb{a} \) and \(\vb{b} \) in \(\mathbb{R}^{n} \) we have
@@ -475,9 +565,7 @@ For two non-zero vectors \(\vb{a} \text { and } \vb{b} \), the Cauchy-Schwarz in
 
 We call two vectors orthogonal (or perpendicular) if and only if \(\vb{a} \cdot \vb{b} = 0, \text { or }  \theta = \frac{\pi }{2} \).
 
-\section{Vector Product in \(\mathbb{R}^3 \) }
-
-\subsection{Triple Products}
+\subsection{Vector Product in \(\mathbb{R}^3 \) }
 	
 \subsubsection{Scalar Triple Product \(\vb{A} \cdot (\vb{B} \cross \vb{C})\)}
 	
@@ -498,28 +586,55 @@ The vector triple product \(\vb{A} \cross (\vb{B} \cross \vb{C})\) can be simpli
 \begin{equation} 
 	\vb{A} \cross (\vb{B} \cross \vb{C}) = \vb{B}(\vb{A} \cdot \vb{C}) - \vb{C}(\vb{A} \cdot \vb{B}). \label{vectri} 
 \end{equation}		
+
+This can be shown by 
+
+\begin{equation}
+    \begin{aligned} 
+    \left( \vb{a} \cross (\vb{b} \cross \vb{c} ) \right)_{i} &= \epsilon _{ijk}a_{j}\left( \vb{b} \cross \vb{c}  \right)_{k} \\
+    &= \epsilon _{ijk} a_{j}\epsilon _{kmn}b_{m}c_{n} \\
+    &= (\delta _{im}\delta _{jn}-\delta _{in}\delta _{jm}) a_{j}b_{m}c_{n} \\
+    &= a_{j}b_{i}c_{j}- a_{j}b_{j}c_{i} \\
+    &= \left((\vb{a} \cdot \vb{c} )\vb{b} - (\vb{a} \cdot \vb{b} )\vb{c}\right)_{i}               
+    \end{aligned} 
+\end{equation}
+
+
 	
 With \cref{scatri} and \cref{vectri} in hand, it is never necessary for an expression to contain more than one cross product in any term.
 	
 \example
 {Griffiths (5th ed.) P.8}
 {Simplify \((\vb{A} \cross \vb{B}) \cdot (\vb{C} \cross \vb{D})\) and \(\vb{A} \cross (\vb{B} \cross (\vb{C} \cross \vb{D}))\).}
-{Using \cref{scatri,vectri}, we have 
+{For the first equality, using \cref{scatri,vectri}, we have 
 \begin{equation} 
 	\begin{aligned} 
 		(\vb{A} \cross \vb{B}) \cdot (\vb{C} \cross \vb{D}) &= \vb{C} \cdot (\vb{D} \cross (\vb{A} \cross \vb{B})) \\ 
 			&= \vb{C} \cdot (\vb{A}(\vb{B} \cdot \vb {D}) - \vb{B}(\vb{D} \cdot \vb{A}))  \\
-			&= (\vb{A} \cdot \vb{C})(\vb{B} \cdot \vb{D}) - (\vb{A} \cdot \vb{D})(\vb{B} \cdot \vb{C}) 
+			&= (\vb{A} \cdot \vb{C})(\vb{B} \cdot \vb{D}) - (\vb{A} \cdot \vb{D})(\vb{B} \cdot \vb{C}).
 	\end{aligned} 
 \end{equation}
 
-and 
+Alternatively, we have
+
+\begin{equation}
+    \begin{aligned} 
+    ((\vb{a} \cross \vb{b} )\cdot (\vb{c} \cross \vb{d} ))_{i} &= (\vb{a} \cross \vb{b} )_{i} (\vb{c} \cross \vb{d} )_{i} \\
+    &= \epsilon _{ijk}a_{j} b_{k}\epsilon _{imn}c_{m}d_{n} \\
+    &= \epsilon _{jki}\epsilon _{imn} a_{j} b_{k} c_{m} d_{n} \\
+    &= (\delta _{jm} \delta _{kn} - \delta _{jn} \delta _{mk} ) a_{j} b_{k} c_{m} d_{n} \\
+    &= a_{j} c_{j} b_{k} d_{k} - a_{j} d_{j} b_{k} c_{k} \\
+    &= (\vb{a} \cdot \vb{c} )(\vb{b} \cdot \vb{d} ) -  (\vb{a} \cdot \vb{d} )(\vb{b} \cdot \vb{c} ).         
+    \end{aligned} 
+\end{equation}
+
+For the second equality,
 
 \begin{equation} 
 	\begin{aligned} 
-		\vb{A} \cross (\vb{B} \cross (\vb{C} \cross \vb{D})) &= \vb{A} \cross[\vb{C}(\vb{B} \cdot \vb{D}) - \vb{D}(\vb{B} \cdot \vb{C})]  \\
+		\vb{A} \cross (\vb{B} \cross (\vb{C} \cross \vb{D})) &= \vb{A} \cross(\vb{C}(\vb{B} \cdot \vb{D}) - \vb{D}(\vb{B} \cdot \vb{C}))  \\
 			&= (\vb{B} \cdot \vb{D})(\vb{A} \cross \vb{C}) - (\vb{B} \cdot \vb{C})(\vb{A} \cross \vb{D}) \\
-			(\text { or }  ~ \vb{A} \cross [\vb{B} \cross (\vb{C} \cross \vb{D})] &= \vb{B}(\vb{A} \cdot (\vb{C} \cross \vb{D})) - (\vb{C} \cross \vb{D})(\vb{A} \cdot \vb{B}))
+			(\text { or }  ~ \vb{A} \cross (\vb{B} \cross (\vb{C} \cross \vb{D})) &= \vb{B}(\vb{A} \cdot (\vb{C} \cross \vb{D})) - (\vb{C} \cross \vb{D})(\vb{A} \cdot \vb{B}))
 	\end{aligned} 
 \end{equation}}
 
@@ -539,13 +654,212 @@ Therefore, \(\vb{A} \cross (\vb{B} \cross \vb{C}) = (\vb{A} \cross \vb{B}) \cros
 
 Thus, either \(\vb{A} \parallelsum \vb{C} ~ or ~ \vb{A} \perp \vb{B} \perp \vb{C}\)}
 
+\example{Quadraple Cross Product.}
+{Simplify \((\vb{a} \cross \vb{b} )\cross (\vb{c} \cross \vb{d} )\). }
+{\begin{equation}
+    \begin{aligned}
+        ((\vb{a} \cross \vb{b} )\cross (\vb{c} \cross \vb{d} ))_{i}  &= \epsilon _{ijk} (\epsilon _{jpq} a_{p} a_{q} )(\epsilon _{krs} c_{r} b_{s} ) \\
+        &= \epsilon _{ijk} \epsilon _{krs} \epsilon _{jpq} a_{p} b_{q} c_{r} b_{s} \\
+        &= (\delta _{ir} \delta _{js} -\delta _{is} \delta _{rj} ) \epsilon _{jpq} a_{p} b_{q} c_{r} b_{s} \\
+        &= \epsilon _{jpq} a_{p} b_{q} (c_{i} b_{j} -b_{i} c_{j} ) \\
+        &= ((\vb{a} \cross \vb{b} )\cdot \vb{b} )c_{i} - ((\vb{a} \cross \vb{b} )\cdot \vb{c} )b_{i} \\
+        &= (\vb{b} \cdot (\vb{a} \cross \vb{c} ))b_{i}.  
+    \end{aligned}
+\end{equation}
+
+} 
+
+
+\section{Equations of Lines, Planes and Spheres}
+
+\subsection{Equation of Lines}
+
+The general equation of a line is 
+
+\begin{equation}
+    \vb{r} = \vb{a} + \lambda \vb{b} \Longleftrightarrow (\vb{r} - \vb{a} ) \cross \vb{b} = \boldsymbol{0} \Longleftrightarrow \frac{x-a_{x} }{b_{x} } = \frac{y - a_{y} }{b_{y} } = \frac{z - a_{z} }{b_{z} } = \text{constant}, 
+\end{equation}
+
+where \(\vb{r} \) is the position vector of a general point on the line, \(\vb{a} \) is the position vector of some fixed point on the line and \(\vb{b} \) is some fixed vector along the direction of the line.   
+
+\subsection{Equation of Planes}
+
+The general equation of a plane is 
+
+\begin{equation}
+    \vb{r} = \vb{a} + \lambda \vb{b} + \mu \vb{c} \Longleftrightarrow (\vb{r} - \vb{a} ) \cdot \vu{n} = \boldsymbol{0} \Longleftrightarrow \vb{r} \cdot \vu{n} = \hat{n}_{x} x + \hat{n}_{y} y + \hat{n}_{z} z = \text{constant} , 
+\end{equation}
+
+where \(\vb{a} \) is the position vector of some fixed point on the plane, \(\vb{b} \text { and } \vb{c} \) are some fixed (linearly independent) vectors along the direction of the plane and \(\vu{n}\) is the normal vector of the surface. 
+
+\example{Line of Intersection of Two Planes.}
+{Find the direction of the line of intersection of the two planes \(x+3y-z=5 \text { and } 2x-2y+4z=3\). }
+{The two planes have normal vectors \(\vu{n} _{1} = \vu{x} + 3\vu{y} -\vu{z} \text { and } \vu{n} _{2} = 2\vu{x} -2\vu{y} + 4\vu{z}   \). The direction of the intersecting line mst be parallel to both planes and hence perpendicular to both normals. Therfore, \(\vb{p} = \vu{n} _{1}\cross \vu{n} _{2} = 10\vu{x}-6\vu{y} -8\vu{z}   \). } 
+
+The general equation of a sphere is 
+
+\begin{equation}
+    \abs{\vb{r} - \vb{c} }^2 = a^2, 
+\end{equation}
+
+where \(\vb{c} \) is the position vector of the center of the sphere and \(a\) is the radius of the sphere.
+
+\example{Planes and Spheres.}
+{Find the radius \(\rho \) of the circle that is the intersection of the plane \(\vu{n} \cdot \vb{r} = p\) and the sphere of radius \(a\) centered on the point with position vector \(\vb{c} \).}
+{The equation of the sphere is 
+
+\begin{equation}
+    \abs{\vb{r} - \vb{c} }^2= a^2 \implies r^2 - 2\vb{r} \cdot \vb{c} +c^2= a^2, 
+\end{equation}
+    
+while the equation of the circle of intersection is 
+
+\begin{equation}
+    \abs{\vb{r} - \vb{b} }^2 = \rho ^2, 
+\end{equation}
+
+where \(\vb{r} \) is restricted to lie in the plane and \(\vb{b} \) is the position vector of the circle's center.
+
+From simple geometry, we have
+
+\begin{equation}
+    \vb{b} - \vb{c} = \lambda \vu{n} ~\text { and }~ \rho ^2 + \abs{\vb{b} -\vb{c} }^2 = a^2, 
+\end{equation}
+
+which gives \(\vb{b} = \vb{c} + \sqrt{a^2-\rho ^2}\vu{n}  \). Substituting into the the equation of the circle, we have
+
+\begin{equation}
+    r^2- 2\vb{r} \cdot \left( \vb{c} + \sqrt{a^2- \rho ^2} \vu{n}  \right) + c^2 + 2(\vb{c} \cdot \vu{n} )\sqrt{a^2-\rho ^2}+a^2-\rho ^2 = \rho ^2.
+\end{equation}
+
+We finally yields \(\rho = \sqrt{a^2- (p-c \cdot \vu{n} )^2} \). 
+
+} 
+
+\section{Distances Between Ppoints, Lines and Planes}
+
+\subsection{Distances From a Point to a Line}
+
+The minimum distance \(d\) from a point \(P\) with position vector \(\vb{p} \) to the line \(\vb{r} = \vb{a} + \lambda \vb{b} \) is given by 
+
+\begin{equation}
+    d = \abs{\vb{p} -\vb{a} }\sin \theta = \abs{(\vb{p} -\vb{a} )\cross \vu{b}  }. 
+\end{equation}
+
+\subsection{Distances From a Point to a Plane}
+
+The minimum distance \(d\) from a point \(P\) with position vector \(\vb{p} \) to the plane \((\vb{r} - \vb{a} )\cdot \vu{n} = 0\)  is given by 
+
+\begin{equation}
+    d = \abs{\vb{p} - \vb{a} }\sin \theta = \abs{\vb{p} - \vb{a} }\cdot \vu{n} .  
+\end{equation}
+
+Note that the sign of \(d\) indicate whether the point \(P\) is on the same or opposite side of the surface as the origin. 
+
+\subsection{Distances From a Line to a Line}
+
+Consider two lines \(\vb{r} = \vb{a} + \lambda \vb{a}' \text { and } \vb{r} ' = \vb{b} + \mu '\vb{b} '\). To find the minimum distance \(d\) between the two lines, it is easier to imagine two parallel planes, each consists of one of the lines.
+
+The common normal unit vector of the two planes is 
+
+\begin{equation}
+    \vu{n} = \frac{\vb{b} \cross \vb{a} }{\abs{\vb{b} \cross \vb{a} } }, 
+\end{equation}
+
+and the minimum distance \(d\) is 
+
+\begin{equation}
+    d = \abs{\vb{b} \cross \vb{a} } \sin \theta = \abs{(\vb{b} \cross \vb{a} )\cdot \frac{\vb{b} \cross \vb{a} }{\abs{\vb{b} \cross \vb{a} } }} .
+\end{equation}
+
+\subsection{Distances From a Line to a Plane}
+
+The minimum distance \(d\) from a line \(\vb{r} = \vb{a} + \lambda \vb{b} \) to a plane \((\vb{r}' - \vb{a} ')\cdot \vu{n} \) is always zero unless the line is parallel to the plane (\textit{i.e.,} \(\vb{b} \cdot \vu{n} = 0\)). In those cases, the minimum distance \(d\) is 
+
+\begin{equation}
+    d = \abs{(\vb{r} ' - \vb{a} ) \cdot \vu{n} }. 
+\end{equation}
+
+\subsection{Ratio Theorem}
+
+Let \(\vb{a} \text { and } \vb{b} \) be the position vectors of point \(A \text { and } B\) respectively. If point \(P\) with position vector \(\vb{p} \) divides the line segement \(AB\) in the ratio \(\lambda : \mu \), then \(\vb{p} \) is given by 
+
+\begin{equation}
+    \vb{p} = \frac{\mu \vb{a} + \lambda \vb{b} }{\mu + \lambda }. 
+\end{equation}
+
+\example{Position Vector of the Centroid of a Triangle.}
+{The vertices of triangle \(ABC\) have position vectors \(\vb{a} ,\vb{b} \text { and } \vb{c} \) (refer to \cref{centroid}). Find the position vector of the centroid \(G\) of the triangle.}
+{The position vectors of \(D \text { and } E\) are 
+
+\begin{equation}
+    \vb{d} = \frac{\vb{a} }{2} + \frac{\vb{b} }{2} ~\text { and }~ \vb{e} = \frac{\vb{a} }{2} + \frac{\vb{c} }{2}.    
+\end{equation}
+
+A general point on \(CD\) that divides the line in the ratio \(\lambda : 1- \lambda \) has the position vector 
+
+\begin{equation}
+    \vb{r} = (1-\lambda )\vb{c} + \lambda \vb{d} = (1-\lambda )\vb{c} + \frac{\lambda }{2} (\vb{a} +\vb{b} ). 
+\end{equation}
+
+Similarly, a general point on \(BE\) that divides the line in the ratio \(\mu :1-\mu \) can be expressed as 
+
+\begin{equation}
+    \vb{r} = (1-\mu )\vb{b} + \mu \vb{e} = (1-\mu )\vb{b} + \frac{\mu }{2}(\vb{a} + \vb{c} ). 
+\end{equation}
+
+Thus at \(G\), which is the intersection of \(CD \text { and } BE\), we require
+
+\begin{equation}
+    (1-\lambda )\vb{c} + \frac{\lambda }{2}(\vb{a} +\vb{b} ) = (1-\mu )\vb{b} + \frac{\mu }{2}(\vb{a} +\vb{c} ).
+\end{equation}
+
+Equating the coefficients, we have
+
+\begin{equation}
+    \lambda = \mu , \frac{\lambda }{2} = 1-\mu ~\text { and }~ 1-\lambda = \frac{\mu }{2} \implies \vb{g} = \frac{1}{3}(\vb{a} +\vb{b} +\vb{c} ). 
+\end{equation}
+
+
+
+
+
+
+
+} 
+
+\onefig{centroid}{scale=0.3} 
+
+\section{Reciprocal Vectors}
+
+The two sets of vectors \(\vb{a} ,\vb{b}, \vb{c} \) and \(\vb{a} ', \vb{b} ', \vb{c} '\) are called reciprocal sets if \(\vb{a} \cdot \vb{a} ' = \vb{b} \cdot \vb{b} ' = \vb{c} \cdot \vb{c} ' = 1\) while other possible combinations of dot product is zero. 
+
+They are related by 
+
+\begin{equation}
+    \vb{a} ' = \frac{\vb{b} \cross \vb{c} }{\vb{a} \cdot (\vb{b} \cross \vb{c} )} = \frac{\vb{b} \cross \vb{c} }{\det (\vb{a} , \vb{b} , \vb{c} )}, \vb{b} ' = \frac{c \cross \vb{a} }{\det (\vb{a} ,\vb{b} ,\vb{c} )} ~\text { and }~ \vb{c} '= \frac{\vb{a} \cross \vb{b} }{\det (\vb{a} ,\vb{b} ,\vb{c} )}.   
+\end{equation}
+
+If \(\vb{a} ,\vb{b} ,\vb{c} \) are mutually orthogonal then \(\vb{a} ' = \vb{a} , \vb{b} ' = \vb{b} \text { and } \vb{c} '=\vb{c} \).  
+
+The reciprocal vectors are useful, since the components of an arbitrary vector can be represented by a dot product, similar to how for an orthogonal basis, we have \(\vb{v} = \sum_{i=1}^{n} (\vb{v} \cdot \vb{e} _{i}  ) \vb{e} _{i}  \), but for non-orthogonal basis we replace \(\vb{e} _{i}\) by \( \vb{e} _{i}'  \), so \(\vb{v} = \sum_{i=1}^{n} v_{i}\vb{e} '_{i}  \). This is because
+
+\begin{equation}
+    \vb{v} \cdot \vb{e} '_{i} = \sum_{i=1}^{n} v_{i} \vb{e} _{i} \cdot \vb{e} '_{i} = v_{i}.       
+\end{equation}
+
+
+
+
+
+
 
 \chapter{Linear Maps and Matrices}
 
 \section{Maps and Sets}
 
 \begin{definition}[Definition of a Map]
-A map between two sets \(X \text { and } Y\) assigns to each \(x \in  X \) a \(y \in Y\) which is written as \(y=f(x)\) and referred to as the image of \(x\) under \(f\). In symbols, 
+A map between two sets \(X \text { and } Y\) assigns to each \(x \in  X \) a \(y \in Y\) which is written as \(y=f(x)\) and referred to as the image (or range) of \(x\) under \(f\). In symbols, 
 
 \begin{equation}
     f:X \rightarrow Y,~~~  x \mapsto f(x).
@@ -651,7 +965,7 @@ for all \(\vb{v} ,\vb{v} _{1}, \vb{v} _{2}\in V  \) and for all \(\alpha \in  F\
 \end{definition}
 
 \begin{definition}[Definition of Kernel]
-For a map \(f: V \rightarrow W\), the subset of \(V\) which consists of all vectors \(\vb{v} \in V\) mapped to the zero vector, is defined as the kernel of the map \(\ker (f)\). Mathematically,
+For a map \(f: V \rightarrow W\), the subset of \(V\) which consists of all vectors \(\vb{v} \in V\) mapped to the zero vector, is defined as the kernel (or null space) of the map \(\ker (f)\). Mathematically,
     
 \begin{equation}
     \ker (f) = \left\{ \vb{v} \in V \mid f(\vb{v} )=0 \right\} \subset V.
@@ -660,7 +974,7 @@ For a map \(f: V \rightarrow W\), the subset of \(V\) which consists of all vect
 \end{definition}
 
 \begin{lemma}[Properties of a Linear Map (1)] \label{linearmapprop1} 
-A linaer map \(f:V \rightarrow W\) between two vector spaces \(V \text { and }  W\) over \(F\) has the following properties:\footnote{Since the properties are rather intuitive and trivial, the rigorous proof for these properties is provided in \cref{linearmapprop1app}.} 
+A linaer map \(f:V \rightarrow W\) between two vector spaces \(V \text { and }  W\) over\(\mathbb{F}\) has the following properties:\footnote{Since the properties are rather intuitive and trivial, the rigorous proof for these properties is provided in \cref{linearmapprop1app}.} 
 
 \begin{enumerate}[label=(\(F\)\arabic*)]
     \item The zero vectors are mapped onto each other, so \(f(\boldsymbol{0} ) = 0\). Hence \(\boldsymbol{0} \in \ker (f) \).
@@ -704,9 +1018,52 @@ For a linaer map \(f:V \rightarrow W\) we have:\footnote{The rigorous proof is g
 
 \end{lemma}
 
-\section{Coordinates Maps \(f: F^{n} \rightarrow V\) }
+\example{Dimension of the Sum of Two Sub Vector Spaces.}
+{Let \(U\) and \(W\) be two sub vector spaces of \(V\). Show that the dimensions of the above vector spaces are related by
 
-To map a \(n\)-dimensional column vector \(\boldsymbol{\alpha } \in F^{n} \) with componenets \(\alpha _{i} \)  to a \(n\)-dimensional vector \(\vb{v} \in V\) over \(F\) with basis \(\vb{v}_1, \cdots, \vb{v}_n \), we can define the coordinate map \(\varphi : F^{n} \rightarrow V \) as      
+\begin{equation}
+    \dim (U+W) = \dim (U) + \dim (W) - \dim (U \cap W).
+\end{equation}~
+}
+{Let the dimensions of \(U \cap W, U \text { and } W\) be \(p, p+m \text { and } p+n\) respectively. Then \((\vb{v}_1, \cdots, \vb{v}_p), (\vb{v}_1, \cdots, \vb{v}_p, \vb{u}_1, \cdots, \vb{u}_m), (\vb{v}_1, \cdots, \vb{v}_p, \vb{w}_1, \cdots, \vb{w}_n)\) are the basis \(U \cap W, U \text { and } W\) respectively.
+
+To prove that \(\dim (U+W) = m+n+p\), we need to prove that \((\vb{v}_1, \cdots, \vb{v}_p, \vb{u}_1, \cdots, \vb{u}_m, \vb{n}_1, \cdots, \vb{n}_n)\) forms a basis for \(U+W\). Firstly, they clearly span the space \(U+W\), so we just need to prove the linear independency. Set the linear combination of them to be zero
+
+\begin{equation}
+    \alpha _{1}\vb{v} _{1} + \cdots + \alpha _{p}\vb{v} _{p} + \beta _{1}\vb{u} _{1} + \cdots + \beta _{m} \vb{u} _{m} + \gamma _{1} \vb{w} _{1} + \cdots + \gamma _{n} \vb{w} _{n} = 0,             
+\end{equation}
+
+then the vector 
+
+\begin{equation}
+    \vb{x} =  \alpha _{1}\vb{v} _{1} + \cdots + \alpha _{p}\vb{v} _{p} + \beta _{1}\vb{u} _{1} + \cdots + \beta _{m} \vb{u} _{m} = -(\gamma _{1} \vb{w} _{1} + \cdots + \gamma _{n} \vb{w} _{n}) = 0
+\end{equation}
+
+belongs to both \(U \text { and } W\), so \(\vb{x} \in U \cap W\), thus \(\vb{x} \) can also be written as
+
+\begin{equation}
+    \vb{x} = \delta _{1}\vb{v} _{1} + \cdots + \delta _{p}\vb{v} _{p}.    
+\end{equation}
+
+Thus, we get
+
+\begin{equation}
+    \vb{x} - \vb{x} = \delta _{1}\vb{v} _{1} + \cdots + \delta _{p}\vb{v} _{p} -(\gamma _{1} \vb{w} _{1} + \cdots + \gamma _{n} \vb{w} _{n}) = 0 \implies (\delta _{1}, \ldots , \delta _{p}, \gamma _{1}, \ldots ,\gamma _{n}    ) = 0,
+\end{equation}
+
+since the set of vectors \((\vb{v} _{1}, \ldots , \vb{v} _{p}, \vb{w} _{1}, \ldots , \vb{w} _{n}    )\) are linearly independent. From this we get also that 
+
+\begin{equation}
+    \alpha _{1}\vb{v} _{1} + \cdots + \alpha _{p}\vb{v} _{p} + \beta _{1}\vb{u} _{1} + \cdots + \beta _{m} \vb{u} _{m} = 0 \implies (\alpha _{1}, \ldots , \alpha _{p}, \beta _{1}, \ldots , \beta _{m}    ) = 0.
+\end{equation}
+
+Therefore the set of vectors \((\vb{v}_1, \cdots, \vb{v}_p, \vb{u}_1, \cdots, \vb{u}_m, \vb{w}_1, \cdots, \vb{w}_n)\) forms a basis for the vector space \(U+W\), and the dimension of \(U+W\) is the number of vectors in its basis, which is \(\dim (U+W) = m+n+p = \dim (U) + \dim (W) - \dim (U \cap W)\).
+} 
+
+
+\section{Coordinates Maps \(f: \mathbb{F}^{n} \rightarrow V\) }
+
+To map a \(n\)-dimensional column vector \(\boldsymbol{\alpha } \in \mathbb{F}^{n} \) (where the basis is not necessarily the standard unit vectors) with componenets \(\alpha _{i} \)  to a \(n\)-dimensional vector \(\vb{v} \in V\) over\(\mathbb{F}\) with basis \(\vb{v}_1, \cdots, \vb{v}_n \), we can define the coordinate map \(\varphi : \mathbb{F}^{n} \rightarrow V \) as      
 
 \begin{equation}
     \varphi (\boldsymbol{\alpha } ) = \sum_{i=1}^{n} \alpha _{i} \vb{v} _{i} . 
@@ -721,18 +1078,18 @@ Verifying this definition indeed satisfies the criterias for a linear map:
     \end{aligned}
 \end{equation}
 
-Since \(\vb{v}_{1}, \ldots, \vb{v}_n \) forms a basis it is clear that \(\Im (\varphi ) = V\) and, hence \(\varphi \) is surjective. On the other hand, since we have proved that a vector can be uniquely described by a basis in \cref{uniquelinear}, \(\varphi \) is injective. Thus, \(\varphi \) is bijective. From \cref{bijectiveinverse}, we know that \(\varphi \) has an inverse \(\varphi ^{-1} : V \rightarrow F^{n} \). The inverse map assigns to a vector \(\vb{v} = \sum_{i=1}^{n} \alpha _{i} \vb{v} _{i} \in V\) its coordinate vector \(\boldsymbol{\alpha } \in F^{n}  \)
+Since \(\vb{v}_{1}, \ldots, \vb{v}_n \) forms a basis it is clear that \(\Im (\varphi ) = V\) and, hence \(\varphi \) is surjective. On the other hand, since we have proved that a vector can be uniquely described by a basis in \cref{uniquelinear}, \(\varphi \) is injective. Thus, \(\varphi \) is bijective. From \cref{bijectiveinverse}, we know that \(\varphi \) has an inverse \(\varphi ^{-1} : V \rightarrow \mathbb{F}^{n} \). The inverse map assigns to a vector \(\vb{v} = \sum_{i=1}^{n} \alpha _{i} \vb{v} _{i} \in V\) its coordinate vector \(\boldsymbol{\alpha } \in \mathbb{F}^{n}  \)
 
 \begin{equation}
     \varphi ^{-1} (\vb{v} ) = \varphi ^{-1} \left( \sum_{i=1}^{n} \alpha _{i} \vb{v} _{i}  \right) = \boldsymbol{\alpha }. 
 \end{equation}
 
-A linear and bijective map between two vector spaces is also referred to as a (vector space) isomorphism and two vector spaces related by such a map are called isomorphic. What the above discussion shows is that every \(n\)-dimensional vector space \(V\) over \(F\) is isomorphic to \(F^{n} \) by means of a coordinate map \(\varphi \). 
+A linear and bijective map between two vector spaces is also referred to as a (vector space) isomorphism and two vector spaces related by such a map are called isomorphic. What the above discussion shows is that every \(n\)-dimensional vector space \(V\) over\(\mathbb{F}\) is isomorphic to \(\mathbb{F}^{n} \) by means of a coordinate map \(\varphi \). 
 
 \section{Matrices}
 
-\subsection{Linear Maps \(f: F^{n} \rightarrow F^{m}  \)}
-To map a \(n\)-dimensional column vector \(\vb{v} \in F^{n} \) onto another \(m\)-dimensional column vector \(\vb{w} \in F^{m} \), we can define a \(m \times  n\) matrix as 
+\subsection{Linear Maps \(f: \mathbb{F}^{n} \rightarrow \mathbb{F}^{m}  \)}
+To map a \(n\)-dimensional column vector \(\vb{v} \in \mathbb{F}^{n} \) onto another \(m\)-dimensional column vector \(\vb{w} \in \mathbb{F}^{m} \), we can define a \(m \times  n\) matrix as 
 
 \begin{equation}
     A = \begin{pmatrix}
@@ -743,6 +1100,8 @@ To map a \(n\)-dimensional column vector \(\vb{v} \in F^{n} \) onto another \(m\
 \end{equation}
 
 with entries \(a_{ij} \in F \). The column vectors consisting of the \(i^{\text{th }} \) row and the \(j^{\text{th }} \) column are denoted as \(\vb{A} _{i} \text { and } \vb{A} ^{j} \) respectively. 
+
+It is important to note that the entries of \(A\) depends on both the basis chosen for the doamin and the co-domain. The relations between different matrices for different basis choice representing the same linear map is discussed in \cref{basischange}.  
 
 Define the matrix multiplication of a \(m \times  n\) matrix on a \(n\)-dimensional vector as   
 
@@ -774,15 +1133,15 @@ Using this notation it is straightforward to verify if matrix multiplication def
     \end{aligned}
 \end{equation}
 
-In above, we have proved that every \(m \times n\) matrix multiplication represent a linear map action from \(F^{n}\) to \(F^{m} \). However, we have not shown the converse is true, \textit{i.e.,} whether every linear map action from \(\vb{F} ^{n} \) to \(\vb{F} ^{m} \) can be represented by a \(m \times  n\) matrix.
+In above, we have proved that every \(m \times n\) matrix multiplication represent a linear map action from \(\mathbb{F}^{n}\) to \(\mathbb{F}^{m} \). However, we have not shown the converse is true, \textit{i.e.,} whether every linear map action from \(\mathbb{F}^{n} \) to \(\mathbb{F}^{m} \) can be represented by a \(m \times  n\) matrix.
 
-To prove this, we start with the standard unit vectors \(\vb{e} _{j} \) of \(F ^{n} \) and \(\tilde{\vb{e} }_{i}  \) of \(F^{m} \). The images, \(f(\vb{e} _{j} ) \in F^{m} \), of the standard unit vectors of \(F^{n} \) can be written as 
+To prove this, we start with the standard unit vectors \(\vb{e} _{j} \) of \(F ^{n} \) and \(\tilde{\vb{e} }_{i}  \) of \(\mathbb{F}^{m} \). The images, \(f(\vb{e} _{j} ) \in \mathbb{F}^{m} \), of the standard unit vectors of \(\mathbb{F}^{n} \) can be written as 
 
 \begin{equation}
     f(\vb{e} _{j} ) = \sum_{i=1}^{m} a_{ij}\tilde{\vb{e} } _{i}  
 \end{equation}
 
-for some suitable set of coefficients \(a_{ij} \). Now consider an arbitrary vector \(\vb{v} \in F^{n} \) as a linear combination \(\vb{v} = \sum_{j=1}^{n} v_{j} \vb{e} _{j} \). The image of this vector under \(f\) is
+for some suitable set of coefficients \(a_{ij} \). Now consider an arbitrary vector \(\vb{v} \in \mathbb{F}^{n} \) as a linear combination \(\vb{v} = \sum_{j=1}^{n} v_{j} \vb{e} _{j} \). The image of this vector under \(f\) is
 
 \begin{equation} 
     f(\vb{v} ) = f \left( \sum_{j=1}^{n} v_{j} \vb{e} _{j}  \right) = \sum_{j=1}^{n} v_{j} f(\vb{e} _{j} ) = \sum_{j=1}^{n} v_{j} \sum_{i=1}^{m} a_{ij} \tilde{\vb{e} }_{i} = \sum_{i=1}^{m} \left( \sum_{j=1}^{n} a_{ij} v_{j}  \right) \tilde{\vb{e} } _{i} .\footnote{This changing of order of summation is similar to what has been done in \cref{rowcolumnrankapp}.}
@@ -791,13 +1150,13 @@ for some suitable set of coefficients \(a_{ij} \). Now consider an arbitrary vec
 Hence for the \(i^{\text{th }} \) component of this image we have
 
 \begin{equation}
-    (f(\vb{v} ))_{i} = \sum_{j=1}^{n} a_{ij} v_{j} = (A\vb{v} )_{i},  
+    f(\vb{v} )_{i} = \sum_{j=1}^{n} a_{ij} v_{j} = (A\vb{v} )_{i},  
 \end{equation}
 
 where we used \cref{matmul} to establish the second equality.
 
 \begin{lemma}\label{matrixlinearmap} 
-Every linear map \(f: F^{n} \rightarrow F^{m}  \) can be written in terms of a \(m \times  n\) matrix \(A\), such that \(f(\vb{v} ) = A\vb{v} \text{ for all } \vb{v} \in F^{n} \). If \(f(\vb{e} _{j} ) = \sum_{i=1}^{m} a_{ij} \tilde{\vb{e} } _{i} \) for the standard unit vectors \(\vb{e} _{i} \) of \(F^{n} \) and \(\tilde{\vb{e} } _{i} \) of \(F^{m} \), then \(a_{ij} \) are the entries of \(A\).         
+Every linear map \(f: \mathbb{F}^{n} \rightarrow \mathbb{F}^{m}  \) can be written in terms of a \(m \times  n\) matrix \(A\), such that \(f(\vb{v} ) = A\vb{v} \text{ for all } \vb{v} \in \mathbb{F}^{n} \). If \(f(\vb{e} _{j} ) = \sum_{i=1}^{m} a_{ij} \tilde{\vb{e} } _{i} \) for the standard unit vectors \(\vb{e} _{i} \) of \(\mathbb{F}^{n} \) and \(\tilde{\vb{e} } _{i} \) of \(\mathbb{F}^{m} \), then \(a_{ij} \) are the entries of \(A\).         
 \end{lemma}
 
 \example{Cross Product as Matrix.}
@@ -838,7 +1197,7 @@ and we have \(f(\vb{v} ) = \vb{n} \times \vb{v} = A\vb{v} \) for all vectors \(\
 Everything is much more elegant in index notation where
 
 \begin{equation}
-    A_{ij} = \left[ f(\vb{e} _{j} ) \right]_{i} = \left[ \vb{n} \times \vb{e} _{j}  \right] _{i} = \epsilon _{ikl}n_{k}\left[ \vb{e} _{j}  \right]_{l} = \epsilon _{ikl}n_{k}\delta _{jl}= \epsilon _{ikj}n_{k}       
+    A_{ij} = f(\vb{e} _{j} )_{i} = \left[ \vb{n} \times \vb{e} _{j}  \right] _{i} = \epsilon _{ikl}n_{k}\left[ \vb{e} _{j}  \right]_{l} = \epsilon _{ikl}n_{k}\delta _{jl}= \epsilon _{ikj}n_{k}       
 \end{equation}
 
 which is in agreement with the explicit form of matrix \(A\).} 
@@ -847,7 +1206,7 @@ which is in agreement with the explicit form of matrix \(A\).}
 
 \subsection{Basic Properties of Matrices}
 
-A very specific matrix is the identity (or unit) matrix \(\mathbb{I}_{n}: F^{n} \rightarrow  F^{n} \) given by 
+A very specific matrix is the identity (or unit) matrix \(\mathbb{I}_{n}: \mathbb{F}^{n} \rightarrow  \mathbb{F}^{n} \) given by 
 
 \begin{equation}
     \mathbb{I}_{n} = \begin{pmatrix}
@@ -869,17 +1228,36 @@ More generally, a diagonal matrix is a matrix \(D\) with non-zero entries only a
     \end{pmatrix} \equiv \text{diag}(d_{1} ,\ldots ,d_{n} ). 
 \end{equation}
 
+A useful property of diagonal matrices is that the product is commutative, \textit{i.e.,} \(AB = BA\). 
+
 A \(m\times n\) matrix \(A\) is called square or quadratic if the number of rows is equals to the number of column, so \(m = n\). 
 
-The complex conjugate \(A^{*} : F^{m} \rightarrow F^{n}   \) of a matrix \(A: F^{m}\rightarrow F^{n}  \) is simply the matrix whose entries are the complex conjugates of the entries in A, so in component form, \(A^{*}_{ij} = (A_{ij} )^{*}   \).
+The complex conjugate \(A^{*} : \mathbb{F}^{m} \rightarrow \mathbb{F}^{n}   \) of a matrix \(A: \mathbb{F}^{m}\rightarrow \mathbb{F}^{n}  \) is simply the matrix whose entries are the complex conjugates of the entries in A, so in component form, \(A^{*}_{ij} = (A_{ij} )^{*}\).
 
-The transpose of an \(n\times m\) matrix \(A: F^{m} \rightarrow F^{n}   \) is a \(m\times n\) matrix \(A^{T}: F^{n} \rightarrow F^{m}   \) obtained by exchanging the rows and columns of \(A\). In component form, this means \((A^{T} )_{ij} = A_{ji}  \). 
+The transpose (hermitian conjugate) of an \(m \times n\) matrix \(A: \mathbb{F}^{n} \rightarrow \mathbb{F}^{m}   \) is a \(n \times m\) matrix \(A^{T} (A^{\dagger} ): \mathbb{F}^{m} \rightarrow \mathbb{F}^{n}   \) obtained by exchanging the rows and columns of \(A\) (and taking the complex conjugate of every entries). In component form, this means \((A^{T} )_{ij}  = A_{ji} ((A^{\dagger} )_{ij} = A^*_{ji} )\). 
 
-A square matrix \(A\) is said to be symmetric if \(A = A^{T}, \text { or } A_{ij} = A_{ji}   \) for all entries, and is called anti-symmetric if \(A = -A^{T}, \text { or } A_{ij} = -A_{ji}   \) for all entries (note that all diagonal entries \(A_{ii} \) of an anti-symmetric matrix vanish).        
+A square matrix \(A\) is said to be symmetric (hermitian) if \(A = A^{T} (A = A^{\dagger} ), \text { or } A_{ij} = A_{ji}  (A_{ij} = A^*_{ji}) \) for all entries, and is called anti-symmetric (or skew-symmetric) if \(A = -A^{T} (A = -A^{\dagger} ), \text { or } A_{ij} = -A_{ji} (A_{ij} = - A^*_{ji}  )  \) for all entries (note that all diagonal entries \(A_{ii} \) of an anti-symmetric (hermitian) matrix vanish). Note that any matrix \(A = \frac{1}{2}(A + A^T) + \frac{1}{2}(A - A^T) (A = \frac{1}{2}(A + A^{\dagger} ) + \frac{1}{2}(A - A^{\dagger} )) \) can be written as a sum of a symmetric (hermitian) and an anti-symmetric (hermitian) matrix. 
 
-A combination of the previous two operations is the hermitian conjugate of a \(n\times m\) matrix \(A: F^{m} \rightarrow F^{n} \) which is defined as a \(m\times n\) matrix \(A^{\dagger} : F^{n} \rightarrow F^{m}  \) obtained by taking the complex conjugate of the transpose of \(A\), \textit{i.e.,} \(A^{\dagger} \equiv (A^{T} )^{*} \). A quadratic matrix \(\) is said to be hermitian if the matrix is invariant under hermitian conjugation, \textit{i.e.,} if \(A = A^{\dagger} \), and anti-hermitian if \(A = -A^{\dagger} \). 
+Trivially, \((A+B)^{\dagger} = A^{\dagger} + B^{\dagger} \text { and } (\alpha A)^{\dagger} = \alpha ^{*} A^{\dagger}\). 
 
-Trivially, \((A+B)^{\dagger} = A^{\dagger} + B^{\dagger} \text { and } (\alpha A)^{\dagger} = \alpha ^{*} A^{\dagger}\).   
+Another important class of matrices is normal matrices, which satsifies \(AA^T = A^TA (AA^{\dagger} = A^{\dagger} A)\). Examples of normal matrices include symmetric (hermitian) and orthogonal (unitary) matrices (the latter of which will be introduced in \cref{unitary}). Note that if \(A\) is normal then so too is its inverse \(A^{-1} \), since \(A^{-1} (A^{-1} )^{\dagger} = A^{-1} (A^{\dagger} )^{-1} = (A^{\dagger} A)^{-1} = (A A^{\dagger} )^{-1} = (A^{\dagger} )^{-1} A^{-1} = {A^{-1} }^{\dagger} A^{-1}\).  
+
+\example{Deterimants of Anti-Symmetric Matrices.}
+{If \(A\) is a \(n \times  n\) anti-symmetric matrix, show that \(\abs{A} = 0\) if \(n\) is odd.}
+{For an anti-symmetric matrix, we have
+
+\begin{equation}
+    A^T = - A \implies \abs{A} = \abs{A^T} = \abs{-A} = (-1)^{n}\abs{A}.    
+\end{equation}
+
+Thus if \(n\) is odd then \(\abs{A} = -\abs{A} \implies \abs{A} =0  \).
+
+} 
+
+\example{Commutativity of Transpose and Powers.}
+{Prove that \((A^T)^{n} = (A^{n} )^T\).}
+{\((A^{n} )^{T} = (A \cdots A)^{T} = (A^{T} \cdots A^{T}  ) = (A^{T} )^{n}\). } 
+
 
 \subsection{Rank of Matrices}
 
@@ -897,7 +1275,7 @@ We have earlier define the rank of a linear map as the dimension of its image, s
 \begin{equation}
     \begin{aligned}
         \rank (A) &= \dim \Im(A) = \dim \text{Span} (\vb{A} ^{1}, \ldots ,\vb{A} ^{m}  ) \\
-        &= \text{maximal number of linear independent column vectors of \(A\) }.
+        &= \text{maximal number of linear independent column vectors of \(A\)}.
     \end{aligned}
 \end{equation}
 
@@ -926,11 +1304,11 @@ Find the kernel and the image of this matrix.}
 \end{pmatrix}^{T} \) this leads to \(x=y=-z\). The image of \(A\) is, in general, spanned by the column vectors, but since \(\vb{A} ^3 = \vb{A} ^{1} + \vb{A} ^2  \), it is already spanned by the first two columns. In conclusion, we have
 
 \begin{equation}
-    \ker (A) = \text{Span}\left( \begin{pmatrix}
+    \ker (A) = \text{Span} \begin{pmatrix}
          1 \\
          1 \\
          -1 \\
-    \end{pmatrix} \right) \text { and } \Im (A) = \text{Span} \left( \begin{pmatrix}
+    \end{pmatrix} \text { and } \Im (A) = \text{Span} \left( \begin{pmatrix}
          -1 \\
          2 \\
          3 \\
@@ -943,9 +1321,9 @@ Find the kernel and the image of this matrix.}
 
 \subsection{Multiplication of Matrices}
 
-We have proved earlier in (F8) of \cref{linearmapprop1} that the composition of linear maps is again linear. Since all linear maps between column vectors are matrices. Hence, the composition of two matrices must again be a matrix. 
+We have proved earlier in \((F8)\)  of \cref{linearmapprop1} that the composition of linear maps is again linear. Since all linear maps between column vectors are matrices. Hence, the composition of two matrices must again be a matrix. 
 
-To work this out more explicitly, we start with an \(m \times n\) matrix \(A\) and an \(r \cross m\) matrix \(B\) which generate linear maps according to chain \(F^{n} \stackrel{A}{\rightarrow } F^{m} \stackrel{B}{\rightarrow } F^{r}   \). We would like to determine the matrix \(C\) which describes the composite map \(B \circ A: F^{n} \rightarrow F^{r}  \). By straightforward computation we find
+To work this out more explicitly, we start with an \(m \times n\) matrix \(A\) and an \(r \cross m\) matrix \(B\) which generate linear maps according to chain \(\mathbb{F}^{n} \stackrel{A}{\rightarrow } \mathbb{F}^{m} \stackrel{B}{\rightarrow } \mathbb{F}^{r}   \). We would like to determine the matrix \(C\) which describes the composite map \(B \circ A: \mathbb{F}^{n} \rightarrow \mathbb{F}^{r}  \). By straightforward computation we find
 
 \begin{equation}
     \begin{aligned}
@@ -984,10 +1362,10 @@ Using matrix terminology, the dot product of two column vectors with the same di
 
 \subsection{Inverse of Matrices}
 
-For a matrix \(A\) representing a linear map \(f:F^{n} \rightarrow F^{m} \) to have an inverse, it must be bijective as proved in \cref{bijectiveinverse}. Thus from (F5) and (G1) we have \(\dim \ker (f) = \boldsymbol{0} \text { and } \dim (V) = \dim (W)\), which implies \(\rank (f) = n = m\) using \cref{dimensionformulaeq}.
+For a matrix \(A\) representing a linear map \(f:\mathbb{F}^{n} \rightarrow \mathbb{F}^{m} \) to have an inverse, it must be bijective as proved in \cref{bijectiveinverse}. Thus from \((F5) \text { and } (G1)\) we have \(\dim \ker (f) = \boldsymbol{0} \text { and } \dim (V) = \dim (W)\), which implies \(\rank (f) = n = m\) using \cref{dimensionformulaeq}.
 
 \begin{lemma}[Properties of Matrix Inverse] \label{matrixinverseprop} 
-A quadratic \(n \times n\) matrix \(A:F^{n}\rightarrow F^{n}  \) is invertible if and only if its rank is maximal, \textit{i.e.,} \(\rank (A) = n\). If \(A \text { and } B\) are two invertible \(n\times n\) matrices we have:\footnote{The proof is given in \cref{matrixinversepropapp} as always.} 
+A quadratic \(n \times n\) matrix \(A:\mathbb{F}^{n}\rightarrow \mathbb{F}^{n}  \) is invertible if and only if its rank is maximal, \textit{i.e.,} \(\rank (A) = n\). If \(A \text { and } B\) are two invertible \(n\times n\) matrices we have:\footnote{The proof is given in \cref{matrixinversepropapp} as always.} 
 
 \begin{enumerate}[label=(\(H\)\arabic*)]
     \item The inverse matrix, denoted \(A^{-1} \), is the unique matrix satisfying \(AA^{-1} = A^{-1} A = \mathbb{I}_{n} \).
@@ -998,6 +1376,253 @@ A quadratic \(n \times n\) matrix \(A:F^{n}\rightarrow F^{n}  \) is invertible i
 
 \end{lemma}
 
+\section{Linear Maps \(f: V \rightarrow W\)} \label{relations} 
+
+Start with a linear map \(f:V \rightarrow W\) over\(\mathbb{F}\) with dimensions \(n\) and \(m\), respectively. 
+
+We introduce a basis \(\vb{v}_{1}, \ldots, \vb{v}_n \) of \(V\) and a basis \(\vb{w}_{1}, \ldots, \vb{w}_m \) of \(W\), then we have \(f(\vb{v} _{j} ) = \sum_{i=1}^{m} a_{ij} \vb{w} _{i} \) since the images of the basis vectors in \(V\) are in \(W\). 
+
+An arbitrary vector \(\vb{v} \in  V\) and \(\vb{w} = f(\vb{v} ) \in  W\) can be written as \(\vb{v} = \sum_{i=1}^{n} \alpha _{i}\vb{v} _{i}  \) with coordinate vectors \(\boldsymbol{\alpha } = \begin{pmatrix}
+    \alpha _{1}  & \ldots  & \alpha _{n}   \\
+\end{pmatrix}^{T} \text { and } \vb{w} = \sum_{j=1}^{m} \beta _{j} \vb{w} _{j}   \) with coordinate vectors \(\boldsymbol{\beta } = \begin{pmatrix}
+    \beta _{1}  & \ldots  & \beta _{m}   \\
+\end{pmatrix}^{T} \), respectively. 
+
+We can introduce coordinate maps \(\varphi : \mathbb{F}^{n} \rightarrow V \) and \(\psi  :\mathbb{F}^{m} \rightarrow W\) relative to each basis which act as \(\varphi (\boldsymbol{\alpha } ) = \sum_{i=1}^{n} \alpha _{i} \vb{v} _{i} \text {~~ and ~~} \psi (\boldsymbol{\beta } ) = \sum_{j=1}^{m} \beta _{j} \vb{w} _{j}\).
+
+
+The situation so for can be summarized by the diagram
+
+\begin{equation}
+    \begin{tikzcd}
+        V \arrow[r, "f"] & W \\
+        F^n \arrow[u, "\varphi"] \arrow[r, "A{=}?"] & F^m \arrow[u, "\psi"]
+    \end{tikzcd}
+\end{equation}
+
+Abstractly, the matrix \(A\) is given by  
+
+\begin{equation}
+    A = \psi ^{-1} \circ f \circ \varphi.
+\end{equation}
+
+From \cref{matrixlinearmap} we know that we can work out the components of a matrix by letting it act on the standard unit vectors in \(\mathbb{F}^{n} \), so
+
+\begin{equation}  
+    \begin{aligned}
+    A\vb{e} _{j} &= \psi ^{-1} \circ f \circ \varphi (\vb{e} _{j} ) =\psi ^{-1} \circ f(\vb{v} _{j} ) = \psi ^{-1} \left( \sum_{i=1}^{m} a_{ij}\vb{w} _{i}   \right) \\ &= \sum_{i=1}^{m} a_{ij} \psi ^{-1} (\vb{w} _{i} ) = \sum_{i=1}^{m} a_{ij}\tilde{\vb{e} }_{i}.     
+    \end{aligned}
+\end{equation}
+
+where \(\tilde{\vb{e} }_{i}  \) are the standard unit vectors in \(\mathbb{F}^{m} \). Comparing with \cref{matrixlinearmap} it follows that \(a_{ij} \) are the entries of the desired matrix \(A\).
+
+Thus we extend \cref{matrixlinearmap} to general basis vectors \(\vb{v}_{i}  \in  V\) (not just \(\vb{e} _{i} \in \mathbb{F}^{n}\)).   
+
+\begin{lemma}[Essence of Linear Algebra] \label{matrixlinearmap2} 
+Let \(f:V \rightarrow W\) be a linear map, \(\vb{v}_{1}, \ldots, \vb{v}_n \) a basis of \(V\) and \(\vb{w}_{1}, \ldots, \vb{w}_n \) a basis of \(W\). The entries \(a_{ij} \) of the \(m \times n\) matrix \(A\) which describes this linear map relative to this choice of basis can be read off from the images of the basis vectors as 
+
+\begin{equation}
+    f(\vb{v} _{j} ) = \sum_{i=1}^{m} a_{ij}\vb{w} _{i} . 
+\end{equation}
+
+We have \(\rank (A)\) = rank(f) and, in particular, \(A\) is invertible if and only if \(f\) is.\footnote{The proof of this claim is provided in \cref{matrixlinearmap2app}.} 
+
+\end{lemma}
+
+\section{Change of Basis} \label{basischange} 
+
+\subsection{Linear Maps \(f:V \rightarrow V\)}
+
+We consider a linear map \(f:V \rightarrow V\) from a vector space to itself and we would like to change the basis in both vector spaces. The two sets of basis vectors, coordinate maps, coordinate vectors and the representing matrices are then dentoed by
+
+\begin{equation}
+\begin{array}{cccc}
+\text{basis of } V & \text{coordinate map} & \text{coordinate vector} & \text{representing matrix} \\[10pt]
+\bm{v}_1, \ldots, \bm{v}_n & \varphi(\alpha) = \sum_{i=1}^n \alpha_i \bm{v}_i & \bm{\alpha} = (\alpha_1, \ldots, \alpha_n)^T & A = \varphi^{-1} \circ f \circ \varphi \\[15pt]
+\bm{v}_1', \ldots, \bm{v}_n' & \varphi'(\alpha') = \sum_{i=1}^n \alpha_i' \bm{v}_i' & \bm{\alpha}' = (\alpha_1', \ldots, \alpha_n')^T & A' = \varphi'^{-1} \circ f \circ \varphi' \\[10pt]
+\end{array}
+\end{equation}
+
+We would like to then find a relationship between \(A\) and \(A'\), \textit{i.e.,} between the representing matrices for \(f\) relative to the unprimed and the primed basis, so
+
+\begin{equation} \label{changeofbasis} 
+    \begin{aligned}
+        A' &= \varphi'^{-1} \circ f \circ \varphi' = \varphi'^{-1} \circ \varphi \circ \varphi^{-1} \circ f \circ \varphi \circ \varphi'^{-1} \circ \varphi' \\
+           &= \underbrace{\varphi'^{-1} \circ \varphi}_{P} \circ \underbrace{\varphi^{-1} \circ f \circ \varphi}_{A} \circ \underbrace{\varphi^{-1} \circ \varphi'}_{P^{-1}} = P A P^{-1}.
+    \end{aligned}
+\end{equation}
+
+When acting the above equation on a primed coordinate vector \(\boldsymbol{\alpha '} \), the first thing we obtain on the RHS is \(P^{-1} \boldsymbol{\alpha '} \), which is the corresponding unprimed coordinate vector on which the matrix \(A\) on the RHS can sesibly act, converting it into another unprimed coordinate vector, representing the action of the linear map. The final action of \(P\) converts this back into a primed coordinate vector. Altogether, this is the action of the matrix \(A'\) on \(\boldsymbol{\alpha '} \). 
+
+The interpretation of \(P = \varphi '^{-1} \circ \varphi \) can be seen from 
+
+\begin{equation}
+    \boldsymbol{\alpha '} = \varphi '^{-1} (\vb{v} ) = \varphi '^{-1} \circ \varphi (\boldsymbol{\alpha } ) = P \boldsymbol{\alpha }.  
+\end{equation}
+
+Hence, \(P \) converts unprimed coordinate vectors \(\boldsymbol{\alpha } \) into the corresponding primed coordinate vector \(\boldsymbol{\alpha '} \). In other words, the columns of \(P^{-1} \) are the new basis expressed in terms of the old basis.
+
+Another convention that we may use in later texts is to use \(A' = P^{-1} AP\), but then \(\boldsymbol{\alpha } ' = P^{-1} \boldsymbol{\alpha } \).  
+
+\example{Change of Basis of Linear Map \(f:\mathbb{R}^2 \to \mathbb{R}^2\).}
+{Consider the linear map \(f: \mathbb{R}^2 \rightarrow \mathbb{R}^2\) represented by the matrix    \(A = \begin{pmatrix}
+        1 &  0 \\
+        0 &  -2 \\
+    \end{pmatrix}\). By default, the matrix is described relative to the standard unit vectors \(\vb{e} _{1} = \begin{pmatrix}
+     1 \\
+     0 \\
+\end{pmatrix} \text { and } \vb{e} _{2} = \begin{pmatrix}
+     0 \\
+     1 \\
+\end{pmatrix}  \). Now determine the matrix \(A'\) which describes the same linear map relative to the basis \(\vb{v} _{1} = \begin{pmatrix}
+     1 \\
+     2 \\
+\end{pmatrix} \text { and }  \vb{v} _{2} = \begin{pmatrix}
+     -1 \\
+     1 \\
+\end{pmatrix}    \) in both domain and co-domain.}
+{The images of the basis vectors under \(A\) are
+
+\begin{equation}
+    A\vb{v} _{1} = \begin{pmatrix}
+         1 \\
+         -1 \\
+    \end{pmatrix} = -1\vb{v} _{1}  - 2 \vb{v} _{2} ~\text { and }~  A\vb{v} _{2} = \begin{pmatrix}
+         -1 \\
+         -2 \\
+    \end{pmatrix} = -1\vb{v} _{1} +0\vb{v} _{2} . 
+\end{equation}
+
+Using the \cref{matrixlinearmap2}, we arrange the coefficients from \(A\vb{v} _{1} \) into the first column amd the coefficients from \(A\vb{v} _{2} \) into the second column we get the matrix  
+
+\begin{equation}
+    A' = \begin{pmatrix}
+        -1 &  -1 \\
+        -2 &  0 \\
+    \end{pmatrix},
+\end{equation}
+
+which is the matrix representing the linear map \(f\) relative to the basis \(\vb{v} _{1} \text { and } \vb{v} _{2} \).   
+
+Alternatively, we can figure out the change of basis matrix \(P\) from the relation between the coordinates vector
+
+\begin{equation}
+    \alpha _{1}\vb{e} _{1}+\alpha _{2}\vb{e} _{2} = \begin{pmatrix}
+         \alpha _{1}  \\
+         \alpha _{2}  \\
+    \end{pmatrix}  =  \alpha _{1}' \vb{v} _{1}+ \alpha _{2}'\vb{v} _{2} = \begin{pmatrix}
+         \alpha _{1}' - \alpha _{2}'   \\
+         2\alpha _{1}' + \alpha _{2}'   \\
+    \end{pmatrix} .
+\end{equation}
+
+So we have
+
+\begin{equation}
+    P^{-1} = \begin{pmatrix}
+        1 &  -1 \\
+        2 &  1 \\
+    \end{pmatrix} \implies A' = PAP^{-1} = \begin{pmatrix}
+        -1 &  -1 \\
+        -2 &  0 \\
+    \end{pmatrix}.
+\end{equation}
+} 
+
+\example{Change of Basis of Linear Map \(f:\mathbb{R}^3 \to \mathbb{R}^2\).}
+{Consider the linear map \(f:\mathbb{R}^3 \to \mathbb{R}^2\) represented by the matrix \(A = \begin{pmatrix}
+    1 & 0 &  0 \\
+    0 & 1 &  0 \\
+\end{pmatrix}\) which project a 3-dimensional vector into the \(xy\)-plane. By default, the matrix is described relative to the standard unit vectors \(\vb{e} _{1} = \begin{pmatrix}
+     1 \\
+     0 \\
+     0 \\
+\end{pmatrix}, \vb{e} _{2} = \begin{pmatrix}
+     0 \\
+     1 \\
+     0 \\
+\end{pmatrix} \text { and } \vb{e} _{3} = \begin{pmatrix}
+     0 \\
+     0 \\
+     1 \\
+\end{pmatrix}\). Now determine the matrix \(A'\) which describes the same linear mape relative to the basis \(\vb{e} _{1}\text { and } \vb{e} _{2}  \) in the domain and \(\vb{v} _{1} = \begin{pmatrix}
+     1 \\
+     1 \\
+\end{pmatrix} \text { and } \vb{v} _{2} = \begin{pmatrix}
+     -1 \\
+     1 \\
+\end{pmatrix} \) in the co-domain.    }
+{The first method is to use \cref{matrixlinearmap2}, and compute the images of the basis vectors in the domain \(\vb{e} _{1} \text { and } \vb{e} _{2} \) in terms of the basis vectors in the co-domain \(\vb{v} _{1} \text { and } \vb{v} _{2} \)
+
+\begin{equation}
+    A \vb{e} _{1} = \begin{pmatrix}
+         1 \\
+         0 \\
+    \end{pmatrix} = \frac{1}{2}(\vb{v} _{1} - \vb{v} _{2}  ),  A\vb{e} _{2} = \begin{pmatrix}
+         0 \\
+         1 \\
+    \end{pmatrix} = \frac{1}{2} (\vb{v} _{1}+ \vb{v} _{2}  ) \text { and } A\vb{e} _{3} = \begin{pmatrix}
+         0 \\
+         0 \\
+    \end{pmatrix}.
+\end{equation}
+
+Arranging the coefficients into columns, we have the transformed matrix 
+
+\begin{equation}
+    A' = \frac{1}{2} \begin{pmatrix}
+        1 &  1 & 0 \\
+        -1 &  1 & 0 \\
+    \end{pmatrix}.
+\end{equation}
+} 
+
+
+\section{Systems of Linear Equations}
+
+\subsection{General Structures of Solutions}
+
+Consider a linear map \(f:V \to W\). We would like to find all solutions \(\vb{x} \in V\) of the inhomogeneous equation \(f(\vb{x} ) = \vb{b} \), where \(\vb{b} \in W\) is a fixed vector. In other words, which vectors \(\vb{x}  \in V\) get mapped to \(\vb{b} \in W\). We need to find first the solution to the associated homogenous equation \(f(\vb{x} ) = \boldsymbol{0} \), where the general solution is \(\ker (f)\).       
+
+\begin{lemma}
+If \(\vb{x} _{0} \in V\) solves the inhomogenous equation, \textit{i.e.,} \(f(\vb{x} _{0} ) = \vb{b}\), then \(\vb{x} _{0} + \ker (f) \) is the general solution of the inhomogenous equation.   
+\end{lemma}
+
+\begin{proof}
+If \(\vb{x} \) is a solution to \(f(\vb{x} ) = \vb{b} \) then \(f(\vb{x} - \vb{x} _{0} ) = f(\vb{x} ) - f(\vb{x} _{0} ) = \vb{b} -\vb{b} =\boldsymbol{0} \), so \(\vb{x} - \vb{x} _{0} \in \ker (f) \).     
+\end{proof}
+
+The geometry of the solutions is schematically as indicated in \cref{generalstructure}.
+
+\onefig{generalstructure}{scale=0.3} 
+
+Suppose we want to solve \(m\) linear equations with \(n\) variables, which can be rewritten in matrix form as \(A\vb{x} = \vb{b} \), where \(A\) is a \(m \times n\) matrix and \(\vb{x} \text { and } \vb{b} \) are \(n\)-dimensional and \(m\)-dimensional column vectors respectively. The solutions can be no solution, an unique solution, or infinitely many solutions. The two latter case can be viewed as one category (there exists a solution no or some free parameters).
+
+To distinguish the cases of the general structure of the solution, it is extremely helpful to visualize that the action of \(A\) as transformating all vectors from one place to another, and the columns of \(A\) are where the new basis would be (in terms of the old basis). The rank of the matrix is defined as the dimension of the image of \(A\), which is the dimension of the vector space spanned by the column vectors of \(A\). 
+
+For a general \(m \times n\) matrix \(A:\mathbb{F}^{n}\to \mathbb{F}^{m}  \) where \(m \neq n\), since the row rank is equals to the column rank, the maximum rank is \(\max (\rank (A)) = \min (m,n)\). 
+
+If \(m > n\), then \(\max (\rank (A)) = n < m\); if \(m \le n\), then \(\max (\rank (A)) = m \le n\). Depending on whether \(\rank (A) = m \text { or } \rank (A) \le m\), the solution structure behave differently:  
+
+\begin{enumerate}
+    \item \(\rank (A) = m\): \(\vb{b} \in \mathbb{F}^{m} = \text{Im} (A)\), thus we have a solution \(\vb{x} _{0} \) for any choice of \(\vb{b} \) and the general solution is given by \(\vb{x} _{0} + \ker (A) \)\footnote{It is important to note that \(\ker (A)\) is also a solution to the equation, but in most cases it is ignored.} and the number of free parameters in this solution equals \(\dim (\ker (A)) = n - \rank (A) = n-m\).   
+    \begin{enumerate}
+        \item \(\rank (A) = n\): There is no free parameter and we have an unique solution.
+        \item \(\rank (A) < n\): There is some free parameters and we have infinite number of solutions.  
+    \end{enumerate}  
+    \item \(\rank (A) < m\): The columns of \(A\) does not span through the whole \(m\)-dimensional vector space that it is allowed to (not greater than \(m\) since the image of a \(m \times n\) matrix is \(\mathbb{F}^{m} \)), so depending on \(\vb{b} \) we have \begin{enumerate}
+        \item \(\vb{b} \in  \text{Im}(A) \): The equations are consistent and we have a solution with \(\dim (\ker (A)) = n - \rank (A)\) free parameters. Depending on whether \(\rank (A) = n \text { or } \rank (A) < n\), we have: 
+        \begin{enumerate}
+            \item \(\rank (A) = n\): There is no free parameter and we have an unique solution.
+            \item \(\rank (A) < n\): There is some free parameters and we have infinite number of solutions.  
+        \end{enumerate}
+        \item \(\vb{b} \notin \text{Im}(A) \): The equations are inconsistent and there is no solution.  
+    \end{enumerate}  
+\end{enumerate}
+
+For example, for a \(4 \times 6\) matrix \(A\) with \(\rank (A) = 3\), there can be a solution only when \(\vb{b} \in  \text{Im}(A) \), \textit{i.e.,} \(\rank (A' = (A \mid \vb{b} )) = \rank (A)\), so we expect if the equations are consistent, there will be a line \(0 = 0\) at the last row of the augmented matrix, and there will be 3 free paramters.     
+
+The solution can be found either by calculating the inverse \(A^{-1} \), Gaussian elimination (also known as row reduction) or Cramer's rule.
 
 \subsection{Gaussian Elimination}
 
@@ -1064,246 +1689,16 @@ Therefore in the second step we can make all entries above the diagonal zero. In
 This process also means that we can find a set of matrices \(P_{1} ,\ldots ,P_{k}\) generating appropriate elementary row operations such that 
 
 \begin{equation}
-    \mathbb{I}_{n} = P_{k} \ldots P_{1}A \implies A^{-1} = P_{1} \ldots P_{k} \mathbb{I}_{n}.    
+    \mathbb{I}_{n} = P_{k} \ldots P_{1}A \implies A^{-1} = P_{k} \ldots P_{1} \mathbb{I}_{n}.    
 \end{equation}
 
 These equations imply an explicit (though tedious) algorithm to compute the inverse of a square matrix. We first convert \(A\) into the identity matrix \(\mathbb{I}_{n} \) using elementary row operations as described above, and then simply carry out the same operations by multiplying the corresponding matrix in parallel. 
 
-\section{Linear Maps \(f: V \rightarrow W\)}
+We first write the system of linear equation \(A\vb{x} = \vb{b} \) as a single augmented matrix \(A' = (A \mid \vb{b} )\). Since elementary row operations do not change the solutions to the system, we can first simply the augmented matrix by row reducing it into upper echelon form.
 
-Start with a linear map \(f:V \rightarrow W\) over \(F\) with dimensions \(n\) and \(m\), respectively. 
+For there to be a solution, we require that \(\vb{b} \) can be written as a linear combination of the columns of \(A\), \textit{i.e.,} \(\vb{b} \in  \text{Im}(A) \implies \rank (A) = \rank (A')\). This is equivalent to saying that we would not have any rows giving inconsistent equations, such as \(0z=3\).
 
-We introduce a basis \(\vb{v}_{1}, \ldots, \vb{v}_n \) of \(V\) and a basis \(\vb{w}_{1}, \ldots, \vb{w}_n \) of \(W\), then we have \(f(\vb{v} _{j} ) = \sum_{i=1}^{m} a_{ij} \vb{w} _{i} \) since the images of the basis vectors in \(V\) are in \(W\). 
-
-An arbitrary vector \(\vb{v} \in  V\) and \(\vb{w} = f(\vb{v} ) \in  W\) can be written as \(\vb{v} = \sum_{i=1}^{n} \alpha _{i}\vb{v} _{i}  \) with coordinate vectors \(\boldsymbol{\alpha } = \begin{pmatrix}
-    \alpha _{1}  & \ldots  & \alpha _{n}   \\
-\end{pmatrix}^{T} \text { and } \vb{w} = \sum_{j=1}^{m} \beta _{j} \vb{w} _{j}   \) with coordinate vectors \(\boldsymbol{\beta } = \begin{pmatrix}
-    \beta _{1}  & \ldots  & \beta _{m}   \\
-\end{pmatrix}^{T} \), respectively. 
-
-We can introduce coordinate maps \(\varphi : F^{n} \rightarrow V \) and \(\psi  :F^{m} \rightarrow W\) relative to each basis which act as \(\varphi (\boldsymbol{\alpha } ) = \sum_{i=1}^{n} \alpha _{i} \vb{v} _{i} \text {~~ and ~~} \psi (\boldsymbol{\beta } ) = \sum_{j=1}^{m} \beta _{j} \vb{w} _{j}\).
-
-
-The situation so for can be summarized by the diagram
-
-\begin{equation}
-    \begin{tikzcd}
-        V \arrow[r, "f"] & W \\
-        F^n \arrow[u, "\varphi"] \arrow[r, "A{=}?"] & F^m \arrow[u, "\psi"]
-    \end{tikzcd}
-\end{equation}
-
-Abstractly, the matrix \(A\) is given by  
-
-\begin{equation}
-    A = \psi ^{-1} \circ f \circ \varphi.
-\end{equation}
-
-From \cref{matrixlinearmap} we know that we can work out the components of a matrix by letting it act on the standard unit vectors in \(F^{n} \), so
-
-\begin{equation}  
-    \begin{aligned}
-    A\vb{e} _{j} &= \psi ^{-1} \circ f \circ \varphi (\vb{e} _{j} ) =\psi ^{-1} \circ f(\vb{v} _{j} ) = \psi ^{-1} \left( \sum_{i=1}^{m} a_{ij}\vb{w} _{i}   \right) \\ &= \sum_{i=1}^{m} a_{ij} \psi ^{-1} (\vb{w} _{i} ) = \sum_{i=1}^{m} a_{ij}\tilde{\vb{e} }_{i}.     
-    \end{aligned}
-\end{equation}
-
-where \(\tilde{\vb{e} }_{i}  \) are the standard unit vectors in \(F^{m} \). Comparing with \cref{matrixlinearmap} it follows that \(a_{ij} \) are the entries of the desired matrix \(A\).
-
-Thus we extend \cref{matrixlinearmap} to general basis vectors \(\vb{v}_{i}  \in  V\) (not just \(\vb{e} _{i} \in F^{n}\)).   
-
-\begin{lemma}[Essence of Linear Algebra] \label{matrixlinearmap2} 
-Let \(f:V \rightarrow W\) be a linear map, \(\vb{v}_{1}, \ldots, \vb{v}_n \) a basis of \(V\) and \(\vb{w}_{1}, \ldots, \vb{w}_n \) a basis of \(W\). The entries \(a_{ij} \) of the \(m \times n\) matrix \(A\) which describes this linear map relative to this choice of basis can be read off from the images of the basis vectors as 
-
-\begin{equation}
-    f(\vb{v} _{j} ) = \sum_{i=1}^{m} a_{ij}\vb{w} _{i} . 
-\end{equation}
-
-We have \(\rank (A)\) = rank(f) and, in particular, \(A\) is invertible if and only if \(f\) is.\footnote{The proof of this claim is provided in \cref{matrixlinearmap2app}.} 
-
-\end{lemma}
-
-\section{Change of Basis}
-
-\subsection{Linear Maps \(f:V \rightarrow V\)}
-
-We consider a linear map \(f:V \rightarrow V\) from a vector space to itself and we would like to change the basis in both vector spaces. The two sets of basis vectors, coordinate maps, coordinate vectors and the representing matrices are then dentoed by
-
-\begin{equation}
-\begin{array}{cccc}
-\text{basis of } V & \text{coordinate map} & \text{coordinate vector} & \text{representing matrix} \\[10pt]
-\bm{v}_1, \ldots, \bm{v}_n & \varphi(\alpha) = \sum_{i=1}^n \alpha_i \bm{v}_i & \bm{\alpha} = (\alpha_1, \ldots, \alpha_n)^T & A = \varphi^{-1} \circ f \circ \varphi \\[15pt]
-\bm{v}_1', \ldots, \bm{v}_n' & \varphi'(\alpha') = \sum_{i=1}^n \alpha_i' \bm{v}_i' & \bm{\alpha}' = (\alpha_1', \ldots, \alpha_n')^T & A' = \varphi'^{-1} \circ f \circ \varphi' \\[10pt]
-\end{array}
-\end{equation}
-
-We would like to then find a relationship between \(A\) and \(A'\), \textit{i.e.,} between the representing matrices for \(f\) relative to the unprimed and the primed basis, so
-
-\begin{equation} \label{changeofbasis} 
-    \begin{aligned}
-        A' &= \varphi'^{-1} \circ f \circ \varphi' = \varphi'^{-1} \circ \varphi \circ \varphi^{-1} \circ f \circ \varphi \circ \varphi'^{-1} \circ \varphi' \\
-           &= \underbrace{\varphi'^{-1} \circ \varphi}_{P} \circ \underbrace{\varphi^{-1} \circ f \circ \varphi}_{A} \circ \underbrace{\varphi^{-1} \circ \varphi'}_{P^{-1}} = P A P^{-1}.
-    \end{aligned}
-\end{equation}
-
-When acting the above equation on a primed coordinate vector \(\boldsymbol{\alpha '} \), the first thing we obtain on the RHS is \(P^{-1} \boldsymbol{\alpha '} \), which is the corresponding unprimed coordinate vector on which the matrix \(A\) on the RHS can sesibly act, converting it into another unprimed coordinate vector, representing the action of the linear map. The final action of \(P\) converts this back into a primed coordinate vector. Altogether, this is the action of the matrix \(A'\) on \(\boldsymbol{\alpha '} \). 
-
-The interpretation of \(P = \varphi '^{-1} \circ \varphi \) can be seen from 
-
-\begin{equation}
-    \boldsymbol{\alpha '} = \varphi '^{-1} (\vb{v} ) = \varphi '^{-1} \circ \varphi (\boldsymbol{\alpha } ) = P \boldsymbol{\alpha }.  
-\end{equation}
-
-Hence, \(P \) converts unprimed coordinate vectors \(\boldsymbol{\alpha } \) into the corresponding primed coordinate vector \(\boldsymbol{\alpha '} \). 
-
-To compute \(P\), we can simply use \cref{matrixlinearmap2}.
-
-\example{Change of Basis of Linear Map \(f:\mathcal{R}^2 \to \mathcal{R}^2\).}
-{Consider the linear map \(f: \mathbb{R}^2 \rightarrow \mathbb{R}^2\) represented by the matrix    \(A = \begin{pmatrix}
-        1 &  0 \\
-        0 &  -2 \\
-    \end{pmatrix}\). By default, the matrix is described relative to the standard unit vectors \(\vb{e} _{1} = \begin{pmatrix}
-     1 \\
-     0 \\
-\end{pmatrix} \text { and } \vb{e} _{2} = \begin{pmatrix}
-     0 \\
-     1 \\
-\end{pmatrix}  \). Now determine the matrix \(A'\) which describes the same linear map relative to the basis \(\vb{v} _{1} = \begin{pmatrix}
-     1 \\
-     2 \\
-\end{pmatrix} \text { and }  \vb{v} _{2} = \begin{pmatrix}
-     -1 \\
-     1 \\
-\end{pmatrix}    \) in both domain and co-domain.}
-{The images of the basis vectors under \(A\) are
-
-\begin{equation}
-    A\vb{v} _{1} = \begin{pmatrix}
-         1 \\
-         -1 \\
-    \end{pmatrix} = -1\vb{v} _{1}  - 2 \vb{v} _{2} ~\text { and }~  A\vb{v} _{2} = \begin{pmatrix}
-         -1 \\
-         -2 \\
-    \end{pmatrix} = -1\vb{v} _{1} +0\vb{v} _{2} . 
-\end{equation}
-
-Using the \cref{matrixlinearmap2}, we arrange the coefficients from \(A\vb{v} _{1} \) into the first column amd the coefficients from \(A\vb{v} _{2} \) into the second column we get the matrix  
-
-\begin{equation}
-    A' = \begin{pmatrix}
-        -1 &  -1 \\
-        -2 &  0 \\
-    \end{pmatrix},
-\end{equation}
-
-which is the matrix representing the linear map \(f\) relative to the basis \(\vb{v} _{1} \text { and } \vb{v} _{2} \).   
-
-Alternatively, we can figure out the change of basis matrix \(P\) from the relation between the coordinates vector
-
-\begin{equation}
-    \alpha _{1}\vb{e} _{1}+\alpha _{2}\vb{e} _{2} = \begin{pmatrix}
-         \alpha _{1}  \\
-         \alpha _{2}  \\
-    \end{pmatrix}  =  \alpha _{1}' \vb{v} _{1}+ \alpha _{2}'\vb{v} _{2} = \begin{pmatrix}
-         \alpha _{1}' - \alpha _{2}'   \\
-         2\alpha _{1}' + \alpha _{2}'   \\
-    \end{pmatrix} .
-\end{equation}
-
-So we have
-
-\begin{equation}
-    P^{-1} = \begin{pmatrix}
-        1 &  -1 \\
-        2 &  1 \\
-    \end{pmatrix} \implies A' = PAP^{-1} = \begin{pmatrix}
-        -1 &  -1 \\
-        -2 &  0 \\
-    \end{pmatrix}.
-\end{equation}
-} 
-
-\example{Change of Basis of Linear Map \(f:\mathcal{R}^3 \to \mathcal{R}^2\).}
-{Consider the linear map \(f:\mathcal{R}^3 \to \mathcal{R}^2\) represented by the matrix \(A = \begin{pmatrix}
-    1 & 0 &  0 \\
-    0 & 1 &  0 \\
-\end{pmatrix}\) which project a 3-dimensional vector into the \(xy\)-plane. By default, the matrix is described relative to the standard unit vectors \(\vb{e} _{1} = \begin{pmatrix}
-     1 \\
-     0 \\
-     0 \\
-\end{pmatrix}, \vb{e} _{2} = \begin{pmatrix}
-     0 \\
-     1 \\
-     0 \\
-\end{pmatrix} \text { and } \vb{e} _{3} = \begin{pmatrix}
-     0 \\
-     0 \\
-     1 \\
-\end{pmatrix}\). Now determine the matrix \(A'\) which describes the same linear mape relative to the basis \(\vb{e} _{1}\text { and } \vb{e} _{2}  \) in the domain and \(\vb{v} _{1} = \begin{pmatrix}
-     1 \\
-     1 \\
-\end{pmatrix} \text { and } \vb{v} _{2} = \begin{pmatrix}
-     -1 \\
-     1 \\
-\end{pmatrix} \) in the co-domain.    }
-{The first method is to use \cref{matrixlinearmap2}, and compute the images of the basis vectors in the domain \(\vb{e} _{1} \text { and } \vb{e} _{2} \) in terms of the basis vectors in the co-domain \(\vb{v} _{1} \text { and } \vb{v} _{2} \)
-
-\begin{equation}
-    A \vb{e} _{1} = \begin{pmatrix}
-         1 \\
-         0 \\
-    \end{pmatrix} = \frac{1}{2}(\vb{v} _{1} - \vb{v} _{2}  ),  A\vb{e} _{2} = \begin{pmatrix}
-         0 \\
-         1 \\
-    \end{pmatrix} = \frac{1}{2} (\vb{v} _{1}+ \vb{v} _{2}  ) \text { and } A\vb{e} _{3} = \begin{pmatrix}
-         0 \\
-         0 \\
-    \end{pmatrix}.
-\end{equation}
-
-Arranging the coefficients into columns, we have the transformed matrix \(A' = \frac{1}{2} \begin{pmatrix}
-    1 &  1 & 0 \\
-    -1 &  1 & 0 \\
-\end{pmatrix}\). 
-} 
-
-
-\section{Systems of Linear Equations}
-
-\subsection{General Structures of Solutions}
-
-Consider a linear map \(f:V \to W\). We would like to find all solutions \(\vb{x} \in V\) of the inhomogeneous equation \(f(\vb{x} ) = \vb{b} \), where \(\vb{b} \in W\) is a fixed vector. In other words, which vectors \(\vb{x}  \in V\) get mapped to \(\vb{b} \in W\). We need to find first the solution to the associated homogenous equation \(f(\vb{x} ) = \boldsymbol{0} \), where the general solution is \(\ker (f)\).       
-
-\begin{lemma}
-If \(\vb{x} _{0} \in V\) solves the inhomogenous equation, \textit{i.e.,} \(f(\vb{x} _{0} ) = \vb{b}\), then \(\vb{x} _{0} + \ker (f) \) is the general solution of the inhomogenous equation.   
-\end{lemma}
-
-\begin{proof}
-If \(\vb{x} \) is a solution to \(f(\vb{x} ) = \vb{b} \) then \(f(\vb{x} - \vb{x} _{0} ) = f(\vb{x} ) - f(\vb{x} _{0} ) = \vb{b} -\vb{b} =\boldsymbol{0} \), so \(\vb{x} - \vb{x} _{0} \in \ker (f) \).     
-\end{proof}
-
-The geometry of the solutions is schematically as indicated in \cref{generalstructure}.
-
-\onefig{generalstructure}{scale=0.3} 
-
-To summarize the general structure of the solution to \(A\vb{x} = \vb{b} \), we should distinguish two cases:
-
-\begin{enumerate}
-    \item \(\rank (A) = m\): \(\vb{b} \in F^{m} = \text{Im} (A)\), thus we have a solution \(\vb{x} _{0} \) for any choice of \(\vb{b} \) and the general solution is given by \(\vb{x} _{0} + \ker (A) \) and the number of free parameters in this solution equals \(\dim (\ker (A)) = n - \rank (A) = n-m\).     
-    \item \(\rank (A) < m\): \begin{enumerate}
-        \item \(\vb{b} \in  \text{Im}(A) \): We have a solution with \(\dim (\ker (A)) = n - \rank (A)\) free parameters.
-        \item \(\vb{b} \notin \text{Im}(A) \): There is no solution.  
-    \end{enumerate}  
-\end{enumerate}
-
-\subsection{Solutions by Row Reductions}
-
-Suppose we want to solve \(m\) linear equations with \(n\) variables. We first write the system of linear equation \(A\vb{x} = \vb{b} \) as a single augmented matrix \(A' = (A \mid \vb{b} )\), where \(A\) is a \(m \times n\) matrix, and \(\vb{x} \text { and } \vb{b} \) are \(n- \text { and } m-\)dimensional vectors respectively. 
-
-Since elementary row operations do not change the solutions to the system, we can first simply the augmented matrix by row reducing it into upper echelon form.
-
-For there to be a solution, we require that \(\vb{b} \in  \text{Im}(A) \implies \rank (A) = \rank (A')\). This is equivalent to saying that we would not have any rows giving inconsistent equations, such as \(0=3\).
-
-Assuming the equations are consistent, we would either have \(0=0\), which implies a free parameter, or an actual equation of \(\vb{x} \).  
+Assuming the equations are consistent, we would either have \(0=0\), which implies a free parameter (which adds one to \(\ker (A)\), or an actual equation of \(\vb{x} \).  
 
 \chapter{Determinants}
 
@@ -1580,7 +1975,7 @@ x_i = \frac{\det(B_{(i)})}{\det(A)} = \frac{\det(\mathbf{A}^1, \ldots, \mathbf{A
 
 
 
-\chapter{Scalar Products}
+\chapter{Scalar Products} \label{dot} 
 
 \section{Real and Hermitian Scalar Products}
 
@@ -1609,6 +2004,8 @@ The Cauchy-Schwarz inequality and the triangle inequality are
     \abs{\avg{\vb{v} ,\vb{w} } } \le \abs{\vb{v} }\abs{\vb{w} } ~\text { and }~  \abs{\vb{v} + \vb{w} } \le \abs{\vb{v} } + \abs{\vb{w} }.      
 \end{equation}
 
+\todo{More equality from riley} 
+
 For a real scalar product, in analogy with the dot product, the Cauchy-Schwarz inequality allows the definition of the angle \(\sphericalangle (\vb{v} ,\vb{w} ) \in  [0,\pi ]\) between two non-zero vectors \(\vb{v} ,\vb{w} \) by
 
 \begin{equation}
@@ -1616,10 +2013,13 @@ For a real scalar product, in analogy with the dot product, the Cauchy-Schwarz i
 \end{equation}
 
 
-Apart from the standard scalar product on \(\mathbb{R}^{n} \) (the dot product), examples of scalar products include:
+Examples of scalar products include:
 
 \begin{enumerate}
-    \item The standard scalar product in \(\mathbb{C}^{n} \):\(\avg{\vb{v} ,\vb{w} } = \vb{v} ^{\dagger} \vb{w} = \sum_{i=1}^{n} v_{i}^*w_{i} \).
+    \item The standard scalar product for orthogonal basis in \(\mathbb{R}^{n} \): \(\avg{\vb{v} ,\vb{w} }  = \vb{v} ^T \vb{w} = \sum_{i=1}^{n} v_{i} w_{i} \).  
+    \item The standard scalar product for orthogonal basis in \(\mathbb{C}^{n} \): \(\avg{\vb{v} ,\vb{w} } = \vb{v} ^{\dagger} \vb{w} = \sum_{i=1}^{n} v_{i}^*w_{i} \).
+    \item The standard scalar product for general basis in \(\mathbb{R}^{n} \): \(\avg{\vb{v} ,\vb{w} } = \vb{v} ^T G\vb{w} = \sum_{i=1}^{n} \sum_{j=1}^{n}  v_{i}G_{ij}\vb{w} _{j}   \), where \(G_{ij} = \avg{\vb{e} _{i}, \vb{e} _{j}  }  \), which equals to \(\mathbb{I}\) for orthonormal basis.
+    \item The standard scalar product for general basis in \(\mathbb{C}^{n} \): \(\avg{\vb{v} ,\vb{w} } = \vb{v} ^{\dagger}  G\vb{w} = \sum_{i=1}^{n} \sum_{j=1}^{n}  v_{i}^*G_{ij}\vb{w} _{j}   \), where \(G_{ij} = \avg{\vb{e} _{i}, \vb{e} _{j}  }  \), which equals to \(\mathbb{I}\) for orthonormal basis.
     \item The Minkowski product in \(\mathbb{R}^{4} \): \(\avg{\vb{v} ,\vb{w} } = \vb{v} ^{T} \eta \vb{w} = -v_0 w_0 + v_1 w_1 +v_2 w_2 +v_3 w_3    \) where \(\eta = \text{diag}  (-1,1,1,1)\). Note that the Minkowski product does not satisfies property \((K3)\), for example, for \(\vb{v} = \begin{pmatrix}
         -1 & 1 & 1 &  1 \\
     \end{pmatrix}^{T} , \avg{\vb{v} ,\vb{v} }  = -1\).
@@ -1868,7 +2268,7 @@ For an abstract example of a self-adjoint linear map, consider the vector space 
 
 Hence, $D$ is indeed self-adjoint. Note that the boundary term vanishes due to the boundary condition on our functions and that including the factor of $i$ in the definition of $D$ is crucial for the sign to work out correctly. In quantum mechanics, physical quantities are represented by Hermitian operators. In this context, the present operator $D$ plays an important role as it corresponds to linear momentum.
 
-\section{Orthogonal and Unitary Maps}
+\section{Orthogonal and Unitary Maps} \label{unitary} 
 
 \subsection{Definitions of Unitary Maps}
 
@@ -1945,6 +2345,23 @@ Taking the determinant we conclude that
     1 = \det (\mathbb{I}) = \det (A^{\dagger} A) = \det (A)^*\det (A) = \abs{\det (A)}^2 \implies \abs{\det (A)} = 1. 
 \end{equation}
 
+\example{Two Sets of Orthonormal Basis.}
+{The two sets of orthonormal basis \((\vb{e}_1, \cdots, \vb{e}_n ) \text { and } (\vb{e}'_1, \cdots, \vb{e}'_n )\) are related by \(\vb{e}' _{j} = \sum_{i=1}^{n} U_{ij}\vb{e} _{i}\). Find \(U_{ij} \) and prove that \(U\) is unitary.}
+{The columns of \(j^{\text{th }} \) column of the matrix \(U\), denoted by \(\vb{U} ^{j} \), is just the new basis \(\vb{e}' _{j}  \), expressed in terms of the old basis \((\vb{e}_1, \cdots, \vb{e}_n )\), and since the old basis is orthonormal, the \(i^{\text{th }} \) component of \(\vb{U} ^{j} \), which is the entry for \(U_{ij} \), is just \(\avg{\vb{e} _{i}, \vb{e} '_{j}  } \). 
+
+To prove that \(U\) is unitary, we calculate
+
+\begin{equation}
+    (U^{\dagger} U )_{ij} = U^*_{ki} U_{kj} = \avg{\vb{e} '_{i}, \vb{e} _{k} }\avg{\vb{e} _{k}, \vb{e} '_{j}  } = \avg{\vb{e} '_{i}, \vb{e} '_{j}  } = \delta _{ij} \implies U= \mathbb{I}.    
+\end{equation}
+
+The last equality from the first relation of the above equation can be understand by regarding the RHS as a scalar product of \(\vb{e} '_{i} \text { and } \vb{e} '_{j}  \), where \(\avg{\vb{e} '_{i}, \vb{e} '_{j}   } = \sum_{k=1}^{n} (\vb{e} '_{i} )^*_{k}(\vb{e} '_{j} )_{k} = \sum_{k=1}^{n} \avg{\vb{e} '_{i},\vb{e} _{k}  } \avg{\vb{e} _{k}, \vb{e} '_{j}  }    \).  
+
+
+} 
+
+
+
 \subsection{Two Dimensional Rotations}
 
 To find the explicit form of two-dimensional rotation matrices, start with a general \(2 \times 2\) matrix: \(R = \begin{pmatrix} a & b \\ c & d \end{pmatrix}\), where \(a, b, c, d\) are real numbers. We impose the conditions \(R^T R = \mathbb{I}\) and \(\det(R) = 1\). This gives:
@@ -1966,8 +2383,10 @@ For the rotation of an arbitrary vector \(\vb{x} = \begin{pmatrix}
 \end{pmatrix}\), we get:
 
 \begin{equation}
-\mathbf{x}' = R\mathbf{x} = \begin{pmatrix} x \cos \theta - y \sin \theta \\ x \sin \theta + y \cos \theta \end{pmatrix}.
+\mathbf{x}' = R\mathbf{x} = \begin{pmatrix} x \cos \theta - y \sin \theta \\ x \sin \theta + y \cos \theta \end{pmatrix},
 \end{equation}
+
+where \(\theta \) is assumed to be positive if the rotation of the new coordinate system relative to the original one is anti-clockwise. It is also easy to find the inverse of \(R\), simply by replacing \(\theta \) to \(- \theta \), as the original coordiante system rotate by \(- \theta \) anti-clockwisely.     
 
 It is easy to verify explicitly that \(|\mathbf{x}'| = |\mathbf{x}|\), as must be the case, and that the cosine of the angle between \(\mathbf{x}\) and \(\mathbf{x}'\) is given by
 
@@ -2094,7 +2513,7 @@ W \mathbf{b} = \boldsymbol{\omega} \times \mathbf{b}
 
 This can be directly verified by the index calculation \( (W\vb{b})_{i} = W_{ij} b_j = \epsilon_{ikj} \omega_k b_j = (\boldsymbol{\omega} \times \mathbf{b})_i \). This relation can be used to rewrite expressions involving \( W \) in terms of the angular velocity \(\boldsymbol{\omega}\).
 
-For exaple, to find the velocity of an object, with velocity \(\dot{\vb{y} } \) in the rotating system, relative to the stationary coordinate system, we differentiating \(\vb{x} = R(t)\vb{y} \) to get
+For example, to find the velocity of an object, with velocity \(\dot{\vb{y} } \) in the rotating system, relative to the stationary coordinate system, we differentiating \(\vb{x} = R(t)\vb{y} \) to get
 
 \begin{equation}
 \dot{\mathbf{x}} = R \dot{\mathbf{y}} + \dot{R} \mathbf{y} = R (\dot{\mathbf{y}} + W \mathbf{y}) = R (\dot{\mathbf{y}} + \boldsymbol{\omega} \times \mathbf{y}) .
@@ -2131,8 +2550,12 @@ The three extra terms on the right are Coriolis force, centrifugal force and Eul
 
 \chapter{Eigenvectors and Eigenvalues}
 
+\section{Definition of Eigenvectors and Eigenvalues}
+
+
+
 \begin{definition}[Definition of Eigenvectors and Eigenvalues]
-For a linear map \(f:V \rightarrow V\) on a vector space \(V\) over \(F\) the number \(\lambda \in F\) is called an eigenvalue of \(f\) if there is a non-zero vector \(\vb{v} \) such that 
+For a linear map \(f:V \rightarrow V\) on a vector space \(V\) over \(\mathbb{F}\) the number \(\lambda \in F\) is called an eigenvalue of \(f\) if there is a non-zero vector \(\vb{v} \) such that 
 
 \begin{equation}
     f(\vb{v} ) = \lambda \vb{v} .
@@ -2150,7 +2573,58 @@ The eigenspace for \(\lambda \in F\) is the vector space containing all the eige
 \end{equation}
 \end{definition}
 
-If \(\dim \text{Eig}_{f}(\lambda ) = 1 \) the eigenvalue \(\lambda\) is called non-degenerate, which means that up to re-scaling there is only one eigenvector for \(\lambda \) and if \(\dim \text{Eig}_{f}(\lambda ) > 1  \) the eigenvalue \(\lambda \) is called degenerate, which means there are at least two linearly independent eigenvectors for \(\lambda \).        
+In general, for a \(n \times n\) matrix \(A\) there are \(n\) independent eigenvectors \(\vb{v} _{i} \) with (not necessarily distinct) eigenvalues \(\lambda _{i} \). If \(\dim \text{Eig}_{f}(\lambda ) = 1 \) the eigenvalue \(\lambda\) is called non-degenerate, which means that up to rescaling there is only one eigenvector for \(\lambda \) and if \(\dim \text{Eig}_{f}(\lambda ) > 1  \) the eigenvalue \(\lambda \) is called degenerate, which means there are at least two linearly independent eigenvectors for the same \(\lambda \) (and any linear combination of them is also an eigenvector). For non-degenerate \(\lambda \), we usually use the normalized eigenvector with the property \(\avg{\vb{v} ,\vb{v} } = \vb{v} ^{\dagger}\vb{v} =1\).
+
+\example{Eigenvectors of the Inverse Matrix.}
+{A non-singular matrix \(A\) has eigenvalues \(\lambda _{i} \) and eigenvectors \(\vb{v} _{i} \). Find the eigenvalues and eigenvectors of the inverse matrix \(A^{-1} \).   }
+{The eigenvalues and eigenvectors of \(A\) satisfy
+
+\begin{equation}
+    A \vb{v} _{i} = \lambda _{i}\vb{v} _{i} \implies A^{-1} A \vb{v} _{i} = \lambda _{i}A^{-1} \vb{v} _{i} \implies A^{-1} \vb{v} _{i} = \frac{1}{\lambda _{i} }\vb{v} _{i},    
+\end{equation}
+
+thus \(A^{-1} \) has the same eigenvectors \(\vb{v} _{i} \) as does \(A\) but the corresponding eigenvalues are \(\frac{1}{\lambda _{i} } \).   
+} 
+
+\example{Eigenvalues of a \(2 \times 2\) matrix.}
+{Find the fastest way to calculate the eigenvalues of a general \(2 \times 2\) matrix \(A = \begin{pmatrix}
+    a &  b \\
+    c &  d \\
+\end{pmatrix}.\) }
+{The trace and the determinant of the matrix is 
+
+\begin{equation}
+    \Tr (A) = a+d = \lambda _{1}+\lambda _{2} ~\text { and }~ \det (A) = ad - bc  = \lambda _{1}\lambda _{2},  
+\end{equation}
+
+which are conveniently the sum and product of roots of the charateristic polynomial, which we will denote them by \(s \text { and } p\) from now on. The roots are then 
+
+\begin{equation}
+    \lambda _{1,2} = \frac{s}{2} \pm \sqrt{\left( \frac{s}{2}  \right)^2 - p }.   
+\end{equation}
+
+
+
+} 
+
+\example{Equation of an Ellipse.}
+{Write the equation of the ellipse \(x^2+3y^2-2xy=1\) in quadratic form and find the length of the two axis by diagonlizing \(A\). }
+{Let \(A = \begin{pmatrix}
+    a &  b \\
+    b &  c \\
+\end{pmatrix}\), then \(\vb{x} ^TA\vb{x} = ax^2 + 2bxy + cy^2\). Comparing the coefficients with the expression on the LHS of the ellipse equation, we have \(a = 1, b = -1 \text { and } c = 3\). Diagonlizing \(A\) gives the matrix \(B = \begin{pmatrix}
+    2+\sqrt{2}  & 0  \\
+    0 & 2+\sqrt{2}   \\
+\end{pmatrix}\), and we have 
+
+\begin{equation}
+    Q(\vb{x} ) = \vb{x} ^TA\vb{x} = x^2+3y^2-2xy = Q'(\vb{x} ') = \vb{x} '^TB\vb{x} '= (2+\sqrt{2} )x'^2+(2-\sqrt{2} )y'^2 = 1.
+\end{equation}
+
+Thus the length of the two axes are \(a = \frac{1}{\sqrt{2+\sqrt{2 } }} \text { and } b = \frac{1}{\sqrt{2-\sqrt{2} } }  \). 
+} 
+
+
 
 Evidently \(\lambda \) is an eigenvalue of \(f\) when \(\dim (\text{Eig}_{f}(\lambda )) = \dim (\ker (f-\lambda \mathrm{id}_{V} )) > 0\). Thus \cref{linearmapprop2} and \cref{dimensionformulaeq} implies that \(f - \lambda \mathrm{id}_{V} \) is not bijective thus not invertible which implies
 
@@ -2237,7 +2711,7 @@ P^{-1} A P &= P^{-1} A (\mathbf{v}_1, \dots, \mathbf{v}_n)
 \end{aligned}
 \end{equation}
 
-where in second equality we used the concep that a matrix is simply a collection of column vectors and matrix multiplication is simply acting the linear map on each of them separately.
+where in second equality we used the concept that a matrix is simply a collection of column vectors and matrix multiplication is simply acting the linear map on each of them separately.
 \end{proof}
 
 
@@ -2248,11 +2722,13 @@ If a matrix \(A\) can be diagonalized, with eigenvalues \(\lambda _{1}, \ldots ,
     \det (A) = \prod_{i=1}^{n} \lambda _{i} ~\text { and }~  \Tr (A) = \sum_{i=1}^{n} \lambda _{i}.  
 \end{equation}
 
-\begin{theorem}
-Let \(V\) be a vector space over \(\mathbb{R} (\mathbb{C})\) with real (hermitian) scalar product \(\avg{\cdot ,\cdot } \). If \(f: V \rightarrow V\) is self-adjoint then:
+\section{Eigenvectors and Eigenvalues of Normal Matrices}
+
+\begin{theorem} \label{eigen} 
+Let \(V\) be a vector space over \(\mathbb{R} (\mathbb{C})\) with real (hermitian) scalar product \(\avg{\cdot ,\cdot } \). If \(f: V \rightarrow V\) is normal then:\footnote{A more abstract proof for just the hermitian case is given in \cref{eigenapp}.} 
 
 \begin{enumerate}[label=(\(P\)\arabic*)]
-    \item All eigenvalues of \(f\) are real.
+    \item The eigenvalues of \(f^{\dagger} \) are the complex conjugates of that of \(f\).
     \item Eigenvectors for different eigenvalues are orthogonal.
 \end{enumerate}
    
@@ -2260,253 +2736,159 @@ Let \(V\) be a vector space over \(\mathbb{R} (\mathbb{C})\) with real (hermitia
 
 \begin{proof}
 \begin{enumerate}[label=(\(P\)\arabic*)]
-    \item For the real case, the first part of the statement is trivial. For the complex case, we start with an eigenvector \( \mathbf{v} \neq 0 \) of \( f \) with corresponding eigenvalue \( \lambda \), so that \(f(\mathbf{v}) = \lambda \mathbf{v}\), then
-
-    \begin{equation}
-        \lambda \langle \mathbf{v}, \mathbf{v} \rangle 
-        = \langle \mathbf{v}, \lambda \mathbf{v} \rangle 
-        = \langle \mathbf{v}, f(\mathbf{v}) \rangle 
-        = \langle f(\mathbf{v}), \mathbf{v} \rangle 
-        = \langle \lambda \mathbf{v}, \mathbf{v} \rangle 
-        = \lambda^* \langle \mathbf{v}, \mathbf{v} \rangle.
-    \end{equation}
-    In the third step we have used the fact that \( f \) is self-adjoint and can, hence, be moved from one argument of the scalar product into the other. Since \( \mathbf{v} \neq 0 \), \( \langle \mathbf{v}, \mathbf{v} \rangle \neq 0 \), it follows that \( \lambda = \lambda^* \), so the eigenvalue is real.
-    
-    \item Consider two eigenvectors \( \mathbf{v}_1, \mathbf{v}_2 \), so that \(f(\mathbf{v}_1) = \lambda_1 \mathbf{v}_1 \quad \text{and} \quad f(\mathbf{v}_2) = \lambda_2 \mathbf{v}_2\), with different eigenvalues, \( \lambda_1 \neq \lambda_2 \). Then
+    \item \((A - \lambda \mathbb{I})\vb{v} = 0 \implies {((A-\lambda \mathbb{I})\vb{v} )}^{\dagger}((A-\lambda \mathbb{I})\vb{v}) = {\vb{v} }^{\dagger}(A-\lambda \mathbb{I})^{\dagger} (A-\lambda \mathbb{I})\vb{v} = {\vb{v} }^{\dagger} (A-\lambda \mathbb{I})(A-\lambda \mathbb{I})^{\dagger}\vb{v} = ({(A-\lambda \mathbb{I})}^{\dagger}\vb{v})^{\dagger}  ((A-\lambda \mathbb{I})^{\dagger}\vb{v}) = 0 \implies (A-\lambda \mathbb{I})^{\dagger}\vb{v}  = (A^{\dagger} - \lambda ^* \mathbb{I})\vb{v}  = 0\).
+    \item For two eigenvectors \(\vb{v} _{1} \text { and } \vb{v} _{2}  \) with eigenvalues \(\lambda _{1} \text { and } \lambda _{2}  \) resepctively, we have
     \begin{equation}
         \begin{aligned} 
-        (\lambda_1 - \lambda_2) \langle \mathbf{v}_1, \mathbf{v}_2 \rangle 
-        &= \langle \lambda_1 \mathbf{v}_1, \mathbf{v}_2 \rangle 
-        - \langle \mathbf{v}_1, \lambda_2 \mathbf{v}_2 \rangle \\
-        &= \langle f(\mathbf{v}_1), \mathbf{v}_2 \rangle 
-        - \langle \mathbf{v}_1, f(\mathbf{v}_2) \rangle \\
-        &= \langle \mathbf{v}_1, f(\mathbf{v}_2) \rangle - \langle \mathbf{v}_1, f(\mathbf{v}_2) \rangle
-        = 0.
+        A\vb{v} _{1} &= \lambda _{1}\vb{v} _{1} \implies {(\vb{v} _{2} )}^{\dagger} A\vb{v} _{1} = (A^{\dagger} \vb{v} _{2} )^{\dagger} \vb{v} _{1} = (\lambda _{2}^*\vb{v} _{2}  )^{\dagger}\vb{v} _{1} = \lambda _{2}(\vb{v} _{2})^{\dagger}\vb{v} _{1} = \lambda _{1} {(\vb{v} _{2} )}^{\dagger}\vb{v} _{1}\\ & \implies (\lambda _{2} - \lambda _{1}  ){\vb{v} _{2} }^{\dagger} \vb{v} _{1} = 0.      
         \end{aligned} 
     \end{equation}
-    Since \( \lambda_1 - \lambda_2 \neq 0 \), this means \( \langle \mathbf{v}_1, \mathbf{v}_2 \rangle = 0 \), and the two eigenvectors are orthogonal.
+
+    Thus if \(\lambda _{1} \neq \lambda _{2}  \), \textit{i.e.,} the eigenvalues of the eigenvectors are not the same \({\vb{v} _{2} }^{\dagger}\vb{v} _{1} = \avg{\vb{v} _{2}, \vb{v} _{1}  } =0 \), which means that the eigenvectors are orthogonal.  
+    
 \end{enumerate}
 
 \end{proof}
 
-\begin{theorem}
-    Let $V$ be a vector space over $\mathbb{C}$ with hermitian scalar product $\langle \cdot, \cdot \rangle$. If $f : V \to V$ is self-adjoint, it has an ortho-normal basis, $\epsilon_1, \ldots, \epsilon_n$ of eigenvectors.
-\end{theorem}
-    
-\begin{proof}
-The proof is by induction in $n$, the dimension of the vector space $V$. For $n = 1$, the assertion is trivial. Assume that it is true for all dimensions $k < n$. We would like to show that it is true for dimension $n$. The characteristic polynomial $\chi_f$ of $f$ has at least one zero, $\lambda$, over the complex numbers. Since $f$ is self-adjoint, $\lambda$ is real from the previous theorem. 
-    
-Consider the eigenspace $W = \text{Eig}_f(\lambda)$. Since $\lambda$ is an eigenvalue, $\dim(W) > 0$. Vectors $\mathbf{v} \in W^\perp$ and $\mathbf{w} \in W$ are perpendicular, $\langle \mathbf{w}, \mathbf{v} \rangle = 0$, so
-    
+For hermitian matrices this means that all eigenvalues of \(f\) are real. For anti-hermitian matrices this means that all eigenvalues of \(f\) are imaginary.
+
+\example{Eigenvalues of a Unitary Matrix.}
+{Prove that the Eigenvalues of a unitary matrix has unit modulus.}
+{\(\boldsymbol{\epsilon }^{\dagger}\boldsymbol{\epsilon }  = {\boldsymbol{\epsilon } }^{\dagger}A^{\dagger} A \boldsymbol{\epsilon } = \lambda ^*\lambda \boldsymbol{\epsilon }^{\dagger} \boldsymbol{\epsilon } \implies \lambda \lambda ^* = \abs{\lambda }^2= 1 \). } 
+
+
+\example{The Eigenvalues of a hermitian Matrix are real.}
+{Prove that the eigenvalues of a hermitian matrix are real directly.}
+{We start with \(A\boldsymbol{\epsilon } _{i} = \lambda _{i}\boldsymbol{\epsilon }_{i} \implies {\boldsymbol{\epsilon }_{i}  }^{\dagger}A^{\dagger} = \lambda _{i}^*{\boldsymbol{\epsilon }_{i}  }^{\dagger}\). Multiplying on the right by \(\boldsymbol{\epsilon }_{i}  \), we have
+
 \begin{equation}
-    \langle \mathbf{w}, f(\mathbf{v}) \rangle = \langle f(\mathbf{w}), \mathbf{v} \rangle = \langle \lambda \mathbf{w}, \mathbf{v} \rangle = \lambda \langle \mathbf{w}, \mathbf{v} \rangle = 0.
-\end{equation}
-    
-This means that $f(\mathbf{v})$ is perpendicular to $\mathbf{w}$ so that, whenever $\mathbf{v} \in W^\perp$, then also $f(\mathbf{v}) \in W^\perp$. As a result, $W^\perp$ is invariant under $f$, and we can restrict $f$ to $W^\perp$, \ie consider $g = f|_{W^\perp}$. Since $\dim(W^\perp) < n$, there is an ortho-normal basis $\epsilon_1, \ldots, \epsilon_k$ of $W^\perp$ consisting of eigenvectors of $g$ (which are also eigenvectors of $f$) by the induction assumption. 
-    
-Add to this ortho-normal basis of $W^\perp$ an ortho-normal basis of $W$ (which, by definition of $W$, consists of eigenvectors of $f$ with eigenvalue $\lambda$). Since $\dim(W) + \dim(W^\perp) = n$ (see Lemma 6.3), and pairwise orthogonal vectors are linearly independent, this list of vectors forms an ortho-normal basis of $V$, consisting of eigenvectors of $f$.
-    
-In summary, these results mean that every real symmetric (hermitian) matrix can be diagonalized, has an ortho-normal basis $\epsilon_1, \ldots, \epsilon_n$ of eigenvectors with corresponding real eigenvalues $\lambda_1, \ldots, \lambda_n$, and the diagonalizing matrix $P = (\epsilon_1, \ldots, \epsilon_n)$ is orthogonal (unitary), such that
-    
-\begin{equation}
-    P^\dagger AP = \text{diag}(\lambda_1, \ldots, \lambda_n).
+    \boldsymbol{\epsilon }_{i}^{\dagger} A \boldsymbol{\epsilon }_{i} = \lambda _{i} ^* \boldsymbol{\epsilon }_{i}^{\dagger} \boldsymbol{\epsilon }_{i}   .
 \end{equation}
 
+But multiplying on the left by \(A \boldsymbol{\epsilon }_{i} = \lambda _{i} \boldsymbol{\epsilon }_{i}    \), we have
+
+\begin{equation}
+    {\boldsymbol{\epsilon } _{i} }^{\dagger}A \boldsymbol{\epsilon }_{i} = \lambda _{i} {\boldsymbol{\epsilon }_{i}  }^{\dagger} \boldsymbol{\epsilon }_{i}.   
+\end{equation}
+
+Comparing the two equations, we have \(\lambda _{i}^* = \lambda _{i}  \).
+} 
+
+
+\begin{theorem} \label{selfadjointeigen} 
+    Let $V$ be a vector space over $\mathbb{C}$ with hermitian scalar product $\langle \cdot, \cdot \rangle$. If $f : V \to V$ is normal, it has an orthonormal basis, $\epsilon_1, \ldots, \epsilon_n$ of eigenvectors.\footnote{A more abstract proof is given in \cref{selfadjointeigenapp}.} 
+\end{theorem}
+
+\begin{proof}
+If the eigenvalues are distinct (\textit{i.e.,} all of them are non-degenerate), then it follows immediately from \cref{eigen} that the eigenvectors are mutually orthogonal and can be made orthonormal by simple normalization. However, if there are degenerate eigenvalues, the degenerate eigenvectors are not necessarily orthogornal but we can choose them to be (or choose any linearly independent eigenvectors and perform the Gram-Schmidt procedure).
 \end{proof}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\chapter{Rotational Transformations}
-
-Assume a point \(P\) has coordinates \((x, y, z) \text{ and }  (x', y', z')\) with respect to the unprimed coordinate system and the primed coordinate system respectively (the origins of two coordinate system coincide) so we have
+    
+In summary, it means that every normal matrix has an orthonormal basis $\epsilon_1, \ldots, \epsilon_n$ of eigenvectors with corresponding eigenvalues $\lambda_1, \ldots, \lambda_n$ (which are real for hermitian matrices) and can be diagonalized through changing its basis to the eigenvectors. From \cref{matrixlinearmap2}, the columns of the change of basis matrix is simply the new basis expressed in terms of the old basis, so the change of basis matrix is
 
 \begin{equation}
-	x \vu{x}  + y \vu{y} + z \vu{z} = x' \vu{x} ' + y' \vu{y} ' + z' \vu{z} '.  
+    P = (\epsilon _{1}, \ldots , \epsilon _{n}  ) \implies  P^{-1} AP = P^\dagger AP = \text{diag}(\lambda_1, \ldots, \lambda_n).
 \end{equation}
 
-Dotting this equation with \(\vu{x} ', \vu{y} ' \text{ and } \vu{z} '\), we have 
+This is because \(A(P)\) stretch the column vectors of \(P\) by a factor of their eigenvalues, then \(P^{\dagger} (AP)\) contains the entries of all possible combinations of the original and the scaled eigenvectros, with gives the eigenvalues on the diagonal. The result can be understood more easily since after changing the basis to eigenvectors, the transformed eigenvectors are scaled by a factor of their eigenvalues and the result follows from \cref{matrixlinearmap2}. 
+
+\example{Express a Nomal Matrix in terms of its Eigenvectors.}
+{Show that a \(n \times n\) normal matrix \(A\) can be written in terms of its eigenvalues \(\lambda _{i} \) and orthonormal eigenvectors \(\boldsymbol{\epsilon }  _{i} \) as 
 
 \begin{equation}
-	\begin{aligned}
-	x' &= (\vu{x} ' \cdot \vu{x} )x + (\vu{x} ' \cdot \vu{y} )y + (\vu{x} ' \cdot \vu{z} )z \\
-	y' &= (\vu{y} ' \cdot \vu{x} )x + (\vu{y} ' \cdot \vu{y} )y + (\vu{y} ' \cdot \vu{z} )z \\
-	z' &= (\vu{z} ' \cdot \vu{x} )x + (\vu{z} ' \cdot \vu{y} )y + (\vu{z} ' \cdot \vu{z} )z.
-	\end{aligned}
-\end{equation}
+    A = \sum_{i=1}^{n} \lambda _{i} \boldsymbol{\epsilon }_{i}  {\boldsymbol{\epsilon }_{i}   }^{\dagger} .
+\end{equation}~
+}
+{we first note that an aribtrary vector can be written as \(\vb{v} = \sum_{i=1}^{n} v_{i} \boldsymbol{\epsilon }_{i}  \), where \(v_{i} = \boldsymbol{\epsilon }_{i}^{\dagger} \vb{v}\), since the eigenvectors \(\boldsymbol{\epsilon }_{i}  \) forms an orthonormal basis.
 
-Writing in matrix form, we have 
+We can thus show that when both sides of the above equation is acted on \(\vb{v} \), we get the same result 
 
 \begin{equation}
-	\vb{O} \vb{P} ' = \begin{pmatrix}
-	x'\\
-	y'\\
-	z'
-	\end{pmatrix}
-	= \begin{pmatrix}
-\vu{x} ' \cdot \vu{x}  & \vu{x} ' \cdot \vu{y}  & \vu{x} ' \cdot \vu{z}  \\
-\vu{y} ' \cdot \vu{x}  & \vu{y} ' \cdot \vu{y} & \vu{y} ' \cdot \vu{z} \\
-\vu{z} ' \cdot \vu{x}  & \vu{z} ' \cdot \vu{y}  & \vu{z} ' \cdot \vu{z} 
-	\end{pmatrix}
-	\begin{pmatrix}
-	x\\
-	y\\
-	z
-	\end{pmatrix}
-	=
-	 \boldsymbol{\lambda } (\vb{O} \vb{P} )
-\end{equation}
+    A\vb{v} = A\sum_{i=1}^{n} v_{i}\boldsymbol{\epsilon _{i} } = \sum_{i=1}^{n} v_{i} \lambda _{i} \boldsymbol{\epsilon }_{i} = \sum_{i=1}^{n} \lambda _{i} \boldsymbol{\epsilon }_{i}{\boldsymbol{\epsilon } }_{i} ^{\dagger}\sum_{i=1}^{n} v_{i} \boldsymbol{\epsilon }_{i}.   
+\end{equation}~
+} 
 
-where \(\boldsymbol{\lambda } \) is called the rotation matrix. 
+For a general square matrix, there will be \(n\) eigenvalues from the fundamental theorem of algebra, though they may not be distinct. If they are distinct, then we can show that there are \(n\) linearly independent eigenvectors, and can be orthogonalized to orthonormal basis by the Gram-Schmidt procedure. If they are not distinct (\textit{i.e.,} some of the eigenvalues are degenerate), then it may or may not have \(n\) linearly independent eigenvectors (since two eigenvectors corresponding to the same degenerate eigenvalue can form a plane or can be collinear).
 
-By the same fashion, 
+A simple way to test whether the eigenvectors are linearly independent is by calculating the determinant. If the determinant is zero, the eigenvectors are linearly dependent, and vice versa.
 
-\begin{equation}
-	\vb{O} \vb{P}  = \boldsymbol{\lambda } ^{T} (\vb{O} \vb{P}  ').
-\end{equation}
+\example{Diagonalizing with Degenerate Eigenvalues.}
+{Diagonlize the matrix \(A = \begin{pmatrix}
+    2 & 3\sqrt{2}  & 3\sqrt{2}   \\
+    3\sqrt{2}  & -1 & 3  \\
+    3\sqrt{2}  & 3 & -1  \\
+\end{pmatrix}\). }
+{There are two eigenvalues \(\lambda _{1} = 2 \text { and } \lambda _{2} =1 \).  } 
 
-From these two equations, we have 
+\example{Simultaneous Eigenvectors.}
+{Prove that the eigenvalues of \(A \text { and } B\) are the same if and only if \(A \text { and } B\) commute, \textit{i.e.,} \(AB=BA\).   }
+{To prove ``If and only if'' statement, we have to prove the equivalency in both directions. But for simplicity we only show that the forward direction.
+
+We have 
 
 \begin{equation}
-	\vb{O} \vb{P}  = \boldsymbol{\lambda } ^{T} \boldsymbol{\lambda } (\vb{O} \vb{P} '), 
+    AB \boldsymbol{\epsilon } = BA \boldsymbol{\epsilon } = B \lambda \boldsymbol{\epsilon } = \lambda B \boldsymbol{\epsilon },
 \end{equation}
 
-so
+thus \(B \boldsymbol{\epsilon } \) is an eigenvector of \(A\) corersponding to the same eigenvalue \(\boldsymbol{\epsilon } \), \textit{i.e.,} \(B \boldsymbol{\epsilon } = \mu \boldsymbol{\epsilon }   \), showing that \(\boldsymbol{\epsilon } \) is an eigenvalue for \(B\) as well. 
+} 
+
+\example{Trace Formula.}
+{Prove the trace formula \(\det (\exp (A)) = \exp (\Tr (A)) \).}
+{Let \(A' = P^{-1} AP = \text{diag} (\lambda _{1}, \lambda _{2}, \ldots , \lambda _{n}   )\) be the transfomred matrix of \(A\). Then we have
 
 \begin{equation}
-	\boldsymbol{\lambda } ^{T} \boldsymbol{\lambda } = \vb{I} 
+    \begin{aligned} 
+    \det (\exp (A')) &= \exp (\text{diag} (\lambda _{1}, _{2}, \ldots ,\lambda _{n}   )) = \det (\text{diag} (e^{\lambda _{1} }, e^{\lambda _{2} },\ldots , e^{\lambda _{n} }   )) \\ &= \prod_{i=1}^{n} e^{\lambda _{i} } = \exp \left( \sum_{i=1}^{n} \lambda _{i}  \right) = \exp (\Tr (A)),
+    \end{aligned} 
 \end{equation}
 
-which means that the rotation matrix \(\boldsymbol{\lambda } \) is orthogonal with \(\boldsymbol{\lambda } ^{T} = \boldsymbol{\lambda } ^{-1} \).  
+which is equals to the determinant of \(A\), since
 
-However, only 3 of the 9 entries of \(\boldsymbol{\lambda } \) are actually independent which implies that all rotations can be expressed in terms of rotations about three orthogonal axes since 
 
 \begin{equation}
-	\vu{x} ' \cdot \vu{x} + \vu{x}  \cdot \vu{y} + \vu{x}  \cdot \vu{z} = 1 \textit{etc.} 
-\end{equation}
+    \begin{aligned} 
+    \exp (A') = &~1+A'+\frac{A'^2}{2} + \cdots = P^{-1} \exp (A) P \\
+    \implies &\det (\exp (A')) = \det (P^{-1} ) \det (P) \det (\exp (A)) = \det (\exp (A)).
+    \end{aligned} 
+\end{equation}~
+} 
 
-by the Pythagorean Theorem which limits 3 degrees of freedom. 
 
-Also, the orthogonality of the coordinate systems requires
+\section{Quadratic and Hermitian Forms}
 
-\begin{equation}
-	\vu{x} ' \cdot \vu{y} = (\vu{x} ' \cdot \vu{x} )(\vu{y} '\cdot \vu{x} ) + (\vu{x} ' \cdot \vu{y} )(\vu{y} '\cdot \vu{y} ) + (\vu{x} '\cdot \vu{z} )(\vu{y} '\cdot \vu{z} ) = 0 \textit{etc.}
-\end{equation}
-
-These six relations can be written in a nice and neat form
-
-\begin{equation}
-	\sum_{j}^{} ((\vu{i} '\cdot \vu{j})(\vu{k} '\cdot \vu{j} )) = \delta _{ik} . 
-\end{equation}
-
-With this formulation, it is clear that finite rotation do not commute as
+A quadractic function in terms of the components of a vector \(\vb{x} = \begin{pmatrix}
+    x_1  & x_2  & x_3   \\
+\end{pmatrix}^T \) can be written in matrix form as 
 
 \begin{equation}
-	\boldsymbol{\lambda } _{A} \boldsymbol{\lambda } _{B} \neq \boldsymbol{\lambda } _{B} \boldsymbol{\lambda } _{A} . 
+    Q(x) = \vb{x} ^T A\vb{x} ,
 \end{equation}
 
-as one can easily see by trying out random numbers.
+where \(A\) being a symmetric matrix already covers the most general case. (In other words, \(Q\) is unchanged by considering only the symmetric part of \(A\). This can be proved by considering \(A\) as a sum of a symmetric and an anti-symmetric matrix). 
+
+\(Q\) is basis-independent if the change of basis matrix \(P\) is orthogonal (\textit{i.e.,} the column vectors in \(P\) are orthogonal), as \(Q'(\vb{x} ') = \vb{x} '^TA'\vb{x} = (P^{-1} \vb{x} )^TP^{-1} AP(P^{-1} \vb{x} ) = \vb{x} ^TA\vb{x} = Q(\vb{x} )\).
+
+Since eigenvectors are generally orthogonal, so if we choose them to be the basis, we have 
+
+\begin{equation}
+    Q = (\vb{x}') ^T\text{diag}(\lambda _{1},\lambda _{2}, \ldots ,\lambda _{n}   )\vb{x} ' = \lambda _{1}x'^2_1+ \lambda _{2}x'^2_2  + \cdots + \lambda _{n}x'^2_{n} .    
+\end{equation}
+
+If the quadratic form of \(A\) is positive for all column vectors \(\vb{x} \), then it is positive definite. From the above equation, we see that this is equivalent to all the eigenvalues of \(A\) are positive.  
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2828,7 +3210,62 @@ Here we provide proofs for \cref{adjointprop}.
     \end{enumerate}
 \end{proof}
 
+\section{Eigenvectors and Eigenvalues of Hermitian Matrices} \label{eigenapp} 
 
+Here we provide a more abstract proof just the hermitian case of \cref{eigen}.
+
+\begin{proof}
+\begin{enumerate}[label=(\(P\)\arabic*)]
+    \item For the real case, the first part of the statement is trivial. For the complex case, we start with an eigenvector \( \mathbf{v} \neq 0 \) of \( f \) with corresponding eigenvalue \( \lambda \), so that \(f(\mathbf{v}) = \lambda \mathbf{v}\), then
+
+    \begin{equation}
+        \lambda \langle \mathbf{v}, \mathbf{v} \rangle 
+        = \langle \mathbf{v}, \lambda \mathbf{v} \rangle 
+        = \langle \mathbf{v}, f(\mathbf{v}) \rangle 
+        = \langle f(\mathbf{v}), \mathbf{v} \rangle 
+        = \langle \lambda \mathbf{v}, \mathbf{v} \rangle 
+        = \lambda^* \langle \mathbf{v}, \mathbf{v} \rangle.
+    \end{equation}
+    In the third step we have used the fact that \( f \) is self-adjoint and can, hence, be moved from one argument of the scalar product into the other. Since \( \mathbf{v} \neq 0 \), \( \langle \mathbf{v}, \mathbf{v} \rangle \neq 0 \), it follows that \( \lambda = \lambda^* \), so the eigenvalue is real.
+    
+    \item Consider two eigenvectors \( \mathbf{v}_1, \mathbf{v}_2 \), so that \(f(\mathbf{v}_1) = \lambda_1 \mathbf{v}_1 \quad \text{and} \quad f(\mathbf{v}_2) = \lambda_2 \mathbf{v}_2\), with different eigenvalues, \( \lambda_1 \neq \lambda_2 \). Then
+    \begin{equation}
+        \begin{aligned} 
+        (\lambda_1 - \lambda_2) \langle \mathbf{v}_1, \mathbf{v}_2 \rangle 
+        &= \langle \lambda_1 \mathbf{v}_1, \mathbf{v}_2 \rangle 
+        - \langle \mathbf{v}_1, \lambda_2 \mathbf{v}_2 \rangle \\
+        &= \langle f(\mathbf{v}_1), \mathbf{v}_2 \rangle 
+        - \langle \mathbf{v}_1, f(\mathbf{v}_2) \rangle \\
+        &= \langle \mathbf{v}_1, f(\mathbf{v}_2) \rangle - \langle \mathbf{v}_1, f(\mathbf{v}_2) \rangle
+        = 0.
+        \end{aligned} 
+    \end{equation}
+    Since \( \lambda_1 - \lambda_2 \neq 0 \), this means \( \langle \mathbf{v}_1, \mathbf{v}_2 \rangle = 0 \), and the two eigenvectors are orthogonal.
+\end{enumerate}
+
+\end{proof}
+
+\section{Self Adjoint Vector Space has Orthonomral Eigenvectors} \label{selfadjointeigenapp} 
+
+Here we provide a proof for \cref{selfadjointeigen}.
+
+\begin{proof}
+The proof is by induction in $n$, the dimension of the vector space $V$. 
+
+The characteristic polynomial $\chi_f$ of $f$ has at least one zero (not more since it can be repeated root), $\lambda$, over the complex numbers. Since $f$ is self-adjoint, $\lambda$ is real from the previous theorem. 
+    
+Consider the eigenspace $W = \text{Eig}_f(\lambda)$. Vectors $\mathbf{v} \in W^\perp$ and $\mathbf{w} \in W$ are perpendicular, so
+    
+\begin{equation}
+    \langle \mathbf{w}, f(\mathbf{v}) \rangle = \langle f(\mathbf{w}), \mathbf{v} \rangle = \langle \lambda \mathbf{w}, \mathbf{v} \rangle = \lambda \langle \mathbf{w}, \mathbf{v} \rangle = 0 \implies f(\vb{v} ) \in W^{\perp }.
+\end{equation}
+    
+Since $\dim(W^\perp) < n$, there is an orthonormal basis $\epsilon_1, \ldots, \epsilon_k$ of $W^\perp$ consisting of eigenvectors of \(f\) by the induction assumption. 
+    
+Add to this orthonormal basis of $W^\perp$ an orthonormal basis of $W$ (which, by definition of $W$, consists of eigenvectors of $f$ with eigenvalue $\lambda$). Since $\dim(W) + \dim(W^\perp) = n$ (see Lemma 6.3), and pairwise orthogonal vectors are linearly independent, this list of vectors forms an orthonormal basis of $V$, consisting of eigenvectors of $f$.
+
+
+\end{proof}
 
 
 \chapter{Extra Materials}
@@ -2914,6 +3351,8 @@ Ther matrices corresponding to the 3 kinds of elementary row operations are give
     \end{pmatrix} .
     \end{aligned}
 \end{equation}
+
+
 
 
 

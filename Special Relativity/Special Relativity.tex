@@ -30,16 +30,16 @@ The four independent equations depending on four independent facts, which are
 
 \begin{enumerate}
     \item \(S'\) moves with velocity \(v\) with respect to \(S\).
-    \item \(S\)  moves with velocity \(-v\) with respect to \(S'\). 
+    \item \(S\)  moves with velocity \(-v\) with respect to \(S'\).
     \item Time dilation (or length contraction) looks the same from either frame.
     \item A light pulse with speed \(c\) in \(S'\) also has speed \(c\)  in \(S\).
 \end{enumerate}
 
-The first two facts translate into (dropping the \(\Delta \)s)
+The first two facts translate into
 
 \begin{enumerate}
-    \item \(\Delta x' = 0 \text { and } v = \frac{\Delta x}{\Delta t} \implies \frac{B}{C} = v \).
-    \item \(\Delta x = 0 \text { and } -v = \frac{\Delta x'}{\Delta t'} \implies A = C \).  
+    \item \(\displaystyle \Delta x' = 0 \text { and } v = \frac{\Delta x}{\Delta t} \implies \frac{B}{C} = v \).
+    \item \(\displaystyle \Delta x = 0 \text { and } -v = \frac{\Delta x'}{\Delta t'} \implies A = C \).  
 \end{enumerate}
 
 The third fact can be used by asking how fast does a person in \(S\) see a clock in \(S'\) ticks and the analogous question how fast does a person in \(S'\) see a clock in \(S\) ticks? 
@@ -88,13 +88,25 @@ is an invariant (does not depend on which reference frame you are measuring it f
 There are 3 possible signs for \((\Delta s)^2\):
 
 \begin{enumerate}
-    \item \((\Delta s)^2 > 0 \implies \abs{\frac{x}{t} } < c \) (timelike separation): We can always find a frame \(S'\) in which the two events happen at the same place, since \(\Delta x' = \gamma (\Delta x - v\Delta t)\) can be equals to zero. This implies that it is possible for an object to travel from one event to the other. 
-    In this case, the invariatn interval \(\Delta s\) is equals to the proper time \(\tau \), since \(\Delta x = \Delta y = \Delta z\) in the frame \(S'\) where the two events happen at the same place.    
+    \item \((\Delta s)^2 > 0 \implies \abs{\frac{x}{t} } < c \) (timelike separation): We can always find a frame \(S'\) in which the two events happen at the same place, since \(\Delta x' = \gamma (\Delta x - v\Delta t)\) can be equals to zero. This implies that it is possible for an object to travel from one event to the other.  
+    
+    In this case, the invariant interval \(\Delta s\) is the proper time \(\tau \), since \(\Delta x = \Delta y = \Delta z\) in the frame \(S'\) where the two events happen at the same place.    
+
     \item \((\Delta s)^2 < 0 \implies \abs{\frac{x}{t} } > c \) (spacelike separation): We can always find a frame \(S'\) in which the two events happen at the same time, since \(\Delta t' = \gamma (\Delta t - v\Delta x)\) can be equals to zero.
+    
     Now the invariant interval \(\Delta s\) is no longer proper time, since there is no frame in which the two events happen in the same place. 
+    
     The invariant interval \(\Delta s\) is now the negative of proper length, since \(\Delta t = 0\) in the frame \(S'\) where the two events happen at the same time.
-    \item \((\Delta s)^2 = 0 \implies \abs{\frac{x}{t} } = c \) (lightlike separation): It is not possible to find a frame \(S'\) in which the two events happen at the same place or the same time. However, a hpoton emitted at one of the events will arrive at the other in every frame.       
+    
+    \item \((\Delta s)^2 = 0 \implies \abs{\frac{x}{t} } = c \) (lightlike separation): It is not possible to find a frame \(S'\) in which the two events happen at the same place or the same time. However, a photon emitted at one of the events will arrive at the other in every frame.       
 \end{enumerate}
+
+In a spacetime diagram, the third case corresponds to the events happen at the origin and on the light cone. Timelike events are the events at the origin and above or below the light cone. Spacelike separation are the events at the origin and at the left or right of the light cone.
+
+
+\example{Exceeding the speed of light.}
+{A laser beam is swepted through the space as it shines on the moon, the speed of the spot on the moon can be made arbitarily large as it is directly proportional to the distance from the moon to the Earth, why does it not violate special relativity?}
+{Each photon travels independently at the speed of light. The speed of the spot does not bear any physical significance since it is defined based on uncorrelated events (each photon hitting the moon), and thus cannot be used to transfer any information.} 
 
 
 
@@ -154,13 +166,13 @@ The displacement 4-vector between two events that are infinitesimally close toge
 Dividing the displacement 4-vector with the proper time \(d \tau = \frac{dt}{\gamma } \) (which is an invariant since it is independent of the fram in which it is measured), we obtain 
 
 \begin{equation}
-    V \equiv  \frac{dS}{d\tau } = \gamma (1, \frac{dx}{dt}, \frac{dy}{dt}, \frac{dz}{dt}) = \gamma (1, \vb{v} ).
+    V \equiv  \frac{dS}{d\tau } = \gamma \left(1, \frac{dx}{dt}, \frac{dy}{dt}, \frac{dz}{dt}\right) = \gamma (1, \vb{v} ).
 \end{equation}
 
 We can then take the derivative of the velocity 4-vector with respect to \(\tau \). The result is a four vector because the numerator is just an infinitesimal change of the displacement 4-vector (which is also a 4-vector due to linearity) and the denominator is an invariant. So
 
 \begin{equation}
-    A \equiv  \frac{dV}{d\tau } = \gamma (\frac{d\gamma }{dt}, \frac{d(\gamma \vb{v} )}{dt}) = (\gamma ^{4}v \dot{v} , \gamma ^{4} v \dot{v} \vb{v} + \gamma ^2 \vb{a})
+    A \equiv  \frac{dV}{d\tau } = \gamma \left(\frac{d\gamma }{dt}, \frac{d(\gamma \vb{v} )}{dt}\right) = (\gamma ^{4}v \dot{v} , \gamma ^{4} v \dot{v} \vb{v} + \gamma ^2 \vb{a})
 \end{equation}
 
 Multiply the velocity 4-vector by another invariant, mass \(m\), we get the energy-momentum 4-vector
@@ -172,7 +184,7 @@ Multiply the velocity 4-vector by another invariant, mass \(m\), we get the ener
 The force 4-vector is then the derivative of the momentum 4-vector with respect to \(\tau \). This gives
 
 \begin{equation}
-    F \equiv \frac{dP}{d\tau } = \gamma (\frac{dE}{dt}, \vb{f}),
+    F \equiv \frac{dP}{d\tau } = \gamma \left(\frac{dE}{dt}, \vb{f}\right),
 \end{equation}
 
 where \(\vb{f} \equiv \frac{d(\gamma m\vb{v} )}{dt} \) is the usual 3-force defined as the rate of change of momentum.  
@@ -351,7 +363,7 @@ There is no need to use 4-vectors to solve collision problems, they can be alway
 
 The power of writing energy and momentum of a particle in a single energy-momentum 4-vector can be illustrated by the example below:
 
-\example{Decay of a Particle}
+\example{Decay of a Particle.}
 {A particle with mass \(M\) and energy \(E\) decays into two identical particles. In the lab frame, one of them is emitted at a \(90 ^\circ \) angle. What are the energy of the created particles? }
 {Let \(P, P_1 \text { and } P_2 \) be the energy-momentum 4-vectors of the decayed particle, the particle emitted at \(90 ^\circ \) angle, and the remaining particle respectively. 
 
@@ -371,7 +383,7 @@ By conservation of energy and momentum,
 Again, the energy-momentum vector introduce no new physics, it simply write the conservation laws in a way that help simplify the algebra using the ``norm squared equals mass'' property.
 } 
 
-The only non-trivial property of the energy-momentum vector is that since the sum of the energy-momentum 4-vectors of a collection of particles is also a 4-vector due to linearity, the norm squared of this 4-vector
+The only non-trivial property of the energy-momentum vector is that since the sum of the energy-momentum 4-vectors of a collection of particles \(\sum_{i=1}^{n} P\)  is also a 4-vector due to linearity, the norm squared of this 4-vector
 
 \begin{equation}
     \left( \sum_{}^{} P \right)^2 = \left( \sum_{}^{} E \right) ^2 - \left( \sum_{}^{} \vb{p}   \right) ^2 
@@ -379,8 +391,9 @@ The only non-trivial property of the energy-momentum vector is that since the su
 
 is also an invariant. Note that the sums are taken before squaring in the above equation. If we sqaure before the addition it would simply give the sum of the squares of the masses (which of course is also an invariant but is trivial why).
 
-\example{Threshold Kinetic Energy}{What is the threshold kinectic energy in lab frame for production of an electron pair by collision of an incident electrron with mass \(m_{e} \) with a stationary electron? }
-{Since \(\sum \vb{p}_{\text{c.m.}}  =0 \text { and } \sum E_{\text{c.m.}} = \sum \gamma _{\text{c.m.}}m  \), the kinetic energy in center of mass frame is minimized if \(\gamma _{i} = 0 ~~\forall~ i \). 
+\example{Threshold Kinetic Energy.}
+{What is the threshold kinectic energy in lab frame for production of an electron positron pair by collision of an incident electrron with mass \(m_{e} \) with a stationary electron? }
+{Since \(\sum \vb{p}_{\text{c.m.}}  =0 \text { and } \sum E_{\text{c.m.}} = \sum \gamma _{\text{c.m.}}m  \), the kinetic energy in the center of mass frame is minimized if \(\gamma _{i} = 0\) for all \(i\). 
 
 Using the subscript ``lab'' and ``c.m.'' to distinguish the lab frame and the center of mass frame; primed and unprimed to distinguish the quanitity before or after collision, we have 4 equal quantities:
 
@@ -390,7 +403,7 @@ The norm squared of the sum of the energy-momentum 4-vectors of all the particle
     \left( \sum P_{\text{c.m.}}' \right)^2 = \left( \sum_{}^{} E_{\text{c.m.}}'  \right) ^2 - \left( \sum_{}^{} \vb{p}_{\text{c.m.}}'    \right) ^2  = \left( \sum m \right)^2 = 4 m_{e}^2,
 \end{equation}
 
-which must be equals to the normed squared of the sum of the energy-momentum 4-vectors of all the particles in the lab frame after the collsion on the other hand is due to 4-vector property
+which must be equals to the normed squared of the sum of the energy-momentum 4-vectors of all the particles in the lab frame after the collsion due to 4-vector property
 
 \begin{equation}
     \left(\sum P_{\text{lab} }' \right)^2 = \left(\sum E_{\text{lab} }'\right)^2 - \left( \sum \vb{p} _{\text{lab} }' \right)^2 \text{(not important)},
@@ -408,7 +421,7 @@ which must be equals to the normed squared of the sum of the energy-momentum 4-v
     \left(\sum P_{\text{c.m.} } \right)^2 = \left(\sum E_{\text{c.m.} }\right)^2 - \left( \sum \vb{p} _{\text{c.m.} } \right)^2 \text{(not important)}. 
 \end{equation}
 
-Alternatively, we can use the lorentz transformation of the energy-momentum 4-vectors. Here there is only one \(\gamma ~(\text {or } \beta )\) is important, since the \(\gamma \) of the particle in the center of mass frame is equals to the \(\gamma \) of the center of mass frame relative to the lab frame, as one of the electron is originally at rest.   
+Alternatively, we can use the lorentz transformation of the energy-momentum 4-vectors. Here there is only one \(\gamma ~(\text {or } \beta )\) is important, since the \(\gamma \) of the particle in the center of mass frame is equals to the \(\gamma \) of the center of mass frame relative to the lab frame, as one of the electron is originally at rest and the masses of the two electrons are equal.
 
 In the center of mass frame before the collision, we have 
 
@@ -460,7 +473,7 @@ Threrfore we have \(\gamma = 2\).
 Both methods yields \(E = 7m_{e} \implies K.E. = 6m_{e} \). 
 }
 
-\example{Photon Emission}
+\example{Photon Emission.}
 {Show that a free electron moving in a vacuum cannot emit a single photon.}
 {An incomplete approach would be to write down the energy and momentum conservation laws in the lab frame, since the the direction of photon emission need not be the same with the direction in which the electron is originally moving. Working in the center of mass frame, we have
 
@@ -481,7 +494,8 @@ The only solution is that \(\gamma = 1, E_{p}=0, \beta = 0\), which means that t
 
 } 
 
-\example{Decay of an Atom}{An atom in an excited state of energy \(Q_0 \) (as measured in its rest frame) above the ground state is moving with velocity \(v\) as observed from the lab frame. The atom decays to its ground state by emitting a photon of energy \(Q\) and comes completely at rest. Find \(Q\) if the mass of the atom is \(M\).}
+\example{Decay of an Atom.}
+{An atom in an excited state of energy \(Q_0 \) (as measured in its rest frame) above the ground state is moving with velocity \(v\) as observed from the lab frame. The atom decays to its ground state by emitting a photon of energy \(Q\) and comes completely at rest. Find \(Q\) if the mass of the atom is \(M\).}
 {Comparing the norm squared of the energy-momentum 4-vector between the center of mass frame before the decay and the lab frame after the decay, we have
 
 \begin{equation}

@@ -38,7 +38,7 @@ where \(f\) and \(g\) are homogenous functions of the same degree of \(x\) and \
 
 Otherwise, a differential equation is homogeneous if it is a homogeneous function of \(y\)  and its derivatives. In the case of linear differential equation this implies that the constant term \(f(x)\)  is zero.
 
-There are two kinds of solution to an differential equation. A real function \(y=f(x)\) is called an explicit solution \(F(x,y,y',\cdots ,y^{(n)}) = 0\) on \([a,b]\) if a direction substiution leads to an identity, \ie 
+There are two kinds of solution to an differential equation. A real function \(y=f(x)\) is called an explicit solution \(F(x,y,y',\cdots ,y^{(n)}) = 0\) on \([a,b]\) if a direction substiution leads to an identity, \textit{i.e.,} 
 
 \begin{equation}
     F(x,f(x),f'(x),\cdots ,f^{(n)}(x)) =0 \text{ on } [a,b]
@@ -48,24 +48,26 @@ while a relation \(g(x,y) = 0\) is called an implicit solution of the differenti
 
 For example, \(x^2+y^2-4=0\) is the implicit solution for the differential equation \(x+y y'=0\) while \(y(x) = \pm \sqrt{4-x^2} \) is the explicit solution to the same differential equation. To understand the relevance of the phrase ``represents at least one real function'' in the above definition of the implicit solution, consider the relation \(x^2+y^2+1=0\), although this also satisfies the same differential equation, but there is no real values of \(x\text { and } y\) which satisfies \(x^2+y^2+1=0\) thus it is not an implicit solution since it does not represent any real valued function. This type of solution has a separate name called a ``formal solution'', which means that it appears to be a solution (but is actually not).
 
-A general theorem states that the general solution of all \(n^{\text{th }} \) order differential equation contains \(n\) integration constants. For example, the function \(y=\frac{1}{6} x^3 + C_1 x + C_2 \) which is the solution to the differential equation \(y'' = x\) has two integration constants \(C_1 \text { and } C_2 \) stemming from integration. Another example is the function \(y = Ae^{ t} + Be^{- t}  \) which is the solution to the differential equation \(y'' = y\) has two integration constants \(A\text { and } B\) although the equation is not necessarily solved by direct integration (but by guessing the solution \(y=e^{\alpha t} \)) and leveraging the homogenity of the equation. Consequently, there must be \(n\) boundary conditions or initial conditions\footnote{Initial conditions specify the value of the independent variable and its derivatives \((y,y',\ldots ,y^{(n-1)} )\) at a single \(x = x_0 \) while boundary conditions them at two or more \(x\) values.} to fix the values of these integration constants. 
+A general theorem states that the general solution of all \(n^{\text{th}} \) order differential equation contains \(n\) integration constants. For example, the function \(y=\frac{1}{6} x^3 + C_1 x + C_2 \) which is the solution to the differential equation \(y'' = x\) has two integration constants \(C_1 \text { and } C_2 \) stemming from integration. Another example is the function \(y = Ae^{ t} + Be^{- t}  \) which is the solution to the differential equation \(y'' = y\) has two integration constants \(A\text { and } B\) although the equation is not necessarily solved by direct integration (but by guessing the solution \(y=e^{\alpha t} \)) and leveraging the homogenity of the equation. Consequently, there must be \(n\) boundary conditions or initial conditions\footnote{Initial conditions specify the value of the independent variable and its derivatives \((y,y',\ldots ,y^{(n-1)} )\) at a single \(x = x_0 \) while boundary conditions them at two or more \(x\) values.} to fix the values of these integration constants. 
 
-The solutions of an \(n^{\text{th }} \) order ODE is often refered to as a \(n\)-parameters family, and can be represented as integral curves, which are parametric curves parameterized by the integration constants. Prominent examples of integral curves are the field lines for electric or magnetic field which satisfy the Maxwell's differential equations, and integral curves for the velocity field of a fluid are known as streamlines, which satisfy the Navier-Stokes differential equation.
+The solutions of an \(n^{\text{th}} \) order ODE is often refered to as a \(n\)-parameters family, and can be represented as integral curves, which are parametric curves parameterized by the integration constants. Prominent examples of integral curves are the field lines for electric or magnetic field which satisfy the Maxwell's differential equations, and integral curves for the velocity field of a fluid are known as streamlines, which satisfy the Navier-Stokes differential equation.
 \todo{complete this part} 
 
-
+\todo{singular solution \textit{e.g.,} y'= cos(y+x) imp y= pi/2 - x or sth sim} 
 
 \chapter{First Order Differential Equations}
 
 A first order differential equation \(F(x,y,y')\) are usually written in one of the two equivalent standard forms depending on the method of solving it
 
 \begin{equation}
-    \frac{dy}{dx} = F(x,y) \text { or } A(x,y) dx + B(x,y) dy = 0. 
+    \frac{dy}{dx} = F(x,y) ~\text { or }~ A(x,y) dx + B(x,y) dy = 0. 
 \end{equation}
+
+The first from above highlights the distinction between the independent and the dependent variable. However, in first order differential equation, assigning \(y \text { and } x\) as the independent and the dependent variable respectively is entirely arbitrary (if \(x \text { and } y\) do not carry any physical meaning) as can be seen from the second form above, which is symmetric in \(x \text { and } y\). It is crucial to understand that \(x \text { and } y\) are simply two variables that are related to each other, and should be treated equally.\footnote{In fact, higher order differential equations can also be inverted such that \(x\) becomes the independent variable instead of \(y\). However this cannot be done as easily as in first order differential equation (by simply rearranging the terms), and is rarely useful.} 
 
 \section{First Order Separable}
 
-A first order differentilal equation is separable if it is in the form
+A first order differential equation is separable if it is in the form
 
 \begin{equation}
     \frac{dy}{dx} = f(x)g(y)
@@ -79,7 +81,7 @@ ODE in the form of
     \frac{dy}{dx} = f(ax+by+c).
 \end{equation}
 
-is also separable simply by a change of the dependent variable \(z(x) = ax + by + c\), then 
+is also separable simply by a change of the variable \(z(x) = ax + by + c\), then 
 
 \begin{equation}
     \frac{dz}{dx} = a + \frac{dy}{dx} = a + bf(z).
@@ -93,7 +95,7 @@ A first order differential equation is homogeneous if it is in the form
     \frac{dy}{dx} = f\left(\frac{y}{x} \right).
 \end{equation}
 
-This reduces to a separable differential equation by introducing a new dependent variable \(z(x) = \frac{y}{x} \), so
+This reduces to a separable differential equation by introducing a new variable \(\displaystyle z = \frac{y}{x} \), so
 
 \begin{equation}
     \frac{dz}{dx} = x\frac{dy}{dx} - \frac{y(x)}{x^2} = \frac{f(z)-z}{x}  
@@ -153,31 +155,157 @@ is exact if it is the differential of a function
 Therefore, we have
 
 \begin{equation}
-    A(x,y) = \frac{\partial f}{\partial x} \text { and } B(x,y) = \frac{\partial f}{\partial y}
+    A(x,y) = \frac{\partial f}{\partial x} ~\text { and }~ B(x,y) = \frac{\partial f}{\partial y}
 \end{equation}
 
-Since \(\frac{\partial^2 f}{\partial x \partial y} = \frac{\partial^2 f}{\partial y \partial x}\), we obtain a necessary (and a sufficient) condition for the differential to be exact, which is
+Since \(\displaystyle \frac{\partial^2 f}{\partial x \partial y} = \frac{\partial^2 f}{\partial y \partial x}\), we obtain a necessary (and sufficient) condition for the differential to be exact, which is
 
 \begin{equation}
-    \frac{\partial A}{\partial y} = \frac{\partial B}{\partial x}\footnote{Determining whether a differential containing many variables \(x_1, x_2, \ldots, x_{n}\) is exact is a simple extension of the above: a differential \(df = \sum_{i=1}^{n} g_{i}(x_1 ,x_2 ,\ldots , x_{n} )dx_{i}  \) is exact if \(\frac{\partial g_{i} }{\partial x_{j} } = \frac{\partial g_{j} }{\partial x_{i} } \) for all pairs \(i,j\).} .
+    \frac{\partial A}{\partial y} = \frac{\partial B}{\partial x}.\footnote{Determining whether a differential containing many variables \(x_1, x_2, \ldots, x_{n}\) is exact is a simple extension of the above: a differential \(df = \sum_{i=1}^{n} g_{i}(x_1 ,x_2 ,\ldots , x_{n} )dx_{i}  \) is exact if \(\frac{\partial g_{i} }{\partial x_{j} } = \frac{\partial g_{j} }{\partial x_{i} } \) for all pairs \(i,j\).} 
 \end{equation}
 
-Thus, a first order differential equation is exact if it is in the form
+Finding exact differentials in a differential equation is crucial since it combines two differentials into one. The differential equation is then more likely to be integratable.
+
+
+\example{First Order Exact Differential Equation.}
+{Solve 
 
 \begin{equation}
-    df(x,y) = A(x,y)dx + B(x,y)dy = 0,
-\end{equation}
-
-which implies 
+    y' = \frac{(3x^2+2xy+y^2)\sin x-2(3x+y)\cos x}{2(x+y)\cos x} .
+\end{equation}~}
+{Rewriting the differential equation as
 
 \begin{equation}
-    f(x,y) = \int A(x,y) dx + C_1 (y) = \int B(x,y) dy + C_2 (x) = C. 
+    2(x+y)\cos xdy+(2(3x+y)\cos x-(3x^2+2xy+y^2)\sin x)dx = 0,
 \end{equation}
 
+Since
+
+\begin{equation}
+    \frac{\partial }{\partial x} (2(x+y)\cos x) = \frac{\partial }{\partial y} (2(3x+y)\cos x-(3x^2+2xy+y^2)\sin x),
+\end{equation}
+
+the two terms is thus an exact differential, where
+
+\begin{equation}
+    \frac{\partial f}{\partial y} = (2(x+y)\cos x) ~\text { and }~ \frac{\partial f}{\partial x} = (2(3x+y)\cos x-(3x^2+2xy+y^2)\sin x).
+\end{equation}
+
+Integrating the first relation from the above equation,
+
+\begin{equation}
+    f(x,y) = 2xy\cos x + y^2\cos x + C(x) \implies \frac{\partial f}{\partial x} = 2y(\cos x-x\sin x)-y^2\sin x+\frac{dC}{dx} .
+\end{equation}
+
+Equating the the forms of \(\displaystyle \frac{\partial f}{\partial x} \) found, 
+
+\begin{equation}
+    6x\cos x-3x^2\sin x = \frac{\partial C}{\partial x} \implies C(x) = 3x^2\cos x+ C'.
+\end{equation}
+
+Since \(df(x,y) = 0\), we can integrate and get \(f(x,y) = A\), where \(A\) is simply a constant (independent of \(x \text { and } y\)). Therefore, 
+
+\begin{equation}
+    f(x,y) = A = 2xy\cos x+y^2\cos x+3x^2\cos x+C' \implies y = -x \pm \sqrt{B \sec x - 2x^2}. 
+\end{equation}~
+} 
+
+\example{Finding Exact Differentials (1).}
+{Solve 
+
+\begin{equation}
+    y^2dx-(xy+x^3 )dx = 0.
+\end{equation}~
+}
+{Rewriting the differential equation as 
+
+\begin{equation}
+    y(ydx-xdy) - x^3 dy = 0,
+\end{equation}
+
+we spot that \(ydx - xdy\) is an exact differential of \(\displaystyle f = \frac{y}{x} \) (multiplied by \(x^2\)). Thus
+
+\begin{equation}
+    -yx^2 d\left( \frac{y}{x}  \right) - x^3 dy= 0.
+\end{equation}
+
+The variable \(y\) can be eliminated, and instead be replaced by the new variable \(\displaystyle \frac{y}{x} \). The differential equation then reduces to a homogeneous equation
+
+\begin{equation}
+    y d \left( \frac{y}{x}  \right) + xdy = 0 \implies     y = -x(x\pm \sqrt{C+x^2} ).
+\end{equation}~
+} 
+
+
+\example{Finding Exact Differentials (2).}
+{Solve 
+
+\begin{equation}
+    2xydx+(x^2-y^2)dy = 0.
+\end{equation}~
+}
+{\begin{equation}
+    yd(x^2)+x^2dy-y^2dy = d(x^2y)-y^2dy = 0 \implies y^3 - 3x^2y +C = 0.
+\end{equation}~
+} 
+
+
+\example{Finding Exact Differentials (3).}
+{Solve 
+
+\begin{equation}
+    y (2ydx-xdy) + x^2(ydx+2xdy) = 0.
+\end{equation}~
+}
+{\begin{equation}
+    \begin{aligned} 
+    2 \frac{dx}{x} - \frac{dy}{y} + \frac{x^2}{y}\left( \frac{dx}{x} + 2 \frac{dy}{y}   \right) &= 0 \\
+    2d(\ln x) - d(\ln y) + \frac{x^2}{y}(d(\ln x)+2d(\ln y)) &=0 \\
+    d\left( \ln (\frac{x^2}{y} ) \right) + \frac{x^2}{y}d(\ln (xy^2)) &= 0 \\ 
+    \ln (xy^2) &= C - \frac{x^2}{y}. 
+    \end{aligned} 
+\end{equation}~
+} 
+
+\example{Finding Exact Differentials (4).}
+{Solve 
+
+\begin{equation}
+    (xy+y^4)dx + (x^2- xy^3 )dy = 0.
+\end{equation}~
+}
+{\begin{equation}
+    \begin{aligned} 
+        x(ydx+xdy)+y^3 (ydx-xdy) &= 0\\
+        x(d(xy))+y^{5}\left(d\left( \frac{x}{y}  \right)\right) &=0 
+    \end{aligned}  
+\end{equation}~
+
+Let \(u \equiv xy \text { and } v \equiv \frac{x}{y} \), then \(\frac{y^{5} }{x} = \frac{u^2}{v^3 }    \), and the differential equation becomes separarble as
+
+\begin{equation}
+    v^3 du+u^2dv = 0 \implies y = -\frac{1}{2}^3 . 
+\end{equation}~
+} 
+
+\example{Finding Exact Differentials (5).}
+{Solve 
+
+\begin{equation}
+    1+ y y'' + y'^2 = 0.
+\end{equation}~
+}
+{\begin{equation}
+    dx+d(y y') = 0 \implies y^2+(x+C)^2=C'.
+\end{equation}~
+} 
 
 
 
-\section{First Order Inexact}
+
+
+
+\section{Integrating factor}
 
 If the differential equation is not exact, we can always make it exact by multiplying the differential by some function \(\mu (x,y)\), known as the integrating factor, so that
 
@@ -185,7 +313,7 @@ If the differential equation is not exact, we can always make it exact by multip
     \frac{\partial (\mu A)}{\partial y} = \frac{\partial (\mu B)}{\partial x}.  
 \end{equation}
 
-There is no general method for finding the integrating factor if \(\mu \) is a function of both \(x \text { and } y\). However, if \(\mu \) only depend one of them (\ie \(\mu (x,y) = \mu (x) \text { or } \mu (y)\)), then it can be found analytically. For example, if \(\mu (x,y) = \mu (x)\), then the above equation becomes
+There is no general method for finding the integrating factor if \(\mu \) is a function of both \(x \text { and } y\). However, if \(\mu \) only depend one of them (\textit{i.e.,} \(\mu (x,y) = \mu (x) \text { or } \mu (y)\)), then it can be found analytically. For example, if \(\mu (x,y) = \mu (x)\), then the above equation becomes
 
 \begin{equation}
     \mu \frac{\partial A}{\partial y} = \mu \frac{\partial B}{\partial x} + B \frac{\partial \mu}{\partial x},
@@ -197,15 +325,7 @@ which we can solve for \(\mu (x)\) as
     \mu (x) = \exp \left( \frac{1}{B} \int \left(\frac{\partial A}{\partial y} -\frac{\partial B}{\partial x} \right)dx  \right).
 \end{equation}
 
-Similarly, 
-
-\begin{equation}
-    \mu (y) = \exp \left( \frac{1}{A} \int \left(\frac{\partial B}{\partial x} -\frac{\partial A}{\partial y} \right)dx  \right).
-\end{equation}
-
-These results conveniently provides a general critirea of determining whether the integrating factor \(\mu \) is a function of \(x\text { or } y\) alone, which is when the proposed \(\mu (x) \text { or } \mu (y)\) is indeed a function of \(x \text { or }  y\) only.    
-
-\section{First Order Linear}
+Whether the integrating factor \(\mu (x,y)\) is dependent of \(x\) only can be determined by whether the proposed \(\mu (x)\) in the above equation is dependent of \(x\) only.  
 
 A first order differential equation is linear if it is in the form
 
@@ -216,8 +336,12 @@ A first order differential equation is linear if it is in the form
 It can be shown using \cref{mu(x)} that the integrating factor \(\mu \) always depends on \(x\) alone and has the general form
 
 \begin{equation}
-    \mu (x) = \exp \left( \int P(x) dx \right).
+    \mu (x) = \exp \left( \int P(x) dx \right),
 \end{equation}
+
+without needing to add an integration constant.
+
+An alternative way to solve a first order linear differential equation is to treat it as a genearl linear equation and solve it using the methods detailed in \cref{linear}. 
 
 \section{First Order Isobaric}
 
@@ -233,20 +357,14 @@ where the equation is dimensionally consistent if \(y = zx^{m} \).
 {Solve
 
 \begin{equation}
-    \frac{dy}{dx} = -\frac{1}{2yx}(y^2 + \frac{2}{x} ).  
+    \left( y^2 + \frac{2}{x}  \right) dx + 2xydy = 0.
 \end{equation}
 }
-{Rearranging we have 
-
-\begin{equation}
-    \left( y^2 + \frac{2}{x}  \right) dx + 2yxdy = 0.
-\end{equation}
-
-Giving \(y\text { and } dy\) weight \(m\) and \(x\text { and } dx\) the weight 1, the sums of powers in each term on the LHS are \(2m+1,0 \text { and } 2m+1\) respectively. These are equal if \(m = -\frac{1}{2} \). Therefore we substitute \(y = zx^{-\frac{1}{2} } \) and get
+{Giving \(y\text { and } dy\) weight \(m\) and \(x\text { and } dx\) the weight 1, the sums of powers in each term on the LHS are \(2m+1,0 \text { and } 2m+1\) respectively. These are equal if \(m = -\frac{1}{2} \). Therefore we substitute \(y = zx^{-\frac{1}{2} } \) and get
 
 \begin{equation}
     zdz + \frac{dx}{x} = 0 \implies \frac{1}{2}y^2x + \ln x = C. 
-\end{equation}
+\end{equation}~
 } 
 
 \section{Bernoulli's Equation}
@@ -260,7 +378,7 @@ A first order differential equation is a Bernoulli's equation if it has the form
 This equation can be solve by the substitution 
 
 \begin{equation}
-    z = y^{1-n} \implies \frac{dy}{dx} = \left( \frac{y^{n} }{1-n}  \right) \frac{dz}{dx}   
+    z = y^{1-n} \implies \frac{dy}{dx} = \left( \frac{y^{n} }{1-n}  \right) \frac{dz}{dx},  
 \end{equation}
 
 which makes the equation linear, as
@@ -269,8 +387,7 @@ which makes the equation linear, as
     \frac{dz}{dx} + (1-n) P(x)z = (1-n)Q(x).  
 \end{equation}
 
-
-
+\todo{PS1 1.7 onwards} 
 
 
 
@@ -442,9 +559,9 @@ where \(v_0 (r)\) is the known solution for the case of \(\gamma  = 0\).
 }  
 
 
-\chapter{Linear Differential Equations}
+\chapter{Linear Differential Equations} \label{linear} 
 
-In this chapter we examine the \(n^{\text{th }} \) order linear differential equation with the general form
+In this chapter we examine the \(n^{\text{th}} \) order linear differential equation with the general form
 
 \begin{equation}
     a_{n}(x) y^{(n)} + a_{n-1}(x)y^{(n-1)} + \cdots + a_1 (x)y' + a_0 (x)y = f(x).    
@@ -460,7 +577,7 @@ This suggest that the general solution must be written in the form of
 
 Here \(y_{H}(x) \) is the general solution of the corresponding homogeneous equation which comprise of an \(n\)-parameter family of curves and \(y_{P}(x) \) is one particular solution of the inhomogeneous equation so that for any two solutions \(y_1 (x) \text { and } y_2 (x)\) having the same \(y_{P}(x) \) but different \(y_{H_1 }(x) \text { and } y_{H_2 }(x)  \), their difference \(y_{H_1 }(x) - y_{H_2 }(x)\) will always satisfy the homogeneous equation.     
 
-\section{Linear Homogeneous}
+\section{Homogeneous Solutions}
 
 If \(y_1 \text { and } y_2  \) are solutions to a linear homogeneous differential equation, then the linear combination of them \(C_1 y_1 + C_2 y_2 \) (where \(C_1 \text { and } C_2\) may be complex) will also be a solution the the equation, which can be easily verified by direct substitution. 
 
@@ -523,7 +640,7 @@ It must be noted, however, that the vanishing of the Wronskian does not imply th
 
 \section{Linear Second Order}
 
-\subsection{Variation of Parameters}
+\subsection{Variation of Parameters}\label{vp} 
 
 The general form of a second order linear differential equation is
 
@@ -531,7 +648,7 @@ The general form of a second order linear differential equation is
     y'' + a(x) y' + b(x)y = f(x).
 \end{equation}
 
-There is no analytic solution for a general second order differential equations. However, if we know one of the solution we can use the method of variation of parameters to find the general solution. Specifically, if \(y_1 (x)\) is a solution, we look for another independent solution in the form of
+There is no analytic solution for a general second order differential equations, even if it is linear. However, if we know one of the solution we can use the method of variation of parameters to find the general solution. Specifically, if \(y_1 (x)\) is a solution, we look for another independent solution in the form of
 
 \begin{equation}
     y_{2} (x) = \psi (x) y_{1}(x).   
@@ -549,52 +666,84 @@ Substituting into the equation, we have
 But the term proportional to \(\psi \) is zero since \(y_{1} \) solve the original differential equation so we have the first order differential equation (in \(\psi '\))
 
 \begin{equation} \label{psi'} 
-    \psi '' + \left( 2 \frac{y_1 '}{y_1 } + a(x)  \right) \psi = \frac{f(x)}{y_1} 
+    \psi '' + \left( 2 \frac{y_1 '}{y_1 } + a(x)  \right) \psi' = \frac{f(x)}{y_1} 
 \end{equation}
 
 The integrating factor of this equation is 
 
 \begin{equation}
-    \mu (x) = \exp \left(\int \left( 2\frac{y_1 '}{y_1 } + a(x) \right)dx\right) = \exp \left( 2 \int \frac{d(\ln (y_1 ))}{dx}dx + \int a(x) dx  \right) = y_1 ^2 e^{\int a(x)dx}
+    \mu (x) = \exp \left(\int \left( 2\frac{y_1 '}{y_1 } + a(x) \right)dx\right) = \exp \left( 2 \int \frac{d(\ln (y_1 ))}{dx}dx + \int a(x) dx  \right) = y_1 ^2 \exp ({\int a(x)dx})
 \end{equation}
 
 so the solution is 
 
 \begin{equation}
-    \psi ' (x) = \frac{1}{\mu (x)} \left( \int \frac{\mu (x)f(x)dx}{y_1 (x)}  + C \right) \footnote{Here the integration constant \(C\) is introduced from the integration \(\int d(\psi ' (x) \mu (x))\). The integral \(\int \mu(x)f(x)dx\) would give another integration constant but it will simply combine with \(C\) which is consistent with the fact that integrating a differential equation once gives one integration constant. Normally, \(C\) can be omitted and be introduced only when the second integral is carried out. But since the second integral is not carried out in this case we add the integration constant earlier. If it is not added here, we would still get the correct result, as the first term in \cref{psi(x)} would vanish but is encoded in the inner integral of the second term. Now we do not have to add an integration constant when evaluating this integral.} 
+    \psi ' (x) = \frac{1}{\mu (x)} \left( \int \frac{\mu (x)f(x)dx}{y_1 (x)}  + C \right),\footnote{Here the integration constant \(C\) is introduced from the integration \(\int d(\psi ' (x) \mu (x))\). The integral \(\int \mu(x)f(x)dx\) would give another integration constant but it will simply combine with \(C\) which is consistent with the fact that integrating a differential equation once gives one integration constant. Normally, \(C\) can be omitted and be introduced only when the second integral is carried out. But since the second integral is not carried out in this case we add the integration constant earlier. If it is not added here, we would still get the correct result, as the first term in \cref{psi(x)} would vanish but is encoded in the inner integral of the second term. Now we do not have to add an integration constant when evaluating this integral.} 
 \end{equation}
 
 and thus
 
 \begin{equation} \label{psi(x)} 
-    \psi (x) = C \int \frac{dx}{\mu (x)} + \int \frac{1}{\mu (x)} \left( \int \frac{\mu (x)f(x)dx}{y_1 (x)} dx \right) dx .
+    \psi (x) = C \int_{}^{x} \frac{dx}{\mu (x)} + \int_{}^{x}  \frac{1}{\mu (x)} \left( \int_{}^{v}  \frac{\mu (v)f(v)dv}{y_1 (v)} dv \right) dx .
 \end{equation}
 
-where the integration constant is omitted since it would just give the original solution \(y_1(x)\).  
+where the integration constant is omitted since it would just give the original solution \(y_1(x)\). The notation \(\int ^x\) is simply to change back the dummy variable \(u \text { or } v\) to \(x\) but is not the upper bound of integration because we are doing indefinite integral.  
+
+The first term is the second homogeneous solution and the second term is the particular solution.
 
 \todo{order of integration simplify} 
 
 \subsection{Finding the First Solution}
 
-There is no better method than guessing for finding the first solution. If the coefficient funcions of a \(n^{\text{th }} \) order differential equation are  \(a(x) \text { and } b(x)\) are polynomials, the following order of guessing is recommended: \(e^{\lambda x} \rightarrow x^{n} \rightarrow c_1 x + c_2 x^2+ \cdots + c_{n-1} x^{n-1} + x^{n} \rightarrow (c_1 x + c_2 x^2+ \cdots + c_{n-1} x^{n-1} + x^{n})e^{\lambda x} \rightarrow x^{r} \).  
+There is no better method than guessing for finding the first solution. If the coefficient funcions of a \(n^{\text{th}} \) order differential equation are  \(a(x) \text { and } b(x)\) are polynomials, the following order of guessing is recommended: \(e^{\lambda x} \rightarrow x^{n} \rightarrow c_1 x + c_2 x^2+ \cdots + c_{n-1} x^{n-1} + x^{n} \rightarrow (c_1 x + c_2 x^2+ \cdots + c_{n-1} x^{n-1} + x^{n})e^{\lambda x} \rightarrow x^{r} \).  
 
-\section{Linear Constant Coefficients}
-
-An important case where the solution can be obtained analytically  is when the coefficients are constant numbers, where we guess the solution \(y(x) = e^{\lambda x} \) to get a \(n^{\text{th }} \) degree polynomial with \(n\) (generally complex) roots, corresponding to the \(n\) linearly independent solutions\footnote{If all the coefficents \((a_1 ,\ldots ,a_{n} )\) are real, then the complex solutions come in pairs, \ie if \(\lambda \) is a root, then its complex conjugate \(\lambda ^*\) must also be a root. This can be shown by taking the complex conjugte on both sides of the equation after substituting one of the solutions.}.
-
-In the case where there are repeated roots, we have to look for additional solutions which is not in the form of \(y(x) = e^{\lambda x} \). Instead we use the method of variation of parameters outlined above (see \cref{psi'} ) to get
+\example{Finding the First Solution.}
+{Solve
 
 \begin{equation}
-    \psi '' + 2 \left(\frac{y_1 '}{y_1 } + a(x) \right)\psi = \psi '' + (2\lambda + \frac{a_1 }{a_2 } )\psi  = \psi '' = \frac{f(x)}{y_1 } = 0,
-\end{equation}
-
-where \(2\lambda + \frac{a_1 }{a_2 } \) is set to zero, since \(\lambda = -\frac{a_1 }{2a_2 } \) is a repeated root. Thus, we get
+    x^2 y'' +xy' + y = x.
+\end{equation}~
+}
+{Guess \(y = x^{n} \), then we would get \(n= \pm i\), so the homogenous solution is 
 
 \begin{equation}
-    \psi '' = 0 \implies \psi = (C_1 + C_2 x).
+    \begin{aligned} 
+    y_{H} &= Ax^{i}+Bx^{-i} = Ae^{i \ln x}+Be^{-i \ln x} \\ &= A(\cos (\ln x)+i \sin (\ln x))+B(\cos (\ln x)+i\sin (\ln x)) \\ &= A'\cos (\ln x)+B'\sin (\ln x).
+    \end{aligned}      
 \end{equation}
 
-This can be generalized to higher dimensions easily. For example, if the characteristic polynomial of some \(7^{\text{ th }} \) order linear homogeneous differential equation is \((\lambda -a)^3 (\lambda -b)(\lambda - c)(\lambda - d)\), then the general solution of the ODE is \(y(x) = (C_1 +C_2 x+C_3 ^2)e^{ax} + (C_4 +C_5x )e^{bx} + C_6 e^{cx} + C_7 e^{dx}    \).    
+The particular solution is \(y_{P}= \frac{x}{2} \), so the complete solution is \(y = y_{H}+y_{P} = A'\cos (\ln x)+B'\sin (\ln x)+\frac{x}{2}    \).  
+
+
+
+
+}
+
+\subsection{Linear Constant Coefficients}
+
+An important special case where the solution can be obtained analytically is when the coefficients are constant, where we guess the solution \(y(x) = e^{\lambda x} \) to get a \(n^{\text{th}} \) degree polynomial with \(n\) (generally complex) roots, corresponding to the \(n\) linearly independent solutions.\footnote{If all the coefficents \((a_1 ,\ldots ,a_{n} )\) are real, then the complex solutions come in pairs, \textit{i.e.,} if \(\lambda \) is a root, then its complex conjugate \(\lambda ^*\) must also be a root. This can be shown by taking the complex conjugte on both sides of the equation after substituting one of the solutions.}
+
+In the case where there are repeated roots, we have to look for additional solutions which is not in the form of \(y(x) = e^{\lambda x} \). Instead we use the method of variation of parameters outlined above to get extra indepedent solutions. For example, for a second order homogenous linear differential equation with constant coefficients, 
+
+\begin{equation}
+    a_2 y'' + a_1 y' + a_0 y = 0, \label{secondlinear} 
+\end{equation}
+
+we get (see \cref{psi'})
+
+\begin{equation}
+    \psi '' + 2 \left(\frac{y_1 '}{y_1 } + a(x) \right)\psi' = \psi '' + \left(2\lambda + \frac{a_1 }{a_2 } \right)\psi ' = \psi '' = \frac{f(x)}{y_1 } = 0,
+\end{equation}
+
+where \(\displaystyle 2\lambda + \frac{a_1 }{a_2 } \) is set to zero, since \(\displaystyle \lambda = -\frac{a_1 }{2a_2 } \) is a repeated root. Thus, we get
+
+\begin{equation}
+    \psi '' = 0 \implies \psi = (C_1 + C_2 x),
+\end{equation}
+
+where the term containing \(C_1 \) is the original solution, and the term with \(C_2 x\) is the extra independent solution. 
+
+This can be generalized to higher dimensions easily. For example, if the characteristic polynomial of some \(7^{\text{th}} \) order linear homogeneous differential equation is \((\lambda -a)^3 (\lambda -b)(\lambda - c)(\lambda - d)\), then the general solution of the ODE is \(\displaystyle y(x) = (C_1 +C_2 x+C_3 ^2)e^{ax} + (C_4 +C_5x )e^{bx} + C_6 e^{cx} + C_7 e^{dx}    \).    
 
 The table below shows some common solutions to a second order linear homogenous equation
 
@@ -611,16 +760,15 @@ $\kappa + i\omega$ & $\kappa - i\omega$ & $[C_1 \sin(\omega x) + C_2 \cos(\omega
 \end{tabular}%
 }
 
-To find the particular solution, we substitute \(y_{H} = e^{\lambda _{1} x }  \) (or \(e^{ \lambda _{2}x} \)) into \cref{psi'}, 
-
+To find the particular solution, we again use the method of variation of parameters and substitute \(\displaystyle y_{p} = \psi (x)e^{\lambda _{1}x }\) (or \(\psi (x)e^{\lambda _{2}x } \)) into \cref{secondlinear}, but this time the RHS of the equation is \(f(x)\) instead of 0. From \cref{psi'}, we get 
 
 \begin{equation}
     \psi '' + \left(2\lambda _{1} + \frac{a_1 }{a_2 } \right)  \psi ' = \frac{1}{a_2 } e^{-\lambda _{1}x }f(x) \implies \psi '' + \left(\lambda _{1}  - \lambda _{2} \right) \psi ' = \frac{1}{a_2 } e^{-\lambda _{1} x } f(x), 
 \end{equation}
 
-where we have used the sum of root \(\lambda _{1} + \lambda _{2} = -\frac{a_1 }{a_{2}}  \).
+where we have used the sum of root \(\displaystyle \lambda _{1} + \lambda _{2} = -\frac{a_1 }{a_{2}}  \) and the factor \(\displaystyle \frac{1}{a_2 } \) is introduced since in \cref{vp} we assumed the coefficient for \(y''\) in the original differential equation is \(0\).   
 
-The integrating factor is \(\mu  (x) = e^{\int (\lambda _{1} - \lambda _{2}  ) dx} = e^{(\lambda _{1} - \lambda _{2}  )x}  \), so
+The integrating factor is \(\displaystyle \mu  (x) = e^{\int (\lambda _{1} - \lambda _{2}  ) dx} = e^{(\lambda _{1} - \lambda _{2}  )x}  \), so
 
 \begin{equation}
     \psi'(x) = \frac{1}{\mu (x)} \int^x \mu (u) \left[ \frac{1}{a_2} e^{-\lambda_1 u} f(u) \right] du = \frac{e^{(\lambda_2 - \lambda_1)x}}{a_2} \int^x e^{-\lambda_2 u} f(u) du,
@@ -630,111 +778,302 @@ which upon integration gives
 
 \begin{equation}
     \begin{aligned}
-    \psi(x) &= \int^x \psi'(v) dv = \int^x \frac{e^{-(\lambda_2 - \lambda_1) v}}{a_2} \int^v e^{-\lambda_2 u} f(u) du \, dv \\
-    & = \int^x \left( \int^x_u \frac{e^{(\lambda_2 - \lambda_1) v}}{a_2} \, dv \right) e^{-\lambda_2 u} f(u) \, du = \int^x \frac{\left[e^{(\lambda_2 - \lambda_1) x} - e^{(\lambda_2 - \lambda_1) u}\right] e^{-\lambda_2 u} f(u)}{a_2 (\lambda_2 - \lambda_1)} \, du \\
-    &= \frac{e^{(\lambda_2 - \lambda_1) x} \int^x e^{-\lambda_2 u} f(u) \, du - \int^x e^{-\lambda_1 u} f(u) \, du}{a_2 (\lambda_2 - \lambda_1)}
+    \psi(x) &= \int^x \psi'(v) dv = \int^x \frac{e^{-(\lambda_2 - \lambda_1) v}}{a_2} \left(\int^v e^{-\lambda_2 u} f(u) du \right) dv \\
+    & = \int^x \left( \int^x_u \frac{e^{(\lambda_2 - \lambda_1) v}}{a_2}  dv \right) e^{-\lambda_2 u} f(u)  du = \int^x \frac{\left[e^{(\lambda_2 - \lambda_1) x} - e^{(\lambda_2 - \lambda_1) u}\right] e^{-\lambda_2 u} f(u)}{a_2 (\lambda_2 - \lambda_1)}  du \\
+    &= \frac{e^{(\lambda_2 - \lambda_1) x} \int^x e^{-\lambda_2 u} f(u)  du - \int^x e^{-\lambda_1 u} f(u)  du}{a_2 (\lambda_2 - \lambda_1)}.
     \end{aligned}
 \end{equation}
 
-Here we omit the integration constant since it would give back the homogeneous solution. The notation \(\int ^x\) is simply to change back the variable to \(x\) but is not the upper bound of integration because we are doing indefinite integral.  
+Here we omit the integration constant since it would give back the homogeneous solution \(e^{\lambda _{1}x } \).
 
-\todo{same as above order of integration} 
+In many cases, the form of the particular solution can be guessed easily. For example,  
 
-The result of the integration of some common driving function \(f(x)\) is summarized in the table below.  
-\[
-\renewcommand{\arraystretch}{1.5} % Adjust row spacing (1.5x the default)
-\begin{array}{|c|c|}
-\hline
-f(x) & y_P(x) \\ \hline
-b = \text{constant} & \frac{b}{a_0} \\ \hline
-b x^k & c_0 + c_1 x + c_2 x^2 + \cdots + c_k x^k \\ \hline
-b e^{\alpha x} \quad (\alpha \notin \{\lambda_1, \ldots, \lambda_n\}) & c e^{\alpha x} \\ \hline
-b x^k e^{\alpha x} \quad (\alpha = \lambda_i \text{ of multiplicity } k) & (c_0 + c_1 x + \cdots + c_k x^k) e^{\alpha x} \\ \hline
-b \sin(ax) \quad (a \notin \{i\lambda_1, \ldots, i\lambda_n\}) & c \sin(ax) + d \cos(ax) \\ \hline
-b \cos(ax) \quad (a \notin \{i\lambda_1, \ldots, i\lambda_n\}) & c \sin(ax) + d \cos(ax) \\ \hline
-b x^k e^{\alpha x} \quad (\alpha \notin \{\lambda_i\}) & (c_0 + c_1 x + c_2 x^2 + \cdots + c_k x^k) e^{\alpha x} \\ \hline
-b x^k \sin(ax) \quad (a \in \{\lambda_i\}) & \left\{ \begin{array}{l} (c_0 + c_1 x + c_2 x^2 + \cdots + c_k x^k) \sin(ax)+ \\ +(d_0 + d_1 x + d_2 x^2 + \cdots + d_k x^k) \cos(ax) \end{array} \right. \\ \hline
-b x^k \cos(ax) \quad (a \notin \{\lambda_i\}) & \left\{ \begin{array}{l} (c_0 + c_1 x + c_2 x^2 + \cdots + c_k x^k) \sin(ax)+ \\ +(d_0 + d_1 x + d_2 x^2 + \cdots + d_k x^k) \cos(ax) \end{array} \right. \\ \hline
-\sum_{i=1}^k f_i(x) \quad (f_i(x) \text{ are the functions above}) & \sum_{i=1}^k y_{P_i}(x) \quad (y_{P_i}(x) \text{ are the functions above}) \\ \hline
-\end{array}
-\]
+\begin{align} 
+    \begin{aligned}
+       f(x) &= x\sin x, \quad  \lambda = 1 \text { and } 2 &&\implies y_{P} = (Ax+B)\sin x+(Cx+D)\cos x \\
+       f(x) &= e^{2x}+\cos ^2x, \quad \lambda = 1 \text { and } 2 &&\implies y_{P} = Axe^{2x}+B+C \cos (2x)+D \sin (2x) \\
+       f(x) &= 8e^{\frac{x}{2} }, \quad \lambda = \frac{1}{2} \text { and } \frac{1}{2} &&\implies y_{P} = Ax^2e^{\frac{x}{2} }\\
+       f(x) &= xe^{-x}, \quad \lambda = -1 \text { and } -1 &&\implies y_{P} = x(Ax+B)e^{-x} \\
+       f(x) &= x + \cos (2x), \quad \lambda = \pm 2i &&\implies y_{P} = Ax+B+x(C\cos (2x)+D\sin (2x)) \\      
+       f(x) &= e^{x}(1+\sin x), \quad \lambda = 1 \pm i &&\implies y_{P} = e^{x} (A+x(C\cos x+D\sin (x)))
+    \end{aligned}
+\end{align} 
 
 
-\example{Forced Damped Harmonic Oscillator}
-{Find the solution \(y(t)\) of the forced damped harmonic oscillator.}
-{The equation for the forced damped harmonic oscillator will be in the form of 
+
+\todo{understand why can change order of integration if intint sth dxdy but not if intint sth dx sth dy} 
+
+\section{Harmonic Oscillator}
+
+\subsection{The General Solution}
+
+The appearance of harmonic oscillator is too often in physics that it deserves its own section. The most general equation describing a forced and dapmed harmonic oscillator is 
 
 \begin{equation}
-    \ddot{y} + 2\gamma \dot{y} + \omega _{0} ^2 y = F_0 e^{i \omega t}   
+    \ddot{x}  + 2\gamma \dot{x}  + \omega _{0} ^2 x = F_0 \cos(\omega t+\delta ). 
 \end{equation}
+
+where \(2\gamma , \omega _{0} \text { and } \omega  \) are the damping constant, natural frequency and driving frequency respectively.  
+
+The fastest way to solve this equation is to first consider the associated complex differential equation 
+
+\begin{equation}
+      \ddot{\tilde{x} } + 2 \gamma \dot{\tilde{x} } + \omega _{0}^2 \tilde{x} = F_0 e^{i(\omega t+\delta )}.  
+\end{equation}
+
+Taking the real part of this complex differential equation, 
+
+\begin{equation}
+    \mathfrak{Re} \left(  \ddot{\tilde{x} } + 2 \gamma \tilde{x}  + \omega _{0}^2 \tilde{x}\right) = \frac{d^2}{dt^2} \left(\mathfrak{Re} (\tilde{x} ) \right) + 2\gamma \frac{d}{dt} \left( \mathfrak{Re} (\dot{\tilde{x} } )  \right) + \omega _{0}^2\mathfrak{Re} (\tilde{x} ) = \mathfrak{Re} \left(   F_0 e^{i(\omega t+\delta )}  \right).
+\end{equation}
+
+Comparing the two associating equations above we can indeed say that \(x\) is the real part of \(\tilde{x} \).\footnote{We usually use the tilde symbol to denote the complex numbers we want to take the real part of.} Note that this methods hinges on the fact that the real function \(\mathfrak{Re} \) is linear, so that we can distribute \(\mathfrak{Re} \) separately to the three terms in the above equation, and also the derivative function (since differentiation is also a linear process).
+
+Also, the differential equation itself has to be linear. For example, if the equation contains a term \(\dot{x}^2 \), then when we take the real part of the complex associated equation, we would get \(\displaystyle \mathfrak{Re} (\dot{\tilde{x} }^2) \neq \frac{d}{dt} \mathfrak{Re}^2\left( \tilde{x }  \right)    \), so we cannot follow the argument above and claim that \(x\) is the real part of \(\tilde{x} \). 
 
 The homogeneous solution is 
 
 \begin{equation}
-    y_{H} = Ae^{\lambda _{+} t} + Be^{\lambda _{-}t }, \text{ where } \lambda _{\pm } = -\frac{\gamma }{2} \pm \sqrt{\gamma ^2 - \omega _{0}^2 }.        
+    x_{H} = Ae^{\lambda _{+} t} + Be^{\lambda _{-}t }, \quad \lambda _{\pm } = -\gamma  \pm \sqrt{\gamma ^2 - \omega _{0}^2 }.        
 \end{equation}
 
-Depending on sign of the discriminant, there are 3 cases: overdamping when the determinant is positive where there is no oscillation; underdamping when there is osillation; and critical damping in the critical case (where an extra solution linear to \(t\) is needed as there are repeated roots). 
+Depending on sign of the discriminant, there are 3 cases: overdamping when the determinant is positive where there is no oscillation; underdamping when there is osillation; and critical damping in the critical case (where the general homogeneous solution is \(x_{H} = (A+Bt)e^{\lambda t}\)), as there is only one repeated root \(\lambda \) (we will ignore this special case in the discussion below). 
 
 For the particular solution, we guess
 
-\begin{equation}
-    y_{P} = Ce^{i \omega t}.  
-\end{equation}
+\begin{align}
+    \begin{aligned} 
+    \tilde{x_{P} }  &= Ce^{i (\omega t+\delta )} \implies \tilde{\dot{x_{P} }}  = i \omega Ce^{i (\omega t+\delta )} \implies \tilde{\ddot{x_{P} }}  = - \omega ^2 Ce^{i (\omega t+\delta )} \\ \label{parguess} 
+    x_{P} &= \mathfrak{Re} (Ce^{i (\omega t+\delta )}) \implies \dot{x_{P} }  = \mathfrak{Re} (i \omega Ce^{i (\omega t+\delta )}) \implies \ddot{x_{P} }  = \mathfrak{Re} (- \omega ^2 Ce^{i (\omega t+\delta )}).\footnote{Note that the \(i \omega \) factor in \(\dot{x_{P} }  \) from differentiating \(x_{P} \) once cannot be taken out of the \(\mathfrak{Re} \) function.}
+    \end{aligned} 
+\end{align}
+
+This explicit calculation confirms that the real function \(\mathfrak{Re}\) is indeed linear, as \(\displaystyle \mathfrak{Re} (\tilde{\ddot{x_{P} } }  ) = \frac{d^2}{dt^2} \left(\mathfrak{Re} (\tilde{x_{P} } )\right)\). In the event where the driving function is not a pure sinusodial function, we can always use Fourier transform to write it as sum of sinusodial functions, so the general scheme of the above analysis still works. For example, the driving force is modulated as \(F(t) = mA \cos (\sigma t)\sin (\omega t)\), then we cannot guess the particular solution as \(x_{P} = C \mathfrak{Re} (e^{i \sigma t} ) \mathfrak{Re} (-i e^{i \omega t} )\) or something like that, but instead we should use the idea of a Fourier transform and rewrite the driving function as sum of trigonometric functions \(f(t) = \frac{mA}{2}(\sin (\sigma +\omega )+\sin (\sigma -\omega )) \), and proceeds as above. 
 
 Upon substitution, we get
 
 \begin{equation}
-    C = \frac{F_0 }{\omega _{0}^2 -\omega ^2 + 2i\gamma \omega  } = \frac{F_0 }{\sqrt{4\gamma ^2\omega ^2+ (\omega _{0}^2 - \omega ^2)^2} }e^{-i\varphi }, \text{ where }  \varphi = \arctan \left({\frac{2\gamma \omega }{\omega _{0}^2 - \omega ^2 }}\right).    
+    C = \frac{F_0 }{\omega _{0}^2 -\omega ^2 + 2i\gamma \omega  } = \frac{F_0 }{\sqrt{4\gamma ^2\omega ^2+ (\omega _{0}^2 - \omega ^2)^2} }e^{-i\varphi }, \quad   \varphi = \arctan \left({\frac{2\gamma \omega }{\omega _{0}^2 - \omega ^2 }}\right).    
 \end{equation}
 
-Taking the real part and combinnig the homogeneous and inhomogeneous solution, we have
+Taking the real part and combining the homogeneous and inhomogeneous solution, we have 
 
 \begin{equation}
-    y = y_{H} + y_{P} = e^{-\frac{\gamma }{2}t } ((Ae^{ \sqrt{\gamma ^2 - \omega _{0}^2 } t } + Be^{ \sqrt{\gamma ^2 - \omega _{0}^2 } t } )) + \frac{F_0 }{\sqrt{4\gamma ^2\omega ^2+ (\omega _{0}^2 - \omega ^2 )^2} } \cos  (\omega t+\varphi ).
+    x = x_{H} + x_{P} = e^{-\gamma t } \left(Ae^{ \sqrt{\gamma ^2 - \omega _{0}^2 } t } + Be^{ \sqrt{\gamma ^2 - \omega _{0}^2 } t } \right) + \frac{F_0 \cos  (\omega t+\delta +\varphi )}{\sqrt{4\gamma ^2\omega ^2+ (\omega _{0}^2 - \omega ^2 )^2} } . \label{gensol} 
 \end{equation}
 
-If the driving force is not a pure \(\cos \) function, then simply add a term \(e^{i \delta } \) after \(F_0 \), or add a tilda symbol on \(F_0 \) as \(\tilde{F_0 } \) to account for the phase difference. 
+This is the general solution of the harmonic oscillator equation. However, there are still a few special cases to consider:
 
-This is not the complete solution though. We have to still consider the case where (\(i\) times)  the driving frequency (\(i \omega \)) is the same as the root the characteristic equation (\(\lambda _{+} \text { or } \lambda _{-}  \)). Because if we proceed as normal, we get
+When \(\gamma = 0\) and as \(\omega \to \pm \omega _{0}\), we have \(y_{P} \to \infty  \), so the guess in \cref{parguess} does not work anymore. The mathematical reason is that since \(i \omega \to  i \omega _{0} = \lambda _{\pm } \), the particular solution coincides with the homogenous solutions, so we would have to find another independent solution. 
+
+The way we would find the extra solution is by considering a more cumbersome but a more general particular solution 
 
 \begin{equation}
-     C((i\omega) ^2 + 2\gamma (i\omega) + \omega _{0}^2) = 0 = F_0,
+    x_{P} =  \mathfrak{Re} (C(e^{i(\omega t+\delta )} - e^{\pm i\omega _{0}t  } ) ). 
 \end{equation}
 
-So the LHS of the above equation is zero and \(C\) can be any arbitrary constant.
+What we have done basically, is to call some part of the homogenous solution as part of the particular solution. More concretely, we split the coefficient \(A \) (or \(B\)) into two parts of \(C \text { and } A-C\) (or \(B-C\)), and we add the part of coefficient \(C\) to the particular solution. 
 
-Since \(i \omega \) is pure imaginary, this special case only occurs when the real part of \(\lambda _{+} \text { or } \lambda _{-}  \) is zero, which is when \(\gamma  = 0\), thus \(\lambda = \pm i \omega _{0} \), which implies that \(\omega = \pm \omega _{0} \).
+In some sense, it is a more general particular solution because it not only works for most cases where \(\omega \neq \omega _{0} \), we can now also take the limit as \(\omega \to \omega _{0} \) to get a new independent solution as   
 
-To find the particular solution in this case, we first consider the case when \(\omega \) is close to \(\pm \omega _{0} \), then take the limit as \(\omega \rightarrow \pm \omega _{0} \). The particular solution is now
 
 \begin{equation}
-    x_{P} = \frac{F_0 e^{i \omega t} }{(i\omega) ^2 + 2\gamma (i\omega) + \omega _{0} ^2} =  \frac{F_0 (e^{i\omega t} - e^{\pm i \omega _{0}  t})  }{(i\omega) ^2 + 2\gamma (i\omega)  + \omega _{0} ^2}.
+    x_{P} = F_0 \mathfrak{Re} \left( \lim_{\omega  \to \pm \omega _{0}  } \left(  \frac{e^{i (\omega t+\delta )} - e^{\pm i (\omega _{0}  t )}  }{\omega _{0}^2-\omega ^2 } \right)\right) = F_0 \mathfrak{Re} \left( \lim_{\omega  \to \pm \omega _{0} } \left(\frac{ite^{i (\omega t+\delta )} }{-2\omega } \right) \right)= \frac{F_0 t \sin (\omega _{0}t +\delta )}{2 \omega _{0} }.
 \end{equation}
 
-The last equility is valid since the term with \(e^{\pm i \omega _{0}  t} \) vanishes when we substitute into the differential equation. 
+In hindsight, one can simply guess \(x_{P} = \mathfrak{Re} (Cte^{i(\omega t+\delta )} )  \), since it is the simpliest mean to obtain another independent solution, and it works also. 
 
-Taking the limit \(\omega \rightarrow \omega _{0} \) by Taylor's series or l'Hospital's rule, 
+\subsection{Quality Factor}
+
+\subsubsection{Definition of Quality Factor}
+
+For an underdamped unforced oscillator, the general solution can be seen from \cref{gensol} as
 
 \begin{equation}
-    x_{P} = F_0 \lim_{\omega  \to \pm \omega _{0}  } \left(  \frac{e^{i \omega t} - e^{\pm i \omega _{0}  t}  }{(i\omega) ^2 + 2\gamma (i\omega)  + \omega _{0} ^2} \right) = F_0 \lim_{\omega  \to \pm \omega _{0} } \left(\frac{ite^{i \omega t} }{-2\omega + 2\gamma } \right) = \frac{F_0 t \sin (\omega _{0}t )}{2 \omega _{0} }
+    x = Ae^{-\gamma t} \cos (\omega _{u} t+\varphi ) \implies \dot{x} = -A\left( e^{-\gamma t} \omega _{u}\sin (\omega _{u}t+\varphi  ) + \gamma \cos (\omega _{u}t+\varphi  )  \right), 
 \end{equation}
 
-for both \(\omega = + \omega _{0} \text { and } \omega = - \omega _{0} \)\footnote{If \(\lambda _{+} = \lambda _{-}  \), \ie the roots of the characteristic equation is repeated, then this repeated root is also the root of the differentiated polynomial (since \(2a(-\frac{b}{2a} ) + b = 0\)), so the denominator will still be zero after taking the limit. In this case we repeat the argument above (add an extra term and take the limit again), where instead of proportional to \(t\) we get the particular solution to be proportional to \(t^2\).}.
+where \(\omega _{u} \equiv \sqrt{\omega _{0}^2- \gamma ^2 } \) is the underdamped frequency.
 
-The resonance frequency is defined to be the driving frequency at which the response has maximum amplitiude. We can find the resonance frequency by differentiating the amplitude with respect to frequency, and we have\footnote{If the response we are interested is velocity or (current in electricity analogy), then the resonance frequency will be the natural frequency}
+The quality factor \(Q\) of an underdamped motion (since only it has oscillations) is defined as 
 
 \begin{equation}
-    \omega _{r} = \sqrt{\omega _{0}^2 - 2\gamma ^2 }.
+    Q \equiv 2\pi \frac{\text{Average energy stored in a cycle}}{\text{Total energy last per period}}.
 \end{equation}
 
+The average energy stored in a cycle \(E\) can be calculated directly via
+
+\begin{equation}
+    \begin{aligned} 
+    E &= \frac{1}{2}m \dot{x} ^2 + \frac{1}{2}kx^2 = \frac{1}{2}m \dot{x} ^2+ \frac{1}{2} m \omega _{0}^2x^2    \\ 
+    &= \frac{1}{2}m\left( A^2e^{-2\gamma t} \left(  \omega _{u}\sin (\omega _{u}t+\varphi  ) + \gamma \cos (\omega _{u}t+\varphi  )  \right)^2\right) + \frac{1}{2}\left( \omega _{0}^2   (Ae^{-\gamma } \cos (\omega _{u} t+\varphi ))^2\right) \\ 
+    &= \frac{1}{2}mA^2e^{-2\gamma t} \left((\omega _{0}^2-\gamma ^2 ) \sin ^2(\omega _{u}t+\varphi)  + (\gamma ^2+\omega _{0}^2) \cos ^2(\omega _{u}t+\varphi  ) + \frac{\gamma }{2} \omega _{u}\sin (2(\omega _{u}t+\varphi  )) \right)\\
+    &= \frac{1}{2}mA^2e^{-2\gamma t} \left( \omega _{0}^2 + \frac{\gamma }{2}\omega _{u}\sin (2(\omega _{u}t + \varphi  )) + \gamma ^2(\cos ^2(\omega _{u}t+\varphi  )- \sin ^2(\omega _{u}t+\varphi  )) \right) \\
+    &= \frac{1}{2}mA^2e^{-2\gamma t} \left( \omega _{0}^2+ \frac{\gamma }{2}\omega _{u}\sin (2(\omega _{u}t+\varphi  )) + \gamma ^2\cos (2(\omega _{u}t+\varphi  )) \right) \\
+    \avg{E} &= \frac{1}{2}mA^2\omega _{0}^2e^{-2\gamma t},
+     \end{aligned} 
+\end{equation}
+
+since when averaging over a long period of time \(T \to \infty\), simple trigonometric functions integrate to be zero (while their squared to \(\frac{1}{2} \)). 
+
+Therfore the quality factor \(Q\) is 
+
+\begin{equation}
+    \begin{aligned} 
+    Q &= 2\pi \frac{\avg{E} }{\abs{\Delta \avg{E} } } = 2\pi  \abs{\Delta \left( \ln (\avg{E}  ) \right)}^{-1} = 2\pi \abs{ \Delta \left(-2\gamma t + \ln (\frac{1}{2}mA^2\omega _{0}^2  )\right)}^{-1}  \\
+    &= 2\pi \abs{ (-2\gamma \Delta t)}^{-1} = \frac{2\pi }{\gamma \Delta t} = \frac{\omega _{0} }{\gamma }.   
+    \end{aligned} 
+\end{equation}
+
+Another way to calculate the quality factor is by considering the power of the resistive force. For simplicity, we simply calculate the fractional change of energy of the first cycle. This does not lose generality as every cycle can be regarded as the first cycle by redefining the amplitude and the time. Therefore we have
+
+\begin{equation}
+    \begin{aligned} 
+    \abs{\Delta \avg{E} }  &= \int_{0}^{\Delta t} m\gamma \dot{x} ^2 dt = m\gamma \int_{0}^{\Delta t} A^2e^{-2\gamma t} \left(  \omega _{u}\sin (\omega _{u}t+\varphi  ) + m\gamma \cos (\omega _{u}t+\varphi  )  \right)^2 dt\\
+    &\approx  m\gamma A^2\int_{0}^{\Delta t} e^{-2\gamma t} \left( \omega _{0}^2\sin ^2(\omega _{0}t+\varphi  ) + \omega _{0}\gamma \sin (2(\omega _{0}t+\varphi  )) \right)dt \\
+    &= m\gamma A^2 \omega _{0}^2 \int_{0}^{\frac{2\pi }{\omega _{0} } } e^{-2\gamma t} \left( \frac{1-\sin (\omega _{0}t+\varphi  )}{2}  \right)dt \\
+    &= \frac{1}{2}m\gamma A^2\omega _{0}^2 \left( \frac{1}{-2\gamma }  \right) \left(1- e^{-2\gamma \left( \frac{2\pi }{\omega _{0} }  \right)} \right)  \approx  \frac{1}{4}mA^2\omega _{0}^2\left(2\gamma \left( \frac{2\pi }{\omega _{0} }  \right)\right) = m\pi \gamma \omega _{0} A^2.  
+    \end{aligned} 
+\end{equation}
+
+Therefore the quality factor \(Q\) is 
+
+\begin{equation}
+    Q = 2\pi \frac{\avg{E} }{\abs{\avg{E} } } = 2\pi \frac{\frac{1}{2}mA^2\omega _{0}^2e^{-2\gamma \left( \frac{2\pi }{\omega _{0} }  \right)}   }{m\pi \gamma \omega _{0}A^2 } \approx \frac{\omega _{0} }{\gamma }. 
+\end{equation}
+
+\subsubsection{FWHM of the Resonance Peak}
+
+In steady state (\textit{i.e.,} \(t \to \infty\)), the general solution (and for simplicity we assume \(\delta = 0\)) can be seen from \cref{gensol} as 
+
+\begin{equation}
+    x = \frac{F_0 \cos  (\omega t+\varphi )}{\sqrt{4\gamma ^2\omega ^2+ (\omega _{0}^2 - \omega ^2 )^2} } = A \cos (\omega t+\varphi ).
+\end{equation}
+
+The resonance frequency \(\omega _{\text{res} } \) is defined to be the driving frequency at which the response\footnote{In this case, the response we are interested in is the displacement \(x\). However, if the response we are interested is velocity or (current in electricity analogy), then the resonance frequency will be the natural frequency \(\omega _{0} \).} has maximum amplitiude, which can be found by differentiating \(A\) to get
+
+\begin{equation}
+    \omega _{\text{res} } = \sqrt{\omega _{0}^2 - 2\gamma ^2 } \implies A_{\text{max} } = \frac{F}{\gamma \omega _{0} }.  
+\end{equation}
+
+It turns out that the FWHM (full width at half maximum) of the resonance peak (\textit{i.e.,} the peak of the \(A \text{ v.s. } \omega  \) graph), which is the quantity \(\abs{\omega _{2} - \omega _{1} } \), is (to the first order) inversely proportional to the quality factor \(Q\). We would like to find the \(\omega = \omega _{1}\text { or } \omega _{2}  \) for which 
+
+\begin{equation}
+    \begin{aligned} 
+    A(\omega ) = \frac{F_0 }{\sqrt{4\gamma ^2\omega  ^2+ (\omega _{0}^2 - \omega  ^2 )^2} } &= \frac{A}{2} = \frac{F}{2\gamma \omega _{0} } \\
+    \omega ^{4} + (\gamma ^2 - 2\omega _{0}^2 ) \omega ^2+\omega _{0}^{4} - 4\gamma ^2\omega _{0}^2 &= 0\\    
+    \end{aligned} 
+\end{equation}
+
+One can obviously find the roots expcitly and subtract them to get the answer. The faster way to do this would be to use the sum and the product of roots. We have
+
+\begin{equation}
+    \omega _{2} - \omega _{1} = \sqrt{\omega _{1}^2+\omega _{2}^2-2\omega _{1}\omega _{2}} = \sqrt{-(\gamma ^2-2\omega _{0}^2 ) -2 \sqrt{(\omega _{0}^2 - 4\gamma ^2 )\omega _{0}^2 } } \approx \sqrt{2\omega _{0}^2 -\gamma ^2 - 2\omega _{0}^2 \left( 1 -2\frac{\gamma ^2}{\omega _{0}^2 }  \right)  } 
+\end{equation}
+
+
+
+
+
+\section{Non-Linear Second Order}
+
+\example{The Equation Does Not Contain \(x\).}
+{Solve 
+
+\begin{equation}
+    y''(y-1)+y'(y-1)^2=y'^2.
+\end{equation}~
+}
+{Let \(p = y'\), then \(\displaystyle y''=\frac{dp}{dy} \frac{dy}{dx} = p p'  \). Substituting into the equation we get
+
+\begin{equation}
+    p p' (y-1) + p(y-1)^2 = p^2 \implies x = \frac{1}{C} \ln \abs{\frac{y-1}{C+1-y} } +C'. 
+\end{equation}
+
+However, the solution blows up at \(C = 0\), so we have to evaluate the integral again to get \(y = \frac{1}{x+B} \), as another answer. 
+
+Finally, \(y = A\) is trivally true, since every term in the equation contains \(y'\). 
 } 
 
+\todo{PS2 2.5 onwards} 
 
+\chapter{Systems of Linear Differential Equations}
 
+For a general \(n^{\text{th}} \) order linear differential equations 
 
+\begin{equation}
+    y^{(n)}(x) + a_{n-1}y^{(n-1)}(x) + \cdots + a_1 (x)y'(x) + a_0 (x)y(x) = f(x),   
+\end{equation}
 
+it can be treated as a system of \(n\) first order linear differential equations of \(n\) unknown functions, namely \(y,y',\ldots ,y^{(n-1)}  \text { and } y^{(n)} \), where the first \(n-1\) ones are trivial  \(y'(x) = \frac{d}{dx}y(x), y''(x) = \frac{d}{dx} y'(x)\) and the \(n^{\text{th}} \) equation is simply the original equation.
 
+This seems like a meaningless thing to do but if introduce the vector \(\vb{y} = \begin{pmatrix}
+    y & y' & \cdots  & y^{(n-2)}  & y^{(n-1)}   \\
+\end{pmatrix}^T\), then the system of equations can be rewritten into a more compact form
+
+\begin{equation}
+    \vb{y} ' = A (x)\vb{y} + \vb{f} (x), \label{inhomosys} 
+\end{equation}
+
+where \(A\) is a square matrix containing the coefficients of the \(n\) equations, and \(\vb{f} = \begin{pmatrix}
+    0 & \cdots  & 0 & \cdots  & f(x)  \\
+\end{pmatrix}^T\).
+
+For \(k\) system of \(n^{\text{th}} \) order differential equations, they can be written as a system of \(n \times k\) first order differential equations, or one first order vector differential equation, like the above equation, but the vector has \(n \times k\) entries.   
+
+\section{Homogeneous Linear Systems with Constant Coefficients}
+
+We start with the case where \(A(x) = A\) is independent of \(x\) and \(\vb{f} (x) = 0\) (\textit{i.e.,} the differential equation is homogeneous), so
+
+\begin{equation}
+    \vb{y}'(x) = A \vb{y}(x).  
+\end{equation}
+
+If \(A\) is diagonal with elements \(A_{ii} = a_{i}\) , then the equations are independent, as the \(i^{\text{th}} \) component of the equation simply reads
+
+\begin{equation}
+    y'_{i} = a_{i} y_{i}(x) \implies y_{i} (x) = C_{i}e^{a_{i}x }    
+\end{equation}
+
+If \(A\) is not diagonal, but is diagonalizable, \textit{i.e.,} \(A = A^{\dagger} \), then we introduce the change of basis matrix \(P = (\boldsymbol{\epsilon } _1, \cdots, \boldsymbol{\epsilon } _n )\), and write the equation in eigenvectors basis, where the transformed matrix now becomes \(A' = P^{-1} AP = \text{diag}(\lambda _{1}, \ldots , \lambda _{n}  )\) 
+
+\begin{equation}
+    \vb{z}' = A' \vb{z} \implies z_{i}(x) = C_{i}e^{\lambda _{i}x },  
+\end{equation}
+
+where \(\vb{z} = P^{-1} \vb{y} \), so 
+
+\begin{equation}
+    \vb{y} = P \vb{z} = (\boldsymbol{\epsilon } _1, \cdots, \boldsymbol{\epsilon } _n ) (\text{diag}(e^{\lambda _{1}x }, \ldots , e^{\lambda _{n}x }  ))\vb{C} ,
+\end{equation}
+
+where \(\vb{C} \) is a constant vector.
+
+\section{Inhomogeneous Linear Systems}
+
+Now we return to the general form in \cref{inhomosys} and suppose we know the homogeneous solution \(\vb{C} \vb{y} _{H}(x) \) and would like to find the particular solution. We again use the method of variation of parameters and guess 
+
+\begin{equation}
+    \vb{y} _{P}(x) = \boldsymbol{\psi }(x) \vb{y} _{H}(x).  
+\end{equation}
+
+Substituting into the differential equation we get
+
+\begin{equation}
+    \boldsymbol{\psi }'(x)\vb{y} _{H}(x) + \boldsymbol{\psi }(x) \vb{y} _{H}'(x) = A(x) \boldsymbol{\psi }(x) \vb{y} _{H}(x) + \vb{f} (x).
+\end{equation}
+
+Since \(\vb{y} _{H}(x)  \) solves the homogeneous equation, two terms vanish and we have
+
+\begin{equation}
+    \boldsymbol{\psi }'(x)\vb{y} _{H}(x) = \vb{f} (x) \implies  \boldsymbol{\psi }(x) = \int \vb{y} _{H} (x)^{-1} \vb{f} (x) dx,
+\end{equation}
+
+and the general solution is 
+
+\begin{equation}
+    \vb{y} = \vb{y} _{H}(x) + \vb{y} _{P}(x) = \vb{y} _{H}(x) \left( \int \vb{y} _{H} (x)^{-1} \vb{f} (x) dx + \vb{C}  \right).
+\end{equation}
 
 
 

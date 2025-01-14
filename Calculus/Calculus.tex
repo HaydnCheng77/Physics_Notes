@@ -120,7 +120,7 @@ Since \(dx \text { and }  dz\) are independent, we the reciprocity and the cycli
 
 \subsection{Change of Variables}
 
-Again, we emphasize that it is completely fine if the variables are related by some separate relations or cosntriant. Suppose \(x \text { and } y\) are parameterized by some other variable \(u\), \ie, \(x = x(u) \text { and } y = y(u)\). Then to find out how \(f(x,y)\) changes with \(u\), we simplify divide the total derivative of \(f\) with respect to \(x \text { and } y\) by \(du\), so
+Again, we emphasize that it is completely fine if the variables are related by some separate relations or cosntriant. Suppose \(x \text { and } y\) are parameterized by some other variable \(u\), \textit{i.e.,} \(x = x(u) \text { and } y = y(u)\). Then to find out how \(f(x,y)\) changes with \(u\), we simplify divide the total derivative of \(f\) with respect to \(x \text { and } y\) by \(du\), so
 
 \begin{equation}
     \frac{df}{du} = \frac{\partial f}{\partial x} \frac{dx}{du} + \frac{\partial f}{\partial y} \frac{dy}{du},
@@ -165,12 +165,12 @@ To find the natures of the sationary points, we first complete the square so tha
     df = f(x,y) - f(x_0 , y_0 ) \approx  \frac{1}{2} \left[ f_{xx}\left( \Delta x+ \frac{f_{xy}\Delta y }{f_{xx} }  \right)^2 + (\Delta y)^2\left( f_{yy} - \frac{f_{xy}^2 }{f_{xx} }   \right)  \right].
 \end{equation}
 
-For a minimum point, we require that \(df>0\) for arbitrary \(\Delta x \text { and } \Delta y\). This implies that \(f_{xx} >0 \text { and } \left( f_{xx}f_{yy} > f_{xy}^2 \right)\). Due to symmtry of \(x \text { and } y\), \(f_{\vb{y} } >0\) is also necessary. For saddle point, \(df\) can be positve, negative or zero depending on the choice of \(\Delta x \text { and } \Delta y\). Therefore,
+For a minimum point, we require that \(df>0\) for arbitrary \(\Delta x \text { and } \Delta y\). This implies that \(f_{xx} >0 \text { and }  f_{xx}f_{yy} > f_{xy}^2\). Due to symmetry of \(x \text { and } y\), \(f_{y y } >0\) is also necessary. For saddle point, \(df\) can be positve, negative or zero depending on the choice of \(\Delta x \text { and } \Delta y\). Therefore,
 
 \begin{enumerate}
-    \item Minimum point: both \(f_{xx} > 0, f_{yy} > 0 \text { and } f_{xy}^2 < f_{xx}f_{yy}\),
-    \item Maximum point: both \(f_{xx} < 0, f_{yy} < 0 \text { and } f_{xy}^2 < f_{xx}f_{yy}\) and
-    \item Saddle point: \(f_{xx} \text { and } f_{yy}\) have opposite signs (or \(f_{xy}^2 > f_{xx}f_{yy}\)). 
+    \item Minimum point: \(f_{xx} > 0, f_{yy} > 0 \text { and } f_{xy}^2 < f_{xx}f_{yy}\).
+    \item Maximum point: \(f_{xx} < 0, f_{yy} < 0 \text { and } f_{xy}^2 < f_{xx}f_{yy}\).
+    \item Saddle point: \(f_{xx} \text { and } f_{yy}\) have opposite signs, or \(f_{xy}^2 > f_{xx}f_{yy}\). 
 \end{enumerate}
 
 If \(f_{xy}^2 = f_{xx}f_{yy}\), then \(df\) must be one of the four forms \(\displaystyle \pm \frac{1}{2} (\abs{f_{xx} }^{\frac{1}{2} } \Delta x \pm \abs{f_{yy} }^{\frac{1}{2} }\Delta y)^2\), then for some choice of the ratio \(\displaystyle \frac{\Delta y}{\Delta x}\), \(df = 0\) so higher order terms are needed to find the nature of the stationary point. 
@@ -178,7 +178,7 @@ If \(f_{xy}^2 = f_{xx}f_{yy}\), then \(df\) must be one of the four forms \(\dis
 For functions with more than 2 variables, the conditions for stationary points are 
 
 \begin{equation}
-    \frac{\partial f}{\partial x_{i} } = 0 ~~~\forall~ x_{i},
+    \frac{\partial f}{\partial x_{i} } = 0 \text{ for all }  x_{i},
 \end{equation}
 
 where \(x_{i} \) are the variables. 
@@ -203,7 +203,7 @@ The infinitesimal displacement vector \(d \vb{r} \)  from \((u,v,w)\) to \((u+du
 	d\vb{r} = \frac{\partial \vb{r} }{\partial u} du + \frac{\partial \vb{r} }{\partial v}dv + \frac{\partial \vb{r} }{\partial w}dw. 
 \end{equation}
 
-If the coordinate system is orthogonal \ie \(\vu{u} \perp \vu{v} \perp \vu{w}\), where \(\vu{u} ,\vu{v} \text { and } \vu{w} \) are the unit vectors whose direction are directed along increaseing \(u, v \text { and } w\) respectively, then we have
+If the coordinate system is orthogonal \textit{i.e.,} \(\vu{u} \perp \vu{v} \perp \vu{w}\), where \(\vu{u} ,\vu{v} \text { and } \vu{w} \) are the unit vectors whose direction are directed along increaseing \(u, v \text { and } w\) respectively, then we have
 
 \begin{equation}
     \frac{\partial \vb{r} }{\partial u} = f \vu{u}, \frac{\partial \vb{r} }{\partial v} = g \vu{v}  \text { and } \frac{\partial \vb{r} }{\partial w} = h \vu{w}  ,
@@ -1040,7 +1040,7 @@ Single, double and triple integrals describe integrations over an interval in on
 The most general forms (in Cartesian coordiantes) are 
 
 \begin{equation}
-	\int_{a}^{b} f(x) dx, ~~ \int_{R}^{} f(x,y) dA, ~  \text { and } \int_{V}^{} f(x,y,z) dV.   
+	\int_{a}^{b} f(x) dx, \quad \int_{R}^{} f(x,y) dA ~  \text { and }~ \int_{V}^{} f(x,y,z) dV.   
 \end{equation}
 
 Two or three integral signs will be used if \(dA = dxdy \text { or } dV = dxdydz\) are written out explicitly. 
@@ -1054,12 +1054,12 @@ Refering to \cref{doubleintegral}, we can see that the a double integral can be 
 The first is to sum up all the horizontal strips, then 
 
 \begin{equation}
-    I = \int_{c}^{d} \int_{x_1 (y)}^{x_2 (y)} f(x,y) dx dy,   
+    I = \int_{c}^{d} \left( \int_{x_1 (y)}^{x_2 (y)} f(x,y) dx \right) dy,   
 \end{equation}
 
-where \(x_1 (y) \text { and } x_2 (y)\) are the equations of the curves \(TSV \text { and } TUV\) respectively. 
+where \(x_1 (y) \text { and } x_2 (y)\) are the equations of the curves \(TSV \text { and } TUV\) respectively, and the parenthesis is usually omitted.
 
-For a specific range \(y \rightarrow y+dy\) , the inner integral calculates the contribution to \(I\) by the horizontal strip located from \(y\) to \(y+dy\). The outer integral then sums up the contributions of these horizontal strips.
+For a specific range \((y,y+dy)\), the inner integral calculates the contribution to \(I\) by the horizontal strip located from \(y\) to \(y+dy\). The outer integral then sums up the contributions of these horizontal strips.
 
 The second way is to sum up all the vertical strips, then
 
@@ -1067,14 +1067,19 @@ The second way is to sum up all the vertical strips, then
     I = \int_{a}^{b} \int_{y_1 (x)}^{y_2 (x)} f(x,y) dy dx,
 \end{equation}
 
-where \(y_1 (x) \text { and } y_2 (x)\) are the equations of the curves \(STU \text { and } SVU\) respectively.   
+where \(y_1 (x) \text { and } y_2 (x)\) are the equations of the curves \(STU \text { and } SVU\) respectively. Thus the order of integration does not matter (given that \(f(x,y)\) behaves properly) as long as the limits of integrals are correct.
+
+
 
 A useful trick invovle Pappus' second theorem, which states that the surface of revolution of a plance curve is given by the length of the curve \(L\) multiplied by the distance moved by its centroid, since the suface area generated is given by \(\displaystyle S = \int 2\pi y ds = 2 \pi \overline{y} L\), where \(\displaystyle \overline{y} = \frac{1}{L} \int y ds \) is the definition of the centroid. 
 
 \section{Triple Integration}
+
+If the triple integral has the form \( \int_{V}^{} f(x,y,z) dxdydz = \int_{V}^{} f(x)f(y)f(z)  \), then we can evaluate each integral independently as \(\left( \int f(x)dx \right)\left( \int f(y)dy \right)\left( \int f(z)dz \right)\), and the same applies to summation, as integration and summation are essentially the same process.  
+
 \example{Volume of a Tetrahedron}
-{Find the volume of the tetrahedron bounded by the three coordinate surfaces \(x=0, y=0 \text { and }  z=0\) and the plane \(\frac{x}{a} + \frac{y}{b} + \frac{z}{c} =1\) as shown in \cref{tetrahedron}.}
-{\(\displaystyle V = \int_{0}^{a} \int_{0}^{b-\frac{bx}{a} } \int_{0}^{c(1-\frac{y}{b} - \frac{x}{a}  )} dxdydz\). The limit of integral over \(z\) can be obtained as integration over \(z\) adds up the boxes from the shaded column in the figure. A quicker way is to simply sum up all the vertical columns as \(\displaystyle V = \int_{0}^{a} \int_{0}^{b-\frac{bx}{a} dy c \left( a-\frac{y}{b} - \frac{x}{a}\right)}\) which skips the step of integration over \(z\) as it is trivial. The result is \(\displaystyle V = \frac{abc}{6} \). } 
+{Find the volume of the tetrahedron bounded by the three coordinate surfaces \(x=0, y=0 \text { and }  z=0\) and the plane \(\displaystyle \frac{x}{a} + \frac{y}{b} + \frac{z}{c} =1\) as shown in \cref{tetrahedron}.}
+{\(\displaystyle V = \int_{0}^{a} \int_{0}^{b-\frac{bx}{a} } \int_{0}^{c(1-\frac{y}{b} - \frac{x}{a}  )} dxdydz\). The limit of integral over \(z\) can be obtained as integration over \(z\) adds up the boxes from the shaded column in the figure. A quicker way is to simply sum up all the vertical columns as \(\displaystyle V = c \left( a-\frac{y}{b} - \frac{x}{a}\right) \int_{0}^{a} \int_{0}^{b-\frac{bx}{a}} dxdy \) which skips the step of integration over \(z\) as it is trivial. The result is \(\displaystyle V = \frac{abc}{6} \). } 
 \onefig{tetrahedron}{scale=0.3}
 
 A useful trick invovle Pappus' first theorem, which states that the volume of revolution of a plance surface is given by the area of the surface \(A\) multiplied by the distance moved by its centroid, since the suface area generated is given by \(\displaystyle S = \int 2\pi y dA = 2 \pi \overline{y} A\), where \(\displaystyle \overline{y} = \frac{1}{A} \int y dA \) is the definition of the centroid. 
@@ -1132,7 +1137,7 @@ In the special case where \(z_{i} = x_{i}  \), we get \(J_{xy}J_{yx} =1  \).
 
 \chapter{Line, Surface and Volume Integration}
 
-Line, surface and volume integrals describe integrations over a line, a surface and a volume.\footnote{Thus a volume integral is equivalent to a triple integral. Since an infinitesimal volume has no preferred direction in three-dimensional space.}, respectively, all in three dimensional space. The infinitisimal quantities are (in Cartesian coordinates), \(d\vb{r} = dx \vu{x} + dy \vu{y} + dz \vu{z}, dS\footnote{The general form of \(dS\) is not trivial. It is exactly this property which makes surface integral the hardest type to deal with.}\text { and } dV = dxdydz\), out of which the first two are vectors and the last one is scalar\footnote{Note that if the final form of integrands contain vectors then we must convert it into Cartesian coordinates, since it is the only coordiante system where the unit vectors are fixed (and so can be brought out of the integral sign).}
+Line, surface and volume integrals describe integrations over a line, a surface and a volume,\footnote{Thus a volume integral is equivalent to a triple integral. Since an infinitesimal volume has no preferred direction in three-dimensional space.} respectively, all in three dimensional space. The infinitisimal quantities are (in Cartesian coordinates), \(d\vb{r} = dx \vu{x} + dy \vu{y} + dz \vu{z}, dS\footnote{The general form of \(dS\) is not trivial. It is exactly this property which makes surface integral the hardest type to deal with.}\text { and } dV = dxdydz\), out of which the first two are vectors and the last one is scalar.\footnote{Note that if the final form of integrands contain vectors then we must convert it into Cartesian coordinates, since it is the only coordiante system where the unit vectors are fixed (and so can be brought out of the integral sign).}
 
 \section{Line Integrals}
 \subsection{Evaluation}
@@ -1143,7 +1148,7 @@ Integrals along a line can involve vector and scalar fields. There are four kind
 	\int _{C} f(x,y,z) dr, ~~ \int_{C}^{} f(x,y) d\vb{r} , ~~ \int_{C}^{} \vb{F} (x,y,z) \cdot d\vb{r} ~ \text { and }  \int_{C}^{} \vb{F} (x,y,z) \cross d\vb{r} . 
 \end{equation}
 
-The curve \(C\) can be open, \ie the beginning and end point are not the same; or closed, where \(C\) is a closed loop and we will add a circle to the integral sign as \(\oint_{C} \). For a closed curve the direction of integration is conventionally taken to be anticlockwise.
+The curve \(C\) can be open, \textit{i.e.,} the beginning and end point are not the same; or closed, where \(C\) is a closed loop and we will add a circle to the integral sign as \(\oint_{C} \). For a closed curve the direction of integration is conventionally taken to be anticlockwise.
 
 Here the argument \((x,y,z)\) can be unambigously interchanged by \((\vb{r} )\), where \(\vb{r} = x \vu{x} + y \vu{y} + z \vu{z} \) is the position vector. The relation between the two forms can be given explicityl as \(x = r_{x}, y = r_{y}, z = r_{z}\). The only difference is that the latter notation emphasize that the (scalar or vector field) depends only on the location in space and does not specify the usage of Cartesian coordinates and is thus more abstract but general.   
 
@@ -1158,7 +1163,7 @@ Here the argument \((x,y,z)\) can be unambigously interchanged by \((\vb{r} )\),
 {Evaluating the dot product explicitly, we have 
 
 \begin{equation}
-	 I = \int_{(1,1)}^{(4,2)} ((x+y)dx + (y-x)dy).
+	 I = \int_{(1,1)}^{(4,2)} (x+y)dx + (y-x)dy.
 \end{equation}
 
 \begin{enumerate}
@@ -1190,7 +1195,7 @@ Here the argument \((x,y,z)\) can be unambigously interchanged by \((\vb{r} )\),
 {Since \(x\) is not a single-valued function of \(y\), we must divide the path into two parts with \(x = +\sqrt{a^2-y^2} \) for \(x\geq 0\) and \(x = -\sqrt{a^2-y^2} \) for \(x \le 0\). So
 
 \begin{equation}
-	I = \int_{-a}^{a} \sqrt{a^2-y^2}dy + \int_{a}^{-a} (-\sqrt{a^2-y^2}dy= \pi a^2 )   .
+	I = \int_{-a}^{a} \sqrt{a^2-y^2}dy + \int_{a}^{-a} (-\sqrt{a^2-y^2})dy= \pi a^2    .
 \end{equation}
 
 Alternatively, we can represent the entire circle parametrically, by \(x = a \cos \phi , y = a \sin \phi \) with \(\phi \) running from \(0\) to \(2 \pi \) and we have 
@@ -1205,7 +1210,7 @@ Alternatively, we can represent the entire circle parametrically, by \(x = a \co
 {Introducing a parametric variable \(\phi \) running from \(0\) to \(2\pi \), we have 
 
 \begin{equation}
-	\vb{r} (\phi ) = a \cos \phi \vu{x} + a \sin \phi \vu{y} \text { and } ds = \sqrt{\frac{d \vb{r} }{d\phi }\cdot \frac{d \vb{r} }{d\phi } = a d\phi}. 
+	\vb{r} (\phi ) = a \cos \phi \vu{x} + a \sin \phi \vu{y} \text { and } ds = \sqrt{\frac{d \vb{r} }{d\phi }\cdot \frac{d \vb{r} }{d\phi }} = a d\phi. 
 \end{equation}
 
 Thus
@@ -1278,7 +1283,7 @@ The vector area of a surface \(S\) is defined as
 	\vb{S}  = \int_{S}^{} d\vb{S}. 
 \end{equation}
 
-A closed surface will always has a zero vector area, since when projecting onto the \(xy\)-plane, from \cref{dseq} we see that every \(d\vb{S} _{+}  = \frac{dA}{\abs{\vu{n} \cdot \vu{k} } } \) will have an opposite contribution \(d\vb{S} _{-} = \frac{dA}{\abs{- \vu{n} \cdot \vu{k} } } = -d\vb{S} _{+} \). 
+A closed surface will always has a zero vector area, since when projecting onto the \(xy\)-plane, from \cref{dseq} we see that every \(\displaystyle d\vb{S} _{+}  = \frac{dA}{\abs{\vu{n} \cdot \vu{k} } } \) will have an opposite contribution \(\displaystyle d\vb{S} _{-} = \frac{dA}{\abs{- \vu{n} \cdot \vu{k} } } = -d\vb{S} _{+} \). 
 
 This fact implies that the vector area of any open surface \(S\) only depends on its perimeter curve \(C\), since we can construct a closed surface with arbitrary upper and lower surface and their contribution must be equals in magnitude so that the sum is zero. We know that their directions are the same due to right hand rule. 
 

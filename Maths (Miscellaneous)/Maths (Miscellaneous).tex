@@ -19,7 +19,7 @@ A complex number is most conveniently thought of as a vector with the \(x\)-axis
 	z = re^{i \theta } = x + iy, 
 \end{equation}
 
-where \(r = \abs{z} = \sqrt{x^2 + y^2} \text { and } \theta = \arg (z) = \arctan {\frac{y}{x} }\) runs from \(-\pi \) to \(\pi \). 
+where \(\displaystyle r = \abs{z} = \sqrt{x^2 + y^2} \text { and } \theta = \arg (z)\) is the angle between the complex number (vector) and the positive \(x\)-axis. If the complex number (vector) lies in the first quadrant, then \(\arg (z) = \displaystyle \arctan {\left(\frac{y}{x} \right)} \), otherwise, \(\pi \text { or } 2\pi \) must be added, since the domain of the arctan function is only from \(\displaystyle -\frac{\pi }{2} \) to \(\displaystyle \frac{\pi }{2} \). \(2\pi \) can also be added to any argument, but usually we use the pricipal value of the argument, \textit{i.e.,} \(\arg (z) \in [-\pi , \pi ) \text { or } [0,2\pi )\).   
 
 In particular, if \(r=1\), then it is easy to show that 
 
@@ -41,7 +41,7 @@ Using the polar form, it is trivial to derive the relations
 	\abs{z_1 z_2 } = \abs{z_1 }\abs{z_2 } \text { and } \arg (z_1 z_2 ) = \arg (z_1 ) + \arg (z_2 ).
 \end{equation}
 
-Hence multiplying two complex numbers(vectors) together can be thought separately as two process. First, the modulus(length) of the new complex number(vector) is the product of the modulus(length) of the two complex numbers(vectors). Second, the argument of the new complex number(vector) is the sum of the arguments of the two complex numbers(vectors).
+Hence multiplying two complex numbers (vectors) together can be thought separately as two process. First, the modulus (length) of the new complex number (vector) is the product of the modulus (length) of the two complex numbers (vectors). Second, the argument of the new complex number (vector) is the sum of the arguments of the two complex numbers (vectors).
 
 The complex conjugate of a complex number is defined as 
 
@@ -49,7 +49,7 @@ The complex conjugate of a complex number is defined as
 	z^* = x-iy = re^{-i \theta }.
 \end{equation}
 
-For complex number with a more complicated form, we simply replace all \(i\)s by \(-i\)s. This follows from the fact that \((z_1 + z_2 )^* = z_1 ^* + z_2 ^*\) and \((z_1 z_2 )^* = z_1 ^* z_2 ^*\).  
+For complex number with a more complicated form, we simply replace all \(i\) by \(-i\). This follows from the fact that \((z_1 + z_2 )^* = z_1 ^* + z_2 ^*\) and \((z_1 z_2 )^* = z_1 ^* z_2 ^*\).  
 
 Geometrically, we flip the imaginary axis (\(y\)-axis) upside down. Therefore, \(z \text { and } z^*\) are two complex numbers (vectors) reflected about the real axis (\(x\)-axis). Thus we have
 
@@ -57,10 +57,78 @@ Geometrically, we flip the imaginary axis (\(y\)-axis) upside down. Therefore, \
 	z z^* = \abs{z}^2 
 \end{equation}
 
+When extend to complex numbers, the natural logarithm is always multivalued, this is because 
+
+\begin{equation}
+    \ln (z) = \ln (\abs{z}e^{(i \theta )}  ) = \ln (\abs{z} ) + i \theta .
+\end{equation}
+
+The hyperbolic trigonometric formulas are largely reminiscent of the ordinary trigonometric formulas, with a few exceptions:
+
+\begin{equation}
+    \cosh^2(x) - \sinh^2(x) = 1, \quad 1 - \tanh^2(x) = \sech^2(x), \quad \text{and} \cosh^2(x) + \sinh^2(x) = \cosh(2x).
+\end{equation}
 
 
 
-The fundamental theorem of algebra states that a \(n^{\text{th }} \) order polynomial equation will have exactly \(n\) roots. 
+
+\example{Inverse Trigonometric Functions of Complex Inputs.}
+{Express \(\tan ^{-1} {(\sqrt{3}i )} \) in the form \(a+bi\). }
+{Define \(z \equiv \tan ^{-1} {(\sqrt{3}i)} \text { and } \alpha \equiv e^{iz} \), then 
+\begin{equation}
+    \begin{aligned}
+        \sqrt{3}i &= \tan (z) = \frac{e^{iz}-e^{-iz}  }{i(e^{iz} +e^{-iz} )} \implies \alpha = \pm \sqrt{\frac{\sqrt{3}-1 }{\sqrt{3}+1 } }i \\
+        z &= \frac{\ln \alpha }{i} = -i\left( \frac{1}{2}\ln \left(\frac{\sqrt{3}-1 }{\sqrt{3}+1 }\right) + \ln (\pm i)  \right) \\ &= -i\ln (e^{\frac{1}{2}(\pm i\pi (1+2k)) } ) - \frac{1}{2}\ln \left( \frac{\sqrt{3}-1 }{\sqrt{3} +1}  \right) i \\ &= \frac{\pi }{2}(1+2k) - \frac{1}{2}\ln \left( \frac{\sqrt{3}-1 }{\sqrt{3}+1 } \right)i.      
+    \end{aligned}
+\end{equation}~
+
+ } 
+
+ \example{Inverse Hyperbolic Functions of Complex Inputs.}
+ {Express \(\sinh^{-1}(-1) \) in the form \(a+bi\).   }
+ {Define \(z \equiv \sinh^{-1} (\sqrt{3}i) \text { and } \alpha \equiv e^{z} \), then 
+ \begin{equation}
+        \alpha = \sqrt{2}-1   \implies  z = \ln (\abs{\sqrt{2}-1 })  + 2\pi ni = \frac{1}{2} \ln (3 )+2\pi ni.
+ \end{equation}
+
+ Note that we have discarded the negative root of the quadratic equation, this is because for real \(z\), \(\alpha = e^{z} \) must be positive.   
+
+ Note also that the absolute sign means the norm (length) of the complex number (vector), but not just fixing the positive and negative signs.
+ 
+ } 
+ 
+
+
+\example{Plot on the Complex Plane.}
+{Plot the equation \(\displaystyle \arg \left(\frac{z-4}{z-1} \right)=\frac{3\pi }{2} \) on the complex plane. }
+{Writing \(z = x+iy\), we have 
+
+\begin{equation}
+    \frac{z-4}{z-1} = \frac{(x-4)(x-1)+y^2}{(x-1)^2+y^2} + i \frac{3y}{(x-1)^2+y^2}.  
+\end{equation}
+
+The real part must be zero and the imaginary part must be negative for the argument to be \(\displaystyle \frac{3\pi }{2} \), so we get \((x-4)(x-1)+y^2=0 \implies (x-\frac{5}{2} )^2+y^2 = 0 \text { and } y<0\). Note we cannot use the formula \(\arg (z) = \displaystyle \arctan {\left(\frac{y}{x}\right) } \), since the complex number does not lie in the first quadrant.   
+} 
+
+To find the cosine or sine of some multiples of angle (\textit{e.g.,} \(\sin (6\theta )\) ), the simpliest way is always expand \((\cos \theta +i\sin \theta )^6 = \cos (6\theta ) + i\sin (6\theta )\) and compare the imaginary (or real) part. 
+
+To find some power of cosine or sine of angle (\textit{e.g.,} \((\sin ^6(\theta ))\) ) in terms of single power of cosine or sine, the sipmliest way is always write \(\sin \theta = \displaystyle \frac{e^{i \theta }-e^{-i \theta }  }{2i} \), and expand. 
+
+The fundamental theorem of algebra states that a \(n^{\text{th}}\) order polynomial equation will have exactly \(n\) roots. For example, the equation \(x^{8} = 16\) has eight roots \(x = \sqrt[8]{16} = (16e^{2\pi n})^{\frac{1}{8} } = \sqrt{2}e^{\frac{\pi n}{4} }\), where \(n = (0,\ldots 7) \text { or } (1,\ldots 8)\).   
+
+The sum and product of roots of the polynomial equation
+
+\begin{equation}
+    a_0 + a_1 z + a_2 z ^2 + \cdots + a_{n}z^2 = a_{n}(z - z_1 )(z-z_2 )\cdots (z-z_{n} ) = 0   
+\end{equation}
+
+can be extracted to be 
+
+\begin{equation}
+    \sum_{i=1}^{n} z_{i} = - \frac{a_{n-1} }{a_{n} } ~\text { and }~ \prod_{i=1}^{n} z_{i} = (-1)^{n} \left(\frac{a_{0} }{a_{n} }\right).     
+\end{equation}
+
+
 
 \chapter{Fourier Series and Integral Transforms}
 
