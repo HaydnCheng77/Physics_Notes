@@ -11,59 +11,23 @@
 \maketitle
 \tableofcontents
 
-    
-\chapter{What is an Differential Equation}
-
-A differential equation is an equation in which the unknowns are functions of one or more variables and which contains both these functions and their derivatives. Partial differential equations are those wchih more than one independent variable is involved, while ordinary differential equations (ODE), which are what we will focus on, are those that involve functions of a single independent variable which have the general form
-
-\begin{equation}
-    F(x,y,y',\cdots ,y^{(n)} ) = 0.
-\end{equation}
-
-An ODE can be further classified into linear and homogenous based on its general form. An ODE is said to be linear if it has the form
-
-\begin{equation}
-    a_{n}(x)y^{(n)} + a_{n-1}(x)y^{(n-1)} + \cdots + a_{2}(x)y''+a_{1}(x)y'+a_0 (x)y' = f(x) ,     
-\end{equation}
-
-while a homogenous ordinary differential eqution can be in either of two respects: a first order differential equation is said to be homogeneous if it may be written in the form of
-
-\begin{equation} \label{firstorderhomo} 
-    f(x,y)dy=g(x,y)dx \implies \frac{dy}{dx} = h\left(\frac{y}{x} \right), 
-\end{equation}
-
-\todo{don't mention this here} 
-
-where \(f\) and \(g\) are homogenous functions of the same degree of \(x\) and \(y\).\footnote{A function is said to be homogeneous if when each of the function's arguments is multiplied by the same scalar, then the function's value is multiplied by some power (called the degree of homogeneity) of this scalar. That is, if \(f(sx_1 ,\cdots, sx_{n} ) = s ^{k} f(x_1 ,\cdots,x_{n} )  \).  }
-
-Otherwise, a differential equation is homogeneous if it is a homogeneous function of \(y\)  and its derivatives. In the case of linear differential equation this implies that the constant term \(f(x)\)  is zero.
-
-There are two kinds of solution to an differential equation. A real function \(y=f(x)\) is called an explicit solution \(F(x,y,y',\cdots ,y^{(n)}) = 0\) on \([a,b]\) if a direction substiution leads to an identity, \textit{i.e.,} 
-
-\begin{equation}
-    F(x,f(x),f'(x),\cdots ,f^{(n)}(x)) =0 \text{ on } [a,b]
-\end{equation}
-
-while a relation \(g(x,y) = 0\) is called an implicit solution of the differential equation \(f(x,y,y',\cdots ,y^{(n)} ) = 0\) on \([a,b]\) if it represents at least one real function \(f\) on \([a,b]\) such that \(y=f(x)\) is an explicit solution on this interval. 
-
-For example, \(x^2+y^2-4=0\) is the implicit solution for the differential equation \(x+y y'=0\) while \(y(x) = \pm \sqrt{4-x^2} \) is the explicit solution to the same differential equation. To understand the relevance of the phrase ``represents at least one real function'' in the above definition of the implicit solution, consider the relation \(x^2+y^2+1=0\), although this also satisfies the same differential equation, but there is no real values of \(x\text { and } y\) which satisfies \(x^2+y^2+1=0\) thus it is not an implicit solution since it does not represent any real valued function. This type of solution has a separate name called a ``formal solution'', which means that it appears to be a solution (but is actually not).
-
-A general theorem states that the general solution of all \(n^{\text{th}} \) order differential equation contains \(n\) integration constants. For example, the function \(y=\frac{1}{6} x^3 + C_1 x + C_2 \) which is the solution to the differential equation \(y'' = x\) has two integration constants \(C_1 \text { and } C_2 \) stemming from integration. Another example is the function \(y = Ae^{ t} + Be^{- t}  \) which is the solution to the differential equation \(y'' = y\) has two integration constants \(A\text { and } B\) although the equation is not necessarily solved by direct integration (but by guessing the solution \(y=e^{\alpha t} \)) and leveraging the homogenity of the equation. Consequently, there must be \(n\) boundary conditions or initial conditions\footnote{Initial conditions specify the value of the independent variable and its derivatives \((y,y',\ldots ,y^{(n-1)} )\) at a single \(x = x_0 \) while boundary conditions them at two or more \(x\) values.} to fix the values of these integration constants. 
-
-The solutions of an \(n^{\text{th}} \) order ODE is often refered to as a \(n\)-parameters family, and can be represented as integral curves, which are parametric curves parameterized by the integration constants. Prominent examples of integral curves are the field lines for electric or magnetic field which satisfy the Maxwell's differential equations, and integral curves for the velocity field of a fluid are known as streamlines, which satisfy the Navier-Stokes differential equation.
-\todo{complete this part} 
+\chapter{First Order Differential Equations}
 
 \todo{singular solution \textit{e.g.,} y'= cos(y+x) imp y= pi/2 - x or sth sim} 
 
-\chapter{First Order Differential Equations}
-
 A first order differential equation \(F(x,y,y')\) are usually written in one of the two equivalent standard forms depending on the method of solving it
 
-\begin{equation}
-    \frac{dy}{dx} = F(x,y) ~\text { or }~ A(x,y) dx + B(x,y) dy = 0. 
+\begin{equation} \label{first} 
+    \frac{dy}{dx} = F(x,y)\footnote{If a differential equation has more than one solution of the first form (perhaps the equation is quadratic in \(y'\), so there are two roots for \(y'\)), then the differential equation generally has more than one solution. Given the initial condition \((x,y) = (x_0 ,y_0 )\), we also have to specify which integral curve we are following by specifying the slope at that point.}  ~\text { or }~ P(x,y) dx + Q(x,y) dy = 0. \footnote{The first form can always be recast into the second form (the symmetric form). However, \(Q(x,y)\) may vanishes in some places, thus preventing one from dividing it and converting the symmetric form to the the first form. We shall assume that \(\abs{P(x,y)}+\abs{Q(x,y)}\ge 0 \), \textit{i.e.,} \(P(x,y)\) and \(Q(x,y)\) do not vanish simultaneously, such that the symmetric form can be always recast into \(\frac{dy}{dx} = F_{y}(x,y), \text { or } \frac{dx}{dy} = F_{x}(x,y)\).} 
 \end{equation}
 
-The first from above highlights the distinction between the independent and the dependent variable. However, in first order differential equation, assigning \(y \text { and } x\) as the independent and the dependent variable respectively is entirely arbitrary (if \(x \text { and } y\) do not carry any physical meaning) as can be seen from the second form above, which is symmetric in \(x \text { and } y\). It is crucial to understand that \(x \text { and } y\) are simply two variables that are related to each other, and should be treated equally.\footnote{In fact, higher order differential equations can also be inverted such that \(x\) becomes the independent variable instead of \(y\). However this cannot be done as easily as in first order differential equation (by simply rearranging the terms), and is rarely useful.} 
+The first from above allows us to essentially solve the differential equation without knowing the relation between \(x \text { and } y\). Since the slope \(\displaystyle \frac{dy}{dx} \) is given as a function in terms of the position \((x,y)\), we can simply draw a small line on every point whose the slope is \(F(x,y)\). What we have created is called the direction field of the ODE and the solutions \(y(x)\) are called the integral curves that are at each point tangent to the direction field. As one can see from \cref{integralcurves} that there are infinite of them, and we can specify any one of them by providing the coordinates of any point (known as the initial condition or the boundary condition)\footnote{Initial conditions specify the value of the independent variable and its derivatives \((y,y',\ldots ,y^{(n-1)} )\) at a single \(x = x_0 \) while boundary conditions them at two or more \(x\) values.} on the curve.\footnote{This is only true if both \(F(x,y) \text { and } \frac{\partial F(x,y)}{\partial y} \) exist at that point. Otherwise the integral curves may intersect at the point and we would not get an unique solution. For example, the differential equation \(\frac{dy}{dx} = y^{\frac{2}{3} } \), accompanied with the initial condition \(y(0) = 0\) is not unique, as \(y(t) = 0 \text { and } y(t) = (\frac{t}{3} )^3 \) are both valid solutions. And it does not guarantees that the integral curve found would not blows up in finite \(x\). For example, the differential equation \(\frac{dy}{dx} = ay^2 \), accompanied by the initial condition \(y(x_0 )= x_0 \) has the solution \(y = \frac{1}{a(x_0 +\frac{1}{ay_0 }-x )} \), which blows up at a finite interval at \(x = x_0 + \frac{1}{ay_0 } \). Beyond that point, the solution would still gives a solution of \(y\) for every \(x\), but it does not make sense anymore. For linear differential equation, however, the existence and uniqueness is global, and the solution is valid at all \(x\).} 
+
+\onefig{integralcurves}{scale=0.4} 
+
+The second form in \cref{first}, on the other hand, treat the variables \(x \text { and } y\) on equal foots, as it should, since the assignation of \(y \text { and } x\) as the dependent and the independent variable respectively is entirely arbitrary (if \(x \text { and } y\) do not carry any physical meaning). It is crucial to understand that \(x \text { and } y\) are simply two variables that are related to each other, if \(y(x)\) is a function of \(x\) then \(x(y)\) is a function of \(y\). The realm of possibilites of the integral curves is also slightly richer because now the integral curves can be vertical (see \cref{integralcurves2}).\footnote{In fact, higher order differential equations can also be inverted such that \(x\) becomes the dependent variable instead of \(y\). However this cannot be done as easily as in first order differential equation (by simply rearranging the terms), and is rarely useful.}\footnote{A general theorem states that the general solution of all \(n^{\text{th}} \) order differential equation contains \(n\) integration constants. For example, the function \(y=\frac{1}{6} x^3 + C_1 x + C_2 \) which is the solution to the differential equation \(y'' = x\) has two integration constants \(C_1 \text { and } C_2 \) stemming from integration. Another example is the function \(y = Ae^{ t} + Be^{- t}  \) which is the solution to the differential equation \(y'' = y\) has two integration constants \(A\text { and } B\) although the equation is not necessarily solved by direct integration (but by guessing the solution \(y=e^{\alpha t} \)) and leveraging the homogenity of the equation. Consequently, there must be \(n\) boundary conditions or initial conditions to fix the values of these integration constants.}
+
+\onefig{integralcurves2}{scale=0.5} 
 
 \section{First Order Separable}
 
@@ -73,23 +37,32 @@ A first order differential equation is separable if it is in the form
     \frac{dy}{dx} = f(x)g(y)
 \end{equation}
 
-which can be solved by direct integration. Note that if \(g(y) \rightarrow 0\) for any \(y=y_0 \) then the constant function \(y(x) = y_0 \) is also a solution to the equation.
+which can be solved by direct integration. Note that if \(f(x) \to \infty \text { or } g(y) \rightarrow 0\) for any \(x=x_0 \text { or } y=y_0 \) respectively then the constant functions \(x=x_0 \text { or } y = y_0 \) might also be solutions to the equation. These are called singular solutions and they can be hard to spot.
 
-ODE in the form of 
+ODE in the form of \(\displaystyle \frac{dy}{dx} = f(ax+by+c)\) is also separable simply by a change of the variable \(z(x) = ax + by + c\).
 
-\begin{equation}
-    \frac{dy}{dx} = f(ax+by+c).
-\end{equation}
-
-is also separable simply by a change of the variable \(z(x) = ax + by + c\), then 
+\example{Singular Solutions.}
+{Solve 
 
 \begin{equation}
-    \frac{dz}{dx} = a + \frac{dy}{dx} = a + bf(z).
+    xy'+y=y^2.
+\end{equation}~
+}
+{Rewriting the equation as 
+
+\begin{equation}
+    \frac{dy}{dx} = \frac{y(y-1)}{x} \implies xdy = y(y-1)dx,
 \end{equation}
+
+we can solve by direct integration that \(\displaystyle y = \frac{1}{1+Cx} \). 
+
+However, we have to consider the cases when \(x = 0, y = 0 \text { and } y = 1\). For \(x = 0\), this is a solution to the symmetric form but not the original equation. On the other hand, \(y=0\text { and } y=1\) are both solutions to the differential equation but \(y = 1\) is already covered by the genearl solution with \(C = 0\). So the only singular solution we get is \(y = 0\).    
+} 
+
 
 \section{First Order Homogeneous} \label{homo} 
 
-A first order differential equation is homogeneous if it is in the form
+A first order differential equation is homogeneous \(P(x,y)\) and \(Q(x,y)\) in \cref{first} are homogenous functions of the same degree of \(x\) and \(y\), \textit{i.e.,} the rescaling \(x \to \lambda x \text { and } y \to \lambda y\) does not affect the solution of the equation for all \(\lambda \).\footnote{A function is said to be homogeneous if when each of the function's arguments is multiplied by the same scalar, then the function's value is multiplied by some power (called the degree of homogeneity) of this scalar. That is, if \(f(\lambda x_1 ,\cdots, \lambda x_{n} ) = \lambda  ^{k} f(x_1 ,\cdots,x_{n} )  \).  }\footnote{In genearl, a differential equation is homogeneous if the rescaling \(y \to  \lambda y\) does not affect the solutions of the equation for all \(\lambda \).} 
 
 \begin{equation}
     \frac{dy}{dx} = f\left(\frac{y}{x} \right).
@@ -101,7 +74,7 @@ This reduces to a separable differential equation by introducing a new variable 
     \frac{dz}{dx} = x\frac{dy}{dx} - \frac{y(x)}{x^2} = \frac{f(z)-z}{x}  
 \end{equation}
 
-which can be solved by direction integration or \(z(x) = z_0 \) for all \(x\) where \(z_0 \) satisfies \(z_0 = f(z_0 )\) 
+which can be solved by direction integration,. An additional solution \(z(x) = z_0 \) for all \(x\) where \(z_0 \) satisfies \(z_0 = f(z_0 )\) is also possible.
 
 The following equation
 
@@ -130,7 +103,7 @@ which upon substitution leads to a homogeneous equation
     \frac{dY}{dX} = f\left( \frac{a_1 X+b_1 Y}{a_2 X+b_2 Y}  \right),
 \end{equation}
 
-Note that if the square matrix in \cref{X=x+u} has zero determinant meaning that there are no solutions for \(u\) and \(v\), we have \(a_2 x+b_2 y = k(a_1 x+b_1 y)\) for all \(x \text { and } y\) thus \(k=\frac{a_2 }{a_1  } = \frac{b_2 }{b_1 } \). In this case the equation is in the form
+Note that if the square matrix in \cref{X=x+u} has zero determinant meaning that there are no solutions for \(u\) and \(v\), we have \(a_2 x+b_2 y = k(a_1 x+b_1 y)\) for all \(x \text { and } y\) thus \(\displaystyle k=\frac{a_2 }{a_1  } = \frac{b_2 }{b_1 } \). In this case the equation is in the form
 
 \begin{equation}
     \frac{dy}{dx} = f\left( \frac{a_1 x+b_1 y+c_1 }{k(a_1 x+b_1 y)+c_2 }  \right)= g(a_1 x+b_1 y),
@@ -341,7 +314,28 @@ It can be shown using \cref{mu(x)} that the integrating factor \(\mu \) always d
 
 without needing to add an integration constant.
 
-An alternative way to solve a first order linear differential equation is to treat it as a genearl linear equation and solve it using the methods detailed in \cref{linear}. 
+An alternative way to solve a first order linear differential equation is to treat it as a general linear equation and solve it using the methods detailed in \cref{linear}. 
+
+\example{Exact Differential and Integrating Factor.}
+{Solve
+
+\begin{equation}
+    (x^2+y^2+y)dx - xdy=  0.
+\end{equation}~
+}
+{Rewrite the equation as
+
+\begin{equation}
+    (x^2+y^2)dx-x^2d\left( \frac{y}{x}  \right) = 0.
+\end{equation}
+
+Spot that the integrating factor is \(\displaystyle \mu (x,y) = \frac{1}{x^2+y^2} \), as if we multiply the equation by \(\mu (x,y)\), we get
+
+\begin{equation}
+    dx - \frac{d\left( \frac{y}{x}  \right)}{1+(\frac{y}{x} )^2} = 0 \implies x - \arctan {\frac{y}{x} }=C.  
+\end{equation}~
+} 
+
 
 \section{First Order Isobaric}
 
@@ -372,13 +366,13 @@ where the equation is dimensionally consistent if \(y = zx^{m} \).
 A first order differential equation is a Bernoulli's equation if it has the form
 
 \begin{equation}
-    \frac{dy}{dx} + P(x)y = Q(x)y^{n}, \text{ where } y\neq 1.  
+    \frac{dy}{dx} + P(x)y = Q(x)y^{n}, \quad  y\neq 1.  
 \end{equation}
 
-This equation can be solve by the substitution 
+This equation can be solved by the substitution 
 
 \begin{equation}
-    z = y^{1-n} \implies \frac{dy}{dx} = \left( \frac{y^{n} }{1-n}  \right) \frac{dz}{dx},  
+    z(x) = y^{1-n} \implies \frac{dy}{dx} = \left( \frac{y^{n} }{1-n}  \right) \frac{dz}{dx},  
 \end{equation}
 
 which makes the equation linear, as
@@ -386,6 +380,58 @@ which makes the equation linear, as
 \begin{equation}
     \frac{dz}{dx} + (1-n) P(x)z = (1-n)Q(x).  
 \end{equation}
+
+\section{Riccati's Equation}
+
+A first order differential is a Riccati's equation if it has the form
+
+\begin{equation}
+    \frac{dy}{dx} + P(x)y = Q(x) + R(x)y^2.
+\end{equation}
+
+If one can guess one of the solutions \(y_0 (x)\), then the substitution
+
+\begin{equation}
+    z(x) = y(x) - y_0(x)
+\end{equation}
+
+reduces the equation to a Bernoulli's equation, as
+
+\begin{equation}
+    \frac{dz}{dx} = (2R(x)y_0 (x)+P(x))z + R(x)z^2. 
+\end{equation}
+
+\section{Introduction of Parameter}
+
+If we cannot (and do not want to) change \(\displaystyle \frac{dy}{dx} \) to be the subject of the equation, but can change \(y\) to be the subject, then the substitution \(p =y'\) implies that 
+
+\begin{equation}
+    pdx = dy = \frac{\partial f}{\partial x} dx + \frac{\partial f}{\partial p} dp \implies \left( \frac{\partial f}{\partial x} -p \right)dx + \frac{\partial f}{\partial p} dp = 0.
+\end{equation}
+
+Integrating gives the solution in the form \(p = p(x)\), which can be directly substituted into the equation where \(y\) is the subject to get the solution.
+
+\example{Introduction of Parameter.}
+{Solve
+
+\begin{equation}
+    y = xy'=y'^2.
+\end{equation}~
+}
+{Introducing \(p = y'\), we have
+
+\begin{equation}
+    pdx = dy = xdp + pdx - 2pdp \implies (x-2p)dp = 0.
+\end{equation}
+
+The solutions are 
+
+\begin{equation}
+    p = \frac{x}{2} \implies y = \frac{x^2}{4} ~\text { or }~ dp = 0 \implies p = C \implies y = C(x-C).  
+\end{equation}~
+} 
+
+
 
 \todo{PS1 1.7 onwards} 
 
@@ -587,7 +633,7 @@ Combining with the fact that there are \(n\) integration constants, this suggest
     y(x) = C_1 y_1 (x) + C_2 y_2 (x) + \cdots + C_{n}y_{n}(x),  
 \end{equation}
 
-where \(y_1 (x), y_2 (x), \ldots , y_{n}(x) \) are each solutions to the equation and linearly independent of each other (or else at least one of the terms in the above equation is redundant and there will be less than \(n\) integration constants).
+where \(y_1 (x), y_2 (x), \ldots , y_{n}(x) \) are each solutions to the equation and linearly independent of each other (or else at least one of the terms in the above equation is redundant and there will be less than \(n\) integration constants). In the language of linear algebra, the solutions form a basis for the vector space of all the possible solutions.
 
 To ensure linear independency, we must have
 
@@ -695,7 +741,7 @@ The first term is the second homogeneous solution and the second term is the par
 
 \subsection{Finding the First Solution}
 
-There is no better method than guessing for finding the first solution. If the coefficient funcions of a \(n^{\text{th}} \) order differential equation are  \(a(x) \text { and } b(x)\) are polynomials, the following order of guessing is recommended: \(e^{\lambda x} \rightarrow x^{n} \rightarrow c_1 x + c_2 x^2+ \cdots + c_{n-1} x^{n-1} + x^{n} \rightarrow (c_1 x + c_2 x^2+ \cdots + c_{n-1} x^{n-1} + x^{n})e^{\lambda x} \rightarrow x^{r} \).  
+There is no better method than guessing for finding the first solution. If the coefficient funcions of a \(n^{\text{th}} \) order differential equation are  \(a(x) \text { and } b(x)\) are polynomials, the following order of guessing is recommended: \(e^{\lambda x} \rightarrow x^{n} \rightarrow c_1 x + c_2 x^2+ \cdots + c_{n-1} x^{n-1} + x^{n} \rightarrow (c_1 x + c_2 x^2+ \cdots + c_{n-1} x^{n-1} + x^{n})e^{\lambda x}\). For example, the Euler's equation \(x^2y''+axy'+by=0\) can be solved by guessing \(y(x) = x^{n} \).  
 
 \example{Finding the First Solution.}
 {Solve
@@ -795,17 +841,19 @@ In many cases, the form of the particular solution can be guessed easily. For ex
        f(x) &= 8e^{\frac{x}{2} }, \quad \lambda = \frac{1}{2} \text { and } \frac{1}{2} &&\implies y_{P} = Ax^2e^{\frac{x}{2} }\\
        f(x) &= xe^{-x}, \quad \lambda = -1 \text { and } -1 &&\implies y_{P} = x(Ax+B)e^{-x} \\
        f(x) &= x + \cos (2x), \quad \lambda = \pm 2i &&\implies y_{P} = Ax+B+x(C\cos (2x)+D\sin (2x)) \\      
-       f(x) &= e^{x}(1+\sin x), \quad \lambda = 1 \pm i &&\implies y_{P} = e^{x} (A+x(C\cos x+D\sin (x)))
+       f(x) &= e^{x}(1+\sin x), \quad \lambda = 1 \pm i &&\implies y_{P} = e^{x} (A+x(C\cos x+D\sin (x)))\\
+       f(x) &= (\alpha _{0}+\alpha _{1}x+\cdots +\alpha _{m}x^{m}    )e^{\mu x} &&\implies y_{P} = x^{k}(\beta _{0}+\beta _{1}x+\cdots +\beta _{m}x^{m})e^{\mu x}     
     \end{aligned}
 \end{align} 
 
+In the last example, \(k\) is the degree of degeneracy of \(\mu \) if it is a root of the charateristic polynomial, \textit{i.e.,} the number of times that \(\mu \) occurs as a root.  
 
 
 \todo{understand why can change order of integration if intint sth dxdy but not if intint sth dx sth dy} 
 
 \section{Harmonic Oscillator}
 
-\subsection{The General Solution}
+\subsection{The General Solution} \label{gensol} 
 
 The appearance of harmonic oscillator is too often in physics that it deserves its own section. The most general equation describing a forced and dapmed harmonic oscillator is 
 
@@ -872,16 +920,26 @@ The way we would find the extra solution is by considering a more cumbersome but
     x_{P} =  \mathfrak{Re} (C(e^{i(\omega t+\delta )} - e^{\pm i\omega _{0}t  } ) ). 
 \end{equation}
 
-What we have done basically, is to call some part of the homogenous solution as part of the particular solution. More concretely, we split the coefficient \(A \) (or \(B\)) into two parts of \(C \text { and } A-C\) (or \(B-C\)), and we add the part of coefficient \(C\) to the particular solution. 
+What we have done basically, is to call some part of the homogenous solution as part of the particular solution. More concretely, we split the coefficient \(A \) (or \(B\)) into two parts of \(C \text { and } A-C\) (or \(B-C\)), and we add the part of coefficient \(C\) to the particular solution. Of course, the method of variation of parameters also works by guessing \(x_{P} = \psi (t)e^{\lambda t}\), where \(\lambda \) can be \(\lambda _{+} \text { or } \lambda _{-}  \).
 
 In some sense, it is a more general particular solution because it not only works for most cases where \(\omega \neq \omega _{0} \), we can now also take the limit as \(\omega \to \omega _{0} \) to get a new independent solution as   
 
 
 \begin{equation}
-    x_{P} = F_0 \mathfrak{Re} \left( \lim_{\omega  \to \pm \omega _{0}  } \left(  \frac{e^{i (\omega t+\delta )} - e^{\pm i (\omega _{0}  t )}  }{\omega _{0}^2-\omega ^2 } \right)\right) = F_0 \mathfrak{Re} \left( \lim_{\omega  \to \pm \omega _{0} } \left(\frac{ite^{i (\omega t+\delta )} }{-2\omega } \right) \right)= \frac{F_0 t \sin (\omega _{0}t +\delta )}{2 \omega _{0} }.
+    x_{P} = F_0 \mathfrak{Re} \left( \lim_{\omega  \to \pm \omega _{0}  } \left(  \frac{e^{i (\omega t+\delta )} - e^{\pm i \omega _{0}  t }  }{\omega _{0}^2-\omega ^2 } \right)\right) = F_0 \mathfrak{Re} \left( \lim_{\omega  \to \pm \omega _{0} } \left(\frac{ite^{i (\omega t+\delta )} }{-2\omega } \right) \right)= \frac{F_0 t \sin (\omega _{0}t +\delta )}{2 \omega _{0} }.
 \end{equation}
 
 In hindsight, one can simply guess \(x_{P} = \mathfrak{Re} (Cte^{i(\omega t+\delta )} )  \), since it is the simpliest mean to obtain another independent solution, and it works also. 
+
+If \(\gamma = \omega _{0} \) and for some reason \(\omega \to i\omega _{0}\), then the roots \(\lambda _{\pm } = \lambda  \) are repeated and the particular solution coincides with the homogenous solution, and the particular solution can be found by similar means, either by the method of variation of parameters and guess \(x_{P} = \psi (x)e^{\lambda t}  \), or by taking the limit of the generalized particular solution
+
+\begin{equation}
+    \begin{aligned} 
+    x_{P} &= \mathfrak{Re} (C(e^{i(\omega t+\delta )} - e^{-\omega _{0}t } )) = F_0 \mathfrak{Re} \left( \lim_{\omega  \to i\omega _{0} } \left( \frac{e^{i(\omega t+\delta )}-e^{-\omega _{0}t }  }{\omega _{0}^2-\omega ^2+2i\omega _{0}\omega  }  \right) \right) \\ &= \mathfrak{Re} \left( \lim_{\omega  \to i\omega _{0} } \left( \frac{ite^{i(\omega t+\delta )} }{-2\omega + 2i\omega _{0} }  \right) \right) = \mathfrak{Re} \left( \frac{t^2 e^{i(\omega t+\delta )} }{2}  \right) = \frac{1}{2}t^2\cos (\omega t+\delta ). 
+    \end{aligned} 
+\end{equation}
+
+
 
 \subsection{Quality Factor}
 
@@ -895,7 +953,7 @@ For an underdamped unforced oscillator, the general solution can be seen from \c
 
 where \(\omega _{u} \equiv \sqrt{\omega _{0}^2- \gamma ^2 } \) is the underdamped frequency.
 
-The quality factor \(Q\) of an underdamped motion (since only it has oscillations) is defined as 
+The quality factor \(Q\) of an oscillator (forced or unforced) is defined as 
 
 \begin{equation}
     Q \equiv 2\pi \frac{\text{Average energy stored in a cycle}}{\text{Total energy last per period}}.
@@ -971,7 +1029,11 @@ One can obviously find the roots expcitly and subtract them to get the answer. T
     \omega _{2} - \omega _{1} = \sqrt{\omega _{1}^2+\omega _{2}^2-2\omega _{1}\omega _{2}} = \sqrt{-(\gamma ^2-2\omega _{0}^2 ) -2 \sqrt{(\omega _{0}^2 - 4\gamma ^2 )\omega _{0}^2 } } \approx \sqrt{2\omega _{0}^2 -\gamma ^2 - 2\omega _{0}^2 \left( 1 -2\frac{\gamma ^2}{\omega _{0}^2 }  \right)  } 
 \end{equation}
 
+\subsection{Rapidly Oscillating Force}
 
+As can be seen from the genearl solution of the forced oscillator in \cref{gensol}, the amplitude of oscillation \(C\) goes to zero as the frequency of the driving force \(\omega \) goes to infinity. This is mass does not have time to respond to the rapidly changing direction of the force. 
+
+However, if the driving force depends also on the displacement, for example, when the pivot of a pendulum is oscillating vertically with vertical displacement \(a \cos (\omega t)\), then in the non-inertial frame the pendulum experiences a vertical force   
 
 
 
@@ -993,13 +1055,13 @@ One can obviously find the roots expcitly and subtract them to get the answer. T
 However, the solution blows up at \(C = 0\), so we have to evaluate the integral again to get \(y = \frac{1}{x+B} \), as another answer. 
 
 Finally, \(y = A\) is trivally true, since every term in the equation contains \(y'\). 
-} 
+}
 
 \todo{PS2 2.5 onwards} 
 
 \chapter{Systems of Linear Differential Equations}
 
-For a general \(n^{\text{th}} \) order linear differential equations 
+For a general \(n^{\text{th}} \) order linear differential equation
 
 \begin{equation}
     y^{(n)}(x) + a_{n-1}y^{(n-1)}(x) + \cdots + a_1 (x)y'(x) + a_0 (x)y(x) = f(x),   
@@ -1007,21 +1069,17 @@ For a general \(n^{\text{th}} \) order linear differential equations
 
 it can be treated as a system of \(n\) first order linear differential equations of \(n\) unknown functions, namely \(y,y',\ldots ,y^{(n-1)}  \text { and } y^{(n)} \), where the first \(n-1\) ones are trivial  \(y'(x) = \frac{d}{dx}y(x), y''(x) = \frac{d}{dx} y'(x)\) and the \(n^{\text{th}} \) equation is simply the original equation.
 
-This seems like a meaningless thing to do but if introduce the vector \(\vb{y} = \begin{pmatrix}
-    y & y' & \cdots  & y^{(n-2)}  & y^{(n-1)}   \\
-\end{pmatrix}^T\), then the system of equations can be rewritten into a more compact form
+This seems like a meaningless thing to do but if introduce the vector \(\vb{y} = (y,y',\ldots ,y^{(n-2)}, y^{(n-1)})\), then the system of equations can be rewritten into a much more compact form
 
 \begin{equation}
     \vb{y} ' = A (x)\vb{y} + \vb{f} (x), \label{inhomosys} 
 \end{equation}
 
-where \(A\) is a square matrix containing the coefficients of the \(n\) equations, and \(\vb{f} = \begin{pmatrix}
-    0 & \cdots  & 0 & \cdots  & f(x)  \\
-\end{pmatrix}^T\).
+where \(A\) is a square matrix containing the coefficients of the \(n\) equations, and \(\vb{f} = (0,\ldots ,0,\ldots ,f(x))\).
 
 For \(k\) system of \(n^{\text{th}} \) order differential equations, they can be written as a system of \(n \times k\) first order differential equations, or one first order vector differential equation, like the above equation, but the vector has \(n \times k\) entries.   
 
-\section{Homogeneous Linear Systems with Constant Coefficients}
+\section{Homogeneous Linear Systems with Constant Coefficients} \label{homosys} 
 
 We start with the case where \(A(x) = A\) is independent of \(x\) and \(\vb{f} (x) = 0\) (\textit{i.e.,} the differential equation is homogeneous), so
 
@@ -1035,23 +1093,23 @@ If \(A\) is diagonal with elements \(A_{ii} = a_{i}\) , then the equations are i
     y'_{i} = a_{i} y_{i}(x) \implies y_{i} (x) = C_{i}e^{a_{i}x }    
 \end{equation}
 
-If \(A\) is not diagonal, but is diagonalizable, \textit{i.e.,} \(A = A^{\dagger} \), then we introduce the change of basis matrix \(P = (\boldsymbol{\epsilon } _1, \cdots, \boldsymbol{\epsilon } _n )\), and write the equation in eigenvectors basis, where the transformed matrix now becomes \(A' = P^{-1} AP = \text{diag}(\lambda _{1}, \ldots , \lambda _{n}  )\) 
+If \(A\) is not diagonal, but is diagonalizable, \textit{e.g.,} \(A = A^{\dagger} \), then we introduce the change of basis matrix \(P = (\vb{v} _1, \cdots, \vb{v} _n )\), and write the equation in eigenvectors basis, where the transformed matrix now becomes \(A' = P^{-1} AP = \text{diag}(\lambda _{1}, \ldots , \lambda _{n}  )\) 
 
 \begin{equation}
-    \vb{z}' = A' \vb{z} \implies z_{i}(x) = C_{i}e^{\lambda _{i}x },  
+    \vb{z}' = A' \vb{z}, \quad  \vb{z} = P^{-1} \vb{y} \implies z_{i}(x) = C_{i}e^{\lambda _{i}x },  
 \end{equation}
 
-where \(\vb{z} = P^{-1} \vb{y} \), so 
+so we have
 
-\begin{equation}
-    \vb{y} = P \vb{z} = (\boldsymbol{\epsilon } _1, \cdots, \boldsymbol{\epsilon } _n ) (\text{diag}(e^{\lambda _{1}x }, \ldots , e^{\lambda _{n}x }  ))\vb{C} ,
+\begin{equation}  \label{homovec} 
+    \vb{y} = P \vb{z} = (\vb{v}_1, \cdots, \vb{v} _n ) (\text{diag}(e^{\lambda _{1}x }, \ldots , e^{\lambda _{n}x }  ))\vb{C} = (\vb{v}_{1}  )
 \end{equation}
 
-where \(\vb{C} \) is a constant vector.
+where \(\vb{C} = (C_1 ,C_2 ,\ldots ,C_{n} )\) is a constant vector.
 
 \section{Inhomogeneous Linear Systems}
 
-Now we return to the general form in \cref{inhomosys} and suppose we know the homogeneous solution \(\vb{C} \vb{y} _{H}(x) \) and would like to find the particular solution. We again use the method of variation of parameters and guess 
+Now we return to the general form in \cref{inhomosys} and suppose we know the homogeneous solution \(\vb{y} _{H}(x) \) (given in \cref{homovec})\footnote{There is no need to use the complete general solution of the homogeneous solution, we can just choose one of the independent solutions (as long as the solution used solves the homogeneous equation so that cancellation can be acheived), but there is no harm either.} and would like to find the particular solution. We again use the method of variation of parameters and guess 
 
 \begin{equation}
     \vb{y} _{P}(x) = \boldsymbol{\psi }(x) \vb{y} _{H}(x).  
@@ -1074,6 +1132,37 @@ and the general solution is
 \begin{equation}
     \vb{y} = \vb{y} _{H}(x) + \vb{y} _{P}(x) = \vb{y} _{H}(x) \left( \int \vb{y} _{H} (x)^{-1} \vb{f} (x) dx + \vb{C}  \right).
 \end{equation}
+
+\section{Non-diagonlizable System}
+
+If \(A\) is non-diagonlizable, then we can solve the system of linear equations via triangulation or Jordan form.
+
+\subsection{Triangulation}
+
+For any matrix \(A\), there exists an unitary matrix \(U\) such that the transformed matrix \(T = U^{-1} AU\) is upper triangular, where the diagonal carries the eigenvalues of \(A\), since \(\det (A-\lambda \mathbb{I}) = \det (UTU^{-1} - \lambda U U^{-1}  ) = \det (U(T-\lambda \mathbb{I})U^{-1} ) = \det (T-\lambda \mathbb{I})\).  
+
+Following the footsteps in \cref{homosys}, substituting \(A = UTU^{-1} \), we have
+
+\begin{equation}
+    \vb{z} ' = T\vb{z}, \quad \vb{z} = T^{-1} \vb{y}.
+\end{equation}
+
+The system of linear differential equations encoded in the above equation can then be solved one by one, where each one requires the results of all the subsequent solutions. After finding \(z\), we invert the equaion to get \(\vb{y}  = T\vb{z} \). 
+
+\section{Jordan Form}
+
+Consider an eigenvalue \(\lambda _{1} \) with degeneracy \(m\), with a eigenvector \(\vb{v} _{1} \). The set of vectors \(\left\{ \vb{v}_1, \ldots , \vb{v}_k \right\}\) is called a Jordan chain of \(\lambda _{1} \), or the generalized eigenvectors of \(A\), if they satisfy
+
+\begin{equation}
+    \begin{aligned}
+        A\vb{v} _{1}&=\lambda _{1}\vb{v} _{1}\\
+        A\vb{v} _{2}&=\lambda _{1}\vb{v} _{2}+\vb{v} _{1}\\
+        &\cdots \\
+        A\vb{v} _{k}&=\lambda _{1}\vb{v} _{k}+\vb{v} _{k-1}.           
+    \end{aligned}
+\end{equation}
+
+
 
 
 

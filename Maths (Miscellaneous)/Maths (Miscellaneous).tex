@@ -160,13 +160,11 @@ All the terms of a Fourier series are mutually orthogonal, \textit{i.e.,}
     \end{aligned}
 \end{equation}
 
-Thus, the Fourier coefficient of a certain cosine or sine function with a particular \(r\) can be found by multiplying \(f(x)\) same cosine and sine function and then integrate, which would yield the result \(\frac{a_{r} L}{2} \text { or } \frac{b_{r}L }{2} \). Thus the Fourier coefficients are given by 
+Thus, the Fourier coefficient of a certain cosine or sine function with a particular \(r\) can be found by multiplying \(f(x)\) same cosine and sine function and then integrate, which would yield the result \(\displaystyle \frac{a_{r} L}{2} \text { or } \frac{b_{r}L }{2} \). Thus the Fourier coefficients are given by 
 
 \begin{equation}
     a_{r} = \frac{2}{L} \int_{x_0}^{x_0 + L} f(x) \cos \left( \frac{2\pi rx}{L}  \right) dx \text { and } b_{r} = \frac{2}{L} \int_{x_0 }^{x_0 + L} f(x) \sin \left( \frac{2\pi rx}{L}  \right) dx.   
 \end{equation}
-
-\subsubsection{Symmetry considerations}
 
 Any arbitrary function \(f(x)\) can be decomposed into the sum of an even and an odd function, since
 
@@ -178,7 +176,7 @@ Comparing the above equation with the Fourier expansion of \(f(x)\), we see that
 
 Therefore, if the function \(f(x)\) is even, the all the coefficients of the sines terms are zero and vice versa. 
 
-For a function \(f(x)\) that is symmetric (even or odd) about \(\frac{L}{4} \), \textit{i.e.,} \(f(\frac{L}{4}-x ) = \pm f(x - \frac{L}{4} )\), we make the substitution \(s = x-\frac{L}{4} \) and we have 
+For a function \(f(x)\) that is symmetric (even or odd) about \(\displaystyle \frac{L}{4} \), \textit{i.e.,} \(\displaystyle f(\frac{L}{4}-x ) = \pm f(x - \frac{L}{4} )\), we make the substitution \(\displaystyle s = x-\frac{L}{4} \) and we have 
 
 \begin{equation}
     \begin{aligned} 
@@ -224,7 +222,7 @@ If \(f(x)\) is real then \(c_{-r} = c_{r}^*  \).
 Parseval's theorem states that 
 
 \begin{equation}
-    \frac{1}{L} \int_{x_0 }^{x_0 + L} \abs{f(x)}^2 dx = \sum_{r=-\infty}^{+\infty} \abs{c_{r} }^2 = (\frac{a_0 }{2} )^2 + \frac{1}{2} \sum_{r=1}^{\infty} (a_{r}^2 + b_{r}^2).         
+    \frac{1}{L} \int_{x_0 }^{x_0 + L} \abs{f(x)}^2 dx = \sum_{r=-\infty}^{+\infty} \abs{c_{r} }^2 = \left(\frac{a_0 }{2} \right)^2 + \frac{1}{2} \sum_{r=1}^{\infty} (a_{r}^2 + b_{r}^2).         
 \end{equation}
 
 To prove this theorem, consider two functions \(f(x) \text { and } g(x)\) with Fourier series 
@@ -246,12 +244,16 @@ Now consider
 Replacing the general variable \(x\) with time \(t\), we can express any time-varing function with period \(T\) as 
 
 \begin{equation}
-    f(t) = \sum_{r=-\infty}^{+\infty} c_{r} e^{\left( \frac{2\pi irt}{T}  \right)} = \sum_{r=-\infty}^{+\infty} c_{r} e^{i\omega _{r} t }, ~~~ c_{r} = \frac{1}{T} \int_{-\frac{T}{2} }^{\frac{T}{2} } f(t) e^{-\frac{2\pi irt}{T} }dt = \frac{\Delta \omega }{2\pi } \int_{-\frac{T}{2} }^{\frac{T}{2} } f(t) e^{-i \omega _{r} t} dt    .         
+    f(t) = \sum_{r=-\infty}^{+\infty} c_{r} e^{\left( \frac{2\pi irt}{T}  \right)} = \sum_{r=-\infty}^{+\infty} c_{r} e^{i\omega _{r} t }, ~~~ c_{r} = \frac{1}{T} \int_{-\frac{T}{2} }^{\frac{T}{2} } f(t) e^{-\frac{2\pi irt}{T} }dt = \frac{\Delta \omega }{2\pi } \int_{-\frac{T}{2} }^{\frac{T}{2} } f(t) e^{-i \omega _{r} t} dt    ,        
 \end{equation}
 
-where \(\omega _{r} = \frac{2\pi r}{T} \implies \Delta \omega = \frac{2\pi }{T} \). 
+where we have defined 
 
-For function with no periodicity, we have \(T \to \infty\) and \(\Delta \omega = \frac{2\pi }{T} \to 0 \). Thus we have
+\begin{equation}
+    \omega _{r} \equiv \frac{2\pi r}{T} \implies \Delta \omega = \frac{2\pi }{T}.   
+\end{equation}
+
+For function with no periodicity, we have \(T \to \infty\) and \(\displaystyle \Delta \omega = \frac{2\pi }{T} \to 0 \). Thus we have
 
 \begin{equation}
     \begin{aligned} 
@@ -260,10 +262,10 @@ For function with no periodicity, we have \(T \to \infty\) and \(\Delta \omega =
     \end{aligned} 
 \end{equation}
 
-The integral in the bracket (times \(\frac{1}{\sqrt{2\pi } } \)) is defined to be the Fourier transform of \(f(t)\), denoted by 
+The integral in the bracket (times \(\displaystyle \frac{1}{\sqrt{2\pi } } \)) is defined to be the Fourier transform of \(f(t)\), denoted by 
 
 \begin{equation}
-    \tilde{f}(\omega ) = \frac{1}{\sqrt{2\pi } } \int_{-\infty}^{+\infty} f(t) e^{i \omega t}dt.     
+    \tilde{f}(\omega ) = \frac{1}{\sqrt{2\pi } } \int_{-\infty}^{+\infty} f(t) e^{-i \omega t}dt.     
 \end{equation}
 
 The whole integral is the inverse Fourier transform, denoted by 
@@ -284,9 +286,8 @@ The whole integral is the inverse Fourier transform, denoted by
 \begin{equation}
     \begin{aligned} 
     \tilde{f}(\omega ) &= \frac{1}{\sqrt{2\pi } } \int_{-\infty}^{+\infty} \frac{1}{\tau \sqrt{2\pi } } e^{-\frac{t^2}{2\tau ^2} } e^{-i \omega t}dt \\
-    &= \frac{1}{\sqrt{2\pi } } \int_{-\infty}^{+\infty} \frac{1}{\tau \sqrt{2\pi } } e^{-\frac{1}{2\tau ^2} (t^2 + 2\tau ^2i \omega t + (\tau ^2i \omega )^2 - (\tau ^2 i \omega )^2) } \\
-    &= \frac{e^{-\frac{1}{2\tau ^2\omega ^2} } }{\sqrt{2\pi } } \left( \frac{1}{\sqrt{2\pi } }  \right) \int_{-\infty}^{+\infty} e^{-\frac{(t+i\tau ^2\omega ^2)}{2\tau ^2} }dt \\
-    &= \frac{1}{\sqrt{2\pi } } e^{\frac{-\tau ^2\omega ^2}{2} },     
+    &= \frac{1}{2\pi  } \int_{-\infty}^{+\infty}  e^{-\frac{1}{2\tau ^2} (t^2 + 2\tau ^2i \omega t + (\tau ^2i \omega )^2 - (\tau ^2 i \omega )^2) } dt \\
+    &= \frac{e^{-\frac{\tau ^2\omega ^2}{2} } }{2\pi  }  \int_{-\infty}^{+\infty} e^{-\frac{(t-i\tau ^2\omega ^2)^2}{2\tau ^2} }dt = \frac{e^{-\frac{\tau ^2\omega ^2}{2} } }{2\pi  },
     \end{aligned}         
 \end{equation}
 
@@ -306,9 +307,84 @@ Therefore, since \(p = \hbar k \text { and } E = \hbar \omega \), we have
 } 
 
 
+\chapter{Statistics}
+		
+\section{Standard Deviation}
 
+For a set of data which contains of \(N\) distinct values \(j_1, j_2, \ldots , j_i, \ldots , j_N\) and each with frequency \(f_1, f_2, \ldots , f_i, \ldots f_N\), we can define \(\displaystyle P_i = \frac{f_i}{\sum_{i=1}^{N} f_i}\) as the probability of selecting the data \(j_i\), then the average value of any function \(g(j)\) can be written as 
+	
+\begin{equation}
+	 \avg{g(j)}  = \frac{f_1 g(j_1) + f_2 g(j_2) + \cdots + f_N g(j_N)}{f_1 + f_2 + \cdots + f_N} = \sum_{i=0}^{N} P_j g(j_i). \label{prob} 
+\end{equation}
+	
+To measure the dispersion of the set of data, the most intuitive way is to calculate the average of difference between each data and the mean
 
+\begin{equation} 
+	\sigma' = \frac{f_1(j_1 - \avg{ j }) + f_2(j_2 - \avg{ j }) + \cdots + f_N(j_N - \avg{ j })}{f_1 + f_2 + \cdots + f_N}. \label{abc} 
+\end{equation}
 
+However, \(\sigma'\) always equals to zero since \(\displaystyle \sum_{i=1}^{N} f_i j_i = \avg{ j } \sum_{i=1}^{N} f_i \). So, either we take the absolute value of each term or we square each term in \cref{abc} such that the result is non trivial. We adopt the latter choice since the former is tedious. We introduce the quantity standard deviation \(\sigma\) defined by
+
+\begin{equation} 
+	\sigma^2 = \frac{f_1(j_1 - \avg{ j })^2 + f_2(j_2 - \avg{ j })^2 + \cdots + f_N(j_N - \avg{ j })^2}{f_1 + f_2 + \cdots + f_N} = \sum_{i=0}^{N} P_j (j_i - \avg{ j })^2. \label{sigma} 
+\end{equation}
+
+Note that \(\sigma\) in \cref{sigma} is squared so that the standard deviation has the same dimension as \(j\).
+
+By expanding the bracket in \cref{sigma} and applying \cref{prob}, we have
+
+\begin{equation} 
+	\begin{aligned} 
+		\sigma^2 &= \sum_{i=1}^{N} P_i (j_i^2 - 2j_i\avg{ j } + \avg{ j }^2) \\ &= \sum_{i=1}^{N} (j_i)^2 P_i - 2 \avg{ j } \sum_{i=1}^{N} (j_i) P_i + \avg{ j }^2 \sum_{i=1}^{N} P_i \\ &= \avg{ j^2 } - 2\avg{ j } \avg{ j } + \avg{ j }^2 = \avg{ j^2 } - \avg{ j }^2. 
+	\end{aligned} 
+\end{equation}
+
+Therefore, we have the useful identity
+
+\begin{equation} 
+	\sigma = \sqrt{\avg{ j^2 } - \avg{ j }^2}. 
+\end{equation}
+	
+\section{Probability Density Function}
+	
+When we consider continuous variable, the probability of obtaining a certain value becomes meaningless now as there are infinite choices now so we define the probability density function \(\rho(x)\) such that the probability of obtaining a value between \(x\) and \(x + dx\) equals to \(\rho(x)dx\) (its discrete counterpart being \(P_{i}\)). Therefore, just like the previous section, we have the relations
+	
+\begin{equation} 
+	\int_{-\infty}^{+\infty} \rho(x)dx = 1 \text { and } 	\avg{ f(x) } = \int_{-\infty}^{+\infty} f(x)\rho(x) dx .
+\end{equation}
+
+	
+\example{Free Falling of an Object.}
+{Consider an object being released at height \(h\). Find the average distance \(\avg{x}\) from the point of release if a random instant is chosen.}
+{Let \(\rho(x)dx\) be the probability of a random instant being located between \(x\) and \(x + dx\) which is equals to \(\frac{dt}{T}\). Since \(v = \dv{x}{t} = gt\) and \(T = \sqrt{\frac{2h}{g}}\), so we have \(\rho(x) = \frac{1}{2\sqrt{hx}}\).\(\avg{x}\) can then be obtained from straightforward integration 
+\begin{equation} 
+	\avg{x} = \int_{0}^{h} \frac{x}{2\sqrt{hx}} dx = \frac{h}{3}.
+\end{equation}}
+
+We can define a joint probability distribution \(\rho _{x,y}(x,y) \), where \(\rho _{x,y}(x,y)dxdy \) is the probability for the variable \(x\) to obtain a value between \(x \text { and } x+dx\), and for the variable \(y\) to obtain a value between \(y \text { and } y+dy\). 
+
+The marginal distribution \(\rho _{x}(x) \) regardless of the value of \(y\) is obtained by integrating the joint probability density function over all allowed values of \(y\) to get \(\rho _{x}(x) = \int_{-\infty}^{+\infty}  \rho _{x,y}(x,y)dy\).
+
+The conditional distribution \(\rho _{x} (x)\) given \(y = y_0 \) is obtained by \(\rho _{x} (x) = \frac{\rho _{x,y} (x,y_0 )}{\rho _{y}(y_0 ) } \), where the denominator serving a renormalization purpose.
+
+\example{Joint Probability Density Function.}
+{Alice and Bob agree to meet for lunch at some time between noon and 1 pm. They are both willing to wait up to 10 min for the other to arrive, but will leave otherwise. Find the probability that they meet for lunch, if
+\begin{enumerate}[itemsep=10pt]
+	\item their arrival times are independent and uniformly distributed, or
+	\item their arrival times are independent, but while Alice's probability of arrival is uniform, Bob is quadractically more likely to arrive later in the hour.    
+\end{enumerate}~}
+{\begin{enumerate}
+    \item For the first case, we have \(\rho _{x} = \rho _{y} = C\). Normalizing gives \(C = \frac{1}{60 \text{mins} } \). So the joint probability density function is \(\rho _{x,y} = \frac{1}{3600 \text{mins} }  \). We then have to integrate the joint probability density function over the region in which \(\abs{y-x} \le 10 \) 
+    
+    \begin{equation}
+        P(\abs{y-x}\le 10 ) = \int_{\abs{y-x} \le 10}^{}\rho _{x,y}dxdy ,
+    \end{equation}
+    
+    which is the area of the region bounded by the \(x,y\) axes, the vertical and horizontal \(y=60 \text { and } x=60\), respectively, and the lines \(y = x+10 \text { and } y = x-10\), divided by 3600. So we get \(\displaystyle P(\abs{y-x}\le 10 ) = \frac{1100}{3600}\approx 31 \% \).
+    
+    \item In the second case, for alice we still have \(\rho _{x} = \frac{1}{60 \text{mins} }  \), for Bob we have \(\rho _{y}  = Cy^2 \), where upon normalization \(C = \frac{3}{60^3 \text{mins} } \). The joint probability density function is therefore \(\displaystyle \rho _{x,y} = \frac{3}{60^4}y^2\). Carrying out the double integral over the same region, we get \(\displaystyle P(\abs{y-x}\le 10 ) = \frac{767}{2592} \approx 30\% \).  
+\end{enumerate}~
+} 
 
 
 

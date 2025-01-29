@@ -20,76 +20,76 @@ In classical mechanics, the total energy \(E\) of a particle can be written as
 
 
 \begin{equation}
-  E=\frac{1}{2} mv^2 + V(x) = \frac{p^2}{2m} + V(x) \label{classenergy}
+  E=\frac{1}{2} mv^2 + V(x) = \frac{p^2}{2m} + V(x). \label{classenergy}
 \end{equation}
 
 Since we know that all particles are actually waves of frequency \(\omega\) and wavenumber \(\vb{k}\), so \cref{classenergy} becomes
 
 \begin{equation} 
-  \hbar \omega = \frac{\hbar^2k^2}{2m} + V(x) \label{quanenergy}
+  \hbar \omega = \frac{\hbar^2k^2}{2m} + V(x). \label{quanenergy}
 \end{equation}
 
-We know introduce the wave function of a particle \(\Psi \) as
+We now introduce the wave function of a particle \(\Psi \) as
 
 \begin{equation}
-  \Psi (\vb{r} ,t) = Ae^{i(\vb{k} \dot{\vb{r} } - \omega t )} \label{3dwavefuc} 
+  \Psi (\vb{r} ,t) = Ae^{i(\vb{k} \dot{\vb{r} } - \omega t )}. \label{3dwavefuc} 
 \end{equation}
 
 In one-dimensional case, \cref{3dwavefuc} reduces to
 
 \begin{equation}
-  \Psi (x,t) = Ae^{i(kx - \omega t)} \label{1dwavefuc}  
+  \Psi (x,t) = Ae^{i(kx - \omega t)}. \label{1dwavefuc}  
 \end{equation}
 
-where \(\abs{\Psi (x,t)}^2 dx\) is the probability of finding the particle between \(x\) and \(x + dx\) at time t (so \(\Psi\) is actually a probability density function) and \(A\) is chosen such that \(\Psi\) is normalized, \ie
+where \(\abs{\Psi (x,t)}^2 dx\) is the probability of finding the particle between \(x\) and \(x + dx\) at time t (so \(\Psi\) is actually a probability density function) and \(A\) is chosen such that \(\Psi\) is normalized, \textit{i.e.,} 
 
 \begin{equation}
-  \int_{-\infty}^{\infty} \abs{\Psi (x,t)}^2 dx = 1
+  \int_{-\infty}^{\infty} \abs{\Psi (x,t)}^2 dx = 1.
 \end{equation}
 
-Noting that \(\frac{\partial \Psi }{\partial t} = -i \omega\Psi \) and \(\frac{\partial^2\Psi }{\partial x^2 } = -k^2\Psi \), \(\Psi\) times \cref{quanenergy} becomes
+Noting that \(\displaystyle \frac{\partial \Psi }{\partial t} = -i \omega\Psi \) and \(\displaystyle \frac{\partial^2\Psi }{\partial x^2 } = -k^2\Psi \), \(\Psi\) times \cref{quanenergy} becomes
 
 \begin{equation}
-  \Psi \hbar\omega = \Psi (\frac{\hbar ^2 k^2 }{2m} + V(x)) = \hbar \frac{1}{-i} \frac{\partial\Psi}{\partial t} = \frac{-\hbar ^2 }{2m} \frac{\partial^2\Psi }{\partial x^2} + V(x)\Psi \label{fma} 
+  \Psi \hbar\omega = \Psi \left(\frac{\hbar ^2 k^2 }{2m} + V(x)\right) = -\frac{\hbar }{i} \frac{\partial\Psi}{\partial t} = \frac{-\hbar ^2 }{2m} \frac{\partial^2\Psi }{\partial x^2} + V(x)\Psi \label{fma} 
 \end{equation}
 
-Rearranging, we obtain the time-dependent Schrödinger equation
+Rearranging, we obtain the Schrödinger equation\footnote{Some call this the time-dependent Schrödinger equation, in contrast with the time-independent Schrödinger equation that we will encounter later (in which case the term on the LHS is replace by \(E\psi \)), but in most cases we will refer both simply by Schrödinger equation, as the distinction is clear.} 
 
 \begin{equation}
-  i \hbar \frac{\partial \Psi}{\partial t}=-\frac{\hbar^2}{2 m} \frac{\partial^2 \Psi}{\partial x^2}+V \Psi \label{scr}
+  i \hbar \frac{\partial \Psi}{\partial t}=-\frac{\hbar^2}{2 m} \frac{\partial^2 \Psi}{\partial x^2}+V \Psi .\label{scr}
 \end{equation}
 
 The Schrödinger equation in quantum mechanics plays a similar role to Newton's second law in classical mechanics. Given suitable initial conditions (typically, $\Psi(x, 0)$), the Schrödinger equation determines $\Psi(x, t)$ for all future time, just as Newton's second law determines $x(t)$ for all future time.
 
-\example{Griffith 3rd ed. P.14-15}
-{Show that once the wave function is normalized at t = 0, it remains normalized for any later time}
+\example{Wave Function Remains Normalized.}
+{Show that once the wave function is normalized at t = 0, it remains normalized for any later time.}
 {Consider
 
 \begin{equation}
-  \frac{\partial }{\partial t} \abs{\Psi }^2 = \frac{\partial }{\partial t} (\Psi^*\Psi ) = \Psi ^* \frac{\partial \Psi }{\partial t} + \Psi \frac{\partial \Psi ^*}{\partial t}.   
+  \frac{\partial }{\partial t} \abs{\Psi }^2 = \frac{\partial }{\partial t} (\Psi^*\Psi ) = \Psi ^* \frac{\partial \Psi }{\partial t} + \Psi \frac{\partial \Psi ^*}{\partial t}, 
 \end{equation}
 
-\(\frac{\partial \Psi }{\partial t} \) is given in the Schrödinger equation (\cref{scr}), while \(\frac{\partial \Psi ^*}{\partial t} \) can be found by taking the complex conjugate of the Schrödinger equation (by changing the sign of the exponential in \cref{3dwavefuc})
+since \(\displaystyle \frac{\partial \Psi }{\partial t} \) is given in the Schrödinger equation (\cref{scr}), while \(\displaystyle \frac{\partial \Psi ^*}{\partial t} \) can be found by taking the complex conjugate of the Schrödinger equation (by changing the sign of the exponential in \cref{3dwavefuc}), we have
 		
 \begin{equation}
   -i \hbar \frac{\partial \Psi^*}{\partial t}=-\frac{\hbar^2}{2 m} \frac{\partial^2 \Psi^*}{\partial x^2}+V\Psi^*.
 \end{equation}
 		
-So
+Therefore
 		
 \begin{equation}
   \begin{aligned}
-    &~~~\dv{t} \int_{\infty}^{\infty}   \abs{\Psi(x,t)}^2 dx \\ &= \int_{\infty}^{\infty}   \pdv{t} \abs{\Psi(x,t)}^2 dx \\ &= \int_{\infty}^{\infty}   (\Psi^*(\frac{i\hbar}{2m}\pdv[2]{\Psi}{x} - \frac{i}{\hbar}V\Psi^*) + \Psi(-\frac{i\hbar}{2m}\pdv[2]{\Psi^*}{x} + \frac{i}{\hbar}V\Psi^*))dx \\ &= \int_{\infty}^{\infty}   \frac{i\hbar}{2m}(\Psi^*\pdv[2]{\Psi}{x} - \Psi\pdv[2]{\Psi^*}{x})dx \\ &= \frac{i\hbar}{2m}\int_{\infty}^{\infty}  \pdv{x}(\Psi^*\pdv{\Psi}{x} - \Psi\pdv{\Psi^*}{x})dx \\ &= \frac{i\hbar}{2m} \eval{(\Psi^*\pdv{\Psi}{x} - \Psi\pdv{\Psi^*}{x})}_{-\infty}^{+\infty} = 0. \label{ddtpsi2}
+    \frac{d}{dt}  \int_{\infty}^{\infty}   \abs{\Psi(x,t)}^2 dx  &= \int_{\infty}^{\infty}   \pdv{t} \abs{\Psi(x,t)}^2 dx \\ &= \int_{\infty}^{\infty}   (\Psi^*(\frac{i\hbar}{2m}\pdv[2]{\Psi}{x} - \frac{i}{\hbar}V\Psi^*) + \Psi(-\frac{i\hbar}{2m}\pdv[2]{\Psi^*}{x} + \frac{i}{\hbar}V\Psi^*))dx \\ &= \int_{\infty}^{\infty}   \frac{i\hbar}{2m}(\Psi^*\pdv[2]{\Psi}{x} - \Psi\pdv[2]{\Psi^*}{x})dx \\ &= \frac{i\hbar}{2m}\int_{\infty}^{\infty}  \pdv{x}(\Psi^*\pdv{\Psi}{x} - \Psi\pdv{\Psi^*}{x})dx \\ &= \frac{i\hbar}{2m} \eval{(\Psi^*\pdv{\Psi}{x} - \Psi\pdv{\Psi^*}{x})}_{-\infty}^{+\infty} = 0. \label{ddtpsi2}
   \end{aligned}
 \end{equation}
 
 where in the last equality we invoked the fact that \(\Psi\) and \(\Psi^*\) must goes to zero as \(x\) goes to \(\infty\) otherwise the wave function will not be normalizable.
 		
-Therefore, since \(\frac{ d}{ dt} \int_{-\infty}^{\infty} \abs{\Psi (x,t)}^2 dx = 0\), it implies that \(\int_{-\infty}^{\infty}   \abs{\Psi(x,t)}^2 dx\) is a constant. But we know that \(\int_{-\infty}^{\infty}   \abs{\Psi(x,t)}^2 dx\) at \(t = 0\) is 1. Therefore the wave function remains normalized all the time.}		\todo{1.5}
+Therefore, since \(\displaystyle \frac{d}{dt}  \int_{-\infty}^{\infty} \abs{\Psi (x,t)}^2 dx = 0\), it implies that \(\displaystyle \int_{-\infty}^{\infty}   \abs{\Psi(x,t)}^2 dx\) is a constant. But we know that \(\displaystyle \int_{-\infty}^{\infty}   \abs{\Psi(x,t)}^2 dx\) at \(t = 0\) is 1. Therefore the wave function remains normalized all the time.}		\todo{1.5}
 		
-\example{Griffith 3rd ed. Problem 1.8}
-{Show that the effect of adding a constant potential \(V_0\) introduce an extra phase \(\frac{V_0t}{h}\) to the wave function}
-{By substituting \(\Psi_0 = \Psi e^{-\frac{iV_0\hbar}{t}}\) into the \screq with potential \(V + V_0\), where \(\Psi\) satisfies the normal \screq with potential \(V\), we can verfify that \(\Psi_0\) indeed satisfies the modified \screq: 
+\example{Effect to the Wave Function by adding a Constant Potential.}
+{Show that the effect of adding a constant potential \(V_0\) introduce an extra phase \(\displaystyle \frac{V_0t}{h}\) to the wave function.}
+{By substituting \(\displaystyle \Psi_0 = \Psi e^{-\frac{iV_0\hbar}{t}}\) into the \screq with potential \(V + V_0\), where \(\Psi\) satisfies the normal \screq with potential \(V\), we can verfify that \(\Psi_0\) indeed satisfies the modified \screq: 
 			
 \begin{equation}
 	\begin{aligned}
@@ -99,12 +99,12 @@ Therefore, since \(\frac{ d}{ dt} \int_{-\infty}^{\infty} \abs{\Psi (x,t)}^2 dx 
 		
 This, however has no effect on the average value of other dynamical variables such as momentum as the extra phase is independent of \(x\), so it vanishes after the absolute value of the wave function is taken.}
 		
-\example{Griffiths 3rd ed. Problem 1.9}
-{Consider the wave function \(\Psi = Ae^{-a(\frac{mx^2}{\hbar}) + it}\). Find \(V(x)\) such that this is a solution to \screq. Then confirm the uncertainty principle by calculating \(\sigma_x \text { and }  \sigma_p\).}
+\example{Potential for a Wave Function.}
+{Consider the wave function \(\displaystyle \Psi = Ae^{-a(\frac{mx^2}{\hbar}) + it}\). Find \(V(x)\) such that this is a solution to \screq. Then confirm the uncertainty principle by calculating \(\sigma_x \text { and }  \sigma_p\).}
 {From the wave function given, we obtain
 			
 \begin{equation}
-  \frac{\partial \Psi }{\partial t} = -ia\Psi , \frac{\partial \Psi }{\partial t} = -\frac{2amx}{\hbar }\Psi    
+  \frac{\partial \Psi }{\partial t} = -ia\Psi , \quad  \frac{\partial \Psi }{\partial t} = -\frac{2amx}{\hbar }\Psi    
 \end{equation}
 
 and
@@ -128,13 +128,17 @@ To obtain \(\sigma_x\) and \(\sigma_p\), we have to first normalize the function
   \int_{-\infty}^{\infty} \abs{\Psi (x,t)}^2 dx = \abs{A} ^2  \int_{-\infty}^{\infty} e^{-\frac{2amx^2 }{\hbar } } dx = \abs{A} ^2 \sqrt{\frac{\pi \hbar }{2am} }     
 \end{equation}
 
-since the absolute value of \(Ae^i\theta\) is simply \(A\).
+since the absolute value of \(Aee^{i \theta }\) is simply \(A\). So \(\displaystyle A = (\frac{2am}{\pi\hbar})^{\frac{1}{4} }\).
 		
-So \(A = (\frac{2am}{\pi\hbar})^{\frac{1}{4} }\).
+Now \(\avg{x}, \avg{x^2}, \avg{p}\) and \(\avg{p^2}\) can be straightforwardly calculated from integrations to get \(\avg{x} = \avg{p} = 0\) as expected, \( \displaystyle \avg{x^2} = \frac{\hbar}{4am}\) and \(\avg{p^2} = am\hbar\).
 		
-Now \(\avg{x}, \avg{x^2}, \avg{p}\) and \(\avg{p^2}\) can be straightforwardly calculated from integrations to get \(\avg{x} = \avg{p} = 0\) as expected, \( \avg{x^2} = \frac{\hbar}{4am}\) and \(\avg{p^2} = am\hbar\).
-		
-Therefore \(\sigma_x = \sqrt{\avg{x^2} - \avg{x}^2} = \sqrt{\frac{\hbar}{4am}}\) and \(\sigma_p = \sqrt{\avg{p^2} - \avg{p}^2} = \sqrt{am\hbar}\). \(\sigma_x \sigma_p = \frac{\hbar}{2}\) is just consistent with the uncertainty principle.}
+Therefore 
+
+\begin{equation}
+  \sigma_x = \sqrt{\avg{x^2} - \avg{x}^2} = \sqrt{\frac{\hbar}{4am}}, \quad \sigma _{p} = \sqrt{\avg{p^2}-\avg{p}^2  } = \sqrt{am \hbar } \implies \sigma _{x}\sigma _{p} = \frac{\hbar }{2},       
+\end{equation}
+
+which is just consistent with the uncertainty principle.}
 
 \section{The Copenhagen interpretation}
 	
@@ -163,13 +167,13 @@ From a mathematical standpoint, the dispcrepancy arise from the fact that \(\abs
 
 From a philosophical standpoint, this result has profound impact on how observation correlates to reality. This quantum effect begs to answer the famous philosophical question ``If a tree falls in a forest and no one is around to hear it, does it make a sound?''. And the answer seems to be that as long as we are not certain that something happen (upon measurement), every possibilities remain possible. During the flight of the electron, it must have collided with some air particles in its way that forces it to localize at a point. However, as long as we don't probe the air particles, we don't know whether that have been collided with the electron and thus the electron remains in all possible paths.
 
-\section{Momentum}
+\section{Momentum and Hamiltonian Operators}
 	
-The momentum \(p\) can be defined identically as in classical mechanics as \(p=mv=m\frac{d\avg{x}}{dt}\), where \(\frac{d\avg{x}}{dt}\) can be computed straightforwardly as 
+The expected value of momentum \(\avg{p} \) can be defined identically as in classical mechanics as \(\displaystyle \avg{p} =m\avg{v} =m\frac{d\avg{x}}{dt}\), where \(\displaystyle \frac{d\avg{x}}{dt}\) can be computed straightforwardly as 
 	
 \begin{equation}
   \begin{aligned}
-    \frac{ d\avg{x} }{ dt} = \int_{-\infty}^{\infty} \frac{\partial }{\partial t} x \abs{\Psi }^2 dx &= \frac{i\hbar }{2m} \int_{-\infty}^{\infty} x \frac{\partial }{\partial x} (\Psi ^* \frac{d\Psi}{dx} )dx \\ &= -\frac{i\hbar }{2m} \int_{-\infty}^{\infty} (\Psi ^* \frac{ d\Psi }{ dx} - \Psi \frac{ d\Psi ^*}{ dx} ) dx = -\frac{i\hbar }{m} \int_{-\infty}^{\infty} \Psi ^* \frac{\partial \Psi }{\partial x} dx          
+    \frac{ d\avg{x} }{ dt} &= \int_{-\infty}^{\infty} \frac{\partial }{\partial t} x \abs{\Psi }^2 dx = \frac{i\hbar }{2m} \int_{-\infty}^{\infty} x \frac{\partial }{\partial x} (\Psi ^* \frac{d\Psi}{dx} )dx \\ &= -\frac{i\hbar }{2m} \int_{-\infty}^{\infty} (\Psi ^* \frac{ d\Psi }{ dx} - \Psi \frac{ d\Psi ^*}{ dx} ) dx = -\frac{i\hbar }{m} \int_{-\infty}^{\infty} \Psi ^* \frac{\partial \Psi }{\partial x} dx,          
   \end{aligned}
 \end{equation}
 	
@@ -178,32 +182,35 @@ where we used the result in \cref{ddtpsi2} in the second equality and have perfo
 Therefore,
 
 \begin{equation}
-  \avg{p} = \int_{-\infty}^{\infty} \Psi ^* [-i\hbar \frac{\partial }{\partial x} ] \Psi dx.
+  \avg{p} = \int_{-\infty}^{\infty} \Psi ^* \left[-i\hbar \frac{\partial }{\partial x} \right] \Psi dx.
 \end{equation}
 
-and \([i\hbar \frac{\partial }{\partial x} ]\) is the momentum operator. The coresponding operator that calculates the position is simply \(x\).
-	
-For any quantity \(Q(x,p)\) such as angular momentum and kinetic energy, the expected value or the average value can be simply calculated by 
-	
-\begin{equation}
-  \avg{Q(x,p)} = \int_{-\infty}^{\infty} \Psi ^* [Q(x, -i\hbar \frac{\partial }{\partial x} )] \Psi dx. 
-\end{equation}
+and \(\displaystyle \left[i\hbar \frac{\partial }{\partial x} \right]\) is called the momentum operator. 
 
-For example, the average value of the kinetic energy is 
+Together with the position operator (which is simply \(x\)) that calculates the expected position of the particle, for any quantity \(Q(x,p)\) that is a function of the position and the momentum, such as angular momentum and kinetic energy, the expected value or the average value can be simply calculated by 
 	
 \begin{equation}
-  \avg{T} = -\frac{\hbar ^2 }{2m} \int_{-\infty}^{\infty} \Psi ^* \frac{\partial^2 \Psi }{\partial x^2} dx.  
+  \avg{Q(x,p)} = \int_{-\infty}^{\infty} \Psi ^* \left[\hat{Q} \left(x, -i\hbar \frac{\partial }{\partial x} \right)\right] \Psi dx, \label{expectedvalues} 
 \end{equation}
 
-\example{Griffiths 3rd ed. Problem 1.7}
-{Calculate \(\frac{\partial \avg{p} }{\partial t} \).}
+where \(\hat{Q}\) is the corresponding operator, which is just \(Q\) but with momentum \(p\) replaced by the momentum operator \(\displaystyle -i \hbar \frac{\partial }{\partial x} \).   
+
+For example, the total energy (or the Hamiltonian) of a particle with momentum \(p\) at position \(x\) is given by \(\displaystyle H(x,p) = \frac{p^2}{2m} + V(x) \), so the corresponding Hamiltonian operator is \(\displaystyle \hat{H} = - \frac{\hbar ^2}{2m}\frac{\partial^2 }{\partial x^2} +V(x)\) and the expected value of the total energy is 
+
+\begin{equation}
+  \avg{H(x,p)} = \int \psi ^* \left[ - \frac{\hbar ^2}{2m}\frac{\partial^2 }{\partial x^2} +V(x) \right]\psi dx. \label{Hamil} 
+\end{equation}
+
+
+\example{Ehrenfest's Theorem.}
+{Calculate \(\displaystyle \frac{\partial \avg{p} }{\partial t} \).}
 {Since 
 		
 \begin{equation}
 	\begin{aligned}
 		\frac{\partial}{\partial t}\left(\Psi^* \frac{\partial \Psi}{\partial x}\right) & =\frac{\partial \Psi^*}{\partial t} \frac{\partial \Psi}{\partial x}+\Psi^* \frac{\partial}{\partial x}\left(\frac{\partial \Psi}{\partial t}\right) \\
 		& =\left[-\frac{i \hbar}{2 m} \frac{\partial^2 \Psi^*}{\partial x^2}+\frac{i}{\hbar} V \Psi^*\right] \frac{\partial \Psi}{\partial x}+\Psi^* \frac{\partial}{\partial x}\left[\frac{i \hbar}{2 m} \frac{\partial^2 \Psi}{\partial x^2}-\frac{i}{\hbar} V \Psi\right] \\
-		& =\frac{i \hbar}{2 m}\left[\Psi^* \frac{\partial^3 \Psi}{\partial x^3}-\frac{\partial^2 \Psi^*}{\partial x^2} \frac{\partial \Psi}{\partial x}\right]+\frac{i}{\hbar}\left[V \Psi^* \frac{\partial \Psi}{\partial x}-\Psi^* \frac{\partial}{\partial x}(V \Psi)\right]
+		& =\frac{i \hbar}{2 m}\left[\Psi^* \frac{\partial^3 \Psi}{\partial x^3}-\frac{\partial^2 \Psi^*}{\partial x^2} \frac{\partial \Psi}{\partial x}\right]+\frac{i}{\hbar}\left[V \Psi^* \frac{\partial \Psi}{\partial x}-\Psi^* \frac{\partial}{\partial x}(V \Psi)\right],
 	\end{aligned}
 \end{equation}
 		
@@ -211,9 +218,19 @@ Therefore
 
 \begin{equation}
   \begin{aligned}
-    \frac{\partial \avg{p} }{\partial t} &= -i\hbar \int_{-\infty}^{\infty} \frac{\partial }{\partial t} (\Psi ^* \frac{\partial \Psi }{\partial x} ) dx \\ &= -i\hbar  \int_{-\infty}^{\infty} (\frac{i\hbar }{2m} [\Psi ^* \frac{\partial ^3 \Psi }{\partial x^3} - \frac{\partial^2 \Psi ^*}{\partial x^2} \frac{\partial \Psi }{\partial x} ]+ \frac{i}{\hbar } [V \Psi ^* \frac{\partial \Psi }{\partial x} - \Psi ^* \frac{\partial }{\partial x} (V\Psi )  ]  )dx \\ &= (-i\hbar ) (\frac{i\hbar }{2m }  )(\eval{\Psi ^* \frac{\partial^2 \Psi }{\partial x^2} }_{-\infty}^{+\infty} - (\eval{\frac{\partial \Psi ^*}{\partial x} \frac{\partial \Psi }{\partial x} }_{-\infty}^{+\infty}-\int_{-\infty}^{\infty} \frac{\partial^2 \Psi ^*}{\partial x^2} \frac{\partial \Psi }{\partial x} dx  ) \\ &-\int_{-\infty}^{\infty} \frac{\partial^2 \Psi ^*}{\partial x^2} \frac{\partial \Psi }{\partial x} dx) +(-i\hbar ) (\frac{i}{\hbar } ) \int_{-\infty}^{\infty} (V\Psi ^* \frac{\partial \Psi }{\partial x} + \Psi \frac{\partial V}{\partial x} )dx \\ & = 0 + \int_{-\infty}^{\infty} -\Psi \Psi ^* \frac{\partial V}{\partial x}dx = \avg{-\frac{\partial V}{\partial x} } .   
+      \frac{\partial \avg{p}}{\partial t} &= -i\hbar \int_{-\infty}^{\infty} \frac{\partial}{\partial t} \left(\Psi^* \frac{\partial \Psi}{\partial x} \right) dx \\ 
+      &= -i\hbar \int_{-\infty}^{\infty} \left( \frac{i\hbar}{2m} \left[ \Psi^* \frac{\partial^3 \Psi}{\partial x^3} - \frac{\partial^2 \Psi^*}{\partial x^2} \frac{\partial \Psi}{\partial x} \right] 
+      + \frac{i}{\hbar} \left[ V \Psi^* \frac{\partial \Psi}{\partial x} - \Psi^* \frac{\partial}{\partial x}(V \Psi) \right] \right) dx \\ 
+      &= (-i\hbar) \left( \frac{i\hbar}{2m} \right) 
+      \left( \eval{\Psi^* \frac{\partial^2 \Psi}{\partial x^2}}_{-\infty}^{+\infty} 
+      - \left( \eval{\frac{\partial \Psi^*}{\partial x} \frac{\partial \Psi}{\partial x}}_{-\infty}^{+\infty} 
+      - \int_{-\infty}^{\infty} \frac{\partial^2 \Psi^*}{\partial x^2} \frac{\partial \Psi}{\partial x} dx \right) \right. \\ 
+      & \quad \left. - \int_{-\infty}^{\infty} \frac{\partial^2 \Psi^*}{\partial x^2} \frac{\partial \Psi}{\partial x} dx \right) 
+      + (-i\hbar) \left( \frac{i}{\hbar} \right) 
+      \int_{-\infty}^{\infty} \left( V \Psi^* \frac{\partial \Psi}{\partial x} + \Psi \frac{\partial V}{\partial x} \right) dx \\ 
+      &= 0 + \int_{-\infty}^{\infty} -\Psi \Psi^* \frac{\partial V}{\partial x} dx = \avg{-\frac{\partial V}{\partial x}}.
   \end{aligned}
-\end{equation}
+  \end{equation}
 	
 which is almost identical to the classical result that predicts 
 
@@ -223,7 +240,7 @@ which is almost identical to the classical result that predicts
 
 according to Ehrenfest's theorem.}
 	
-\example{Griffiths 3rd ed. Problem 1.11 and 1.12}
+\example{Classical Formalism of Quantum Mechanics.}
 {In this question, we try to model the behaviour of wave function with classical formalism. Consider a classical particle with energy \(E\) in a potential well \(V(x)\) of the case of simple harmonic oscillator where \(V(x) = \frac12 kx^2\) and find \(\rho(x),\rho(p), \avg{x^2}, \avg{p^2}, \sigma_x\) and \(\sigma_p\), where \(\rho(x)dx\) and \(\rho(p)dp\) are the probability of the particle located at \(x\) and have the a momentum \(p\) if we choose a random instant.}
 {The speed of the particle is
 	
@@ -231,7 +248,7 @@ according to Ehrenfest's theorem.}
   V(x) = \sqrt{\frac{2}{m} (E - V(x))} = \sqrt{\frac{2}{m} (E - \frac{1}{2} kx^2 )}.  
 \end{equation}
 		
-The period of the particle is  \(T = 2\pi \sqrt{\frac{m}{k}}\).
+The period of the particle is  \(\displaystyle T = 2\pi \sqrt{\frac{m}{k}}\).
 		
 So the probability density function \(\rho(x)\) can be found by
 		
@@ -239,10 +256,10 @@ So the probability density function \(\rho(x)\) can be found by
   \rho (x) dx = \frac{dt}{\frac{T}{2} } = \frac{2dx}{v(x)T}  
 \end{equation}
 		
-If we let \(-a\) and \(a\) to be the end points of the particle, then \(E = \frac{1}{2}  ka^2\) and
+If we let \(-a\) and \(a\) to be the end points of the particle, then \(\displaystyle E = \frac{1}{2}  ka^2\) and
 		
 \begin{equation}
-  \rho (x) = \frac{2}{T} \frac{1}{\sqrt{\frac{2}{m} (E - \frac{1}{2} kx^2 )} } = \frac{1}{\pi \sqrt{b^2 -x^2 } }.  
+  \rho (x) = \frac{2}{T} \frac{1}{\sqrt{\frac{2}{m} \left(E - \frac{1}{2} kx^2 \right)} } = \frac{1}{\pi \sqrt{b^2 -x^2 } }.  
 \end{equation}
 
 So 
@@ -260,11 +277,312 @@ and
 For the probability density function of with respect to momentum \(\rho(p)\), 
 
 \begin{equation}
-  \rho (p)dp = \frac{dt}{T}  = \frac{dx}{v(x)T}  
+  \rho (p)dp = \frac{dt}{T}  = \frac{dx}{v(x)T}.
 \end{equation}}
 
-Quantum entaglement is not ``affect'', since it is based on conservation law, if one up the other must be down, but state of anyone of them not known beforehand.
-	
+\todo{Quantum entaglement is not ``affect'', since it is based on conservation law, if one up the other must be down, but state of anyone of them not known beforehand.
+} 	
+
+\chapter{Separation of Variables}
+
+\section{The General Approach}
+
+To solve for the wave function of a particle, we look for the solution in the form of 
+
+\begin{equation}
+  \Psi (x,t) = \psi (x)\varphi (t).
+\end{equation}
+
+Substituting into the Schrödinger equation and divide through \(\Psi = \psi \varphi\), we have
+
+\begin{equation}
+  i \hbar \frac{1}{\varphi } \frac{d\varphi }{dt} = -\frac{\hbar ^2}{2m} \frac{1}{\psi } \frac{d^2\psi }{dx^2} + V.    
+\end{equation}
+
+Since the LHS and RHS of the above equation is a function of \(t \text { and } x\) alone, respectively, they must a constant of \(t \text { and } x\), which we call it \(E\) (for it is actually the energy of the particle). We thus have
+
+\begin{equation}
+  i \hbar \frac{1}{\varphi } \frac{d\varphi }{dt} = E \implies \varphi (t) = e^{-\frac{iEt}{\hbar } }  
+\end{equation}
+
+for the \(t\) dependence and for the \(x\) dependence we have to solve for \(\psi (x)\) in the time independent Schrödinger equation
+
+\begin{equation}
+  - \frac{\hbar ^2}{2m} \frac{d^2\psi }{dx^2} + V\psi = \hat{H}\psi = E\psi, \label{psix} 
+\end{equation}
+
+where \(\hat{H}\) is the Hamiltonian operator defined in \cref{Hamil}.
+
+There are a few properties of of separable solutions that make them special. Firstly, the probability density of the position 
+
+\begin{equation}
+  \abs{\Psi (x,t)}^2 = \Psi ^*\Psi = \psi ^* e^{+\frac{iEt}{\hbar } }\psi e^{-\frac{iEt}{\hbar } } = \abs{\psi (x)}^2
+\end{equation}
+
+is independent of time, and so does any expected values which are functions of position and momentum from \cref{expectedvalues}.
+
+Secondly, the total energy is definite. With \cref{psix} in hand, the expected value of the total energy is 
+
+\begin{equation}
+  \avg{H} = \int \psi ^* \hat{H} \psi dx = E \int \abs{\psi }^2 dx = E \int \abs{\Psi }^2 dx = E.  
+\end{equation}
+
+By computing the expected value of \(H^2\), which is \(\avg{H^2} = E^2 \), one can conclude that the variance of \(H\)
+
+\begin{equation}
+  \sigma _{H}^2 = \avg{H^2} - \avg{H}^2 = E^2- E^2 = 0,
+\end{equation}
+
+which means that every measurement of the total energy is certain to return the value \(E\).
+
+Lastly, the general solution of \(\Psi (x,t)\) is a linear combination of the separable solutions, each with its own allowed energy \(E_{n} \) 
+
+\begin{equation}
+  \Psi (x,t) = \sum_{n=1}^{\infty} c_{n}\psi _{n}(x) e^{-\frac{iE_{n}t}{\hbar }  }, \label{Psix} 
+\end{equation}
+
+where the linearity coefficients \(c_{n} \) have the significance that \(\abs{c_{n} }^2 \) is the probability that a measurement of the energy would return the value \(E_{n} \).\footnote{It is incorrect to say that \(\abs{c_{n} }^2\) is the probability that the particle is in the \(n^{\text{th}} \) stationary state, since the particle is in state \(\Psi \), but not \(\Psi _{n} \), so you never find the particle to be in a particular state, you only measure some observable quantities such as the energy of the particle, a number, but not a wave function.} 
+
+Threfore we have 
+
+\begin{equation}
+  \begin{aligned}
+    1 &= \int \abs{\Psi (x,0)}^2dx = \int \left( \sum_{m=1}^{\infty}c_{m}\psi _{m}(x)\right)^*\left( \sum_{n=1}^{\infty}c_{n}\psi _{n}(x)\right) dx \\ &= \sum_{m=1}^{\infty}\sum_{n=1}^{\infty}c_{m}^*c_{n}\int \psi _{m}(x)^*\psi _{n}(x)dx \\ &= \sum_{n=1}^{\infty}\sum_{m=1}^{\infty}c_{m}^*c_{n}\delta _{mn}= \sum_{n=1}^{\infty}\abs{c_{n} }^2,       
+  \end{aligned}
+\end{equation}
+
+and also 
+
+\begin{equation}
+  \begin{aligned} 
+    \avg{H} &= \int \Psi ^* \hat{H} \Psi dx = \int \left( \sum_{m=1}^{\infty}c_{m}\psi _{m}   \right) ^*  \hat{H} \left( \sum_{n=1}^{\infty}c_{n}\psi _{n}    \right) dx \\ &= \sum_{n=1}^{\infty}\sum_{m=1}^{\infty}c_{m}^*c_{n}E_{n}\int \psi _{m}^*\psi _{n}dx = \sum_{n=1}^{\infty}\abs{c_{n} }^2E_{n}.          
+  \end{aligned} 
+\end{equation}
+
+
+
+\section{Infinite Square Well}
+
+Suppose we have the potential 
+
+\begin{equation}
+  V(x) =
+  \begin{cases} 
+  0, & 0 \leq x \leq a, \\
+  \infty, & \text{otherwise}.
+  \end{cases}
+\end{equation}
+
+Outside the well, \(\psi (x) = 0\). Inside the well, \cref{psix} reads 
+
+\begin{equation}
+  \frac{d^2\psi }{dx^2} = -k^2\psi , \quad  \displaystyle k \equiv \frac{\sqrt{2mE} }{\hbar },
+\end{equation}
+
+where we have subtly assumed that \(E \ge 0\).  
+
+Together with the boundary conditions \(\psi (0) = \psi (a) = 0\), the solution is  
+
+\begin{equation}
+  \psi _{n} (x) = A\sin (k_{n} x), \quad k_{n} = \frac{n\pi }{a}, \quad n = 1,2,3,\ldots 
+\end{equation}
+
+Curiously, the boundary condition at \(x = a\) does not determine the constant \(A\), but rather the constant \(k\), and hence the possible values of \(\displaystyle E_{n} = \frac{n^2\pi ^2\hbar ^2}{2ma^2}\).
+
+To find \(A\), we normalize \(\Psi \) (or \(\psi \)) 
+
+\begin{equation}
+  \int_{0}^{a} \abs{A}^2 \sin ^2(kx) dx = \abs{A}^2 \frac{a}{2} = 1 \implies A = \sqrt{\frac{2}{a} }.      
+\end{equation}
+
+The coefficients \(c_{n} \) in \cref{Psix} can be calcluated via the Fourier's trick, as 
+
+\begin{equation}
+  c_{n} = \int \Psi _{n}(x,0)^* \Psi (x,0) dx,  
+\end{equation}
+
+since the functions \(\Psi _{n}(x,0) \) are orthogonal and complete.
+
+\section{Harmonic Oscillator}
+
+Suppose the potential is now 
+
+\begin{equation}
+  V(x) = \frac{1}{2}m \omega ^2x^2. 
+\end{equation}
+
+From \cref{psix} we now have
+
+\begin{equation}
+  - \frac{\hbar ^2}{2m}\frac{d^2\psi }{dx^2} + \frac{1}{2}m \omega ^2x^2\psi = E\psi . \label{harmonic} 
+\end{equation}
+
+There are two ways which we can solve this Schrödinger equation, as we will show below
+
+\subsection{Algebraic Method}
+
+Before we start solving the Schrödinger equation, we introduce the commutator
+
+
+\begin{equation}
+  \left[ \hat{A} , \hat{B}  \right] \equiv \hat{A} \hat{B} - \hat{B} \hat{A},
+\end{equation}
+
+which measures how badly the operators \(\hat{A} \text { and } \hat{B} \) fail to commute. 
+
+For the pair of operators \(x \text { and } \hat{p} \), we have
+
+\begin{equation}
+  (x \hat{p} - \hat{p} x )f(x) = x(-i \hbar )\frac{df}{dx} -(i \hbar )\frac{d}{dx}(xf) = i \hbar f(x) \implies \left[ x, \hat{p}  \right] = i \hbar ,
+\end{equation}
+
+which is known as the canonical commutation relation.
+
+To solve the Schrödinger equation, we first rewrite \cref{harmonic} as 
+
+\begin{equation}
+  \frac{1}{2m}\left[ \hat{p}^2 + (m \omega x)^2\right]\psi = \hat{H} \psi = E\psi . 
+\end{equation}
+
+The idea now is to factorize the Hamiltonian, by introducing the operators
+
+\begin{equation}
+  \hat{a} _{\pm } \equiv \frac{1}{\sqrt{2 \hbar m \omega } } (\pm i \hat{p} +m \omega x),\footnote{The motivation is that \(u^2+v^2 = (iu+v)(-iu-v)\) can be easily factorized, but now we extend this to operators.} 
+\end{equation}
+
+whose product is 
+
+\begin{equation}
+  \hat{a} _{-}\hat{a} _{+} = \frac{1}{2 \hbar m \omega }( \hat{p} ^2 + (m \omega x)^2) - \frac{i}{2 \hbar }[x, \hat{p} ] = \frac{1}{\hbar \omega }\hat{H} + \frac{1}{2}.    
+\end{equation}
+
+So the Schrödinger equation becomes 
+
+\begin{equation}
+  \hbar \omega \left( \hat{a} _{\pm }\hat{a} _{\mp} \pm \frac{1}{2}    \right) \psi = E\psi .
+\end{equation}
+
+Writing the Schrödinger equation in this form, we can see that if \(\psi \) satisifies the Schrödinger equation with energy \(E\), then \(\hat{a} _{\pm }\psi  \) satisfies the Schrödinger equation with energy \(E \pm \hbar \omega \), since
+
+\begin{equation}
+  \begin{aligned} 
+    \hat{H} (\hat{a} _{\pm } \psi ) &= \hbar \omega \left( \hat{a} _{\pm }\hat{a} _{\mp} +\frac{1}{2}    \right) (\hat{a} _{\pm }\psi ) = \hbar \omega \left( \hat{a} _{\pm }\hat{a} _{\mp}\hat{a} _{\pm } + \frac{1}{2} \hat{a} _{\pm } \right) \psi \\ &= \hbar \omega \hat{a} _{\pm }\left( \hat{a} _{\mp}\hat{a} _{\pm } + \frac{1}{2}    \right) \psi = \hat{a} _{\pm } \left( \hbar \omega \left( \hat{a} _{\pm }\hat{a} _{\mp} + 1 + \frac{1}{2}    \right) \psi \right) \\ &= \hat{a} _{\pm } (\hat{H} + \hbar \omega )\psi = \hat{a} _{\pm }(E+\hbar \omega )\psi = (E+\hbar \omega )(\hat{a} _{\pm }\psi  ),
+  \end{aligned} 
+\end{equation}
+
+where in the last equality of the second line we used that fact that \(\hat{a} _{\mp} \hat{a} _{\pm } = \hat{a} _{\pm } \hat{a} _{mp} + 1\), since \([\hat{a} _{-}, \hat{a} _{+}  ] = 1\).  
+
+This means that as long as we find one solution, we can find all the solutions using the ladder operators \(\hat{a} _{\pm } \). Of course, we will not be able to apply the lowering operator \(\hat{a} _{-} \) repeatedly to reach a state with energy less than zero. There occurs a lowest energy state (called the ground state) \(\psi _{0} \) such that 
+
+\begin{equation}
+  \hat{a} _{-}\psi _{0} = 0 \implies \psi _{0} = Ae^{-\frac{m \omega }{2 \hbar }x^2 } = \left( \frac{m \omega }{\pi \hbar }  \right)^{\frac{1}{4} } e^{-\frac{m \omega }{2 \hbar }x^2 },
+\end{equation}
+
+which corresponds the state with energy \(\displaystyle E_{0} = \frac{1}{2}\hbar \omega   \), and we would only get \(\psi =0\)  no matter how many times we apply the lowering operator \(\hat{a} _{-} \) to \(\psi _{0} \).
+
+With our foot now planted on the ground state, the solution of the Schrödinger equation is now clear as
+
+\begin{equation}
+  \psi _{n}(x) = A_{n} (\hat{a} _{+} )^{n} \psi _{0}(x), \quad E_{n} = \left( n+\frac{1}{2}  \right)\hbar \omega .
+\end{equation}
+
+To find \(A_{n} \), we first note that 
+
+
+
+
+\chapter{Formalism of Quantum Mechanics}
+
+\section{Hilbert Space}
+The vector space (called the Hilbert space)\footnote{Mathematically, a Hilbert space is a complete inner product space, and the collection of square-integrable functions is only one example of a Hilbert space.}, which contain all wave functions, is the set of all sqaure integrable functions, \textit{i.e.,} all functions \(f(x)\) such that 
+
+\begin{equation}
+   \int_{a}^{b}   \abs{f(x)}^2dx \le \infty   
+\end{equation}
+
+The inner product of two functions in the Hilbert space is defined as 
+
+\begin{equation}
+  \avg{f | g} \equiv \int_{a}^{b} f(x)^*g(x)dx.  
+\end{equation}
+
+To represent a possible physical state, however, the wave function \(\Psi \) must be normalized by
+
+\begin{equation}
+  \avg{\Psi | \Psi } = \int_{a}^{b} \abs{\Psi }^2 dx = 1, 
+\end{equation}
+
+which is similar to how we almost always only refer to the normalized eigenvector as ``the eigenvector'' of a matrix.
+
+The main difference bewteen Hilbert space and ordinary vector space is that Hilbert space has infinite dimension while ordinary vector space has finite dimension. Consequently, a matrix can be hardly defined in Hilbert Space. Instead, a linear transformation is represented by an operator. 
+
+\section{Observables}
+
+\subsection{Hermitian Operators}
+
+The expectation value of an observable \(Q(x,p)\) can be obtained by acting the corresponding operator \(\hat{Q} \) on \(\Psi \) as 
+
+\begin{equation}
+  \avg{Q} = \int \Psi ^* \hat{Q} \Psi dx = \avg{\Psi | \hat{Q} \Psi } = \avg{\hat{Q} \Psi | \Psi }, \label{avgq} 
+\end{equation}
+
+where we did not need to take the complex conjugate when switching the order of the inner product since observables must be real. 
+
+An operator \(\hat{Q} \) satisifying such condition is called an hermitian operator, and it can be proved that hermitian operators satisfy an even more general condition 
+
+\begin{equation}
+  \avg{f | \hat{Q} g} = \avg{\hat{Q} f | g}.  
+\end{equation}
+
+For example, the momentum operator is hermitian since
+
+\begin{equation}
+  \langle f \vert \hat{p} g \rangle = \int_{-\infty}^\infty f^* \left( -i\hbar \frac{dg}{dx} \right) dx = -i\hbar f^* g \bigg|_{-\infty}^\infty + \int_{-\infty}^\infty \left( -i\hbar \frac{df}{dx} \right)^* g  dx = \langle \hat{p} f \vert g \rangle,
+\end{equation}
+
+where we threw away the boundary term because if \(f(x) \text { and } g(x)\) are square integrable, they must go to zero at \(\pm \infty\).
+
+Analogously, we call a matrix \(A\) hermitian if \(\avg{\vb{u} , A\vb{v} } = \vb{u}^{\dagger} A\vb{v} = (A^{\dagger}\vb{u} )^{\dagger}\vb{v} = \avg{A\vb{u} , \vb{v} }\).
+
+\subsection{Determinate States}
+
+A state represented by the wave function \(\Psi \) is a determinate state for the observable \(Q\) if every measuremnet of \(Q\) is certain to return the same value. This is equivalent to saying that the standard deviation of \(Q\) is zero
+
+\begin{equation}
+  \sigma _{Q}^2 =  \left< (Q-\avg{Q} )^2 \right> = \left< \Psi \mid (\hat{Q} - \avg{Q} )^2 \Psi  \right> = \left< (\hat{Q} - \avg{Q} )\Psi \mid (\hat{Q} - \avg{Q} )\Psi  \right> =0, 
+\end{equation}
+
+where we used \cref{avgq} in the second equality, and the property of the hermitian operator \(\hat{Q} - \avg{Q} \) in the second to last equality.
+
+But the only vector whose inner product with itself vanishes is 0, so
+
+\begin{equation}
+  \hat{Q} \Psi = \avg{Q}\Psi . 
+\end{equation}
+
+This is the eigenvalue equation for the operator \(\hat{Q} \), where \(\avg{Q} \) is the corresponding eigenvalue and \(\Psi \) is an eigenfunction of \(\hat{Q} \). The collection of all the eigenvalues (there are infinite the same way a \(n \times n\) matrix has \(n\) eigenvalues, but now \(n \to \infty\)) is called the spectrum of the eigenfunction.
+
+\section{Eigenfunctions of a Hermitian Operator}
+
+\subsection{Discrete Spectra}
+
+The Sepctrum of an operator is discrete if the eigenvalues are separated from one another, \textit{e.g.,} integers. If this is the case, the eigenfunctions lie in Hilbert space and constitute physically realizable states. 
+
+\section{Generalized Statistical Interpretation}
+
+If you measure an observable \(Q(x,p)\) on a particle in the state \(\Psi (x,t)\), you are certain to get one of the eigenvalues of the hermitian operator \(\hat{Q} \displaystyle \left(x,-i\hbar \frac{d}{dx} \right)\).\footnote{If \(Q\) involves, say, the product \(xp\), we need other consideration to determine whether we should write \(\hat{x} \hat{p} \text { or } \hat{p} \hat{x}  \).} If the spectrum of \(\hat{Q} \) is discrete, the probability of getting the particular eigenvalue \(q_{n} \) associated with the eigenfunction \(f_{n} (x)\) is 
+
+\begin{equation}
+  p_{n} = \abs{c_{n} }^2, \quad c_{n} = \braket{f_{n} }{\Psi } .    
+\end{equation}
+
+If the spectrum is continuous, with real eigenvalues \(q(z)\) and eigenfunctions \(f_{z} (x)\), then the probability of getting a result in the range \(dz\) is 
+
+\begin{equation}
+  p_{n} = \abs{c(z)}^2dz, \quad c_{z} = \braket{f_{z} }{\Psi }.
+\end{equation}
+
+Upon measurement, the wave function collapses to the cooresponding eigenstate.\footnote{In the case of continuous spectra the collapse is to a narrow range about the measured value, depending on the precision of the measuring device.} 
 
 
 
@@ -274,7 +592,17 @@ Quantum entaglement is not ``affect'', since it is based on conservation law, if
 
 
 
-	
+
+
+
+
+
+
+
+
+
+
+
 
 
 

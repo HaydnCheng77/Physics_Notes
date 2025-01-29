@@ -15,8 +15,8 @@
 
 \section{Ordinary Differentiation}
 
-\subsection{The Leibnitz' Theorem}[The Leibnitz' Theorem] \label{leibnitz} 
-\begin{theorem}
+\subsection{The Leibnitz' Theorem} \label{leibnitz} 
+\begin{theorem}[The Leibnitz' Theorem]
     The \(n^{\text{th }} \) order derivative of the product of two fucntions \(f(x) = u(x)v(x)\) is\footnote{Proof given in \cref{leibnitzapp}.}  
     \begin{equation}
         f^{(n)} = \sum_{r=0}^{n} \binom{n}{r} u^{(r)} v^{(n-r)}. \label{lei} 
@@ -39,17 +39,43 @@ An inflection point (which is not stationary) is when \(\displaystyle \frac{d^2f
 
 \section{Partial Differentiation}
 
-In this section we investigate how a function with more than one variable changes when the variables change.\footnote{It is fine if the variables are themselves connected with each other, say \(y = y(x)\).} We will restrict ourselves most to functions that depend on two variables, since \(f(x,y)\) can still be visualized by a surface in a three-dimensional space, similar to how we represent \(f(x)\) as a curve in a two-dimensional space. However, it is difficult to visualise functions of more than two variables. 
-
 \subsection{Partial Derivatives}
 
-We start by finding how \(f(x,y)\) changes when one of the variables, say \(x\), changes, while the other variable (\(y\)) is kept constant. But now this becomes an ordinary differentiation since \(f(x,y) = f(x)\) when \(y\) is kept constant. In analogous to how ordinary derivativce is defined, we have
+Suppose we have three variables \(x,y \text { and } f\), with \(f = f(x,y)\) being assinged (arbitraily) as the dependent variable, and \(x,y\) being the independent variables (which are independent of each other, \textit{i.e.,} \(x \text { and } y\) can vary independently). The rate in which \(f\) changes as \(x\) changes while keeping \(y\) fixed can be calculated by the partial derivative of \(f\) with respect to \(x\)
 
 \begin{equation}
     \left( \frac{\partial f}{\partial x} \right)_{y} = \frac{\partial f}{\partial x} = f_{x}  = \lim_{\Delta x \to 0} \frac{f(x+\Delta x,y) - f(x,y)}{\Delta x},
 \end{equation}
 
-where 3 equivalent notations are used to denote the partial derivative of \(f(x,y)\) with respect to \(x\) in order of descending formality.
+where the variable which is kept constant is omitted at the first equality. In most cases, omitting the constant variable is conventional as they are obvious. However, care must be taken when the independent variables are not independent of each other. 
+
+The situation is best illustrated by an example. Suppose
+
+\begin{equation}
+	f(x,y) = x^2+y^2+(x^2+y^2)^2,
+\end{equation}
+
+and we introduce another independent variable \(z = x^2+y^2\), which is independent of \(x \text { and } y\). Then there would be infinite ways to express \(f(x,y,z)\) in terms of the independent variables \(x,y \text { and } z\), such as \(f(x,y,z) = x^2+y^2+z^2 = z+z^2 = x^2+y^2+z(x^2+y^2)\) \textit{etc.} 
+
+If we want to calculate the partial derivative of \(f(x,y,z)\) with respect to \(x\), then we must write down explicitly the variable we would like to keep constant. In fact, the variable that is kept constant need not be \(y \text { or } z\), it can be any combination of \(x,y \text { and } z\), such as \(w = y^2\sin (x+\sqrt{z} )\). 
+
+If we keep \(y\) to be constant (and \(z\) be whatever \(z = x^2+y^2\) is), then the partial derivative is 
+
+\begin{equation}
+	\left( \frac{\partial f(x,y,z)}{\partial x}  \right)_{y} = \frac{\partial }{\partial x} (x^2+y^2+(x^2+y^2)^2) = 2x+4x^3 +4xy^2.  
+\end{equation}
+
+On the other hand, if we keep \(z\) to be constant (and \(y\) be whatever \(y = \pm \sqrt{z-x^2} \) is), then the partial derivative is 
+
+\begin{equation}
+	\left( \frac{\partial f(x,y,z)}{\partial x}  \right)_{z} = \frac{\partial }{\partial x} (z+z^2) = 0. 
+\end{equation}
+
+To see why is this so, refer to \cref{paraboloid}, which shows the relation \(z = x^2+y^2\), and the variable \(f(x,y,z)\) calculates the square of the distance from the origin. 
+
+Suppose we want to calculate the partial derivative of \(f(x,y,z)\) with respect to \(x\) at the point \(P_0 = (1,0,1)\). If we hold \(y\) fixed and let \(x\) varies, then the point \(P\) moves in the \(xz\)-plane towards \(A\), and the distance increases as \(x\) increases. However, if we hold \(z\) fixed and let \(x\) varies, then point \(P\) moves in the plane \(z = 1\), along the circular path towards \(B\) and the distance is fixed.   
+
+\onefig{paraboloid}{scale=0.3} 
 
 A very useful fact about the second partial derivative which the proof is not given here is that 
 
@@ -70,9 +96,35 @@ Now we consider how \(f(x,y)\) changes when both \(x \text { and } y\) change. W
     \end{aligned}
 \end{equation}
 
-The approximation becomes exact as \(\Delta x \rightarrow  0 \text { and }  \Delta y \rightarrow 0\). 
+Note that the partial deriavtives are carried out as if all the independent variables are independent of each other (although they might be dependent). The approximation becomes exact as \(\Delta x \rightarrow  0 \text { and }  \Delta y \rightarrow 0\).  
 
 This result shows that if the changes in \(x \text { and } y\) are small enough, we can consider the change in \(f(x,y)\) due to \(x \text { and } y\) separately, as any change in \(f(x,y)\) that is not linear to \(\Delta x \text { or } \Delta y\) is negligble as \(\Delta x \rightarrow 0 \text { and } \Delta y \rightarrow 0\).     
+
+\example{Partial and Total Derivatives.}
+{Find \(\displaystyle \left( \frac{\partial w}{\partial y}  \right)_{x,t} \), where \(w = x^3 y-z^2t \text { and } xy = zt\).  }
+{Straightforwardly, we have
+
+\begin{equation}
+	\left( \frac{\partial w}{\partial y}  \right)_{x,t} = x^3 -2zt \left( \frac{\partial z}{\partial y}  \right)_{x,t} = x^3 - 2zx.  
+\end{equation}
+
+Alternatively, we have
+
+\begin{equation}
+	dw = 2x^2ydx+x^3 dy+2zt dz-z^2dt ~\text { and }~ ydx+xdy=zdt+tdz.
+\end{equation}
+
+Eliminating \(dz\), we have 
+
+\begin{equation}
+	dw = (3x^2y-2zy)dx + (x^3 2zx)dy+z^2dt \implies \left( \frac{\partial w}{\partial y}  \right)_{x,t} = x^3 -2zx
+\end{equation}
+
+
+
+
+} 
+
 
 
 \subsection{Exact Differentials}
@@ -103,7 +155,7 @@ Since \(\displaystyle \frac{\partial^2 f}{\partial x \partial y} = \frac{\partia
 
 \subsection{Reciprocity Relation and Cyclic Relation}
 
-So far our discussion has centred on a function \(f(x,y)\) dependent on two variables, \(x\text { and } y\). However, f(x,y) is not superior, \(x(f,y) \text { and } y(x,f)\) are equally valid and are expressing the identical relation between \(x,y \text { and } f\). To emphasise the point that all the variables are of equal standing we now replace \(f\) by \(z\). Then we have
+So far our discussion has centred on a function \(f(x,y)\) dependent on two variables, \(x\text { and } y\). However, \(f(x,y)\) is not superior, \(x(f,y) \text { and } y(x,f)\) are equally valid and are expressing the identical relation between \(x,y \text { and } f\). To emphasise the point that all the variables are of equal standing we now replace \(f\) by \(z\). Then we have
 
 \begin{equation}
     \begin{aligned}
@@ -131,10 +183,56 @@ which is analogous to chain rule in ordinary differentiation.
 Suppose now instead of having a constriant on \(x\text { and } y\), we would like to change the whole set of variables from \((x,y)\) to \((u,v)\). Then we have \(x = x(u,v) \text { and } y = y(u,v)\). So the derivatives become
 
 \begin{equation} \label{changeofvar} 
-    \frac{\partial f}{\partial u} = \frac{\partial f}{\partial x} \frac{\partial x}{\partial u} + \frac{\partial f}{\partial y} \frac{\partial y}{\partial u} \text { and } \frac{\partial f}{\partial v} = \frac{\partial f}{\partial x} \frac{\partial x}{\partial v} + \frac{\partial f}{\partial y} \frac{\partial y}{\partial v}.  
+    \frac{\partial f}{\partial u} = \frac{\partial f}{\partial x} \frac{\partial x}{\partial u} + \frac{\partial f}{\partial y} \frac{\partial y}{\partial u} ~\text { and }~ \frac{\partial f}{\partial v} = \frac{\partial f}{\partial x} \frac{\partial x}{\partial v} + \frac{\partial f}{\partial y} \frac{\partial y}{\partial v}.  
 \end{equation}
 
+To generalize the above discussion, suppose we want to change the set of \(n\) variables from \(\vb{x}\) to \(\vb{u} \), then the \(n\) equations are 
 
+\begin{equation}
+	\frac{\partial f}{\partial u_{i} } = \frac{\partial f}{\partial x_1 }\frac{\partial x_1}{\partial u_{i} } + \frac{\partial f}{\partial x_2 }\frac{\partial x_2 }{\partial u_{i} } + \cdots + \frac{\partial f}{\partial x_{n} }\frac{\partial x_{n} }{\partial u_{i} } = \sum_{j=1}^{n} \frac{\partial x_{j} }{\partial u_{i} }\frac{\partial f}{\partial x_{j} },
+\end{equation}
+
+or written in matrix form \(\boldsymbol{\nabla }_{\vb{u} } = J^T \boldsymbol{\nabla }_{\vb{x} }\), where \(J\) is the Jacobian matrix 
+
+\begin{equation}
+	J \equiv \frac{\partial (x,y,z)}{\partial (u,v,w)} = \begin{pmatrix}
+		\frac{\partial x}{\partial u}  & \frac{\partial x}{\partial v}  & \frac{\partial x}{\partial w}   \\
+		\frac{\partial y}{\partial u}  & \frac{\partial y}{\partial v}  & \frac{\partial y}{\partial w}   \\
+		\frac{\partial z}{\partial u}  & \frac{\partial z}{\partial v}  & \frac{\partial z}{\partial w}   \\
+	\end{pmatrix}.
+\end{equation}
+
+In three dimensions, the 3 equations are
+
+\begin{equation} \label{jacobderi} 
+	\begin{pmatrix}
+		 \frac{\partial }{\partial u }  \\
+		 \frac{\partial }{\partial v }  \\
+		 \frac{\partial }{\partial w }  \\
+	\end{pmatrix} f = \begin{pmatrix}
+		\frac{\partial x}{\partial u}  & \frac{\partial x}{\partial v}  & \frac{\partial x}{\partial w}   \\
+		\frac{\partial y}{\partial u}  & \frac{\partial y}{\partial v}  & \frac{\partial y}{\partial w}   \\
+		\frac{\partial z}{\partial u}  & \frac{\partial z}{\partial v}  & \frac{\partial z}{\partial w}   \\
+	\end{pmatrix}^T \begin{pmatrix}
+		\frac{\partial }{\partial x }  \\
+		\frac{\partial }{\partial y }  \\
+		\frac{\partial }{\partial z }  \\
+   \end{pmatrix} f.
+\end{equation} 
+
+For three sets of variables \(\vb{x} ,\vb{y} \text { and } \vb{z} \), we have
+
+\begin{equation}
+	\frac{\partial x_{i} }{\partial z_{j} } = \sum_{k=1}^{n} \frac{\partial x_{i} }{\partial y_{k} } \frac{\partial y_{k} }{\partial z_{j} }.   
+\end{equation}
+
+Now let \(A, B \text { and } C\) as the matrices whose \(ij^{\text{th }} \) elements are \(\displaystyle \frac{\partial x_{i} }{\partial y_{j} }, \frac{\partial y_{i} }{\partial z_{j} } \text { and } \frac{\partial x_{i} }{\partial z_{j} }\) respectively. We can then rewrite the above equation as 
+
+\begin{equation}
+	c_{ij} = \sum_{k=1}^{n} a_{ik}b_{kj} \implies C = AB \implies \det (C) = \det (A) \det (B) \implies J_{xz} = J_{xy} J_{yz}.   
+\end{equation}
+
+In the special case where \(z_{i} = x_{i}  \), we get \(J_{xy}J_{yx} =1  \).  
 
 \subsection{Taylor's Theorem}
 When \(\Delta x \text { and }  \Delta y\) are finite, we can no longer neglect the terms which are not linear in \(\Delta x \text { or } \Delta y\) in \cref{totaldf}, instead, we get the taylor series 
@@ -195,7 +293,7 @@ which must be positive for all \(\Delta x_{i} \).
 
 \subsection{General Curvilinear Coordinates}
 
-A point in three-dimensional space can be specified by three coordinates \(u,v,w\). In Cartesian coordinates, \((u,v,w) = (x,y,z)\); In spherical coordinates, \((u,v,w) = (r, \theta, \phi)\); In cyilndrical coordintes, \((u,v,w) = (\rho, \phi, z)\). 
+A point in three-dimensional space can be specified by three coordinates \((u,v,w)\). In Cartesian coordinates, \((u,v,w) = (x,y,z)\); In spherical coordinates, \((u,v,w) = (r, \theta, \phi)\); In cyilndrical coordintes, \((u,v,w) = (\rho, \phi, z)\). 
 
 The infinitesimal displacement vector \(d \vb{r} \)  from \((u,v,w)\) to \((u+du, v+dv, w+dw)\) can be written as
 
@@ -257,14 +355,14 @@ From \cref{spherical}, the relations of the two set of variables \((x,y,z) \text
 A general position vector can then be written as 
 
 \begin{equation}
-    \vb{r} = x \vu{x} + y \vu{y} + z \vu{z} = r\sin \theta \cos \phi \vu{x} + r\sin \theta \sin \phi \vu{y} + r \cos \theta \vu{z} .
+    \vb{r} = x \vu{i} + y \vu{j} + z \vu{k} = r\sin \theta \cos \phi \vu{i} + r\sin \theta \sin \phi \vu{j} + r \cos \theta \vu{k} .
 \end{equation}
 
 A general infinitismal displacement vector can be written as 
 
 \begin{equation}
     \begin{aligned}
-    d \vb{r} &= \frac{\partial \vb{r} }{\partial x} dx + \frac{\partial \vb{r} }{\partial y} dy + \frac{\partial \vb{r} }{\partial z} dz = dx \vu{x} + dy \vu{y} + dz \vu{z} \\ &= \frac{\partial \vb{r} }{\partial r} dr + \frac{\partial \vb{r} }{\partial \theta }d\theta + \frac{\partial \vb{r} }{\partial \phi }d \phi =f dr \vu{r} +g d\theta \vu{\boldsymbol{\theta } } +h  d \phi \vu{\boldsymbol{\phi } }. 
+    d \vb{r} &= \frac{\partial \vb{r} }{\partial x} dx + \frac{\partial \vb{r} }{\partial y} dy + \frac{\partial \vb{r} }{\partial z} dz = dx \vu{i} + dy \vu{j} + dz \vu{k} \\ &= \frac{\partial \vb{r} }{\partial r} dr + \frac{\partial \vb{r} }{\partial \theta }d\theta + \frac{\partial \vb{r} }{\partial \phi }d \phi =f dr \vu{r} +g d\theta \vu{\boldsymbol{\theta } } +h  d \phi \vu{\boldsymbol{\phi } }. 
     \end{aligned}
 \end{equation}
 
@@ -272,33 +370,33 @@ where \(\displaystyle \frac{\partial \vb{r} }{\partial r}, \frac{\partial \vb{r}
 
 \begin{equation}
 	\begin{aligned} 
-		\frac{\partial \vb{r} }{\partial r}   &= f \vu{r} = \sin{\theta}\cos{\phi}\vu{x} + \sin{\theta}\sin{\phi}\vu{y} + \cos{\theta}\vu{z}, \\
-		\frac{\partial \vb{r} }{\partial \theta }  &= g \vu{\boldsymbol{\theta }} = r(\cos{\theta}\cos{\phi}\vu{x} + \cos{\theta}\sin{\phi}\vu{y} - \sin{\theta}\vu{z})\text { and }  \\
-		\frac{\partial \vb{r} }{\partial \phi }  &= r \vu{\boldsymbol{\phi } } = \sin \theta (-\sin{\phi}\vu{x} + \cos{\phi}\vu{y}). 
+		\frac{\partial \vb{r} }{\partial r}   &= f \vu{r} = \sin{\theta}\cos{\phi}\vu{i} + \sin{\theta}\sin{\phi}\vu{j} + \cos{\theta}\vu{k}, \\
+		\frac{\partial \vb{r} }{\partial \theta }  &= g \vu{\boldsymbol{\theta }} = r(\cos{\theta}\cos{\phi}\vu{i} + \cos{\theta}\sin{\phi}\vu{j} - \sin{\theta}\vu{k})\text { and }  \\
+		\frac{\partial \vb{r} }{\partial \phi }  &= r \vu{\boldsymbol{\phi } } = \sin \theta (-\sin{\phi}\vu{i} + \cos{\phi}\vu{j}). 
 	\end{aligned} 
 \end{equation}
 
 Thus \(f = 1, g = r \text { and }  h = r\sin \theta \).
 
-We can thus solve for \((\vu{r} , \vu{\boldsymbol{\theta } }, \vu{\boldsymbol{\phi } })\) in terms of \((\vu{x}, \vu{y} ,\vu{z} )\) as 
+We can thus solve for \((\vu{r} , \vu{\boldsymbol{\theta } }, \vu{\boldsymbol{\phi } })\) in terms of \((\vu{i}, \vu{j} ,\vu{k} )\) as 
 
 \begin{equation}
     \begin{cases}
-        \vu{r} = \sin \theta \cos \phi  \vu{x}  + \sin \theta \sin \phi  \vu{y}  + \cos \theta  \vu{z},  \\
-        \vu{\boldsymbol{\theta } } = \cos \theta \cos \phi \vu{x}  + \cos \theta \sin \phi \vu{y} 0 \sin \theta \vu{z}, \\
-        \vu{\boldsymbol{\phi } } = -\sin \phi  \vu{x} + \cos \phi \vu{y}. 
+        \vu{r} = \sin \theta \cos \phi  \vu{i}  + \sin \theta \sin \phi  \vu{j}  + \cos \theta  \vu{k},  \\
+        \vu{\boldsymbol{\theta } } = \cos \theta \cos \phi \vu{i}  + \cos \theta \sin \phi \vu{j} 0 \sin \theta \vu{k}, \\
+        \vu{\boldsymbol{\phi } } = -\sin \phi  \vu{i} + \cos \phi \vu{j}. 
     \end{cases}
 \end{equation}
 
 
 
-We can also solve for \((\vu{x} , \vu{y}, \vu{z} )\) in terms of \((\vu{r} , \vu{\boldsymbol{\theta } }, \vu{\boldsymbol{\phi } } )\) as  
+We can also solve for \((\vu{i} , \vu{j}, \vu{k} )\) in terms of \((\vu{r} , \vu{\boldsymbol{\theta } }, \vu{\boldsymbol{\phi } } )\) as  
 
 \begin{equation}
     \begin{cases}
-        \vu{x} = \sin \theta \cos \phi \vu{r} + \cos \theta \cos \phi \vu{\boldsymbol{\theta } } - \sin \phi \vu{\boldsymbol{\phi } }, \\
-        \vu{y} = \sin \theta \sin \phi \vu{r} + \cos \theta \sin \phi \vu{\boldsymbol{\theta } } + \cos \phi \vu{\boldsymbol{\phi } }, \\
-        \vu{z} = \cos \theta \vu{r} - \sin \theta \vu{\boldsymbol{\theta } }.
+        \vu{i} = \sin \theta \cos \phi \vu{r} + \cos \theta \cos \phi \vu{\boldsymbol{\theta } } - \sin \phi \vu{\boldsymbol{\phi } }, \\
+        \vu{j} = \sin \theta \sin \phi \vu{r} + \cos \theta \sin \phi \vu{\boldsymbol{\theta } } + \cos \phi \vu{\boldsymbol{\phi } }, \\
+        \vu{k} = \cos \theta \vu{r} - \sin \theta \vu{\boldsymbol{\theta } }.
     \end{cases}
 \end{equation}
 
@@ -317,14 +415,14 @@ From \cref{cylindrical}, the relations of the two set of variables \((x,y,z) \te
 A general position vector can be written as 
 
 \begin{equation}
-    \vb{r} = x \vu{x} + y \vu{y} + z \vu{z} = \rho \cos \phi  \vu{x} + \rho \sin \phi \vu{y} + \vu{z} .
+    \vb{r} = x \vu{i} + y \vu{j} + z \vu{k} = \rho \cos \phi  \vu{i} + \rho \sin \phi \vu{j} + \vu{k} .
 \end{equation}
 
 A general infinitismal displacement vector can be written as 
 
 \begin{equation}
     \begin{aligned}
-    d \vb{r} &= \frac{\partial \vb{r} }{\partial x} dx + \frac{\partial \vb{r} }{\partial y} dy + \frac{\partial \vb{r} }{\partial z} dz = dx \vu{x} + dy \vu{y} + dz \vu{z} \\ &= \frac{\partial \vb{r} }{\partial \rho } d\rho  + \frac{\partial \vb{r} }{\partial \phi  }d \phi  + \frac{\partial \vb{r} }{\partial z}d z =f d \rho  \vu{\boldsymbol{\rho } }  +g d\phi \vu{\boldsymbol{\phi  } } +h  d z\vu{\boldsymbol{z} }. 
+    d \vb{r} &= \frac{\partial \vb{r} }{\partial x} dx + \frac{\partial \vb{r} }{\partial y} dy + \frac{\partial \vb{r} }{\partial z} dz = dx \vu{i} + dy \vu{j} + dz \vu{k} \\ &= \frac{\partial \vb{r} }{\partial \rho } d\rho  + \frac{\partial \vb{r} }{\partial \phi  }d \phi  + \frac{\partial \vb{r} }{\partial z}d z =f d \rho  \vu{\boldsymbol{\rho } }  +g d\phi \vu{\boldsymbol{\phi  } } +h  d z\vu{\boldsymbol{z} }. 
     \end{aligned}
 \end{equation}
 
@@ -332,158 +430,35 @@ where \(\displaystyle \frac{\partial \vb{r} }{\partial \rho }, \frac{\partial \v
 
 \begin{equation}
 	\begin{aligned} 
-		\frac{\partial \vb{r} }{\partial \rho }  &= f \vu{\boldsymbol{\rho } } = \cos{\phi}\vu{x} + \sin{\phi}\vu{y}, \\
-		\frac{\partial \vb{r} }{\partial \phi }  &= g \vu{\boldsymbol{\phi } } = \rho (-\sin{\phi}\vu{x} + \cos{\phi}\vu{y}) \text { and }  \\
-		\frac{\partial \vb{r} }{\partial z }  &= h \vu{z} = \vu{z}. 
+		\frac{\partial \vb{r} }{\partial \rho }  &= f \vu{\boldsymbol{\rho } } = \cos{\phi}\vu{i} + \sin{\phi}\vu{j}, \\
+		\frac{\partial \vb{r} }{\partial \phi }  &= g \vu{\boldsymbol{\phi } } = \rho (-\sin{\phi}\vu{i} + \cos{\phi}\vu{j}) \text { and }  \\
+		\frac{\partial \vb{r} }{\partial z }  &= h \vu{k} = \vu{k}. 
 	\end{aligned} 
 \end{equation}
 
 Thus \(f = 1, g = \rho  \text { and }  h = 1\). 
 
-We can thus solve for \((\vu{\boldsymbol{\rho } }, \vu{\boldsymbol{\phi } }, \vu{z} )\) in terms of \((\vu{x} ,\vu{y} ,\vu{z} )\) as
+We can thus solve for \((\vu{\boldsymbol{\rho } }, \vu{\boldsymbol{\phi } }, \vu{k} )\) in terms of \((\vu{i} ,\vu{j} ,\vu{k} )\) as
 
 \begin{equation}
     \begin{cases} 
-        \vu{\boldsymbol{\rho } } = \cos \phi \vu{x} + \sin \phi \vu{y}, \\
-        \vu{\boldsymbol{\phi } } = -\sin \phi \vu{x} + \cos \phi \vu{y}, \\
-        \vu{z} = \vu{z}.
+        \vu{\boldsymbol{\rho } } = \cos \phi \vu{i} + \sin \phi \vu{j}, \\
+        \vu{\boldsymbol{\phi } } = -\sin \phi \vu{i} + \cos \phi \vu{j}, \\
+        \vu{k} = \vu{k}.
         \end{cases}
 \end{equation}
 
 
 
-We can also solve for \((\vu{x} , \vu{y}, \vu{z} )\) in terms of \((\vu{\boldsymbol{\rho } }, \vu{\boldsymbol{\phi } }, \vu{z} )\) as  
+We can also solve for \((\vu{i} , \vu{j}, \vu{k} )\) in terms of \((\vu{\boldsymbol{\rho } }, \vu{\boldsymbol{\phi } }, \vu{k} )\) as  
 
 \begin{equation}
     \begin{cases}
-        \vu{x} &= \cos \phi  \vu{\boldsymbol{\rho } } - \sin \phi \vu{\boldsymbol{\phi } }, \\
-        \vu{y} &= \sin \phi \vu{\boldsymbol{\rho } } + \cos \phi \vu{\boldsymbol{\phi } }, \\
-        \vu{z} &= \vu{z}. 
+        \vu{i} &= \cos \phi  \vu{\boldsymbol{\rho } } - \sin \phi \vu{\boldsymbol{\phi } }, \\
+        \vu{j} &= \sin \phi \vu{\boldsymbol{\rho } } + \cos \phi \vu{\boldsymbol{\phi } }, \\
+        \vu{k} &= \vu{k}. 
         \end{cases}
 \end{equation}
-
-\subsection{Space Curves}
-
-A curve in space can be described by the vector \(\vb{r} (t)\) joining the origin \(O\) of a coordinate system to a point on the curve. As the parameter \(t\) varies, the end-point on the curve moves along the curve. Some common examples of the parameter are time and arclength. In Cartesian coordinates, 
-
-\begin{equation}
-	\vb{r} (u) = x(u) \vu{x} + y(u) \vu{y} + z(u) \vu{z} .
-\end{equation}
-
-Alternatively, a space curve in three-dimensional space can be represented by two simultaneous equations \(F(x,y,z) = G(x,y,z) = 0\). 
-
-Imagine two position vectors \(\vb{r} (u) \text { and } \vb{r} (u + du)\), the difference \(d \vb{r} \)  is a vector tangent to \(C\) at that point in the direction of increasing \(u\). In the special case where the parameter \(u\) is the arc length \(s\) along the curve 
-
-\begin{equation}
-	\vu{t} = \frac{d\vb{r} }{ds} = \frac{d \vb{r} }{\abs{d \vb{r} } } 
-\end{equation}
-
-is the unit tangent vector.
-
-The curvature \(\kappa \) and the pricinpal normal unit vector are defined together the rate of change of \(\vu{t} \) with respect to \(s\)
-
-\begin{equation}
-	\kappa \vu{n}  = \frac{d \vu{t} }{ds} = \frac{d^2\vb{r} }{ds^2}
-\end{equation}
-
-and the radius of curvature is defined as \(\rho = \frac{1}{\kappa } \). 
-
-The binormal unit vector is then defined as the unit vector perpendicular to both \(\vu{t}  \text { and } \vu{n} \) 
-
-\begin{equation}
-	\vu{b} = \vu{t} \cross \vu{n} .
-\end{equation}
-
-We can similarly define the torsion \(\tau \) as the rate of change of \(\vu{b} \) with respect to \(s\)  
-
-\begin{equation}
-	-\tau \vu{n} =  \frac{d \vu{b} }{ds}, 
-\end{equation}
-
-and radius of torsion as \(\sigma  = \frac{1}{\tau } \). 
-
-In summary, \(\vu{t} , \vu{n} \text { and } \vu{b} \) and their derivatives with respect to \(s\) are related to one another by the relations (called the Frenet-Serret formulae) 
-
-\begin{equation}
-	\frac{d \vu{t} }{ds} = \kappa \vu{n} , ~~\frac{d \vu{n} }{ds} = \tau \vu{b} - \kappa \vu{t}~~ \text { and } ~~\frac{d \vu{b} }{ds} = -\tau \vu{n} .  
-\end{equation}
-
-\example{Acceleration of a Particle.}
-{Show that the acceleration of a particle travelling along a trajectory \(\vb{r} (t)\) is given by 
-
-\begin{equation}
-	\vb{a} (t) = \frac{dv}{dt} \vu{t} + \frac{v^2}{\rho } \vu{n} .  
-\end{equation}
-~
-}
-{The velocity of the particle is 
-
-\begin{equation}
-	\vb{v} (t) = \frac{d \vb{r} }{dt} = \frac{d\vb{r} }{ds} \frac{ds}{dt} = \frac{ds}{dt} \vu{t} = v \vu{t} .   
-\end{equation}
-
-So the acceleration is 
-
-\begin{equation}
-	\vb{a} (t) = \frac{d\vb{v} }{dt} = \frac{dv}{dt} \vu{t} + v \frac{d \vu{t} }{dt}.   
-\end{equation}
-
-But since 
-
-\begin{equation}
-	\frac{d \vu{t} }{dt} = \frac{ds}{dt} \frac{d \vu{t} }{ds} = v \kappa \vu{n} = \frac{v}{\rho }\vu{n},   
-\end{equation}
-
-we have
-
-\begin{equation}
-	\vb{a} (t) = \frac{dv}{dt} \vu{t} + \frac{v^2}{\rho }\vu{n} .  
-\end{equation}
-~
-}
-
-\section{Space Surfaces}
-
-In Cartesian coordinates a surface is given parametrically by 
-
-\begin{equation}
-	\vb{r} (u,v)  = x(u,v) \vu{x} + y(u,v) \vu{y} + z(u,v) \vu{z},
-\end{equation}
-
-or algebrically as \(F(x,y,z) = 0\). 
-
-The infinitesimal displacement vector is 
-
-\begin{equation}
-	d\vb{r} = \frac{\partial \vb{r} }{\partial u} du + \frac{\partial \vb{r} }{\partial v}dv 
-\end{equation}
-
-and thus the infinitesimal area is 
-
-\begin{equation}
-	da = \abs{\frac{\partial \vb{r} }{\partial u} du \cross \frac{\partial \vb{r} }{\partial v} dv}.
-\end{equation}
-
-\example{Area of a Sphere.}
-{Find the element of area on the surface of a sphere of radius \(a\), and hence calculate the total surface area of the sphere.}
-{We can represent a point \(\vb{r} \)  on the surface of the sphere in terms of the two parameters \(\theta \text { and } \phi \) as
-
-\begin{equation}
-	\vb{r} = a \sin \theta \cos \phi \vu{x} + a \sin \theta \sin \phi \vu{y} + a \cos \theta \vu{z} .
-\end{equation}
-
-An infinitesimal area is given by 
-
-\begin{equation}
-	da = \abs{\frac{\partial \vb{r} }{\partial \theta } \cross \frac{\partial \vb{r} }{\partial \phi } } = a^2\sin \theta d \theta d \phi 
-\end{equation}
-
-And the total surface area is then 
-
-\begin{equation}
-	A = \int_{0}^{\pi }\int_{0}^{2\pi } a^2 \sin \theta d \theta d \phi = 4\pi a^2.    
-\end{equation}
-} 
 
 
 
@@ -516,7 +491,7 @@ f \vu{u} & g \vu{v} & h \vu{w} \\
 \frac{\partial}{\partial u} & \frac{\partial}{\partial v} & \frac{\partial}{\partial w} \\ 
 fT_{u}  & g T_{v}  & h T_{w}  
 \end{vmatrix}, \\[10pt]
-\laplacian t &= \displaystyle \frac{1}{fgh} \left[
+\laplacian t &= \div{(\grad{t} )} = \displaystyle \frac{1}{fgh} \left[
 \frac{\partial}{\partial u} \left( \frac{gh}{f} \frac{\partial t}{\partial u} \right) + 
 \frac{\partial}{\partial v} \left( \frac{fh}{g} \frac{\partial t}{\partial v} \right) + 
 \frac{\partial}{\partial w} \left( \frac{fg}{h} \frac{\partial t}{\partial w} \right)
@@ -524,13 +499,13 @@ fT_{u}  & g T_{v}  & h T_{w}
 \end{aligned}
 \end{equation}
 
-where \(t (u,v,w)\) is a scalar field and \(\vb{T} = T_{u}\vu{u} + T_{v}\vu{v} + T_{w}\vu{w} \) is a vector field.  
+where \(t (u,v,w)\) is a scalar field, which appoints each point in space a scalar, and \(\vb{T} = T_{u}\vu{u} + T_{v}\vu{v} + T_{w}\vu{w} \) is a vector field which appoints each point in space a vector.  
 
 \subsection{Gradient}
 Using the del operator defined in \cref{all}, we can write the infinitesimal change of a scalar function \(t(u,v,w)\) as
 
 \begin{equation}
-    dt = \pdv{t}{u}du + \pdv{t}{v}dv + \pdv{t}{w}dw = \grad{t} \cdot dr = \abs{\grad{t} }\abs{d \vb{r} }\cos \theta   . \label{dt} 
+    dt = \pdv{t}{u}du + \pdv{t}{v}dv + \pdv{t}{w}dw = \grad{t} \cdot d\vb{r}  = \abs{\grad{t} }\abs{d \vb{r} }\cos \theta   . \label{dt} 
 \end{equation}
 
 where \(\theta\) is the angle between \(\grad{t}\) and \(d\vb{r}\).
@@ -539,24 +514,26 @@ From the above equation, it is evident that \(dt\) attains maximum when \(\theta
 
 %\example{Griffiths (5th ed.) Problem 1.12}
 %{The height of a certain hill is given by \(h(x,y) = 10(2xy - 3x^2 - 4y^2 -18x + 28y +12)\). Find the location of the summit, and the magnitude and direction of the sleepest slope at \((1,1)\).}
-%{The gradient is \(\grad{h} = 10((2y - 6x - 18)\vu{x} + (2x - 8y + 28)\vu{y})\). At the summit, \(\grad{h} = 0\). So, \(\begin{cases}
+%{The gradient is \(\grad{h} = 10((2y - 6x - 18)\vu{i} + (2x - 8y + 28)\vu{j})\). At the summit, \(\grad{h} = 0\). So, \(\begin{cases}
 %	2y - 8x - 18 = 0  \\
 %	2x - 8y + 28 = 0
 %\end{cases}\), which gives \((x,y) = (3,2)\).
-%\(\grad{h} = 220(-\vu{x} + \vu{y})\) at \((1,1)\), therefore the slope at \((1,1)\) equals to \(\abs{\grad{h}} = 220\sqrt{2}\) and the direction is northwest.}
+%\(\grad{h} = 220(-\vu{i} + \vu{j})\) at \((1,1)\), therefore the slope at \((1,1)\) equals to \(\abs{\grad{h}} = 220\sqrt{2}\) and the direction is northwest.}
 
 \todo{problem 1.14, 1.17, 1.1.5}
 	
 Integrating, we get the fundamental theorem for gradients
 
 \begin{equation} 
-	t(\vb{b}) - t(\vb{a}) = \int_{\vb{a}}^{\vb{b}} \grad{t} \cdot d\vb{r}. 
+	t(\vb{b}) - t(\vb{a}) = \int_{\vb{a} }^{\vb{b} } dt = \int_{\vb{a}}^{\vb{b}} \grad{t} \cdot d\vb{r}. 
 \end{equation}
 	
 This equation shows that if one would like to determine the height of Mountain Everest, one could place altimeters at the top and the bottom and subtract the two readings, or climb the mountain and measure the rise at each step.
 
-A quick corollary is that the integral \(\int_{\vb{a}}^{\vb{b}} \grad{t} \cdot d\vb{r}\) is independent of the path from \(\vb{a}\) to \(\vb{b}\) but only depends on the beginning and end points. Hence, \(\oint_{C} \grad{t} \cdot d\vb{r} = 0\) for any closed loop, since \(t(\vb{b}) - t(\vb{a}) = 0\).
-	
+A quick corollary is that if the vector field \(\vb{T} (\vb{r} )\) can be written as the gradient of a scalar field \(\grad{t}  \), then the line integral \(\int_{\vb{a} }^{\vb{b} } \vb{T}(\vb{r} ) \cdot  d\vb{r}  = \int_{\vb{a} }^{\vb{b} } \grad{t} \cdot d\vb{r} = \int_{\vb{a} }^{\vb{b} }dt = t(\vb{b} ) - t(\vb{a} )\) is independent of \(\vb{a} \text { and } \vb{b} \) and the vector field \(\vb{T} (\vb{r} )\) is known as a conservative field. Then also, \(\oint_{C} \vb{T} (\vb{r} ) \cdot d\vb{r} = 0\) for any closed loop if \(\vb{T} (\vb{r} )\) is conservative, since \(t(\vb{b}) - t(\vb{a}) = 0\). 
+
+A quick way to check whether \(\vb{T} (\vb{r} )\) is conservative is to check if its curl is zero, since the curl of a gradient is always zero, so \(\curl{\vb{F} (\vb{r} )} = \curl{(\grad{t(\vb{r} )} )} =0 \).  
+
 It can also be shown that the gradient at a point can be written in terms of a surface integral over an infinitesimal surface surrounding the point
 
 \begin{equation}
@@ -566,10 +543,10 @@ It can also be shown that the gradient at a point can be written in terms of a s
 However the proof is complicated and is not presented here.
 
 \example{Gradient of \(\rcurs ^{-1} \) in Cartesian Coordinates.}
-{Evaluate \(\grad({\rcurs ^{-1} })\), where \(\rcurs = \abs{\brcurs} = \abs{\vb{r} - \vb{r'}} = \abs{(x - x')\vu{x} + (y - y')\vu{y} + (z - z')\vu{z}} = \sqrt{(x-x')^2+(y-y')^2+(z-z')^2}\). Generalize the result to obtain \(\grad{(\rcurs^n)}\).}
+{Evaluate \(\grad({\rcurs ^{-1} })\), where \(\rcurs = \abs{\brcurs} = \abs{\vb{r} - \vb{r'}} = \abs{(x - x')\vu{i} + (y - y')\vu{j} + (z - z')\vu{k}} = \sqrt{(x-x')^2+(y-y')^2+(z-z')^2}\). Generalize the result to obtain \(\grad{(\rcurs^n)}\).}
 {\begin{equation} 
 	\begin{aligned} 
-		\grad{\rcurs ^{-1} } &= \vu{x}\pdv{x}((x - x')^2 + (y - y')^2 + (z - z')^2)^{-\frac{1}{2}} \\ &+ \vu{y}\pdv{y}((x - x')^2 + (y - y')^2 + (z - z')^2)^{-\frac{1}{2}} \\ &+ \vu{z}\pdv{z}((x - x')^2 + (y - y')^2 + (z - z')^2)^{-\frac{1}{2}} \\ &= (-\frac{1}{2})(2)(((x - x')^2 + (y - y')^2 + (z - z')^2))^{-\frac{3}{2}} \\ &((x - x')\vu{x} + (y - y')\vu{y} + (z - z')\vu{z}) \\ &=- \brcurs \rcurs ^{-1} . 
+		\grad{\rcurs ^{-1} } &= \vu{i}\pdv{x}((x - x')^2 + (y - y')^2 + (z - z')^2)^{-\frac{1}{2}} \\ &+ \vu{j}\pdv{y}((x - x')^2 + (y - y')^2 + (z - z')^2)^{-\frac{1}{2}} \\ &+ \vu{k}\pdv{z}((x - x')^2 + (y - y')^2 + (z - z')^2)^{-\frac{1}{2}} \\ &= (-\frac{1}{2})(2)(((x - x')^2 + (y - y')^2 + (z - z')^2))^{-\frac{3}{2}} \\ &((x - x')\vu{i} + (y - y')\vu{j} + (z - z')\vu{k}) \\ &=- \brcurs \rcurs ^{-1} . 
 	\end{aligned} 
 \end{equation}
 		
@@ -579,10 +556,70 @@ This result can be easily generalised to get
 	\grad{(\rcurs^n)} = n\rcurs^{n-1}\hrcurs. \label{gradrcurs} 
 \end{equation}}
 
+\example{Gradient in Cartesian and Polar Coordinates.}
+{Calculate the gradient of the function \(f(x,y) = x^2+y^2\) in both Cartesian and the polar coordinates.}
+{In Cartesian coordinates, the gradient is \(\boldsymbol{\nabla }f(x,y)   = (2x,2y) \). 
+
+The two sets of variables \(\vb{x} = (x,y) \text { and } \vb{u} = (r,\theta )\) are related by \(x = r\cos \theta \text { and } y = r\sin \theta \). The gradients are related by \cref{jacobderi}, as
+
+\begin{equation}
+	\begin{pmatrix}
+		 \frac{\partial }{\partial r}  \\
+		 \frac{\partial }{\partial \theta }  \\
+	\end{pmatrix}  = \begin{pmatrix}
+		\frac{\partial x}{\partial r}  & \frac{\partial y}{\partial r}   \\
+		\frac{\partial x}{\partial \theta }  & \frac{\partial y}{\partial \theta }   \\
+	\end{pmatrix} \begin{pmatrix}
+		 \frac{\partial }{\partial x}  \\
+		 \frac{\partial }{\partial y}  \\
+	\end{pmatrix}  = \begin{pmatrix}
+		\cos \theta  & \sin \theta   \\
+		-r\sin \theta  & r\cos \theta   \\
+	\end{pmatrix} \begin{pmatrix}
+		 \frac{\partial }{\partial x}  \\
+		 \frac{\partial }{\partial y}  \\
+	\end{pmatrix}.
+\end{equation}
+
+Inverting the equations, we have
+
+\begin{equation}
+	\begin{pmatrix}
+		 \frac{\partial }{\partial x}  \\
+		 \frac{\partial }{\partial y}  \\
+	\end{pmatrix} = \begin{pmatrix}
+		\cos \theta  & -\frac{\sin \theta }{r}   \\
+		\sin \theta  & \frac{\cos \theta }{r}   \\
+	\end{pmatrix} \begin{pmatrix}
+		 \frac{\partial }{\partial r}  \\
+		 \frac{\partial }{\partial \theta }  \\
+	\end{pmatrix} = \begin{pmatrix}
+		 \cos \theta \frac{\partial }{\partial r} - \frac{\sin \theta }{r}\frac{\partial }{\partial \theta }   \\
+		 \sin \theta \frac{\partial }{\partial r} + \frac{\cos \theta }{r}\frac{\partial }{\partial \theta }   \\
+	\end{pmatrix}.
+\end{equation}
+
+
+Therefore, we have 
+
+\begin{equation}
+	\begin{aligned} 
+	\boldsymbol{\nabla }f(x,y)  &= \left( \cos \theta \frac{\partial f}{\partial r} - \frac{\sin \theta}{r} \frac{\partial f}{\partial \theta }   \right) \vu{i} + \left( \sin \theta \frac{\partial f}{\partial r} + \frac{\cos \theta }{r} \frac{\partial f}{\partial \theta } \right)\vu{j} = 2r(\cos \theta , \sin \theta ) \\ 
+	&= \frac{\partial f}{\partial r} \vu{r} + \frac{1}{r} \frac{\partial f}{\partial \theta }\vu{\boldsymbol{\theta } } = 2r \vu{r} = 2r(1,0).  
+	\end{aligned}   
+\end{equation}
+
+Note that the answer \(2r(\cos \theta ,\sin \theta )\) is still in Cartesian coordiantes, just that we used variables in polar coordinates to represent it. The answer \(2r(1,0)\) on the other hand, is the gradient in polar coordiantes.   
+
+
+
+} 
+
+
 The gradient in Cartesian and spherical coordinates are stated here for reference:
 
 \begin{equation} 
-	\grad{t} = \frac{\partial t}{\partial x} \vu{x} + \frac{\partial t}{\partial y} \vu{y} + \frac{\partial t}{\partial z} \vu{z} = \pdv{t}{r}\vu{r} + \frac{1}{r}\pdv{t}{\theta}\vu{\boldsymbol{\theta } } + \frac{1}{r\sin{\theta}}\pdv{t}{\phi}\vu{\boldsymbol{\phi } }. 
+	\grad{t} = \frac{\partial t}{\partial x} \vu{i} + \frac{\partial t}{\partial y} \vu{j} + \frac{\partial t}{\partial z} \vu{k} = \pdv{t}{r}\vu{r} + \frac{1}{r}\pdv{t}{\theta}\vu{\boldsymbol{\theta } } + \frac{1}{r\sin{\theta}}\pdv{t}{\phi}\vu{\boldsymbol{\phi } }. 
 \end{equation}
 	
 \subsection{Divergence}
@@ -664,7 +701,7 @@ A quick corollary is that the integral \(\displaystyle \int_{S} (\curl{\vb{T}}) 
 The curl in Cartesian and spherical coordinates are stated here for reference:
 \begin{equation} 
 	\begin{aligned}
-	\curl{\vb{T}} &= (\pdv{T_z}{y} - \pdv{T_y}{z})\vu{x} + (\pdv{T_x}{z} - \pdv{T_z}{x})\vu{y} + (\pdv{T_y}{x} - \pdv{T_x}{y})\vu{z} \\ &= \frac{1}{r\sin{\theta}}\left(\pdv{\theta}(\sin{\theta}T_{\phi}) - \pdv{T_{\theta}}{\phi}\right)\vu{r} + \frac{1}{r}\left(\frac{1}{\sin{\theta}}\pdv{T_r}{\phi} - \pdv{r}(rT_{\phi})\right)\vu{\boldsymbol{\theta } } + \frac{1}{r}\left(\pdv{r}(rT_{\theta}) - \pdv{T_r}{\theta}\right)\vu{\boldsymbol{\phi } }. 
+	\curl{\vb{T}} &= (\pdv{T_z}{y} - \pdv{T_y}{z})\vu{i} + (\pdv{T_x}{z} - \pdv{T_z}{x})\vu{j} + (\pdv{T_y}{x} - \pdv{T_x}{y})\vu{k} \\ &= \frac{1}{r\sin{\theta}}\left(\pdv{\theta}(\sin{\theta}T_{\phi}) - \pdv{T_{\theta}}{\phi}\right)\vu{r} + \frac{1}{r}\left(\frac{1}{\sin{\theta}}\pdv{T_r}{\phi} - \pdv{r}(rT_{\phi})\right)\vu{\boldsymbol{\theta } } + \frac{1}{r}\left(\pdv{r}(rT_{\theta}) - \pdv{T_r}{\theta}\right)\vu{\boldsymbol{\phi } }. 
     \end{aligned}
 \end{equation}
 	
@@ -702,7 +739,7 @@ Here note that
 
 \begin{equation} 
 	\begin{aligned} 
-		(\vb{A} \cdot \grad) \vb{B} &= (A_x\pdv{x} + A_y\pdv{y} + A_z\pdv{z})(B_x\vu{x} + B_y\vu{y} + B_z\vu{z}) \\ &= (A_x\pdv{B_x}{x} + A_y\pdv{B_x}{y} + A_z\pdv{B_x}{z})\vu{x} \\ &+ (A_x\pdv{B_y}{x} + A_y\pdv{B_y}{y} + A_z\pdv{B_y}{z})\vu{y} \\ &+ (A_x\pdv{B_z}{x} + A_y\pdv{B_z}{y} + A_z\pdv{B_z}{z})\vu{z} \\ &\neq \vb{A} \cdot (\grad{\vb{B}}) \\ &= A_x\pdv{B}{x} + A_y\pdv{B}{y} + A_z\pdv{B}{z} .
+		(\vb{A} \cdot \grad) \vb{B} &= \left(A_x\pdv{x} + A_y\pdv{y} + A_z\pdv{z}\right)\left(B_x\vu{i} + B_y\vu{j} + B_z\vu{k}\right) \\ &= \left(A_x\pdv{B_x}{x} + A_y\pdv{B_x}{y} + A_z\pdv{B_x}{z}\right)\vu{i} \\ &+ \left(A_x\pdv{B_y}{x} + A_y\pdv{B_y}{y} + A_z\pdv{B_y}{z}\right)\vu{j} \\ &+ \left(A_x\pdv{B_z}{x} + A_y\pdv{B_z}{y} + A_z\pdv{B_z}{z}\right)\vu{k} \\ &\neq \vb{A} \cdot (\grad{\vb{B}}) \\ &= A_x\pdv{B}{x} + A_y\pdv{B}{y} + A_z\pdv{B}{z} .
 	\end{aligned} 
 \end{equation}
 	
@@ -715,16 +752,16 @@ With the product rules in hand, we can perform the so-called ``Integration by pa
 	\end{aligned}
 \end{equation}
 	
-Here we transform the integrand from the product of one function (\(f\)) and one derivative \(\div{\vb{T}}\) to another integrand of the product of one function that is orginally the derivative \((\vb{T})\) and one derivative which is orginally the function \((\grad{f})\), at a cost of a minus sign and a boundary term \(\displaystyle (\oint_{S} (f\vb{T}) \cdot d\vb{A})\), just like integration by part in ordinary derivatives, where
+Here we transform the integrand from the product of one function (\(f\)) and one derivative \(\div{\vb{T}}\) to another integrand of the product of one function that is orginally the derivative \((\vb{T})\) and one derivative which is orginally the function \((\grad{f})\), at a cost of a minus sign and a boundary term \(\displaystyle \left(\oint_{S} (f\vb{T}) \cdot d\vb{A}\right)\), just like integration by part in ordinary derivatives, where
 	
 \begin{equation} 
-	\int_{a}^{b} f(\dv{g}{x})dx = -\int_{a}^{b} g(\dv{f}{x})dx + \eval{(fg)}_a^b 
+	\int_{a}^{b} f(\dv{g}{x})dx = -\int_{a}^{b} g\left(\dv{f}{x}\right)dx + \eval{\left(fg\right)}_a^b 
 \end{equation}
 	
 comes from the product rule
 	
 \begin{equation} 
-	\dv{x}(fg) = f(\dv{g}{x}) + g(\dv{f}{x}). 
+	\dv{x}(fg) = f\left(\dv{g}{x}\right) + g\left(\dv{f}{x}\right). 
 \end{equation}
 
 Similarly, we can show that 
@@ -746,7 +783,7 @@ From the nature of gradient, divergence and curl, we can construct five species 
 	\item Divergence of gradient \(\div{(\grad{t})}\):
 		
 	\begin{equation} 
-		\div{(\grad{t})} = (\vu{x}\pdv{x} + \vu{y}\pdv{y} + \vu{z}\pdv{z}) \cdot (\vu{x}\pdv{t}{x} + \vu{y}\pdv{t}{y} + \vu{z}\pdv{t}{z}) = \pdv[2]{t}{x} + \pdv[2]{t}{y} + \pdv[2]{t}{z}, \label{prelap} 
+		\div{(\grad{t})} = \left(\vu{i}\pdv{x} + \vu{j}\pdv{y} + \vu{k}\pdv{z}\right) \cdot \left(\vu{i}\pdv{t}{x} + \vu{j}\pdv{t}{y} + \vu{k}\pdv{t}{z}\right) = \pdv[2]{t}{x} + \pdv[2]{t}{y} + \pdv[2]{t}{z}, \label{prelap} 
 	\end{equation}
 		
 	In fact, the divergence of gradient operator is so frequently used in physics that it gets its own name and symbol known as the Laplacian:
@@ -774,10 +811,10 @@ From the nature of gradient, divergence and curl, we can construct five species 
 	\begin{equation} 
 		\curl{(\grad{t})} = 
 		\begin{vmatrix}
-			\vu{x}  & \vu{y}  & \vu{z}   \\
+			\vu{i}  & \vu{j}  & \vu{k}   \\
 			\frac{\partial }{\partial x}  & \frac{\partial }{\partial y}  & \frac{\partial }{\partial z}   \\
 			\frac{\partial t}{\partial x} & \frac{\partial t}{\partial y}  & \frac{\partial t}{\partial z}   \\
-		\end{vmatrix} = (\pdv{t}{z}{y} - \pdv{t}{y}{z})\vu{x} + (\pdv{t}{x}{z} - \pdv{t}{z}{x})\vu{y} + (\pdv{t}{y}{x} - \pdv{t}{x}{y})\vu{z} = 0. \label{curlgrad} 
+		\end{vmatrix} = \left(\pdv{t}{z}{y} - \pdv{t}{y}{z}\right)\vu{i} + \left(\pdv{t}{x}{z} - \pdv{t}{z}{x}\right)\vu{j} + \left(\pdv{t}{y}{x} - \pdv{t}{x}{y}\right)\vu{k} = 0. \label{curlgrad} 
 	\end{equation}
 		
 	\item Gradient of divergence (not identical to the divergence of gradient):
@@ -801,11 +838,17 @@ From the nature of gradient, divergence and curl, we can construct five species 
 	Here, \(\laplacian{\vb{T}}\) is the Laplacian of a vector function defined as\footnote{In fact, \cref{curlcurl} is often used to define the Laplacian of a vector, since \cref{lap} makes explicit reference to Cartesian coordinates.}
 		
 	\begin{equation} 
-		\laplacian{\vb{T}} = (\laplacian{T_x})\vu{x} + (\laplacian{T_y})\vu{y} + (\laplacian{T_z})\vu{z}. 
+		\laplacian{\vb{T}} = (\laplacian{T_x})\vu{i} + (\laplacian{T_y})\vu{j} + (\laplacian{T_z})\vu{k}. 
 	\end{equation}	
 \end{enumerate}	
 	
-For the 5 second derivatives listed above, only \cref{prelap,curlcurl} are used regularly in physics enough that they are worth remembering.
+For the 5 second derivatives listed above, only \cref{prelap,curlcurl} are used regularly in physics enough that they are worth remembering. All of the identities can be easily proved in index notation, as long as one remembers the basic rules 
+
+\begin{equation}
+	(\grad{t} )_{i} = \partial _{i}t, \quad (\div{\vb{T} } )_{i} = \partial _{i}T_{i} ~\text { and }~ (\curl{\vb{T} } )_{i} = \epsilon _{ijk}\partial _{j}T_{k}.          
+\end{equation}
+
+
 	
 \subsection{Dirac Delta Function}
 	
@@ -858,24 +901,18 @@ By changing the variable in \cref{pickout}, we can pick out the value of \(f(x)\
 \example
 {Dirac Delta Function (1).}
 {Show that \(\delta(kx) = \frac{1}{\abs{k}}\delta(x)\).}
-{Consider the integral
+{Let \(u = kx\), then 
 			
 \begin{equation} 
-	\int_{-\infty}^{+\infty} f(x) \delta(kx) dx, 
-\end{equation}
-
-Making the substitution \(u=kx\), we have
-			
-\begin{equation} 
-	\int_{-\infty}^{+\infty} f(x) \delta(kx) dx = \pm \frac{1}{k} \int_{-\infty}^{+\infty} f\left(\frac{u}{\abs{k}}\right) \delta(u) du = \frac{1}{\abs{k}} f(0) = \int_{-\infty}^{+\infty} f(x) \frac{\delta(x)}{\abs{k}} dx.
+	\int_{-\infty}^{+\infty} f(x) \delta(kx) dx = \frac{1}{\abs{k} }  \int_{-\infty}^{+\infty} f\left(\frac{u}{k}\right) \delta(u) du = \frac{1}{\abs{k}} f(0) = \int_{-\infty}^{+\infty} f(x) \frac{\delta(x)}{\abs{k}} dx.
 \end{equation}
 			
-By comparing the integrands, we yield the desired result.}	
+The absolute signs are necessary since if \(k\) is negative then the lower and the upper limit of integration will be reversed. By comparing the integrands, we yield the desired result.}	
 		
 \example{Dirac Delta Function (2).}{Show that \(-\delta(x) = x\dv{x}(\delta(x))\)}
 
 \example{Dirac Delta Function (3).}{Show that \(\delta(x) = \dv{\theta}{x}\), where \(\theta(x)\) is the Heaviside step function defined as \(\theta(x) = \begin{cases} 0 ~~~ \text{if} ~~ x~\le~0, \\  1 ~~~ \text{if} ~~ x~>~0. \end{cases}\)}
-	
+
 It is natural to generalize \(\delta(x)\) to three dimensions as follows:
 	
 \begin{equation} 
@@ -951,6 +988,8 @@ In order for Stokes' theorem to be valid for all paths \(C\), we therefore set
 \begin{equation}
 	\curl{\vb{v} } = 2\pi \delta (\rho ).
 \end{equation}
+
+So \(\vb{v} \) is locally conservative over any region that excludess the axis, but is globally non-conservative. 
 
 } 
 
@@ -1033,21 +1072,12 @@ As a matter of fact, any differentiable vector function regardless of its behavi
 
 
 
-\chapter{Multiple Integration}
+\chapter{Integration}
+\section{Multiple Integration}
 
-Single, double and triple integrals describe integrations over an interval in one dimension, an area in two dimensions and a volume in three dimensions, respectively. The infinitisimal quantities are (in Cartesian coordinates), \(dx, dA = dxdy \text { and } dV = dxdydz\), respectively, which are all scalar quantities. 
+Multiple integration includes single, double and triple integrations, and they sum up the scalar field times an infinitesimal quantity, namely \(f(x)dx, f(x,y)dA = f(x,y)dxdy\) and \(f(x,y,z)dxdydz\).\footnote{ This pattern can obviously be generalized to higher dimensions, but in physics we are only concerned with the three cases.}\footnote{Depending on whether \(dA = dxdy \text { and } dV = dxdydz\) are written explicitly, two or three integral signs will be used.}\footnote{Here the argument \((x,y,z)\) can be unambigously interchanged by \((\vb{r} )\), where \(\vb{r} = x \vu{i} + y \vu{j} + z \vu{k} \) is the position vector. The relation between the two forms can be given explicitly as \(x = r_{x}, y = r_{y}, z = r_{z}\). The only difference is that the latter notation emphasize that the (scalar or vector field) depends only on the location in space and does not specify the usage of Cartesian coordinates and is thus more abstract but general.} 
 
-The most general forms (in Cartesian coordiantes) are 
-
-\begin{equation}
-	\int_{a}^{b} f(x) dx, \quad \int_{R}^{} f(x,y) dA ~  \text { and }~ \int_{V}^{} f(x,y,z) dV.   
-\end{equation}
-
-Two or three integral signs will be used if \(dA = dxdy \text { or } dV = dxdydz\) are written out explicitly. 
-
-\section{Double Integration}
-
-Refering to \cref{doubleintegral}, we can see that the a double integral can be evaluated in two different ways. 
+Refering to \cref{doubleintegral}, we can see that a double integral can be evaluated in two different ways. 
 
 \onefig{doubleintegral}{scale=0.3} 
 
@@ -1059,8 +1089,6 @@ The first is to sum up all the horizontal strips, then
 
 where \(x_1 (y) \text { and } x_2 (y)\) are the equations of the curves \(TSV \text { and } TUV\) respectively, and the parenthesis is usually omitted.
 
-For a specific range \((y,y+dy)\), the inner integral calculates the contribution to \(I\) by the horizontal strip located from \(y\) to \(y+dy\). The outer integral then sums up the contributions of these horizontal strips.
-
 The second way is to sum up all the vertical strips, then
 
 \begin{equation}
@@ -1069,78 +1097,166 @@ The second way is to sum up all the vertical strips, then
 
 where \(y_1 (x) \text { and } y_2 (x)\) are the equations of the curves \(STU \text { and } SVU\) respectively. Thus the order of integration does not matter (given that \(f(x,y)\) behaves properly) as long as the limits of integrals are correct.
 
+Double integration can be regarded as calculating a volume which the base is flat, and the height is \(f(x,y)\), as the same way as how a single integration is almost always used to find the area, where the side is straight, and the height being \(f(x)\). 
 
+If the integrand \(f(x,y)\) can be written as a product of functions of \(x \text { and } y\) separately, \textit{i.e.,} \(f(x,y) = f(x)f(y)\), then we can evaluate each integral independently as \(\left( \int f(x)dx \right)\left( \int f(y)dy \right)\).\footnote{The same applies to summation, as integration and summation are essentially the same process.} 
 
-A useful trick invovle Pappus' second theorem, which states that the surface of revolution of a plance curve is given by the length of the curve \(L\) multiplied by the distance moved by its centroid, since the suface area generated is given by \(\displaystyle S = \int 2\pi y ds = 2 \pi \overline{y} L\), where \(\displaystyle \overline{y} = \frac{1}{L} \int y ds \) is the definition of the centroid. 
+The above analysis can be extended to triple integration easily.
 
-\section{Triple Integration}
-
-If the triple integral has the form \( \int_{V}^{} f(x,y,z) dxdydz = \int_{V}^{} f(x)f(y)f(z)  \), then we can evaluate each integral independently as \(\left( \int f(x)dx \right)\left( \int f(y)dy \right)\left( \int f(z)dz \right)\), and the same applies to summation, as integration and summation are essentially the same process.  
-
-\example{Volume of a Tetrahedron}
+\example{Volume of a Tetrahedron.}
 {Find the volume of the tetrahedron bounded by the three coordinate surfaces \(x=0, y=0 \text { and }  z=0\) and the plane \(\displaystyle \frac{x}{a} + \frac{y}{b} + \frac{z}{c} =1\) as shown in \cref{tetrahedron}.}
-{\(\displaystyle V = \int_{0}^{a} \int_{0}^{b-\frac{bx}{a} } \int_{0}^{c(1-\frac{y}{b} - \frac{x}{a}  )} dxdydz\). The limit of integral over \(z\) can be obtained as integration over \(z\) adds up the boxes from the shaded column in the figure. A quicker way is to simply sum up all the vertical columns as \(\displaystyle V = c \left( a-\frac{y}{b} - \frac{x}{a}\right) \int_{0}^{a} \int_{0}^{b-\frac{bx}{a}} dxdy \) which skips the step of integration over \(z\) as it is trivial. The result is \(\displaystyle V = \frac{abc}{6} \). } 
+{The volume can be written as a double or triple integral, depending on how one inteprets the summing process. In triple integral,
+
+\begin{equation}
+	V = \int_{0}^{a} \int_{0}^{b-\frac{bx}{a} } \int_{0}^{c(1-\frac{y}{b} - \frac{x}{a}  )} dxdydz,
+\end{equation}
+
+which can be easily reduced to a double integral by evaluating the integral involving \(z\) as
+
+\begin{equation}
+	V = \int_{0}^{a} \int_{0}^{b-\frac{bx}{a}}  c \left( a-\frac{y}{b} - \frac{x}{a}\right) dxdy
+\end{equation}
+
+The result is \(\displaystyle V = \frac{abc}{6} \). } 
 \onefig{tetrahedron}{scale=0.3}
 
-A useful trick invovle Pappus' first theorem, which states that the volume of revolution of a plance surface is given by the area of the surface \(A\) multiplied by the distance moved by its centroid, since the suface area generated is given by \(\displaystyle S = \int 2\pi y dA = 2 \pi \overline{y} A\), where \(\displaystyle \overline{y} = \frac{1}{A} \int y dA \) is the definition of the centroid. 
+\section{Line, Surface and Volume Integration}
 
-\section{Jacobian}
-To change variables in a double integral from \((x,y)\) to \((u,v)\), we have to find the express the infinitisimal area \(dA = dxdy\) in terms of \(u \text { and } v\). 
+Line, surface and volume sum up scalar or vector field times an infinitesimal quantity. The infinitisimal quantities are (in Cartesian coordinates), \(d\vb{r} = dx \vu{i} + dy \vu{j} + dz \vu{k}, d\vb{S} \footnote{The general form of \(d\vb{S} \) is not trivial. It is exactly this property which makes surface integral the hardest type to deal with.}\text { and } dV = dxdydz\),\footnote{\(dV\) is a scalar since an infinitesimal volume has no preferred direction in three-dimensional space.} out of which the first two are vectors and the last one is scalar.\footnote{Note that if the final form of integrands contain vectors then we must convert it into Cartesian coordinates, since it is the only coordiante system where the unit vectors are fixed (and so can be brought out of the integral sign).}
 
-Refer to \cref{jacobian}, since \(v\) is constant along \(KL\), the line element \(KL\) can be written as \(\displaystyle d\vb{r} _{KL} = \frac{\partial }{\partial u} (x \vu{x} + y \vu{y} ) du = \frac{\partial x}{\partial u} du \vu{x} + \frac{\partial y}{\partial u} du \vu{y}\). Similarly, \(\displaystyle d\vb{r} _{KN}  = \frac{\partial x}{\partial v} dv \vu{x} + \frac{\partial y}{\partial v} dv \vu{y}\). Thus the area of the parallelogram \(KLMN\) is given by
+\subsection{Space Curves and Surfaces}
 
-\begin{equation}
-	dA_{uv} = \abs{\frac{\partial x}{\partial u} du \frac{\partial y}{\partial v} dv - \frac{\partial x}{\partial v} dv \frac{\partial y}{\partial u} du} = \abs{\frac{\partial (x,y)}{\partial (u,v)} } dudv,
-\end{equation}
-
-where 
+A curve in space can be described by the vector \(\vb{r} (u)\) joining the origin \(O\) of a coordinate system to a point on the curve. As the parameter \(u\) varies, the end-point on the curve moves along the curve. Some common examples of the parameter are time \(t\) and arclength \(s\). In Cartesian coordinates, 
 
 \begin{equation}
-	J = \frac{\partial (x,y)}{\partial (u,v)} \equiv \frac{\partial x}{\partial u} \frac{\partial y}{\partial v} - \frac{\partial x}{\partial v} \frac{\partial y}{\partial u} = \begin{pmatrix}
-		\frac{\partial x}{\partial u}  & \frac{\partial y}{\partial u}   \\
-		\frac{\partial x}{\partial v}  & \frac{\partial y}{\partial v}   \\
-	\end{pmatrix}.
+	\vb{r} (u) = x(u) \vu{i} + y(u) \vu{j} + z(u) \vu{k} .
 \end{equation}
 
-is defined as the Jacobian of \((x,y)\) with respect to \((u,v)\).
+Alternatively, a space curve in three-dimensional space can be represented by two simultaneous equations \(F(x,y,z) = G(x,y,z) = 0\). 
 
-\onefig{jacobian}{scale=0.3} 
-
-Similar to the Jacobian in double integral, the Jacobian in triple integral is defined as 
+The arc length of the curve from point \(\vb{a} \) to \(\vb{b} \) can be found by
 
 \begin{equation}
-	J = \frac{\partial (x,y,z)}{\partial (u,v,w)} = \begin{pmatrix}
-		\frac{\partial x}{\partial u}  & \frac{\partial y}{\partial u}  & \frac{\partial z}{\partial u}   \\
-		\frac{\partial x}{\partial v}  & \frac{\partial y}{\partial v}  & \frac{\partial z}{\partial v}   \\
-		\frac{\partial x}{\partial w}  & \frac{\partial y}{\partial w}  & \frac{\partial z}{\partial w}   \\
-	\end{pmatrix}.
+	s = \int_{\vb{a} }^{\vb{b} } \abs{d \vb{r} (u)} = \int_{\vb{a} }^{\vb{b} } \abs{\frac{d\vb{r} }{du} } du = \int_{\vb{a} }^{\vb{b} } \sqrt{\left( \frac{dx}{du}\right) + \left( \frac{dy}{du}  \right)^2 + \left( \frac{dz}{du}  \right)^2} du.
 \end{equation}
 
-For three sets of variables \(x_{i}, y_{i} \text { and } z_{i}\), with \(i\) running from 1 to \(n\). We know from \cref{changeofvar} that
+We can also define a orthogonal coordinate system that is intrinsic to the curve. For the three axes, an obvious choice would be the tangential direction, whose unit vector can be defined by
 
 \begin{equation}
-	\frac{\partial x_{i} }{\partial z_{j} } = \sum_{k=1}^{n} \frac{\partial x_{i} }{\partial y_{k} } \frac{\partial y_{k} }{\partial z_{j} }.   
+	\vu{t} = \frac{d\vb{r} }{ds} = \frac{d \vb{r} }{\abs{d \vb{r} } }.
 \end{equation}
 
-Now let \(A, B \text { and } C\) as the matrices whose \(ij^{\text{th }} \) elements are \(\displaystyle \frac{\partial x_{i} }{\partial y_{j} }, \frac{\partial y_{i} }{\partial z_{j} } \text { and } \frac{\partial x_{i} }{\partial z_{j} }\) respectively. We can then rewrite the above equation as 
+The curvature \(\kappa \) and the pricinpal normal unit vector are defined together from the rate of change of \(\vu{t} \) with respect to \(s\)
 
 \begin{equation}
-	c_{ij} = \sum_{k=1}^{n} a_{ik}b_{kj} \implies C = AB \implies \det (C) = \det (A) \det (B) \implies J_{xz} = J_{xy} J_{yz}.   
+	\kappa \vu{n}  = \frac{d \vu{t} }{ds} = \frac{d^2\vb{r} }{ds^2}
 \end{equation}
 
-In the special case where \(z_{i} = x_{i}  \), we get \(J_{xy}J_{yx} =1  \).  
+and the radius of curvature is defined as \(\displaystyle \rho = \frac{1}{\kappa } \). 
+
+The binormal unit vector is then defined as the unit vector perpendicular to both \(\vu{t}  \text { and } \vu{n} \) 
+
+\begin{equation}
+	\vu{b} = \vu{t} \cross \vu{n} .
+\end{equation}
+
+We can similarly define the torsion \(\tau \) as the rate of change of \(\vu{b} \) with respect to \(s\)  
+
+\begin{equation}
+	-\tau \vu{n} =  \frac{d \vu{b} }{ds}, 
+\end{equation}
+
+and radius of torsion as \(\displaystyle \sigma  = \frac{1}{\tau } \). 
+
+In summary, \(\vu{t} , \vu{n} \text { and } \vu{b} \) and their derivatives with respect to \(s\) are related to one another by the relations (called the Frenet-Serret formulae) 
+
+\begin{equation}
+	\frac{d \vu{t} }{ds} = \kappa \vu{n} , ~~\frac{d \vu{n} }{ds} = \tau \vu{b} - \kappa \vu{t}~~ \text { and } ~~\frac{d \vu{b} }{ds} = -\tau \vu{n} .  
+\end{equation}
+
+Note that the shape of a curve is completely determined by \(\kappa \text { and } \tau \), for example, a curve is planar if \(\tau = 0\), and a curve in which \(\vu{t} \) makes a constant angle with a fixed direction, \textit{i.e.,} when either \(\kappa \text { or } \tau \) is independent of \(s\).    
+
+\example{Acceleration of a Particle.}
+{Show that the acceleration of a particle travelling along a trajectory \(\vb{r} (t)\) is given by 
+
+\begin{equation}
+	\vb{a} (t) = \frac{dv}{dt} \vu{t} + \frac{v^2}{\rho } \vu{n} .  
+\end{equation}
+~
+}
+{The velocity of the particle is \(\vb{v} (t) = v \vu{t} \), so the acceleration is 
+
+\begin{equation}
+	\vb{a} (t) = \frac{d\vb{v} }{dt} = \frac{dv}{dt} \vu{t} + v \frac{d \vu{t} }{dt} = \frac{dv}{dt}\vu{t} + v \frac{ds}{dt}\frac{d \vu{t} }{ds} = \frac{dv}{dt} \vu{t} + \frac{v^2}{\rho }\vu{n} .       
+\end{equation}
+~
+}
+
+A point on a surface, on the other hand, requires two parmeters \(u \text { and } v\) 
+
+\begin{equation}
+	\vb{r} (u,v)  = x(u,v) \vu{i} + y(u,v) \vu{j} + z(u,v) \vu{k},
+\end{equation}
+
+or algebrically as \(F(x,y,z) = 0\). 
+
+There are generally two ways to compute an infinitesimal surface \(dS\). If the parametric form of the surface is given, then refer to \cref{jacobian}, since \(v\) is constant along \(KL\), the line element \(KL\) can be written as 
+
+\begin{equation}
+	d\vb{r} _{KL} = \frac{\partial \vb{r} }{\partial u}du+ \frac{\partial \vb{r} }{\partial v}dv = \frac{\partial \vb{r} }{\partial u}du = \frac{\partial x}{\partial u} du \vu{i} + \frac{\partial y}{\partial u} du \vu{j}.
+\end{equation}
+
+Similarly, \(\displaystyle d\vb{r} _{KN}  = \frac{\partial x}{\partial v} dv \vu{i} + \frac{\partial y}{\partial v} dv \vu{j}\). Thus the area of the parallelogram \(KLMN\) is given by
+
+\begin{equation}
+	dS_{u,v} = \abs{d\vb{r} _{KL} \cross  d\vb{r} _{KN}} = \abs{\frac{\partial \vb{r} }{\partial u} \cross \frac{\partial \vb{r} }{\partial v} } = \abs{\frac{\partial x}{\partial u} du \frac{\partial y}{\partial v} dv - \frac{\partial x}{\partial v} dv \frac{\partial y}{\partial u} du} = \abs{\frac{\partial (x,y)}{\partial (u,v)} } dudv.
+\end{equation}
+
+Since both \(\displaystyle \frac{\partial \vb{r} }{\partial u} \text { and } \frac{\partial \vb{r} }{\partial v}  \) lie in the tangent plane to the surface at \(\vb{r} \), the direction of the infinitesimal surface is also encoded in the cross product
+
+\begin{equation}
+	d\vb{S} _{u,v} = \frac{\partial \vb{r} }{\partial u} \cross \frac{\partial \vb{r} }{\partial v}.   
+\end{equation}
 
 
+\onefig{jacobian}{scale=0.4} 
 
+If the algebraic form of the surface is given, then we usually project the surface \(S\) onto the \(xy\)-plane (sometimes the \(yz \text { or } xz\)- plane are more useful). From \cref{dS}, we see that 
 
+\begin{equation} \label{dseq} 
+	dA = \abs{\cos \alpha }dS \implies dS = \frac{dA}{\vu{n} \cdot \vb{k} } = \frac{dA}{\frac{\grad{f} }{\abs{\grad{f} } } \cdot \vu{k}  } =  \frac{\partial z}{\partial f}dA\abs{\grad{f} } \implies d\vb{S} = \frac{\partial z}{\partial f} dA\grad{f} , 
+\end{equation}
 
+where \(\alpha \) is the angle between the unit vector \(\vu{k} \) in the \(z\)-direction and the unit normal \(\vu{n} \) to the surface, and \(f(x,y,z)=0\) is the equation which describe the surface.\footnote{If the equation is in the form \(z = g(x,y) \implies f(x,y,z) = z-g(x,y) = 0\), then \(\frac{\partial f}{\partial z} = 1\) and the relation between surface and area becomes \(dS = \abs{\grad{f} }dA\).} 
 
-\chapter{Line, Surface and Volume Integration}
+\onefig{dS}{scale=0.4} 
 
-Line, surface and volume integrals describe integrations over a line, a surface and a volume,\footnote{Thus a volume integral is equivalent to a triple integral. Since an infinitesimal volume has no preferred direction in three-dimensional space.} respectively, all in three dimensional space. The infinitisimal quantities are (in Cartesian coordinates), \(d\vb{r} = dx \vu{x} + dy \vu{y} + dz \vu{z}, dS\footnote{The general form of \(dS\) is not trivial. It is exactly this property which makes surface integral the hardest type to deal with.}\text { and } dV = dxdydz\), out of which the first two are vectors and the last one is scalar.\footnote{Note that if the final form of integrands contain vectors then we must convert it into Cartesian coordinates, since it is the only coordiante system where the unit vectors are fixed (and so can be brought out of the integral sign).}
+Using the above equation, we can convert any surface integral over \(S\) as a double integral over the region \(R\) in the \(xy\)-plane.
 
-\section{Line Integrals}
-\subsection{Evaluation}
+Note that in the above discussion, however, tht we assumed any line parallel to the \(z\)-axis only intersects \(S\) once. If this is not the case, we must split up the surface into smaller surfaces \(S_1, S_2 \textit{ etc.}\) Also, sometimes instead of projecting the surface onto the \(xy\)-plane, it might be easier to project it onto the \(zx\)-plane or the \(yz\)-plane.     
+
+\example{Area of a Sphere.}
+{Find the element of area on the surface of a sphere of radius \(a\), and hence calculate the total surface area of the sphere.}
+{We can represent a point \(\vb{r} \)  on the surface of the sphere in terms of the two parameters \(\theta \text { and } \phi \) as
+
+\begin{equation}
+	\vb{r} = a \sin \theta \cos \phi \vu{i} + a \sin \theta \sin \phi \vu{j} + a \cos \theta \vu{k} .
+\end{equation}
+
+An infinitesimal area is given by 
+
+\begin{equation}
+	dA = \abs{\frac{\partial \vb{r} }{\partial \theta } \cross \frac{\partial \vb{r} }{\partial \phi } } = a^2\sin \theta d \theta d \phi 
+\end{equation}
+
+And the total surface area is then 
+
+\begin{equation}
+	A = \int_{0}^{\pi }\int_{0}^{2\pi } a^2 \sin \theta d \theta d \phi = 4\pi a^2.    
+\end{equation}
+} 
+
+\subsection{Line Integrals}
 
 Integrals along a line can involve vector and scalar fields. There are four kinds of line integrals, namely
 
@@ -1150,10 +1266,10 @@ Integrals along a line can involve vector and scalar fields. There are four kind
 
 The curve \(C\) can be open, \textit{i.e.,} the beginning and end point are not the same; or closed, where \(C\) is a closed loop and we will add a circle to the integral sign as \(\oint_{C} \). For a closed curve the direction of integration is conventionally taken to be anticlockwise.
 
-Here the argument \((x,y,z)\) can be unambigously interchanged by \((\vb{r} )\), where \(\vb{r} = x \vu{x} + y \vu{y} + z \vu{z} \) is the position vector. The relation between the two forms can be given explicityl as \(x = r_{x}, y = r_{y}, z = r_{z}\). The only difference is that the latter notation emphasize that the (scalar or vector field) depends only on the location in space and does not specify the usage of Cartesian coordinates and is thus more abstract but general.   
+\(dx\) is used in single integral to represent a straight infinitesimal interval element \(\in \mathbb{R}\). \(dr\) is used in line integral to represent an arbitrary infinitesimal line element \(\in \mathbb{R}^3 \). So the main difference between the first integral and an ordinary single integral is that the line \(r\) here can span through three dimensions while the interval \(x\) in single integral is confined to one dimension.
 
 \example{Line Integral (1).}
-{Evaluate the line integral \(I = \int_{C}^{} \vb{a} \cdot d\vb{r}  \) from \((1,1)\) to \((4,2)\), where \(\vb{a}  = (x+y)\vu{x} + (y-x)\vu{y} \), along 
+{Evaluate the line integral \(I = \int_{C}^{} \vb{F} \cdot d\vb{r}  \) from \((1,1)\) to \((4,2)\), where \(\vb{F}  = (x+y)\vu{i} + (y-x)\vu{j} \), along 
 \begin{enumerate}[itemsep=10pt]
 	\item the parabola \(y^2 = x\),
 	\item the curve \(x = 2u^2+u+1, y= 1+u^2\), and
@@ -1176,7 +1292,7 @@ Here the argument \((x,y,z)\) can be unambigously interchanged by \((\vb{r} )\),
 	\item We have \(dx = (4u+1)du \text { and } dy = 2udu\), so
 	
 	\begin{equation}
-		I = \int_{0}^{1} ((3u^2+u+2)(4u+1)-(u^2+u)(2u))du = \frac{32}{3}  
+		I = \int_{0}^{1} ((3u^2+u+2)(4u+1)-(u^2+u)(2u))du = \frac{32}{3}.  
 	\end{equation}
 	
 	\item We split the integral into two parts, then 
@@ -1210,7 +1326,7 @@ Alternatively, we can represent the entire circle parametrically, by \(x = a \co
 {Introducing a parametric variable \(\phi \) running from \(0\) to \(2\pi \), we have 
 
 \begin{equation}
-	\vb{r} (\phi ) = a \cos \phi \vu{x} + a \sin \phi \vu{y} \text { and } ds = \sqrt{\frac{d \vb{r} }{d\phi }\cdot \frac{d \vb{r} }{d\phi }} = a d\phi. 
+	\vb{r} (\phi ) = a \cos \phi \vu{i} + a \sin \phi \vu{j} ~\text { and }~  ds = \frac{d\vb{r} }{d\phi }d\phi   = a d\phi. 
 \end{equation}
 
 Thus
@@ -1220,40 +1336,57 @@ Thus
 \end{equation}
 } 
 
+\example{Line Integral (4).}
+{Evaluate the integral \(\oint_{C} (dx + xydz)\), where \(C\) is the closed curve forming the boundary of the surface given by the equation \(z = x^2 - y^2\), for \(x^2 + y^2 \le 1\).}
+{Parametrizing the curve in terms of \(\theta \), the integral becomes 
+
+\begin{equation}
+	\oint_{C} (dx+xydz) = \int_{0}^{2\pi }(-\sin \theta +\sin \theta \cos \theta (-2\cos \theta \sin \theta -2\sin \theta \cos \theta ))d \theta = -\pi .  
+\end{equation}
+
+Alternatively, we can use Stokes' theorem to rewrite the integral as 
+
+\begin{equation}
+	\oint_{C} (dx+xydz) = \int_{S}^{} \curl{\vb{F} (\vb{r} )}\cdot d\vb{S} ,    
+\end{equation}
+
+where \(\vb{F} (\vb{r} ) = (1,0,xy) \implies \curl{\vb{F} (\vb{r} )} = (x,-y,0) \). The infinitesimal surface is 
+
+\begin{equation}
+	d\vb{S} = \grad{g(x,y,z)} = (-2x,2y,1), 
+\end{equation}
+
+where \(g(x,y,z) = z - f(x,y) = z - x^2 + y^2\). 
+
+Inserting these expressions into the integral we have
+
+\begin{equation}
+	\int_{S}^{} \curl{\vb{F} (\vb{r} )}\cdot d\vb{S} = -2 \int_{S'}^{} (x^2 + y^2)dxdy  = -\pi .  
+\end{equation}
+
+} 
+
+
 
 
 \section{Surface Integrals}
-
 As with line integrals, integrals over a surface can involve vector and scalar fields. There are four kinds of surface integrals, namely 
 
 \begin{equation}
-    \int_{S}^{} \phi dS, ~~ \int_{S}^{} \phi d\vb{S} , ~~ \int_{S}^{} \vb{a} \cdot d\vb{S} ~ \text { and } \int_{S}^{} \vb{a} \cross d\vb{S},    
+    \int_{S}^{} \phi(x,y,z) dS,  ~~ \int_{S}^{} \phi(x,y,z) d\vb{S} , ~~ \int_{S}^{} \vb{F}(x,y,z) \cdot d\vb{S} ~ \text { and } \int_{S}^{} \vb{F}(x,y,z) \cross d\vb{S},    
 \end{equation}
 
 where \(d\vb{S} = \vu{n} dS\) is the infinitesimal vector area element. The direction of \(\vu{n} \) is conventionally assumed to be directed outwards from the closed volume if the surface is closed; or given by the right-hand rule if the surface is open and spans some perimeter curve \(C\). 
 
-\(dA\) is used in double integral to represent a flat infinitesimal area element \(\in \mathbb{R}^2\). \(dS\) is used in surface integral to represent an arbitrary infinitesimal surface element \(\in \mathbb{R}^3 \).
+\(dA\) is used in double integral to represent a flat infinitesimal area element \(\in \mathbb{R}^2\). \(dS\) is used in surface integral to represent an arbitrary infinitesimal surface element \(\in \mathbb{R}^3 \). So the main difference between the first integral and an ordinary double integral is that the surface \(S\) here can span through three dimensions while the area \(A\) in double integral is confined to two dimensions.
 
-To find the genearl form of \(dS\), we project the surface \(S\) onto the \(xy\)-plane. From \cref{dS}, we see that 
 
-\begin{equation} \label{dseq} 
-	dA = \abs{\cos \alpha }dS \implies dS = \frac{dA}{\vu{n} \cdot \vb{k} } = \frac{dA}{\frac{\grad{f} }{\abs{\grad{f} } } \vu{k}  } =  \frac{\abs{\grad{f}}dA }{\frac{\partial f}{\partial z} }, 
-\end{equation}
-
-where \(\alpha \) is the angle between the unit vector \(\vu{k} \) in the \(z\)-direction and the unit normal \(\vu{n} \) to the surface, and \(f(x,y,z)=0\) is the equation which describe the surface. 
-
-\onefig{dS}{scale=0.3} 
-
-Using the above equation, we can convert any surface integral over \(S\) as a double integral over the region \(R\) in the \(xy\)-plane.
-
-Note that in the above discussion, however, tht we assumed any line parallet to the \(z\)-axis only intersects \(S\) once. If this is not the case, we must split up the surface into smaller surfaces \(S_1, S_2 \textit{ etc.}\) Also, sometimes instead of projecting the surface onto the \(xy\)-plane, it might be easier to project it onto the \(zx\)-plane or the \(yz\)-plane.     
-
-\example{Surface Integral.}
-{Evaluate the surface integral \(\displaystyle I = \int_{S}^{} \vb{F} \cdot d\vb{S} \), where \(F = x \vu{x}  \) and \(S\) is the surface of the hemisphere \(x^2 + y^2 + z^2 = a^2\).}
-{Since 
+\example{Surface Integral (1).}
+{Evaluate the surface integral \(\displaystyle I = \int_{S}^{} \vb{F} \cdot d\vb{S} \), where \(F = x \vu{i}  \) and \(S\) is the surface of the hemisphere \(x^2 + y^2 + z^2 = a^2\).}
+{Parameterizing the surface by \(\theta \text { and } \phi \), 
 
 \begin{equation}
-	\vb{F} \cdot d\vb{S}  = x(\vu{x} \cdot \vu{r} )d\vb{S} = (a \sin \theta \cos \phi )(\sin \theta \cos \phi )(a^2\sin \theta d \theta d\phi ),
+	\vb{F} \cdot d\vb{S}  = x(\vu{i} \cdot \vu{r} )dS = (a \sin \theta \cos \phi )(\sin \theta \cos \phi )(a^2\sin \theta d \theta d\phi ),
 \end{equation}
 
 we have 
@@ -1265,7 +1398,7 @@ we have
 Alternatively, we can describe the surface of the hemisphere as \(f(x,y,z) = x^2 + y^2 + z^2 - a^2 = 0\), so we have 
 
 \begin{equation}
-	\abs{\grad{f} } = 2\abs{\vb{r} } = 2a, ~~ 	\frac{\partial f}{\partial z} = 2z = 2\sqrt{a^2-x^2-y^2} \text { and } \vu{x} \cdot \vu{r} = \vu{x} \cdot \frac{\vb{r} }{\abs{\vb{r} } } = \frac{x}{a}. 
+	\abs{\grad{f} } = 2\abs{\vb{r} } = 2a, ~~ 	\frac{\partial f}{\partial z} = 2z = 2\sqrt{a^2-x^2-y^2} ~\text { and }~ \vu{i} \cdot \vu{r} = \vu{i} \cdot \frac{\vb{r} }{\abs{\vb{r} } } = \frac{x}{a}. 
 \end{equation}
 
 Therfore the integral becomes
@@ -1274,13 +1407,82 @@ Therfore the integral becomes
 	I = \int \int_{R}^{} \frac{x^2}{\sqrt{a^2-x^2-y^2} }dxdy = \frac{2\pi a^3 }{3}.    
 \end{equation}
  } 
+ 
+\example{Surface Integral (2).}
+{Evaluate \(\int_{S}^{}   \vb{F} (\vb{r} )\cdot d\vb{S} \) over the surface bounded by the paraboloid \(y = x^2+z^2\) for \(y \in [0,1]\), and the disc \(x^2+z^2 \le 1\) at \(y=1\), for \(\vb{F} = (0,y,-z)\).}
+{The algebraic form of the curved surface is \(g(x,y,z) = y - f(x,z) = y - x^2 - z^2 = 0\), whose gradient is \(\grad{g(x,y,z)} = (-2x,1,-2z) \) (and \(\frac{\partial g}{\partial y} = 1\)). This vector points inward to the surface, so we should change its sign to adhere to the normal convention of outward-pointing normals. The integral over the curved surface then becomes
+
+\begin{equation}
+	\int_{S'}^{}   \vb{F(\vb{r} )} \cdot \grad{g(x,y,z)} dxdz = \int_{S'}^{} (-x^2-3z^2)dxdz,
+\end{equation}
+
+where the surface \(S'\) is the projection of the paraboloid onto the \(xz\)-plane, which is a circle, which is most conveniently parameterized by the polar coordinates \((r,\theta )\), so the integral becomes
+
+\begin{equation}
+	\int_{S'}^{} (-x^2-3z^2)dxdz = \int_{0}^{2\pi } d \theta \int_{0}^{1} r(-r^2\cos ^2\theta - 3r^2\sin ^2\theta )dr = -\pi .   
+\end{equation}
+
+The integral over the end surface is trivial, which upon integration gives \(\pi \), so the two contributions sum to zero. 
+
+} 
+
+\example{Surface Integral (3).}
+{Evaluate \(\int_{S}^{} \vb{F} (\vb{r} ) \cdot d\vb{S}  \) over the upper half of the sphere \(x^2+y^2+z^2 = 9\) and for \(\vb{F} (\vb{r} ) = (x,y,z^4)\).}
+{The surface is given parametrically by the equation 
+
+\begin{equation}
+	\vb{r} (\theta , \phi ) = 3(\sin \theta \cos \phi , \sin \theta \sin \phi , \cos \theta ), \quad \theta \in [0,\frac{\pi }{2} ], \phi \in [0, 2\pi ].
+\end{equation}
+
+The infinitesimal surface vector \(d\vb{S} \) can be calculated explicitly by 
+
+\begin{equation}
+	d\vb{S} = \frac{\partial \vb{r} }{\partial \theta } \cross \frac{\partial \vb{r} }{\partial \phi } = 9(\sin ^2\theta \cos \phi , \sin ^2\theta \sin \phi , \sin \theta \cos \theta ).   
+\end{equation}
+
+Then the integral can be carried out straightforwardly as
+
+\begin{equation}
+	\int_{S}^{} \vb{F} (\vb{r} ) \cdot \left( \frac{\partial \vb{r} }{\partial \theta } \cross \frac{\partial \vb{r} }{\partial \phi }   \right) d \theta d\phi = 279\pi .  
+\end{equation}
+
+} 
+
+\example{Surface Integral (4).}
+{Viviani's window is the part of the surface of the sphere of radius \(R\) centered in the origin, contained within the right cylinder with base given by a circumference of radius \(\displaystyle \frac{R}{2} \), centered at \(\displaystyle (x,y) = \left(\frac{R}{2}, 0\right)\), for \(z \ge 0\) (see \cref{vivi}). Find the area \(S\) of the Viviani's window.}
+{We are tasked with solving the integral \(S = \int_{S}^{} dS \), and the difficulty lies on parameterizing the surface \(S\). One is to project the surface onto the base and evaluate the double integral, an equally valid way is to parameterize the surface with \(r, \theta \) according to \cref{para}, where 
+
+\begin{equation}
+	x = r\cos \theta , \quad y = r\sin \theta ~\text { and }~ z = \sqrt{R^2 - x^2 - y^2} = \sqrt{R^2 - r^2}
+\end{equation}
+
+for \(\displaystyle r \in [0,R\cos \theta ], \theta \in \left[-\frac{\pi }{2}, \frac{\pi }{2}  \right]\) 
+
+The infinitesimal surface element is then 
+
+\begin{equation}
+	dS = \abs{\frac{\partial \vb{r} }{\partial r} \cross \frac{\partial \vb{r} }{\partial \theta }  } = \frac{rR}{\sqrt{R^2-r^2} }. 
+\end{equation}
+
+Thus the integral
+
+\begin{equation}
+	S = \int_{-\frac{\pi }{2} }^{\frac{\pi }{2} }d \theta \int_{0}^{R\cos \theta }\frac{rR}{\sqrt{R^2 - r^2} }dr = R^2(\pi -2).     
+\end{equation}
+
+
+
+} 
+
+\twofig{vivi}{width=\textwidth}{para}{width=\textwidth}{sur4} 
+
 
 \subsection{Vector Areas}
 
 The vector area of a surface \(S\) is defined as
 
 \begin{equation}
-	\vb{S}  = \int_{S}^{} d\vb{S}. 
+	\vb{S}  = \int_{S}^{} d\vb{S} = \oint_{S} \vu{n} dS
 \end{equation}
 
 A closed surface will always has a zero vector area, since when projecting onto the \(xy\)-plane, from \cref{dseq} we see that every \(\displaystyle d\vb{S} _{+}  = \frac{dA}{\abs{\vu{n} \cdot \vu{k} } } \) will have an opposite contribution \(\displaystyle d\vb{S} _{-} = \frac{dA}{\abs{- \vu{n} \cdot \vu{k} } } = -d\vb{S} _{+} \). 
@@ -1293,11 +1495,11 @@ Specifically, the vector area can be represented by the line integral
 	\vb{S} = \frac{1}{2} \oint_{C} \vb{r} \cross d\vb{r}, 
 \end{equation}
 
-since one of the possible surface spanned by the perimeter \(C\) is a cone with its vertex at the origin with the perimeter of the base \(C\) as shown in \cref{cone} and its area is the sum of all the infinitesimal triangle, each with vector area \(d\vb{S} = \frac{1}{2} \vb{r} \cross d\vb{r}  \).  
+since one of the possible surface spanned by the perimeter \(C\) is a cone with its vertex at the origin with the perimeter of the base \(C\) as shown in \cref{cone} and its area is the sum of all the infinitesimal triangle, each with vector area \(\displaystyle d\vb{S} = \frac{1}{2} \vb{r} \cross d\vb{r}  \).  
 
 \onefig{cone}{scale=0.3}
 
-For a surface confined to the \(xy\)-plane, \(\vb{r} = x \vu{x} + y \vu{y} \text { and } d\vb{r} = dx \vu{x} + dy \vu{y}\), thus \(\vb{r} \cross d\vb{r} = (xdy-ydx)\vu{z}\), so the area is what we have found earlier in \cref{area}.   
+For a surface confined to the \(xy\)-plane, \(\vb{r} = x \vu{i} + y \vu{j} \text { and } d\vb{r} = dx \vu{i} + dy \vu{j}\), thus \(\vb{r} \cross d\vb{r} = (xdy-ydx)\vu{k}\), so the area is what we have found earlier in \cref{area}.   
 
 
 \subsection{Solid Angle}
@@ -1327,23 +1529,21 @@ Referring to \cref{cone2}, we have
 	V = \int_{V}^{} dV = \frac{1}{3} \oint_{S} \vb{r} \cdot d\vb{S}, 
 \end{equation}
 
-as the volume of each cone is \(dV = \frac{1}{3} \vb{r} \cdot d\vb{S}  \). 
+as the volume of each cone is \(\displaystyle dV = \frac{1}{3} \vb{r} \cdot d\vb{S}  \). 
 
 \onefig{cone2}{scale=0.3} 
 
 \section{Integral Theorems}
 
 \subsection{The Divergence Theorem}
-
-\subsubsection{The Divergence Theorem in Three Dimensions}
-The divergence theorem (in three dimensions) states that 
+The divergence theorem states that
 
 \begin{equation} \label{divthmm} 
 	\int _{V}(\div{\vb{F} } )dV = \oint_{S} \vb{F} \cdot d\vb{S} .
 \end{equation}
 
 \example{Surface Integral by the Divergence Theorem.}
-{Evaluate the surface integral \(I = \int_{S}^{} \vb{F} \cdot d\vb{S}  \), where \(\vb{F} = (y-x)\vu{x} + x^2z \vu{y} + (z+x^2) \vu{z}\) and \(S\) is the open surface of the hemisphere \(x^2 + y^2 + z^2 = a^2, z \ge 0\).}
+{Evaluate the surface integral \(I = \int_{S}^{} \vb{F} \cdot d\vb{S}  \), where \(\vb{F} = (y-x)\vu{i} + x^2z \vu{j} + (z+x^2) \vu{k}\) and \(S\) is the open surface of the hemisphere \(x^2 + y^2 + z^2 = a^2, z \ge 0\).}
 {Consider the closed surface \(S' = S + S_1 \), where \(S_1 \) is the circular area in the \(xy\)-plane given by \(x^2 + y^2 \le a^2, z=0\). By the divergence theorem we have
 
 \begin{equation}
@@ -1379,50 +1579,6 @@ But since the volume \(V\) is arbitrary the integrand must be identically zero, 
 For the flow of an incompressible fluid \(\rho = \text{constant} \) and the continuity equation becomes simply \(\div{v} = 0\).~
 }
 
-\subsubsection{The Divergence Theorem in Two Dimensions}
-The divergence theorem (in two dimensions) (also known as the Green's theorem in a plane) states that 
-
-\begin{equation}
-	\oint_{C} (Pdx + Qdy) = \int \int_{R}^{} \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}  \right) dxdy.  
-\end{equation}
-
-To prove this theorem we refer to \cref{doubleintegral}. Let \(y = y_1 (x) \text { and } y = y_2 (x)\) be the equations of the curves \(STU\) and \(SVU\) respectively. We then find
-
-\begin{equation}
-	\begin{aligned} 
-	\int \int_{R}^{} \frac{\partial P}{\partial y} dxdy &= \int_{a}^{b} dx \int_{y_1 (x)}^{y_2 (x)} \frac{\partial P}{\partial y} dy = \int_{a}^{b} \eval{P(x,y)}_{y=y_1 (x)}^{y=y_2 (x)} dx \\
-	&= \int_{a}^{b} \left[ P(x,y_2 (x)) - P(x,y_1 (x)) \right] dx \\ 
-	&= -\int_{a}^{b} P(x,y_1 (x)) dx - \int_{b}^{a} P(x,y_2 (x)) dx = -\oint_{C} Pdx.      
-	\end{aligned}      
-\end{equation}
-
-If we now let \(x= x_1 (y) \text { and } x = x_2 (y)\) as the equations of the curves \(TSV \text { and } TUV\) respectively, then we can similarly show that 
-
-\begin{equation}
-	\int \int_{R}^{} \frac{\partial Q}{\partial x} dx dy = \oint_{C} Q dy.   
-\end{equation}
-
-Subtracting the two equations gives Green's theorem.
-
-\example{Area of an Ellipse.}
-{Show that the area of a region \(R\) enclosed by a simle closed curve \(C\) is given by \(A = \frac{1}{2} \oint_{C}(xdy - ydx) = \oint_{C}xdy = - \oint_{C}y dx\). Hence calculate the area of the ellipse \(x = a \cos \phi , y = b\sin \phi \). }
-{By Green's theorem we have 
-
-\begin{equation} \label{area} 
-	\oint_{C} (xdy- ydx) = \int \int_{R}^{} (1+1) dxdy = 2A.  
-\end{equation}
-
-Therefore the area of an ellipse is 
-
-\begin{equation}
-	A = \frac{1}{2} \int_{0}^{2\pi } ab(\cos ^2\phi + \sin ^2\phi ) d\phi  = \pi ab.   
-\end{equation}
-} 
-
-The Green's theorem is also valid for region with holes, however, the line integral must be carry out in the direction that a person ttravelling along the boundaries always has the region \(R\) on their left.
-
-We also see that if the line integral around a closed loop is zero, Green's theorem implies that \(\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x} \), which is equivalent to saying that \(P(x,y) dx + Q(x,y) dy \) is an exact differential such that it equals to the differential for some function \(\phi (x,y)\) and for a closed loop the beginning and the end points are the same thus we evaluate \(\phi \) at the same point and thus the result is zero.
-
 \subsubsection{Green's Theorems}
 
 Consider two scalar functions \(\phi \text { and } \psi \) in some volume \(V\) bounded by a surface \(S\). Applying the divergence theorem to the vector field \(\phi \grad{\psi } \), we get 
@@ -1450,14 +1606,19 @@ Letting \(\vb{F} \) in \cref{divthmm} to be a gradient of another scalar functio
 \end{equation}
 
 \subsection{Stokes' Theorem}
-
-\subsubsection{Stokes' Theorem in Three Dimensions} 
-
-The Stokes' Theorem (in three dimensions) states that 
+The Stokes' theorem states that 
 
 \begin{equation} \label{stothmm} 
 	\int_{S}^{} (\curl{\vb{F} } ) dS = \oint_{C} \vb{F} \cdot d\vb{r} .
 \end{equation}
+
+In two dimensions, the above equation reduces to 
+
+\begin{equation}
+	\oint_{C} (Pdx + Qdy) = \int \int_{R}^{} \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}  \right) dxdy,
+\end{equation}
+
+known as the Green's theorem.\footnote{The divergence theorem also reduces to the Green's theorem in two dimensions.} 
 
 \example{The Ampere's Law.}
 {Convert the integral form of Ampere's Law into differential form}
@@ -1472,16 +1633,26 @@ Hence
 \begin{equation}
 	\int_{S}^{} (\curl{\vb{B} } - \mu _{0} \vb{J}  ) \cdot d\vb{S} = 0.
 \end{equation}
+}
 
+\example{Area of an Ellipse.}
+{Show that the area of a region \(R\) enclosed by a simle closed curve \(C\) is given by \(A = \frac{1}{2} \oint_{C}(xdy - ydx) = \oint_{C}xdy = - \oint_{C}y dx\). Hence calculate the area of the ellipse \(x = a \cos \phi , y = b\sin \phi \). }
+{By Green's theorem we have 
 
+\begin{equation} \label{area} 
+	\oint_{C} (xdy- ydx) = \int \int_{R}^{} (1+1) dxdy = 2A.  
+\end{equation}
 
+Therefore the area of an ellipse is 
 
+\begin{equation}
+	A = \frac{1}{2} \int_{0}^{2\pi } ab(\cos ^2\phi + \sin ^2\phi ) d\phi  = \pi ab.   
+\end{equation}
 } 
 
+The Green's theorem is also valid for region with holes, however, the line integral must be carry out in the direction that a person travelling along the boundaries always has the region \(R\) on their left.
 
-\subsubsection{The Stokes' Theorem in Two Dimensions}
-
-The Stokes' Theorem (in two dimensions) is also yields Green's theorem in a plane, just as the divergence theorem did.
+We also see that if the line integral around a closed loop is zero, Green's theorem implies that \(\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x} \), which is equivalent to saying that \(P(x,y) dx + Q(x,y) dy \) is an exact differential such that it equals to the differential for some function \(\phi (x,y)\) and for a closed loop the beginning and the end points are the same thus we evaluate \(\phi \) at the same point and thus the result is zero.
 
 \subsubsection{The Two Other Theorems}
 

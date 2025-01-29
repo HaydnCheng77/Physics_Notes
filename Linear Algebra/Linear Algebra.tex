@@ -14,57 +14,42 @@
 
 \chapter{Vectors and Vector Spaces}
 
-\section{Vectors in \(\mathbb{F}^{n} \) with the Standard Unit Vectors}
+\section{Vectors in \(\mathbb{F}^{n} \)}
 
-Vectors are mathemtical objects that satisfy certain properties and vector sapces is the set of all vectors of the same kind (as will be discussed in \cref{vspace}). They can be geometrical arrows in space, polynomials, matrices, \textit{etc.} 
+Vectors are mathemtical objects that satisfy certain properties, and they can be geometrical arrows in space, polynomials, matrices, \textit{etc.} 
 
-Here \(\mathbb{F}\) is the field which the vector space is defined over, whose elements (called scalars) can be combined (multiplied) with the basis chosen for the vector space to construct any arbitrary vectors in the vector space. Examples of fields include the real numbers \(\mathbb{R}\) (which is the field we choose in most cases) or the complex numbers \(\mathbb{C}\).\footnote{More examples of fields are given in \cref{fields}.} 
+Field (denoted by \(\mathbb{F}\)) contains elements (called scalars) that can be combined (multiplied) with the basis chosen for the vector space to construct any arbitrary vectors in the vector space. Examples include the real numbers \(\mathbb{R}\) and the complex numbers \(\mathbb{C}\).\footnote{More examples of fields are given in \cref{fields}.} 
 
-The simplest \(n\)-dimensional vector space contatining \(n\)-dimensional vectors is \(\mathbb{F}^{n} \) with the standard unit vectors chosen as the basis , which is defined as the set of all ordered n-tuples of elements in \(\mathbb{F}\)
+The simplest \(n\)-dimensional vector space containing \(n\)-dimensional vectors is \(\mathbb{F}^{n} \), which is defined as the set of all ordered n-tuples of elements (called the components of a vector) in \(\mathbb{F}\)
 
 \begin{equation}
-    \mathbb{F}^{n} = \left\{ (a_1 , a_2 ,\ldots ,a_{n} ) \mid a_{i} \in F, i = 1,2,\ldots ,n  \right\}.
+    \mathbb{F}^{n} = \left\{ (a_1 , a_2 ,\ldots ,a_{n} ) \mid a_{i} \in F, i = 1,2,\ldots ,n  \right\} = \begin{pmatrix}
+         a_1   \\
+         a_2  \\
+         \vdots  \\
+         a_{n}  \\
+    \end{pmatrix}.
 \end{equation}
 
 The standard unit vectors are the \(n\) vectors in \(\mathbb{F}^{n} \) where \(n-1\) elements chosen to form the \(n\)-tuples are 0, and the remaining element is 1:  
-\begin{equation}
-    \vb{e} _{i} = (0,\ldots ,0,\underbrace{1}_{i^{\text{th }} \text{position} }, 0, \ldots , 0).
-\end{equation}
-
-The elements can also be arranged into a column (called the column vector). For example, an arbitrary vector in \(\mathbb{F}^{n} \) (with the standard unit vectors as the basis) can be written as 
 
 \begin{equation}
-    \begin{aligned} 
-    \vb{v} &= (a_1, a_2, \ldots , a_n) = a_1 (1,0,\ldots ,0) + a_2 (0,1,\ldots ,0) + \cdots + a_{n}(0,0,\ldots ,1) \\
-    &= a_1 \begin{pmatrix}
-        1 \\
-        0 \\
-        \vdots  \\
-        0 \\
-   \end{pmatrix} + a_2 \begin{pmatrix}
-    0 \\
-    1 \\
-    \vdots  \\
-    0 \\
-\end{pmatrix} + \cdots + a_n \begin{pmatrix}
-    0 \\
-    0 \\
-    \vdots  \\
-    1 \\
-\end{pmatrix} = \begin{pmatrix}
-    a_1  \\
-    a_2  \\
-    \vdots  \\
-    a_{n}  \\
-\end{pmatrix}.
-\end{aligned} 
+    \vb{e} _{i} = (0,\ldots ,0,\underbrace{1}_{i^{\text{th }} \text{position} }, 0, \ldots , 0) = \begin{pmatrix}
+         0 \\
+         \vdots  \\
+         0 \\
+         1 \\
+         0 \\
+         \vdots  \\
+         0 \\
+    \end{pmatrix} \leftarrow i^{\text{th }}   \text{position}  .
 \end{equation}
 
-When we write a vector in \(\mathbb{F}^{n} \) we assume that the basis chosen is the standard unit vectors, unless otherwise specified. Note that if we have not chosen the standard unit vectors as the basis the \(a_{i} \)s in the second equality would not be the same. If another basis is used, we will add a prime besides the bracket.
+When we write a vector in \(\mathbb{F}^{n} \) we assume that the underlying basis is the standard unit vectors, unless otherwise specified,\footnote{We will ocassionally add a prime besides the bracket to denote the changed basis} otherwise the components of the vector would be entirely different.\footnote{In fact, changing the basis is a topic we will devote an entire section into.} 
 
-As we will see in \cref{relations}, we can define an associated vector (known as the coordinate vector) in the vector space \(\mathbb{F}^{n} \) for every \(n\)-dimensional vector that we want to describe. This is because \(\mathbb{F}^{n} \) simply store \(n\) elements chosen from \(\mathbb{F}\) into an array, which acts as the components (coefficients of basis) of a more complicated vector. 
+As we will see in \cref{relations}, we can define an associated vector (known as the coordinate vector) in the vector space \(\mathbb{F}^{n} \) for every \(n\)-dimensional vector that we want to describe. This is because a vector in \(\mathbb{F}^{n} \) simply stores \(n\) elements from \(\mathbb{F}\) into an array, which acts as the components of a more complicated vector. 
 
-More often than not it is much easier if we visualize a vector in \(F^{n} \) as a geometrical arrow in space with basis \(\vu{x} , \vu{y}, \vu{z} , \textit{etc.} \), so \(\vb{v} = a_1 \vu{x} + a_2 \vu{y} + a_3 \vu{z} + \cdots  \), as an intermediate between \(\mathbb{F}^{n}\) and an more abstract vector space, since this is the (second) simpliest kind of vector one can think of but it is also much more common and related to physics and daily life.  
+More often than not it is much easier if we visualize a vector in \(\mathbb{F}^{n} \) as a geometrical arrow in space with basis \(\vu{x} , \vu{y}, \vu{z} , \textit{etc.} \), so \(\vb{v} = a_1 \vu{x} + a_2 \vu{y} + a_3 \vu{z} + \cdots  \), as an intermediate between \(\mathbb{F}^{n}\) and an more abstract vector space, since this is the (second) simpliest kind of vector one can think of but it is also much more common and related to physics and daily life.  
 
 \example{Google's search alogorithm.}
 {Consider an internet with \(n\) websites labeled by \(k = 1, \ldots , n\). The site labeled as \(k\) has been referenced to by other sites \(L_{k} \subset {1, \ldots , n}\). Assign a page rank to each website representing the relative significance of each website.}
@@ -308,7 +293,7 @@ Therefore the rank of \(A\) is two and the vectors are linearly depedent.
 } 
 
 
-To test whether three three-dimensional vectors are linear indepedence, the fastest why is to compute the determinant and check whether or not it is equals to zero.
+To test whether three three-dimensional vectors are linear indepedence, the fastest way is to compute the determinant and check whether or not it is equals to zero.
 
 \section{Basis and Dimension}
 \begin{definition}[Definition of a Basis]
@@ -655,10 +640,10 @@ Therefore, \(\vb{A} \cross (\vb{B} \cross \vb{C}) = (\vb{A} \cross \vb{B}) \cros
 Thus, either \(\vb{A} \parallelsum \vb{C} ~ or ~ \vb{A} \perp \vb{B} \perp \vb{C}\)}
 
 \example{Quadraple Cross Product.}
-{Simplify \((\vb{a} \cross \vb{b} )\cross (\vb{c} \cross \vb{d} )\). }
+{Simplify \((\vb{a} \cross \vb{b} )\cross (\vb{c} \cross \vb{b} )\). }
 {\begin{equation}
     \begin{aligned}
-        ((\vb{a} \cross \vb{b} )\cross (\vb{c} \cross \vb{d} ))_{i}  &= \epsilon _{ijk} (\epsilon _{jpq} a_{p} a_{q} )(\epsilon _{krs} c_{r} b_{s} ) \\
+        ((\vb{a} \cross \vb{b} )\cross (\vb{c} \cross \vb{b} ))_{i}  &= \epsilon _{ijk} (\epsilon _{jpq} a_{p} b_{q} )(\epsilon _{krs} c_{r} b_{s} ) \\
         &= \epsilon _{ijk} \epsilon _{krs} \epsilon _{jpq} a_{p} b_{q} c_{r} b_{s} \\
         &= (\delta _{ir} \delta _{js} -\delta _{is} \delta _{rj} ) \epsilon _{jpq} a_{p} b_{q} c_{r} b_{s} \\
         &= \epsilon _{jpq} a_{p} b_{q} (c_{i} b_{j} -b_{i} c_{j} ) \\
@@ -736,7 +721,7 @@ We finally yields \(\rho = \sqrt{a^2- (p-c \cdot \vu{n} )^2} \).
 
 } 
 
-\section{Distances Between Ppoints, Lines and Planes}
+\section{Distances Between Points, Lines and Planes}
 
 \subsection{Distances From a Point to a Line}
 
@@ -837,7 +822,7 @@ The two sets of vectors \(\vb{a} ,\vb{b}, \vb{c} \) and \(\vb{a} ', \vb{b} ', \v
 They are related by 
 
 \begin{equation}
-    \vb{a} ' = \frac{\vb{b} \cross \vb{c} }{\vb{a} \cdot (\vb{b} \cross \vb{c} )} = \frac{\vb{b} \cross \vb{c} }{\det (\vb{a} , \vb{b} , \vb{c} )}, \vb{b} ' = \frac{c \cross \vb{a} }{\det (\vb{a} ,\vb{b} ,\vb{c} )} ~\text { and }~ \vb{c} '= \frac{\vb{a} \cross \vb{b} }{\det (\vb{a} ,\vb{b} ,\vb{c} )}.   
+    \vb{a} ' = \frac{\vb{b} \cross \vb{c} }{\vb{a} \cdot (\vb{b} \cross \vb{c} )} = \frac{\vb{b} \cross \vb{c} }{\det (\vb{a} , \vb{b} , \vb{c} )}, \quad \vb{b} ' = \frac{c \cross \vb{a} }{\det (\vb{a} ,\vb{b} ,\vb{c} )} ~\text { and }~ \vb{c} '= \frac{\vb{a} \cross \vb{b} }{\det (\vb{a} ,\vb{b} ,\vb{c} )}.   
 \end{equation}
 
 If \(\vb{a} ,\vb{b} ,\vb{c} \) are mutually orthogonal then \(\vb{a} ' = \vb{a} , \vb{b} ' = \vb{b} \text { and } \vb{c} '=\vb{c} \).  
@@ -1378,7 +1363,7 @@ A quadratic \(n \times n\) matrix \(A:\mathbb{F}^{n}\rightarrow \mathbb{F}^{n}  
 
 \section{Linear Maps \(f: V \rightarrow W\)} \label{relations} 
 
-Start with a linear map \(f:V \rightarrow W\) over\(\mathbb{F}\) with dimensions \(n\) and \(m\), respectively. 
+We start with a linear map \(f:V \rightarrow W\) over \(\mathbb{F}\) with dimensions \(n\) and \(m\), respectively. 
 
 We introduce a basis \(\vb{v}_{1}, \ldots, \vb{v}_n \) of \(V\) and a basis \(\vb{w}_{1}, \ldots, \vb{w}_m \) of \(W\), then we have \(f(\vb{v} _{j} ) = \sum_{i=1}^{m} a_{ij} \vb{w} _{i} \) since the images of the basis vectors in \(V\) are in \(W\). 
 
@@ -1431,15 +1416,13 @@ We have \(\rank (A)\) = rank(f) and, in particular, \(A\) is invertible if and o
 
 \section{Change of Basis} \label{basischange} 
 
-\subsection{Linear Maps \(f:V \rightarrow V\)}
-
 We consider a linear map \(f:V \rightarrow V\) from a vector space to itself and we would like to change the basis in both vector spaces. The two sets of basis vectors, coordinate maps, coordinate vectors and the representing matrices are then dentoed by
 
 \begin{equation}
 \begin{array}{cccc}
 \text{basis of } V & \text{coordinate map} & \text{coordinate vector} & \text{representing matrix} \\[10pt]
-\bm{v}_1, \ldots, \bm{v}_n & \varphi(\alpha) = \sum_{i=1}^n \alpha_i \bm{v}_i & \bm{\alpha} = (\alpha_1, \ldots, \alpha_n)^T & A = \varphi^{-1} \circ f \circ \varphi \\[15pt]
-\bm{v}_1', \ldots, \bm{v}_n' & \varphi'(\alpha') = \sum_{i=1}^n \alpha_i' \bm{v}_i' & \bm{\alpha}' = (\alpha_1', \ldots, \alpha_n')^T & A' = \varphi'^{-1} \circ f \circ \varphi' \\[10pt]
+\bm{v}_1, \ldots, \bm{v}_n & \varphi(\boldsymbol{\alpha } ) = \sum_{i=1}^n \alpha_i \bm{v}_i & \bm{\alpha} = (\alpha_1, \ldots, \alpha_n)^T & A = \varphi^{-1} \circ f \circ \varphi \\[15pt]
+\bm{v}_1', \ldots, \bm{v}_n' & \varphi'(\boldsymbol{\alpha }' ) = \sum_{i=1}^n \alpha_i' \bm{v}_i' & \bm{\alpha}' = (\alpha_1', \ldots, \alpha_n')^T & A' = \varphi'^{-1} \circ f \circ \varphi' \\[10pt]
 \end{array}
 \end{equation}
 
@@ -2023,7 +2006,7 @@ Examples of scalar products include:
     \item The Minkowski product in \(\mathbb{R}^{4} \): \(\avg{\vb{v} ,\vb{w} } = \vb{v} ^{T} \eta \vb{w} = -v_0 w_0 + v_1 w_1 +v_2 w_2 +v_3 w_3    \) where \(\eta = \text{diag}  (-1,1,1,1)\). Note that the Minkowski product does not satisfies property \((K3)\), for example, for \(\vb{v} = \begin{pmatrix}
         -1 & 1 & 1 &  1 \\
     \end{pmatrix}^{T} , \avg{\vb{v} ,\vb{v} }  = -1\).
-    \item The scalar product for (real or complex-valued) functions \(f: [a,b] = \mathbb{R}\text { or } \mathbb{C}\) on an interval \([a,b] \subset \mathbb{R}\): \(\avg{f,g} \equiv \int_{a}^{b} dx f(x)^{*} g(x)\). 
+    \item The scalar product for (real or complex-valued) functions \(f: [a,b] = \mathbb{R}\text { or } \mathbb{C}\) on an interval \([a,b] \subset \mathbb{R}\): \(\avg{f,g} \equiv \int_{a}^{b} f(x)^{*} g(x)dx\). 
     \item The scalar product for real matrices: \(\avg{A, B} \equiv \Tr (A^{T}B ) = \sum_{i,j}^{} A_{ij} B_{ij}\).
     \item The scalar product for complex matrices: \(\avg{A, B} \equiv \Tr (A^{\dagger} B ) = \sum_{i,j}^{} A_{ij}^* B_{ij}\).
 \end{enumerate}
@@ -2192,7 +2175,7 @@ A = \begin{pmatrix}
 n_1^2 & n_1 n_2 & n_1 n_3 \\
 n_1 n_2 & n_2^2 & n_2 n_3 \\
 n_1 n_3 & n_2 n_3 & n_3^2
-\end{pmatrix}
+\end{pmatrix}.
 \end{equation}} 
 
 \section{Perpendicular Spaces}
@@ -2215,18 +2198,18 @@ For a sub vector space \(W \subset V\) of a finite dimensional vector space \(V\
 \end{enumerate}
 \end{lemma}
 
-\section{Adjoint Maps}
+\section{Adjoint Linear Maps}
 
 \begin{definition}
 For a linear map \(f : V \to V\) on a vector space \(V\) with scalar product, an adjoint linear map, \(f^\dagger : V \to V\) is a map satisfying
     
     \begin{equation}
-    \langle \mathbf{v}, f \mathbf{w} \rangle = \langle f^\dagger \mathbf{v}, \mathbf{w} \rangle for all \mathbf{v}, \mathbf{w} \in V.
+    \langle \mathbf{v}, f \mathbf{w} \rangle = \langle f^\dagger \mathbf{v}, \mathbf{w} \rangle \text{ for all } \mathbf{v}, \mathbf{w} \in V.
     \end{equation}
 
 \end{definition}
     
-\begin{lemma}[Properties of Adjoint Maps] \label{adjointprop} 
+\begin{lemma}[Properties of Adjoint Linear Maps] \label{adjointprop} 
     For the adjoint \(f^{\dagger} \) of the linear map \(f\):\footnote{The proofs of these not very trivial properties are given in \cref{adjointpropapp}.} 
     \begin{enumerate}[label=(\(M\)\arabic*)]
         \item \(f^\dagger\) is uniquely determined.
@@ -2268,7 +2251,7 @@ For an abstract example of a self-adjoint linear map, consider the vector space 
 
 Hence, $D$ is indeed self-adjoint. Note that the boundary term vanishes due to the boundary condition on our functions and that including the factor of $i$ in the definition of $D$ is crucial for the sign to work out correctly. In quantum mechanics, physical quantities are represented by Hermitian operators. In this context, the present operator $D$ plays an important role as it corresponds to linear momentum.
 
-\section{Orthogonal and Unitary Maps} \label{unitary} 
+\section{ Unitary Maps} \label{unitary} 
 
 \subsection{Definitions of Unitary Maps}
 
@@ -2565,16 +2548,6 @@ In this case, \(\vb{v} \) is called an eigenvector of \(f\) with eigenvalue \(\l
 
 \end{definition}
 
-\begin{definition}[Definition of Eignespaces]
-The eigenspace for \(\lambda \in F\) is the vector space containing all the eigenvectors for \(\lambda \) 
-
-\begin{equation}
-    \text{Eig}_{f}(\lambda ) = \ker (f - \lambda \mathrm{id}_{V} ).
-\end{equation}
-\end{definition}
-
-In general, for a \(n \times n\) matrix \(A\) there are \(n\) independent eigenvectors \(\vb{v} _{i} \) with (not necessarily distinct) eigenvalues \(\lambda _{i} \). If \(\dim \text{Eig}_{f}(\lambda ) = 1 \) the eigenvalue \(\lambda\) is called non-degenerate, which means that up to rescaling there is only one eigenvector for \(\lambda \) and if \(\dim \text{Eig}_{f}(\lambda ) > 1  \) the eigenvalue \(\lambda \) is called degenerate, which means there are at least two linearly independent eigenvectors for the same \(\lambda \) (and any linear combination of them is also an eigenvector). For non-degenerate \(\lambda \), we usually use the normalized eigenvector with the property \(\avg{\vb{v} ,\vb{v} } = \vb{v} ^{\dagger}\vb{v} =1\).
-
 \example{Eigenvectors of the Inverse Matrix.}
 {A non-singular matrix \(A\) has eigenvalues \(\lambda _{i} \) and eigenvectors \(\vb{v} _{i} \). Find the eigenvalues and eigenvectors of the inverse matrix \(A^{-1} \).   }
 {The eigenvalues and eigenvectors of \(A\) satisfy
@@ -2602,40 +2575,10 @@ which are conveniently the sum and product of roots of the charateristic polynom
 \begin{equation}
     \lambda _{1,2} = \frac{s}{2} \pm \sqrt{\left( \frac{s}{2}  \right)^2 - p }.   
 \end{equation}
-
-
-
 } 
-
-\example{Equation of an Ellipse.}
-{Write the equation of the ellipse \(x^2+3y^2-2xy=1\) in quadratic form and find the length of the two axis by diagonlizing \(A\). }
-{Let \(A = \begin{pmatrix}
-    a &  b \\
-    b &  c \\
-\end{pmatrix}\), then \(\vb{x} ^TA\vb{x} = ax^2 + 2bxy + cy^2\). Comparing the coefficients with the expression on the LHS of the ellipse equation, we have \(a = 1, b = -1 \text { and } c = 3\). Diagonlizing \(A\) gives the matrix \(B = \begin{pmatrix}
-    2+\sqrt{2}  & 0  \\
-    0 & 2+\sqrt{2}   \\
-\end{pmatrix}\), and we have 
-
-\begin{equation}
-    Q(\vb{x} ) = \vb{x} ^TA\vb{x} = x^2+3y^2-2xy = Q'(\vb{x} ') = \vb{x} '^TB\vb{x} '= (2+\sqrt{2} )x'^2+(2-\sqrt{2} )y'^2 = 1.
-\end{equation}
-
-Thus the length of the two axes are \(a = \frac{1}{\sqrt{2+\sqrt{2 } }} \text { and } b = \frac{1}{\sqrt{2-\sqrt{2} } }  \). 
-} 
-
-
-
-Evidently \(\lambda \) is an eigenvalue of \(f\) when \(\dim (\text{Eig}_{f}(\lambda )) = \dim (\ker (f-\lambda \mathrm{id}_{V} )) > 0\). Thus \cref{linearmapprop2} and \cref{dimensionformulaeq} implies that \(f - \lambda \mathrm{id}_{V} \) is not bijective thus not invertible which implies
-
-\begin{equation}
-    \chi _{f}(\lambda ) \equiv \det (f - \lambda \mathrm{id}_{V} ) = 0,
-\end{equation}
-
-where \(\chi _{f}(\lambda ) \) is called the characteristic polynomial of the linear map for the eigenvalue \(\lambda \), which is a polynomial of order \(n\) in \(\lambda \) whose coefficients depend on \(f\).
 
 \begin{lemma}[Properties of Characteristic Polynomials]
-The characteristic polynomial \(\chi _{A}(\lambda ) = c_{n}\lambda ^{n} c_{n-1}\lambda ^{n-1} + \ldots + c_1 \lambda +c_0 \) of a \(n \times n\) matrix \(A\) has the following properties:
+The characteristic polynomial \(\chi _{A}(\lambda ) \equiv \det (f-\lambda \mathrm{id}_{V} ) = c_{n}\lambda ^{n} c_{n-1}\lambda ^{n-1} + \ldots + c_1 \lambda +c_0 \) of a \(n \times n\) matrix \(A\) has the following properties:
 
 \begin{enumerate}[label=(\(O\)\arabic*)]
     \item \(\chi _{PAP^{-1} } = \chi _{A}  \), so the characteristic polynomial is basis-independent. \label{O1} 
@@ -2663,7 +2606,9 @@ The characteristic polynomial \(\chi _{A}(\lambda ) = c_{n}\lambda ^{n} c_{n-1}\
 
 The above lemma shows that the determinant of a matrix is basis-independent, which we have already shown in \cref{detprop}. Further, it shows that the trace of a matrix A \(\Tr (A) \equiv \sum_{i=1}^{n} A_{ii}\) is also basis-independent. However this can be seen more directly by noting that \(\Tr (AB) = \sum_{i,j}^{} A_{ij} B_{ji} = \sum_{i,j}^{} B_{ji} A_{ij} = \Tr (BA)      \), so \(\Tr (PAP^{-1} ) = \Tr (P^{-1} PA) = \Tr (A)\).
 
-\section{Diagonalization of matrices}
+Resulting from the charateristic polynomial of the matrix, there will be \(n\) eigenvalues (which are not necessarily distinct) for a \(n \times n\) matrix. Distinct eigenvalues are also known as non-degenerate eigenvalues, and repeated eigenvlues are known as degenerate eigenvalues. If there happens to be a \(m-folded\) repeated root, then there will be usually \(m\) linearly indpendent eigenvector for the same eigenvalue, otherwise the matrix is called a defective matrix, and we will not be able to find \(n\) independent eigenvectors for the matrix and thus is not diagonalizable.
+
+\section{Diagonalization of Matrices}
 
 \begin{definition}
 We say a linear map \(f: V \rightarrow V\) can be diagonalized if there exist a basis of \(V\) such that the matrix which describes \(f\) relative to this basis is diagonal. 
@@ -2676,13 +2621,7 @@ A linear map \( f : V \to V \) can be diagonalised if and only if there exists a
 \end{lemma}
 
 \begin{proof}
-The entries of the matrix \( A \) which describes \( f \) relative to a basis \( \mathbf{v}_1, \ldots, \mathbf{v}_n \) of \( V \) are obtained from 
-
-\begin{equation}
-    f(\mathbf{v}_j) = \sum_i a_{ij} \mathbf{v}_i,
-\end{equation}
-
-as discussed in \cref{matrixlinearmap2}. From this equation, if \( A = \text{diag}(\lambda_1, \ldots, \lambda_n) \) is diagonal, then \( f(\mathbf{v}_j) = \lambda_j \mathbf{v}_j \) and the basis vectors \( \mathbf{v}_j \) are eigenvectors with eigenvalues \( \lambda_j \). 
+The entries of the matrix \( A \) which describes \( f \) relative to a basis \( \mathbf{v}_1, \ldots, \mathbf{v}_n \) of \( V \) are obtained from \(f(\mathbf{v}_j) = \sum_i a_{ij} \mathbf{v}_i\) as discussed in \cref{matrixlinearmap2}. From this equation, if \( A = \text{diag}(\lambda_1, \ldots, \lambda_n) \) is diagonal, then \( f(\mathbf{v}_j) = \lambda_j \mathbf{v}_j \) and the basis vectors \( \mathbf{v}_j \) are eigenvectors with eigenvalues \( \lambda_j \). 
 \end{proof}
 
 \begin{lemma} \label{diagonalizable} 
@@ -2739,9 +2678,7 @@ Let \(V\) be a vector space over \(\mathbb{R} (\mathbb{C})\) with real (hermitia
     \item \((A - \lambda \mathbb{I})\vb{v} = 0 \implies {((A-\lambda \mathbb{I})\vb{v} )}^{\dagger}((A-\lambda \mathbb{I})\vb{v}) = {\vb{v} }^{\dagger}(A-\lambda \mathbb{I})^{\dagger} (A-\lambda \mathbb{I})\vb{v} = {\vb{v} }^{\dagger} (A-\lambda \mathbb{I})(A-\lambda \mathbb{I})^{\dagger}\vb{v} = ({(A-\lambda \mathbb{I})}^{\dagger}\vb{v})^{\dagger}  ((A-\lambda \mathbb{I})^{\dagger}\vb{v}) = 0 \implies (A-\lambda \mathbb{I})^{\dagger}\vb{v}  = (A^{\dagger} - \lambda ^* \mathbb{I})\vb{v}  = 0\).
     \item For two eigenvectors \(\vb{v} _{1} \text { and } \vb{v} _{2}  \) with eigenvalues \(\lambda _{1} \text { and } \lambda _{2}  \) resepctively, we have
     \begin{equation}
-        \begin{aligned} 
-        A\vb{v} _{1} &= \lambda _{1}\vb{v} _{1} \implies {(\vb{v} _{2} )}^{\dagger} A\vb{v} _{1} = (A^{\dagger} \vb{v} _{2} )^{\dagger} \vb{v} _{1} = (\lambda _{2}^*\vb{v} _{2}  )^{\dagger}\vb{v} _{1} = \lambda _{2}(\vb{v} _{2})^{\dagger}\vb{v} _{1} = \lambda _{1} {(\vb{v} _{2} )}^{\dagger}\vb{v} _{1}\\ & \implies (\lambda _{2} - \lambda _{1}  ){\vb{v} _{2} }^{\dagger} \vb{v} _{1} = 0.      
-        \end{aligned} 
+        A\vb{v} _{1} = \lambda _{1}\vb{v} _{1} \implies {(\vb{v} _{2} )}^{\dagger} A\vb{v} _{1} = (A^{\dagger} \vb{v} _{2} )^{\dagger} \vb{v} _{1} = (\lambda _{2}^*\vb{v} _{2}  )^{\dagger}\vb{v} _{1} = \lambda _{2}(\vb{v} _{2})^{\dagger}\vb{v} _{1} = \lambda _{1} {(\vb{v} _{2} )}^{\dagger}\vb{v} _{1}.
     \end{equation}
 
     Thus if \(\lambda _{1} \neq \lambda _{2}  \), \textit{i.e.,} the eigenvalues of the eigenvectors are not the same \({\vb{v} _{2} }^{\dagger}\vb{v} _{1} = \avg{\vb{v} _{2}, \vb{v} _{1}  } =0 \), which means that the eigenvectors are orthogonal.  
@@ -2754,24 +2691,12 @@ For hermitian matrices this means that all eigenvalues of \(f\) are real. For an
 
 \example{Eigenvalues of a Unitary Matrix.}
 {Prove that the Eigenvalues of a unitary matrix has unit modulus.}
-{\(\boldsymbol{\epsilon }^{\dagger}\boldsymbol{\epsilon }  = {\boldsymbol{\epsilon } }^{\dagger}A^{\dagger} A \boldsymbol{\epsilon } = \lambda ^*\lambda \boldsymbol{\epsilon }^{\dagger} \boldsymbol{\epsilon } \implies \lambda \lambda ^* = \abs{\lambda }^2= 1 \). } 
+{\(\vb{v}^{\dagger}\vb{v}  = {\vb{v} }^{\dagger}A^{\dagger} A \vb{v} = \lambda ^*\lambda \vb{v}^{\dagger} \vb{v} \implies \lambda \lambda ^* = \abs{\lambda }^2= 1 \). } 
 
 
-\example{The Eigenvalues of a hermitian Matrix are real.}
-{Prove that the eigenvalues of a hermitian matrix are real directly.}
-{We start with \(A\boldsymbol{\epsilon } _{i} = \lambda _{i}\boldsymbol{\epsilon }_{i} \implies {\boldsymbol{\epsilon }_{i}  }^{\dagger}A^{\dagger} = \lambda _{i}^*{\boldsymbol{\epsilon }_{i}  }^{\dagger}\). Multiplying on the right by \(\boldsymbol{\epsilon }_{i}  \), we have
-
-\begin{equation}
-    \boldsymbol{\epsilon }_{i}^{\dagger} A \boldsymbol{\epsilon }_{i} = \lambda _{i} ^* \boldsymbol{\epsilon }_{i}^{\dagger} \boldsymbol{\epsilon }_{i}   .
-\end{equation}
-
-But multiplying on the left by \(A \boldsymbol{\epsilon }_{i} = \lambda _{i} \boldsymbol{\epsilon }_{i}    \), we have
-
-\begin{equation}
-    {\boldsymbol{\epsilon } _{i} }^{\dagger}A \boldsymbol{\epsilon }_{i} = \lambda _{i} {\boldsymbol{\epsilon }_{i}  }^{\dagger} \boldsymbol{\epsilon }_{i}.   
-\end{equation}
-
-Comparing the two equations, we have \(\lambda _{i}^* = \lambda _{i}  \).
+\example{The Eigenvalues and Eigenvectors of a Hermitian Matrix.}
+{Prove that the eigenvalues of a hermitian matrix are real and the eigenvectors are orthogonal directly.}
+{We have \(\avg{\vb{v} , A \vb{v}} = \lambda \avg{\vb{v},\vb{v}  } = \avg{A \vb{v}, \vb{v}  } = \lambda ^*\avg{\vb{v},\vb{v}  } \implies \lambda = \lambda ^*  \), and \(\avg{\vb{v}_{1}, A \vb{v}_{2}  } = \lambda _{2} \avg{\vb{v}_{1} ,\vb{v}_{2}   } = \avg{A \vb{v}_{1}, \vb{v}_{2}    }  = \lambda _{1} \avg{\vb{v}_{1}, \vb{v}_{2}    } \implies \avg{\vb{v}_{1}, \vb{v}_{2}    } = 0\).
 } 
 
 
@@ -2793,18 +2718,18 @@ In summary, it means that every normal matrix has an orthonormal basis $\epsilon
 This is because \(A(P)\) stretch the column vectors of \(P\) by a factor of their eigenvalues, then \(P^{\dagger} (AP)\) contains the entries of all possible combinations of the original and the scaled eigenvectros, with gives the eigenvalues on the diagonal. The result can be understood more easily since after changing the basis to eigenvectors, the transformed eigenvectors are scaled by a factor of their eigenvalues and the result follows from \cref{matrixlinearmap2}. 
 
 \example{Express a Nomal Matrix in terms of its Eigenvectors.}
-{Show that a \(n \times n\) normal matrix \(A\) can be written in terms of its eigenvalues \(\lambda _{i} \) and orthonormal eigenvectors \(\boldsymbol{\epsilon }  _{i} \) as 
+{Show that a \(n \times n\) normal matrix \(A\) can be written in terms of its eigenvalues \(\lambda _{i} \) and orthonormal eigenvectors \(\vb{v}  _{i} \) as 
 
 \begin{equation}
-    A = \sum_{i=1}^{n} \lambda _{i} \boldsymbol{\epsilon }_{i}  {\boldsymbol{\epsilon }_{i}   }^{\dagger} .
+    A = \sum_{i=1}^{n} \lambda _{i} \vb{v}_{i}  {\vb{v}_{i}   }^{\dagger} .
 \end{equation}~
 }
-{we first note that an aribtrary vector can be written as \(\vb{v} = \sum_{i=1}^{n} v_{i} \boldsymbol{\epsilon }_{i}  \), where \(v_{i} = \boldsymbol{\epsilon }_{i}^{\dagger} \vb{v}\), since the eigenvectors \(\boldsymbol{\epsilon }_{i}  \) forms an orthonormal basis.
+{we first note that an aribtrary vector can be written as \(\vb{v} = \sum_{i=1}^{n} v_{i} \vb{v}_{i}  \), where \(v_{i} = \vb{v}_{i}^{\dagger} \vb{v}\), since the eigenvectors \(\vb{v}_{i}  \) forms an orthonormal basis.
 
 We can thus show that when both sides of the above equation is acted on \(\vb{v} \), we get the same result 
 
 \begin{equation}
-    A\vb{v} = A\sum_{i=1}^{n} v_{i}\boldsymbol{\epsilon _{i} } = \sum_{i=1}^{n} v_{i} \lambda _{i} \boldsymbol{\epsilon }_{i} = \sum_{i=1}^{n} \lambda _{i} \boldsymbol{\epsilon }_{i}{\boldsymbol{\epsilon } }_{i} ^{\dagger}\sum_{i=1}^{n} v_{i} \boldsymbol{\epsilon }_{i}.   
+    A\vb{v} = A\sum_{i=1}^{n} v_{i}\boldsymbol{\epsilon _{i} } = \sum_{i=1}^{n} v_{i} \lambda _{i} \vb{v}_{i} = \sum_{i=1}^{n} \lambda _{i} \vb{v}_{i}{\vb{v} }_{i} ^{\dagger}\sum_{i=1}^{n} v_{i} \vb{v}_{i}.   
 \end{equation}~
 } 
 
@@ -2827,10 +2752,10 @@ A simple way to test whether the eigenvectors are linearly independent is by cal
 We have 
 
 \begin{equation}
-    AB \boldsymbol{\epsilon } = BA \boldsymbol{\epsilon } = B \lambda \boldsymbol{\epsilon } = \lambda B \boldsymbol{\epsilon },
+    AB \vb{v} = BA \vb{v} = B \lambda \vb{v} = \lambda B \vb{v},
 \end{equation}
 
-thus \(B \boldsymbol{\epsilon } \) is an eigenvector of \(A\) corersponding to the same eigenvalue \(\boldsymbol{\epsilon } \), \textit{i.e.,} \(B \boldsymbol{\epsilon } = \mu \boldsymbol{\epsilon }   \), showing that \(\boldsymbol{\epsilon } \) is an eigenvalue for \(B\) as well. 
+thus \(B \vb{v} \) is an eigenvector of \(A\) corersponding to the same eigenvalue \(\vb{v} \), \textit{i.e.,} \(B \vb{v} = \mu \vb{v}   \), showing that \(\vb{v} \) is an eigenvalue for \(B\) as well. 
 } 
 
 \example{Trace Formula.}
@@ -2877,7 +2802,22 @@ Since eigenvectors are generally orthogonal, so if we choose them to be the basi
 
 If the quadratic form of \(A\) is positive for all column vectors \(\vb{x} \), then it is positive definite. From the above equation, we see that this is equivalent to all the eigenvalues of \(A\) are positive.  
 
+\example{Equation of an Ellipse.}
+{Write the equation of the ellipse \(x^2+3y^2-2xy=1\) in quadratic form and find the length of the two axis by diagonlizing \(A\). }
+{Let \(A = \begin{pmatrix}
+    a &  b \\
+    b &  c \\
+\end{pmatrix}\), then \(\vb{x} ^TA\vb{x} = ax^2 + 2bxy + cy^2\). Comparing the coefficients with the expression on the LHS of the ellipse equation, we have \(a = 1, b = -1 \text { and } c = 3\). Diagonlizing \(A\) gives the matrix \(B = \begin{pmatrix}
+    2+\sqrt{2}  & 0  \\
+    0 & 2+\sqrt{2}   \\
+\end{pmatrix}\), and we have 
 
+\begin{equation}
+    Q(\vb{x} ) = \vb{x} ^TA\vb{x} = x^2+3y^2-2xy = Q'(\vb{x} ') = \vb{x} '^TB\vb{x} '= (2+\sqrt{2} )x'^2+(2-\sqrt{2} )y'^2 = 1.
+\end{equation}
+
+Thus the length of the two axes are \(a = \frac{1}{\sqrt{2+\sqrt{2 } }} \text { and } b = \frac{1}{\sqrt{2-\sqrt{2} } }  \). 
+} 
 
 
 
@@ -2938,12 +2878,14 @@ If the quadratic form of \(A\) is positive for all column vectors \(\vb{x} \), t
 
 
 \begin{appendices}
-\chapter{Basic Definition}
+\chapter{Rigorous Definitions and Proofs}
+
+\section{Definitions of Set, Group, Field and Vector Spaces}
 
 Here we will formally define set, group, field and vector space.
 
 \begin{enumerate}
-\item  *A set is a collection of mathematical objects.
+\item  A set is a collection of mathematical objects.
 
 \item  A set \( G \) with a binary operation that combines two elements in the set to yield another element in the set is called a group. Mathematically this can be written as \( G \times G \to G \). This operation has to have certain properties (also called the axioms), and together with the set these constitute the algebraic structure of the group. Specifically, for a group these are closure, associativity, the existence of an identity element, and the existence of inverse elements. If the operation also commutes (\textit{i.e.,}  it does not depend on the order in which the elements are written in the operation), then the group is said to be a commutative or an Abelian group.
 
@@ -2952,9 +2894,7 @@ Here we will formally define set, group, field and vector space.
 \item  A vector space over a field \( F \) is a set \( V \) together with two binary operations: vector addition \( (V \times V \to V) \) and scalar multiplication \( (V \times F \to V) \). Note the difference with the definition of a field: the notion of multiplication between vectors is not part of the fundamental algebraic structure of a vector space. In fact, as we know there are multiple ways to multiply vectors, and the multiplicative inverse (\textit{i.e.,}  vector division) is not defined. The elements of the field are called scalars to distinguish them from the elements of the vector space (vectors), and because the definition of multiplication acts to scale the vectors. We will typically be interested in vector spaces defined over \( \mathbb{R} \): this is called a real vector space. Eight axioms must be satisfied for the operations permitted on a vector space: associativity and commutativity of addition, the existence of identity elements for addition and scalar multiplication, the existence of additive inverses, compatibility of scalar multiplication with respect to field addition, and compatibility of scalar and field multiplication.
 \end{enumerate}
 
-\chapter{Rigorous Proofs}
-
-\section{A Sub Vector Space is a Vector Space} \label{subvectorvector} 
+\section{A Sub Vector Space is a Vector Space} \label{subvectorapp} 
 
 Here we provide a rigorous proof that the sub vector space \(W \subset V\) satisfy all the requirements in \cref{vectorspace}.
 \begin{lemma}
