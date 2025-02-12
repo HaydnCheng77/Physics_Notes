@@ -159,23 +159,43 @@ So far our discussion has centred on a function \(f(x,y)\) dependent on two vari
 
 \begin{equation}
     \begin{aligned}
-    dx &= \left( \frac{\partial x}{\partial y}  \right)_{z} dy + \left( \frac{\partial x}{\partial z}  \right)_{y} dz \text { and }   dy = \left( \frac{\partial y}{\partial x}  \right)_{z} dx + \left( \frac{\partial y}{\partial z}  \right)_{x} dz \\
+    dx &= \left( \frac{\partial x}{\partial y}  \right)_{z} dy + \left( \frac{\partial x}{\partial z}  \right)_{y} dz ~\text { and }~   dy = \left( \frac{\partial y}{\partial x}  \right)_{z} dx + \left( \frac{\partial y}{\partial z}  \right)_{x} dz \\
     \implies dx &= \left( \frac{\partial x}{\partial y}  \right)_{z} \left( \frac{\partial y}{\partial x}  \right)_{z} dx + \left( \left( \frac{\partial x}{\partial y}  \right)_{z}  \left( \frac{\partial y}{\partial z}  \right)_{x} + \left( \frac{\partial x}{\partial z}  \right)_{y}  \right) dz. 
     \end{aligned}
 \end{equation}
 
-Since \(dx \text { and }  dz\) are independent, we the reciprocity and the cyclic relation 
+Since \(dx \text { and }  dz\) are independent, we the reciprocity and the cyclic relations
 
 \begin{equation}
     \left( \frac{\partial x}{\partial y}  \right)_{z} = \left( \frac{\partial y}{\partial x}  \right)_{z}^{-1} \text { and } \left( \frac{\partial y}{\partial z}  \right)_{x} \left( \frac{\partial z}{\partial x}  \right)_{y} + \left( \frac{\partial x}{\partial y}  \right)_{z} = -1 
 \end{equation}
+
+The same relationships can be found by dividing the total derivative by \(df \text { or } dx\) while keeping \(y \text { or } f\) constant, respectively.
+
+It is important to note that in the reciprocity relationship, the same thing is held constant in both partial derivatives. 
+
+The reciprocity and the cyclic relations can be generalized to higher number of variables. For the reciprocity relation, we simply keep linking each numerator with the previous denominator while keeping the same constraint, \textit{e.g.,} 
+
+\begin{equation}
+	\left( \frac{\partial f}{\partial x}  \right)_{y} \left( \frac{\partial x}{\partial z}  \right)_{y} \left( \frac{\partial z}{\partial f}  \right)_{y} = 1. 
+\end{equation}
+
+For the cyclic relation, the further variables simply appear as ``spectators'' which are held constant in all the terms, \textit{e.g.,} 
+
+\begin{equation}
+	\left( \frac{\partial f}{\partial y}  \right)_{x,z} \left( \frac{\partial y}{\partial x}  \right)_{f,z}\left( \frac{\partial x}{\partial f}  \right)_{y,z} = -1.  
+\end{equation}
+
+
+
+
 
 \subsection{Change of Variables}
 
 Again, we emphasize that it is completely fine if the variables are related by some separate relations or cosntriant. Suppose \(x \text { and } y\) are parameterized by some other variable \(u\), \textit{i.e.,} \(x = x(u) \text { and } y = y(u)\). Then to find out how \(f(x,y)\) changes with \(u\), we simplify divide the total derivative of \(f\) with respect to \(x \text { and } y\) by \(du\), so
 
 \begin{equation}
-    \frac{df}{du} = \frac{\partial f}{\partial x} \frac{dx}{du} + \frac{\partial f}{\partial y} \frac{dy}{du},
+    \frac{df}{du} = \left( \frac{\partial f}{\partial x}  \right)_{y} \frac{dx}{du} + \left( \frac{\partial f}{\partial y}  \right)_{x} \frac{dy}{du},  
 \end{equation}
 
 which is analogous to chain rule in ordinary differentiation.
@@ -183,7 +203,7 @@ which is analogous to chain rule in ordinary differentiation.
 Suppose now instead of having a constriant on \(x\text { and } y\), we would like to change the whole set of variables from \((x,y)\) to \((u,v)\). Then we have \(x = x(u,v) \text { and } y = y(u,v)\). So the derivatives become
 
 \begin{equation} \label{changeofvar} 
-    \frac{\partial f}{\partial u} = \frac{\partial f}{\partial x} \frac{\partial x}{\partial u} + \frac{\partial f}{\partial y} \frac{\partial y}{\partial u} ~\text { and }~ \frac{\partial f}{\partial v} = \frac{\partial f}{\partial x} \frac{\partial x}{\partial v} + \frac{\partial f}{\partial y} \frac{\partial y}{\partial v}.  
+    \left( \frac{\partial f}{\partial u}  \right)_{v} = \left( \frac{\partial f}{\partial x}  \right)_{y} \left( \frac{\partial x}{\partial u}  \right)_{v}  + \left( \frac{\partial f}{\partial y}  \right)_{x} \left( \frac{\partial y}{\partial u}  \right)_{v} ~\text { and }~ \left( \frac{\partial f}{\partial v}  \right)_{u} = \left( \frac{\partial f}{\partial x}  \right)_{y}\left( \frac{\partial x}{\partial v}  \right)_{u} + \left( \frac{\partial f}{\partial y}  \right)_{x} \left( \frac{\partial y}{\partial v}  \right)_{u}.      
 \end{equation}
 
 To generalize the above discussion, suppose we want to change the set of \(n\) variables from \(\vb{x}\) to \(\vb{u} \), then the \(n\) equations are 
@@ -199,8 +219,10 @@ or written in matrix form \(\boldsymbol{\nabla }_{\vb{u} } = J^T \boldsymbol{\na
 		\frac{\partial x}{\partial u}  & \frac{\partial x}{\partial v}  & \frac{\partial x}{\partial w}   \\
 		\frac{\partial y}{\partial u}  & \frac{\partial y}{\partial v}  & \frac{\partial y}{\partial w}   \\
 		\frac{\partial z}{\partial u}  & \frac{\partial z}{\partial v}  & \frac{\partial z}{\partial w}   \\
-	\end{pmatrix}.
+	\end{pmatrix},
 \end{equation}
+
+where we have assumed, for example, that \(v \text { and } w\) are kept constant in \(\frac{\partial x}{\partial u} \).  
 
 In three dimensions, the 3 equations are
 
@@ -1198,7 +1220,7 @@ A point on a surface, on the other hand, requires two parmeters \(u \text { and 
 	\vb{r} (u,v)  = x(u,v) \vu{i} + y(u,v) \vu{j} + z(u,v) \vu{k},
 \end{equation}
 
-or algebrically as \(F(x,y,z) = 0\). 
+or algebrically as \(f(x,y,z) = 0\). 
 
 There are generally two ways to compute an infinitesimal surface \(dS\). If the parametric form of the surface is given, then refer to \cref{jacobian}, since \(v\) is constant along \(KL\), the line element \(KL\) can be written as 
 
@@ -1206,13 +1228,13 @@ There are generally two ways to compute an infinitesimal surface \(dS\). If the 
 	d\vb{r} _{KL} = \frac{\partial \vb{r} }{\partial u}du+ \frac{\partial \vb{r} }{\partial v}dv = \frac{\partial \vb{r} }{\partial u}du = \frac{\partial x}{\partial u} du \vu{i} + \frac{\partial y}{\partial u} du \vu{j}.
 \end{equation}
 
-Similarly, \(\displaystyle d\vb{r} _{KN}  = \frac{\partial x}{\partial v} dv \vu{i} + \frac{\partial y}{\partial v} dv \vu{j}\). Thus the area of the parallelogram \(KLMN\) is given by
+Similarly, \(\displaystyle d\vb{r} _{KN}  = \frac{\partial x}{\partial v} dv \vu{i} + \frac{\partial y}{\partial v} dv \vu{j}\), thus the area of the parallelogram \(KLMN\) is given by
 
 \begin{equation}
 	dS_{u,v} = \abs{d\vb{r} _{KL} \cross  d\vb{r} _{KN}} = \abs{\frac{\partial \vb{r} }{\partial u} \cross \frac{\partial \vb{r} }{\partial v} } = \abs{\frac{\partial x}{\partial u} du \frac{\partial y}{\partial v} dv - \frac{\partial x}{\partial v} dv \frac{\partial y}{\partial u} du} = \abs{\frac{\partial (x,y)}{\partial (u,v)} } dudv.
 \end{equation}
 
-Since both \(\displaystyle \frac{\partial \vb{r} }{\partial u} \text { and } \frac{\partial \vb{r} }{\partial v}  \) lie in the tangent plane to the surface at \(\vb{r} \), the direction of the infinitesimal surface is also encoded in the cross product
+Since both \(\frac{\partial \vb{r} }{\partial u} \text { and } \frac{\partial \vb{r} }{\partial v}  \) lie in the tangent plane to the surface at \(\vb{r} \), the direction of the infinitesimal surface is also encoded in the cross product
 
 \begin{equation}
 	d\vb{S} _{u,v} = \frac{\partial \vb{r} }{\partial u} \cross \frac{\partial \vb{r} }{\partial v}.   
@@ -1382,7 +1404,7 @@ where \(d\vb{S} = \vu{n} dS\) is the infinitesimal vector area element. The dire
 
 
 \example{Surface Integral (1).}
-{Evaluate the surface integral \(\displaystyle I = \int_{S}^{} \vb{F} \cdot d\vb{S} \), where \(F = x \vu{i}  \) and \(S\) is the surface of the hemisphere \(x^2 + y^2 + z^2 = a^2\).}
+{Evaluate the surface integral \(\displaystyle I = \int_{S}^{} \vb{F}(\vb{r} ) \cdot d\vb{S} \), where \(F = x \vu{i}  \) and \(S\) is the surface of the hemisphere \(x^2 + y^2 + z^2 = a^2\).}
 {Parameterizing the surface by \(\theta \text { and } \phi \), 
 
 \begin{equation}

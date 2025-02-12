@@ -5,7 +5,7 @@
 
 \author{Haydn Cheng}
 
-\date{Aug 2024}
+\date{\today}
 
 \begin{document}
 \maketitle
@@ -67,7 +67,7 @@ To account for the rotational motion of an object, torque \(\boldsymbol{\tau } \
 
 We can see that both \(\boldsymbol{\tau } \text{ and } \vb{L} \) depend on the origin defined as \(\vb{r} \) is the position vector.
 
-Taking the derivatives of the angular momentum, we yield ``Newton's second law for rotation"
+Taking the derivatives of the angular momentum, we yield ``Newton's second law for rotation''
 
 \begin{equation}
 	\frac{d \vb{L}}{t} = \frac{d}{dt} (\vb{r} \cross \vb{p} ) = \vb{r} \cross \frac{d\vb{p} }{dt}  + \frac{d \vb{r}}{dt} \cross \vb{p} = \vb{r} \cross \vb{F} + \vb{v} \cross (m\vb{v} ) = \vb{r} \cross \vb{F} = \boldsymbol{\tau}  
@@ -150,7 +150,7 @@ Summing over all particles,
 	\sum_{i}^{} (\vb{r} _{i} \cross \vb{F} _{i,ext}) + \sum_{i}^{} (\vb{r} _{i} \cross \sum_{j}^{} \vb{F} _{j \rightarrow i}) = \boldsymbol{\tau }_{ext}  + \sum_{i}^{} ((\vb{r} _{i} - \vb{r} _{j} ) \cross  \vb{F} _{j \rightarrow  i } ) = \boldsymbol{\tau } _{ext} = \sum_{i}^{} \frac{dL_{i} }{dt}  = \dot{\vb{L}_{tot}}. 
 \end{equation}
 
-where we again used Newton's third law and assumed that the internal forces are central, \ie the force between two particles act on the line connecting them.
+where we again used Newton's third law and assumed that the internal forces are central, \textit{i.e.,} the force between two particles act on the line connecting them.
 
 To express \(\vb{L} _{tot} \) in a more convenient form, we define \(\vb{r}'_{i} = \vb{r} _{i} - \vb{R}  \)\footnote{We will adopt this convention for the rest of this set of notes}  as shown in \cref{riprime}  \onefig{riprime}{scale=0.3}, thus \(\vb{p} _{i} = m_{i}\dot{\vb{r} '_{i} }  + m_{i} \dot{\vb{R} }  \) and the total angular momentum becomes 
 
@@ -176,7 +176,7 @@ where we neglect the cross term \(\sum_{i}^{} m_{i} (\dot{\vb{r} '_{i} } \cdot \
 \newpage
 \section{Rigid Body Mechanics}
 \subsection{Prerequisites}
-If one were to choose a theorem that represents the crux of rigid body motion, one would have to pick Chasles' Theorem, which states that it is always possible to describe an arbitrary displacement of a rigid body by a translation of its center of mass plus a rotation around its center of mass (it can rotate about an arbitrary point but the center of mass is the most convenient choice). \footnote{Another way to construct any displacement is first to do a rotation and then translate parallel to the axis of rotation, we reverse the order of translation and rotation while adding a constraint on the translating direction.} \footnote{Yet another interesting and useful fact is that if the motion of the body is planer (\ie the angular velocity is perpendicular to the linear velocity), then there always exists an instantaneous axis of rotation (which need not be inside the rigid body) that is parallel to the angular velocity such that any infinitesimal displacement can be constructed by rotating around this axis (This is the third way in which a displacement of a rigid body can be constructed). The proof of this fact is given \href{https://physics.stackexchange.com/q/541554}{here}. The instantaneous axis of rotation can be constructed geometrically mentioned in idea 33 of \href{https://www.ioc.ee/~kalda/ipho/kin_ENG.pdf}{this handout} by Jaan Kalda.}  The formal proof requires complex matrix algebra but a simple way to demonstrate the theorem is given in \cref{ap1}. Since the translational and the rotational motion of a rigid body are separable, so we almost always assume that the translational motion has already been accounted for. In fact, we will assume that the center of mass is at rest for the rest of this section.
+If one were to choose a theorem that represents the crux of rigid body motion, one would have to pick Chasles' Theorem, which states that it is always possible to describe an arbitrary displacement of a rigid body by a translation of its center of mass plus a rotation around its center of mass (it can rotate about an arbitrary point but the center of mass is the most convenient choice). \footnote{Another way to construct any displacement is first to do a rotation and then translate parallel to the axis of rotation, we reverse the order of translation and rotation while adding a constraint on the translating direction.} \footnote{Yet another interesting and useful fact is that if the motion of the body is planer (\textit{i.e.,} the angular velocity is perpendicular to the linear velocity), then there always exists an instantaneous axis of rotation (which need not be inside the rigid body) that is parallel to the angular velocity such that any infinitesimal displacement can be constructed by rotating around this axis (This is the third way in which a displacement of a rigid body can be constructed). The proof of this fact is given \href{https://physics.stackexchange.com/q/541554}{here}. The instantaneous axis of rotation can be constructed geometrically mentioned in idea 33 of \href{https://www.ioc.ee/~kalda/ipho/kin_ENG.pdf}{this handout} by Jaan Kalda.}  The formal proof requires complex matrix algebra but a simple way to demonstrate the theorem is given in \cref{ap1}. Since the translational and the rotational motion of a rigid body are separable, so we almost always assume that the translational motion has already been accounted for. In fact, we will assume that the center of mass is at rest for the rest of this section.
 
 If one were to pick a second theorem, then it would be Euler's Theorem, which states that any displacement of a rigid body such that a point on the rigid body remains fixed is equivalent to a single rotation about some axis that runs through the fixed point. Since the center of mass is always fixed as established above, it tells us that rotation about the center of mass means that all points on the rigid body undergo circular motion with respect to the closest point on an axis that runs through the center of mass where the direction of the axis defines the rotational motion and is in the same direction as the angular velocity which will be explored more in the next subsection. The proof of Euler's Theorem will not be given here due to its complexity.
 
@@ -541,234 +541,1134 @@ The advantage of working in the body-fixed coordinates is that the inertia tenso
 \end{equation}
 
 
+\chapter{Waves}
 
+\section{Normal Modes}
 
+\subsection{Basics}
 
+We start with the simple case with the equation
 
+\begin{equation}
+    m \ddot{\vb{x} } = -K\vb{x}, \label{normal} 
+\end{equation}
 
+where \(K\) is symmetric (if the system conserves energy as we will show below), thus having orthogonal eigenvectors \(\vb{v} _{i} \) with eigenvalues \(\lambda _{i} \).
 
+Substituitng \(\vb{x} = P \vb{q} \) into the equation, where \(P = (\vb{v} _{1},\ldots ,\vb{v} _{n}   )\), we get
 
+\begin{equation}
+    m \ddot{\vb{q} } = -K'\vb{q},
+\end{equation}
 
+where \(K = \text{diag}(\lambda _{1}, \ldots , \lambda _{n})\). One would go on to obtain \(n\) decoupled equations with variables \(q_{i}\), known as the normal coordinates, for which the solutions are 
 
+\begin{equation}
+	q_{i} = Ae^{i\sqrt{\frac{\lambda _{i} }{m} } t} + Be^{-i\sqrt{\frac{\lambda _{i} }{m} } t}.  
+\end{equation}
 
+Therefore the solution for \(\vb{x} \) is
 
+\begin{equation}
+	\vb{x} = \vb{v} _{1}\left(A_1 e^{i\sqrt{\frac{\lambda _{1} }{m} } t} + B_1 e^{-i\sqrt{\frac{\lambda _{1} }{m} } t}\right) + \cdots + \vb{v} _{n} \left(A_{n} e^{i\sqrt{\frac{\lambda _{n} }{m} } t} + B_{n} e^{-i\sqrt{\frac{\lambda _{n} }{m} } t}\right).
+\end{equation}
 
+Alternatively, we can guess \(\vb{x} = \vb{v} e^{i \omega t} \) to get\footnote{This method can be interpreted as separation of variables, which we will use to solve the wave equation, or just by observing the general solution obtained earlier are linear combinations of \(\vb{v} e^{i \omega t} \).} 
 
+\begin{equation}
+	m \omega ^2 \vb{v} = K \vb{v} ,
+\end{equation}
 
+which shows that \(\vb{v} _{i} \) are the eigenvectors with eigenvalues \(\lambda _{i} =  m \omega _{i}^2\), which gives the relative amplitudes of each masses in a certain mode of oscillation. One would go on to find the \(n\) eigenvalues \(\lambda _{i} = m \omega _{i}^2  \) and the corresponding \(n\) eigenvectors and thus getting the same result as above.
 
+\subsection{Unequal Masses}
 
+If the masses in the system are unequal, then the equation becomes 
 
+\begin{equation}
+    M \ddot{\vb{x} } = -K\vb{x}. \label{normal2} 
+\end{equation}
 
+The generalized eigenvalues and eigenvectors can be found by solving 
 
+\begin{equation}
+    \det (K-\lambda _{i}M ) = 0,
+\end{equation}
 
+where the eigenvalues are real, and orthogonal, in the sense that if \(\lambda _{i} \neq \lambda _{j}  \), then \(\vb{v} _{i}^T M \vb{v} _{j}  =0\). The only difference is that the solution is now
 
+\begin{equation}
+	\vb{x} = \vb{v} _{1}\left(A_1 e^{i\sqrt{\lambda _{1}  } t} + B_1 e^{-i\sqrt{\lambda _{1}  } t}\right) + \cdots + \vb{v} _{n} \left(A_{n} e^{i\sqrt{\lambda _{n}  } t} + B_{n} e^{-i\sqrt{\lambda _{n}  } t}\right).
+\end{equation}
 
+As the general solution is still linear combination of \(\vb{v} e^{i \omega t} \), guessing it directly to find \(\omega \) still works.  
 
+\subsection{Damped and Forced Oscillators}
 
+If there is damping, then the equation becomes 
 
+\begin{equation}
+    m \ddot{\vb{x} } = -\gamma \dot{\vb{x} }-K\vb{x},  
+\end{equation}
 
+which can be reduced to the normal case via a substitution \(\vb{x} = \vb{y} e^{-\frac{\gamma t}{2} } \). All friction does is reduce the frequency of each normal mode and introduce an overall damping factor. Agian, guessing \(\vb{x} = \vb{v} e^{i \omega t} \) still works. 
 
+If there is also a driving force, then the equation becomes
 
+\begin{equation}
+    m \ddot{\vb{x} } = -\gamma \dot{\vb{x} } - K\vb{x} + \vb{F} e^{i \omega t} ,  
+\end{equation}
 
+which adds a particular solution \(\vb{x}_{P}  = \mathfrak{Re} (\vb{C} e^{i \omega t} ) \), which upon substitution gives 
 
+\begin{equation}
+    \vb{C} = \left( K+(i \gamma \omega -\omega ^2)\mathbb{I} \right)^{-1} \vb{F}. = (P(K' + (i \gamma \omega - \omega ^2)\mathbb{I})P^{-1} )^{-1} \vb{F} = PGP^{-1} \vb{F} ,
+\end{equation}
 
+where \(G = \text{diag}((\lambda _{i} - \omega ^2+i \gamma \omega  ))^{-1}  \). If the driving force frequency is close to one of the normal-node frequencies, say \(\omega \approx \omega _{1} \), then \(G\) is dominated by the entry with \(i = 1\), so we get 
 
+\begin{equation}
+    \vb{C} \approx \vb{v} _{1} \frac{\vb{v} _{1} ^T \vb{F} }{i \gamma \omega }  \implies \vb{x} _{P} \approx \vb{v} _{1} \frac{\vb{v} _{1} ^T \vb{F}  }{\gamma \omega }\sin (\omega t)
+\end{equation}
 
 
+\subsection{Energy Conservation}
 
+Multiplying both sides of \cref{normal2} with \(\dot{\vb{x} }^T \), we get
 
+\begin{equation}
+    \frac{d}{dt} \left(\frac{\vb{x} ^TM\vb{x} }{2}\right) = - \dot{\vb{x} }^TK\vb{x} = -\frac{d}{dt} \left( \frac{\vb{x}^T K \vb{x} }{2}  \right),  
+\end{equation}
 
+where the last equality holds since \(K=K^T\) for symmetric \(K\). From the above equation, we conclude that kinetic energy corresponds to the LHS of the above equation and the potential energy the RHS.
 
+In terms of normal coordinates, we have
 
+\begin{equation}
+    E = \frac{1}{2} (\vb{x} ^TM\vb{x}) + \frac{1}{2} (\vb{x} ^TK\vb{x}) =  \frac{1}{2}(\vb{q} ^TM'\vb{q} )+\frac{1}{2}(\vb{q} ^TK'\vb{q} ).
+\end{equation}
 
+In general, if the eigenvectors are not normalized, we can introduce a matrix \(\Gamma = P^TP\) such that instead of \(M'\) we have \(\Gamma M'\) and instead of \(K'\) we have \(\Gamma K'\).     
 
+In equal masses case, 
 
+\begin{equation}
+    E = \frac{1}{2} \sum_{i=1}^{n} \left(  m \dot{q_{i} }^2+\lambda _{i}q_{i}^2     \right).
+\end{equation}
 
 
 
+\subsection{N Masses}
 
+For \(N\) masses oscillating in transverse or longitudinal direction, the equation reads 
 
+\begin{equation}
+	m \frac{d^2}{dt^2} 
+\begin{pmatrix}
+\vdots \\
+x_{n-1} \\
+x_n \\
+x_{n+1} \\
+\vdots
+\end{pmatrix}
+=
+\begin{pmatrix}
+	 &  & \vdots  &  &  &  &   \\
+	\cdots  & k & -2k & k &  &  &   \\
+	 &  & k & -2k & k &  &   \\
+	 &  &  & k & -2k & k &  \cdots  \\
+	 &  &  &  & \vdots  &  &   \\
+\end{pmatrix}
+\begin{pmatrix}
+\vdots \\
+x_{n-1} \\
+x_n \\
+x_{n+1} \\
+\vdots
+\end{pmatrix}.
+\end{equation}
 
+As ususal, we guess \(\vb{x} = \vb{v} e^{i \omega t} \), but instead of taking the determinant, we look at the \(n^{\text{th}} \) equation
 
+\begin{equation}
+	-\omega ^2 v_{n} = \omega _{0}^2(v_{n-1} -2v_{n} +v_{n+1} ),
+\end{equation}
 
+with \(v_{0} = v_{n+1} =0 \) to cover \(n=1 \text { or } n\) cases.  
 
+It turns out that \(\displaystyle v_{n} = A \sin (n \theta ) + B\cos (n \theta ) \) is a general solution to the equation, and to accomodate for \(v_{0} = v_{n+1} = 0  \), we require \(B = 0 \text { and } \displaystyle \theta = \frac{nm \pi }{N+1}, \text{ where } m = 1,\ldots , N \). Substituting into the above equation, we have
 
+\begin{equation}
+	\omega_{m}  = 2 \omega _{0}\sin \left( \frac{m\pi }{2(N+1)}  \right) ~\text { and }~ v_{n} = A \sin \left( \frac{nm \pi }{N+1}  \right). \label{normalmode} 
+\end{equation}
 
+When \(N \to \infty\), we have 
 
+\begin{equation}
+	\omega _{m} =  \frac{m\pi }{L} \sqrt{\frac{T}{\rho } } = m \omega _{1} , \quad m \ll N.
+\end{equation}
 
+The cases where \(m = 1,2,3,4,5,N\) are shown in \cref{normalmodes}. 
 
+\onefig{normalmodes}{scale=0.4} 
 
+Essentially, a system with \(N\) particles would have \(N\) normal modes. A normal mode is a state that the system is in oscillating at the normal mode frequency. A certain normal mode can be excited by tuning the initial condition in a specific way, normally by releasing each masses at rest each at a specific amplitude. A genearl initial condition can be written as a linaer combination of the initial conditions of the \(N\) normal modes, thus exciting the system into different normal mode by a different extent. 
 
+Therefore, the relative amplitudes of the masses at a certain normal mode can be found by considering the continous cases, and selecting the mass elements at regular interval. On the other hand, the frequencies of each normal mode can be found by dividing a quarter circle with raidus \(2 \omega _{0} \) into \(N+1\) equal intervals, and finding the \(\) values of the resulting points. The case for \(N=3\) is illustrated in \cref{frequencies}.
 
+\onefig{frequencies}{scale=0.3} 
 
+In the above discussion, we have restricted ourselves to \(1 \le m \le N\), but in theory \(m\) can take any values. In discrete case this is not a problem, since the frequencies and the relative amplitudes are the same regardless of \(m = 3 \text { or } 17\). However, in the continuous case, this means that there is no way to tell what mode the string is really in if we only look at six equally spaced points. This ambiguity is known as aliasing, or the Nyquist effect.
 
 
+\section{Examples of Wave Equations}
 
+\subsection{Longitudinal Oscillations of a String}
 
+When \(N \to \infty\), then the equations become the wave equation 
 
+\begin{equation}
+	\rho \frac{\partial^2 \xi }{\partial t^2} = E \frac{\partial^2 \xi }{\partial x^2},   
+\end{equation}
 
+where \(\displaystyle \rho = \frac{m}{\Delta x}, E = k \Delta x \), and we have change the notation for displacement from \(x\) to \(\xi \), so that \(x\) denotes the equilibrium position.   
 
+Alternatively, one can consider the force acting on an infinitesimal mass element to get 
 
+\begin{equation}
+	\rho A \delta x \frac{\partial^2 \xi }{\partial t^2} = \delta F , \quad F = EA \frac{\partial \xi }{\partial x}, 
+\end{equation}
 
+where the second equation is from the definition of the Young's modulus \(E\) to get the same result.
 
 
+\subsection{Transverse Osillations of a String}
 
+Consider a string with tension \(T\) and density \(\mu \). Let \(x\) the coordinate along the string and \(\psi (x)\) be the transverse displacement.
 
+Assuming the slope of the string is small throughout, and consider the horizontal forces acting on a mass element, we can conclude that the tension of the string is constant throughout. If we consider the vertical forces, then we get
 
+\begin{equation}
+    \mu \frac{\partial ^2\psi }{\partial t^2}dx = T \frac{\partial ^2\psi }{\partial x^2}.   
+\end{equation}
 
+\subsection{Acoustic Waves}
 
+Refer to \cref{acoustic}, from mass conservation we have
 
+\begin{equation}
+	(\rho _{0}+\rho _{1}  ) A (x+dx+\xi (x+dx,t) - (x+\xi (x,t))) = \rho _{0}Adx \implies \frac{\rho _{1} }{\rho _{0} } = \frac{1}{1+\frac{\partial \xi }{\partial x} }-1 \approx - \frac{\partial \xi }{\partial x}.    
+\end{equation}
 
+where the relevant force is now 
 
+\begin{equation}
+	F = A(p_0 + p_1 ), \quad p_1 = \left(\frac{\rho _{0} + \rho _{1}  }{\rho _{0} }\right)^{\gamma } p_0 \approx \frac{\gamma \rho _{1} }{\rho _{0} }\rho _{1} \approx - \gamma p_0 \frac{\partial \xi }{\partial x}.
+\end{equation}
 
+Newton's second law thus gives 
 
+\begin{equation}
+	\rho _{0} \frac{\partial^2 \xi }{\partial t^2} = \gamma p_0 \frac{\partial^2 \xi }{\partial x^2}. 
+\end{equation}
 
+More generally, the compressibility of a gas \(\kappa \) is defined exactly the same as the Young's modulus \(E\) as
 
+\begin{equation}
+	F = -\kappa A \frac{\partial \xi }{\partial x} \implies \kappa = -V \frac{\partial p}{\partial V}.  
+\end{equation}
 
+so the wave equation can also be written as 
 
+\begin{equation}
+	\rho \frac{\partial^2 \xi }{\partial t^2} = \kappa \frac{\partial^2 \xi }{\partial x^2}.  
+\end{equation}
 
+For example, if the exapansion is isothermal instead of adiabetic, then we have
 
+\begin{equation}
+	\kappa = -V \left( -\frac{RT}{V^2}  \right) = p \implies v = \sqrt{\frac{p_0 }{\rho _{0} } }. 
+\end{equation}
 
+The velocity of the adiabetic compression case can also derived generally since 
 
+\begin{equation}
+	\kappa = -V \left( -\frac{pV^{\gamma }\gamma  }{V^{\gamma +1} }  \right) = \gamma p \implies v = \sqrt{\frac{\gamma p_0 }{\rho _{0} } }. 
+\end{equation}
 
 
 
+Since \(p_1 \propto \partial \xi /\partial x\), so the excess pressure \(p_1 \) also satisfies the same wave equation.  
 
+The characteristic impedance is 
 
+\begin{equation}
+	Z = \frac{p_1 }{\frac{\partial \xi }{\partial t} } = \frac{\kappa \frac{\partial \xi }{\partial x} }{\frac{\partial \xi }{\partial t} } = \frac{\kappa k}{\omega } = \sqrt{\rho \kappa }.     
+\end{equation}
 
 
 
 
+\onefig{acoustic}{scale=0.4} 
 
 
+\section{Solution to the Wave Equation}
 
+\subsection{d'Alembert's Solution}
 
+\subsubsection{General Solution}
 
+We start with the wave equation 
 
+\begin{equation}
+	\frac{\partial^2 y}{\partial t} = c^2 \frac{\partial^2 y}{\partial x^2}, \label{waveequation} 
+\end{equation}
 
+subject to the initial conditions 
 
+\begin{equation}
+	y(x,t=0) = y_0 (x) ~\text { and }~ \frac{\partial y}{\partial t} (x,t=0) = \dot{y_0 }(x). 
+\end{equation}
 
+The general solution of the wave equation is given by
 
+\begin{equation}
+	y(x,t) = f(x-ct) + g(x+ct),
+\end{equation}
 
+with velocity
 
+\begin{equation}
+	\frac{\partial y(x,t)}{\partial t} = \dot{y}(x,t) = \frac{\partial f(x-ct)}{\partial t} + \frac{\partial g(x-ct)}{\partial t} = c(g'(x-ct) - f'(x+ct)).
+\end{equation}
 
+It is important to note that \(f \text { and } g\) are functions of single variable, and \(f' \text { and } g'\) are just normal derivatives. 
 
+The initial conditions becomes 
 
+\begin{equation}
+	f(x)+g(x) = y_0 (x) ~\text { and }~ c\left(g'(x) - f'(x)\right) = \dot{y_0 }(x).
+\end{equation}
 
+Integrating the second equation above with respect to \(x\), we get 
 
+\begin{equation}
+	f(x) - g(x) = - \frac{1}{c}\int_{}^{x} \dot{y_0 }(s)ds + C.
+\end{equation}
 
+We can then solve for \(f(x) \text { and } g(x)\) to get and obtain the solution of \(y\) as 
 
+\begin{equation}
+	y(x,t) = \frac{1}{2}\left( y_0 (x-ct) + y_0 (x+ct) + \frac{1}{c} \int_{x-ct}^{x+ct} \dot{y_0 }(s)ds    \right).
+\end{equation}
 
+\subsubsection{Infinite String}
 
+Consider the initial condition 
 
+\begin{equation}
+	y_0 (x) = \begin{cases} a\left(1+\frac{x}{L} \right) &\text{ for } -L \le x < 0, \\ a\left(1-\frac{x}{L} \right) &\text{ for } 0 \le x < L, \\ 0 &\text{ otherwise}. \end{cases} ~\text { and }~ \dot{y_0} (x) = 0.   
+\end{equation}
 
+We find that the solution is 
 
+\begin{equation}
+	y(x,t) = \frac{1}{2}(y_0 (x-ct)+y_0 (x+ct)), 
+\end{equation}
 
+as indicated in \cref{wave1}. The red line is the actual displacement while the blue and purple lines are the right- and left-traveling waves respectively.
 
+\onefig{wave1}{scale=0.3} 
 
+If the initial condition is given by 
 
+\begin{equation}
+	\dot{y_0 }(x) = \begin{cases}
+		V &\text{ for } -L \le x \le L,\\
+		0 &\text{ otherwise} ,
+	\end{cases}
+\end{equation}
 
+then the solution is 
 
+\begin{equation}
+	y(x,t) = \frac{1}{2c} \int_{x-ct}^{x+ct} \dot{y_0 }(s)ds = \begin{cases}
+		 -VL/2c  &\text{ for } x<L,\\
+		 Vx/2c  &\text{ for } -L \le x <L,\\
+		 VL/2c &\text{ for } x \ge L,
+	\end{cases} 
+\end{equation}
 
+as indicated in \cref{wave2}. 
 
+\onefig{wave2}{scale=0.35} 
 
+If we want a wave of the shape \(y_0 (x)\) traveling towards positive \(x\), we would need to have 
 
+\begin{equation}
+	y(x,t) = f(x-ct) = y_0 (x-ct) \implies \dot{y_0 }(x) = \eval{\frac{\partial y}{\partial t} }_{(x,0)}^{} = -cy_0 '(x).  
+\end{equation}
 
+\subsubsection{Semi-infinite String}
 
+In all the cases above, we have ignored the ends of the stretched string by assuming that it is infinite. The hidden boundary condition that we have assumed was that \(y \to 0\) as \(x \to \pm \infty\).
 
+If the string is not infinite, then we have to impose suitable boundary conditions, such as \(y=0\) at fixed points, or \( \partial y/\partial x = 0\) at free points, due to the necessary of zero negative force acting on a infinitesimal mass element.  
 
+For example, for the intial condition 
 
+\begin{equation}
+	y_0(x) =
+\begin{cases}
+    \frac{ax}{L} & \text{for } 0 \leq x < L, \\
+    a\left(2 - \frac{x}{L}\right) & \text{for } L \leq x < 2L, \\
+    0 & \text{for } x \geq 2L,
+\end{cases}
+\end{equation}
 
+and
 
+\begin{equation}
+	\dot{y}_0(x) = c y_0'(x) =
+\begin{cases}
+    \frac{ca}{L} & \text{for } 0 \leq x < L, \\
+    -\frac{ca}{L} & \text{for } L \leq x < 2L, \\
+    0 & \text{for } x \geq 2L,
+\end{cases}
+\end{equation}
 
+which is sketched in \cref{wave3}, we would obtain for \(f(u) \text { and }  g(v)\) 
 
+\begin{equation}
+	f(u) = \begin{cases}
+		?? &\text{ for } u<0,\\
+		0 &\text{ for } u \ge 0.
+	\end{cases} ~\text { and }~ g(v) = \begin{cases}
+		?? &\text{ for } v<0,\\
+		y_0 (v) &\text{ for } v \ge 0.
+	\end{cases}
+\end{equation}
 
+\onefig{wave3}{scale=0.35} 
 
+It is not until we impose the boundary condition \(y= 0 \text { or } \partial y/\partial x = 0\) at \(x=0\) do we get \(f(u) = -g(-u) \text { or } f(u) = g(-u)\) and the solution is therefore determined, as showned in \cref{wave4} for the former case and \cref{wave5} for the latter case
 
+\onefig{wave4}{scale=0.45} 
 
+\onefig{wave5}{scale=0.35} 
 
+\subsubsection{Finite String}
 
+We will now consider a finite string fixed at both ends at \(x= 0 \text { and } L\), with the initial conditions
 
+\begin{equation}
+	y_0 (x) = \begin{cases}
+		ax /L &\text{ for } 0 \le x < L,\\
+		a(2-x /L) &\text{ for } L \le x <2L.
+	\end{cases} ~\text { and }~ \dot{y_0 }(x) = cy_0'(x) = \begin{cases}
+		ac /L &\text{ for } 0 \le x<L,\\
+		-ac /L &\text{ for } L \le x <2L.
+	\end{cases} 
+\end{equation}
 
+Using the d'Alembert's solution, we get 
 
+\begin{equation}
+	f(u) = \begin{cases}
+		?? &\text{ for } u < 0,\\
+		0 &\text{ for } 0 \le u \le 2L.
+	\end{cases} ~\text { and }~ g(v) = \begin{cases}
+		y_0 (v) &\text{ for } 0 \le  v < 2L,\\
+		??  &\text{ for } v \ge 2L.
+	\end{cases}
+\end{equation}
 
+Due to the boundary condition at \(x=0 \text { and } L\), we can show that \(f(u) = -g(-u) \text { and } g(v) = -f(4L-v)\) respectively, so we have
 
+\begin{equation}
+	f(u) = \begin{cases}
+		?? &\text{ for } u < 2L,\\
+		-y_0 (-u) &\text{ for } -2L \le u <0,\\
+		0 &\text{ for } 0 \le u \le 2L.
+	\end{cases} ~\text { and }~ g(v) = \begin{cases}
+		y_0 (v) &\text{ for } 0 \le  v < 2L,\\
+		0 &\text{ for } 2L \le v <4L,\\ 
+		??  &\text{ for } v \ge 4L.
+	\end{cases}
+\end{equation}
 
+The complete solution can thus be constructed step by step as shown in \cref{finite}.
 
+\twofig{finite1}{width=\textwidth}{finite2}{width=\textwidth}{finite} 
 
 
 
 
 
+\subsection{Separation of Variables} \label{sepvar} 
 
+Just as how we guess \(\vb{x} = \vb{v} e^{i \omega t} \) as the solution to the equation
 
+\begin{equation}
+	m\ddot{\vb{x} } = -K\vb{x} ,  
+\end{equation}
 
+we guess \(y = \Theta (t)Q(x)\) to the equation 
 
+\begin{equation}
+	\frac{\partial^2 y}{\partial t^2} = c^2 \frac{\partial^2 y}{\partial x^2}, 
+\end{equation}
 
+where \(c^2 \partial ^2 y/\partial x^2 \) now plays the role of \(-K\), thus having a spectrum of infinite eigenvalues \(\omega ^2\) instead of just finite number of them. Substitution gives
 
+\begin{equation}
+	\frac{1}{c^2 \Theta } \frac{d^2\Theta }{dt^2} = \frac{1}{Q}\frac{d^2Q}{dx^2}.
+\end{equation}
 
+Since the LHS and RHS are functions of different variables, they can only be equal if they equals to the same constant \(\Lambda \), so we have
 
+\begin{equation}
+	\frac{d^2\Theta }{dt^2} = \Lambda c^2 \Theta ~\text { and }~ \frac{d^2Q}{dx^2} = \Lambda Q,
+\end{equation}
 
+which has the general solution
 
+\begin{equation}
+	\Theta (t) Q(x) = \left(A_{\Theta } e^{c\sqrt{\Lambda } t} + B_{\Theta }e^{-c\sqrt{\Lambda } t} \right) \left(A_{Q} e^{\sqrt{\Lambda } x} + B_{Q}e^{-\sqrt{\Lambda } x} \right). \label{ThetaQ}   
+\end{equation}
 
+Solving the wave equation now becomes a matter of finding the coefficients \(A_{\Theta }, B_{\Theta }, A_{Q}, B_{Q}  \) to satisfy the boundary conditions and initial conditions. The complete solution is built up of these stationary waves with different wavenumbers and frequencies.
 
+\example{Stretched String Fixed at Two Points.}
+{Consider a stretched string fixed at \(x=0\) and \(L\), with initial condition \(y_0 (x) \text { and }  \dot{y_0 }(x) \) as usual. Find the general solution to the wave equation. }
+{We have the boundary conditions \(Q(0) = Q(L) = 0\), so
 
+\begin{equation}
+	\begin{pmatrix}
+		1 &  1 \\
+		e^{\sqrt{\Lambda }L }  & e^{-\sqrt{\Lambda }L }   \\
+	\end{pmatrix} \begin{pmatrix}
+		 A_{Q}  \\
+		 B_{Q}  \\
+	\end{pmatrix} = \begin{pmatrix}
+		 0 \\
+		 0 \\
+	\end{pmatrix}.
+\end{equation}
 
+Requiring the determinant to be zero, we find the eigenvalues and the corresponding eigenfunctions to be
 
+\begin{equation}
+	\Lambda_{k} = -\frac{k^2 \pi ^2}{L} ~\text { and }~ Q_{k}(x) = \sin \left( \frac{k\pi x}{L}  \right), \quad   k = 1,2,\ldots . 
+\end{equation}
 
+Negative \(k\) is not considered due to the only appearance of \(k^2\) and \(k=0\) is also not considered since the genearl solution given in \cref{ThetaQ} no longer works, but is given by \(Q(x) = A_{Q}' + B_{Q}'x  \), which will gives \(A_{Q}' = B_{Q}' = 0\), and is trivial. If the boundary conditions permit \(A_{Q}' \text { or }  B_{Q}' \) to be non-trivial, then we would need to include this \(k=0\) as well. 
 
+The general solution of the wave equation is therefore
 
+\begin{equation}
+	y(x,t) = \sum_{k=1}^{\infty}\left( A_{\Theta }\cos \left( \frac{k \pi ct}{L}  \right) + B_{\Theta } \sin \left( \frac{k \pi ct}{L}  \right)  \right) \sin \left( \frac{k \pi x}{L}  \right),
+\end{equation}
 
+which is the sum of all possible stationary waves each with its own \(k\) (thus \(\omega \)).
 
+To satisfy the initial conditions \(y(x,0) = y_0 (x) \text { and } \dot{y}(x,0) = \dot{y_0 }(x)  \), we Fourier decompose \(y_0 (x) \text { and } \dot{y_0 }(x) \) into linear combinations of sine functions 
 
+\begin{equation}
+	y_0 (x) = \sum_{k=1}^{\infty} Y_{k}\sin \left( \frac{k\pi x}{L}  \right) ~\text { and }~ \dot{y_0 }(x) = \sum_{k=1}^{\infty} Y_{k}' \sin \left( \frac{k \pi x}{L}  \right),   
+\end{equation}
 
+and compare them with \(A_{\Theta } \text { and } B_{\Theta }  \) to get
 
+\begin{equation}
+	A_{k} = Y_{k} ~\text { and }~ \frac{k\pi c}{L} B_{k} = Y_{k}'.    
+\end{equation}}
 
+\example{A General Boundary Condition.}
+{Consider a stretched string attached to a vertical spring at \(x=0\) with spring constant \(K\). Find the general solution to the wave equation. }
+{The boudary condition is 
 
+\begin{equation}
+	T \frac{\partial y}{\partial x} (0,t) - K y(0,t) = 0. 
+\end{equation}
 
+Substitute 
 
+\begin{equation}
+	y = A e^{i (kx+\omega t)} + A^* e^{-i (kx+\omega t)} + B e^{i (kx-\omega t)} + B^* e^{-i (kx-\omega t)},  
+\end{equation}
 
+we have
 
+\begin{equation}
+	\frac{A}{B} = e^{i \varphi }, \quad \varphi  = - \pi + 2\tan ^{-1} \left( \frac{kT}{K}  \right).
+\end{equation}
 
+} 
 
+\example{Stretched Strings with Different Density or Tension.}
+{Consider a stretched strings composed of two strings  of different linear density \(\mu _1 \text { and } \mu _2  \), which are tied together at \(x=0\). Find the general solution to the wave equations.
 
+If instead of a continuous string with different density we have two strings with different tension, tied together at \(x=0\) by a massless ring encircling a frictionless pole (so that the change in tension is balanced by the normal reaction), then how would the solutions change? }
+{The two strings each satisfies their own wave equation, with different wave speed \(c_1 = \sqrt{T/\mu _1 } \text { and } c_2 = \sqrt{T/\mu _2 }\), where the tension \(T\) remains the same due to balance of the horizontal force on the infinitesimal mass element at \(x=0\).
 
+The boundary conditions are 
 
+\begin{equation}
+	y_1(0,t) = y_2(0,t) ~\text { and }~ \frac{\partial y_1 }{\partial x}(0,t) = \frac{\partial y_2 }{\partial t}(0,t).    
+\end{equation}
 
+We substitute 
 
+\begin{equation}
+	\begin{aligned} 
+	y_1  &= A e^{i (k_1 x+\omega_1  t)} + A^* e^{-i (k_1 x+\omega _1 t)} + B e^{i (k_1 x-\omega _1 t)} + B^* e^{-i (k_1 x-\omega _1 t)}, \\
+	y_2 &= C e^{i (k_2 x-\omega _2 t)} + C^* e^{-i (k_2 x - \omega_2t )},  
+	\end{aligned} 
+\end{equation}
 
+where \(y_2 \) has two less terms since there is no left-travelling wave on string \(2\). Imposing the boundary conditions we get 
 
+\begin{equation}
+	\omega _1 = \omega _2, \quad A+B=C ~\text { and }~ k_1(A-B) = k_2C.
+\end{equation}
 
+Solving for reflection and transmission coefficients \(r \equiv B /A \text { and } t \equiv C /A\), we have 
 
+\begin{equation}
+	r = \frac{k_1 - k_2 }{k_1 + k_2 } ~\text { and }~ t = \frac{2 k_1 }{k_1 + k_2 }.  
+\end{equation}
 
 
 
+If there are two strings with different tension, then the boundary conditions are modified to be 
 
+\begin{equation}
+	y_1(0,t) = y_2(0,t) ~\text { and }~ T_1 \frac{\partial y_1 }{\partial x}(0,t) = T_2 \frac{\partial y_2 }{\partial t}(0,t).    
+\end{equation}
 
+and the reflection and transmission coefficients becomes
 
+\begin{equation}
+	r = \frac{k_1T_1  - k_2T_2  }{k_1T_1  + k_2T_2  } ~\text { and }~ t = \frac{2 k_1T_1  }{k_1T_1  + k_2T_2  }.
+\end{equation}
 
+We usually define the impedance \(Z_{i} \equiv T_{i} / v_{i} \propto k_{i} T_{i}   \), which is the damping constant between the force and velocity, since
 
+\begin{equation}
+	F_{y} = T_{2}\frac{\partial y_{2} }{\partial x}(0,t) = -\frac{T_{2}}{v_{2} }\frac{\partial y_{2} }{\partial t}(0,t) = - Z_{2}v_{y}.    
+\end{equation}
 
+} 
 
+\example{Stretched Strings connecte by a Mass.}
+{Find the genearl solution to the wave equation if at \(x=0\) the two strings are connnected by a mass \(M\)}
+{The boundary conditions now becomes
 
+\begin{equation}
+	y_1 (0,t) = y_2 (0,t) ~\text { and }~ T\frac{\partial y_2 }{\partial x}(0,t) - T\frac{\partial y_1 }{\partial x}(0,t) = M \frac{\partial y_1 }{\partial t}(0,t)=M \frac{\partial y_2 }{\partial t}(0,t).    
+\end{equation}
 
+Solving for the reflection and transmission coefficients \(r \text { and } t\), we have
 
+\begin{equation}
+	r = \frac{(k_1 -k_2 )T-i \omega ^2M}{(k_1 +k_2 )T+i \omega ^2M} = \abs{r}e^{i \theta } ~\text { and }~ t = \frac{2 k_1 T}{(k_1 +k_2 )T + i \omega ^2M} = \abs{t} e^{i \phi  }.  
+\end{equation}
 
+The energy of the system is conserved since 
 
+\begin{equation}
+	k_{1} \abs{r} ^2+ k_{2} \abs{t} ^2 = k_{1} . 
+\end{equation}
+} 
 
+\example{Impedances in Transmission lines.}
+{Refer to \cref{transmission}, which shows a system made of inductors and capacitors with \(L \text { and } C\) being the inductance and capacitance per unit length respectively. }
+{Consider the piece of the top conductor of length \(\delta x\), charge \(\delta Q\) accumulates within this piece of conductor due to the difference in currents, so we have \(\delta Q = I(x) - I(x+dx)\).
 
+From the definition of capacitance we have
 
+\begin{equation}
+	\delta V = \frac{1}{C} \delta Q = -\frac{1}{C} \frac{\partial I}{\partial x} \delta x. 
+\end{equation}
 
+From the definition of inductance we also have
 
-\section{Lagrangian mechanics}
-\subsection{Constraints}
+\begin{equation}
+	\delta V = -L \delta x \frac{\partial I}{\partial t}.
+\end{equation}
+
+Combining the two equations yield the wave equation 
+
+\begin{equation}
+	\frac{\partial^2 V}{\partial x^2} = LC \frac{\partial^2 V}{\partial t^2} ~\text { and }~ \frac{\partial^2 I}{\partial x^2} = LC \frac{\partial^2 I}{\partial t^2}. 
+\end{equation}
+
+Thus we see that the voltage difference between the lines or the current in the lines corresponds to the displacement of the string in the traditional case.
+
+The impedance of the system is generally given by the push variable (in this case voltage) divided by the flow variable (in this case current), so 
+
+\begin{equation}
+	Z_0  = \frac{V_0}{I_0 } = \frac{\omega L}{k} = \sqrt{\frac{L}{C} },   
+\end{equation}
+
+where the first equality is justified due to the same equation \(V \text { and }  I\) satisfy. 
+
+If the transmission line is now terminated at \(x=0\) by an impedance of \(Z_{T} \), then the boundary condition is that 
+
+\begin{equation}
+	V(0,t) = Z_{T} I(0,t).
+\end{equation}
+
+Subsituting 
+
+\begin{equation}
+	\begin{aligned} 
+	V(x,t) &= Ae^{i (\omega t-kx) } + A^*e^{-i (\omega t-kx)} + Be^{i (\omega t+kx)} + B^* e^{-i(\omega t + kx)}, \\
+	Z_0 I(x,t) &= Ae^{i(\omega t-kx)} + A^*e^{-i (\omega t- kx)} - Be^{i(\omega t+kx)} - B^* e^{-i(\omega t+kx)}, 
+	\end{aligned}       
+\end{equation}
+
+we get the reflectionn coefficient 
+
+\begin{equation}
+	r = \frac{Z_{T}- Z_0 }{Z_{T}+Z_0  }. 
+\end{equation}
+
+Therefore the maximum power is transferred to the terminating load if \(Z_0 = Z_{T} \). 
+
+} 
+
+\onefig{transmission}{scale=0.5} 
+
+
+Solutions obtaining from separation of variables are no less (and no more) than the d'Alembert's solution for the fact that we can Fourier decompose any function (\(f \text { and } g\) in this case) to linear combination of exponentials. More specifically, two terms in \cref{ThetaQ} corresponds to the fourier decomposition of \(f(x-ct)\) and the remaining two terms \(g(x-ct)\).  
+
+
+
+\section{Energy in Transverse Oscillation of a String}
+
+The length of a stretched string element is given by 
+
+\begin{equation}
+	dl = \sqrt{dx^2+d\psi ^2} \approx dx + \frac{1}{2}\left( \frac{d\psi }{dx}  \right)^2dx ,
+\end{equation}
+
+so the energy density of the string is 
+
+\begin{equation}
+	\epsilon  = \frac{1}{2} \mu \left( \frac{\partial \psi }{\partial t}  \right)^2 + \frac{1}{2} T \left( \frac{\partial \psi }{\partial x}  \right)^2.
+\end{equation}
+
+For simple sinusoidal wave, the average enery density is given by 
+
+\begin{equation}
+	\epsilon_{\text{avg} }  = \frac{1}{4}\mu A^2\omega ^2+\frac{1}{4}T A^2k^2 = \frac{1}{2}\mu A^2\omega ^2 = \frac{1}{2} TA^2k^2. 
+\end{equation}
+
+We proceed to study the time evolution of the energy density (\textit{i.e.,} the power density). Firstly, we have
+
+\begin{equation}
+	\frac{\partial \epsilon  }{\partial t} = \mu \frac{\partial y}{\partial t} \frac{\partial^2 y}{\partial t^2} + T \frac{\partial y}{\partial x} \frac{\partial^2 y}{\partial \partial t \partial x} = T\left( \frac{\partial y}{\partial t} \frac{\partial^2 y}{\partial x^2}+ \frac{\partial y}{\partial x} \frac{\partial^2 y}{\partial t \partial x}    \right) = \frac{\partial }{\partial x} \left( T \frac{\partial y}{\partial x} \frac{\partial y}{\partial t}  \right).  
+\end{equation}
+
+Integrating from \(x = 0 \) to \(L\), we get the power
+
+\begin{equation}
+	\frac{dE}{dt} = \eval{\left( T \frac{\partial y}{\partial x} \frac{\partial y}{\partial t}  \right)}_{x=0}^{x=L} = \eval{\left( F_{y}v_{y}   \right)}_{x=0}^{x=L}  
+\end{equation}
+
+Thus at each point \(Fv_{y} \) is the power flowing flowing from the left to the right. 
+
+Using the d'Alembert's solution, we can rewrite the energy density as 
+
+\begin{equation}
+	\epsilon = \frac{1}{2}\left( \mu c \left( g'-f' \right)^2 +T(f'+g')^2\right) = T(f'^2+g'^2) = \epsilon _{f} + \epsilon _{g}  ,
+\end{equation}
+
+and its rate of change as
+
+\begin{equation}
+	\frac{\partial \epsilon }{\partial t} =  Tc \left( g'^2-f'^2 \right) = c(\epsilon _{g} - \epsilon _{f}  ).
+\end{equation}
+
+Integrating from \(x=0 \) to \(L\), we have
+
+\begin{equation}
+	\frac{dE}{dt} = c \eval{(\epsilon _{g}- \epsilon _{f}  )}_{x=0}^{x=L}. 
+\end{equation}
+
+One can refer to the sketches in \cref{energyflux} to visualize the terms.
+
+\onefig{energyflux}{scale=0.3} 
+
+Note that the wave equation can be rewritten as 
+
+\begin{equation}
+	\frac{\partial \epsilon _{f} }{\partial t} + c \frac{\partial \epsilon _{f} }{\partial x} = 0,  
+\end{equation}
+
+which means that the energy is conserved for individual waves.
+
+One can also show that if the boundary conditions are simple (\textit{i.e.,} only consist of restrictions on \(y \text { or } \partial y /\partial x \) but not both), then the total energy is the sum of energy of each mode.
+
+The genearl solution when the boundary conditions are simple is 
+
+\begin{equation}
+	y(x,t) = A_0 + A_1 t + \sum_{k=1}^{\infty} C_{k} \cos \left( \sqrt{- \Lambda _{k} }ct-\varphi _{k}   \right)Q_{k}(x),    
+\end{equation}
+
+where the first two terms corresponds to the case where \(k=0\). 
+
+The energy of a string is 
+
+\begin{equation}
+	\begin{aligned} 
+	E &= \frac{1}{2} \left( \mu \int_{0}^{L} \left( \frac{\partial y}{\partial t}  \right)^2dx + T \int_{0}^{L} \left( \frac{\partial y}{\partial x}  \right)^2 dx   \right) = \frac{1}{2} \int_{0}^{L} \left( \mu \left( \frac{\partial y}{\partial t}  \right)^2 + T y\left( \frac{\partial^2 y}{\partial x^2}  \right)\right)\\
+      &=\frac{\mu }{2} \int_{0}^{L}  \left( A_1  - c \sum_{k=1}^{\infty} \sqrt{-\Lambda_k} C_k \sin\left(\sqrt{-\Lambda_k} c t - \varphi_k \right) Q_k(x) \right)^2dx \\
+	  &- \frac{T}{2} \int_{0}^{L}  \left( \sum_{k=1}^{\infty} C_k \cos\left(\sqrt{-\Lambda_k} c t - \varphi_k \right) Q_k(x) \right) \left( \sum_{l=1}^{\infty} \Lambda_l C_l \cos\left(\sqrt{-\Lambda_l} c t - \varphi_l \right) Q_l(x) \right)  dx.
+	  \end{aligned} 
+\end{equation}
+
+where we have performed integration by parts at the second equality of the first line and the boundary terms vanish due to either \(y \text { or }  \partial y / \partial x = 0\) at the boundaries. 
+
+If we expand the brackets, we find integrals of the form \(A_1 C_{k} \int_{0}^{L} Q_{k}(x)dx \text { and } C_{k} C_{l} \int_{0}^{L} Q_{k} (x)Q_{l}(x)    \), but we will show that all the integrals are zero except for integrals in the from \(C_{k}^2\int_{0}^{L} Q_{k}(x)^2dx   \). 
+
+We start by integrating the eigenequation of \(Q_{k} \)  after mutiplying both sides by \(Q_{l} \) to get 
+
+\begin{equation}
+	\begin{aligned}
+		\int_{0}^{L} Q_{l} \frac{d^2Q_{k} }{dx^2} dx = - \int_{0}^{L} \frac{dQ_{l} }{dx}\frac{dQ_{k} }{dx} = \Lambda _{k} \int_{0}^{L} Q_{l} Q_{k} dx, 
+	\end{aligned}
+\end{equation}
+
+where we have performed integration by parts at the first equality and the boundary terms vanish for the same reason as above. We can likewise integrate the eigenequation of \(Q_{l} \) after multiplying both sides by \(Q_{k} \) to get the same equation except \(\Lambda _{k} \) is replaced by \(\Lambda _{l} \). By comparing the two equation, we get
+
+\begin{equation}
+	\int_{0}^{L} Q_{l} Q_{k} dx =0, \quad k \neq l.   
+\end{equation}
+
+This equation also proves that \(A_1 \int_{0}^{L} Q_{k} (x) dx \) vanishes since \(A_1 \) is non-zero only when \(\Lambda _{0} \) is an eigenvalue and hence \(Q_{0}(x) \) is a mode, so either \(A_1 =0\) or \(\int_{0}^{L} Q_{0}Q_{k} dx= \int_{0}^{L} Q_{k} dx = 0  \). 
+
+After eliminating all the integrals that equals to zero, we have 
+
+\begin{equation}
+	E = \frac{1}{2} \left( \mu LA_1 ^2 - T \sum_{k=1}^{\infty} \Lambda _{k}C_{k}^2\int_{0}^{L}Q_{k}^2(x) dx       \right),  
+\end{equation}
+
+which is simply the sum of the energy of each mode. If \(\int_{0}^{L} Q_{k}^2(x) dx = L /2     \), for sinusodial waves, then we can further simply the energy as 
+
+\begin{equation}
+	E = \frac{\mu LA_1 ^2}{2} - \frac{TL}{4}\sum_{k=1}^{\infty}\Lambda _{k}C_{k}^2.     
+\end{equation}
+
+
+
+
+
+
+\example{Energy in Stretched Strings with Different Density.}
+{Prove that the energy is conserved in the example in \cref{sepvar} about strings with different density.}
+{The average work done by the string is 
+
+\begin{equation}
+	-T \left< \frac{\partial y}{\partial x} \frac{\partial y}{\partial t}  \right> = c(\avg{\epsilon _{f} }- \avg{\epsilon _{g} }  ) = \frac{1}{2}k^2cT \left( \abs{A_{f} }^2- \abs{A_{g} }^2   \right).  
+\end{equation}
+
+Applying this result to \(x=0\), we find that the work done by the string \(a\) should be equal to the work recived by the string \(b\), that is 
+
+\begin{equation}
+	k_1^2c_1\left( \abs{A}^2- \abs{B}^2   \right)  = k_2^2c_2\abs{C}^2   
+\end{equation}
+
+is indeed satisfied.
+
+} 
+
+\section{Dispersive Waves}
+
+Waves that does not satisfy the wave equation \cref{waveequation} are dispersive waves, mainly because the relations between the frequencies \(\omega \) and wavenumbers \(k\) are not so simple anymore. 
+
+The genearl approach to solving dispersive wave equation is still to use the method of separation of variables and to guess \(y = A e^{i (kx-\omega t)} \) to find out the relation between \(\omega \text { and } k\).   
+
+\subsection{Phase Velocity}
+
+The phase velocity 
+
+\begin{equation}
+	v_{p}(k) = \frac{\omega (k)}{k}  
+\end{equation}
+
+is the velocity in which the wave with wavenumber \(k\) is moving. Different components of the wave with different wavenumbers thus move at different speeds and therefore the wave do not maintain its initial shape while they move.
+
+For the \(N\) masses case, the wavelength of the \(m^{\text{th}} \) normal mode is \(\lambda _{m} = 2L /m \implies m = k_{m}L /\pi  \) and the angular frequency given by \cref{normalmode}
+
+\begin{equation}
+	\omega _{m} = 2 \omega _{0} \sin \left( \frac{m\pi }{2(N+1)}  \right) =  2 \omega _{0}\sin \left( \frac{kl}{2}  \right),
+\end{equation}
+
+where \(l = L /(N+1)\) is the distance between each masses. And of course the frequency \(\omega _{m} \) reduces to \(m \omega _{1} \) when \(kl \ll  1\).    
+
+\subsection{Group Velocity}
+
+
+
+\subsection{Gravity Waves with Surface Tension}
+
+Let the equilibrium and the displaced coordinates be \((x,y,z) \text { and } (x+\xi (x,y,t), y+\eta (x,y,t),z)\) respectively. The pressure is \(p(x,y,t) = p_{a} - \rho gy + p_1 (x,y,t)\), where \(p_1 \) is the excess pressure.
+
+Mass conservation gives 
+
+\begin{equation}
+	dxdydz = \left( \left( 1+\frac{\partial \xi }{\partial x}  \right) \left( 1+\frac{\partial \eta }{\partial x}  \right) - \frac{\partial \xi }{\partial y} \frac{\partial \eta }{\partial x}   \right)dxdydz \implies \frac{\partial \xi }{\partial x} + \frac{\partial \eta }{\partial y}= 0  
+\end{equation}
+
+
+
+
+
+Refer to \cref{gravitywave1}, by balancing the vertical forces acting on an infinitesimal volume of water, we have
+
+\onefig{gravitywave1}{scale=0.3} 
+
+\begin{equation}
+	\begin{aligned} 
+	p(x,y=0,t) dxdz &- p_{a} dxdz - \rho g h(x,t) dxdz + \sigma \sin \theta (x+dx,t)dz - \sigma \sin \theta (x,t)dz = 0 \\
+	\implies &p(x,y=0,t) = p_{a} + \rho g h(x,t) + \sigma \frac{\partial^2 h}{\partial x} (x,t),
+	\end{aligned} 
+\end{equation}
+
+where we have neglected the acceleration since it is proportional to \(h\partial ^2h/\partial t^2\), which is negligible. 
+
+Now refer to \cref{gravitywave2}, by balancing the horizontal forces acting on an infinitesmial volume of water, we have 
+
+\begin{equation}
+	\begin{aligned} 
+	&\rho dxdydz a_{x}(x,y=0,t) = p(x,y=0,t)dydz - p(x+dx, y=0, t)dydz \\ 
+	&\implies a_{x}(x,y=0,t) = -\frac{\partial }{\partial x} \left( gh(x,t) - \frac{\sigma }{\rho } \frac{\partial^2 h}{\partial x^2}(x,t)  \right).  
+	\end{aligned} 
+\end{equation}
+
+By substituting \(h(x,t) = A e^{i(kx - \omega t)} \), we get 
+
+\begin{equation}
+	a_{x}(x,y=0,t) = - 
+\end{equation}
+
+\subsection{Wavepackets}
+
+Wavepackets are composed of a carrier wave with wavelength \(k_{c} \) and an envelope that can have any shape. 
+
+At \(t=0\), the wave packet has the form \(y(x,t=0) = E(x)\cos (k_{c}x+\varphi  )\), where \(E(x)\) is the envelope.   
+
+\chapter{Celestial Mechanics}
+
+\example{Explosion of a Planet.}
+{Two planets with mass \(m_0 \) and \(2m_0 \) were initially orbiting each other in circular motion about their center of mass. At \(t=0\) the planet with mass \(2m_0 \) exploded spherical symmetrically so that the mass after the explosion is \(m_0 \). Find the subsequent motion of the planet in the original and the new center of mass frame.  }
+{} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\chapter{Lagrangian mechanics}
+\section{Constraints}
 If the conditions of constraint can be expressed as equations in the form 
 
 \begin{equation}
 	f(\vb{r} _{1} , \vb{r} _{2} , \vb{r} _{3} , ..., t) = 0,
 \end{equation}
 
-then the constraints are said to be holonomic. For example, the constraint for a rigid body is that the distance of any two points in the body is fixed, \ie 
+then the constraints are said to be holonomic. For example, the constraint for a rigid body is that the distance of any two points in the body is fixed, \textit{i.e.,} 
 
 \begin{equation}
 	\left| \vb{r} _{i} - \vb{r} _{j}  \right| = c_{ij} .
@@ -776,7 +1676,7 @@ then the constraints are said to be holonomic. For example, the constraint for a
 
 With Cartesian coordinates, there are initially \(3N\) degrees of freedom thus \(3N\) independent equations. If there are \(k\) holonomic constraints, then we can use them to eliminate variables and solve for the \(3N\) variables as well as the \(k\) constraint forces. In another viewpoint, we can introduce \(3N - k\) independent variables (also known as generalized coordinates \footnote{In some sense, generalized coordinates are just the minimum numbers of variables which can satisfy the whole system.} ) \(q_{1} , q_{2}, ...,q_{3N - k} \) in terms of the old coordinates \(\vb{r} _{1} , \vb{r} _{2} , ..., \vb{r} _{N} \) and time.  
 
-In contrary, a constraint on the particle's motion that cannot be expressed in the above form is called a nonholonomic constraint. For example, consider a disk with radius \(a\) rolling on the horizontal \(x-y\) plane such that the plane of the disk is always vertical. In addition to the \(x \text{ and }  y\) coordinates, we use \(\theta \) to specify the angle between the axis of the disk and the \(x\) axis and \(\phi \) to denote the angle of rotation about the axis of the disk. The constraint in this case is that the relative velocity of the contact point between the disk and the plane must be zero, \ie 
+In contrary, a constraint on the particle's motion that cannot be expressed in the above form is called a nonholonomic constraint. For example, consider a disk with radius \(a\) rolling on the horizontal \(x-y\) plane such that the plane of the disk is always vertical. In addition to the \(x \text{ and }  y\) coordinates, we use \(\theta \) to specify the angle between the axis of the disk and the \(x\) axis and \(\phi \) to denote the angle of rotation about the axis of the disk. The constraint in this case is that the relative velocity of the contact point between the disk and the plane must be zero, \textit{i.e.,} 
 
 \begin{equation}
 \begin{aligned}
@@ -989,7 +1889,7 @@ However, neither of these equations can be integrated without first solving the 
 
 We begin by considering two masses \(m_{1} \text{ and }  m_{2} \) located at \(\vb{r} _{1} \text{ and } \vb{r} _{2}  \) respectively connected by a thin, rigid and massless rod. 
 
-The ``rigid body condition'' is that the distance between the two masses remained unchanged, \ie 
+The ``rigid body condition'' is that the distance between the two masses remained unchanged, \textit{i.e.,} 
 
 \begin{equation}
 \begin{aligned}

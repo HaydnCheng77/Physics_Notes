@@ -21,7 +21,7 @@ A first order differential equation \(F(x,y,y')\) are usually written in one of 
     \frac{dy}{dx} = F(x,y)\footnote{If a differential equation has more than one solution of the first form (perhaps the equation is quadratic in \(y'\), so there are two roots for \(y'\)), then the differential equation generally has more than one solution. Given the initial condition \((x,y) = (x_0 ,y_0 )\), we also have to specify which integral curve we are following by specifying the slope at that point.}  ~\text { or }~ P(x,y) dx + Q(x,y) dy = 0. \footnote{The first form can always be recast into the second form (the symmetric form). However, \(Q(x,y)\) may vanishes in some places, thus preventing one from dividing it and converting the symmetric form to the the first form. We shall assume that \(\abs{P(x,y)}+\abs{Q(x,y)}\ge 0 \), \textit{i.e.,} \(P(x,y)\) and \(Q(x,y)\) do not vanish simultaneously, such that the symmetric form can be always recast into \(\frac{dy}{dx} = F_{y}(x,y), \text { or } \frac{dx}{dy} = F_{x}(x,y)\).} 
 \end{equation}
 
-The first from above allows us to essentially solve the differential equation without knowing the relation between \(x \text { and } y\). Since the slope \(\displaystyle \frac{dy}{dx} \) is given as a function in terms of the position \((x,y)\), we can simply draw a small line on every point whose the slope is \(F(x,y)\). What we have created is called the direction field of the ODE and the solutions \(y(x)\) are called the integral curves that are at each point tangent to the direction field. As one can see from \cref{integralcurves} that there are infinite of them, and we can specify any one of them by providing the coordinates of any point (known as the initial condition or the boundary condition)\footnote{Initial conditions specify the value of the independent variable and its derivatives \((y,y',\ldots ,y^{(n-1)} )\) at a single \(x = x_0 \) while boundary conditions them at two or more \(x\) values.} on the curve.\footnote{This is only true if both \(F(x,y) \text { and } \frac{\partial F(x,y)}{\partial y} \) exist at that point. Otherwise the integral curves may intersect at the point and we would not get an unique solution. For example, the differential equation \(\frac{dy}{dx} = y^{\frac{2}{3} } \), accompanied with the initial condition \(y(0) = 0\) is not unique, as \(y(t) = 0 \text { and } y(t) = (\frac{t}{3} )^3 \) are both valid solutions. And it does not guarantees that the integral curve found would not blows up in finite \(x\). For example, the differential equation \(\frac{dy}{dx} = ay^2 \), accompanied by the initial condition \(y(x_0 )= x_0 \) has the solution \(y = \frac{1}{a(x_0 +\frac{1}{ay_0 }-x )} \), which blows up at a finite interval at \(x = x_0 + \frac{1}{ay_0 } \). Beyond that point, the solution would still gives a solution of \(y\) for every \(x\), but it does not make sense anymore. For linear differential equation, however, the existence and uniqueness is global, and the solution is valid at all \(x\).} 
+The first from above allows us to essentially solve the differential equation without knowing the relation between \(x \text { and } y\). Since the slope \(\displaystyle \frac{dy}{dx} \) is given as a function in terms of the position \((x,y)\), we can simply draw a small line on every point whose the slope is \(F(x,y)\). What we have created is called the direction field of the ODE and the solutions \(y(x)\) are called the integral curves that are at each point tangent to the direction field. As one can see from \cref{integralcurves} that there are infinite of them, and we can specify any one of them by providing the coordinates of any point (known as the initial condition or the boundary condition)\footnote{Initial conditions specify the value of the independent variable and its derivatives \((y,y',\ldots ,y^{(n-1)} )\) at a single \(x = x_0 \) while boundary conditions specify them at two or more \(x\) values.} on the curve.\footnote{This is only true if both \(F(x,y) \text { and } \frac{\partial F(x,y)}{\partial y} \) exist at that point. Otherwise the integral curves may intersect at the point and we would not get an unique solution. For example, the differential equation \(\frac{dy}{dx} = y^{\frac{2}{3} } \), accompanied with the initial condition \(y(0) = 0\) is not unique, as \(y(t) = 0 \text { and } y(t) = (\frac{t}{3} )^3 \) are both valid solutions. And it does not guarantees that the integral curve found would not blows up in finite \(x\). For example, the differential equation \(\frac{dy}{dx} = ay^2 \), accompanied by the initial condition \(y(x_0 )= x_0 \) has the solution \(y = \frac{1}{a(x_0 +\frac{1}{ay_0 }-x )} \), which blows up at a finite interval at \(x = x_0 + \frac{1}{ay_0 } \). Beyond that point, the solution would still gives a solution of \(y\) for every \(x\), but it does not make sense anymore. For linear differential equation, however, the existence and uniqueness is global, and the solution is valid at all \(x\).} 
 
 \onefig{integralcurves}{scale=0.4} 
 
@@ -896,7 +896,7 @@ For the particular solution, we guess
     \end{aligned} 
 \end{align}
 
-This explicit calculation confirms that the real function \(\mathfrak{Re}\) is indeed linear, as \(\displaystyle \mathfrak{Re} (\tilde{\ddot{x_{P} } }  ) = \frac{d^2}{dt^2} \left(\mathfrak{Re} (\tilde{x_{P} } )\right)\). In the event where the driving function is not a pure sinusodial function, we can always use Fourier transform to write it as sum of sinusodial functions, so the general scheme of the above analysis still works. For example, the driving force is modulated as \(F(t) = mA \cos (\sigma t)\sin (\omega t)\), then we cannot guess the particular solution as \(x_{P} = C \mathfrak{Re} (e^{i \sigma t} ) \mathfrak{Re} (-i e^{i \omega t} )\) or something like that, but instead we should use the idea of a Fourier transform and rewrite the driving function as sum of trigonometric functions \(f(t) = \frac{mA}{2}(\sin (\sigma +\omega )+\sin (\sigma -\omega )) \), and proceeds as above. 
+This explicit calculation confirms that the real function \(\mathfrak{Re}\) is indeed linear, as \(\displaystyle \mathfrak{Re} (\tilde{\ddot{x_{P} } }  ) = \frac{d^2}{dt^2} \left(\mathfrak{Re} (\tilde{x_{P} } )\right)\). In the event where the driving function is not a pure sinusodial function, we can always use Fourier transform to write it as sum of sinusodial functions, so the general scheme of the above analysis still works. For example, the driving force is modulated as \(F(t) = mA \cos (\sigma t)\sin (\omega t)\), then we cannot guess the particular solution as \(x_{P} = C \mathfrak{Re} (e^{i \sigma t} ) \mathfrak{Re} (-i e^{i \omega t} )\) or something like that, but instead we should use the idea of a Fourier transform and rewrite the driving function as sum of trigonometric functions \(\displaystyle f(t) = \frac{mA}{2}(\sin (\sigma +\omega )+\sin (\sigma -\omega )) \), and proceeds as above. 
 
 Upon substitution, we get
 
@@ -910,7 +910,9 @@ Taking the real part and combining the homogeneous and inhomogeneous solution, w
     x = x_{H} + x_{P} = e^{-\gamma t } \left(Ae^{ \sqrt{\gamma ^2 - \omega _{0}^2 } t } + Be^{ \sqrt{\gamma ^2 - \omega _{0}^2 } t } \right) + \frac{F_0 \cos  (\omega t+\delta +\varphi )}{\sqrt{4\gamma ^2\omega ^2+ (\omega _{0}^2 - \omega ^2 )^2} } . \label{gensol} 
 \end{equation}
 
-This is the general solution of the harmonic oscillator equation. However, there are still a few special cases to consider:
+\section{Special Cases of \(\omega \) }
+
+\subsection{Resonance}
 
 When \(\gamma = 0\) and as \(\omega \to \pm \omega _{0}\), we have \(y_{P} \to \infty  \), so the guess in \cref{parguess} does not work anymore. The mathematical reason is that since \(i \omega \to  i \omega _{0} = \lambda _{\pm } \), the particular solution coincides with the homogenous solutions, so we would have to find another independent solution. 
 
@@ -929,6 +931,8 @@ In some sense, it is a more general particular solution because it not only work
     x_{P} = F_0 \mathfrak{Re} \left( \lim_{\omega  \to \pm \omega _{0}  } \left(  \frac{e^{i (\omega t+\delta )} - e^{\pm i \omega _{0}  t }  }{\omega _{0}^2-\omega ^2 } \right)\right) = F_0 \mathfrak{Re} \left( \lim_{\omega  \to \pm \omega _{0} } \left(\frac{ite^{i (\omega t+\delta )} }{-2\omega } \right) \right)= \frac{F_0 t \sin (\omega _{0}t +\delta )}{2 \omega _{0} }.
 \end{equation}
 
+Therefore, if \(\omega = \omega _{0} \), then \(\displaystyle \varphi = -\frac{\pi }{2} \text { or } \frac{\pi }{2} \text { and } A\approx \frac{F_0 }{\gamma \omega _{0} }  \). Mathematically, the acceleration cancels with the restoring force, while the driving force cancels the damping force.
+
 In hindsight, one can simply guess \(x_{P} = \mathfrak{Re} (Cte^{i(\omega t+\delta )} )  \), since it is the simpliest mean to obtain another independent solution, and it works also. 
 
 If \(\gamma = \omega _{0} \) and for some reason \(\omega \to i\omega _{0}\), then the roots \(\lambda _{\pm } = \lambda  \) are repeated and the particular solution coincides with the homogenous solution, and the particular solution can be found by similar means, either by the method of variation of parameters and guess \(x_{P} = \psi (x)e^{\lambda t}  \), or by taking the limit of the generalized particular solution
@@ -939,7 +943,11 @@ If \(\gamma = \omega _{0} \) and for some reason \(\omega \to i\omega _{0}\), th
     \end{aligned} 
 \end{equation}
 
+\subsection{Extreme Cases}
 
+If \(\omega \ll \omega _{0} \), then from the general solution we have \(\displaystyle \varphi \approx 0 \text { and } A \approx \frac{F_0 }{\omega _{0}^2 } \). Mathematically, the acceleration and the damping term is negligible, so the mass simply follows the driving force, which is cancelled by the restoring force. 
+
+If \(\omega \gg \omega _{0}\) (and \(\gamma \ll \omega \)), then from the general solution we have \(\displaystyle \varphi \approx -\pi \text { and } A \approx \frac{F_0 }{\omega ^2}  \). Mathematically, the damping term and the restoring term is negligible, so the driving force is soley responsible for the acceleration.
 
 \subsection{Quality Factor}
 
@@ -948,16 +956,18 @@ If \(\gamma = \omega _{0} \) and for some reason \(\omega \to i\omega _{0}\), th
 For an underdamped unforced oscillator, the general solution can be seen from \cref{gensol} as
 
 \begin{equation}
-    x = Ae^{-\gamma t} \cos (\omega _{u} t+\varphi ) \implies \dot{x} = -A\left( e^{-\gamma t} \omega _{u}\sin (\omega _{u}t+\varphi  ) + \gamma \cos (\omega _{u}t+\varphi  )  \right), 
+    x = Ae^{-\gamma t} \cos (\omega _{u} t+\varphi )\footnote{\(A\) and \(\varphi \) are real if the initial conditions are real, but in general \(A\) and \(\varphi \) are complex.}  \implies \dot{x} = -A\left( e^{-\gamma t} \omega _{u}\sin (\omega _{u}t+\varphi  ) + \gamma \cos (\omega _{u}t+\varphi  )  \right), 
 \end{equation}
 
 where \(\omega _{u} \equiv \sqrt{\omega _{0}^2- \gamma ^2 } \) is the underdamped frequency.
 
-The quality factor \(Q\) of an oscillator (forced or unforced) is defined as 
+The quality factor \(Q\) of an oscillator is defined as\footnote{The oscillator can be forced or unforced. Unforced oscillator simply means that the energy lost from damping is not replenished by the driving force.}  
 
 \begin{equation}
     Q \equiv 2\pi \frac{\text{Average energy stored in a cycle}}{\text{Total energy last per period}}.
 \end{equation}
+
+Sometimes the word ``average'' is omitted, since as we will see both definitions give the same result.
 
 The average energy stored in a cycle \(E\) can be calculated directly via
 
@@ -1026,7 +1036,9 @@ It turns out that the FWHM (full width at half maximum) of the resonance peak (\
 One can obviously find the roots expcitly and subtract them to get the answer. The faster way to do this would be to use the sum and the product of roots. We have
 
 \begin{equation}
-    \omega _{2} - \omega _{1} = \sqrt{\omega _{1}^2+\omega _{2}^2-2\omega _{1}\omega _{2}} = \sqrt{-(\gamma ^2-2\omega _{0}^2 ) -2 \sqrt{(\omega _{0}^2 - 4\gamma ^2 )\omega _{0}^2 } } \approx \sqrt{2\omega _{0}^2 -\gamma ^2 - 2\omega _{0}^2 \left( 1 -2\frac{\gamma ^2}{\omega _{0}^2 }  \right)  } 
+    \begin{aligned} 
+    \omega _{2} - \omega _{1} &= \sqrt{\omega _{1}^2+\omega _{2}^2-2\omega _{1}\omega _{2}} = \sqrt{-(\gamma ^2-2\omega _{0}^2 ) -2 \sqrt{(\omega _{0}^2 - 4\gamma ^2 )\omega _{0}^2 } } \\ &\approx \sqrt{2\omega _{0}^2 -\gamma ^2 - 2\omega _{0}^2 \left( 1 -2\frac{\gamma ^2}{\omega _{0}^2 }  \right)  } = \sqrt{3}\gamma  
+    \end{aligned} 
 \end{equation}
 
 \subsection{Rapidly Oscillating Force}
@@ -1093,7 +1105,7 @@ If \(A\) is diagonal with elements \(A_{ii} = a_{i}\) , then the equations are i
     y'_{i} = a_{i} y_{i}(x) \implies y_{i} (x) = C_{i}e^{a_{i}x }    
 \end{equation}
 
-If \(A\) is not diagonal, but is diagonalizable, \textit{e.g.,} \(A = A^{\dagger} \), then we introduce the change of basis matrix \(P = (\vb{v} _1, \cdots, \vb{v} _n )\), and write the equation in eigenvectors basis, where the transformed matrix now becomes \(A' = P^{-1} AP = \text{diag}(\lambda _{1}, \ldots , \lambda _{n}  )\) 
+If \(A\) is not diagonal, but is diagonalizable, \textit{e.g.,} \(A = A^{\dagger} \), then we introduce the change of basis matrix \(P = (\vb{v} _1, \ldots ,  \vb{v} _n )\), and write the equation in eigenvectors basis, where the transformed matrix now becomes \(A' = P^{-1} AP = \text{diag}(\lambda _{1}, \ldots , \lambda _{n}  )\) 
 
 \begin{equation}
     \vb{z}' = A' \vb{z}, \quad  \vb{z} = P^{-1} \vb{y} \implies z_{i}(x) = C_{i}e^{\lambda _{i}x },  
@@ -1102,7 +1114,7 @@ If \(A\) is not diagonal, but is diagonalizable, \textit{e.g.,} \(A = A^{\dagger
 so we have
 
 \begin{equation}  \label{homovec} 
-    \vb{y} = P \vb{z} = (\vb{v}_1, \cdots, \vb{v} _n ) (\text{diag}(e^{\lambda _{1}x }, \ldots , e^{\lambda _{n}x }  ))\vb{C} = (\vb{v}_{1}  )
+    \vb{y} = P \vb{z} = (\vb{v}_1, \cdots, \vb{v} _n ) (\text{diag}(e^{\lambda _{1}x }, \ldots , e^{\lambda _{n}x }  ))\vb{C} 
 \end{equation}
 
 where \(\vb{C} = (C_1 ,C_2 ,\ldots ,C_{n} )\) is a constant vector.
@@ -1147,9 +1159,9 @@ Following the footsteps in \cref{homosys}, substituting \(A = UTU^{-1} \), we ha
     \vb{z} ' = T\vb{z}, \quad \vb{z} = T^{-1} \vb{y}.
 \end{equation}
 
-The system of linear differential equations encoded in the above equation can then be solved one by one, where each one requires the results of all the subsequent solutions. After finding \(z\), we invert the equaion to get \(\vb{y}  = T\vb{z} \). 
+The system of linear differential equations encoded in the above equation can then be solved one by one, where each one requires the results of all the subsequent solutions. After finding \(\vb{z}\), we can invert the equation to get \(\vb{y}  = T\vb{z} \).
 
-\section{Jordan Form}
+\subsection{Jordan Form}
 
 Consider an eigenvalue \(\lambda _{1} \) with degeneracy \(m\), with a eigenvector \(\vb{v} _{1} \). The set of vectors \(\left\{ \vb{v}_1, \ldots , \vb{v}_k \right\}\) is called a Jordan chain of \(\lambda _{1} \), or the generalized eigenvectors of \(A\), if they satisfy
 
@@ -1157,10 +1169,44 @@ Consider an eigenvalue \(\lambda _{1} \) with degeneracy \(m\), with a eigenvect
     \begin{aligned}
         A\vb{v} _{1}&=\lambda _{1}\vb{v} _{1}\\
         A\vb{v} _{2}&=\lambda _{1}\vb{v} _{2}+\vb{v} _{1}\\
-        &\cdots \\
+        &\vdots \\
         A\vb{v} _{k}&=\lambda _{1}\vb{v} _{k}+\vb{v} _{k-1}.           
     \end{aligned}
 \end{equation}
+
+As usual, if we pack all the generalized eigenvectors into \(R\), then the transformed matrix would be the jordan form
+
+\begin{equation}
+    J = R^{-1} AR = \begin{pmatrix}
+        J_1  &  & 0  \\
+         & J_2  &   \\
+        0 &  &  \ddots \\
+    \end{pmatrix},
+\end{equation}
+
+where to each Jordan chain of eigenvalue \(\lambda _{i} \) corresponds to the Jordan block 
+
+\begin{equation}
+    J_{i} = \begin{pmatrix}
+        \lambda _{i}  & 1 &  & 0  \\
+         & \lambda _{i}  & 1 &   \\
+         &  & \ddots & 1  \\
+        0 &  &  & \lambda _{i}  \\
+    \end{pmatrix}.
+\end{equation}
+
+Substituting \(A = RJR^{-1} \), we have
+
+\begin{equation}
+    \vb{z} ' = J\vb{z} , \quad \vb{z} = R^{-1} \vb{y}.
+\end{equation}
+
+The system of linear differential equations encoded in the above equation can then be solved one by one, where each one requires the results of all the subsequent solutions. After finding \(\vb{z}\), we can invert the equation to get \(\vb{y}  = R\vb{z} \).  
+
+
+
+
+
 
 
 

@@ -1,0 +1,73 @@
+\documentclass[english,a4paper,12pt]{report}
+\usepackage{mypackage}
+
+\title{Thermodynamics}
+
+\author{Haydn Cheng}
+
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+    
+\chapter{Laws of Thermodynamics}
+
+\section{Thermodynamical Variables}
+
+\subsection{Function of State}
+
+A thermodynamical variable is any variable of a thermal regarding the thermal system, it is called a function of state (or a state function) if it depends only on the state of the system, but not the process of how the system evolved, or will evolve. Pressure \(P\), volume \(V\), temperature \(T\), chemical potential \(\mu \), number of particles \(N\), entropy \(S\), internal energy \(U\) are all function of state, while heat absorbed by the system \(Q\) and work done on the system \(W\) are not.
+
+Formally, a quantity is a function of state if and only if the change \(\Delta F\), when a system passes between any given pair of states, depends only on the initial and final states, but not on the path. This is also the reason why we would not place a Delta symbol \(\Delta \) in front of variables that are not function of states, since it is ill-defined and could take any values.
+
+\subsection{Intensive and Extensive Variable}
+
+A thermodynamical variable is intensive if it does not depend on the amount of material in the system, and is well-defined at each point locally. On the other hand, a thermodynamical variable is extensive if it does depends on the amount of material in the system, and is not defined at a point. \(P,T,\mu \) are examples of an intensive variable, while \(V,S,N,U\) are examples of an extensive variable. 
+
+Most of these quantities come in pairs, consisting of an intensive and an extensive property whose product is an energy. \((P,V), (T,S), (\mu ,N)\) are examples of these pairs.  
+
+In speical circumstances thermodynamical variables can be neither extensive nor intensive. For example, when two identical water drops are merged, the internal pressure drops slightly owing to a change in the contribution from surface tension. However, this can be modelled by claiming that the pressure in the bulk of the material remains intensive, but the water bulk is in continuous interaction with its own surface, which exerts a force on it. In cases, where the forces are long range, such as a star where self-gravitation is significant, it is no longer valid to model the system as if it were composed of many parts that could each be assigned their own pressure and temperature. 
+
+\subsection{Thermodynamical Equilibrium}
+
+A thermal system is said to be in thermodynamical equilibrium if all of its thermodynamical variables are well defined (but does not have to be the same constant throughout the system) and constant in time. 
+
+In thermodynamical equilibirium the equation of state gives the temperature as a function of other state functions, such as pressure, volume and number of moles. 
+
+Each intensive variables being constant in time and space corresponds to some kind of (partial) equilibrium. Pressure corresponds to mechanical equilibrium, temperature corresponds to thermal equilibium, chemical potential corresponds to chemical equilibrium.
+
+\section{Thermodynamical Process}
+
+The Venn diagram in \cref{vennprocess} shows the relationship between reversible, irreversible, quasistatic and isentropic processes, with example process for each region:
+
+\begin{enumerate}
+    \item !: An explosion.
+    \item H: Squeezing toothpast out of a tube.
+    \item O: Slowly stretching an elastic band at constant temperature.
+    \item S: Slowly stretching a thremally insulated elastic band.
+\end{enumerate}
+
+The shaded region is excluded since a process can only either be reversible or irreversible.
+
+\onefig{vennprocess}{scale=0.3} 
+
+\subsection{Quasistatic}
+
+A quasistatic process is sequences of equilibrium states, where the thermodynamical variables are not constant in time, but the rate of change is slow enough for us to define the intesive variables of the whole system. 
+
+Practically, this is done by making a small change to one of the thermodynamical variable, and wait for the system to attains equilibrium before making another small change, slowing inching towards the final state.
+
+Therefore we can draw a curve (or line) connecting the two points representing two states on the \(P-V\) (or \(P-T\) or \(T-V\)) diagram, and its state coordinates \((P,V,T)\) lies on the surface described by the equation of state. Points that are not reachable by the system. Non-equilibrium states are not located in the \((P-V-T)\) space as they are not well-defined for the whole system. 
+
+\subsection{Reversibility}
+
+A reversible process is one such that the sytem can be restored to its initial state without any net change in the rest of the universe. It can also be defined as a quasistatic process with no `hysteresis' (\textit{i.e.,} no friction \textit{etc.}).
+
+\subsection{Adiathermal, Isentropic, Adiabatic and Isothermal Process}
+
+An isothermal process is one taking palce at constant temperature. An adiathermal process is one taking place in thermal isolation. An isentropic process is a reversible adiathermal process. An adiabatic process can either means an adiathermal process or an isentropic process, depending on authors. In modern physics, the word adiabatic is more often used in the stonger sense of isentropic, and we shall follow suit.
+
+
+
+\end{document}
