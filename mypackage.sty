@@ -43,6 +43,8 @@
 \usepackage{color}
 \usepackage{mathtools}
 \usepackage{pgfplots}
+\usepackage{siunitx}
+\usepackage{url}
 \pgfplotsset{compat=1.17}
 
 
@@ -85,19 +87,19 @@
 \newcommand{\threefig}[7]{\begin{figure}[htbp]
 		\centering
 
-		\begin{subfigure}[b]{0.5\textwidth}
+		\begin{subfigure}[b]{0.3\textwidth}
 			\centering
 			\includegraphics[#2]{#1}
 			\caption[]{\label{#1}}
 		\end{subfigure}
 		\hfill
-		\begin{subfigure}[b]{0.5\textwidth}
+		\begin{subfigure}[b]{0.3\textwidth}
 			\centering
 			\includegraphics[#4]{#3}
 			\caption[]{\label{#3}}
 		\end{subfigure}
 		\hfill
-		\begin{subfigure}[b]{0.5\textwidth}
+		\begin{subfigure}[b]{0.3\textwidth}
 			\centering
 			\includegraphics[#6]{#5}
 			\caption[]{\label{#5}}

@@ -21,7 +21,7 @@ A first order differential equation \(F(x,y,y')\) are usually written in one of 
     \frac{dy}{dx} = F(x,y)\footnote{If a differential equation has more than one solution of the first form (perhaps the equation is quadratic in \(y'\), so there are two roots for \(y'\)), then the differential equation generally has more than one solution. Given the initial condition \((x,y) = (x_0 ,y_0 )\), we also have to specify which integral curve we are following by specifying the slope at that point.}  ~\text { or }~ P(x,y) dx + Q(x,y) dy = 0. \footnote{The first form can always be recast into the second form (the symmetric form). However, \(Q(x,y)\) may vanishes in some places, thus preventing one from dividing it and converting the symmetric form to the the first form. We shall assume that \(\abs{P(x,y)}+\abs{Q(x,y)}\ge 0 \), \textit{i.e.,} \(P(x,y)\) and \(Q(x,y)\) do not vanish simultaneously, such that the symmetric form can be always recast into \(\frac{dy}{dx} = F_{y}(x,y), \text { or } \frac{dx}{dy} = F_{x}(x,y)\).} 
 \end{equation}
 
-The first from above allows us to essentially solve the differential equation without knowing the relation between \(x \text { and } y\). Since the slope \(\displaystyle \frac{dy}{dx} \) is given as a function in terms of the position \((x,y)\), we can simply draw a small line on every point whose the slope is \(F(x,y)\). What we have created is called the direction field of the ODE and the solutions \(y(x)\) are called the integral curves that are at each point tangent to the direction field. As one can see from \cref{integralcurves} that there are infinite of them, and we can specify any one of them by providing the coordinates of any point (known as the initial condition or the boundary condition)\footnote{Initial conditions specify the value of the independent variable and its derivatives \((y,y',\ldots ,y^{(n-1)} )\) at a single \(x = x_0 \) while boundary conditions specify them at two or more \(x\) values.} on the curve.\footnote{This is only true if both \(F(x,y) \text { and } \frac{\partial F(x,y)}{\partial y} \) exist at that point. Otherwise the integral curves may intersect at the point and we would not get an unique solution. For example, the differential equation \(\frac{dy}{dx} = y^{\frac{2}{3} } \), accompanied with the initial condition \(y(0) = 0\) is not unique, as \(y(t) = 0 \text { and } y(t) = (\frac{t}{3} )^3 \) are both valid solutions. And it does not guarantees that the integral curve found would not blows up in finite \(x\). For example, the differential equation \(\frac{dy}{dx} = ay^2 \), accompanied by the initial condition \(y(x_0 )= x_0 \) has the solution \(y = \frac{1}{a(x_0 +\frac{1}{ay_0 }-x )} \), which blows up at a finite interval at \(x = x_0 + \frac{1}{ay_0 } \). Beyond that point, the solution would still gives a solution of \(y\) for every \(x\), but it does not make sense anymore. For linear differential equation, however, the existence and uniqueness is global, and the solution is valid at all \(x\).} 
+The first from above allows us to essentially solve the differential equation without knowing the relation between \(x \text { and } y\). Since the slope \(dy /dx\) is given as a function in terms of the position \((x,y)\), we can simply draw a small line on every point whose the slope is \(F(x,y)\). What we have created is called the direction field of the ODE and the solutions \(y(x)\) are called the integral curves that are at each point tangent to the direction field. As one can see from \cref{integralcurves} that there are infinite of them, and we can specify any one of them by providing the coordinates of any point (known as the initial condition or the boundary condition)\footnote{Initial conditions specify the value of the independent variable and its derivatives \((y,y',\ldots ,y^{(n-1)} )\) at a single \(x = x_0 \) while boundary conditions specify them at two or more \(x\) values.} on the curve.\footnote{This is only true if both \(F(x,y) \text { and } \frac{\partial F(x,y)}{\partial y} \) exist at that point. Otherwise the integral curves may intersect at the point and we would not get an unique solution. For example, the differential equation \(\frac{dy}{dx} = y^{\frac{2}{3} } \), accompanied with the initial condition \(y(0) = 0\) is not unique, as \(y(t) = 0 \text { and } y(t) = (\frac{t}{3} )^3 \) are both valid solutions. And it does not guarantees that the integral curve found would not blows up in finite \(x\). For example, the differential equation \(\frac{dy}{dx} = ay^2 \), accompanied by the initial condition \(y(x_0 )= x_0 \) has the solution \(y = \frac{1}{a(x_0 +\frac{1}{ay_0 }-x )} \), which blows up at a finite interval at \(x = x_0 + \frac{1}{ay_0 } \). Beyond that point, the solution would still gives a solution of \(y\) for every \(x\), but it does not make sense anymore. For linear differential equation, however, the existence and uniqueness is global, and the solution is valid at all \(x\).} 
 
 \onefig{integralcurves}{scale=0.4} 
 
@@ -39,7 +39,7 @@ A first order differential equation is separable if it is in the form
 
 which can be solved by direct integration. Note that if \(f(x) \to \infty \text { or } g(y) \rightarrow 0\) for any \(x=x_0 \text { or } y=y_0 \) respectively then the constant functions \(x=x_0 \text { or } y = y_0 \) might also be solutions to the equation. These are called singular solutions and they can be hard to spot.
 
-ODE in the form of \(\displaystyle \frac{dy}{dx} = f(ax+by+c)\) is also separable simply by a change of the variable \(z(x) = ax + by + c\).
+ODE in the form of \(dy /dx = f(ax+by+c)\) is also separable simply by a change of the variable \(z(x) = ax + by + c\).
 
 \example{Singular Solutions.}
 {Solve 
@@ -54,7 +54,7 @@ ODE in the form of \(\displaystyle \frac{dy}{dx} = f(ax+by+c)\) is also separabl
     \frac{dy}{dx} = \frac{y(y-1)}{x} \implies xdy = y(y-1)dx,
 \end{equation}
 
-we can solve by direct integration that \(\displaystyle y = \frac{1}{1+Cx} \). 
+we can solve by direct integration that \(y = 1 / (1+Cx)  \). 
 
 However, we have to consider the cases when \(x = 0, y = 0 \text { and } y = 1\). For \(x = 0\), this is a solution to the symmetric form but not the original equation. On the other hand, \(y=0\text { and } y=1\) are both solutions to the differential equation but \(y = 1\) is already covered by the genearl solution with \(C = 0\). So the only singular solution we get is \(y = 0\).    
 } 
@@ -68,7 +68,7 @@ A first order differential equation is homogeneous \(P(x,y)\) and \(Q(x,y)\) in 
     \frac{dy}{dx} = f\left(\frac{y}{x} \right).
 \end{equation}
 
-This reduces to a separable differential equation by introducing a new variable \(\displaystyle z = \frac{y}{x} \), so
+This reduces to a separable differential equation by introducing a new variable \( z = y /x \), so
 
 \begin{equation}
     \frac{dz}{dx} = x\frac{dy}{dx} - \frac{y(x)}{x^2} = \frac{f(z)-z}{x}  
@@ -103,7 +103,7 @@ which upon substitution leads to a homogeneous equation
     \frac{dY}{dX} = f\left( \frac{a_1 X+b_1 Y}{a_2 X+b_2 Y}  \right),
 \end{equation}
 
-Note that if the square matrix in \cref{X=x+u} has zero determinant meaning that there are no solutions for \(u\) and \(v\), we have \(a_2 x+b_2 y = k(a_1 x+b_1 y)\) for all \(x \text { and } y\) thus \(\displaystyle k=\frac{a_2 }{a_1  } = \frac{b_2 }{b_1 } \). In this case the equation is in the form
+Note that if the square matrix in \cref{X=x+u} has zero determinant meaning that there are no solutions for \(u\) and \(v\), we have \(a_2 x+b_2 y = k(a_1 x+b_1 y)\) for all \(x \text { and } y\) thus \( k=a_2 /a_1  = b_2 /b_1  \). In this case the equation is in the form
 
 \begin{equation}
     \frac{dy}{dx} = f\left( \frac{a_1 x+b_1 y+c_1 }{k(a_1 x+b_1 y)+c_2 }  \right)= g(a_1 x+b_1 y),
@@ -131,7 +131,7 @@ Therefore, we have
     A(x,y) = \frac{\partial f}{\partial x} ~\text { and }~ B(x,y) = \frac{\partial f}{\partial y}
 \end{equation}
 
-Since \(\displaystyle \frac{\partial^2 f}{\partial x \partial y} = \frac{\partial^2 f}{\partial y \partial x}\), we obtain a necessary (and sufficient) condition for the differential to be exact, which is
+Since \( \partial ^2f / \partial x \partial y = \partial ^2 f / \partial y \partial x\), we obtain a necessary (and sufficient) condition for the differential to be exact, which is
 
 \begin{equation}
     \frac{\partial A}{\partial y} = \frac{\partial B}{\partial x}.\footnote{Determining whether a differential containing many variables \(x_1, x_2, \ldots, x_{n}\) is exact is a simple extension of the above: a differential \(df = \sum_{i=1}^{n} g_{i}(x_1 ,x_2 ,\ldots , x_{n} )dx_{i}  \) is exact if \(\frac{\partial g_{i} }{\partial x_{j} } = \frac{\partial g_{j} }{\partial x_{i} } \) for all pairs \(i,j\).} 
@@ -170,7 +170,7 @@ Integrating the first relation from the above equation,
     f(x,y) = 2xy\cos x + y^2\cos x + C(x) \implies \frac{\partial f}{\partial x} = 2y(\cos x-x\sin x)-y^2\sin x+\frac{dC}{dx} .
 \end{equation}
 
-Equating the the forms of \(\displaystyle \frac{\partial f}{\partial x} \) found, 
+Equating the the forms of \(\partial f /\partial x \) found, 
 
 \begin{equation}
     6x\cos x-3x^2\sin x = \frac{\partial C}{\partial x} \implies C(x) = 3x^2\cos x+ C'.
@@ -196,13 +196,13 @@ Since \(df(x,y) = 0\), we can integrate and get \(f(x,y) = A\), where \(A\) is s
     y(ydx-xdy) - x^3 dy = 0,
 \end{equation}
 
-we spot that \(ydx - xdy\) is an exact differential of \(\displaystyle f = \frac{y}{x} \) (multiplied by \(x^2\)). Thus
+we spot that \(ydx - xdy\) is an exact differential of \(f = y /x \) (multiplied by \(x^2\)). Thus
 
 \begin{equation}
     -yx^2 d\left( \frac{y}{x}  \right) - x^3 dy= 0.
 \end{equation}
 
-The variable \(y\) can be eliminated, and instead be replaced by the new variable \(\displaystyle \frac{y}{x} \). The differential equation then reduces to a homogeneous equation
+The variable \(y\) can be eliminated, and instead be replaced by the new variable \(y /x\). The differential equation then reduces to a homogeneous equation
 
 \begin{equation}
     y d \left( \frac{y}{x}  \right) + xdy = 0 \implies     y = -x(x\pm \sqrt{C+x^2} ).
@@ -329,7 +329,7 @@ An alternative way to solve a first order linear differential equation is to tre
     (x^2+y^2)dx-x^2d\left( \frac{y}{x}  \right) = 0.
 \end{equation}
 
-Spot that the integrating factor is \(\displaystyle \mu (x,y) = \frac{1}{x^2+y^2} \), as if we multiply the equation by \(\mu (x,y)\), we get
+Spot that the integrating factor is \( \mu (x,y) = 1 / (x^2+y^2) \), as if we multiply the equation by \(\mu (x,y)\), we get
 
 \begin{equation}
     dx - \frac{d\left( \frac{y}{x}  \right)}{1+(\frac{y}{x} )^2} = 0 \implies x - \arctan {\frac{y}{x} }=C.  
@@ -403,7 +403,7 @@ reduces the equation to a Bernoulli's equation, as
 
 \section{Introduction of Parameter}
 
-If we cannot (and do not want to) change \(\displaystyle \frac{dy}{dx} \) to be the subject of the equation, but can change \(y\) to be the subject, then the substitution \(p =y'\) implies that 
+If we cannot (and do not want to) change \( dy /dx\) to be the subject of the equation, but can change \(y\) to be the subject, then the substitution \(p =y'\) implies that 
 
 \begin{equation}
     pdx = dy = \frac{\partial f}{\partial x} dx + \frac{\partial f}{\partial p} dp \implies \left( \frac{\partial f}{\partial x} -p \right)dx + \frac{\partial f}{\partial p} dp = 0.
@@ -781,7 +781,7 @@ we get (see \cref{psi'})
     \psi '' + 2 \left(\frac{y_1 '}{y_1 } + a(x) \right)\psi' = \psi '' + \left(2\lambda + \frac{a_1 }{a_2 } \right)\psi ' = \psi '' = \frac{f(x)}{y_1 } = 0,
 \end{equation}
 
-where \(\displaystyle 2\lambda + \frac{a_1 }{a_2 } \) is set to zero, since \(\displaystyle \lambda = -\frac{a_1 }{2a_2 } \) is a repeated root. Thus, we get
+where \( 2\lambda + a_1 /a_2  \) is set to zero, since \(\lambda = -a_1 /2a_2  \) is a repeated root. Thus, we get
 
 \begin{equation}
     \psi '' = 0 \implies \psi = (C_1 + C_2 x),
@@ -789,7 +789,7 @@ where \(\displaystyle 2\lambda + \frac{a_1 }{a_2 } \) is set to zero, since \(\d
 
 where the term containing \(C_1 \) is the original solution, and the term with \(C_2 x\) is the extra independent solution. 
 
-This can be generalized to higher dimensions easily. For example, if the characteristic polynomial of some \(7^{\text{th}} \) order linear homogeneous differential equation is \((\lambda -a)^3 (\lambda -b)(\lambda - c)(\lambda - d)\), then the general solution of the ODE is \(\displaystyle y(x) = (C_1 +C_2 x+C_3 ^2)e^{ax} + (C_4 +C_5x )e^{bx} + C_6 e^{cx} + C_7 e^{dx}    \).    
+This can be generalized to higher dimensions easily. For example, if the characteristic polynomial of some \(7^{\text{th}} \) order linear homogeneous differential equation is \((\lambda -a)^3 (\lambda -b)(\lambda - c)(\lambda - d)\), then the general solution of the ODE is \( y(x) = (C_1 +C_2 x+C_3 ^2)e^{ax} + (C_4 +C_5x )e^{bx} + C_6 e^{cx} + C_7 e^{dx}    \).    
 
 The table below shows some common solutions to a second order linear homogenous equation
 
@@ -806,15 +806,15 @@ $\kappa + i\omega$ & $\kappa - i\omega$ & $[C_1 \sin(\omega x) + C_2 \cos(\omega
 \end{tabular}%
 }
 
-To find the particular solution, we again use the method of variation of parameters and substitute \(\displaystyle y_{p} = \psi (x)e^{\lambda _{1}x }\) (or \(\psi (x)e^{\lambda _{2}x } \)) into \cref{secondlinear}, but this time the RHS of the equation is \(f(x)\) instead of 0. From \cref{psi'}, we get 
+To find the particular solution, we again use the method of variation of parameters and substitute \( y_{p} = \psi (x)e^{\lambda _{1}x }\) (or \(\psi (x)e^{\lambda _{2}x } \)) into \cref{secondlinear}, but this time the RHS of the equation is \(f(x)\) instead of 0. From \cref{psi'}, we get 
 
 \begin{equation}
     \psi '' + \left(2\lambda _{1} + \frac{a_1 }{a_2 } \right)  \psi ' = \frac{1}{a_2 } e^{-\lambda _{1}x }f(x) \implies \psi '' + \left(\lambda _{1}  - \lambda _{2} \right) \psi ' = \frac{1}{a_2 } e^{-\lambda _{1} x } f(x), 
 \end{equation}
 
-where we have used the sum of root \(\displaystyle \lambda _{1} + \lambda _{2} = -\frac{a_1 }{a_{2}}  \) and the factor \(\displaystyle \frac{1}{a_2 } \) is introduced since in \cref{vp} we assumed the coefficient for \(y''\) in the original differential equation is \(0\).   
+where we have used the sum of root \( \lambda _{1} + \lambda _{2} = -a_1 /a_2  \) and the factor \(\frac{1}{a_2 }  \) is introduced since in \cref{vp} we assumed the coefficient for \(y''\) in the original differential equation is \(0\).   
 
-The integrating factor is \(\displaystyle \mu  (x) = e^{\int (\lambda _{1} - \lambda _{2}  ) dx} = e^{(\lambda _{1} - \lambda _{2}  )x}  \), so
+The integrating factor is \( \mu  (x) = e^{\int (\lambda _{1} - \lambda _{2}  ) dx} = e^{(\lambda _{1} - \lambda _{2}  )x}  \), so
 
 \begin{equation}
     \psi'(x) = \frac{1}{\mu (x)} \int^x \mu (u) \left[ \frac{1}{a_2} e^{-\lambda_1 u} f(u) \right] du = \frac{e^{(\lambda_2 - \lambda_1)x}}{a_2} \int^x e^{-\lambda_2 u} f(u) du,
@@ -877,7 +877,7 @@ Taking the real part of this complex differential equation,
 
 Comparing the two associating equations above we can indeed say that \(x\) is the real part of \(\tilde{x} \).\footnote{We usually use the tilde symbol to denote the complex numbers we want to take the real part of.} Note that this methods hinges on the fact that the real function \(\mathfrak{Re} \) is linear, so that we can distribute \(\mathfrak{Re} \) separately to the three terms in the above equation, and also the derivative function (since differentiation is also a linear process).
 
-Also, the differential equation itself has to be linear. For example, if the equation contains a term \(\dot{x}^2 \), then when we take the real part of the complex associated equation, we would get \(\displaystyle \mathfrak{Re} (\dot{\tilde{x} }^2) \neq \frac{d}{dt} \mathfrak{Re}^2\left( \tilde{x }  \right)    \), so we cannot follow the argument above and claim that \(x\) is the real part of \(\tilde{x} \). 
+Also, the differential equation itself has to be linear. For example, if the equation contains a term \(\dot{x}^2 \), then when we take the real part of the complex associated equation, we would get \( \mathfrak{Re} (\dot{\tilde{x} }^2) \neq d /dt \mathfrak{Re}^2\left( \tilde{x }  \right)    \), so we cannot follow the argument above and claim that \(x\) is the real part of \(\tilde{x} \). 
 
 The homogeneous solution is 
 
@@ -896,7 +896,7 @@ For the particular solution, we guess
     \end{aligned} 
 \end{align}
 
-This explicit calculation confirms that the real function \(\mathfrak{Re}\) is indeed linear, as \(\displaystyle \mathfrak{Re} (\tilde{\ddot{x_{P} } }  ) = \frac{d^2}{dt^2} \left(\mathfrak{Re} (\tilde{x_{P} } )\right)\). In the event where the driving function is not a pure sinusodial function, we can always use Fourier transform to write it as sum of sinusodial functions, so the general scheme of the above analysis still works. For example, the driving force is modulated as \(F(t) = mA \cos (\sigma t)\sin (\omega t)\), then we cannot guess the particular solution as \(x_{P} = C \mathfrak{Re} (e^{i \sigma t} ) \mathfrak{Re} (-i e^{i \omega t} )\) or something like that, but instead we should use the idea of a Fourier transform and rewrite the driving function as sum of trigonometric functions \(\displaystyle f(t) = \frac{mA}{2}(\sin (\sigma +\omega )+\sin (\sigma -\omega )) \), and proceeds as above. 
+This explicit calculation confirms that the real function \(\mathfrak{Re}\) is indeed linear, as \( \mathfrak{Re} (\tilde{\ddot{x_{P} } }  ) = d^2 /dt^2 \left(\mathfrak{Re} (\tilde{x_{P} } )\right)\). In the event where the driving function is not a pure sinusodial function, we can always use Fourier transform to write it as sum of sinusodial functions, so the general scheme of the above analysis still works. For example, the driving force is modulated as \(F(t) = mA \cos (\sigma t)\sin (\omega t)\), then we cannot guess the particular solution as \(x_{P} = C \mathfrak{Re} (e^{i \sigma t} ) \mathfrak{Re} (-i e^{i \omega t} )\) or something like that, but instead we should use the idea of a Fourier transform and rewrite the driving function as sum of trigonometric functions \( f(t) = mA(\sin (\sigma +\omega )+\sin (\sigma -\omega ))/2 \), and proceeds as above. 
 
 Upon substitution, we get
 
@@ -931,7 +931,7 @@ In some sense, it is a more general particular solution because it not only work
     x_{P} = F_0 \mathfrak{Re} \left( \lim_{\omega  \to \pm \omega _{0}  } \left(  \frac{e^{i (\omega t+\delta )} - e^{\pm i \omega _{0}  t }  }{\omega _{0}^2-\omega ^2 } \right)\right) = F_0 \mathfrak{Re} \left( \lim_{\omega  \to \pm \omega _{0} } \left(\frac{ite^{i (\omega t+\delta )} }{-2\omega } \right) \right)= \frac{F_0 t \sin (\omega _{0}t +\delta )}{2 \omega _{0} }.
 \end{equation}
 
-Therefore, if \(\omega = \omega _{0} \), then \(\displaystyle \varphi = -\frac{\pi }{2} \text { or } \frac{\pi }{2} \text { and } A\approx \frac{F_0 }{\gamma \omega _{0} }  \). Mathematically, the acceleration cancels with the restoring force, while the driving force cancels the damping force.
+Therefore, if \(\omega = \omega _{0} \), then \( \varphi = - \pi /2 \text { or } \pi /2 \text { and } A\approx F_0 /\gamma \omega _{0}   \). Mathematically, the acceleration cancels with the restoring force, while the driving force cancels the damping force.
 
 In hindsight, one can simply guess \(x_{P} = \mathfrak{Re} (Cte^{i(\omega t+\delta )} )  \), since it is the simpliest mean to obtain another independent solution, and it works also. 
 
@@ -945,9 +945,9 @@ If \(\gamma = \omega _{0} \) and for some reason \(\omega \to i\omega _{0}\), th
 
 \subsection{Extreme Cases}
 
-If \(\omega \ll \omega _{0} \), then from the general solution we have \(\displaystyle \varphi \approx 0 \text { and } A \approx \frac{F_0 }{\omega _{0}^2 } \). Mathematically, the acceleration and the damping term is negligible, so the mass simply follows the driving force, which is cancelled by the restoring force. 
+If \(\omega \ll \omega _{0} \), then from the general solution we have \(\varphi \approx 0 \text { and } A \approx F_0 /\omega _{0}^2  \). Mathematically, the acceleration and the damping term is negligible, so the mass simply follows the driving force, which is cancelled by the restoring force. 
 
-If \(\omega \gg \omega _{0}\) (and \(\gamma \ll \omega \)), then from the general solution we have \(\displaystyle \varphi \approx -\pi \text { and } A \approx \frac{F_0 }{\omega ^2}  \). Mathematically, the damping term and the restoring term is negligible, so the driving force is soley responsible for the acceleration.
+If \(\omega \gg \omega _{0}\) (and \(\gamma \ll \omega \)), then from the general solution we have \( \varphi \approx -\pi \text { and } A \approx F_0 /\omega ^2  \). Mathematically, the damping term and the restoring term is negligible, so the driving force is soley responsible for the acceleration.
 
 \subsection{Quality Factor}
 
@@ -1058,7 +1058,7 @@ However, if the driving force depends also on the displacement, for example, whe
     y''(y-1)+y'(y-1)^2=y'^2.
 \end{equation}~
 }
-{Let \(p = y'\), then \(\displaystyle y''=\frac{dp}{dy} \frac{dy}{dx} = p p'  \). Substituting into the equation we get
+{Let \(p = y'\), then \( y''= dp /dy = dy /dx = p p'  \). Substituting into the equation we get
 
 \begin{equation}
     p p' (y-1) + p(y-1)^2 = p^2 \implies x = \frac{1}{C} \ln \abs{\frac{y-1}{C+1-y} } +C'. 

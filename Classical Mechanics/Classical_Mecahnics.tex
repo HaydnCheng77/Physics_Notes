@@ -70,7 +70,7 @@ We can see that both \(\boldsymbol{\tau } \text{ and } \vb{L} \) depend on the o
 Taking the derivatives of the angular momentum, we yield ``Newton's second law for rotation''
 
 \begin{equation}
-	\frac{d \vb{L}}{t} = \frac{d}{dt} (\vb{r} \cross \vb{p} ) = \vb{r} \cross \frac{d\vb{p} }{dt}  + \frac{d \vb{r}}{dt} \cross \vb{p} = \vb{r} \cross \vb{F} + \vb{v} \cross (m\vb{v} ) = \vb{r} \cross \vb{F} = \boldsymbol{\tau}  
+	\frac{d \vb{L}}{dt} = \frac{d}{dt} (\vb{r} \cross \vb{p} ) = \vb{r} \cross \frac{d\vb{p} }{dt}  + \frac{d \vb{r}}{dt} \cross \vb{p} = \vb{r} \cross \vb{F} + \vb{v} \cross (m\vb{v} ) = \vb{r} \cross \vb{F} = \boldsymbol{\tau}  
 \end{equation}
 
 Another quantity that is introduced to simplify the matter (which ultimately comes from the symmetry of time) is kinetic energy \(\vb{T} \) and potential energy  \(U\) defined by   
@@ -110,7 +110,31 @@ Thus from the vector identity \(\curl{(\grad{V}) } = 0\) and the second item abo
 	W_{non-con} = T + V. \label{con} 
 \end{equation}
 
+\section{Work Energy Theorem}
 
+The work energy theorem states that the total work done to the system \(W\) is equals to the change in kinetic energy of the system \(\Delta \text{K.E.}\) 
+
+\begin{equation}
+	W = \Delta \text{K.E.} .
+\end{equation}
+
+The work done of the system can be split into the work done by conservative force or the work done by non-conservative force
+
+\begin{equation}
+	W = W_{\text{con} } + W_{\text{non-con} },  
+\end{equation}
+
+we can therefore define the potential energy \(\text{P.E.} \) as 
+
+\begin{equation}
+	\Delta \text{P.E.}  = - W_{\text{con} }, 
+\end{equation}
+
+so that the work done by the non conservative forces \(W_{\text{non-con} } \) is equals to change in total mechnical energy (kinetic energy plus potential energy), 
+
+\begin{equation}
+	W_{\text{non-con} } = \Delta \text{K.E.}  + \Delta \text{P.E.}.  
+\end{equation}
 
 
 \section{System of particles}
@@ -696,10 +720,10 @@ As ususal, we guess \(\vb{x} = \vb{v} e^{i \omega t} \), but instead of taking t
 
 with \(v_{0} = v_{n+1} =0 \) to cover \(n=1 \text { or } n\) cases.  
 
-It turns out that \(\displaystyle v_{n} = A \sin (n \theta ) + B\cos (n \theta ) \) is a general solution to the equation, and to accomodate for \(v_{0} = v_{n+1} = 0  \), we require \(B = 0 \text { and } \displaystyle \theta = \frac{nm \pi }{N+1}, \text{ where } m = 1,\ldots , N \). Substituting into the above equation, we have
+It turns out that \(v_{n} = A \sin (n \theta ) + B\cos (n \theta ) \) is a general solution to the equation, and to accomodate for \(v_{0} = v_{n+1} = 0  \), we require \(B = 0 \text { and }  \theta = nm\pi /(N+1), \text{ where } m = 1,\ldots , N \). Substituting into the above equation, we have
 
 \begin{equation}
-	\omega_{m}  = 2 \omega _{0}\sin \left( \frac{m\pi }{2(N+1)}  \right) ~\text { and }~ v_{n} = A \sin \left( \frac{nm \pi }{N+1}  \right). \label{normalmode} 
+	\omega_{m}  = 2 \omega _{0}\sin \left( \frac{m\pi }{2(N+1)}  \right) ~\text { and }~ v_{n} = A \sin \left( nm\pi /(N+1)  \right). \label{normalmode} 
 \end{equation}
 
 When \(N \to \infty\), we have 
@@ -731,7 +755,7 @@ When \(N \to \infty\), then the equations become the wave equation
 	\rho \frac{\partial^2 \xi }{\partial t^2} = E \frac{\partial^2 \xi }{\partial x^2},   
 \end{equation}
 
-where \(\displaystyle \rho = \frac{m}{\Delta x}, E = k \Delta x \), and we have change the notation for displacement from \(x\) to \(\xi \), so that \(x\) denotes the equilibrium position.   
+where \(\rho = m /\Delta x, E = k \Delta x \), and we have change the notation for displacement from \(x\) to \(\xi \), so that \(x\) denotes the equilibrium position.   
 
 Alternatively, one can consider the force acting on an infinitesimal mass element to get 
 
@@ -1013,7 +1037,7 @@ Just as how we guess \(\vb{x} = \vb{v} e^{i \omega t} \) as the solution to the 
 	m\ddot{\vb{x} } = -K\vb{x} ,  
 \end{equation}
 
-we guess \(y = \Theta (t)Q(x)\) to the equation 
+we guess \(y = X(x)T(t)\) to the equation 
 
 \begin{equation}
 	\frac{\partial^2 y}{\partial t^2} = c^2 \frac{\partial^2 y}{\partial x^2}, 
@@ -1022,66 +1046,53 @@ we guess \(y = \Theta (t)Q(x)\) to the equation
 where \(c^2 \partial ^2 y/\partial x^2 \) now plays the role of \(-K\), thus having a spectrum of infinite eigenvalues \(\omega ^2\) instead of just finite number of them. Substitution gives
 
 \begin{equation}
-	\frac{1}{c^2 \Theta } \frac{d^2\Theta }{dt^2} = \frac{1}{Q}\frac{d^2Q}{dx^2}.
+	\frac{1}{c^2 T} \frac{d^2T}{dt^2} = \frac{1}{X}\frac{d^2X}{dx^2}.
 \end{equation}
 
-Since the LHS and RHS are functions of different variables, they can only be equal if they equals to the same constant \(\Lambda \), so we have
+Since the LHS and RHS are functions of different variables, they can only be equal if they equals to the same constant \(-\Lambda^2 \), where we have require the constant to be negative because we expect oscillating behaviour but not exponentials, which in wome case is what we expect such as in evanescent waves or in matter waves. Substituting, we have
 
 \begin{equation}
-	\frac{d^2\Theta }{dt^2} = \Lambda c^2 \Theta ~\text { and }~ \frac{d^2Q}{dx^2} = \Lambda Q,
+	\frac{d^2T }{dt^2} = -(\Lambda c)^2T ~\text { and }~ \frac{d^2X}{dx^2} = -\Lambda ^2Q,
 \end{equation}
 
 which has the general solution
 
 \begin{equation}
-	\Theta (t) Q(x) = \left(A_{\Theta } e^{c\sqrt{\Lambda } t} + B_{\Theta }e^{-c\sqrt{\Lambda } t} \right) \left(A_{Q} e^{\sqrt{\Lambda } x} + B_{Q}e^{-\sqrt{\Lambda } x} \right). \label{ThetaQ}   
+	y(x,t) = T(t)X(x) = \left( Ae^{i\Lambda ct}+Be^{-i\Lambda ct}    \right)\left( Ce^{i \Lambda x}+De^{-i \Lambda x}   \right). \label{ThetaQ}   
 \end{equation}
 
-Solving the wave equation now becomes a matter of finding the coefficients \(A_{\Theta }, B_{\Theta }, A_{Q}, B_{Q}  \) to satisfy the boundary conditions and initial conditions. The complete solution is built up of these stationary waves with different wavenumbers and frequencies.
+Solving the wave equation now becomes a matter of finding the coefficients \(A, B, C, D\) to satisfy the boundary conditions and initial conditions. The complete solution is built up of these stationary waves with different wavenumbers and frequencies.
 
 \example{Stretched String Fixed at Two Points.}
 {Consider a stretched string fixed at \(x=0\) and \(L\), with initial condition \(y_0 (x) \text { and }  \dot{y_0 }(x) \) as usual. Find the general solution to the wave equation. }
-{We have the boundary conditions \(Q(0) = Q(L) = 0\), so
+{We have the boundary conditions \(X(0) = X(L) = 0\), so
 
 \begin{equation}
-	\begin{pmatrix}
-		1 &  1 \\
-		e^{\sqrt{\Lambda }L }  & e^{-\sqrt{\Lambda }L }   \\
-	\end{pmatrix} \begin{pmatrix}
-		 A_{Q}  \\
-		 B_{Q}  \\
-	\end{pmatrix} = \begin{pmatrix}
-		 0 \\
-		 0 \\
-	\end{pmatrix}.
+	C = - D ~\text { and }~ \sin (\Lambda L) = m \pi , \quad m = 1,2,\ldots 
 \end{equation}
 
-Requiring the determinant to be zero, we find the eigenvalues and the corresponding eigenfunctions to be
+where negative \(m\) is not considered as we can combine the the coefficients of negative \(m\) and positive \(m\), while \(k = 0\) is not considered since then the genearl solution given in \cref{ThetaQ} no longer works, but is given by \(X(x) = C + Dx\), which gives \(C = D = 0\), and is trivial.
 
-\begin{equation}
-	\Lambda_{k} = -\frac{k^2 \pi ^2}{L} ~\text { and }~ Q_{k}(x) = \sin \left( \frac{k\pi x}{L}  \right), \quad   k = 1,2,\ldots . 
-\end{equation}
-
-Negative \(k\) is not considered due to the only appearance of \(k^2\) and \(k=0\) is also not considered since the genearl solution given in \cref{ThetaQ} no longer works, but is given by \(Q(x) = A_{Q}' + B_{Q}'x  \), which will gives \(A_{Q}' = B_{Q}' = 0\), and is trivial. If the boundary conditions permit \(A_{Q}' \text { or }  B_{Q}' \) to be non-trivial, then we would need to include this \(k=0\) as well. 
+If the boundary conditions permit \(C \text { or } D\) to be non-trivial then we would have to take this solution into account as well. 
 
 The general solution of the wave equation is therefore
 
 \begin{equation}
-	y(x,t) = \sum_{k=1}^{\infty}\left( A_{\Theta }\cos \left( \frac{k \pi ct}{L}  \right) + B_{\Theta } \sin \left( \frac{k \pi ct}{L}  \right)  \right) \sin \left( \frac{k \pi x}{L}  \right),
+	y(x,t) = \sum_{m=1}^{\infty}\left( A\cos \left( \frac{m \pi ct}{L}  \right) + B  \sin \left( \frac{m \pi ct}{L}  \right)  \right) \sin \left( \frac{m \pi x}{L}  \right),
 \end{equation}
 
-which is the sum of all possible stationary waves each with its own \(k\) (thus \(\omega \)).
+which is the sum of all possible stationary waves each with its own \(m\) (thus \(\omega \)).
 
 To satisfy the initial conditions \(y(x,0) = y_0 (x) \text { and } \dot{y}(x,0) = \dot{y_0 }(x)  \), we Fourier decompose \(y_0 (x) \text { and } \dot{y_0 }(x) \) into linear combinations of sine functions 
 
 \begin{equation}
-	y_0 (x) = \sum_{k=1}^{\infty} Y_{k}\sin \left( \frac{k\pi x}{L}  \right) ~\text { and }~ \dot{y_0 }(x) = \sum_{k=1}^{\infty} Y_{k}' \sin \left( \frac{k \pi x}{L}  \right),   
+	y_0 (x) = \sum_{m=1}^{\infty} Y_{m}\sin \left( \frac{m\pi x}{L}  \right) ~\text { and }~ \dot{y_0 }(x) = \sum_{m=1}^{\infty} Y_{m}' \sin \left( \frac{m \pi x}{L}  \right),   
 \end{equation}
 
-and compare them with \(A_{\Theta } \text { and } B_{\Theta }  \) to get
+and compare them with \(A \text { and } B \) to get
 
 \begin{equation}
-	A_{k} = Y_{k} ~\text { and }~ \frac{k\pi c}{L} B_{k} = Y_{k}'.    
+	A_{m} = Y_{m} ~\text { and }~ \frac{m\pi c}{L} B_{m} = Y_{m}'.
 \end{equation}}
 
 \example{A General Boundary Condition.}
@@ -1127,7 +1138,7 @@ We substitute
 	\end{aligned} 
 \end{equation}
 
-where \(y_2 \) has two less terms since there is no left-travelling wave on string \(2\). Imposing the boundary conditions we get 
+where \(y_2 \) has two less terms since there is no left-travelling wave on string \(2\). Alternatively one can just substitute, for example, \(y_{2} = Ce^{i(k_{2}x-\omega _{2}t  )}  \), where we take the real part of this soluton at the end. Imposing the boundary conditions we get 
 
 \begin{equation}
 	\omega _1 = \omega _2, \quad A+B=C ~\text { and }~ k_1(A-B) = k_2C.
@@ -1189,7 +1200,7 @@ The energy of the system is conserved since
 From the definition of capacitance we have
 
 \begin{equation}
-	\delta V = \frac{1}{C} \delta Q = -\frac{1}{C} \frac{\partial I}{\partial x} \delta x. 
+	\delta V = \frac{1}{C} \delta Q = -\frac{1}{C} \frac{\partial I}{\partial x} \delta t. 
 \end{equation}
 
 From the definition of inductance we also have
@@ -1369,19 +1380,19 @@ which is simply the sum of the energy of each mode. If \(\int_{0}^{L} Q_{k}^2(x)
 
 \example{Energy in Stretched Strings with Different Density.}
 {Prove that the energy is conserved in the example in \cref{sepvar} about strings with different density.}
-{The average work done by the string is 
+{The power transferred from the string 1 to the point at \(x = 0\) is
 
 \begin{equation}
-	-T \left< \frac{\partial y}{\partial x} \frac{\partial y}{\partial t}  \right> = c(\avg{\epsilon _{f} }- \avg{\epsilon _{g} }  ) = \frac{1}{2}k^2cT \left( \abs{A_{f} }^2- \abs{A_{g} }^2   \right).  
+	P_1  = T \frac{\partial y_1 }{\partial x}\frac{\partial y_1 }{\partial t} = -T(-k_1 A + k_1 rA)(\omega A+\omega rA) = Tk_1 \omega (A^2-r^2A^2) = \frac{4 \omega ^2A^2 \rho _{1} \sqrt{\rho _{2} }T }{(\sqrt{\rho _{1}}+\sqrt{\rho _{2} }  )^2}, 
 \end{equation}
 
-Applying this result to \(x=0\), we find that the work done by the string \(a\) should be equal to the work recived by the string \(b\), that is 
+while the transmitted power, \textit{i.e.,} power tranferred from the point at \(x=0\) to string 2 is
 
 \begin{equation}
-	k_1^2c_1\left( \abs{A}^2- \abs{B}^2   \right)  = k_2^2c_2\abs{C}^2   
+	P_2  = T \frac{\partial y_2 }{\partial x}\frac{\partial y_2 }{\partial t} = T(k_2 tA)(\omega tA) =   \frac{4 \omega ^2A^2 \rho _{1} \sqrt{\rho _{2} }T }{(\sqrt{\rho _{1}}+\sqrt{\rho _{2} }  )^2}.
 \end{equation}
 
-is indeed satisfied.
+Thus energy is conserved.
 
 } 
 
@@ -1415,7 +1426,7 @@ where \(l = L /(N+1)\) is the distance between each masses. And of course the fr
 
 \subsection{Gravity Waves with Surface Tension}
 
-Let the equilibrium and the displaced coordinates be \((x,y,z) \text { and } (x+\xi (x,y,t), y+\eta (x,y,t),z)\) respectively. The pressure is \(p(x,y,t) = p_{a} - \rho gy + p_1 (x,y,t)\), where \(p_1 \) is the excess pressure.
+Let the equilibrium and the displaced coordinates be \((x,y,z) \text { and } (x+\xi (x,y,t), y+\eta (x,y,t),z)\) respectively. The height of the water surface is then given by \(h(x,t) = \eta (x,y=0,t)\). The pressure is \(p(x,y,t) = p_{a} - \rho gy + p_1 (x,y,t)\), where \(p_1 \) is the excess pressure.
 
 Mass conservation gives 
 
@@ -1423,33 +1434,46 @@ Mass conservation gives
 	dxdydz = \left( \left( 1+\frac{\partial \xi }{\partial x}  \right) \left( 1+\frac{\partial \eta }{\partial x}  \right) - \frac{\partial \xi }{\partial y} \frac{\partial \eta }{\partial x}   \right)dxdydz \implies \frac{\partial \xi }{\partial x} + \frac{\partial \eta }{\partial y}= 0  
 \end{equation}
 
+In general, the equation of motion of an infinitesimal volume of water is given by 
+
+\begin{equation}
+	\rho \frac{d^2\xi }{dt^2} = - \frac{\partial p_1 }{\partial x} ~\text { and }~ \rho \frac{\partial^2 \eta }{\partial t^2} = \frac{\partial p_1}{\partial y} - \rho g.    
+\end{equation}
+
+Differentiating the left equation with respect to \(x\) and the right equation with respect to \(y\), one have 
+
+\begin{equation}
+	\rho \frac{\partial^2 }{\partial t^2} = \left( \frac{\partial \xi }{\partial x} + \frac{\partial \eta }{\partial y}  \right) = - \frac{\partial^2 p_1 }{\partial x^2} - \frac{\partial^2 p_1 }{\partial y^2} \implies \frac{\partial^2 p_{1} }{\partial x^2} + \frac{\partial^2 p_1 }{\partial y^2} = 0.   
+\end{equation}
+
+Assuming \(h(x,t) = \eta (x,y=0,t) \propto e^{i(kx-\omega t)} \) for typical waves, we have from \cref{surfacetension} that \(p_1 (x,y,t) = P_1 (y) e^{i(kx- \omega t)} \), which upon substitution gives
+
+\begin{equation}
+	\frac{d^2P_1 }{dy^2} = k^2P_1 \implies p_1 (x,y,t) = p_1 (x,y=0,t)e^{\abs{k} y},  
+\end{equation}
+
+where we have thrown away the another exponential term due to the expectation of \(p_1 (x,-\infty,t) = 0\). 
 
 
 
-
-Refer to \cref{gravitywave1}, by balancing the vertical forces acting on an infinitesimal volume of water, we have
+Refer to \cref{gravitywave1}, by balancing the vertical forces acting on an infinitesimal volume of water on the interface, we have
 
 \onefig{gravitywave1}{scale=0.3} 
 
-\begin{equation}
+\begin{equation} \label{surfacetension} 
 	\begin{aligned} 
 	p(x,y=0,t) dxdz &- p_{a} dxdz - \rho g h(x,t) dxdz + \sigma \sin \theta (x+dx,t)dz - \sigma \sin \theta (x,t)dz = 0 \\
 	\implies &p(x,y=0,t) = p_{a} + \rho g h(x,t) + \sigma \frac{\partial^2 h}{\partial x} (x,t),
 	\end{aligned} 
 \end{equation}
 
-where we have neglected the acceleration since it is proportional to \(h\partial ^2h/\partial t^2\), which is negligible. 
-
-Now refer to \cref{gravitywave2}, by balancing the horizontal forces acting on an infinitesmial volume of water, we have 
+where we have neglected the acceleration since it is proportional to \(h\,\partial ^2h/\partial t^2\). The horizontal equation of motion is the same as the general case, so
 
 \begin{equation}
-	\begin{aligned} 
-	&\rho dxdydz a_{x}(x,y=0,t) = p(x,y=0,t)dydz - p(x+dx, y=0, t)dydz \\ 
-	&\implies a_{x}(x,y=0,t) = -\frac{\partial }{\partial x} \left( gh(x,t) - \frac{\sigma }{\rho } \frac{\partial^2 h}{\partial x^2}(x,t)  \right).  
-	\end{aligned} 
+	a_{x}(x,y=0,t) = -\frac{\partial p_1 (x,y=0,t)}{\partial x} =- \left( gh(x,t) - \frac{\sigma }{\rho } \frac{\partial^2 h}{\partial x^2}(x,t)  \right) = -ik\left( g+\frac{\sigma k^2}{\rho }  \right) h(x,t),  
 \end{equation}
 
-By substituting \(h(x,t) = A e^{i(kx - \omega t)} \), we get 
+where we have assumed \(h(x,t) = A e^{i(kx - \omega t)} \) again.
 
 \begin{equation}
 	a_{x}(x,y=0,t) = - 
@@ -1461,11 +1485,6 @@ Wavepackets are composed of a carrier wave with wavelength \(k_{c} \) and an env
 
 At \(t=0\), the wave packet has the form \(y(x,t=0) = E(x)\cos (k_{c}x+\varphi  )\), where \(E(x)\) is the envelope.   
 
-\chapter{Celestial Mechanics}
-
-\example{Explosion of a Planet.}
-{Two planets with mass \(m_0 \) and \(2m_0 \) were initially orbiting each other in circular motion about their center of mass. At \(t=0\) the planet with mass \(2m_0 \) exploded spherical symmetrically so that the mass after the explosion is \(m_0 \). Find the subsequent motion of the planet in the original and the new center of mass frame.  }
-{} 
 
 
 

@@ -25,17 +25,17 @@
 
 \subsection{Special Points of Functions}
 
-A stationary piont is characterised by \(\displaystyle \frac{df}{dx} = 0\), and can be further classified into 
+A stationary piont is characterised by \( df /dx = 0\), and can be further classified into 
 
 \begin{enumerate}
-    \item Minimum point: \(\displaystyle \frac{d^2f}{dx^2} > 0\),
-    \item Maximum point: \(\displaystyle \frac{d^2f}{dx^2} < 0\) and
-    \item Inflection point (which is also stationary): \(\displaystyle \frac{d^2f}{dx^2} = 0 \text { and }  \frac{d^2f}{dx^2} \)  changes sign.
+    \item Minimum point: \( d^2f / dx^2 > 0\),
+    \item Maximum point: \(d^2f / dx^2 < 0\) and
+    \item Inflection point (which is also stationary): \(d^2f / dx^2 = 0 \text { and }  d^2f / dx^2\)  changes sign.
 \end{enumerate}
 
-If \(\displaystyle \frac{d^2f}{dx^2} = 0\) but it does not change sign before and after the stationary point, it could be either of the three cases; we would have to check higher derivatives to verify its nature. 
+If \(d^2f / dx^2 = 0\) but it does not change sign before and after the stationary point, it could be either of the three cases; we would have to check higher derivatives to verify its nature. 
 
-An inflection point (which is not stationary) is when \(\displaystyle \frac{d^2f}{dx^2} = 0\) but \(\displaystyle \frac{df}{dx} \neq 0\) where the concavity of the fucntion changes.  
+An inflection point (which is not stationary) is when \(d^2f / dx^2 = 0\) but \(df/dx \neq 0\) where the concavity of the fucntion changes.  
 
 \section{Partial Differentiation}
 
@@ -101,7 +101,7 @@ Note that the partial deriavtives are carried out as if all the independent vari
 This result shows that if the changes in \(x \text { and } y\) are small enough, we can consider the change in \(f(x,y)\) due to \(x \text { and } y\) separately, as any change in \(f(x,y)\) that is not linear to \(\Delta x \text { or } \Delta y\) is negligble as \(\Delta x \rightarrow 0 \text { and } \Delta y \rightarrow 0\).     
 
 \example{Partial and Total Derivatives.}
-{Find \(\displaystyle \left( \frac{\partial w}{\partial y}  \right)_{x,t} \), where \(w = x^3 y-z^2t \text { and } xy = zt\).  }
+{Find \( \left( \partial w / \partial y  \right)_{x,t} \), where \(w = x^3 y-z^2t \text { and } xy = zt\).  }
 {Straightforwardly, we have
 
 \begin{equation}
@@ -147,7 +147,7 @@ Therefore, we have
     A(x,y) = \frac{\partial f}{\partial x} \text { and } B(x,y) = \frac{\partial f}{\partial y}
 \end{equation}
 
-Since \(\displaystyle \frac{\partial^2 f}{\partial x \partial y} = \frac{\partial^2 f}{\partial y \partial x}\), we obtain a necessary (and a sufficient) condition for the differential to be exact, which is
+Since \( \partial ^2f / \partial x \partial y = \partial ^2f / \partial y \partial x\), we obtain a necessary (and a sufficient) condition for the differential to be exact, which is
 
 \begin{equation}
     \frac{\partial A}{\partial y} = \frac{\partial B}{\partial x}.\footnote{Determining whether a differential containing many variables \(x_1, x_2, \ldots, x_{n}\) is exact is a simple extension of the above: a differential \(df = \sum_{i=1}^{n} g_{i}(x_1 ,x_2 ,\ldots , x_{n} )dx_{i}  \) is exact if \(\frac{\partial g_{i} }{\partial x_{j} } = \frac{\partial g_{j} }{\partial x_{i} } \) for all pairs \(i,j\).}
@@ -248,7 +248,7 @@ For three sets of variables \(\vb{x} ,\vb{y} \text { and } \vb{z} \), we have
 	\frac{\partial x_{i} }{\partial z_{j} } = \sum_{k=1}^{n} \frac{\partial x_{i} }{\partial y_{k} } \frac{\partial y_{k} }{\partial z_{j} }.   
 \end{equation}
 
-Now let \(A, B \text { and } C\) as the matrices whose \(ij^{\text{th }} \) elements are \(\displaystyle \frac{\partial x_{i} }{\partial y_{j} }, \frac{\partial y_{i} }{\partial z_{j} } \text { and } \frac{\partial x_{i} }{\partial z_{j} }\) respectively. We can then rewrite the above equation as 
+Now let \(A, B \text { and } C\) as the matrices whose \(ij^{\text{th }} \) elements are \(\partial x_{i} / \partial y_{j} , \partial y_{i} / \partial z_{j}  \text { and } \partial x_{i}/ \partial z_{j} \) respectively. We can then rewrite the above equation as 
 
 \begin{equation}
 	c_{ij} = \sum_{k=1}^{n} a_{ik}b_{kj} \implies C = AB \implies \det (C) = \det (A) \det (B) \implies J_{xz} = J_{xy} J_{yz}.   
@@ -293,7 +293,7 @@ For a minimum point, we require that \(df>0\) for arbitrary \(\Delta x \text { a
     \item Saddle point: \(f_{xx} \text { and } f_{yy}\) have opposite signs, or \(f_{xy}^2 > f_{xx}f_{yy}\). 
 \end{enumerate}
 
-If \(f_{xy}^2 = f_{xx}f_{yy}\), then \(df\) must be one of the four forms \(\displaystyle \pm \frac{1}{2} (\abs{f_{xx} }^{\frac{1}{2} } \Delta x \pm \abs{f_{yy} }^{\frac{1}{2} }\Delta y)^2\), then for some choice of the ratio \(\displaystyle \frac{\Delta y}{\Delta x}\), \(df = 0\) so higher order terms are needed to find the nature of the stationary point. 
+If \(f_{xy}^2 = f_{xx}f_{yy}\), then \(df\) must be one of the four forms \(\pm  (\abs{f_{xx} }^{\frac{1}{2} } \Delta x /2 \pm \abs{f_{yy} }^{\frac{1}{2} }\Delta y)^2\), then for some choice of the ratio \(\Delta y / \Delta x\), \(df = 0\) so higher order terms are needed to find the nature of the stationary point. 
 
 For functions with more than 2 variables, the conditions for stationary points are 
 
@@ -371,7 +371,7 @@ as shown in \cref{infvol}.
 From \cref{spherical}, the relations of the two set of variables \((x,y,z) \text { and } (r,\theta ,\phi  )\)  are
 
 \begin{equation}
-    \begin{cases} x = r\sin \theta \cos \phi \\ y = r\sin \theta \sin \phi \\ z = r\cos \theta \end{cases} \text { or } \begin{cases} r = \sqrt{x^2+y^2+z^2} \\ \displaystyle \theta = \arctan {\left(\frac{\sqrt{x^2+y^2} }{z} \right)} \\ \displaystyle \phi = \arctan {\left(\frac{y}{x}\right)} \end{cases}. 
+    \begin{cases} x = r\sin \theta \cos \phi \\ y = r\sin \theta \sin \phi \\ z = r\cos \theta \end{cases} \text { or } \begin{cases} r = \sqrt{x^2+y^2+z^2} \\  \theta = \arctan {\left(\sqrt{(x^2+y^2)/z} \right)} \\  \phi = \arctan {\left(y /x\right)} \end{cases}. 
 \end{equation}
 
 A general position vector can then be written as 
@@ -388,7 +388,7 @@ A general infinitismal displacement vector can be written as
     \end{aligned}
 \end{equation}
 
-where \(\displaystyle \frac{\partial \vb{r} }{\partial r}, \frac{\partial \vb{r} }{\partial \theta } \text { and } \frac{\partial \vb{r} }{\partial \phi } \) can be found by direct differentiaion as 
+where \(\partial \vb{r} /r, \partial \vb{r} /\partial \theta \text { and } \partial \vb{r} /\partial \phi \) can be found by direct differentiaion as 
 
 \begin{equation}
 	\begin{aligned} 
@@ -431,7 +431,7 @@ We can also solve for \((\vu{i} , \vu{j}, \vu{k} )\) in terms of \((\vu{r} , \vu
 From \cref{cylindrical}, the relations of the two set of variables \((x,y,z) \text { and } (\rho , \phi , z)\)  are
 
 \begin{equation}
-    \begin{cases} x = \rho \cos \phi \\ y = \rho \sin \phi \\ z = z \end{cases} \text { or } \begin{cases} \rho  = \sqrt{x^2+y^2} \\ \displaystyle \phi = \arctan {\left( \frac{y}{x}  \right)} \\ z = z \end{cases}. 
+    \begin{cases} x = \rho \cos \phi \\ y = \rho \sin \phi \\ z = z \end{cases} \text { or } \begin{cases} \rho  = \sqrt{x^2+y^2} \\  \phi = \arctan {\left( y /x  \right)} \\ z = z \end{cases}. 
 \end{equation}
 
 A general position vector can be written as 
@@ -448,7 +448,7 @@ A general infinitismal displacement vector can be written as
     \end{aligned}
 \end{equation}
 
-where \(\displaystyle \frac{\partial \vb{r} }{\partial \rho }, \frac{\partial \vb{r} }{\partial \phi } \text { and } \frac{\partial \vb{r} }{\partial z} \) can be found by direct differentiaion as 
+where \(\partial \vb{r} / \partial \rho , \partial \vb{r} / \partial \phi  \text { and } \partial \vb{r} /\partial z  \) can be found by direct differentiaion as 
 
 \begin{equation}
 	\begin{aligned} 
@@ -513,7 +513,7 @@ f \vu{u} & g \vu{v} & h \vu{w} \\
 \frac{\partial}{\partial u} & \frac{\partial}{\partial v} & \frac{\partial}{\partial w} \\ 
 fT_{u}  & g T_{v}  & h T_{w}  
 \end{vmatrix}, \\[10pt]
-\laplacian t &= \div{(\grad{t} )} = \displaystyle \frac{1}{fgh} \left[
+\laplacian t &= \div{(\grad{t} )} =  (1 / fgh) \left[
 \frac{\partial}{\partial u} \left( \frac{gh}{f} \frac{\partial t}{\partial u} \right) + 
 \frac{\partial}{\partial v} \left( \frac{fh}{g} \frac{\partial t}{\partial v} \right) + 
 \frac{\partial}{\partial w} \left( \frac{fg}{h} \frac{\partial t}{\partial w} \right)
@@ -716,9 +716,9 @@ An equivalent form is
 However the proof is complicated and is not presented here.
 
 
-A quick corollary is that the integral \(\displaystyle \int_{S} (\curl{\vb{T}}) \cdot d\vb{A}\) is independent of the surface used but only depends on the boundary line. Hence, \(\displaystyle \oint_{S} (\curl{\vb{T}}) \cdot d\vb{A} = 0\) for any closed surface, since the boundary line, like the mouth of a ballon, shrinks down to a point, and thus \(\displaystyle \oint_{P} \vb{T} \cdot d\vb{r} = 0\).
+A quick corollary is that the integral \(\int_{S} (\curl{\vb{T}}) \cdot d\vb{A}\) is independent of the surface used but only depends on the boundary line. Hence, \( \oint_{S} (\curl{\vb{T}}) \cdot d\vb{A} = 0\) for any closed surface, since the boundary line, like the mouth of a ballon, shrinks down to a point, and thus \(\oint_{P} \vb{T} \cdot d\vb{r} = 0\).
 
-\(\vb{T} \) is called conservative if \(\displaystyle \int_{A}^{B}  \vb{T} \cdot d\vb{r}  \) is independent of the path taken from \(A\) to \(B\). This implies that \(\displaystyle \oint_{C} \vb{T} \cdot d\vb{r} = 0\) and thus \(\curl{\vb{T} } = 0\) and \(\vb{T} = \grad{t} \) can be written as a gradient of some scalar function \(t\). Also, \(\vb{T} \cdot d\vb{r} \) is an exact differential.      
+\(\vb{T} \) is called conservative if \(\int_{A}^{B}  \vb{T} \cdot d\vb{r}  \) is independent of the path taken from \(A\) to \(B\). This implies that \( \oint_{C} \vb{T} \cdot d\vb{r} = 0\) and thus \(\curl{\vb{T} } = 0\) and \(\vb{T} = \grad{t} \) can be written as a gradient of some scalar function \(t\). Also, \(\vb{T} \cdot d\vb{r} \) is an exact differential.      
 
 The curl in Cartesian and spherical coordinates are stated here for reference:
 \begin{equation} 
@@ -774,7 +774,7 @@ With the product rules in hand, we can perform the so-called ``Integration by pa
 	\end{aligned}
 \end{equation}
 	
-Here we transform the integrand from the product of one function (\(f\)) and one derivative \(\div{\vb{T}}\) to another integrand of the product of one function that is orginally the derivative \((\vb{T})\) and one derivative which is orginally the function \((\grad{f})\), at a cost of a minus sign and a boundary term \(\displaystyle \left(\oint_{S} (f\vb{T}) \cdot d\vb{A}\right)\), just like integration by part in ordinary derivatives, where
+Here we transform the integrand from the product of one function (\(f\)) and one derivative \(\div{\vb{T}}\) to another integrand of the product of one function that is orginally the derivative \((\vb{T})\) and one derivative which is orginally the function \((\grad{f})\), at a cost of a minus sign and a boundary term \(\left(\oint_{S} (f\vb{T}) \cdot d\vb{A}\right)\), just like integration by part in ordinary derivatives, where
 	
 \begin{equation} 
 	\int_{a}^{b} f(\dv{g}{x})dx = -\int_{a}^{b} g\left(\dv{f}{x}\right)dx + \eval{\left(fg\right)}_a^b 
@@ -874,7 +874,7 @@ For the 5 second derivatives listed above, only \cref{prelap,curlcurl} are used 
 	
 \subsection{Dirac Delta Function}
 	
-The motivation of the dirac delta function comes from the result of the divergence of the vector function \(\displaystyle \vb{T} = \frac{\vu{r}}{r^2}\):
+The motivation of the dirac delta function comes from the result of the divergence of the vector function \( \vb{T} = \vb{r} /r^2\):
 	
 \begin{equation} 
 	\div{\left(\frac{\vu{r}}{r^2}\right)} = \frac{1}{r^2} \pdv{r}(r^2\left(\frac{1}{r^2}\right)) = 0, \label{notmatchone} 
@@ -1003,7 +1003,7 @@ From \cref{gradrcurs}, we have also
 
 Explain the discrepancy in Stokes' theorem using Dirac delta function.
 }
-{Fro this velocity field \(\curl{\vb{v} } =0\) everywhere except on the axis \(\rho =0\) where \(\vb{v}\) has a singularity. Therefore \(\displaystyle \oint_{C} \vb{v} \cdot d\vb{r} =0\) for any path \(C\) that does not enclose the vortex line on the axis and \(2\pi \) if \(C\) does enclose the axis.
+{Fro this velocity field \(\curl{\vb{v} } =0\) everywhere except on the axis \(\rho =0\) where \(\vb{v}\) has a singularity. Therefore \( \oint_{C} \vb{v} \cdot d\vb{r} =0\) for any path \(C\) that does not enclose the vortex line on the axis and \(2\pi \) if \(C\) does enclose the axis.
 
 In order for Stokes' theorem to be valid for all paths \(C\), we therefore set 
 
@@ -1020,7 +1020,7 @@ So \(\vb{v} \) is locally conservative over any region that excludess the axis, 
 \subsection{Helmholtz Theorem}
 
 \begin{theorem}[Helmoholtz Theorem]
-Given the divergence and curl of a differentiable vector function \(\vb{T}(\vb{r} ) \), it can be written as some gradient of some scalar function \(\Phi(\vb{r} ) \) plus some vector function \(\vb{A}(\vb{r} ) \) if \(\vb{T} \) goes to zero faster than \(\displaystyle \frac{1}{r} \) as \(r \to \infty\), where \(\Phi \text { and } \vb{A} \) are given by
+Given the divergence and curl of a differentiable vector function \(\vb{T}(\vb{r} ) \), it can be written as some gradient of some scalar function \(\Phi(\vb{r} ) \) plus some vector function \(\vb{A}(\vb{r} ) \) if \(\vb{T} \) goes to zero faster than \(1 /r \) as \(r \to \infty\), where \(\Phi \text { and } \vb{A} \) are given by
 
 \begin{equation}
 	\Phi(\vb{r} ) = \frac{1}{4\pi } \int_{\text{all space} } \frac{\boldsymbol{\nabla}' \cdot \vb{T} (\vb{r} ')}{\rcurs } d\tau ' + C~\text { and }~ \vb{A} (\vb{r} ) = \frac{1}{4\pi } \int_{\text{all space} } \frac{\boldsymbol{\nabla}' \cross \vb{T} (\vb{r} ')}{\rcurs } d\tau ' + \vb{C} + \grad{D} .
@@ -1073,7 +1073,7 @@ Now, the first term is simply \(\curl{\vb{T} }\) in a similar fashion as the div
 	\end{aligned}
 \end{equation}
 
-where we used \(\displaystyle \grad{\left(\frac{1}{\rcurs } \right)} = - \boldsymbol{\nabla}'\left(\frac{1}{\rcurs } \right) \) since the derivative of \(\rcurs = \left| \vb{r} - \vb{r} ' \right| \) with respect to the primed coordinates differ by a sign from that with respect to unprimed coordinates.\footnote{More precisely, \(\frac{\partial }{\partial x} f(x-x') = - \frac{\partial }{\partial x'} f(x-x')\).} Also, we assumed that \(\curl{\vb{T} } \) goes to zero faster than \(\displaystyle \frac{1}{r^2} \) as \(r \to  \infty\) so the surface integral goes to zero.    
+where we used \( \grad{\left(1 /\rcurs \right)} = - \boldsymbol{\nabla}'\left(1/\rcurs  \right) \) since the derivative of \(\rcurs = \left| \vb{r} - \vb{r} ' \right| \) with respect to the primed coordinates differ by a sign from that with respect to unprimed coordinates.\footnote{More precisely, \(\frac{\partial }{\partial x} f(x-x') = - \frac{\partial }{\partial x'} f(x-x')\).} Also, we assumed that \(\curl{\vb{T} } \) goes to zero faster than \(1 /r^2 \) as \(r \to  \infty\) so the surface integral goes to zero.    
 
 Of course we still have to prove that the given forms for the divergence and curl of \(\vb{T} \) converge. At the large \(r'\) limit, they have the form
 
@@ -1083,7 +1083,7 @@ Of course we still have to prove that the given forms for the divergence and cur
 
 where \(X(r')\) stands for \(\div{\vb{T} } \text { or } \curl{\vb{T} }\).   
 
-Therefore, we also require that the divergence and curl of \(\vb{T} \) goes to zero more repaidly than \(\displaystyle \frac{1}{r^2} \) as \(r \to  \infty\) for the proof to hold. 
+Therefore, we also require that the divergence and curl of \(\vb{T} \) goes to zero more repaidly than \(1 /r^2 \) as \(r \to  \infty\) for the proof to hold. 
 
 The solution is unique in a sense that no function that has zero divergence and zero curl everywhere goes to zero at infinity. Therefore no constant function can be added to \(\vb{T} (\vb{r} )\) which doesn't change the divergence and curl of \(\vb{T} \). 
 
@@ -1126,7 +1126,7 @@ If the integrand \(f(x,y)\) can be written as a product of functions of \(x \tex
 The above analysis can be extended to triple integration easily.
 
 \example{Volume of a Tetrahedron.}
-{Find the volume of the tetrahedron bounded by the three coordinate surfaces \(x=0, y=0 \text { and }  z=0\) and the plane \(\displaystyle \frac{x}{a} + \frac{y}{b} + \frac{z}{c} =1\) as shown in \cref{tetrahedron}.}
+{Find the volume of the tetrahedron bounded by the three coordinate surfaces \(x=0, y=0 \text { and }  z=0\) and the plane \(x/a + y /b + z /c =1\) as shown in \cref{tetrahedron}.}
 {The volume can be written as a double or triple integral, depending on how one inteprets the summing process. In triple integral,
 
 \begin{equation}
@@ -1139,7 +1139,7 @@ which can be easily reduced to a double integral by evaluating the integral invo
 	V = \int_{0}^{a} \int_{0}^{b-\frac{bx}{a}}  c \left( a-\frac{y}{b} - \frac{x}{a}\right) dxdy
 \end{equation}
 
-The result is \(\displaystyle V = \frac{abc}{6} \). } 
+The result is \(V = abc /6 \). } 
 \onefig{tetrahedron}{scale=0.3}
 
 \section{Line, Surface and Volume Integration}
@@ -1174,7 +1174,7 @@ The curvature \(\kappa \) and the pricinpal normal unit vector are defined toget
 	\kappa \vu{n}  = \frac{d \vu{t} }{ds} = \frac{d^2\vb{r} }{ds^2}
 \end{equation}
 
-and the radius of curvature is defined as \(\displaystyle \rho = \frac{1}{\kappa } \). 
+and the radius of curvature is defined as \(\rho = 1/\kappa  \). 
 
 The binormal unit vector is then defined as the unit vector perpendicular to both \(\vu{t}  \text { and } \vu{n} \) 
 
@@ -1188,7 +1188,7 @@ We can similarly define the torsion \(\tau \) as the rate of change of \(\vu{b} 
 	-\tau \vu{n} =  \frac{d \vu{b} }{ds}, 
 \end{equation}
 
-and radius of torsion as \(\displaystyle \sigma  = \frac{1}{\tau } \). 
+and radius of torsion as \(\sigma  = 1/ \tau  \). 
 
 In summary, \(\vu{t} , \vu{n} \text { and } \vu{b} \) and their derivatives with respect to \(s\) are related to one another by the relations (called the Frenet-Serret formulae) 
 
@@ -1228,7 +1228,7 @@ There are generally two ways to compute an infinitesimal surface \(dS\). If the 
 	d\vb{r} _{KL} = \frac{\partial \vb{r} }{\partial u}du+ \frac{\partial \vb{r} }{\partial v}dv = \frac{\partial \vb{r} }{\partial u}du = \frac{\partial x}{\partial u} du \vu{i} + \frac{\partial y}{\partial u} du \vu{j}.
 \end{equation}
 
-Similarly, \(\displaystyle d\vb{r} _{KN}  = \frac{\partial x}{\partial v} dv \vu{i} + \frac{\partial y}{\partial v} dv \vu{j}\), thus the area of the parallelogram \(KLMN\) is given by
+Similarly, \(d\vb{r} _{KN}  = (\partial x / \partial v) dv \vu{i} + (\partial y/\partial v)dv \vu{j}\), thus the area of the parallelogram \(KLMN\) is given by
 
 \begin{equation}
 	dS_{u,v} = \abs{d\vb{r} _{KL} \cross  d\vb{r} _{KN}} = \abs{\frac{\partial \vb{r} }{\partial u} \cross \frac{\partial \vb{r} }{\partial v} } = \abs{\frac{\partial x}{\partial u} du \frac{\partial y}{\partial v} dv - \frac{\partial x}{\partial v} dv \frac{\partial y}{\partial u} du} = \abs{\frac{\partial (x,y)}{\partial (u,v)} } dudv.
@@ -1329,7 +1329,7 @@ The curve \(C\) can be open, \textit{i.e.,} the beginning and end point are not 
 
 
 \example{Line Integrals (2).}
-{Evaluate the line integral \(\displaystyle I = \oint_{C} x dy\), where \(C\) is the circle in the \(xy\)-plane defined by \(x^2 + y^2 = a^2, z=0\). }
+{Evaluate the line integral \(I = \oint_{C} x dy\), where \(C\) is the circle in the \(xy\)-plane defined by \(x^2 + y^2 = a^2, z=0\). }
 {Since \(x\) is not a single-valued function of \(y\), we must divide the path into two parts with \(x = +\sqrt{a^2-y^2} \) for \(x\geq 0\) and \(x = -\sqrt{a^2-y^2} \) for \(x \le 0\). So
 
 \begin{equation}
@@ -1344,7 +1344,7 @@ Alternatively, we can represent the entire circle parametrically, by \(x = a \co
 } 
 
 \example{Line Integral (3).}
-{Evaluate the line integral \(\displaystyle I = \int_{C}^{} (x-y)^2 ds \), where \(C\) is the semicircle of radius \(a\) running from \(A = (a,0)\) to \(B = (-a,0)\) and for which \(y \ge 0\).}
+{Evaluate the line integral \( I = \int_{C}^{} (x-y)^2 ds \), where \(C\) is the semicircle of radius \(a\) running from \(A = (a,0)\) to \(B = (-a,0)\) and for which \(y \ge 0\).}
 {Introducing a parametric variable \(\phi \) running from \(0\) to \(2\pi \), we have 
 
 \begin{equation}
@@ -1404,7 +1404,7 @@ where \(d\vb{S} = \vu{n} dS\) is the infinitesimal vector area element. The dire
 
 
 \example{Surface Integral (1).}
-{Evaluate the surface integral \(\displaystyle I = \int_{S}^{} \vb{F}(\vb{r} ) \cdot d\vb{S} \), where \(F = x \vu{i}  \) and \(S\) is the surface of the hemisphere \(x^2 + y^2 + z^2 = a^2\).}
+{Evaluate the surface integral \( I = \int_{S}^{} \vb{F}(\vb{r} ) \cdot d\vb{S} \), where \(F = x \vu{i}  \) and \(S\) is the surface of the hemisphere \(x^2 + y^2 + z^2 = a^2\).}
 {Parameterizing the surface by \(\theta \text { and } \phi \), 
 
 \begin{equation}
@@ -1471,14 +1471,14 @@ Then the integral can be carried out straightforwardly as
 } 
 
 \example{Surface Integral (4).}
-{Viviani's window is the part of the surface of the sphere of radius \(R\) centered in the origin, contained within the right cylinder with base given by a circumference of radius \(\displaystyle \frac{R}{2} \), centered at \(\displaystyle (x,y) = \left(\frac{R}{2}, 0\right)\), for \(z \ge 0\) (see \cref{vivi}). Find the area \(S\) of the Viviani's window.}
+{Viviani's window is the part of the surface of the sphere of radius \(R\) centered in the origin, contained within the right cylinder with base given by a circumference of radius \( R/2\), centered at \((x,y) = \left(R /2, 0\right)\), for \(z \ge 0\) (see \cref{vivi}). Find the area \(S\) of the Viviani's window.}
 {We are tasked with solving the integral \(S = \int_{S}^{} dS \), and the difficulty lies on parameterizing the surface \(S\). One is to project the surface onto the base and evaluate the double integral, an equally valid way is to parameterize the surface with \(r, \theta \) according to \cref{para}, where 
 
 \begin{equation}
 	x = r\cos \theta , \quad y = r\sin \theta ~\text { and }~ z = \sqrt{R^2 - x^2 - y^2} = \sqrt{R^2 - r^2}
 \end{equation}
 
-for \(\displaystyle r \in [0,R\cos \theta ], \theta \in \left[-\frac{\pi }{2}, \frac{\pi }{2}  \right]\) 
+for \( r \in [0,R\cos \theta ], \theta \in \left[-\pi /2, \pi /2  \right]\) 
 
 The infinitesimal surface element is then 
 
@@ -1507,7 +1507,7 @@ The vector area of a surface \(S\) is defined as
 	\vb{S}  = \int_{S}^{} d\vb{S} = \oint_{S} \vu{n} dS
 \end{equation}
 
-A closed surface will always has a zero vector area, since when projecting onto the \(xy\)-plane, from \cref{dseq} we see that every \(\displaystyle d\vb{S} _{+}  = \frac{dA}{\abs{\vu{n} \cdot \vu{k} } } \) will have an opposite contribution \(\displaystyle d\vb{S} _{-} = \frac{dA}{\abs{- \vu{n} \cdot \vu{k} } } = -d\vb{S} _{+} \). 
+A closed surface will always has a zero vector area, since when projecting onto the \(xy\)-plane, from \cref{dseq} we see that every \( d\vb{S} _{+}  = dA/\abs{\vu{n} \cdot \vu{k} }\) will have an opposite contribution \( d\vb{S} _{-} = dA/\abs{- \vu{n} \cdot \vu{k} } = -d\vb{S} _{+} \). 
 
 This fact implies that the vector area of any open surface \(S\) only depends on its perimeter curve \(C\), since we can construct a closed surface with arbitrary upper and lower surface and their contribution must be equals in magnitude so that the sum is zero. We know that their directions are the same due to right hand rule. 
 
@@ -1517,7 +1517,7 @@ Specifically, the vector area can be represented by the line integral
 	\vb{S} = \frac{1}{2} \oint_{C} \vb{r} \cross d\vb{r}, 
 \end{equation}
 
-since one of the possible surface spanned by the perimeter \(C\) is a cone with its vertex at the origin with the perimeter of the base \(C\) as shown in \cref{cone} and its area is the sum of all the infinitesimal triangle, each with vector area \(\displaystyle d\vb{S} = \frac{1}{2} \vb{r} \cross d\vb{r}  \).  
+since one of the possible surface spanned by the perimeter \(C\) is a cone with its vertex at the origin with the perimeter of the base \(C\) as shown in \cref{cone} and its area is the sum of all the infinitesimal triangle, each with vector area \( d\vb{S} =  \vb{r} \cross d\vb{r} /2  \).  
 
 \onefig{cone}{scale=0.3}
 
@@ -1551,7 +1551,7 @@ Referring to \cref{cone2}, we have
 	V = \int_{V}^{} dV = \frac{1}{3} \oint_{S} \vb{r} \cdot d\vb{S}, 
 \end{equation}
 
-as the volume of each cone is \(\displaystyle dV = \frac{1}{3} \vb{r} \cdot d\vb{S}  \). 
+as the volume of each cone is \(dV =  \vb{r} \cdot d\vb{S} /3 \). 
 
 \onefig{cone2}{scale=0.3} 
 

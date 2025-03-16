@@ -19,7 +19,7 @@ A complex number is most conveniently thought of as a vector with the \(x\)-axis
 	z = re^{i \theta } = x + iy, 
 \end{equation}
 
-where \(\displaystyle r = \abs{z} = \sqrt{x^2 + y^2} \text { and } \theta = \arg (z)\) is the angle between the complex number (vector) and the positive \(x\)-axis. If the complex number (vector) lies in the first quadrant, then \(\arg (z) = \displaystyle \arctan {\left(\frac{y}{x} \right)} \), otherwise, \(\pi \text { or } 2\pi \) must be added, since the domain of the arctan function is only from \(\displaystyle -\frac{\pi }{2} \) to \(\displaystyle \frac{\pi }{2} \). \(2\pi \) can also be added to any argument, but usually we use the pricipal value of the argument, \textit{i.e.,} \(\arg (z) \in [-\pi , \pi ) \text { or } [0,2\pi )\).   
+where \( r = \abs{z} = \sqrt{x^2 + y^2} \text { and } \theta = \arg (z)\) is the angle between the complex number (vector) and the positive \(x\)-axis. If the complex number (vector) lies in the first quadrant, then \(\arg (z) = \arctan {\left(y /x \right)} \), otherwise, \(\pi \text { or } 2\pi \) must be added, since the domain of the arctan function is only from \(- \pi /2\) to \(\pi  /2 \). \(2\pi \) can also be added to any argument, but usually we use the pricipal value of the argument, \textit{i.e.,} \(\arg (z) \in [-\pi , \pi ) \text { or } [0,2\pi )\).   
 
 In particular, if \(r=1\), then it is easy to show that 
 
@@ -100,19 +100,19 @@ The hyperbolic trigonometric formulas are largely reminiscent of the ordinary tr
 
 
 \example{Plot on the Complex Plane.}
-{Plot the equation \(\displaystyle \arg \left(\frac{z-4}{z-1} \right)=\frac{3\pi }{2} \) on the complex plane. }
+{Plot the equation \( \arg \left((z-4)/(z-1)\right)=\frac{3\pi }{2} \) on the complex plane. }
 {Writing \(z = x+iy\), we have 
 
 \begin{equation}
     \frac{z-4}{z-1} = \frac{(x-4)(x-1)+y^2}{(x-1)^2+y^2} + i \frac{3y}{(x-1)^2+y^2}.  
 \end{equation}
 
-The real part must be zero and the imaginary part must be negative for the argument to be \(\displaystyle \frac{3\pi }{2} \), so we get \((x-4)(x-1)+y^2=0 \implies (x-\frac{5}{2} )^2+y^2 = 0 \text { and } y<0\). Note we cannot use the formula \(\arg (z) = \displaystyle \arctan {\left(\frac{y}{x}\right) } \), since the complex number does not lie in the first quadrant.   
+The real part must be zero and the imaginary part must be negative for the argument to be \(3\pi /2\), so we get \((x-4)(x-1)+y^2=0 \implies (x-\frac{5}{2} )^2+y^2 = 0 \text { and } y<0\). Note we cannot use the formula \(\arg (z) =  \arctan {\left(y /x\right) } \), since the complex number does not lie in the first quadrant.   
 } 
 
 To find the cosine or sine of some multiples of angle (\textit{e.g.,} \(\sin (6\theta )\) ), the simpliest way is always expand \((\cos \theta +i\sin \theta )^6 = \cos (6\theta ) + i\sin (6\theta )\) and compare the imaginary (or real) part. 
 
-To find some power of cosine or sine of angle (\textit{e.g.,} \((\sin ^6(\theta ))\) ) in terms of single power of cosine or sine, the sipmliest way is always write \(\sin \theta = \displaystyle \frac{e^{i \theta }-e^{-i \theta }  }{2i} \), and expand. 
+To find some power of cosine or sine of angle (\textit{e.g.,} \((\sin ^6(\theta ))\) ) in terms of single power of cosine or sine, the sipmliest way is always write \(\sin \theta = e^{i \theta }-e^{-i \theta }  /2i \), and expand. 
 
 The fundamental theorem of algebra states that a \(n^{\text{th}}\) order polynomial equation will have exactly \(n\) roots. For example, the equation \(x^{8} = 16\) has eight roots \(x = \sqrt[8]{16} = (16e^{2\pi n})^{\frac{1}{8} } = \sqrt{2}e^{\frac{\pi n}{4} }\), where \(n = (0,\ldots 7) \text { or } (1,\ldots 8)\).   
 
@@ -160,7 +160,7 @@ All the terms of a Fourier series are mutually orthogonal, \textit{i.e.,}
     \end{aligned}
 \end{equation}
 
-Thus, the Fourier coefficient of a certain cosine or sine function with a particular \(r\) can be found by multiplying \(f(x)\) same cosine and sine function and then integrate, which would yield the result \(\displaystyle \frac{a_{r} L}{2} \text { or } \frac{b_{r}L }{2} \). Thus the Fourier coefficients are given by 
+Thus, the Fourier coefficient of a certain cosine or sine function with a particular \(r\) can be found by multiplying \(f(x)\) same cosine and sine function and then integrate, which would yield the result \(a_{r}L/2  \text { or } b_{r}L/2  \). Thus the Fourier coefficients are given by 
 
 \begin{equation}
     a_{r} = \frac{2}{L} \int_{x_0}^{x_0 + L} f(x) \cos \left( \frac{2\pi rx}{L}  \right) dx \text { and } b_{r} = \frac{2}{L} \int_{x_0 }^{x_0 + L} f(x) \sin \left( \frac{2\pi rx}{L}  \right) dx.   
@@ -176,7 +176,7 @@ Comparing the above equation with the Fourier expansion of \(f(x)\), we see that
 
 Therefore, if the function \(f(x)\) is even, the all the coefficients of the sines terms are zero and vice versa. 
 
-For a function \(f(x)\) that is symmetric (even or odd) about \(\displaystyle \frac{L}{4} \), \textit{i.e.,} \(\displaystyle f(\frac{L}{4}-x ) = \pm f(x - \frac{L}{4} )\), we make the substitution \(\displaystyle s = x-\frac{L}{4} \) and we have 
+For a function \(f(x)\) that is symmetric (even or odd) about \(L /4 \), \textit{i.e.,} \(f(L /4-x ) = \pm f(x - \frac{L}{4} )\), we make the substitution \(s = x-L /4 \) and we have 
 
 \begin{equation}
     \begin{aligned} 
@@ -253,7 +253,7 @@ where we have defined
     \omega _{r} \equiv \frac{2\pi r}{T} \implies \Delta \omega = \frac{2\pi }{T}.   
 \end{equation}
 
-For function with no periodicity, we have \(T \to \infty\) and \(\displaystyle \Delta \omega = \frac{2\pi }{T} \to 0 \). Thus we have
+For function with no periodicity, we have \(T \to \infty\) and \(\Delta \omega = 2\pi /T \to 0 \). Thus we have
 
 \begin{equation}
     \begin{aligned} 
@@ -262,7 +262,7 @@ For function with no periodicity, we have \(T \to \infty\) and \(\displaystyle \
     \end{aligned} 
 \end{equation}
 
-The integral in the bracket (times \(\displaystyle \frac{1}{\sqrt{2\pi } } \)) is defined to be the Fourier transform of \(f(t)\), denoted by 
+The integral in the bracket (times \(1 /\sqrt{2\pi }  \)) is defined to be the Fourier transform of \(f(t)\), denoted by 
 
 \begin{equation}
     \tilde{f}(\omega ) = \frac{1}{\sqrt{2\pi } } \int_{-\infty}^{+\infty} f(t) e^{-i \omega t}dt.     
@@ -311,7 +311,7 @@ Therefore, since \(p = \hbar k \text { and } E = \hbar \omega \), we have
 		
 \section{Standard Deviation}
 
-For a set of data which contains of \(N\) distinct values \(j_1, j_2, \ldots , j_i, \ldots , j_N\) and each with frequency \(f_1, f_2, \ldots , f_i, \ldots f_N\), we can define \(\displaystyle P_i = \frac{f_i}{\sum_{i=1}^{N} f_i}\) as the probability of selecting the data \(j_i\), then the average value of any function \(g(j)\) can be written as 
+For a set of data which contains of \(N\) distinct values \(j_1, j_2, \ldots , j_i, \ldots , j_N\) and each with frequency \(f_1, f_2, \ldots , f_i, \ldots f_N\), we can define \( P_i = f_i / \sum_{i=1}^{N} f_i\) as the probability of selecting the data \(j_i\), then the average value of any function \(g(j)\) can be written as 
 	
 \begin{equation}
 	 \avg{g(j)}  = \frac{f_1 g(j_1) + f_2 g(j_2) + \cdots + f_N g(j_N)}{f_1 + f_2 + \cdots + f_N} = \sum_{i=0}^{N} P_j g(j_i). \label{prob} 
@@ -323,7 +323,7 @@ To measure the dispersion of the set of data, the most intuitive way is to calcu
 	\sigma' = \frac{f_1(j_1 - \avg{ j }) + f_2(j_2 - \avg{ j }) + \cdots + f_N(j_N - \avg{ j })}{f_1 + f_2 + \cdots + f_N}. \label{abc} 
 \end{equation}
 
-However, \(\sigma'\) always equals to zero since \(\displaystyle \sum_{i=1}^{N} f_i j_i = \avg{ j } \sum_{i=1}^{N} f_i \). So, either we take the absolute value of each term or we square each term in \cref{abc} such that the result is non trivial. We adopt the latter choice since the former is tedious. We introduce the quantity standard deviation \(\sigma\) defined by
+However, \(\sigma'\) always equals to zero since \( \sum_{i=1}^{N} f_i j_i = \avg{ j } \sum_{i=1}^{N} f_i \). So, either we take the absolute value of each term or we square each term in \cref{abc} such that the result is non trivial. We adopt the latter choice since the former is tedious. We introduce the quantity standard deviation \(\sigma\) defined by
 
 \begin{equation} 
 	\sigma^2 = \frac{f_1(j_1 - \avg{ j })^2 + f_2(j_2 - \avg{ j })^2 + \cdots + f_N(j_N - \avg{ j })^2}{f_1 + f_2 + \cdots + f_N} = \sum_{i=0}^{N} P_j (j_i - \avg{ j })^2. \label{sigma} 
@@ -380,9 +380,9 @@ The conditional distribution \(\rho _{x} (x)\) given \(y = y_0 \) is obtained by
         P(\abs{y-x}\le 10 ) = \int_{\abs{y-x} \le 10}^{}\rho _{x,y}dxdy ,
     \end{equation}
     
-    which is the area of the region bounded by the \(x,y\) axes, the vertical and horizontal \(y=60 \text { and } x=60\), respectively, and the lines \(y = x+10 \text { and } y = x-10\), divided by 3600. So we get \(\displaystyle P(\abs{y-x}\le 10 ) = \frac{1100}{3600}\approx 31 \% \).
+    which is the area of the region bounded by the \(x,y\) axes, the vertical and horizontal \(y=60 \text { and } x=60\), respectively, and the lines \(y = x+10 \text { and } y = x-10\), divided by 3600. So we get \( P(\abs{y-x}\le 10 ) = 1100 /3600 \approx 31 \% \).
     
-    \item In the second case, for alice we still have \(\rho _{x} = \frac{1}{60 \text{mins} }  \), for Bob we have \(\rho _{y}  = Cy^2 \), where upon normalization \(C = \frac{3}{60^3 \text{mins} } \). The joint probability density function is therefore \(\displaystyle \rho _{x,y} = \frac{3}{60^4}y^2\). Carrying out the double integral over the same region, we get \(\displaystyle P(\abs{y-x}\le 10 ) = \frac{767}{2592} \approx 30\% \).  
+    \item In the second case, for alice we still have \(\rho _{x} = \frac{1}{60 \text{mins} }  \), for Bob we have \(\rho _{y}  = Cy^2 \), where upon normalization \(C = \frac{3}{60^3 \text{mins} } \). The joint probability density function is therefore \( \rho _{x,y} = 3 y^2 / 60^2\). Carrying out the double integral over the same region, we get \( P(\abs{y-x}\le 10 ) = 767 /2592 \approx 30\% \).  
 \end{enumerate}~
 } 
 

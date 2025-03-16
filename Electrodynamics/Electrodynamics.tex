@@ -13,7 +13,7 @@
     
 \chapter{Electrostatics}
 
-Electrostatics is the study of the interactions between charged particles that are stationary.\footnote{Actually, it is not necessary that the charges be stationary, but only that the charge dneisy at each poitn be constat. For example, a rotating sphere with uniform charge density produce an electrostatic field \(\displaystyle \frac{1}{4\pi \epsilon_0 r^2}\vu{r}  \), even though the charges are moving.} 
+Electrostatics is the study of the interactions between charged particles that are stationary.\footnote{Actually, it is not necessary that the charges be stationary, but only that the charge dneisy at each poitn be constat. For example, a rotating sphere with uniform charge density produce an electrostatic field \( \vu{r} / 4\pi \epsilon_0 r^2 \), even though the charges are moving.} 
 
 \section{Electric Fields and Potentials}
 
@@ -29,7 +29,7 @@ where \(\brcurs = \rcurs \hrcurs = \vb{r} -\vb{r} '\) is the vector pointing fro
 
 Taking the divergence, we have 
 
-\begin{equation}
+\begin{equation}\label{gauss} 
     \div{\vb{E}(\vb{r} )} = \frac{1}{4\pi\epsilon_0} \int \rho (\vb{r} ') \left(\div{\frac{\hrcurs }{\rcurs ^2} }\right) d\tau ' = \frac{1}{4\pi \epsilon_0} \int 4\pi \delta ^3 (\vb{r} - \vb{r} ')\rho (\vb{r} ') d\tau = \frac{\rho (\vb{r} )}{\epsilon _0}.  	 
 \end{equation}
 
@@ -85,7 +85,7 @@ One can see that there are two ways to calculate the potential or the electric f
 {For the electric field \(\vb{E}  = ax \vu{x} \), we have \(\rho = \div{\vb{E} } = \epsilon _0 a\), which is indeed correct.  
 
 However, how do one account for the fact that the field point sin a particular direction, when the charge density is uniform?}
-{The crucial insight here is that the same charge density would also be compatible with \(\displaystyle \vb{E}  = ay \vu{y} \text { or }  \vb{E}  = \frac{a}{3}\vu{r}\)\textit{ etc.}
+{The crucial insight here is that the same charge density would also be compatible with \( \vb{E}  = ay \vu{y} \text { or }  \vb{E}  = a\vu{r}/3\)\textit{ etc.}
 
 When charge distribution extends to infinty, \(\vb{E} \nrightarrow 0\) as \(r \to \infty\). So even though the divergence and the curl of \(\vb{E} \) is given, the Helmholtz theorem does not gaurantee a unique solution for \(\vb{E}\), as can seen above many \(\vb{E} \) works.
 
@@ -118,7 +118,7 @@ For a pair of point charge \(Q \text { and } q\), this implies that the work don
 Therfore, the potential energy\footnote{Here and after, we will refer to work done work done required to assemble the system or the potential energy possessed by the system with just the potential energy of the system.} of a collection of point charges is 
 
 \begin{equation}
-    U = = \frac{1}{4\pi\epsilon_0} \sum_{i=1}^{n} \sum_{j>i}^{n} \frac{q_{i} q_{j} }{\rcurs _{ij} }  = \frac{1}{2} \frac{1}{4\pi\epsilon_0} \sum_{i=1}^{n} \sum_{j\neq i}^{n} \frac{q_{i} q_{j} }{\rcurs _{ij} } = \frac{1}{2} \sum_{i=1}^{n} q_{i} \sum_{j\neq i}^{n} \frac{1}{4\pi\epsilon_0} \frac{q_{j} }{\rcurs _{ij} } = \frac{1}{2} \sum_{i=1}^{n} q_{i} V(\vb{r}_i '). \label{energy2} 
+    U = \frac{1}{4\pi\epsilon_0} \sum_{i=1}^{n} \sum_{j>i}^{n} \frac{q_{i} q_{j} }{\rcurs _{ij} }  = \frac{1}{2} \frac{1}{4\pi\epsilon_0} \sum_{i=1}^{n} \sum_{j\neq i}^{n} \frac{q_{i} q_{j} }{\rcurs _{ij} } = \frac{1}{2} \sum_{i=1}^{n} q_{i} \sum_{j\neq i}^{n} \frac{1}{4\pi\epsilon_0} \frac{q_{j} }{\rcurs _{ij} } = \frac{1}{2} \sum_{i=1}^{n} q_{i} V(\vb{r}_i '). \label{energy2} 
 \end{equation}
 
 It is important to note that \(V(\vb{r} )\) here is the potential created by other point charges that already exist before we bring in the new point charge. The full potential at the new point charge blows up at the singularity located at the center of the new point charge. This does not happen in real life, as finite charges occupy finite spaces. 
@@ -129,14 +129,14 @@ For continuous charge distribution, the potential energy is
 
 \begin{equation}
     \begin{aligned} 
-    U &= \frac{1}{2} \rho V(\vb{r} ') d\tau' \\
-    &= \frac{\epsilon _{0} }{2}\int (\div{\vb{E} })Vd\tau  \\
+    U &= \frac{1}{2} \int_{V}^{} ( \rho V(\vb{r} '))d\tau' \\
+    &= \frac{\epsilon _{0} }{2}\int_{V}^{}  (\div{\vb{E} })Vd\tau  \\
     &= \frac{\epsilon _{0} }{2}\left( -\int_{V}^{} \vb{E} \cdot (\grad{V} ) + \oint_{S} V\vb{E} \cdot d\vb{S}   \right) \\
     &= \frac{\epsilon _{0} }{2}\left( \int_{V}^{} E^2d\tau + \oint_{S} V\vb{E} \cdot d\vb{S} \right) = \frac{\epsilon _{0} }{2} \int_{\text{all space}}^{} E^2d\tau ,
     \end{aligned}    
 \end{equation}
 
-where the volume and the surface integral is taken over all space, which is allowed as long as it enclose all charges, in which case the surface integral vanishes, assuming that \(\vb{E} (\vb{r} )\) goes to zero faster than \(\displaystyle \frac{1}{r^2} \) as \(r \to \infty\).   
+where the volume and the surface integral is taken over all space, which is allowed as long as it enclose all charges, in which case the surface integral vanishes, assuming that \(\vb{E} (\vb{r} )\) goes to zero faster than \(1/r^2\) as \(r \to \infty\).   
 
 It is important to note that \(V(\vb{r} ')\) here is the full potential created by all charges (except \(dq' = \rho (r') d\tau '\) but its contribution is negligible). The full potential does not blow up at any point as finite charge has finite dimension while infinitiesimal charge has infinitesimal size, as oppose to the case above where finite point charge occupy infinitesimal space. 
 
@@ -157,13 +157,13 @@ The first two terms in the integrand are precisely the energy possessed by the c
 \begin{equation}
     U = \epsilon_0 \left(\frac{1}{4\pi\epsilon_0} \right)^2 \int_{0}^{\infty} \int_{0}^{\pi } \int_{0}^{2\pi }     \frac{1}{r^2\rcurs ^2} \cos \beta r^2\sin \theta drd\theta d\phi 
 \end{equation}
-where \(\displaystyle \beta = cos^{-1} \left(\frac{r-a \cos \theta }{\rcurs }\right)\) is the angle between \(\brcurs \text{ and } \vb{r}\) and \(\rcurs = \sqrt{r^2 + a^2 -2ra\cos \theta } \). So the integral becomes
+where \(\beta = cos^{-1} \left((r-a \cos \theta ) /\rcurs\right)\) is the angle between \(\brcurs \text{ and } \vb{r}\) and \(\rcurs = \sqrt{r^2 + a^2 -2ra\cos \theta } \). So the integral becomes
 
 \begin{equation}
     2\pi \epsilon_0 \left(\frac{1}{4\pi\epsilon_0} \right)^2 \int_{0}^{\infty} \int_{0}^{\pi } \frac{r-a \cos \theta }{\rcurs ^3} \sin \theta drd\theta  
 \end{equation}
 
-which can be showed to be identical to \(\displaystyle \frac{1}{4\pi\epsilon_0} \frac{q_1q_2}{a} \).
+which can be showed to be identical to \( q_1 q_2 /4\pi \epsilon_0 a \).
 
 Therefore, when handling artificial problem involving point charges, where we only care about the energy by moving them around, we better stick with the assembly method.} 
 
@@ -174,7 +174,7 @@ Therefore, when handling artificial problem involving point charges, where we on
 For the point charge, the potential at the origin is 
 
 \begin{equation}
-    V_{point} = \frac{1}{4\pi\epsilon_0} \frac{-q}{a} + \frac{1}{4\pi\epsilon_0} \frac{q}{b}  = \frac{q}{4\pi \epsilon_0} (\frac{1}{b} - \frac{1}{a} )
+    V_{point} = \frac{1}{4\pi\epsilon_0} \frac{-q}{a} + \frac{1}{4\pi\epsilon_0} \frac{q}{b}  = \frac{q}{4\pi \epsilon_0} \left(\frac{1}{b} - \frac{1}{a} \right)
 \end{equation}
 
 where we excluded the contribution to the potential at the origin by the point charge itself since it blows up and it should not be included anyways.
@@ -196,7 +196,7 @@ Similarly, for the outer shell, the potential at \(b\) is
 Combining the results, we have 
 
 \begin{equation}
-    U_{i} = \frac{1}{2} (q\frac{q}{4\pi \epsilon_0} (\frac{1}{b} - \frac{1}{a} ) + (-q)\frac{q}{4\pi \epsilon_0 b} + q \frac{q}{4\pi \epsilon_0 b}) = \frac{q^2}{8\pi \epsilon_0} (\frac{1}{b} - \frac{1}{a} ) 
+    U_{i} = \frac{1}{2} \left(q\frac{q}{4\pi \epsilon_0} \left(\frac{1}{b} - \frac{1}{a} \right) + (-q)\frac{q}{4\pi \epsilon_0 b} + q \frac{q}{4\pi \epsilon_0 b}\right) = \frac{q^2}{8\pi \epsilon_0} \left(\frac{1}{b} - \frac{1}{a} \right) 
 \end{equation}
 
 Thus the work done by the external agent is
@@ -205,19 +205,19 @@ Thus the work done by the external agent is
     W = \Delta U = U_{i} - U_{f} = U_{i} = \frac{q^2}{8\pi \epsilon_0} (\frac{1}{a} - \frac{1}{b} ) .
 \end{equation}
 
-An alternative way is that since we know that the difference in the electric field pattern between the initial and the final state is in the region of the conductor, where the electric field is zero in the former case when compare to \(\frac{1}{4\pi\epsilon_0} \frac{q}{r^2} \) in the latter case, so the energy require to reconstruct this electric field is 
+An alternative way is that since we know that the difference in the electric field pattern between the initial and the final state is in the region of the conductor, where the electric field is zero in the former case when compare to \( \frac{q}{4\pi \epsilon _{0} r^2} \) in the latter case, so the energy require to reconstruct this electric field is 
 
 \begin{equation}
-    W = \int_{a}^{b} (\frac{1}{4\pi\epsilon_0} \frac{q}{2} )^2 4\pi r^2dr =   \frac{q^2}{8\pi \epsilon_0} (\frac{1}{a} - \frac{1}{b} ) .
+    W = \int_{a}^{b} \left(\frac{1}{4\pi\epsilon_0} \frac{q}{2} \right)^2 4\pi r^2dr =   \frac{q^2}{8\pi \epsilon_0} \left(\frac{1}{a} - \frac{1}{b} \right) .
 \end{equation}
 
-An incorrect way to compute this would be to consider the assembly process, since the point charge can be brought to the origin without any work done, the inner shell can be brought in with the work done \(\displaystyle W = \frac{1}{4\pi\epsilon_0} \frac{q^2}{a} \) and the outer shell can be brought in again without any work done since the electric field of the point charge and the inner shell cancel each other out in the region \(r > a\), so it seems like the work done required is \(\displaystyle \frac{q^2}{4\pi \epsilon_0 a} \). However, the defect of this argument is that while it is true that it requires a work done of \(\displaystyle W = \frac{1}{4\pi\epsilon_0} \frac{q^2}{a} \) to move a point charge from infinity to \(a\) in the vicinity of the point charge at the origin, it requires energy to spread them out to a spherical shell, since the spherical shell is no longer an equipotential surface after adding the second point charge.}
+An incorrect way to compute this would be to consider the assembly process, since the point charge can be brought to the origin without any work done, the inner shell can be brought in with the work done \( W =  q^2/4\pi \epsilon_0 a\) and the outer shell can be brought in again without any work done since the electric field of the point charge and the inner shell cancel each other out in the region \(r > a\), so it seems like the work done required is \( q^2 /4\pi \epsilon_0 a\). However, the defect of this argument is that while it is true that it requires a work done of \(W = q^2/4\pi \epsilon_0 a \) to move a point charge from infinity to \(a\) in the vicinity of the point charge at the origin, it requires energy to spread them out to a spherical shell, since the spherical shell is no longer an equipotential surface after adding the second point charge.}
 
 \todo{modify above} 
 
 \section{Conductors}
 
-\subsection{Surface Charges}
+\subsection{Surface Charges} \label{surcha} 
 
 To minimize system's energy, free charges on a conductor always resides on the surface, so \(\rho  = \vb{E}  = 0 \) inside the conductor. By considering a Gaussian pillbox on an infinitesimal surface on the conductor, we find that 
 
@@ -227,7 +227,7 @@ To minimize system's energy, free charges on a conductor always resides on the s
 
 The electric field is always perpendicular to the surface and the tangential component is zero, thus the surface of the conductor is an equipotential surface.
 
-Since \(\vb{E} \mathbin{\!/\mkern-5mu/\!} \vu{n} \), we have \(\displaystyle \vb{E} = - \grad{V} = - \frac{\partial V}{\partial n} \), which implies that 
+Since \(\vb{E} \mathbin{\!/\mkern-5mu/\!} \vu{n} \), we have \(\vb{E} = - \grad{V} = - \partial V / \partial n\), which implies that 
 
 \begin{equation}
     \sigma = -\epsilon _{0}\frac{\partial V}{\partial n}.  
@@ -271,7 +271,7 @@ We are allowed to simply sum up all the infinitesimal forces experienced by an i
 
 \example{Forces between Hemispheres of a Sphere.}
 {Find the net force between the hemispheres of a sphere with radius \(R\) and charge \(Q\).}
-{The electric field at \(\vb{r} \) is \(\displaystyle \vb{E} (\vb{r} ) = \frac{1}{4\pi \epsilon_0} \frac{Qr}{R^3 } \vu{r} \), so the force is  
+{The electric field at \(\vb{r} \) is \( \vb{E} (\vb{r} ) = Q \vb{r} /4\pi \epsilon _{0} R^3 \), so the force is  
 		
 \begin{equation}
     \int_{0}^{R} \int_{0}^{\pi } \int_{0}^{2\pi }    \rho r^2\sin \theta drd\theta d\phi  \frac{1}{4\pi\epsilon_0} \frac{Qr}{R^3 } \cos \theta = \frac{3Q^2}{64\pi  \epsilon_0 R^2 }.	
@@ -358,13 +358,13 @@ where \(V\) is the potential difference between 2 conductor or the potential dif
 
 When we say a condutor plate, we mean a conductor with small thickness, and when we say sheet of surface charge, we mean a conductor with negligible thickness. The latter is simply an extreme case of the former, and in most case do not matter. 
 
-The main difference is that the electric field on both sides of the conductor plate is \(\displaystyle\vb{E} = \frac{\sigma }{2\epsilon _0}\vu{n}  \), where \(\sigma \) is the surface charge density on one of the surface of the plate, while the electric field on both sides of a sheet of surface charge is \(\displaystyle\vb{E} = \frac{\sigma}{\epsilon _0} \), where \(\sigma \) is the surface charge density of the sheet.   
+The main difference is that the electric field on both sides of the conductor plate is \(\vb{E} = \sigma \vu{n} /2\epsilon _0 \), where \(\sigma \) is the surface charge density on one of the surface of the plate, while the electric field on both sides of a sheet of surface charge is \(E = \sigma /\epsilon _{0}  \), where \(\sigma \) is the surface charge density of the sheet.   
 
-The two cases unified when the thickness of the conductor plate goes to zero, where the surface charge doubles, eliminating the \(\frac{1}{2} \) factor.  
+The two cases unified when the thickness of the conductor plate goes to zero, where the surface charge doubles, eliminating the \(1 /2 \) factor.  
 
 \chapter{Laplace's and Poisson's Equations}
 
-\section{Laplace's Equations}
+\section{Laplace's Equations} \label{lapeq} 
 
 \todo{2.52, ex3.1} 
 
@@ -401,7 +401,7 @@ As a result, a charged particle cannot be held in stable equilibrium by electros
     V(\vb{r} ) = \frac{1}{4\pi R^2}\oint_{\text{sphere} } VdS
 \end{equation}
 
-due to point charges inside and outside the sphere.}
+due to charges inside and outside the sphere.}
 {Consider a point charge with coordinates \((0,0,z)\). Then for \(z>R\),
 
 \begin{equation}
@@ -421,9 +421,53 @@ For \(z<R\), the Laplace' equation is invalid and the average potential over the
 Combining the results, we have
 
 \begin{equation}
-    V_{\text{avg} } = V_{\text{center} } + \frac{Q_{\text{in} } }{4\pi \epsilon _0 R}.   
-\end{equation}~
+    V_{\text{avg} } = V_{\text{center} } + \frac{Q_{\text{in} } }{4\pi \epsilon _0 R},
+\end{equation}
+
+where \(V_{\text{cetner} } \) only includes the contribution of the charges outside the sphere. 
 } 
+
+\example{Average Electric Field over a Sphere.}
+{Consider a spherical surface with radius \(R\) centered at the origin. Find the average electric field over the sphere 
+
+\begin{equation}
+    \vb{E} (\vb{r} ) = \frac{3}{4\pi R^3}\int_{\text{sphere} }^{} \vb{E} d\tau  
+\end{equation}
+
+due to charges inside and outside the sphere.
+}
+{The average field due to a point charge \(q\) located at \(\vb{r} \)  inside the sphere is 
+
+\begin{equation}
+    \vb{E} _{\text{avg} } = \frac{3}{4\pi R^3 } \frac{q}{4\pi \epsilon_0} \int_{\text{sphere} }^{} \frac{\hrcurs d\tau }{\rcurs ^2},  
+\end{equation}
+
+which can be intepreted as the electric field at \(\vb{r} \) of a uniformly charge sphere with \(\rho = -q / (4\pi R^3 /3) \), with the negative sign due to \(\hrcurs \) of the point charge is pointing at the opposite direction as the \(\hrcurs \) of the uniformly charged sphere. 
+
+However, the electric field inside a uniformly charged sphere can be easily found be Gauss's law as 
+
+\begin{equation}
+    \vb{E} _{\text{avg} } = \frac{\rho \vb{r} }{3 \epsilon_0 } = -\frac{q\vb{r}  }{4\pi \epsilon_0 R^3 } = - \frac{\vb{p} }{4\pi \epsilon_0 R^3 }.
+\end{equation}
+
+By the same argument, the electric average electric field of a point charge \(q\) located at \(\vb{r} \) outside the sphere is 
+
+\begin{equation}
+    \vb{E} _{\text{avg} } = \frac{1}{4\pi \epsilon_0} \frac{\rho \left( \frac{4}{3}\pi R^3   \right)}{r^2}\vu{r}  = - \frac{1}{4\pi \epsilon_0} \frac{q}{r^2}\vu{r} ,   
+\end{equation}
+
+which is simply the field of the point charge created at the center of the sphere. 
+
+Combining the results, we have
+
+\begin{equation}
+    \vb{E} _{\text{avg} } = \vb{E} _{\text{center} } - \frac{\vb{p} }{4\pi \epsilon_0 R^3 },   
+\end{equation}
+
+where \(\vb{E} _{\text{center} } \) only includes the contribution of the charges outside the sphere. 
+
+} 
+
 
 \example{Potential in Spherical and Cylindrical Coordinates.}
 {Find the expression for the potential \(V\) if it only depends on  \(r \text { or }  \rho \) in spherical and cylindrical coordinates respectively.}
@@ -558,9 +602,9 @@ Suppose a point charge \(q\) is held a distance \(d\) above an infinite grounded
 
 By some clever insights, we see that for the potential created by a pair of opposite charge with \(q\) located at \((0,0,d)\) and \(-q\) located at \((0,0,-d)\) satisfy \(\rho \) in the region \(z > 0\)\footnote{We cannot place iamge charges in the volume \(V\) where we are calculating the potential, since for the first uniqueness theorem to stand, the charge density throughout the region has to be fixed as the given \(\rho \). Also the images charges must add up to the correct total in each region. (why?)} 
 
-Since the electric field is just \(\vb{E} = -\grad{V} \), it is also uniquely determined and the force that the real charge experience can be easily calculated as \(\displaystyle \vb{F} = -\frac{1}{4\pi\epsilon_0} \frac{q^2}{(2d)^2} \vu{z}  \).
+Since the electric field is just \(\vb{E} = -\grad{V} \), it is also uniquely determined and the force that the real charge experience can be easily calculated as \( \vb{F} = -\frac{q^2}{4\pi \epsilon _{0} (2d)^2} \vu{z}  \).
 
-The potential energy of the system can be found by integrating the force from infinity to \(d\) which yields \(\displaystyle U = \int_{\infty}^{d} \frac{1}{4\pi\epsilon_0} \frac{q^2}{(2z)^2} dz = -\frac{1}{4\pi\epsilon_0} \frac{q^2}{4d}  \) which is only half of the energy of a pair of real charge \(q \text{ and }  -q\) separated by a distance \(2d\). 
+The potential energy of the system can be found by integrating the force from infinity to \(d\) which yields \( U = \int_{\infty}^{d}  \frac{q^2}{4\pi \epsilon _{0} (2z)^2} dz = -\frac{q^2}{16\pi \epsilon _{0} d}  \) which is only half of the energy of a pair of real charge \(q \text{ and }  -q\) separated by a distance \(2d\). 
 
 This is because there is no electric field in the region \(z < 0\), or equivalently, the image charge can be moved for free, since there isn't any electric field to oppose. 
 
@@ -707,7 +751,7 @@ Since
 \begin{equation}
     \int_{0}^{a} \sin \frac{n\pi y}{a} \sin \frac{m\pi y}{a} dy = \begin{cases}
         0 & \text{if } n \neq m, \\[10pt]
-        \displaystyle \frac{a}{2} & \text{if } n = m.
+        a/2 & \text{if } n = m.
         \end{cases}
 \end{equation}
 
@@ -735,13 +779,13 @@ Thus
     V(x,y) = \frac{4V_0}{\pi } \sum_{\text{odd n}}^{} \frac{1}{n} \sin \frac{n\pi y}{a}  e^{\frac{-n\pi x}{a}}. 
 \end{equation}
 
-Incidentally, the result can be further simplified by writing \(\displaystyle \sin \frac{in\pi y}{a} \text{ as } \mathfrak{Re} ((-i)e^{\frac{n\pi y}{a} } )  \), then \(\displaystyle V(x,y) = \frac{4V_0 }{\pi } I\), where
+Incidentally, the result can be further simplified by writing \( \sin (in\pi y /a) \text{ as } \mathfrak{Re} ((-i)e^{n\pi y/a } )  \), then \(V(x,y) = 4V_0 I /a\), where
 
 \begin{equation}
     I = \mathfrak{Re} \left(-i\sum_{\text{odd n}}^{} \frac{1}{n} \left(e^{-\frac{\pi (x-iy)}{a} }\right)^{n}\right) 
 \end{equation}
 
-Letting \(\displaystyle \mathcal{Z} = e^{-\frac{\pi (x-iy)}{a} }  \), we have
+Letting \( \mathcal{Z} = e^{-\pi (x-iy)/a }  \), we have
 
 \begin{equation}
     \begin{aligned}
@@ -750,7 +794,7 @@ Letting \(\displaystyle \mathcal{Z} = e^{-\frac{\pi (x-iy)}{a} }  \), we have
     \end{aligned}
 \end{equation}
 
-where we have defined \(\displaystyle R e^{i\theta } \text{ as } \frac{1+\mathcal{Z} }{1-\mathcal{Z} } \). So \(\displaystyle I =  \mathfrak{Re}  ((-i)\frac{1}{2} (\ln R + i\theta )) = \frac{\theta }{2}  \). Since 
+where we have defined \(R e^{i\theta } \text{ as } (1+\mathcal{Z}) / (1-\mathcal{Z}) \). So \( I =  \mathfrak{Re}  ((-i) (\ln R + i\theta ) /2) = \theta /2 \). Since 
 \begin{equation}
     \begin{aligned}
         &\frac{1+\mathcal{Z}}{1-\mathcal{Z}}=\frac{1+e^{-\pi(x-i y) / a}}{1-e^{-\pi(x-i y) / a}}=\frac{\left(1+e^{-\pi(x-i y) / a}\right)\left(1-e^{-\pi(x+i y) / a}\right)}{\left(1-e^{-\pi(x-i y) / a}\right)\left(1-e^{-\pi(x+i y) / a}\right)} \\
@@ -824,7 +868,7 @@ We again use the Fourier's trick, but this time we multiply by \(P_{l'} (\cos \t
     \begin{aligned}
         \int_{-1}^{1} P_{l} (x) P_{l'} (x) dx &= \int_{0}^{\pi } P_{l} (\cos \theta ) P_{l'} (\cos \theta ) \sin \theta d\theta \\ &= \begin{cases}
             ~~0 & \text{if } l' \neq l \\[10pt]
-            \displaystyle \frac{2}{2l+1} & \text{if } l' = l.
+            \frac{2}{(2l+1)}  & \text{if } l' = l.
             \end{cases}
     \end{aligned}
 \end{equation}
@@ -835,13 +879,13 @@ Thus by similar means as the previous example, we get
     A_{l} = \frac{2l+1}{2R^{l} } \int_{0}^{\pi } V_{0} (\theta ) P_{l} (\cos \theta ) \sin \theta d\theta.
 \end{equation}
 
-The integrals can be difficult to evaluate and in practice it is often easier to solve for \(A_{l} \) by observation. For example, if \(\displaystyle V_0(\theta ) = k\sin ^2\left(\frac{\theta }{2} \right)\), then we can rewrite this as
+The integrals can be difficult to evaluate and in practice it is often easier to solve for \(A_{l} \) by observation. For example, if \(V_0(\theta ) = k\sin ^2\left(\theta /2\right)\), then we can rewrite this as
 
 \begin{equation}
     V_0(\theta ) = \frac{k}{2} (1-\cos \theta ) = \frac{k}{2} (P_0(\cos \theta ) - P_1(\cos \theta )).
 \end{equation}
 
-So we immediately read off from \cref{sphlap1} that \(\displaystyle A_0 = \frac{k}{2} \text{ and }  A_1 = -\frac{k}{2R} \) and
+So we immediately read off from \cref{sphlap1} that \( A_0 = k /2 \text{ and }  A_1 = -k /2R \) and
 
 \begin{equation}
     V(r,\theta )  = \frac{k}{2} (1 - \frac{r}{R} \cos \theta ).
@@ -853,10 +897,10 @@ And if \(V_0(\theta) = k\cos (3 \theta)\), then we can rewrite this as
     V_0(\theta) = k(4\cos ^3 \theta - 3\cos \theta) = \frac{k}{5} (8P_3 (\cos \theta) - 3P_1(\cos \theta)).
 \end{equation}
 
-So we can find that \(\displaystyle A_1 = -\frac{3k}{5R} \text{ and } A_3 = \frac{8k}{5R^3} \) and 
+So we can find that \(A_1 = -3k /5R \text{ and } A_3 = 8k /5R^3  \) and 
 
 \begin{equation}
-    V(r,\theta) = \frac{kr\cos \theta}{5R} \left(4\left(\frac{r}{R}\right)^2(5\cos ^2 \theta-3)-3\right). 
+    V(r,\theta) = kr \cos \theta /5R  \left(4\left(r /R\right)^2(5\cos ^2 \theta-3)-3\right). 
 \end{equation}} 
 
 
@@ -902,8 +946,8 @@ The induced charge density can be calculated by
 \begin{equation}
      V(r, \theta) =
     \begin{cases}
-    \displaystyle \sum_{l=0}^{\infty} A_{l}r^{l}P_{l}(\cos \theta )    & \text{for } r \leq R, \\[10pt]
-    \displaystyle \sum_{l=0}^{\infty} \frac{B_{l} }{r^{l+1} } P_{l}(\cos \theta ) & \text{for } r \geq R.
+    \sum_{l=0}^{\infty} A_{l}r^{l}P_{l}(\cos \theta )    & \text{for } r \leq R, \\[10pt]
+    \sum_{l=0}^{\infty} \frac{B_{l} }{r^{l+1} } P_{l}(\cos \theta ) & \text{for } r \geq R.
     \end{cases}  
 \end{equation}
 
@@ -919,19 +963,18 @@ They combined to give
     A_{l} = \frac{1}{2\epsilon _{0}R^{l-1}  } \int_{0}^{\pi } \sigma _{0}(\theta ) P_{l}(\cos \theta ) \sin \theta d \theta ~\text { and }~ B_{l} = A_{l}R^{2l+1}.       
 \end{equation}
 
-For instance, if \(\sigma _{0} = k\cos \theta  = kP_1 (\cos \theta )\), then \(\displaystyle A_1 = \frac{k}{3\epsilon _{0} }\) which impiles 
+For instance, if \(\sigma _{0} = k\cos \theta  = kP_1 (\cos \theta )\), then \(A_1  = k /3 \epsilon _{0} \) which impiles 
 
 \begin{equation}
       V(r, \theta) =
     \begin{cases}
-    \displaystyle \frac{k r \cos\theta}{3 \epsilon_0}, & \text{for } r \leq R \\[10pt]
-    \displaystyle \frac{k R^3 \cos\theta}{3 \epsilon_0 r^2} & \text{for } r \geq R.
+    kr \cos \theta / 3 \epsilon _{0}, & \text{for } r \leq R \\[10pt]
+    kR^3 \cos \theta / 3\epsilon _{0}r^2  & \text{for } r \geq R.
     \end{cases}  
 \end{equation}
 
 In particular, we found from the previous example that the induced charge of a metal sphere under an otherwise uniform electric field \(\vb{E} = E_0 \vu{z} \) is \(\sigma _{0}(\theta ) = 3 \epsilon _{0}E_0   \). Subsituting \(k = 3 \epsilon _{0}E_0  \), we see that the potential inside is \(V(r,\theta ) = E_0 r \cos \theta = E_0 z\) and the field is \(- E_0 \vu{z} \) which cancels out the external field \(E_0 \vu{z} \), as it should.      
 } 
-
 
 The success of the method of separation of variables hinges on two extraordinary properties of the separable solutions, namely the completeness and orthogonality. In linear algebra terms, the set of functions is an orthonormal basis of the set of all real functions.
 
@@ -983,7 +1026,7 @@ The first term is the monopole contribution, telling that if we are sufficiently
 The second term is the dipole contribution, which can be written as 
 
 \begin{equation}
-    V_{\text{dip} } (\vb{r} ) = \frac{1}{4\pi \epsilon_0r^2} \left( \vu{r}  \cdot \int \vb{r} ' \rho (\vb{r} ')d\tau '  \right) = \frac{\vb{p} \cdot \vu{r} }{4\pi \epsilon _0 r^2 }.    
+    V_{\text{dip} } (\vb{r} ) = \frac{1}{4\pi \epsilon_0r^2} \left( \vu{r}  \cdot \int \vb{r} ' \rho (\vb{r} ')d\tau '  \right) = \frac{\vb{p} \cdot \vu{r} }{4\pi \epsilon _0 r^2 }.    \label{dippotential} 
 \end{equation}
 
 Analagous to a point charge at the origin where its potential is exactly given by the first term of the multipole expansion, a perfect dipole whose potential is exactly given by the second term of the multipole expansion is when 
@@ -1062,16 +1105,18 @@ and the energy of a dipole is
 
 So the molecules will align themselves towards the direction of the elctric field in order to achieve minimum energy. 
 
-\section{The Electric Fields of Polarized Objects}
+Alternatively, this result can be proved by virtual work principle, by imagining that the 
 
-To calculate the electric field due to a polairized object, we notice tha the potential from \cref{potential} reads
+\section{Electric Fields of Polarized Objects}
+
+To calculate the electric field due to a polairized object, we notice that the electric potential from \cref{dippotential} reads
 
 \begin{equation}
     \begin{aligned} 
-    V(\vb{r} ) &= \frac{1}{4\pi \epsilon_0} \int_{V}^{} \frac{\vb{P} (r')\cdot \hrcurs }{\rcurs ^2}d\tau ' = \frac{1}{4\pi \epsilon_0} \int_{V}^{} \vb{P} \cdot \boldsymbol{\nabla '}\left( \frac{1}{\rcurs }  \right) d\tau ' \\
+    V(\vb{r} ) &= \frac{1}{4\pi \epsilon_0} \int_{V}^{} \frac{\vb{P} (\vb{r} ')\cdot \hrcurs }{\rcurs ^2}d\tau ' = \frac{1}{4\pi \epsilon_0} \int_{V}^{} \vb{P} \cdot \boldsymbol{\nabla '}\left( \frac{1}{\rcurs }  \right) d\tau ' \\
     &= \frac{1}{4\pi \epsilon_0} \left( \int_{V}^{} \boldsymbol{\nabla '} \cdot \left( \frac{\vb{P} }{\rcurs }  \right) d\tau ' - \int_{V}^{} \frac{1}{\rcurs } (\boldsymbol{\nabla '} \cdot \vb{P}  ) d\tau ' \right) \\
     &= \frac{1}{4\pi \epsilon_0} \left( \oint_{S} \frac{1}{\rcurs }\vb{P} \cdot d\vb{S} '  - \int_{V}^{} \frac{1}{\rcurs } (\boldsymbol{\nabla '} \cdot \vb{P}  ) d\tau ' \right) \\
-    &= \frac{1}{4\pi \epsilon_0} \left( \oint_{S} \frac{\sigma _{b} }{\rcurs } dS' + \int_{V}^{} \frac{\rho _{b} }{\rcurs } d\tau ' \right),
+    &\equiv  \frac{1}{4\pi \epsilon_0} \left( \oint_{S} \frac{\sigma _{b}(\vb{r} ') }{\rcurs } dS' + \int_{V}^{} \frac{\rho _{b} (\vb{r} ')}{\rcurs } d\tau ' \right),
     \end{aligned} 
 \end{equation}
 
@@ -1081,7 +1126,7 @@ The introduction of surface and volume bound charges is not merely a bookeeping 
 
 For surface bound charge, we imagine a long string of dipoles, where the positive head of one cancels the negative tail of its neighbor, so what left is the plus hand and the minus tail.
 
-Since \(qd = PAd\) is the diopole moment of one individual dipole, we have the surface charge density as \(\sigma _{b} = \frac{q}{A} = P\), where the dot product with the normal unit vector is introduced to taken into account if the end surface is not perpendicular to the polarization, then the area would be larger by a factor of \(\cos \theta \), where \(\theta \) is the angle between the polarizatoin and the unit normal vector.
+Since \(p = qd = PAd\) is the diopole moment of one individual dipole, we have the surface charge density as \(\sigma _{b} = 1 /A = P\), where the dot product with the normal unit vector is introduced to take into account if the end surface is not perpendicular to the polarization, then the area would be larger by a factor of \(\cos \theta \), where \(\theta \) is the angle between the polarizatoin and the unit normal vector.
 
 For volume bound charge, we imagine some volume with non-zero divergence of polarization. Then by conservation of charge we have the amount positive charges reside on the surface of the volume (which in this case are effectively surface charges) is equal to amount of the negative charge inside the volume, so
 
@@ -1092,7 +1137,7 @@ For volume bound charge, we imagine some volume with non-zero divergence of pola
 Therefore, we can first calculate these induced bound charge (which are charges result from polarization) then calulcate the electric field via normal means.
 
 \example{Uniformly Polarized Sphere (1).}
-{Find the electric field produce by a uniformly polarized sphere of radius \(R\) and polarization \(\vb{P} \).}
+{Find the electric field of an uniformly polarized sphere of radius \(R\) and polarization \(\vb{P} \).}
 {The surface and volume charge density are
 
 \begin{equation}
@@ -1104,8 +1149,8 @@ But the problem of finding the potential of a surface charge density \(\sigma _{
 \begin{equation}
  V(r, \theta) =
     \begin{cases}
-    \displaystyle \frac{P r \cos\theta}{3 \epsilon_0} & \text{for } r \leq R, \\[10pt]
-    \displaystyle \frac{P R^3 \cos\theta}{3 \epsilon_0 r^2} & \text{for } r \geq R.
+    Pr \cos \theta / 3\epsilon _{0}  & \text{for } r \leq R, \\[10pt]
+    PR^3 \cos \theta /3\epsilon _{0}r^2  & \text{for } r \geq R.
     \end{cases}  
 \end{equation}
 
@@ -1141,21 +1186,52 @@ For the region outside the spheres, it is as though all the cahrges on each sphe
 
 \section{Microscopic and Macroscopic Fields}
 
-When we say the electric field inside a point in matter, we do not mean the acutual microscopic electric field at that point, as the microscopic fields are actually highly non-uniform. What we meant is always the average electric field over a small region which is large enough to smooth over the uninteresting microscopic fluctuations and yet small enough to not wash out any significant large-scale variations in the field. 
+When we say the electric field inside a point in matter, we do not mean the acutual microscopic electric field at that point, as the microscopic fields are actually highly non-uniform. What we mean is always the average electric field over a small region which is large enough to smooth over the uninteresting microscopic fluctuations and yet small enough to not wash out any significant large-scale variations in the field. So we are actually finidng the average electric field \(\vb{E} (\vb{r} )\) within the material by averaging the true microscopic field over a small sphere about \(\vb{r} \).
 
-Suppose we would like to find \(\vb{E} (\vb{r} )\) by averaging the true microscopic field over a small sphere about \(\vb{r} \) 
+For the charges outside the sphere, we have proved in an example in \cref{lapeq} that the average electric field over a sphere is the equal to the field they produce at the center, so we can safely use
+
+\begin{equation}
+    V_{\text{out} } = \frac{1}{4\pi \epsilon_0} \int_{\text{outside} }^{} \frac{\vb{P} (\vb{r} ') \cdot \hrcurs }{\rcurs ^2} d\tau '.   
+\end{equation}
+
+The term left out in this integral is 
+
+\begin{equation}
+    V_{\text{in} } = \frac{1}{4\pi \epsilon_0} \int_{\text{in} }^{} \frac{\vb{P} (\vb{r} ') \cdot \hrcurs }{\rcurs ^2} d\tau ' = \frac{\vb{P} }{4\pi \epsilon_0} \cdot \int_{\text{in} }^{} \frac{\hrcurs }{\rcurs ^2}d\tau ',    
+\end{equation}
+
+where we have assume that the sphere is small enough for \(\vb{P} \) to be uniform. This is in fact just the potential at the center of the sphere due to a uniformly polarized sphere, and according to the examples in the previous section, the field is equals to \(\vb{E} _{\text{in} } = -\vb{P} /3 \epsilon_0  \). 
+
+We have left out \(V_{\text{in} } \), since we cannot simply take the field at the center created by the charge inside the sphere as the average field over the sphere, which is what we want.
+
+To calculate the correct average electric field due to the charges inside the sphere, we have proved in the example that the average electric field over a sphere is 
+
+\begin{equation}
+    \vb{E} _{\text{in} } = - \frac{\vb{p} }{4\pi \epsilon_0 R^3 } = -\frac{\left( \frac{4}{3}\pi R^3   \right)\vb{P} }{4\pi \epsilon_0 R^3 } = -\frac{\vb{P} }{3\epsilon_0 }.    
+\end{equation}
+
+We see that the average electric field is in fact the same as the electric field at the center, this is ultimately due to the fact that the field inside a uniformly polarized sphere is uniform, so the field is \(\vb{E} = - \vb{P} /3\epsilon_0 \) anywhere anyways. Therefore, we simply have 
+
+\begin{equation}
+    V = \frac{1}{4\pi \epsilon_0} \int \frac{\vb{P} (\vb{r} ')\cdot \hrcurs }{\rcurs ^2} d\tau ',  
+\end{equation}
+
+without having to split the integral into two parts.
+
+
+
 
 \section{Modified Gauss's Law}
 
-While Gauss's law work copmletely fine inside matter, it would be more convenient to separate the electric field created by the induced bound charges \(\rho _{b} = -\div{\vb{P} } \) which are charges araised from polarization and the elctric field created by the free charges \(\rho _{f} \) which are charges not arised from polarization.
+While Gauss's law (\cref{gauss}) works completely fine inside polarized matter, where the electric field \(\vb{E} (\vb{r} )\) at a point \(\vb{r} \) is still related to the charge density \(\rho (\vb{r} )\)  by \(\div{\vb{E}(\vb{r} )} = \rho(\vb{r} ) / \epsilon_0 \), it is kind of useless since we do not know what \(\rho (\vb{r} )\) is: it composed of \(\rho = \rho _{f} + \rho _{b}  \), where the free charges \(\rho _{f} \) are the charges we can control and not arised from polarization while the bound charges \(\rho _{b} \) are the charges due to polarization of the material under an external electric field. 
 
-Introducing the electric displacement 
+Separating the charges into free charges and bound charges, we have
 
 \begin{equation}
-    \vb{D} = \epsilon _{0}\vb{E} + \vb{P} = \epsilon \vb{E}  ,  
+    \epsilon_0 \div{\vb{E} } = \rho _{f} + \rho _{b} = \rho _{f} - \div{\vb{P} }  \implies  \div{(\epsilon_0 \vb{E} +P)} \equiv \div{(\epsilon_0 \vb{E} + \epsilon_0 \chi _{e}\vb{E}  )} \equiv \div{(\epsilon \vb{E}) } \equiv  \div{\vb{D} } = \rho _{f},
 \end{equation}
 
-where \(\epsilon = \epsilon _{0}(1 + \chi _{e} ) = \epsilon _{0}\epsilon _{r}   \). 
+where \(\chi _{e} \) is the electric permittivity of the material, which relates the polarization \(\vb{P} \) of the material under an external electric field \(\vb{E} \), and \(\vb{D} \) is the electric displacement.    
 
 So the ordinary Gauss's law can be rewritten to the modified Gauss's law
 
@@ -1165,9 +1241,9 @@ So the ordinary Gauss's law can be rewritten to the modified Gauss's law
 
 The electric displacemnet is a useful quantity as when we put free charge in place, the only thing we know would be \(\vb{D} \) from the modified Gauss's law (instead of \(\vb{E} \) since we do not know \(\vb{P} \)).
 
-However, we shall not assume that the relation between \(\vb{D} \text { and } \rho _{f} \) is the same as \(\vb{E} \text { and } \rho \). Although the divergence are analogous, the curl of \(\vb{E} \) is always zero while the curl of \(\vb{D} \) is \(\curl{\vb{D} } = \curl{\vb{P} } = \epsilon _{0}  \curl{\chi _{e} \vb{E} }  \) is not necessarily zero
+However, we shall not assume that the relation between \(\vb{D} \text { and } \rho _{f} \) is the same as \(\vb{E} \text { and } \rho \). Although the divergences are analogous, the curl of \(\vb{E} \) is always zero while the curl of \(\vb{D} \) is \(\curl{\vb{D} } = \curl{\vb{P} } = \epsilon _{0}  \curl{(\chi _{e} \vb{E})}  \), which is not necessarily zero.
 
-But for the case of homogenous medium, where the electric susceptibiliy \(\chi _{e} \) does not vary with position, so \(\chi _{e} \) can be taken out of the curl and we can safely regard \(\rho _{f} \) as the source of \(\vb{D} \) just as how \(\rho \) serves as the source of \(\vb{E} \).        
+But for the case of homogenous medium, where the electric susceptibiliy \(\chi _{e} \) does not vary with position, we can take \(\chi _{e} \) out of the curl and we can safely regard \(\rho _{f} \) as the source of \(\vb{D} \) just as how \(\rho \) serves as the source of \(\vb{E} \).        
 
 For ionic crystal such as sodium chloride, where the polarization and thus electrical displacement is ill-defined as the direction of a dipole moment of two oppositely charged ions depends on how you pair them up. But it does not matter. At the end of the day everyone agrees that the charge density and the electric field is zero.  
 
@@ -1177,7 +1253,7 @@ For ionic crystal such as sodium chloride, where the polarization and thus elect
 
 \begin{enumerate}[itemsep=10pt] 
     \item $V_{\text{in}} = V_{\text{out}}$ at $r = R$,
-    \item $\displaystyle \epsilon \frac{\partial V_{\text{in}}}{\partial r} = \epsilon_0 \frac{\partial V_{\text{out}}}{\partial r}$ at $r = R$, and
+    \item \(\epsilon \partial V_{\text{in} } / \partial r = \epsilon _{0} \partial V_{\text{out} } /\partial r  \)  at $r = R$, and
     \item $V_{\text{out}} \to -E_0 z = -E_0 r \cos\theta$ for $r \gg R$.
 \end{enumerate}
 
@@ -1202,8 +1278,8 @@ Solving for \(A_{l} \text { and } B_{l}  \) with the first and second boundary c
 \begin{equation}
     \begin{cases}
         A_l = B_l = 0 & \text{for } l \neq 1, \\[10pt]
-        A_1 = \displaystyle -\frac{3}{\epsilon_r + 2} E_0, \\[10pt]
-        B_1 = \displaystyle \frac{\epsilon_r - 1}{\epsilon_r + 2} R^3 E_0.
+        A_1 = - 3E_0 / (\epsilon _{r}+2 ), \\[10pt]
+        B_1 = (\epsilon _{r}-1 )E_0 /(\epsilon _{r}+2 )R^3.
         \end{cases}   
 \end{equation}
 
@@ -1211,8 +1287,8 @@ The potential and electric field inside the sphere are thus
 
 \begin{equation}
     \begin{cases}
-        V_\text{in}(r, \theta) = \displaystyle -\frac{3 E_0}{\epsilon_r + 2} z, \\[10pt]
-        \mathbf{E} = \displaystyle \frac{3}{\epsilon_r + 2} \mathbf{E}_0.
+        V_\text{in}(r, \theta) = -3 E_0 z /(\epsilon _{r}+2 ), \\[10pt]
+        \mathbf{E} = 3E_0 /(\epsilon _{r}+2 ).
         \end{cases}
 \end{equation}
 
@@ -1224,7 +1300,7 @@ Note that \(\vb{E} = 0\) when \(\epsilon _{r} \to \infty\) as it should in the c
 {First of all, the volume bound charge is zero, since
 
 \begin{equation}
-    \rho _{b} = - \div{\vb{P} } = - \div{\left( \vb{D} - \epsilon _{0}\vb{E} \right)} = - \div{\left( \left(1- \frac{\epsilon _{0} }{\epsilon } \right) \vb{D} \right)} = - \left( 1- \frac{1}{\epsilon _{r} }  \right) \rho _{f} = 0.   
+    \rho _{b} = - \div{\vb{P} } = - \div{\left( \vb{D} - \epsilon _{0}\vb{E} \right)} = - \div{\left( \left(1- \frac{\epsilon _{0} }{\epsilon } \right) \vb{D} \right)} = - \left( 1- \frac{1}{\epsilon _{r} }  \right) \rho _{f} = 0.   \label{boundfree} 
 \end{equation}
 
 The surface bound charge, on the other hand, is
@@ -1245,7 +1321,7 @@ Solving for \(\sigma _{b} \),
     \sigma _{b} = - \frac{1}{2\pi }\left( \frac{\chi _{e} }{\chi _{e}+2 }  \right)\frac{qd}{(r^2+d^2)^{\frac{3}{2} } }.   
 \end{equation}
 
-The electric field can be calculated by direction integration from \cref{comb} having known \(\sigma _{b} \). Alternatively, we note that we can place an image charge at \((0,0,-d)\) with charge \(\displaystyle q_{b} = -\frac{\chi _{e} }{\chi _{e}+2 } q \) we have the correct potential in the region \(z > 0\). For region \(z < 0\), we can place the same point charge at \((0,0,d)\).
+The electric field can be calculated by direction integration from \cref{comb} having known \(\sigma _{b} \). Alternatively, we note that we can place an image charge at \((0,0,-d)\) with charge \( q_{b} = -\chi _{e}q/(\chi _{e}+2 )   \) we have the correct potential in the region \(z > 0\). For region \(z < 0\), we can place the same point charge at \((0,0,d)\).
 
 Therefore the force is 
 
@@ -1256,9 +1332,9 @@ Therefore the force is
 
 \section{Energy in Dielectric Systems}
 
-The general formula for the electric energy \(\displaystyle U = \frac{\epsilon _{0} }{2} \int E^2d\tau  \) is generally not used in dielectric system. This is because this is the work done needed if we assemble the system by bringing in all the charges (free and bound), one by one, with tweezers to its proper final location. 
+The general formula for the electric energy \( U = (\epsilon _{0}/2 ) \int E^2d\tau  \) is generally not used in dielectric system. This is because this is the work done needed if we assemble the system by bringing in all the charges (free and bound), one by one, with tweezers to its proper final location. 
 
-This energy, however, just not include the work done need stretch and rotate the atoms or molecules, which can be modelled as a spring's energy \(\displaystyle \frac{1}{2}kx^2 \),\footnote{For example, the restoring force of ionizing an atom is proportional to the relative displacement of the nucleus and the center of the electron cloud. So the energy is proportional to the displacemnet squared} which, although is electrical in nature, is not accounted in the macroscopic field \(\vb{E} \). 
+This energy, however, just not include the work done need stretch and rotate the atoms or molecules, which can be modelled as a spring's energy \(kx^2 /2 \),\footnote{For example, the restoring force of ionizing an atom is proportional to the relative displacement of the nucleus and the center of the electron cloud. So the energy is proportional to the displacemnet squared} which, although is electrical in nature, is not accounted in the macroscopic field \(\vb{E} \). 
 
 The energy we are interested in, is the work done required to introduce all the free charges one by one to achieve the final configuation, while the energy due to bound charges are subtly accounted as the when we bring in an infinitesimal free charge, it also has to overcome the electric field created by the bound charge. Specifically, the infinitesimal work done required is 
 
@@ -1354,7 +1430,7 @@ So the total stored spring energy is
     \Delta W_{\text{non-con} }  = \Delta W_{\text{ext} } + \Delta W_{\text{battery}} = \Delta \left( F_{\text{ext} } x \right) + \Delta W_{\text{battery} } = \Delta U.
 \end{equation}
 
-For an isolated capacitor, \(\Delta W_{\text{battery} } = 0 \) and since the charge is fixed, using \(\displaystyle \Delta U = \Delta \left( \frac{Q^2}{2C}  \right) = - \frac{Q^2}{2}\frac{\Delta C}{C^2}  \) is more convenient. 
+For an isolated capacitor, \(\Delta W_{\text{battery} } = 0 \) and since the charge is fixed, using \( \Delta U = \Delta \left( Q^2 /2C  \right) = - Q^2\Delta C / 2\Delta C  \) is more convenient. 
 
 Therfore, we have
 
@@ -1362,7 +1438,7 @@ Therfore, we have
     F_{\text{ext} }\Delta x = -\frac{Q^2}{2C}\frac{\Delta C}{C^2} \implies F_{\text{elec} } = - F_{\text{ext} } = \frac{V^2}{2}\frac{dC}{dx}.    
 \end{equation}
 
-When connected with battery of voltage \(V\), \(\Delta W_{\text{battery} } = V \Delta Q = V^2\Delta C\) and since the voltage is fixed, using \(\displaystyle \Delta U = \Delta \left( \frac{1}{2}CV^2  \right) = \frac{V^2}{2}\Delta C \) is more convenient.
+When connected with battery of voltage \(V\), \(\Delta W_{\text{battery} } = V \Delta Q = V^2\Delta C\) and since the voltage is fixed, using \(\Delta U = \Delta \left( CV^2/2 \right) = V^2\Delta C /2 \) is more convenient.
 
 Therfore, we have
 
@@ -1395,7 +1471,7 @@ Taking the divergence, we have
 
 Taking the curl, we have
 
-\begin{equation}
+\begin{equation} \label{ampere} 
     \begin{aligned} 
     \curl{\vb{B} (\vb{r} )} &=  \frac{\mu_0 }{4\pi } \int \curl{\left( \frac{\vb{J} (\vb{r} ') \cross \hrcurs}{\rcurs ^2 } \right)} d\tau ' =   \frac{\mu _{0} }{4\pi }\int \left(\vb{J} (\vb{r} ')\left( \div{\frac{\hrcurs }{\rcurs ^2} }  \right) - \left(\vb{J} (\vb{r} ')\cdot \boldsymbol{\nabla } \right)\frac{\hrcurs }{\rcurs ^2}  \right)  d\tau ' \\
     &= \frac{\mu_0 }{4\pi }\int \left( \vb{J} (\vb{r} ')4\pi \delta ^3 (\vb{r} -\vb{r} ') + (\vb{J}(\vb{r} ') \cdot \boldsymbol{\nabla }' )\frac{\hrcurs }{\rcurs ^2} \right)d\tau ' \\
@@ -1405,7 +1481,7 @@ Taking the curl, we have
     \end{aligned} 
 \end{equation}
 
-where we have used the continuity euqation \(\displaystyle \div{\vb{J} } = \div{(\rho v)}  = -\frac{\partial \rho }{\partial t} = 0\) for steady currents.  
+where we have used the continuity euqation \( \div{\vb{J} } = \div{(\rho v)}  = -\partial \rho /\partial t = 0\) for steady currents.  
 
 These are the remaining two Maxwell's equations under magnetostatics assumptions.
 
@@ -1435,17 +1511,27 @@ One can see that there are two ways to calculate the magnetic field given a curr
 
 \example{Magnetic Vector Potential of a Rotating Shell.}
 {A spherical shell of radius \(R\) carrying a uniform surface charge \(\sigma \) is spinning at angular velocity \(\boldsymbol{\omega } \). Find the vector potential and thus the magnetic field it produces at point \(r\).}
-{Set \(r\) lies on the \(z\)-axis, then the surface current is
+{Set \(\vb{r} \) lies on the \(z\)-axis, then the surface current is
 
 \begin{equation}
     \begin{aligned} 
-    \vb{K} &= \sigma \vb{v} = \sigma (\boldsymbol{\omega }\cross \vb{r} ' ) = \sigma \begin{vmatrix}
-        \vu{x}  & \vu{y}  & \vu{z}   \\
-        \omega \sin \psi  & 0 & \omega \cos \psi   \\
-        R \sin \theta '\cos \phi ' & R\sin \theta '\sin \phi ' & R\cos \theta '  \\
-    \end{vmatrix} \\ &= \omega R\left( -(\cos \psi \sin \theta '\sin \phi ')\vu{x} + (\cos \psi \sin \theta '\cos \phi '-\sin \psi \cos \theta ')\vu{y} \\ &+(\sin \psi \sin \theta '\sin \phi ')\vu{z}  \right).
+        \vb{K} &= \sigma \vb{v} 
+        = \sigma (\boldsymbol{\omega} \cross \vb{r}') 
+        = \sigma 
+        \begin{vmatrix}
+            \vu{x}  & \vu{y}  & \vu{z}   \\
+            \omega \sin \psi  & 0 & \omega \cos \psi   \\
+            R \sin \theta' \cos \phi' & R\sin \theta' \sin \phi' & R\cos \theta'  \\
+        \end{vmatrix} \\ 
+        &= \omega R \Big( 
+        - (\cos \psi \sin \theta' \sin \phi') \vu{x} 
+        + (\cos \psi \sin \theta' \cos \phi' - \sin \psi \cos \theta') \vu{y} \\ 
+        &\quad + (\sin \psi \sin \theta' \sin \phi') \vu{z}  
+        \Big).
     \end{aligned} 
 \end{equation}
+
+
 
 The terms contatining \(\sin \phi ' \text { or } \cos \phi '\) integrates to zero. Therefore the vector potential is 
 
@@ -1485,12 +1571,12 @@ And the magnetic field is
 
 which is exactly analogous to the Ampere's law in integral form.
 
-Therfore the vector potential is equals to the magnetic field created by current \(\displaystyle \frac{\Phi }{\mu_0 } \). Thus
+Therfore the vector potential is equals to the magnetic field created by current \(\Phi /\mu_0  \). Thus
 
 \begin{equation}
     \vb{A} (\vb{r} ) = \begin{cases}
-        \displaystyle \frac{\mu_0 Inr}{2}\vu{\boldsymbol{\phi } }  \text{ for } r \le R,\\
-        \displaystyle \frac{\mu_0 InR^2}{2r}\vu{\boldsymbol{\phi } }  \text{ for } r \ge R.
+        \mu_0 Inr \vu{\boldsymbol{\phi } }/2  \text{ for } r \le R,\\
+        \mu_0 InR^2\vu{\boldsymbol{\phi } }/2r  \text{ for } r \ge R.
     \end{cases}
 \end{equation}
 
@@ -1517,7 +1603,7 @@ The first term is the monopole contribution, which is always zero (since the sum
 The second term is the dipole contribution, which can be written as 
 
 \begin{equation}
-    \vb{A} _{\text{dip} } (\vb{r} ) = \frac{\mu_0I}{4\pi r^2}  \left( \vu{r}  \cdot \oint_{S} \vb{r} ' d\vb{r}'  \right) = \frac{\mu_0I}{4\pi r^2} \left( \vb{S} \cross \vu{r} \right) = \frac{\mu_0}{4\pi} \frac{\vb{m} \cross  \vu{r} }{r^2 }.    
+    \vb{A} _{\text{dip} } (\vb{r} ) = \frac{\mu_0I}{4\pi r^2}  \left( \vu{r}  \cdot \oint_{S} \vb{r} ' d\vb{r}'  \right) = \frac{\mu_0I}{4\pi r^2} \left( \vb{S} \cross \vu{r} \right) = \frac{\mu_0}{4\pi} \frac{\vb{m} \cross  \vu{r} }{r^2 }.    \label{magdippotential} 
 \end{equation}
 
 A perfect dipole whose potential is exactly given by the second term of the multipole expansion is when 
@@ -1542,13 +1628,1257 @@ Placing the dipole at the origin, orienting \(\vb{m} \) to point in the \(z\) di
 
 The formula for the torque, force,\footnote{The correct formula for the magnetic force on a dipole is \(\vb{F} = \vb{m} \cross (\curl{\vb{B} } ) + (\vb{m} \cdot \boldsymbol{\nabla } )\vb{B} \) where \(\vb{m} \) is not differentiated. However, in most case it is the same as \(\vb{F} = \grad{(\vb{m} \cdot \vb{B} )}\).}  and energy of a magnetic dipole in a magnetic field is exactly analogous to those for an electric dipole in an electric field (it is trivial if you visualize a magnetic dipole consists of two opposite magnetic charges).
 
-Therefore, similar to the effect described in \cref{alignpolar}, magnetic dioples will line themselves up towards an external magnetic field, intending to cancel it out inside the material. This effect is called paramagnetism. 
+Therefore, similar to the effect described in \cref{alignpolar}, the magnetic dioples (due to the spins of the electrons) will line themselves up towards an external magnetic field, intending to cancel it out inside the material. This effect is called paramagnetism. 
 
-The second effect in play is called diamagnetism, which tends to align the magnetic dipoles opposite to the direction of the external magnetic field. This is because an increase in magnetic field would induce a tangential electric field along the direction of the electron orbit
+The second effect in play is called diamagnetism, which tends to align the magnetic dipoles (due to the orbital motions of the electrons)\footnote{The magnetic dipoles due to the orbital motions of the electrons are also subjected to paramagnetism but it is much weaker than the diamagnetism mechanism since spin is easier than tilt.}  opposite to the direction of the external magnetic field. This is magnetic field will speeds up or slows down an electron in orbit depnding on the orientation of the magnetic field, but both outcome results in a change in magnetic dipole that is in the opposite direction of the magnetic field. 
+
+Diagmagnetism is typically much weaker than paramagnetism, and is therefore observed mainly in atoms with even numbers of electrons, where paramagnetism is usually absent, due to pauli exclusion principle, where the spins of a pair of electrons cancel out each other. 
 
 
 
-\section{The Magnetic Fields of Magnetized Objects}
+\section{Magnetic Fields of Magnetized Objects}
+
+To calculate the magnetic field due to a magnetized object, we notice that the magnetic potential from \cref{magdippotential} reads
+
+\begin{equation}
+    \begin{aligned} 
+    \vb{A} (\vb{r} ) &= \frac{\mu_0}{4\pi} \int_{V}^{} \frac{\vb{M} (\vb{r} ') \cross \hrcurs }{\rcurs ^2} d\tau' = \frac{\mu_0}{4\pi} \int_{V}^{} \vb{M} \cross  \boldsymbol{\nabla}' \left( \frac{1}{\rcurs }  \right) d\tau '  \\
+    &= \frac{\mu_0}{4\pi} \left(\int_{V}^{} \frac{1}{\rcurs } \left( \boldsymbol{\nabla}' \cross \vb{M}  \right)d\tau ' - \int_{V}^{} \boldsymbol{\nabla}' \cross \left( \frac{M}{\rcurs }  \right)d\tau '  \right) \\
+    &= \frac{\mu_0}{4\pi} \left( \int_{V}^{} \frac{1}{\rcurs } \left( \boldsymbol{\nabla}' \cross \vb{M}  \right)d\tau ' - \oint_{S} \frac{1}{\rcurs }\left( \vb{m} \cross d\vb{S} ' \right)  \right) \\   
+    &\equiv \frac{\mu_0}{4\pi} \left( \int_{V}^{} \frac{\vb{J} _{b}(\vb{r} ') }{\rcurs } d\tau ' + \oint_{S} \frac{\vb{K} _{b}(\vb{r} ') }{\rcurs }d\tau '    \right),
+\end{aligned} 
+\end{equation}
+
+where \(\vb{K} _{b} = \vb{M} \cross \vu{n}   \text { and } \vb{J} _{b} = \curl{\vb{M} }  \) are the surface and volume current density result from the magnetization respectively.
+
+The introduction of surface and volume bound charges is not merely a bookeeping tool, but are in fact visualizable.
+
+For surface bound current, we imagine a lot of tiny dipoles represented by tiny current loops, where the internal currents inside the material cancel, so what left is the edge current. 
+
+Since \(m = IA = MAt\) is the dipole moment of one individual dipole, we have the surface current density as \(K_{b} = I /t = M  \), where the cross product with the normal unit vector is introduced to take into account if the end surface is not parallel to the magnetization, then the areas \(A\) would not be equal but one would be larger by a factor of \(\cos \theta \)< where \(\theta \) is the angle between the polarization and the unit normal vector.
+
+For volume bound current, we imagine some volume with non-zero curl of magnetization. Then, for example, in \cref{magnetization}, we have
+
+\begin{equation}
+    I_{x} = (M_{z}(y+dy) - M_{z}(y) )dz = \frac{\partial M_{z} }{\partial y}dydz \implies {J_{b}}_{x} = \frac{\partial M_{z} }{\partial y},     
+\end{equation}
+
+generalizing we have the desired result.
+
+\onefig{magnetization}{scale=0.3}
+
+Therefore, we can first calculate these induced bound currents (which are currents result from magnetization) then calculate the magnetic field via normal means.
+
+\example{Uniformly Magnetized Sphere (1).}
+{Find the magnetic field of an uniformly polarized sphere of raidus \(R\) and polarization \(\vb{M} \).}
+{The surface and volume charge current density are 
+
+\begin{equation}
+    \vb{K} _{b} = \vb{M} \cross \vu{n} = M\sin \theta \vu{\boldsymbol{\phi } } ~\text { and }~  \vb{J} _{b} = \curl{\vb{M} } = 0.
+\end{equation}
+
+But this current is the same as a rotating shell, which we have already solved for in an example in the previous chapter, with \(\sigma R \boldsymbol{\omega }  \to \vb{M} \), so we have 
+
+\begin{equation}
+    \vb{B} = \frac{2}{3}\mu_0 \vb{M}  
+\end{equation}
+
+inside the sphere and the field outside is the same as that of a perfect dipole 
+
+\begin{equation}
+    \vb{m} = \frac{4}{3} \pi R^3 \vb{M} . 
+\end{equation}~
+}
+
+\section{Modified Ampere's Law}
+
+While Ampere's law (\cref{ampere}) works completely fine inside magnetized matter, where the magnetic field \(\vb{B} (\vb{r})\) at a point \(\vb{r} \) is still related to the current density \(\vb{J} (\vb{r} )\) by \(\curl{\vb{B} (\vb{r} )} = \mu_0 \vb{J} (\vb{r} ) \), it is kind of useless since we do not know what \(\vb{J} (\vb{r} )\) is: it composed of \(\vb{J} = \vb{J} _{f} + \vb{J} _{b}  \), where the free currents \(\vb{J} _{f} \) are the currents we can control and not arised from magnetiation while the bound currents \(\vb{J} _{b} \) are the currents due to magnetization of the material under an external magnetic field. 
+
+Separating the currents into free currents and bound currents, we have
+
+\begin{equation}
+    \begin{aligned} 
+    &~~~~~~~~ \frac{1}{\mu_0 } \curl{\vb{B} } = \vb{J} _{f} + \vb{J} _{b} = \vb{J} _{f} + \curl{\vb{M} } \\
+    & \implies  \curl{\left(\frac{\vb{B} }{\mu_0 } - \vb{M}  \right)} \equiv \curl{\left(\frac{\vb{B} }{\mu_0 } - \chi _{m}\vb{H}  \right)} \equiv  \curl{(\mu \vb{B}) } \equiv \curl{\vb{H} } = \vb{J} _{f},  
+    \end{aligned}         
+\end{equation}
+
+where \(\chi _{m} \) is the magnetic permeability of the material, which relates the magnetization \(\vb{M} \) of the material under an magnetic field \(\vb{B} \), and \(\vb{H} \) is simply called the \(\vb{H} \) field.      
+
+\(\vb{H} \) is used much more often than \(\vb{D} \) despite their exact analogy. This is because to bset up an electric field in a laboratory we connect a parallel-plate capacitor to a battery of known voltage, which directly influences the line integral of \(\vb{E} \). However, to build an electromagnet we run a free current through a coil, which directly influences the line integral of the \(\vb{H} \) field. So in some sense we can treat \(\vb{H} \) as the field without magnetization and \(\vb{B} \) the field with. For this reason the \(\vb{H} \) field is in some texts called the magnetic field, however we should refrain from thinking \(\vb{H} \) as determined only by the free current and factor out the effect of the underlying magnetic media, \(\vb{B} \) is ultimately the more fundamental field, and deserve its own name.       
+
+
+However, we shall not assume that the relation between \(\vb{H} \text { and }  \vb{J} _{f} \) is the same as \(\vb{B} \text { and }  \rho \). Although the curls are analogous, the divergence of \(\vb{B} \) is always zero while the divergence of \(\vb{H} \) is \(\div{\vb{H} } = -\div{\vb{M} } = -\div{(\chi _{m}\vb{H} ) } = - \div{(\chi _{m}\vb{B} /\mu )   }  = -\div{(\chi _{m} /\mu_0 (1+\chi _{m} ) )\vb{B} } \), which is not necessarily zero.
+
+But for the case of homogenous medium, where the magnetic susceptibility \(\chi _{m} \) does not vary with position, we can take \(\chi _{m} \) out of the divergence and we can safely regard \(\vb{J} _{f}\) as the source of \(\vb{H} \) just as how \(\vb{J} \) serves as the source of \(\vb{B} \).     
+
+Similar to \cref{boundfree}, the volume bound current is proportional to the volume free current, since \(\vb{J} _{b} = \curl{\vb{M} } = \curl{(\chi _{m}\vb{H}  )} = \chi _{m}\vb{J} _{f} \). So unless the volume free current actually fows through the material, the volume bound current will be zero and all bound current will be on the surface.  
+
+
+\chapter{Conservation Laws}
+
+\section{Charge Conservation}
+
+The local conservation of charge tells us that if the charge in some region changes, then exactly that amount of charge must have passed in or out through the surface, so 
+
+\begin{equation}
+    \frac{dQ}{dt} = \int_{V}^{} \frac{\partial \rho }{\partial t} d\tau =   -\oint_{S} \vb{J} \cdot d\vb{S}  = -\int_{V}^{} (\grad{\vb{J} } ) d\tau   \implies \frac{\partial \rho }{\partial t} = - \div{\vb{J} }.   \label{contincharge} 
+\end{equation}
+
+Note that this continuity equation is not an independent assumption but can be derived from the Maxwell's equations.
+
+\section{Energy Conservation}
+
+Suppose we have some charge and current configuration which, at time \(t\) produces fields \(\vb{E} \text { and } \vb{B} \). In the next instant, \(dt\), the charges move around a bit. The work done, \(dW\), by the electromagnetic forces on a charge \(q\), is then 
+
+\begin{equation}
+    dW = q(\vb{E} + \vb{v} \cross \vb{B} ) \cdot (\vb{v} dt) \implies \frac{dW}{dt} = \int_{V}^{} (\vb{E} \cdot \vb{J} )d\tau . \label{dW} 
+\end{equation}
+
+From the Ampere's law (\cref{comampere}), we have 
+
+\begin{equation}
+    \begin{aligned}
+        \vb{E} \cdot \vb{J} &= \frac{1}{\mu_0 } \vb{E} \cdot (\curl{\vb{B} } ) - \epsilon_0 \vb{E} \cdot \frac{\partial \vb{E} }{\partial t} \\
+        &= \frac{1}{\mu_0 } \left( \vb{B} \cdot (\curl{\vb{E} } ) - \div{(\vb{E} \cross \vb{B} )}  \right) - \frac{\epsilon_0 }{2} \frac{\partial E^2}{\partial t} \\
+        &= \frac{1}{\mu_0 } \left( -\vb{B} \cdot \frac{\partial \vb{B} }{\partial t} - \div{(\vb{E} \cross \vb{B} )}   \right) - \frac{\epsilon_0 }{2} \frac{\partial E^2}{\partial t}\\
+        &= -\frac{1}{2} \frac{\partial }{\partial t} \left( \epsilon_0 E^2 + \frac{1}{\mu_0 } B^2  \right)  - \frac{1}{\mu_0 } \div{(\vb{E} \cross \vb{B} )}.         
+    \end{aligned}
+\end{equation}
+
+So plugging this for the \(\vb{E} \cdot \vb{J} \) in \cref{dW}, we have
+
+\begin{equation}
+    \begin{aligned} 
+    \frac{dW}{dt} &=  \int_{V}^{}\left( -\frac{1}{2} \frac{\partial }{\partial t} \left( \epsilon_0 E^2 + \frac{1}{\mu_0 } B^2  \right)  - \frac{1}{\mu_0 } \div{(\vb{E} \cross \vb{B} )} \right) d\tau \\
+    &= -\frac{d}{dt} \int_{V}^{} \frac{1}{2} \left( \epsilon_0 E^2 + \frac{1}{\mu_0 }B^2  \right) d\tau - \frac{1}{\mu_0 } \oint_{S} (\vb{E} \cross \vb{B} ) \cdot d\vb{S'} \footnote{We used \(\vb{S} '\) to denote the vector area to avoid confusion with the Poynting vector \(\vb{S} \).} \\
+    &\equiv -\frac{d}{dt} \int_{V}^{} ud\tau - \oint_{S} \vb{S} \cdot d\vb{S'}.
+    \end{aligned} 
+\end{equation}
+
+Here the total energy stored in electromagnetic fields, per unit volume, is 
+
+\begin{equation}
+    u \equiv  \frac{1}{2} \left( \epsilon_0 E^2 + \frac{1}{\mu_0 } B^2  \right),
+\end{equation}
+
+whil the energy per unit time, per unti area, transported by the fiels, called the Poynting vector, is
+
+\begin{equation}
+    \vb{S} \equiv \frac{1}{\mu_0 } \left( \vb{E} \cross \vb{B}  \right)  = \vb{E} \cross \vb{H} .
+\end{equation}
+
+The Poynting's theorem then states that the decrease in energy stored by the electromagnetic fields in a certain volume (the first term on the RHS) is equals to the work done on the charges by the electromagnetic force (the term on the left), plus the energy that flows out through the surface (the second term on the right).
+
+If there is no work done on the charges, \textit{i.e.,} \(dW /dt = 0\), then
+
+\begin{equation}
+    \int_{V}^{} \frac{\partial u}{\partial t} d\tau = -\oint_{S} \vb{S} \cdot d\vb{S'} = -\int_{V}^{} (\div{\vb{S} } ) d\tau  \implies \frac{\partial u}{\partial t} = -\div{\vb{S} },   \label{continenergy} 
+\end{equation}
+
+which is exactly analogous to the charge continuity equation (\cref{contincharge}), where the energy density \(u\) plays the role of the charge density \(\rho \) and the Poynting vector (energy current density) \(\vb{S} \) plays the role of the current density \(\vb{J} \). 
+
+\section{Momentum Conservation}
+
+\subsection{Maxwell's Stress Tensor}
+
+The Maxwell's Stress Tensor \(\boldsymbol{\sigma } \) is defined as 
+
+\begin{equation}
+    \sigma _{ij}  = \epsilon_0 \left( E_{i}E_{j} - \frac{1}{2} \delta _{ij} E^2     \right) + \frac{1}{\mu_0 }\left( B_{i}B_{j} - \frac{1}{2} \delta _{ij}B^2     \right),
+\end{equation}
+
+which is the force per unit area in the \(i^{\text{th}} \) direction acting on an element of surface oriented in the \(j^{\text{th}} \) diretion. Diagonal elements \((\sigma _{ii}, \sigma _{jj}, \sigma _{kk}  )\) represents pressure and ``off-diagonal'' elements are shears.
+
+The divergence of \(\boldsymbol{\sigma }  \) is then 
+
+\begin{equation}
+    \begin{aligned}
+        (\div{\boldsymbol{\sigma }  } )_{j} =  \partial _{i}\sigma _{ij} = \epsilon_0 \left( (\div{\vb{E} } )E_{j} + (\vb{E} \cdot \grad{} )E_{j} - \frac{1}{2}\grad{}_{j}E^2      \right) + \frac{1}{\mu_0 } \left( (\div{\vb{B} } )B_{j}+(\vb{B} \cdot \grad{} )B_{j}-\frac{1}{2}\grad{}_{j}B^2      \right).   
+    \end{aligned}
+\end{equation}
+
+\example{Forces between Hemispheres of a Sphere.}
+{Here we revisit an example in \cref{surcha} and calculate the net force between the hemispheres of a sphere with radius \(R\) and charge \(Q\).}
+{Since the system is static and symmetic along the \(z\)-axis, the force is 
+
+\begin{equation}
+    F = \oint_{S} (\boldsymbol{\sigma } \cdot d\vb{S}  )_{z}.
+\end{equation}
+
+For the hemispherical bowl, the infinitesimal vector area is 
+
+\begin{equation}
+    d\vb{S} = R^2\sin \theta d \theta d\phi \vu{r} = R^2\sin \theta d \theta d\phi (\sin \theta \cos \phi \vu{x} + \sin \theta \sin \phi \vu{y} + \cos \theta \vu{z} ),
+\end{equation}
+
+and the electric field is 
+
+\begin{equation}
+    \vb{E} = \frac{1}{4\pi \epsilon_0} \frac{Q}{R^2}\vu{r} = \frac{1}{4\pi \epsilon_0} \frac{Q}{R^2} (\sin \theta \cos \phi \vu{x} + \sin \theta \sin \phi \vu{y} +\cos \theta \vu{z}),
+\end{equation}
+
+so the relevant components of the Maxwell's stress tensor are 
+
+\begin{equation}
+    \begin{aligned}
+        \sigma _{zx} &= \epsilon_0 E_{z}E_{x} = \epsilon_0 \left( \frac{Q}{4\pi \epsilon_0 R^2}  \right)^2 \sin \theta \cos \theta \cos \phi \\
+        \sigma _{zy} &= \epsilon_0 E_{z}E_{y} = \epsilon_0 \left( \frac{Q}{4\pi \epsilon_0 R^2}  \right)^2 \sin \theta \cos \theta \sin \phi \\
+        \sigma _{zz} &= \frac{\epsilon_0 }{2}\left( E_{z}^2- E_{x}^2-E_{y}^2    \right) = \frac{\epsilon_0 }{2} \left( \frac{Q}{4\pi \epsilon_0 R^2}   \right)^2 (\cos ^2\theta - \sin ^2\theta ),
+    \end{aligned}
+\end{equation}
+
+and the integrand is therefore
+
+\begin{equation}
+    (\boldsymbol{\sigma } \cdot d\vb{S} )_{z} =  \sigma _{zx}dS_{x} + \sigma _{zy}dS_{y}+ \sigma _{zz}dS_{z} = \frac{\epsilon_0 }{2} \left( \frac{Q}{4\pi \epsilon_0 R}   \right)^2 \sin \theta \cos \theta d \theta d\phi .       
+\end{equation}
+
+For the circular disk, the infinitesimal vector area is 
+
+\begin{equation}
+    d\vb{S} = -r dr d\phi \vu{z} ,
+\end{equation}
+
+and the electric field is 
+
+\begin{equation}
+    \vb{E} = \frac{1}{4\pi \epsilon_0} \frac{Q}{R^3 }\vb{r} = \frac{1}{4\pi \epsilon_0} \frac{Qr}{R^3 }(\cos \phi \vu{x} + \sin \phi \vu{y} ).  
+\end{equation}
+
+so the relevant component of the Maxwell's stress tensor is 
+
+\begin{equation}
+    \sigma _{zz} = \frac{\epsilon_0 }{2}\left( E_{z}^2 - E_{x}^2 - E_{y}^2    \right) = - \frac{\epsilon_0 }{2} \left( \frac{Q}{4\pi \epsilon_0 R^3 }  \right)^2r^2,
+\end{equation}
+
+and the integrand is therefore
+
+\begin{equation}
+    (\boldsymbol{\sigma } \cdot d\vb{S}  )_{z} =  \sigma _{zz}dS_{z} = \frac{\epsilon_0 }{2} \left( \frac{Q}{4\pi \epsilon_0 R^3 }  \right)^2 r^3 dr d\phi .  
+\end{equation}
+
+The total force is finally 
+
+\begin{equation}
+    F = \frac{\epsilon_0 }{2} \left( \frac{Q}{4\pi \epsilon_0 R}  \right)^2 2\pi \int_{0}^{\frac{\pi }{2} } \sin \theta \cos \theta d \theta + \frac{\epsilon_0 }{2} \left( \frac{Q}{4\pi \epsilon_0 R^3 }  \right)^2 2\pi \int_{0}^{R} r^3 dr = \frac{1}{4\pi \epsilon_0} \frac{3Q^2}{16R^2}
+\end{equation}
+
+as expected.
+
+In fact, any volume that encloses all of the charge in question (and no other charge) will do the job. For example, we can use the whoele region \(z > 0\). In place of the hemispherical bowl, we now have the outer portion of the plane, so the only relevant component of the Maxwell's stress tensor can be found by substituting \(\theta = \pi /2\) into the \(\sigma _{zz} \) found above as
+
+\begin{equation}
+    \sigma _{zz} = - \frac{\epsilon_0 }{2} \left( \frac{Q}{4\pi \epsilon_0 }  \right)^2 \frac{1}{r^4},    
+\end{equation} 
+
+so the integrand is 
+
+\begin{equation}
+    (\boldsymbol{\sigma }\cdot d\vb{S}  )_{z} = \frac{\epsilon_0 }{2} \left( \frac{Q}{4\pi \epsilon_0 }  \right)^2 \frac{1}{r^3 }dr d\phi ,   
+\end{equation}
+
+and the force is 
+
+\begin{equation}
+    F = \frac{\epsilon_0 }{2} \left( \frac{Q}{4\pi \epsilon_0 }  \right)^2 2\pi \int_{R}^{\infty} \frac{1}{r^3 }dr = \frac{1}{4\pi \epsilon_0} \frac{Q^2}{8R^2}.     
+\end{equation}
+}
+
+
+\subsection{Momentum Continuity Equation}
+
+To derive a continuity equation for momentum, we start by finding the totoal force \(\vb{F} = d\vb{p} /dt\) acting on a charge \(q\) in the same setting as in the previous section. 
+
+\begin{equation}
+    \vb{F} = \frac{d\vb{p} }{dt}  = q(\vb{E} + \vb{v} \cross \vb{B} ) = \int_{V}^{} (\rho \vb{E} + \vb{J} \cross \vb{B}) d\tau . 
+\end{equation}
+
+As usual, we will eliminate \(\rho \text { and } \vb{J} \) using the Gauss's law and the Ampere's law (\cref{gauss, comampere}) to simplify the force per unit volume \(\vb{f} = \rho \vb{E} + \vb{J} \cross \vb{B} \) 
+
+\begin{equation}
+    \begin{aligned}
+        \vb{f}  &= \epsilon_0 (\div{\vb{E} } )\vb{E}  + \left( \frac{1}{\mu_0} \curl{\vb{B} } - \epsilon_0 \frac{\partial \vb{E} }{\partial t}    \right) \cross \vb{B} \\
+        &= \epsilon_0 (\div{\vb{E} } )\vb{E}  - \frac{1}{\mu_0 }\vb{B} \cross (\curl{\vb{B} } ) - \epsilon_0 \left( \frac{\partial }{\partial t} \left( \vb{E} \cross \vb{B}  \right) - \left( \vb{E} \cross \frac{\partial \vb{B} }{\partial t}  \right) \right) \\
+        &= \epsilon_0 \left( (\div{\vb{E} } )\vb{E}  - \vb{E} \cross (\curl{\vb{E} } ) \right) - \frac{1}{\mu_0} \vb{B} \cross (\curl{\vb{B} } ) - \epsilon_0 \frac{\partial }{\partial t} (\vb{E} \cross \vb{B} ).
+    \end{aligned}
+\end{equation}
+
+To make things look more symmetrical, we throw in a term \((\div{\vb{B} } )\vb{B} =0\), and use the identity 
+
+\begin{equation}
+    \grad{E^2} = 2\left( \vb{E} \cdot \grad{}  \right) \vb{E} +2\vb{E} \cross (\curl{\vb{E} } )
+\end{equation}
+
+to get the force density \(\vb{f} \) as 
+
+\begin{equation}
+    \begin{aligned}
+       \vb{f}  &= \epsilon_0 \left( (\div{\vb{E} } )\vb{E} + (\vb{E} \cdot \grad{} )\vb{E}  \right) + \frac{1}{\mu_0 } \left( (\div{\vb{B} } )\vb{B}  + (\vb{B} \cdot \grad{} )\vb{B}  \right) \\
+        &~~~~ - \frac{1}{2} \grad{\left( \epsilon_0 E^2 + \frac{1}{\mu_0 }B^2 \right)} - \epsilon_0 \frac{\partial }{\partial t} \left( \vb{E} \cross \vb{B}  \right).
+        \end{aligned}
+\end{equation}
+
+So the force density \(\vb{f} \) becomes
+
+\begin{equation}
+    \vb{f} = \div{\boldsymbol{\sigma } } - \epsilon_0 \mu_0 \frac{\partial \vb{S} }{\partial t},    
+\end{equation}
+
+and the total force \(\vb{F} \) is therefore
+
+\begin{equation}
+    \begin{aligned} 
+    \vb{F} = \frac{d\vb{p} }{dt} &= \oint_{S} \boldsymbol{\sigma } \cdot d\vb{S} - \epsilon_0 \mu_0 \frac{d}{dt} \int_{V}^{} \vb{S} d\tau \\
+    &\equiv - \frac{d}{dt} \int_{V}^{} \vb{g}  d\tau + \oint_{S} \sigma \cdot d\vb{S} .
+    \end{aligned}   
+\end{equation}
+
+Here the total momentum stored in electromagnetic fields, per unit volume, is 
+
+\begin{equation}
+    \vb{g} = \epsilon_0 \mu_0 \vb{S} = \frac{\vb{S} }{c^2} = \epsilon_0 (\vb{E} \cross \vb{B} ) = (\vb{D} \cross \vb{B} ), 
+\end{equation}
+
+while the momentum per unit time, per unit area, transported by the fields, is the (negative of) Maxwell's stress tensor \(-\boldsymbol{\sigma } \). 
+
+The momentum conservation law then states that the decrease in momentum stored by the electromagnetic fields in a certain volume (the first term on the RHS) is equals to the impulse received by the charges by the electromagnetic force (the term on the right), plus the momentum that flows out through the surface (the second term on the right).
+
+If there is no force on the charges, \textit{i.e.,} \(d\vb{p} /dt = 0\), then 
+
+\begin{equation}
+    \int_{V}^{} \frac{\partial \vb{g} }{\partial t} d\tau = \oint_{S} \boldsymbol{\sigma } \cdot d\vb{S} = \int_{V}^{} (\div{\boldsymbol{\sigma } } ) d\tau \implies \frac{\partial \vb{g} }{\partial t} = \div{\boldsymbol{\sigma } },  \label{continmomentum} 
+\end{equation}
+
+which is exactly analogous to the charge and energy continuity eqution \cref{contincharge, continenergy}, where the momentum density \(\vb{g} \) plays the role of the charge and energy density \(\rho \text { and } u\) and the (negative of) Maxwell's stress tensor (momentum current density) \(-\boldsymbol{\sigma } \) plays the role of the current dnesity and the Poynting's vector \(\vb{J} \text { and } \vb{S} \).     
+
+\example{Resistancelses Coaxial Cable.}
+{As shown in \cref{coax}, a resistanceless coaxial cable of length \(l\) consists of an inner and an outer conductor at \(r = a \text { and } b\) respectively. It is connected to a battery at one end and a resistor at the other. 
+
+The inner conductor carries a unifrom charge per unit length \(\lambda \) and a steady current \(I\) to the right while the outer conductor has opposite charge and current. Find the electromagnetic momentum stored in the fields.}
+{The fields are 
+
+\begin{equation}
+    \vb{E} = \frac{1}{2\pi \epsilon_0 } \frac{\lambda }{s} \vu{\boldsymbol{\rho }} ~\text { and }~ \vb{B} = \frac{\mu_0 }{2\pi } \frac{I}{s} \vu{\boldsymbol{\phi }},      
+\end{equation}
+
+so the Poynting vector is 
+
+\begin{equation}
+    \vb{S} = \frac{\lambda I}{4\pi ^2\epsilon_0 s ^2}\vu{z}. 
+\end{equation}
+
+
+} 
+
+\onefig{coax}{scale=0.3} 
+
+
+\section{Angular Momentum Conservation}
+
+The angular momentum density is simply 
+
+\begin{equation}
+    \vb{l} = \vb{r} \cross \vb{g} = \epsilon_0 (\vb{r} \cross (\vb{E} \cross \vb{B} )).
+\end{equation}
+
+
+\chapter{Electromagnetic Induction and Maxwell's Equations}
+
+\section{Electromotive Force}
+
+\subsection{Ohm's Law}
+
+To make a current flow, you have to push on the charges. How fast they move, in response to a given push, depends on the material's conductivity \(\sigma \) defined by 
+
+\begin{equation}
+    \vb{J} = \sigma \vb{f} , \label{ohm} 
+\end{equation}
+
+where \(\vb{J} \) is the volume current density defined by \(\vb{J} = \vb{I} /A \) and \(\vb{f} \) is the force per unit charge. The reciprocal of \(\sigma \), \(\rho = 1 /\sigma  \), on the other hand, is called the resistivity.  
+
+For our purposes, it is usually an electromagnetic force that does the job. In this case, the above equation becomes
+
+\begin{equation}
+    \vb{J} = \sigma (\vb{E} + \vb{v} \cross \vb{B} ).
+\end{equation}
+
+Ordinarily, the velocity of the charges is sufficiently small that the second term can be ignored, so we get
+
+\begin{equation}
+    \vb{J} = \sigma \vb{E} ,
+\end{equation}
+
+which is the famous Ohm's law, though it is only a special case of \(\vb{J} = \sigma \vb{f} \), which is actually just the definition of conductivity. In fact it is not really a true law, in the sense of Coulomb's or Ampere's, rather it is a ``rule of thumb'' that applies pretty well to many substances.
+
+Note that the force \(\vb{f}\) does not include the ``resistive force'' in the resistor because it is not really a force but the constant instant collisions between the charges and the material can be modelled as a force, which cancels out with the external force \(\vb{f}\), to give a constant current.
+
+It is a little like this: suppose you are driving down a street with a stop sign at every intersection, so that, although you accelerate constantly in between, you are obliged to start all over again with each new block. Your average speed is then a constant, in spite of the fact that (except for the periodic abrupt stops) you are always accelerating. If the length of a block is \(\lambda \)  and your acceleration is \(a\), the time it takes to go a block is \(t = \sqrt{2 \lambda /a} \) and hence your average velocity is \( \avg{v} =at /2 = \sqrt{\lambda a /2 }  \). 
+
+But this is not good either, since it says that the velocity is proportional to the square root of the acceleration and therefore that the current should be proportional to the square root of the field. The twist is that the charge in practice are already moving very fast because of their thermal energy but they have random directions and average to zero. The drift velocity, which is what we are concerned about since it is what related to the current is the extra tiny bit, so the time between collisions is actually much shorter than what we suppose. In this case, the current density is
+
+\begin{equation}
+    \vb{J} = nfq\avg{v} = nfq \left( \frac{1}{2}at \right) = nfq \left( \frac{1}{2}a\frac{\lambda}{v_{\text{thermal} } }  \right) = \left( \frac{nf\lambda q^2}{2mv_{\text{thermal} } }  \right) \vb{E}  
+\end{equation}
+
+where \(n\) is the number of molecules per unit volume and \(f\) is the number of free electrons per molecule. So \(\vb{J} \) is indeed proportional to \(\vb{E} \).  
+
+In practice, we usually assume wires are perfect conductor with \(\sigma \rightarrow \infty\), so \(\vb{E} = \vb{J} /\sigma  =0\) in wires and thus can be treated as equipotentials. Resistors, by contrast, are made from poorly conducting materials. 
+
+For steady currents, continuity implies
+
+\begin{equation}
+    \div{\vb{J} } = - \partial \rho /\partial t = 0.
+\end{equation}
+
+If we have uniform conductivity (\textit{i.e.,} \(\sigma = \text{constant}  \)), then Ohm's law implies that 
+
+\begin{equation}
+    \div{\vb{E} } = \frac{\rho }{\epsilon_0 } = \frac{1}{\sigma } \div{\vb{J} } = 0, 
+\end{equation}
+
+and therfore the charge density \(\rho \) is zero and any unbalanced charge resides on the surface.
+
+
+A circuit in the most general sense is simply a closed loop \(C\). The definition of the elctromotive force of this circuit is the line integral \(\vb{f} \) along \(C\) (taken in the positive sense of \(C\), which is usually anticlockwise)  
+
+\begin{equation}
+    \mathcal{E} = \oint_{C}  \vb{f} \cdot d \vb{l} .
+\end{equation}
+
+\begin{center}
+    \begin{tikzpicture}
+        % Draw the elliptical loop C
+        \draw[thick] (0,0) ellipse (3cm and 1.5cm);
+        
+        % Label the loop C
+        \node at (-3.5,0) {$C$};
+        
+        % Place the charge q and draw the vectors
+        \filldraw (0,1.5) circle (1pt) node[above left] {$q$};
+        
+        % Draw dl vector
+        \draw[->, thick] (0,1.5) -- (1.5,1.5) node[midway, above] {\(d \vb{l} \) };
+        
+        % Draw F vector
+        \draw[->, thick] (0,1.5) -- (1.5,0) node[midway, below left] {\(\vb{F} \) };
+        
+        % Draw the circular arrow with a plus sign
+        \draw[->, thick] (3.5,0.5) arc[start angle=90, end angle=-90, radius=0.5cm];
+        \node at (4.5,0) {\(\boldsymbol{+} \) };
+    \end{tikzpicture}
+\end{center}
+
+This formula is basically identical to the definition of work done, where \(W = \int_{a}^{b} \vb{F} \cdot d \vb{s}  \), just that we always perform loop integral for \(\mathcal{E}\) and the forces we use for calculating emf is per unit charge. Therefore, emf can also be interpreted as the work done by the net force per unit charge around a circuit.\footnote{This intepretation is flawed when the circuit itself is in motion. We will deal with this problem when discussing generators.}
+
+There are really two force involved in driving charges around a circuit: the source force, \(q \vb{f} _{s}  \), which is usually confined to one portion of the loop (a battery, say) and an electromagnetic force, \(q(\vb{E} + \vb{v} \cross \vb{B} ) \).
+
+\begin{equation}
+    \vb{f} = \vb{f} _{s} + \vb{E} . 
+\end{equation}
+
+The physical agency responsible for \(\vb{f} _{s} \)  can be many different things: in a battery it is a chemical force; in a piezoelectric crystal, mechanical pressure is converted into an electrical impulse; in a thermocouple it is a temperature gradient that does the job; in a photoelectric cell it is light; and in a Van de Graaff generator the electrons are literally loaded onto a conveyer belt and swept along. 
+
+\subsection{Motional Emf}
+\subsubsection{Flux Rule}
+Consider a loop of wire moving inside a static magnetic field \(\vb{B} (\vb{r} )\). Let \(\vb{v} \) be the velocity of the element \(d \vb{l} \) relative to our inertial frame of reference (lab frame). Let \(\vb{u}\) be the velocity of \(q\) relative to \(C\), which must be directed along \(d \vb{l} \) since \(q\) cannot escape the wire in \(C\)'s frame. Thus the total velocity of \(q\) relative to us is \(\vb{v} _{\text{tot} } = \vb{v} + \vb{u} \). The force from the magnetic field on \(q\) is then
+
+\begin{equation}
+    \vb{F} = q(\vb{v} _{\text{tot} } \cross \vb{B} ) = q (\vb{v} \cross \vb{B} ) + q (\vb{u} \cross \vb{B} ).
+\end{equation}
+
+The emf of the circuit \(C\) is then 
+
+\begin{equation}
+    \mathcal{E} = \oint_{C} \vb{f} \cdot d \vb{l} = \oint_{C} (\vb{v} \cross \vb{B} ) \cdot d \vb{l}  + \oint_{C} (\vb{u} \cross \vb{B} ) \cdot d \vb{l} = \oint_{C} (\vb{v} \cross \vb{B} ) \cdot d \vb{l} ,
+\end{equation}
+
+where the term containing \((\vb{u} \cross \vb{B} )\cdot d\vb{l} \) vanishes since \(\vb{u}\) is parallel to \(d \vb{l} \). This is device is known as the generator and the emf is known as the ``motional emf'' since it is the emf produced from the motion of the loop.
+
+Note that for this formula to apply, the loop of wire can have arbitrary and changing shape and the magnetic field can be non-uniform (but constant in time). 
+
+If we consider two time instant \(t \text { and } t+dt\), then from \cref{ribbon} we can see that the change in magnetic flux is
+
+\onefig{ribbon}{scale=0.3} 
+
+\begin{equation}
+    d\Phi = \Phi (t+dt) - \Phi (t) = \Phi _{\text{ribbon}} = \oint_{\text{ribbon} } \vb{B} \cdot d \vb{S} 
+\end{equation}
+
+since the magnetic field lines that pass through \(C\) at time \(t\) must either pass through \(C\) at time \(t+dt\) or the surface between them, which we denoted as \(S _{\text{ribbon} } \) (which is still a 2-D surface just that the ends of the surface overlap each other). 
+
+The infinitisimal surface \(d \vb{S} \) in the above equation can be found if we focus on a certain point \(P \rightarrow P'\) which are the origin for the vector \(d \vb{l} \) at time \(t \text { and }  t+dt\) respectively, which corresponds to the area \(d\vb{S} = \vb{v} dt \cross d\vb{l} \) as shown in \cref{ribbon}. Thus, we have
+
+\begin{equation}
+    \frac{d\Phi }{dt} = \oint_{C} \vb{B} \cdot (\vb{v} \cross d \vb{l} ) = -\oint_{C} (\vb{v} \cross \vb{B} ) \cdot d \vb{l}.    
+\end{equation}
+
+Combining the results, we get the flux rule
+
+\begin{equation} \label{motionalemf} 
+    \mathcal{E} = \oint_{C} (\vb{v} \cross \vb{B} )\cdot d \vb{l} = -\frac{d\Phi }{dt}
+\end{equation}
+
+for the motional emf of a loop of wire moving in a static magnetic field.
+
+It is important to understand that the flux rule is just a nifty shortcut for calculating motional emfs and the underlying principle is just the Lorentz force law. So for example when the switch in \cref{paraflux} is thrown from \(a\) to \(b\) although the flux \(\Phi \) is doubled, the motional emf \(\mathcal{E}\) is still zero, since there is no force driving the charges around (mathematically, in the derivation above we only assumed we have a single wire loop).
+
+\onefig{paraflux}{scale=0.3} 
+
+\subsubsection{Generator}
+
+A Generator consists of a loop of wire \(C\) with a rectangular shape and is being pulled out of a region of magnetic field of strength \(\vb{B} = B \vu{z}  \) (into the page) at constant velocity \(\vb{v} = v \vu{x} \)  as shown in \cref{generator}.
+
+\onefig{generator}{scale=0.3} 
+
+The emf in this scenario is then 
+
+\begin{equation}
+    \mathcal{E} = \oint_{C} \vb{f}  \cdot d \vb{l} = \oint_{C} ((\vb{v} + \vb{u}) \cross \vb{B} ) \cdot  d\vb{l}  = \oint_{C}(\vb{v} \cross \vb{B} )\cdot d \vb{l} =  vBh ,
+\end{equation}
+
+where \(h\) is the width of the loop and \(\vb{u}\) is the velocity of the charge relative to the moving loop as always. Notice that the integral peformed to calculate \(\mathcal{E}\) is carried out at one instant of time (imaging taking a snapshot of the loop), thus \(d \vb{l} \) points straight up even though the loop is moving to the right.  
+
+If we use the definition that the emf is the work done per unit charge around a loop (which is correct in most cases), then the above result shows that the magnetic force does work to the charge. However, magnetic force never does work. So what is wrong?
+
+The problem is that this intepretation no longer works as the circuit itself is in motion. Since the infinitisimal displacement of charges would then not be equal to the infintisimal length element of the circuit, so \(d \vb{l} \) in emf is not equals to \(d \vb{s} \) in work done. When we are calculating the emf \(\mathcal{E}\), we are taking a snapshot of the loop and carry out the integral at a single instant. However, when we are calculating the work done \(W\) we are performing a path integral over time. In the case where the loop is stationary, the two integrals are equivalent and we can regard the emf as the work done by the force, \textit{i.e.,} \(\mathcal{E}= W\). 
+
+To find the actual work done on an unit charge, we refer to \cref{genvel}, showing the velocities and the forces of a charge flowing through the loop, where the charge has a vertical velocity \(\vb{u}\) due to current in addition to the horizontal velocity \(\vb{v} \) due to the moving loop. Accordingly, the magnetic force per unit charge \(\vb{f} _{\text{mag} } \) has a horizontal component due to \(\vb{u}\) in addition to the vertical component due to \(\vb{v} \). An additional pulling force \(\vb{f} _{\text{pull} } \) is acted on the charge by the person pulling the rod.\footnote{More precisely, it is the rod that pulls the charges, but then the charges drags the rod due to Newton's second law, which is cancelled by the pulling force by the person. So equivalently, the person pulls the charges.}   
+
+\onefig{genvel}{scale=0.3} 
+
+\onefig{difpath}{scale=0.3} 
+
+For the charge to move at a constant horizontal velocity with the loop (else it will not be confined in the loop), we must have 
+
+\begin{equation}
+    \vb{f} _{\text{pull} } = uB \vu{x} \implies \vb{f} _{\text{net} } = (\vb{f} _{\text{mag} })_{y} = vB \vu{y} . 
+\end{equation}
+
+So the actual work done on the charge is 
+
+\begin{equation}
+    W = \int \vb{f} _{\text{net} } \cdot d \vb{s} = vB \int \vu{y} \cdot d \vb{s} = vB\left( \frac{h}{\cos \theta }  \right)\cos \theta .
+\end{equation}
+
+It can also be interpret as the work done by the pulling forc alone, since magnetic force do not work
+
+\begin{equation}
+    W = \int \vb{f} _{\text{net} } \cdot d \vb{s} =  \int \vb{f} _{\text{pull} } \cdot  d \vb{s} =  uB \left( \frac{h}{\cos \theta }   \right) \sin \theta  = vBh.
+\end{equation}
+
+As it turns out, the work done per unit charge is exactly equals to the emf, though the integrals are taken along entirely different paths (see \cref{difpath}). So in some sense, the emf can still be regarded as the work done per unit charge around a loop, just that the force responsible for establishing the emf (magnetic force in this case) may not be the same force that is responsible for the work done (pulling force by the person in this case).
+
+In the loop, the charge is being accelerated continously by \(\vb{f} _{\text{net} } = vB \vu{y}  \), just as how it is accelerated in an ordinary battery, just that in this case the emf is not localized but span the whole length of the wire \(ab\) in \cref{difpath}.    
+
+\subsection{Faraday's Law}
+
+Consider now a closed wire \(C\) that is at rest inside a time-varying magnetic field \(\vb{B} (\vb{r} ,t)\). Experiments show that as soon as \(\vb{B} \) starts changing, a current begins to flow in the wire. This is weird as magnetic field should only act on moving charges, hence the only explanation is that a time-varing magnetic field induces an electric field \(\vb{E} (\vb{r} ,t)\).\footnote{``Induce'' is a subtle and slippery verb. It carries a faint odor of causation (“produce” would make this explicit) without quite committing itself. There is a sterile ongoing debate in the literature as to whether a changing magnetic field should be regarded as an independent “source” of electric fields (along with electric charge) -- after all, the magnetic field itself is due to electric currents. It is like asking whether the postman is the “source” of my mail. Well, sure -- he delivered it to my door. On the other hand, Grandma wrote the letter. Ultimately, \(\rho \)  and \(\vb{J} \)  are the sources of all electromagnetic fields (magnetic fields produced by a magnet also arises from the many internal currents (which is equivalent to a solenoid after the cancelation)), and a changing magnetic field merely delivers electromagnetic news from currents somewhere else. But it is often convenient to think of a changing magnetic field “producing” an electric field, and it will not hurt you as long as you understand that this is the condensed version of a more complicated story}
+ 
+The emf of the circuit is now
+
+\begin{equation}
+    \mathcal{E} = \oint_{C} \vb{E} \cdot d \vb{l}.
+\end{equation}
+
+According to experiments, it turns out that the emf in this case can also be written in
+
+\begin{equation}
+    \mathcal{E}= - \frac{d\Phi }{dt}.
+\end{equation}
+
+Note that although this equation is identical to \cref{motionalemf}, the underlying mechanism is entirely different. In the motional emf case, the emf is established by magnetic force on the moving charges. Now, however, it is generated by the electric field induced by the changing magnetic field. At this stage, we should view the two cases separately although it is not a mere coincidence that the two equations are identical.
+
+This result, on contrary to motional emf, can not be derived mathemtically, since it is in fact a physical law have been tested countless times. The negative sign on the RHS of the above equation expresses Len'z law, which states that states that the direction of the electric current induced in a conductor by a changing magnetic field is such that the magnetic field created by the induced current opposes changes in the initial magnetic field, but Lenz did not state the mathmatical relation of them. 
+
+Writing \(\mathcal{E}\text { and } \Phi \) explicitly we have
+
+\begin{equation}
+    \oint_{C}\vb{E}  \cdot d \vb{l} = -\oint_{\mathcal{S}} \frac{\partial \vb{B} }{\partial t}\cdot d \vb{a} ,  
+\end{equation}
+
+This is the Faraday's law in integral form. Converting it to differential form by applying the Stoke's theorem, we get
+
+\begin{equation}
+    \curl{\vb{E} } = -\frac{\partial \vb{B} }{\partial t}.  
+\end{equation}
+
+If one would like, \(\partial \vb{B} /\partial t\) can be regarded as a current source for electric field, since the Faraday's law is mathematically identical to the Ampere's law, with \(\vb{E} \text { and } \vb{B} \) (and the divergence of both \(\vb{E} \text { and } \vb{B} \) are both zero for pure Faraday electric field, \textit{i.e.,} due exclusively to a changing \(\vb{B} \), with \(\rho =0\)) interchanged. We therefore have the Biot-Savart law for electric field 
+
+\begin{equation}
+    \vb{E} = -\frac{1}{4\pi } \frac{d}{dt} \int_{V}^{} \frac{\vb{B} \cross \hrcurs }{\rcurs ^2} d\tau .  
+\end{equation}
+
+However, this equation is seldom use since symmetries are usually present to avoid equation.
+
+
+
+
+\subsection{Circuit with Battery and Resistor}
+
+Consdier the follwing circuit consisting of a battery and a resistor:
+
+\begin{center}
+    \begin{circuitikz}
+        % Draw the resistor and label current I
+        \draw (1.5,0) to[R] (4.5,0);
+        \draw[->] (3.5, 0.5) -- (2.5, 0.5) node[midway, above] {\(I \) };
+        
+        % Draw the top wire
+        \draw (0,0) -- (1.5,0);
+        \draw (4.5,0) -- (6,0);
+        
+        % Draw the right wire and arrows
+        \draw (6,0) -- (6,-3);
+        
+        % Draw the battery with terminals a and b
+        \draw (6,-3) to[battery] (0,-3);
+        \filldraw (1.5,-3) circle (1pt) node[above] {\(a\) };
+        \filldraw (4.5,-3) circle (1pt) node[above] {\(b\) };
+        \node at (3.5,-3.2) {\(+\) };
+        \node at (2.5,-3.2) {\(-\) };
+        
+        % Draw the bottom wire and label current I
+        \draw (0,-3) -- (0,0);
+        
+        % Draw electric field vector E
+        \draw[->] (4,-3.5) -- (2,-3.5) node[midway, below] {\(\vb{E} \) };
+        \draw[->] (4,-0.5) -- (2,-0.5) node[midway, below] {\(\vb{E} \) };
+
+        % Draw vector f0 in the middle
+        \draw[->] (2.5, -2.5) -- (3.5, -2.5) node[midway, above] {\(\vb{f} _{s} \) };
+    \end{circuitikz}
+\end{center}
+
+While to calculate the emf we have to measure the force per unit charge at every position of the circuit simulataneously, but since we are dealing with a static (time-independent) situation, we can imagine a single charge \(q\) making a complete tour around \(C\). The force per unit charge is then the combination of contribution from the source force \( \vb{f} _{s}    \) and the electric force \(q\vb{E}    \), so \(\vb{f} = \vb{f} _{s} + \vb{E}\) and the emf becomes
+
+\begin{equation}
+    \mathcal{E}= \oint_{C} \vb{f} \cdot d \vb{l} = \oint_{C} \vb{f}_{s}  \cdot d \vb{l} + \oint_{C} \vb{E} \cdot d \vb{l} = \oint_{C} \vb{f} _{s} \cdot d \vb{l} = \int_{a}^{b} \vb{f} _{s} \cdot d \vb{l}           
+\end{equation}
+
+since \(\oint_{C} \vb{E} \cdot d \vb{l} =0 \) for all electrostatic field and \(\vb{f} _{s} \) is non-zero only inside the battery. 
+
+Now since the current \(I\) is constant, the charge \(q\) moves at constant speed along the circuit, which means that the total force on \(q\) in the direction of the path \(C\) is zero. In the interior of the resistor, the electrostatic force \( q\vb{E}  \) which arises from Ohm's law, is counterbalanced by the ``force'' on \(q\) due to the collision of the charges with the positive ions of the metal. In the battery, assuming the internal resistance is zero, there must be an electric field opposing the soruce force so \(\vb{E} = - \vb{f} _{s} \). This is also consistent to the fact that \(\vb{E} \) is curless around the circuit and \(\vb{f} = \vb{f} _{s} + \vb{E}  \) in \cref{ohm} should be zero if \(\sigma \rightarrow \infty\). 
+
+The potential difference between the terminals is therefore 
+
+\begin{equation}
+    V = -\int_{a}^{b} \vb{E} \cdot d \vb{l} = \int_{a}^{b} \vb{f} _{s} \cdot d \vb{l} = \mathcal{E},
+\end{equation}
+
+which makes qualitative sense because the electromotive force is meant to push the charges up the potential hill.
+
+The work done by the source force is then 
+
+\begin{equation}
+    W = \int_{a}^{b} q \vb{f} _{s} \cdot d \vb{l} = q \mathcal{E} = qV.
+\end{equation}
+
+Current in this electric circuit is somewhat analogous to the flow of water in a closed system of pipes, with gravity playing the role of the electrostatic field, and a pump (lifting the water up against gravity) in the role of the battery. In this story, height is analogous to voltage.
+
+\section{Electromagnetic Induction and Magnetic Energy}
+
+\subsection{Electromagnetic Induction}
+
+Suppose you have two loops of wire, with current \(I_1 \text { and } I_2 \) producing magnetic field \(\vb{B} _{1} \text { and } \vb{B} _{2}\) respectively. From the Biot-Savart law, we can easily see that the magnetic field \(\vb{B} _{1} \) is proportional to the current \(I_1 \), so as the flux through loop 2 
+
+\begin{equation} \label{Phi2} 
+    \Phi _{21} = \oint_{S} \vb{B} _{1} \cdot d\vb{S} = M_{21} I_1 ,    
+\end{equation}
+
+where \(M_{21} \) is the constant of proportionality, known as the mutual inductance of the two loops (since, as we will see, \(M_{12} = M_{21}  \)). In fact, it can be found explicitly by
+
+\begin{equation}
+    \Phi _{21} = \oint_{S} \vb{B} _{1} \cdot d \vb{S} _{2} = \oint_{S} (\curl{\vb{A} _{1} }  ) \cdot d\vb{S} _{2} = \oint_{C_2 } \vb{A} _{1} \cdot d \vb{l} _{2} = \oint_{C_2 } \frac{\mu _{0} I_1  }{4\pi }\oint_{C_1 } \frac{d \vb{l} _{1} \cdot d \vb{l} _{2}  }{\rcurs },            
+\end{equation}
+
+so evidently
+
+\begin{equation}
+    M_{21} = \frac{\mu _{0} }{4 \pi } \oint_{C_1 }\oint_{C_2 } \frac{d \vb{l} _{1} \cdot d \vb{l} _{2} }{\rcurs }.     
+\end{equation}
+
+From the above equation we can see that the mutual inductance is a purely geometrical quantity, and is symmetrical to both loops, \textit{i.e.,} \(M_{21} = M_{12}  \), which means that the flux through 2 when we run a current \(I\) around 1 is identical to the flux through 1 when send the same current \(I\) around 2. Therefore, we can drop the subscripts and call them both \(M\).
+
+So returning to \cref{Phi2}, the induced emf in loop 2 can be found by 
+
+\begin{equation}
+    \mathcal{E}_{21} = - \frac{d\Phi _{21} }{dt} = - M \frac{dI_1 }{dt}.  
+\end{equation}
+
+By a similar fashion, a changing current in loop 2 would also change the flux through loop 2, so we can define the self inductance of loop 2 as 
+
+\begin{equation}
+    L_2  = \frac{\Phi _{22}  }{I_2 }, 
+\end{equation}
+
+where the induced emf due to the changing current in loop 2 is now
+
+\begin{equation}
+    \mathcal{E}_{22} = - L\frac{dI_2 }{dt},  
+\end{equation}
+
+which is called the back emf.
+
+The total induced emf in loop 2 is therefore
+
+\begin{equation}
+    \mathcal{E}_{2}   = \mathcal{E} _{21} + \mathcal{E}_{22} =  -M\frac{dI_1 }{dt}  - L \frac{dI_2 }{dt}.
+\end{equation}
+
+Similar to capacitance, to find \(M \text { or } L\), the standard procedure is to run a current through one of the loop and find the flux through the another loop in terms of this current. 
+
+Similar to capacitance, inductance is an intrinsically positive quanitity. However, Lenz's law, which is enforced by the minus signs in the above equations, dictates that the emf is in such a direction as to oppose any change in current. Whenever you try to alter the current in a wire, you must fight against this the back emf due to the loop's self inductance. Inductance plays an analogous role in electric circuits that mass plays in mechanical systems: the greater \(L\) is, the harder it is to change the current, just as the alrger the mass, the harder it is to change an object's velocity.
+
+\example{Jumping Ring.}
+{If you wind a solenoidal coil around an iron core (which serves to beef up the magnetic field), place a metal ring on top, and connect the coil with an AC source, the ring will jump in the air. Why? (The situation is illustrated in \cref{jumpingring}).}
+{Before you turned on the current, the flux through the ring was zero. Afterward a flux appeared, and the emf generated in the ring led to a current (in the ring) which, according to Lenz’s law, was in such a direction that its field tended to cancel this new flux. This means that the current in the loop is opposite to the current in the solenoid. And opposite currents repel, so the ring flies off.} 
+\onefig{jumpingring}{scale=0.3} 
+
+\subsection{Magnetic Energy}
+
+The energy stored inside an inductor as magnetic energy is given by 
+
+\begin{equation}
+    U = \int dW = \int -\mathcal{E}dq = \int LIdI = \frac{1}{2}LI^2. 
+\end{equation}
+
+Here the negative sign after the second equality is due to the fact that this is the work done by me against the back emf, not the work done by the emf.
+
+In fact, this expression can be treated as the definition of the self-inductance \(\vb{L}\), sometimes when the current is not confined to a single path, it is easier to find the magnetic energy stored in the system for a current \(I\) then use the above equation to find the self-inductance \(L\).  
+
+To generalize this expression, we note that 
+
+\begin{equation}
+    \Phi = LI = \int \vb{B} \cdot d\vb{S} = \int (\curl{\vb{A} } ) \cdot d\vb{S} = \oint_{C} \vb{A} \cdot d\vb{l},
+\end{equation}
+
+so the energy (or the work done by me) is 
+
+\begin{equation}
+    \begin{aligned} 
+    U &= \frac{1}{2} I \oint_{C} \vb{A} \cdot d\vb{l}   = \frac{1}{2} \oint_{C} (\vb{A} \cdot \vb{I} )d\vb{l} = \frac{1}{2} \int_{V}^{} (\vb{A} \cdot \vb{J} )d\tau = \frac{1}{2\mu_0 } \int_{V}^{} \vb{A} \cdot (\curl{\vb{B} } )d\tau \\
+    &= \frac{1}{2\mu_0 }\int_{V}^{} \left( B^2-\div{(\vb{A} \cross \vb{B} )}  \right) d\tau = \frac{1}{2\mu_0 } \int_{\text{all space} }^{} B^2d\tau ,    
+    \end{aligned}   
+\end{equation}
+
+where the second term in the integrand vanishes when we take the volume to be all space, since \(\vb{J} \) is zero outside the volume occupied by the current anyways, so it won't contribute to any extra magnetic energy. 
+
+\section{Maxwell's Equations}
+
+Before we group the four Maxwell's Equations we have found, there is a small final modification to the Faraday's law, motivated by the fact that if we take the divergence of the Ampere's law we get
+
+\begin{equation}
+    \div{(\curl{\vb{B} } )} = \mu_0 \div{\vb{J} } = -\mu_0 \frac{\partial \rho }{\partial t} = -\div{\left( \epsilon_0 \frac{\partial \vb{E} }{\partial t}  \right)}, 
+\end{equation}
+
+where while the LHS must be zero since it is a divergence of a curl, the RHS is generally non-zero. The only remedy is to introduce the displacement current \(\vb{J} _{d} \)
+
+\begin{equation}
+    \vb{J} _{d} = \epsilon_0 \frac{\partial \vb{E} }{\partial t}, 
+\end{equation}
+
+and add this to the ordinary current density \(\vb{J} \), so that 
+
+\begin{equation}
+    \div{(\curl{\vb{B} } )} = \mu_0 \div{(\vb{J} + \vb{J} _{d} )} = -\div{\left( \epsilon_0 \frac{\partial \vb{E} }{\partial t}  \right)} + \div{\left( \epsilon_0 \frac{\partial \vb{E} }{\partial t}  \right)} = 0. 
+\end{equation}
+
+\example{Current without Magnetic Field}
+{Consider two concentric metal spherical sheels with inner and outer radius \(\vb{a} \text { and } \vb{b} \) respectivley. The inner shell carries a charge \(Q(t)\) while the outer one carries an opposite charge. The space between them is filled with an ohmic material of conductivity \(\sigma \), find the magnetic fields.   }
+{This configuration is spherically symmetrical, so the magnetic field can only be raidal. However, from the Gauss's law for magnetism, we have 
+
+\begin{equation}
+    \div{\vb{B} } =0 \implies \oint_{S} \vb{B} \cdot d\vb{S} = 4\pi r^2B = 0 \implies B=0.
+\end{equation}
+
+So the magnetic field is zero everywhere, which is due to the fact that the actual current density \(\vb{J} \) cancels out with the displacment current density \(\vb{J} _{b} \).
+
+The actual current density \(\vb{J} \) is 
+
+\begin{equation}
+    \vb{J} = \sigma \vb{E} = \frac{1}{4\pi \epsilon_0} \frac{\sigma Q}{r^2}\vu{r}, 
+\end{equation}
+
+while the displacement current is 
+
+\begin{equation}
+    \begin{aligned} 
+    \vb{J} _{b} &= \epsilon_0 \frac{\partial \vb{E} }{\partial t} = \frac{1}{4\pi } \frac{I}{r^2}\vu{r} \\
+    &= \frac{1}{4\pi r^2}\left( \int \vb{J} \cdot d\vb{S} \right)\vu{r} = -\frac{1}{4\pi \epsilon_0} \frac{\sigma Q}{r^2}\vu{r} = -\vb{J} . 
+    \end{aligned} 
+\end{equation}
+
+
+
+
+
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\chapter{Circuit Theory}
+
+\section{Energy in Circuits}
+
+Before dealing with any circuit components, it is important to distinguish between 3 very similar quantities:
+
+\begin{enumerate}
+    \item Electromotive force (emf) (\(\mathcal{E}\)): Both emf of a circuit and emf of a circuit element make sense to say. The emf of a circuit is defined as the loop integral of the total force per unit charge, which is equivalent to the work done (energy transfer) to charges per unit charge per loop. Emf of a circuit element is the loop integral of the emf source force per unit charge, which is non-zero meaning that the force is non-conservative, which is also equivalent to the work done by the emf source to charges per unit charge per loop. Battery and inductor are examples of emf sources, where the source force is ``chemical force'' and electric force, respectively.
+    \item Potential difference (\(\Delta V\)): Potential difference is only well-defined for conservative electric field, as the negative of the line integral of the electric field, which is equivalent to the negative of the work done by the electric field. For non-conservative electric field the potential difference between two points is ill-defined since the line integral is path dependent so there is no unique answer. 
+    \item Voltage (\(V\)): A general term used usually in circuit theory to describe the potential difference or emf. As we we show below, the voltage at each point of circuit is well-defined and unique (as long as the ground (the point where the voltage is defined to be zero)) is given.
+\end{enumerate}
+
+
+Before analyzing any circuit, it is useful to first understand basic properties of the 4 main cirucit elements, they can be calssified into active circuit elements, which are those that can supply energy to a circuit, or passive circuit element, which are those that cannot generate energy but instead store, release or dissipate energy supplied by the active elements:
+
+\begin{enumerate}
+    \item Battery (\(\mathcal{E} = \mathcal{E}_{0} \)): An emf source where the source force is a ``chemical force'', pointing from the negative terminal to the positive terminal, thus an active circuit element.
+    \item Resistor (\(\Delta V = -IR\)): Disspate energy via collisions between charges and positive ions inside the resistor as heat, thus a passive circuit element.
+    \item Capacitance (\(\Delta V = -\frac{q}{C} \)): Store and energy via electric field, thus a passive circuit element.
+    \item Inductor (\(\mathcal{E} = -L\frac{dI}{dt} \text { or } \Delta V = L\frac{dI}{dt} \)): An emf source where the source force is an electric force, pointing along the curled wire. Due to the negative sign as enforced by Len'z law, an inductor would always oppose the change in curerent and is not capable of generating energy. Therefore, instead of intepretaing an inductor as an emf source (which pushes charges along the circuit) with negative emf (which is also valid), we usually intepret it as a passive circuit element, which store and release energy via magnetic field.   
+\end{enumerate}
+
+The generic equation of any circuit is 
+
+\begin{equation}
+    \text{Energy provided to the circuit} = \text{Energy used by the circuit},
+\end{equation}
+
+or equivalently, 
+
+\begin{equation} \label{energycircuit} 
+    \sum_{\text{loop} }^{} \mathcal{E} = \sum_{\text{loop} }^{} \Delta V. 
+\end{equation}
+
+So we can define voltage as \(V = \mathcal{E}\) for emf or \(V = \Delta V\) for passive circuit elements such that 
+
+\begin{equation}
+    \sum_{\text{loop} }^{} V = 0 
+\end{equation}
+
+and thus \(V\) is well-defined and unique at every point in a circuit as stated above when we first introduce the concept of voltage.
+
+
+
+In the case of a LRC circuit, this equation would be transformed to 
+
+\begin{equation}
+    \mathcal{E}_{0} - L\frac{dI}{dt} = IR + \frac{q}{C} \text {  ~~ or  ~~ } \mathcal{E}_{0} = IR + \frac{q}{C} + L\frac{dI}{dt} .  
+\end{equation}
+
+\section{Electric Fields in Circuits}
+
+To understand the operation of circuit fully, we have to connect to the theory of electromagnetism and apply it here. 
+
+The electric fields involved in circuits can be separated into two categories: conservative (due to static charges) and non-conservative (due to changing magnetic field).
+
+For every circuit elements in a circuit, there has to be an associated electric field which is related to the potential difference across the element or the emf of the element:
+
+\begin{enumerate}
+    \item Battery: Assuming the battery is ideal (\textit{i.e.,} the internal resistance is negligible), we can take \(\sigma \rightarrow \infty\) and \cref{ohm} tells us that the net force experienced by a charge inside the battery is zero. (This fact can be extended more generally by arguing that when the current is constant, the speed of the charge is constant, so the net force experienced by the charge at every point in the circuit is zero.) This implies that there will be an electric field with the same magnitude and opposite direction as the source force. This electric field is conservative and is established by the accumlation of charges on the two ends of the battery.
+    \item Resistor: Now that we cannot take \(\sigma \rightarrow \infty\), but then the electric field inside a resistor is straightforwardly given by \cref{ohm} as \(\vb{E} = \vb{J} /\sigma  \). This electric field cancel out with the ``resistive force'' due to collisions between the charge and the positive ions in the resistor, so that the net force experienced by the charge is still zero. The electric field in this case is also conservative and is established by the accumulation of charges on the two ends of the resistor.
+    \item Capacitance: In some sense, a capacitor is essentially a resistor with zero resistance so no energy get lost as heat during collision but are instead stored in electric field. The electric field is still conservative and is established by the charges present on the plates. 
+    \item Inductor: Now that the electric field is not due to static electric charge but by changing magnetic field, the electric field is no longer conservative. It would still be directed along the wire but since the wire is coiled, the electric field will have this coiling pattern as well. As the force on the charges is not zero, the current is no longer constant. It is exactly this effect that slows down the change in current, which is what makes an inductor an inductor.
+\end{enumerate}
+
+When we consider the emf of the circuit, we take the loop integral of the total force per unit charge. As every electrostatic field is curless, the work done by the electric field in the resistor, capacitor and battery all sum up to zero, which left the only work done to be the contribution of the source force and the electric field of the inductor. This is the LHS of \cref{energycircuit}. The RHS is then explaining where this energy go. It goes to heat in the resistor (or equivalently, work done against the resistive force) and energy stored in electric fields in capacitor. 
+
+\section{Sign Conventions}
+
+To analyze any circuit, we have to first define a positive direction of each loop. The (loop) current is conveninently chosen to be the positive direction and the positive direction (terminal) of an emf is defined such that charges will be pushed along the positive direction of the loop while the positive direction (terminal) of passive circuit elements is reversed (this is called the passive sign convention). This is consistent to how charges accumulate on the ends of resistor, capacitor and battery and thus correctly show the direction of electric field and voltage change across circuit elements. The most standard RLC circuit is shown below:
+
+
+
+\begin{center}
+    \begin{circuitikz}
+        \draw (0,0) to[battery, invert, l_=\(\mathcal{E}_{0} \)] (8,0) to[R, v=\(R\)] (8,5) to[L, v=\(L\)] (0,5) to [C, v=\(C\)] (0,0);
+        \node at (2, -0.25) {\(-\) }; \node at (6,-0.25) {\(+\) };
+        \draw[->, thick] (4,1.75) arc[start angle=-90, end angle=180, radius=0.75]; \node at (4,2.5) {\(I\) };
+        \draw[->] (7.5,1.5) -- (7.5,3.25) node[midway, left] {\(\vb{E} _{R} \) };
+        \draw[->] (0.75,3.25) -- (0.75,1.5) node[midway, right] {\(\vb{E} _{C} \) };
+        \draw[->] (5.25,0.5) -- (2.75,0.5) node[midway, above] {\(\vb{E} _{s}\) };
+        \draw[->, bend left=30] (8.75,3.6) to node[midway, right] {\(V_{R} \) } (8.75,1.4);
+        \draw[->, bend left=30] (-0.75,1.4) to node[midway, left] {\(V_{C} \) } (-0.75,3.6);
+        \draw[->, bend left=15] (2.15,5.75) to node[midway, above] {\(V_{L} \) } (5.85,5.75);
+        \draw[->, bend right=15] (2.15,-0.75) to node[midway, below] {\(V_{s} \) } (5.85,-0.75);
+        \draw[->, thick, decorate, decoration={coil, aspect=0.5, segment length=4mm, amplitude=2mm}] (5.75,4.5) -- (2.25,4.5) node[midway, below, yshift=-3mm] {\(\vb{E} _{L} \) };
+    \end{circuitikz}
+\end{center}
+
+From the figure, it becomes obvious why
+
+\begin{equation}
+    V_{s} = V_{R} + V_{L} + V_{C}.     
+\end{equation}
+
+If one were to ever confused with signs, simply imagine the voltages as ``voltage vectors'' drawn above, then \(\sum_{\text{loop} }^{} \vb{V} = 0 \) becomes easier to understand. 
+
+Things can get tricky when there is more than one loop. Consider the circuit below:
+
+\begin{center}
+    \begin{circuitikz}
+        \draw (0,0) to[battery, invert, l_=\(\mathcal{E}_{0} \)] (0,5) to[R, v=\(R\)] (5,5) to[C, v=\(C\)] (5,0) -- (0,0);
+        \draw (5,5) -- (10,5) to[L, v=\(L\)] (10,0) -- (5,0);
+        \node at (-0.25, 1.25) {\(-\) }; \node at (-0.25,3.75) {\(+\) }; \node at (5.25, 1.25) {\(+\) }; \node at (5.25, 3.75) {\(-\) };
+        \node at (5.25, 2) {\(-q\) }; \node at (5.25,3) {\(+q\) };
+        \draw[->, thick] (1.5,2.5) arc[start angle=180, end angle=-90, radius=0.75]; \node at (2.25,2.5) {\(I_1 \) };
+        \draw[->, thick] (7,2.5) arc[start angle=180, end angle=-90, radius=0.75]; \node at (7.75,2.5) {\(I_2 \) };
+        \draw[->, bend left=30] (4.25,1.35) to node[midway, left] {\(V_{C_1 } \) } (4.25,3.6);
+        \draw[->, bend left=30] (5.75,3.6) to node[midway, right] {\(V_{C_2 } \) } (5.75,1.35);
+    \end{circuitikz}
+\end{center}
+
+In this circuit, the terminals of the capacitor has opposite polarities in the two loops. This is fine, however, as long as we separetely define the charge on the capacitor clearly, so the charge on the capacitor and the current is related by
+
+\begin{equation}
+    I_1 - I_2 = \frac{dq}{dt} .
+\end{equation}
+
+And the two circuit equations for the two loops are
+
+\begin{equation}
+    \mathcal{E}_{0} = I_1 R + \frac{q}{C} \text { ~~ and ~~ } 0 = L\frac{dI_2 }{dt} - \frac{q}{C}    
+\end{equation}
+
+Again, if we view \(V_{C_1 } \text { and } V_{C_2 } \) as vectors, it becomes clear why there is a negative sign for the second circuit equation above. This is becasue \(V_{C_1 } = \frac{q}{C} = -V_{C_2 }\). 
+
+Sometimes, instead of loop current, we define different currents for each separate wire segment. Sometimes the equations are easily to solve this way, but then note that when writing down the loop equation a minus sign should be added if the current's pre-defined direction is opposite to how you are trasversing the loop.
+
+The initial conditions are \(V=1\) at \(t=0\) and \(I = 0\)  thus \(dV /dt \)  at \(t=0\)  since the inductor will not allow the current to rise discontinously so all three cases start with zero slope.
+
+\section{LRC Circuits}
+
+The standard equation for LRC circuit is 
+
+\begin{equation}
+     L\frac{d^2q}{dt^2} + \frac{RL}{C}\frac{dq}{dt} + \frac{q}{C} = \mathcal{E}_{0}\cos (\omega t) 
+\end{equation}
+
+The equation can be solved using standard techniques detailed in the ``Differential Equations'' notes. The solution contains the sum of a homogeneous solution, which corresponds to the transient behaviour which will dies out eventually, and a particular solution. 
+
+However, a faster way to find the particular solution is to use complex voltages, currents, and impedances. The definition of complex voltages and currents are just the quantities \(\tilde{V} \text { and } \tilde{I} \), which satisifies the same differential equation as \(V \text { and } I\), and the driving function is written in complex form (\textit{e.g.,} \(\cos (\omega t) \to e^{i \omega t} \)). The standard method of finding the particular solution is to susbstitute \(\tilde{q}  = \tilde{q_0 }e^{i \omega t} \implies \tilde{I} = d \tilde{q} /dt = i \omega \tilde{q_0 } e^{i \omega t}\), and we get
+
+\begin{equation}
+    -\omega ^2 L \tilde{q_0 }e^{i \omega t} + \frac{RL}{C} i \omega \tilde{q_0 } e^{i \omega t} + \frac{1}{C} \tilde{q_0 }e^{i \omega t} = i \omega L \tilde{I} + R \tilde{I} + \frac{1}{i \omega C} \tilde{I} = \mathcal{E}_{0}e^{i \omega t}.        
+\end{equation}
+
+Thus, we see that the complex analog of resistance, which we call (complex) impedance are \(X_{R} = R, X_{C} = 1 /i\omega C \text { and } X_{L} = i \omega L \), for resistor, capacitor and inductor respectively. They satisfies the ``complex Ohm's law'' \(\tilde{V} = X \tilde{I} \), and can be added in parallel or in series like ordinary resistors. 
+
+The power supply to an electronic apparatus is \(P = \mathfrak{Re} (\tilde{I} )\mathfrak{Re} (\tilde{V} )  \), but we cannot define a ``complex power'' \(\tilde{P} = \tilde{I} \tilde{V}   \), since \(\mathfrak{Re} (\tilde{I} \tilde{V}  ) \neq \mathfrak{Re} (\tilde{I} ) \mathfrak{Re} (\tilde{V} )  \). Instead, we have \(P = V_0 \cos (\omega t) I_0 \cos (\omega t+ \varphi _{\text{rel} } ) \implies \avg{P} = \frac{1}{2}V_0 I_0 \cos (\varphi _{\text{rel} }) = V_{\text{rms} }I_{\text{rms} }\cos (\varphi _{rel})   \). This is the reason why inductor and capacitor cannot dissipate energy since \(V \text { and } I\) of them are \(\frac{\pi }{2} \) out of phase, so the avergae power over time is zero.  
+
+\example{Principles of Inductors.}
+{Refere to \cref{inductor}, and find \(V_{A} \text { and } V_{B}  \) right after the switch is opened.}
+{Before the switch is opened, \(V_{A} = V_{B} = 0\), and the current passes through the inductor is \(I_{L} = \frac{V_0 }{R}  \), since the inductor behaves essentially like a wire. After the swtich is opened, \(V_{A} = V_{0}  \) is trivial and since the current passes through the inductor is still \(I_{L} = \frac{V_0 }{R}  \), because the current must change continuously over an inductor, and therefore \(V_{B} = V_{A} + I_{L}R_2 = V_{0} \left( 1+ \frac{R_2 }{R_1 }  \right)   \).   } 
+
+\onefig{inductor}{scale=0.5} 
+
+\example{Infinite Network.}
+{Refer to \cref{infnet}, and find \(V_{n} \text { and } I_{n}  \) in terms of \(V_1 \text { and } V_1 \).}
+{The recursive relations of \((V_{n+1}, I_{n+1}) \text { and } (V_{n}, I_{n})\) for a general \(n\) are
+
+\begin{equation}
+    V_{n+1} = V_{n} - I_{n}Z ~\text { and }~ I_{n+1} = I_{n} - V_{n+1}Y.      
+\end{equation}
+
+Writing in matrix form,
+
+\begin{equation}
+    \begin{pmatrix}
+         V_{n+1}  \\
+         I_{n+1}  \\
+    \end{pmatrix} = \begin{pmatrix}
+        1 & -Z   \\
+        -Y & 1+YZ  \\
+    \end{pmatrix} \begin{pmatrix}
+         V_{n}  \\
+         I_{n}  \\
+    \end{pmatrix}.
+\end{equation}
+
+Thus 
+
+\begin{equation}
+    \begin{pmatrix}
+         V_{n}  \\
+         I_{n}  \\
+    \end{pmatrix} = \begin{pmatrix}
+        1 & -Z  \\
+        -Y & 1+YZ  \\
+    \end{pmatrix}^{n} \begin{pmatrix}
+        V_{1}  \\
+        I_{1}  \\
+   \end{pmatrix}.
+\end{equation}
+
+
+
+} 
+
+\onefig{infnet}{scale=0.2} 
+
+
+\section{Thevenin's and Norton's Theorem}
+
+Thevenin's Theoerem states that any linear electrical network containing only voltage sources, current sources and resistances can be replaced by an equivalent combination of a voltage source \(V_{\text{eq} } \) in series with a resistacne \(R_{\text{eq} } \), where \(V_{\text{eq} } \) is the open-circuit voltage and \(R_{\text{eq} } \) is the equivalent resistance
+
+Norton's theoerem, on the other hand states that it can be replaced by a current source \(I_{\text{eq} } \) in parallel with the same equivalent resistance \(R_{\text{eq} } \), where \(I_{\text{eq} } \) is the short-cicuit current.
+
+Their relations is \(V_{\text{eq} } = I_{\text{eq} }R_{\text{eq} }\), which can be proved by comparing the short-circuit current between the terminals in the two cases, which must be the same (the open circuit voltage must also be the same). 
+
+It can be proved that when calculating the equivalent resistance we can ignore all the charges.
+
+A specific transformation that is often used is the star-delta (or Y-\(\Delta \)) transformation, which is summarized below:
+
+\begin{center}
+    \begin{tikzpicture}
+    
+    % Y-configuration (Star Network)
+    \draw[thick] (0,0) -- (1.5,1.5) node[midway, above left] {$R_1$};
+    \draw[thick] (0,0) -- (3,0) node[midway, below] {$R_2$};
+    \draw[thick] (0,0) -- (1.5,-1.5) node[midway, below left] {$R_3$};
+    \draw[fill=black] (0,0) circle (2pt) node[left] {O};
+    \draw[fill=black] (1.5,1.5) circle (2pt) node[right] {A};
+    \draw[fill=black] (3,0) circle (2pt) node[right] {B};
+    \draw[fill=black] (1.5,-1.5) circle (2pt) node[right] {C};
+    \node at (1.5,-2.5) {Y (Star) Network};
+    
+    % Delta-configuration (Delta Network)
+    \draw[thick] (6,1.5) -- (9,0) node[midway, above right] {$R_a$};
+    \draw[thick] (9,0) -- (6,-1.5) node[midway, below right] {$R_b$};
+    \draw[thick] (6,-1.5) -- (6,1.5) node[midway, left] {$R_c$};
+    \draw[fill=black] (6,1.5) circle (2pt) node[left] {A};
+    \draw[fill=black] (9,0) circle (2pt) node[right] {B};
+    \draw[fill=black] (6,-1.5) circle (2pt) node[left] {C};
+    \node at (7.5,-2.5) {\(\Delta \)  (Delta) Network};
+    
+    \end{tikzpicture}
+\end{center}
+    
+\begin{center}
+    \renewcommand{\arraystretch}{1.5} % Adjust row height
+    \setlength{\tabcolsep}{12pt} % Adjust column width
+    \begin{tabular}{|c|c|}
+    \hline
+    \textbf{Y to \(\Delta\) Transformation} & \textbf{\(\Delta\) to Y Transformation} \\
+    \hline
+    $R_a = \frac{R_1 R_2 + R_2 R_3 + R_3 R_1}{R_1}$ & $R_1 = \frac{R_a R_c}{R_a + R_b + R_c}$ \\
+    $R_b = \frac{R_1 R_2 + R_2 R_3 + R_3 R_1}{R_2}$ & $R_2 = \frac{R_a R_b}{R_a + R_b + R_c}$ \\
+    $R_c = \frac{R_1 R_2 + R_2 R_3 + R_3 R_1}{R_3}$ & $R_3 = \frac{R_b R_c}{R_a + R_b + R_c}$ \\
+    \hline
+    \end{tabular}
+\end{center}
+
+
+
+\section{Superconductor}
+
+A superconductor, in most cases can be well modelled by a perfect conductor, that is \(\sigma \rightarrow \infty\). And the most important fact about a superconductor (or a perfect conductor) is that the magnetic flux through the conductor is always constant. This is because if there is a change of magnetic flux, thus an induced emf, the current could get arbitraily large for infinitisimal small emf. In practice, when a magnetic field line try to penetrate through the conductor, a slight emf is induced which is enough to produce an induced current that generate an opposing magnetic field.
+
+If we have a sheet of perfect conductor and put a magnet next to it, currents called ``eddy currents'' appear in the sheet so that no magnetic flux enters. The field lines in this case would look like this:
+
+\onefig{superconductorfieldline}{scale=0.3} 
+
+Since the currents in the magnet and the eddy currents are in opposite directions, they repel and the magnet get levitated above the sheet. If the conductor is not perfect there will be some resistance to the flow of the eddy currents. The currents will tend to die out and the magnet will slowly settle down and the flux of the magnetic field from the magnet would gradually penetrate the conductor.
+
+Eddy currents are best illustrated by the ``pendulum'' set up shown in \cref{eddypen1}.
+
+\twofig{eddypen1}{width=\textwidth}{eddypen2}{width=\textwidth}{eddypen} 
+
+As the metal plate enters the gap of the magnet, there will be eddy current induced in the plate which acts to oppose the change in flux through the plate, so the current s at first bring the plate almost to a dead stop as it starts to enter the field. Then as the currents die down the plate slowly settles to rest at the equilibrium position. The nature of the eddy currents is shown in \cref{eddypen2}.  
+
+If, for instance the copper plate is replace by one which has several narrow slots cut in it, the eddy current effects are drastically reduced, since the currents in each section of the loop have less flux to drive them so the effects of the resistance of each loop are greater. 
+
+\example{Eddy Current.}
+{Consider a spherical shell with inner and outer radius \(R_1 \text { and } R_2 \) respectively spinning with constant angular velocity \(\boldsymbol{\omega } =  \omega \vu{x} \) under an uniform magnetic field \(\vb{B} = B \vu{z} \). Find the eddy currents in the steady state.  }
+{Firstly from the continuity equation we have
+
+\begin{equation}
+    \div{\vb{J} } = \sigma \left( \div{\vb{E} } + \div{(\vb{v} \cross \vb{B} )}   \right) = \sigma \left( \frac{\rho }{\epsilon_0 } + \div{(\vb{v} \cross \vb{B} )}   \right) = -\frac{\partial \rho }{\partial t} = 0.
+\end{equation}
+
+So the charge density \(\rho \) is given by 
+
+\begin{equation}
+    \begin{aligned}
+    \rho &= -\epsilon_0 \div{(\vb{v} \cross \vb{B} )} = -\epsilon_0 \div{((\boldsymbol{\omega } \cross \vb{r} )\cross \vb{B} )} \\ 
+    &= -\epsilon_0 \div{(\vb{r} (\vb{B} \cdot \boldsymbol{\omega } ) - \boldsymbol{\omega }(\vb{B} \cdot \vb{r} ) )} =  - \epsilon_0 \div{(-\omega By \vu{x} )} = 0. 
+    \end{aligned}
+\end{equation}
+
+The Laplace's equation \(\laplacian V = 0\) thus holds within the shell, with the boundary conditions
+
+\begin{equation}
+    J_{r} = \sigma (\vb{E} +\vb{v} \cross \vb{B} ) \cdot \vu{r} = 0 \text{ at } r=  R_1 \text { and } R_2 .  
+\end{equation}
+
+In terms of potential, 
+
+\begin{equation}
+    E_{r} = -\frac{\partial V}{\partial r} = -(\vb{v} \cross \vb{B} ) \cdot \vu{r} = \omega By(\vu{x} \cdot \vu{r} )= \begin{cases}
+        \omega BR_1 \sin ^2\theta \sin \phi \cos \phi  &\text{ at } r = R_1 ,\\
+        \omega BR_2 \sin ^2\theta \sin \phi \cos \phi  &\text{ at } r = R_2 .
+    \end{cases} 
+\end{equation}
+
+The potential is thereofore unqiuely determined and can be easily guessed as 
+
+\begin{equation}
+    V(r, \theta ,\phi ) = -\frac{1}{2}\omega Br^2\sin ^2\theta \sin \phi \cos \phi ,  
+\end{equation}
+
+and the eddy current can be found by 
+
+\begin{equation}
+    \vb{J} = \sigma (\vb{E} + (\vb{v} \cross \vb{B} )) =  -\sigma \grad{V} = \frac{1}{2} \omega B\sigma r\sin \theta \vu{\boldsymbol{\phi } } . 
+\end{equation}
+
+One can prove that for \(\omega \text { and }  \vb{B} \) at arbitrary orientations the formula is 
+
+\begin{equation}
+    \vb{J} = - \frac{\sigma }{2} (\vb{r} \cross (\boldsymbol{\omega } \cross \vb{B}  )). 
+\end{equation}
+
+In particular, when \(\boldsymbol{\omega } \parallel \vb{B}  \), \(\vb{J} =0\) since the electric force exactly cancels the magnetic force.  
+} 
+
+
+\chapter{Operational Amplifiers}
+
+The shematic diagram of an operational amplifier is shown below
+
+\begin{center}
+    \begin{circuitikz}
+        % Draw the op-amp triangle
+        \draw (0,0) node[op amp, noinv input up] (opamp) {};
+        
+        % Inputs with circles at the ends
+        \draw (opamp.-) -- ++(-0.5,0)             node[ocirc, inner sep=1.5pt] {}  node[left] {$V_\text{in}^-$};
+        \draw (opamp.+) -- ++(-0.5,0)             node[ocirc, inner sep=1.5pt] {}  node[left] {$V_\text{in}^+$};
+        
+        % Output with circle at the end
+        \draw (opamp.out) -- ++(0.5,0)             node[ocirc, inner sep=1.5pt] {}  node[right] {$V_\text{out}$};
+        
+        % Power supplies with circles at the ends
+        \draw (opamp.up) -- ++(0,0.5)             node[ocirc, inner sep=1.5pt] {}  node[above] {$V_\text{cc}^+$};
+        \draw (opamp.down) -- ++(0,-0.5)             node[ocirc, inner sep=1.5pt] {}  node[below] {$V_\text{cc}^-$};
+    \end{circuitikz}
+\end{center}
+
+In the diagram, \(V_{\text{cc} }^{\pm }  \) are the power supply voltages, which are usually omitted. \(V_{\text{in} }^{\pm }  \) are the input voltages and \(V_{out} \) is the output voltage.   
+
+The characteristic equation of an op-amp is 
+
+\begin{equation}
+    V_{\text{out} } = A_{\text{OL}} (V_{\text{in} }^+ - V_{in}^- )  
+\end{equation}
+
+Typically, the open-loop voltage gain \(A_{\text{OL}}\) is very large \((\sim 10^{5} )\) , but the output voltage \(V_{\text{out}}\) is limited within a range set by two saturation voltages \(V_{\text{sat}}^{\pm} \approx V_{\text{cc}}^{\pm} \mp 1V\). This implies that any small difference between the op-amp inputs will cause the output to saturate.
+
+\section{Non-Linear Applications}
+An op-amp can be used as a comparator: 
+
+
+\begin{center}
+    \begin{circuitikz}
+        % Draw the op-amp triangle
+        \draw (0,0) node[op amp, noinv input up] (opamp) {};
+        
+        % Non-inverting input (Vin+)
+        \draw (opamp.+) -- ++(-0.5,0) 
+            node[ocirc, inner sep=1.5pt] {} 
+            node[left] {$V_\text{in}$};
+        
+        % Inverting input connected to a battery
+        \draw (opamp.-) -- ++(-0.5,0) 
+            to[battery, l_=1V] ++(0,-1.5)
+            node[ground] {};
+
+        % Output (Vout)
+        \draw (opamp.out) -- ++(0.5,0) 
+            node[ocirc, inner sep=1.5pt] {} 
+            node[right] {$V_\text{out}$};
+    \end{circuitikz}
+\end{center}
+
+If the inverting input signal is fixed at, say \(1V\), then the output voltage will be positive if the input signal is greater than \(1V\), and negative if the input signal is smaller than \(1V\). Since the saturation voltages are reached pratically instantly, we would get a square wave on the output signal in response to some arbitrary input signal wandering around the level of the fixed voltage at the inverting input, as shown in \cref{comparator}. 
+
+\onefig{comparator}{scale=0.3} 
+
+\section{Linear Applications}
+
+We can state the two ``golden rules'' of an ideal linear op-amp:
+
+\begin{enumerate}
+    \item The output will do whatever is necessary to make the voltage difference between the inputs zero.\footnote{Note that it does not mean that the op-amp acutally changes the voltage at tis inputs. What it does is ``look'' at its input terminals and swing its output terminal around so that the external feedback betwork brings the input differential to zero.}
+    \item No current flows into the inputs.\footnote{But current can flows out of the output.} 
+\end{enumerate}
+
+A simple inverting amplifier is shown in \cref{invertingopamp} 
+
+\onefig{invertingopamp}{scale=0.3} 
+
+Since \(B\) is at ground, so by ``golden rule'' 1 \(A\) is also at ground. Therefore the voltage across \(R_2 \) is \(V_{\text{out}} \) and the voltage across \(R_1 \) is \(V_{\text{in}} \). And by rule 2 we have \(V_{\text{out} } /R_2 = - V_{\text{in} }/ R_1  \). 
+
+To understand what is really happening, imagine initially all the terminals are at zero voltage, now \(V_{\text{in}} \) is raised to \(+1V\). Due to the enormous input unbalance, \(V_{\text{out}} \) is dropped to the saturation voltage  
+
+\example{Digital to Analogue Converter.}
+{Refer to \cref{dac}, find \(V_{\text{out} } \) in terms of \(V_{\text{in} }\text { and } R \).  }
+{Since the inverting input is virtually grounded, so the potential at the position of the switch is always zero regardless of the state of the switch, and can be combined with the true ground at the upper right corner of the diagram.
+
+The swtich simply determine whether the current flowing through each bracnhes flows towards the op-amp, or into the ground. Combining the resistors using simple techniques, the voltages at the top of the resistors at each branches are \(V_{\text{in}, \frac{V_{\text{in} } }{2} }, \frac{V_{\text{in} } }{4}  \text { and } \frac{V_{\text{in} } }{8}  \) respectively. 
+
+Thus the total current flowing towards the op-amp is
+
+\begin{equation}
+    I = I_0 + I_1 + I_2 + I_3 = \frac{V_{\text{in} } }{2R}\left( S_0 + \frac{S_1}{2} + \frac{S_2 }{4} + \frac{S_3}{8} \right). 
+\end{equation}
+
+The output voltage is thus 
+
+\begin{equation}
+    V_{\text{out} } = - IR =  - \frac{V_{\text{in} } }{2}\left( S_0 + \frac{S_1}{2} + \frac{S_2 }{4} + \frac{S_3}{8} \right).
+\end{equation}
+
+
+} 
+
+\onefig{dac}{scale=0.5} 
+
+\chapter{Electromagnetic Waves}
+
+\chapter{Potentials and Fields}
+
+\todo{ex 7.10} 
+
+\chapter{Radiation}
+
+\chapter{Electrodynamics and Relativity}
+
+
+
 
 
 

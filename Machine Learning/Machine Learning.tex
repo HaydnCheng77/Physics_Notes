@@ -1,0 +1,40 @@
+\documentclass[english,a4paper,12pt]{report}
+\usepackage{mypackage}
+
+\title{Machine Learning}
+
+\author{Haydn Cheng}
+
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+    
+\chapter{Linear Regression}
+
+In a linear regression model, we assume that the true relationship between the response \(Y\) and the predictors \(X_{j}, j= 1, \ldots ,p \) is given by 
+
+\begin{equation}
+    Y = \beta _{0} + \beta _{1} X_1 + \beta _{2} X_2 + \cdots + \beta _{p} X_{p} + \epsilon ,
+\end{equation}
+
+where \(\epsilon \) is a random error term which is indepedent of \(X_{j} \) and has mean zero.\footnote{The error term is a catch-all for what we miss with this simple model: the true relationship is probably not linear, there may be other variables that cause variation in \(Y\), and there may be measurement error. Regardless, we assum that the error is indpendent of \(X_{j} \) and has mean zero.} 
+
+From the set of \(n\) observation pairs \((\vb{x} _{i}, y_{i} )\), we estimate the regression coefficients \(\hat{\beta }_{j}, j= 1,\ldots ,p\) by minimizing the residual sum of squares (RSS)  
+
+\begin{equation}
+    \text{RSS} = \sum_{i=1}^{n} (y_{i} - \hat{y_{i} } )^2, \quad \hat{y} = \hat{\beta _{0} } + \hat{\beta _{1} }x_1 + \hat{\beta _{2} }x_2 + \cdots + \hat{\beta _{p} }x_{p}.    
+\end{equation}
+
+For \(p = 2\), the regression variables \(\beta _{j} \) are given by 
+
+\begin{equation}
+    \hat{\beta _{1} } = \frac{\sum_{i=1}^{n} (x_{i} - \overline{x} )(y_{i} - \overline{y} )}{\sum_{i=1}^{n} (x_{i} - \overline{x} )^2} ~\text { and }~ \hat{\beta _{0} } = \overline{y} - \hat{\beta _{1} }\overline{x}, 
+\end{equation}
+
+where \(\overline{x} \equiv (\sum_{i=1}^{n} x_{i}) /n \text { and } \overline{y} \equiv (\sum_{i=1}^{n} y_{i} ) /n\) are the sample means. 
+
+
+
+\end{document}

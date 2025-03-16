@@ -1,50 +1,35 @@
-import numpy as np
-import matplotlib.pyplot as plt
+from PIL import Image
 
-# Parameters
-N_modes = 8  # Number of masses for mode cases
-L_modes = 6  # Length of system for mode cases
-A_modes = 1.5  # Amplitude of wave for mode cases
+def stretch_image(image_path, new_width, new_height, output_path):
+    """
+    Opens an image, resizes it to new dimensions (distorting it if necessary),
+    and saves the result.
 
-N_large = 8  # Number of masses for large mode case
-L_large = 6  # Length of system for large mode case
-A_large = 1.5   # Amplitude of wave for large mode case
-
-modes = [3, 17]  # Isolated modes
-
-fig, axes = plt.subplots(1, 2, figsize=(12, 5))
-axes = axes.flatten()
-
-# Mode Cases
-colors = ['green', 'purple']
-for idx, m in enumerate(modes):
-    if m == 3:
-        N = N_modes
-        L = L_modes
-        A = A_modes
-    else:
-        N = N_large
-        L = L_large
-        A = A_large
+    Parameters:
+        image_path (str): Path to the input image.
+        new_width (int): New width of the image.
+        new_height (int): New height of the image.
+        output_path (str): Path to save the resized image.
+    """
+    # Open the input image
+    img = Image.open(image_path)
     
-    x = np.linspace(0, L, N)
-    y = A * np.sin(m * np.pi * x / L)
+    # Resize the image to the specified new dimensions using LANCZOS filter
+    img_resized = img.resize((new_width, new_height), Image.LANCZOS)
     
-    axes[idx].scatter(x, y, color='brown', s=100, zorder=3)
-    for i in range(N - 1):
-        axes[idx].plot([x[i], x[i+1]], [y[i], y[i+1]], color='black', linewidth=1)
-    
-    x_dense = np.linspace(0, L, 100)
-    y_envelope = A * np.sin(m * np.pi * x_dense / L)
-    axes[idx].plot(x_dense, y_envelope, '--', color=colors[idx], linewidth=1)
-    
-    axes[idx].axhline(0, color='black', linestyle='dotted')
-    axes[idx].set_title(f"m={m}", fontsize=14, color='red')
-    axes[idx].set_xticks([])
-    axes[idx].set_yticks([])
-    axes[idx].set_xlim(-0.2, L + 0.2)
-    axes[idx].set_ylim(-A-0.5, A+0.5)
-    axes[idx].grid(True, linestyle=':', linewidth=0.5)
+    # Save the new image
+    img_resized.save(output_path)
+    print(f"Image saved as {output_path}")
 
-plt.tight_layout()
-plt.show()
+if __name__ == "__main__":
+    # Input image path (using a raw string for Windows file paths)
+    input_image = r"C:\Users\User\Downloads\Physics Notes\GP04 Lab Report\setup.png"
+    
+    # Output image path
+    output_image = r"C:\Users\User\Downloads\Physics Notes\GP04 Lab Report\setup_fatter.png"
+    
+    # Desired new dimensions (change these values to make the image "fatter")
+    desired_width = 600  # Increase the width
+    desired_height = 800  # Keep or adjust the height as needed
+    
+    stretch_image(input_image, desired_width, desired_height, output_image)

@@ -205,6 +205,44 @@ Assume the vectors \(\vb{v} _{1}, \ldots , \vb{v} _{k}  \) are linearly dependen
 
 where we expressed \(\vb{v} _{i} \) as a linear combination of the other vectors.
 
+In general, to determine whether a column vector is linearly dependent of others, and to find the linear combination coefficients, we have to solve, for example,
+
+\begin{equation}
+    x \begin{pmatrix}
+         1 \\
+         4 \\
+         7 \\
+    \end{pmatrix} + y \begin{pmatrix}
+         2 \\
+         5 \\
+         8 \\
+    \end{pmatrix} = \begin{pmatrix}
+         3 \\
+         6 \\
+         9 \\
+    \end{pmatrix}.
+\end{equation}
+
+There is no simple way to find \(x,y\) by eye, and the recommended method is to row reduce \(A\) to its reduced row echelon form \(R\)
+
+\begin{equation}
+    A = \begin{pmatrix}
+        1 & 2 &  3 \\
+        4 & 5 &  6 \\
+        7 & 8 &  9 \\
+    \end{pmatrix} \to \begin{pmatrix}
+        1 & 2 &  3 \\
+        0 & -3 & -6 \\
+        0 & 0 &  0 \\
+    \end{pmatrix} = \begin{pmatrix}
+        1 & 0 &  -1 \\
+        0 & 1 &  2 \\
+        0 & 0 &  0 \\
+    \end{pmatrix} = B,
+\end{equation}
+
+so that we immediately have \((3,-3,0) = -(1,0,0) + 2(2,-1,-6)\). This method will be explored in greater details in \cref{elim}. 
+
 \end{proof}
 
 
@@ -1069,7 +1107,9 @@ Since \(\vb{v}_{1}, \ldots, \vb{v}_n \) forms a basis it is clear that \(\Im (\v
     \varphi ^{-1} (\vb{v} ) = \varphi ^{-1} \left( \sum_{i=1}^{n} \alpha _{i} \vb{v} _{i}  \right) = \boldsymbol{\alpha }. 
 \end{equation}
 
-A linear and bijective map between two vector spaces is also referred to as a (vector space) isomorphism and two vector spaces related by such a map are called isomorphic. What the above discussion shows is that every \(n\)-dimensional vector space \(V\) over\(\mathbb{F}\) is isomorphic to \(\mathbb{F}^{n} \) by means of a coordinate map \(\varphi \). 
+In short, we can associate any vector with a vector in \(\mathcal{F}^{n} \) by a means of coorinates map. 
+
+A linear and bijective map between two vector spaces is also referred to as a (vector space) isomorphism and two vector spaces related by such a map are called isomorphic. What the above discussion shows is that every \(n\)-dimensional vector space \(V\) over \(\mathbb{F}\) is isomorphic to \(\mathbb{F}^{n} \) by means of a coordinate map \(\varphi \). 
 
 \section{Matrices}
 
@@ -1088,7 +1128,7 @@ with entries \(a_{ij} \in F \). The column vectors consisting of the \(i^{\text{
 
 It is important to note that the entries of \(A\) depends on both the basis chosen for the doamin and the co-domain. The relations between different matrices for different basis choice representing the same linear map is discussed in \cref{basischange}.  
 
-Define the matrix multiplication of a \(m \times  n\) matrix on a \(n\)-dimensional vector as   
+The matrix multiplication of a \(m \times  n\) matrix on a \(n\)-dimensional vector is defined as   
 
 \begin{equation}\label{matrixmultiplication} 
      A\vb{v} \equiv \begin{pmatrix}
@@ -1100,7 +1140,15 @@ Define the matrix multiplication of a \(m \times  n\) matrix on a \(n\)-dimensio
         \vdots   \\
         \vb{A} _{m} \cdot \vb{v}   \\
     \end{pmatrix} =  \sum_{i=1}^{m} v_{i} \vb{A} ^{i}    
-\end{equation}
+\end{equation}.
+
+As we can see, there are useful interpretation for the matrix multiplication \(A\vb{v} \), the row picture illustrates that the rows of \(A\vb{v} \) come from dot products of \(\vb{v} \) with the rows of \(\vb{A} \), and the column picuture shows that the columns of \(A\vb{v} \) come from linear combination of \(A\) with entries of \(\vb{v} \), so we can imagine \(A\) as an operator that transform \(\vb{v} \) to another vector \(A\vb{v} \).  
+
+The two ways of visualizing a matrix multiplied by a vector is illustrated in \cref{matrixtimesvector}.
+
+\onefig{matrixtimesvector}{width=\textwidth} 
+
+The row picture is easier for computation but the column picture is easier for understanding.
 
 Using index notation,
 
@@ -1254,12 +1302,12 @@ Thus, the image of \(\vb{v} \) is given by a linear combination of the column ve
     \Im (A) = \text{Span}(\vb{A} ^{1} , \ldots , \vb{A} ^{m} ), 
 \end{equation}
 
-so the image of the matrix is spanned by its column vectors.
+and is called the column space of the matrix, so the image of the matrix is spanned by its column vectors.
 
 We have earlier define the rank of a linear map as the dimension of its image, so \(\rank (f) = \dim \Im(f)\). Treating matrix multiplication as the action of a linear map, we have 
 \begin{equation}
     \begin{aligned}
-        \rank (A) &= \dim \Im(A) = \dim \text{Span} (\vb{A} ^{1}, \ldots ,\vb{A} ^{m}  ) \\
+        \rank (A) &= \dim \text{Im}(A) = \dim \text{Span} (\vb{A} ^{1}, \ldots ,\vb{A} ^{m}  ) \\
         &= \text{maximal number of linear independent column vectors of \(A\)}.
     \end{aligned}
 \end{equation}
@@ -1269,6 +1317,8 @@ For obvious reasons this is also sometimes called the column rank of the matrix 
 \begin{theorem}\label{rowcolumnrank} 
 Row and column rank are equal for any matrix.\footnote{The proof of this non-trivial theorem is not given here due to its length and relative insignificance, but provided in \cref{rowcolumnrankapp}.}
 \end{theorem}
+
+A nice interpretation of matrix multiplication \(A = CR\) is that matrix \(C\) contains all the  
 
 \example{Kernel and Image of A Matrix.}
 {Consider the \(3 \times 3\) matrix
@@ -1313,9 +1363,19 @@ To work this out more explicitly, we start with an \(m \times n\) matrix \(A\) a
 \begin{equation}
     \begin{aligned}
     (B(A\vb{v} ))_{i} = \sum_{j=1}^{n} B_{ij} (A\vb{v} )_{j} &= \sum_{j=1}^{n} B_{ij} \left( \sum_{k=1}^{n} A_{jk}\vb{v} _{k}\right) = \sum_{k=1}^{n} \left( \left(\sum_{j=1}^{n} B_{ij} A_{jk}  \right) \vb{v} _{k} \right)= \sum_{k=1}^{n} C_{ik} v_{k} = (C\vb{v} )_{i} \\
-    &\implies C_{ik} = \sum_{j=1}^{n} B_{ij} A_{jk} = \vb{B} _{i} \cdot \vb{A} ^{k}.   
+    &\implies C_{ik} = \sum_{j=1}^{n} B_{ij} A_{jk} = \vb{B} _{i} \cdot \vb{A} ^{k} 
     \end{aligned}
 \end{equation}
+
+This is an extension of the row picture in \cref{matrixmultiplication}, where each entry in \(C = BA\) is a dot product between a different row in \(B\) and a different column in \(A\). We can also easily extend the column picture in \cref{matrixmultiplication} just by imagining the matrix \(B\) multiplies on the column vectors in \(A\) individually to produce the column vecotrs in \(C\). So we can imagine \(B\) as an operator that transform the column vectors in \(A\) to another set of vectors, before \(AB\) transform a vector \(\vb{v} \) to another vector. 
+
+Alternatively, we can view matrix multiplications as linear combinations of rows or entries of outer product, but these two interpretations are seldom used.
+
+The four interpretations for matrix multiplications are illustrated in \cref{matrixtimesmatrix}.
+
+\onefig{matrixtimesmatrix}{width=\textwidth} 
+
+So again, the row picture is easier for calculation and the column picture is easier for understanding.
 
 Note that the two free indices in \(C_{ik} \) means that there are two components of \(C\) that we are interested in and the indices are describing. 
 
@@ -1358,8 +1418,14 @@ A quadratic \(n \times n\) matrix \(A:\mathbb{F}^{n}\rightarrow \mathbb{F}^{n}  
     \item \(A^{-1} \) is invertible and \((A^{-1} )^{-1} = A\).
     \item \(A^{T} \) is invertible and \((A^{T} ) ^{-1} = (A^{-1} )^{T} \).   
 \end{enumerate}
-
 \end{lemma}
+
+
+The properties of matrix inverse is best understood by visualizing the operation of \(A\) as transfomrming all vectors from one place to another. If the rank of a \(m \times n\) matrix \(A\) is not maximal, then \(\text{Im}(A) \neq \mathcal{R}^{m} \), which means some line is mapped to zero. And there is no inverse since no matrix can undo the damage and map the zero vectors back to some finite vector.
+
+Property (H2) almost becomes trivial: if you put on socks and then shoes, the first to be taken off are the shoes.
+
+At this stage, only inverse of square matrix interests us, because it has the extra nice property that \href{https:////en.wikipedia.org//wiki//Generalized_inverse}{the left inverse and the right inverse are the same} .
 
 \section{Linear Maps \(f: V \rightarrow W\)} \label{relations} 
 
@@ -1565,23 +1631,25 @@ Arranging the coefficients into columns, we have the transformed matrix
 
 \subsection{General Structures of Solutions}
 
-Consider a linear map \(f:V \to W\). We would like to find all solutions \(\vb{x} \in V\) of the inhomogeneous equation \(f(\vb{x} ) = \vb{b} \), where \(\vb{b} \in W\) is a fixed vector. In other words, which vectors \(\vb{x}  \in V\) get mapped to \(\vb{b} \in W\). We need to find first the solution to the associated homogenous equation \(f(\vb{x} ) = \boldsymbol{0} \), where the general solution is \(\ker (f)\).       
+Consider a linear map \(f:V \to W\). We would like to find all solutions \(\vb{x} \in V\) of the inhomogeneous equation \(f(\vb{x} ) = \vb{b} \), where \(\vb{b} \in W\) is a fixed vector. In other words, which vectors \(\vb{x}  \in V\) get mapped to \(\vb{b} \in W\). We need to find first the solution to the associated homogenous equation \(f(\vb{x} ) = \boldsymbol{0} \), where the general solution is \(\ker (f)\). In language of ordinary differential equation, \(\ker (f)\) are the homogenous solution \((e^{\lambda x} )\), and the inhomogeneous solution is the particular integral.         
 
-\begin{lemma}
+\begin{lemma} \label{homoinhomo} 
 If \(\vb{x} _{0} \in V\) solves the inhomogenous equation, \textit{i.e.,} \(f(\vb{x} _{0} ) = \vb{b}\), then \(\vb{x} _{0} + \ker (f) \) is the general solution of the inhomogenous equation.   
 \end{lemma}
 
-\begin{proof}
-If \(\vb{x} \) is a solution to \(f(\vb{x} ) = \vb{b} \) then \(f(\vb{x} - \vb{x} _{0} ) = f(\vb{x} ) - f(\vb{x} _{0} ) = \vb{b} -\vb{b} =\boldsymbol{0} \), so \(\vb{x} - \vb{x} _{0} \in \ker (f) \).     
+\begin{proof}  
+    \(f(\vb{x} _{0} + \ker (f)) = f(\vb{x} _{0} ) + f(\ker (f)) = f(\vb{x} _{0} ) = \vb{b} \). 
 \end{proof}
 
 The geometry of the solutions is schematically as indicated in \cref{generalstructure}.
 
 \onefig{generalstructure}{scale=0.3} 
 
-Suppose we want to solve \(m\) linear equations with \(n\) variables, which can be rewritten in matrix form as \(A\vb{x} = \vb{b} \), where \(A\) is a \(m \times n\) matrix and \(\vb{x} \text { and } \vb{b} \) are \(n\)-dimensional and \(m\)-dimensional column vectors respectively. The solutions can be no solution, an unique solution, or infinitely many solutions. The two latter case can be viewed as one category (there exists a solution no or some free parameters).
+Since every linear map \(f\) can be represented by a matrix \(A\), the general problem is to solve the matrix equation \(A\vb{x} = \vb{b} \), where \(A\) is a \(m \times n\) matrix and \(\vb{x} \) and \(\vb{b} \) are \(n\)-dimensional and \(m\)-dimensional column vectors respectively. 
 
-To distinguish the cases of the general structure of the solution, it is extremely helpful to visualize that the action of \(A\) as transformating all vectors from one place to another, and the columns of \(A\) are where the new basis would be (in terms of the old basis). The rank of the matrix is defined as the dimension of the image of \(A\), which is the dimension of the vector space spanned by the column vectors of \(A\). 
+That is, we want to find the linear combinations of the column vectors in \(A\) that produces the column vector \(\vb{b} \). In other words, we want to find a vector \(\vb{x} \) which gets mapped to \(\vb{b} \) after the transformation. If we expand the matrix equation, we have \(m\) linear equations with \(n\) variables. The solutions can be no solution, an unique solution, or infinitely many solutions. The two latter case can be viewed as one category (there exists a solution with no or some free parameters).
+
+To distinguish the cases of the general structure of the solution, it is extremely helpful to visualize that the action of \(A\) as transformating all vectors from one place to another, and the columns of \(A\) are the new basis (in terms of the old basis). The rank of the matrix is defined as the dimension of the image of \(A\), which is the dimension of the vector space spanned by the column vectors of \(A\). 
 
 For a general \(m \times n\) matrix \(A:\mathbb{F}^{n}\to \mathbb{F}^{m}  \) where \(m \neq n\), since the row rank is equals to the column rank, the maximum rank is \(\max (\rank (A)) = \min (m,n)\). 
 
@@ -1590,24 +1658,26 @@ If \(m > n\), then \(\max (\rank (A)) = n < m\); if \(m \le n\), then \(\max (\r
 \begin{enumerate}
     \item \(\rank (A) = m\): \(\vb{b} \in \mathbb{F}^{m} = \text{Im} (A)\), thus we have a solution \(\vb{x} _{0} \) for any choice of \(\vb{b} \) and the general solution is given by \(\vb{x} _{0} + \ker (A) \)\footnote{It is important to note that \(\ker (A)\) is also a solution to the equation, but in most cases it is ignored.} and the number of free parameters in this solution equals \(\dim (\ker (A)) = n - \rank (A) = n-m\).   
     \begin{enumerate}
-        \item \(\rank (A) = n\): There is no free parameter and we have an unique solution.
-        \item \(\rank (A) < n\): There is some free parameters and we have infinite number of solutions.  
+        \item \(\rank (A) = m = n\): There is no free parameter and we have an unique solution.
+        \item \(\rank (A) = m < n\): There is some free parameters and we have infinite number of solutions.  
     \end{enumerate}  
     \item \(\rank (A) < m\): The columns of \(A\) does not span through the whole \(m\)-dimensional vector space that it is allowed to (not greater than \(m\) since the image of a \(m \times n\) matrix is \(\mathbb{F}^{m} \)), so depending on \(\vb{b} \) we have \begin{enumerate}
         \item \(\vb{b} \in  \text{Im}(A) \): The equations are consistent and we have a solution with \(\dim (\ker (A)) = n - \rank (A)\) free parameters. Depending on whether \(\rank (A) = n \text { or } \rank (A) < n\), we have: 
         \begin{enumerate}
-            \item \(\rank (A) = n\): There is no free parameter and we have an unique solution.
-            \item \(\rank (A) < n\): There is some free parameters and we have infinite number of solutions.  
+            \item \(\rank (A) < m = n\): There is no free parameter and we have an unique solution.
+            \item \(\rank (A) < m < n\): There is some free parameters and we have infinite number of solutions.  
         \end{enumerate}
         \item \(\vb{b} \notin \text{Im}(A) \): The equations are inconsistent and there is no solution.  
     \end{enumerate}  
 \end{enumerate}
 
+The three relevant case of a square matrix are 1a), 2ai) and 2b.
+
 For example, for a \(4 \times 6\) matrix \(A\) with \(\rank (A) = 3\), there can be a solution only when \(\vb{b} \in  \text{Im}(A) \), \textit{i.e.,} \(\rank (A' = (A \mid \vb{b} )) = \rank (A)\), so we expect if the equations are consistent, there will be a line \(0 = 0\) at the last row of the augmented matrix, and there will be 3 free paramters.     
 
-The solution can be found either by calculating the inverse \(A^{-1} \), Gaussian elimination (also known as row reduction) or Cramer's rule.
+It is very important to note that the above discussion is under the premise that \(\vb{b} \neq 0\), \textit{i.e.,} we are finding the particular solution to the inhomogeneous equation, and we have to add the homogeneous solution \(\ker (A)\) to yield the complete solution, according to \cref{homoinhomo}.   
 
-\subsection{Gaussian Elimination}
+\subsection{Gaussian Elimination} \label{elim} 
 
 \begin{definition}
 The following manipulations of a matrix are called elementary row operations:\footnote{Analogous definitions hold for elementary column operations.}
@@ -1620,32 +1690,160 @@ The following manipulations of a matrix are called elementary row operations:\fo
 
 \end{definition}
 
-The kind of matrix we want to reduce to is called (upper) echelon form\footnote{A neat fact about elementary row operations is that they can be generated by multiplying with certain matrices from the left. In other words, to perform a row operation on a matrix \(A\), we can always find a suitable matrix \(P\) such that the row operation is generated by \(A \rightarrow PA\) (The explicit form of the matrices are given in \cref{APA}). This means we can bring a matrix \(A\) into upper echelon form by matrix multiplications \(P_{k} \ldots P_{1}A \).} \todo{magic squares and coding theory} where the entries \(a_{ij_{i} } \) are non-zero for all \(i = 1, ..., r\), all other entries above are arbitary and all entries below are zero which has the form
-
-\begin{equation}
-    A = \begin{pmatrix}
-        \ldots & a_{1j_{1} }  &  &  &  & *  \\
-         &  & a_{2j_{2} }  &  & \iddots    &   \\
-         &  &  & \ddots  &  &   \\
-         & \iddots &  &  & a_{r}j_{r}   & \ldots   \\
-        0 &  &  &  &  & \vdots   \\
-    \end{pmatrix}
-\end{equation}
-
-
 \begin{lemma} \label{rowvec} 
-The first \(r\) row vectors in this matrix are linearly independent.\footnote{The proof of this lemma is provided in \cref{rowvecapp}.}
-\end{lemma}
-
-
-
+    The first \(r\) row vectors in row echelon form are linearly independent.\footnote{The proof of this lemma is provided in \cref{rowvecapp}.}
+    \end{lemma}
+    
 This fact allow us to easily read off the rank of a matrix, which is not affected by the elementary row operations, as
 
 \begin{equation}
-    \rank (A) = r = \text{the number of steps in upper echelon form}
+    \rank (A) = r = \text{the number of steps in row echelon form}
 \end{equation}
 
-To devise an algorithm to compute the inverse of a matrix, using elementary row operations, we observe that every quadratic, invertible \(n \times n\) matrix \(A\) can be converted into identity matrix \(\mathbb{I}_{n} \) by a sequence of row operations. Schematically, this works as follows:
+If every sub square matrices are invertible, then by operations \((I2)\) (and \((I3)\) but it is just a special case of \((I2)\) and is only for simplifying.), we can reduce any matrix \(A\) to its row echelon form, \todo{magic squares and coding theory} where all zero rows (if there is any) are at the bottom and the leading entry of every non-zero row (called the pivot) is on the right of the leading entry of every row above. 
+
+In fact, we can associate any operation of type \((I2)\) to a matrix \(E_{(ij)} \), where \(l_{ij} \) times \(i^{\text{th}} \) row is being subtracted from the \(j^{\text{th}} \) row, with 
+
+\begin{equation}
+    E_{(ij)} = E_{R_{j} \rightarrow R_{j}-l_{ij}  R_{i}   } = \begin{pmatrix}
+        1 &  &  &  &  &  &   \\
+         & \ddots  &  &  &  &  &   \\
+         &  & 1 & \ldots  & -l_{ij}  &  & j^{\text{th }}\text{row}   \\
+         &  &  & \ddots  & \vdots  &  &   \\
+         &  &  &  & 1 &  &   \\
+         &  &  &  &  & \ddots  &   \\
+         &  &  &  & i^{\text{th }}\text{col.}  &  & 1  \\
+    \end{pmatrix}.
+\end{equation}
+
+For example, if we would like to subtract row 3 by 2 times row 2, we would need the matrix 
+
+\begin{equation}
+    E_{(23)} = E_{R_{3} \to R_{3} - 2R_{2}   } = \begin{pmatrix}
+        1 & 0 &  0 \\
+        0 & 1 &  0 \\
+        0 & -2 & 1  \\
+    \end{pmatrix}.
+\end{equation}
+
+The matrix associated with scalar multiplication of a certain row is just a special case where \(i = j\).
+
+On the other hand, if some of the submatrices are non-invertible, we would need to permute the rows at the end to avoid zeros in pivots, since elimination of the whole matrix is also elimination of the submatrices at the same time. 
+
+We can associate any operation of type \((I1)\) to a permutation matrix \(P_{ij} \) to exchange the \(i^{\text{th}} \text { and } j^{\text{th}} \) row of the matrix, with 
+
+\begin{equation}
+    P_{(ij)} =  P_{R_{i} \leftrightarrow R_{j}  } = \begin{pmatrix}
+        1 &  &  &  &  &  &  &  &   \\
+         & \ddots  &  &  &  &  &  &  &   \\
+         &  & 1 &  &  &  &  &  &   \\
+         &  &  & 0 &  & 1 &  &  & i^{\text{th }}\text{row}    \\
+         &  &  &  & \ddots  &  &  &  &   \\
+         &  &  & 1 &  & 0 &  &  & j^{\text{th }}\text{row}   \\
+         &  &  &  &  &  & 1 &  &   \\
+         &  &  &  &  &  &  & \ddots  &   \\
+         &  &  &  &  &  &  &  &  1 \\
+    \end{pmatrix}
+\end{equation}. 
+
+For example, if we would like to exchange the \(2^{\text{nd}} \text { and } 3^{\text{rd}}\) row, we would need the matrix 
+
+\begin{equation}
+    P_{(23)} = P_{R_{2} \leftrightarrow P_{3}  } = \begin{pmatrix}
+        1 & 0 &  0 \\
+        0 & 0 &  1 \\
+        0 & 1 &  0 \\
+    \end{pmatrix}.
+\end{equation}
+
+Usually we would use a single permutation matrix \(P\) to permute the rows at once.
+
+To reduce a matrix to its row echelon form \(U\), we continue multiply the row operations matrices on the left hand side. For a \(3 \times 3\) matrix, that is 
+
+\begin{equation}
+    PE_{32}E_{31}E_{21}A = U
+\end{equation}
+
+However, we can also have exchanged the rows at the start, for example, if the second and the thir row are exchanged, then we have 
+
+\begin{equation}
+    P_{23}E_{32}E_{31}E_{21}A = E_{23}E_{21}E_{31}P_{23}A \equiv EPA \equiv L^{-1} PA = U \implies PA=LU \equiv LDU'     
+\end{equation}
+
+In the last step, we decompose \(U = DU'\), where \(D\) are the diagonal elements of \(U\) and the diagonal elements of \(U\) are replaced by 1 to form \(U'\), which has a greater symmetry.  
+
+The matrix \(L\) is a lower traingular matrix satisfying \(EL = \mathbb{I}\) by definition, which undoes the row operations. For example, if we have 
+
+\begin{equation}
+    E = E_{32}E_{31}E_{21}    = \begin{pmatrix}
+        1 & 0 &  0 \\
+        0 & 1 &  0 \\
+        0 & -l_{32}  &  1 \\
+    \end{pmatrix}\begin{pmatrix}
+        1 & 0 &  0 \\
+        0 & 1 &  0 \\
+        -l_{31}  & 0 &  0 \\
+    \end{pmatrix}\begin{pmatrix}
+        1 & 0 &  0 \\
+        -l_{21} & 1 &  0 \\
+        0 & 0 &  1 \\
+    \end{pmatrix} = \begin{pmatrix}
+        1 & 0 &  0 \\
+        -l_{21}  & 1 &  0 \\
+        l_{32}l_{21}-l_{31} & -l_{32}  &  0 \\
+    \end{pmatrix}
+\end{equation}
+
+then the corresponding matrix that undoes the operations will be 
+
+\begin{equation}
+    L = L_{21}L_{31}L_{32} = \begin{pmatrix}
+        1 & 0 &  0 \\
+        l_{21}  & 1 &  0 \\
+        0 & 0 &  0 \\
+    \end{pmatrix}\begin{pmatrix}
+        1 & 0 &  0 \\
+        0 & 1 &  0 \\
+        l_{31}  & 0 &  0 \\
+    \end{pmatrix}\begin{pmatrix}
+        1 & 0 &  0 \\
+        0 & 1 &  0 \\
+        0 & l_{32} &  1 \\
+    \end{pmatrix} = \begin{pmatrix}
+        1 & 0 &  0 \\
+        l_{21}  & 1 &  0 \\
+        l_{31}  & l_{32}  &  0 \\
+    \end{pmatrix},
+\end{equation}
+
+which add back the rows in reverse order.
+
+The row echelon form \(U\) can be further reduced into the reduced row echelon from \(R\), which contains an identity matrix interspersed by linear combination coefficient of linear depndence columns in \(A\).
+
+In general, a matrix \(A\) can be factorized as \(A = CR\), where \(C\) consists fo all linearly indepedent column vectors in \(A\), so \(R\) is arguably more important than \(U\), since it is completely determined from \(A\) once \(C\) is chosen and by convention we have \(C\) as the first set of independent column vectors from left to right. For example, we have
+
+\begin{equation}
+    A = \begin{pmatrix}
+        1 & 7 & 3 &  35 \\
+        2 & 14 & 6 &  70 \\
+        2 & 14 & 9 &  97 \\
+    \end{pmatrix} = CR = \begin{pmatrix}
+        1 &  3 \\
+        2 &  6 \\
+        2 &  9 \\
+    \end{pmatrix} \begin{pmatrix}
+        1 & 7 & 0 &  8 \\
+        0 & 0 & 1 &  9 \\
+    \end{pmatrix},
+\end{equation}
+
+which means that there are only two columns in \(A\) that are independent, and we have \((7,14,14) = 7(1,2,2) \text { and } (35,70,97) = 8(1,2,2) + 9(3,6,9)\), something that is not trivial at all.  
+
+\subsection{Computing Inverse and Solving \(A\vb{x} = \vb{b} \)}
+
+To find the inverse of \(A\), we continue to reduce the matrix until it reaches its reduced row echelon form \(R\), for an invertible square \(n \times n\) matrix, \(R = \mathbb{I}_{n} \), since
+
+\subsubsection{Inverse}
 
 \begin{equation}
     A \xrightarrow{\text{echelon form} } \begin{pmatrix}
@@ -1665,23 +1863,23 @@ To devise an algorithm to compute the inverse of a matrix, using elementary row 
     \end{pmatrix} = \mathbb{I}_{n} 
 \end{equation}
 
-In the first step, we bring \(A\) into upper echelon form by the algorithm already discussed. At this point we can read off the rank of the matrix. If \(\rank (A)<n\) the inverse does not exist and we can stop. On the other hand, if \(\rank (A) = n\) then all diagonal entries \(a'_{ii} \) in the upper echelon form must be non-zero.
-
-Therefore in the second step we can make all entries above the diagonal zero. In this way we arrive at a diagonal matrix with diagonal entries \(a'_{ii} \neq 0 \) which in the final step can be converted into the identity matrix by multiplying every row with a suitable scalar. 
-
-This process also means that we can find a set of matrices \(P_{1} ,\ldots ,P_{k}\) generating appropriate elementary row operations such that 
+In matrix terms, we have
 
 \begin{equation}
     \mathbb{I}_{n} = P_{k} \ldots P_{1}A \implies A^{-1} = P_{k} \ldots P_{1} \mathbb{I}_{n}.    
 \end{equation}
 
-These equations imply an explicit (though tedious) algorithm to compute the inverse of a square matrix. We first convert \(A\) into the identity matrix \(\mathbb{I}_{n} \) using elementary row operations as described above, and then simply carry out the same operations by multiplying the corresponding matrix in parallel. 
+This means that we can write \(A \text { and }  \mathbb{I}\) together as a single augmented matrix \(A'=(A \mid \mathbb{I})\) and carry out the row operations in parallel to find \(A^{-1} \).  In principle we can multiply \(A^{-1} \) by \(\vb{b} \) to find \(\vb{x} \) but it is not done practically due to its inefficiency. 
 
-We first write the system of linear equation \(A\vb{x} = \vb{b} \) as a single augmented matrix \(A' = (A \mid \vb{b} )\). Since elementary row operations do not change the solutions to the system, we can first simply the augmented matrix by row reducing it into upper echelon form.
+\subsubsection{\(A\vb{x} = \boldsymbol{0} \) }
 
-For there to be a solution, we require that \(\vb{b} \) can be written as a linear combination of the columns of \(A\), \textit{i.e.,} \(\vb{b} \in  \text{Im}(A) \implies \rank (A) = \rank (A')\). This is equivalent to saying that we would not have any rows giving inconsistent equations, such as \(0z=3\).
+To find the homogeneous solution to \(A\vb{x} = \boldsymbol{0} \), \textit{i.e.,} to find \(\ker (A)\), we first factorize \(A = CR\), then we choose the dependent coordinates to be the free parameters 
 
-Assuming the equations are consistent, we would either have \(0=0\), which implies a free parameter (which adds one to \(\ker (A)\), or an actual equation of \(\vb{x} \).  
+
+
+The identical technique is used to solve \(A\vb{x} =\vb{b} \) by elimination: reduce the augemnted matrix \(A' = (A \mid \vb{b} )\) so that the answers can be directly read off.  
+
+If the equations are consistent, we would either have an actual equation, or something like \(0z=0\), which implies a free parameter (which adds one to \(\ker (A)\)), which happens when \(b \in \text{Im}(A)\) by coincidence. If the equations are not consistent then we would have somthing like \(0z=3\). 
 
 \chapter{Determinants}
 
@@ -1981,20 +2179,21 @@ Since properties \((K1) \text { and } (K3)\) imply that \(\avg{\vb{v} ,\vb{v} } 
     \abs{\vb{v} } = \sqrt{\avg{\vb{v} ,\vb{v} } }.
 \end{equation}
 
+For a real scalar product, in analogy with the dot product, the Cauchy-Schwarz inequality allows the definition of the angle \(\sphericalangle (\vb{v} ,\vb{w} ) \in  [0,\pi ]\) between two non-zero vectors \(\vb{v} ,\vb{w} \) by
+
+\begin{equation}
+    \cos (\sphericalangle (\vb{v} ,\vb{w} )) \equiv \frac{\avg{\vb{v} ,\vb{w} } }{\abs{\vb{v} }\abs{\vb{w} }  }.
+\end{equation}
+
 The Cauchy-Schwarz inequality and the triangle inequality are 
 
 \begin{equation}
-    \abs{\avg{\vb{v} ,\vb{w} } } \le \abs{\vb{v} }\abs{\vb{w} } ~\text { and }~  \abs{\vb{v} + \vb{w} } \le \abs{\vb{v} } + \abs{\vb{w} }.      
+    \abs{\avg{\vb{v} ,\vb{w} } } \le \abs{\vb{v} }\abs{\vb{w} } ~\text { and }~  \abs{\vb{v} + \vb{w} } \le \abs{\vb{v} } + \abs{\vb{w} },      
 \end{equation}
 
 \todo{More equality from riley} 
 
-For a real scalar product, in analogy with the dot product, the Cauchy-Schwarz inequality allows the definition of the angle \(\sphericalangle (\vb{v} ,\vb{w} ) \in  [0,\pi ]\) between two non-zero vectors \(\vb{v} ,\vb{w} \) by
-
-\begin{equation}
-    \cos (\sphericalangle (\vb{v} ,\vb{w} )) \equiv \frac{\avg{\vb{v} ,\vb{w} } }{\abs{\vb{v} }\abs{\vb{w} }  }. 
-\end{equation}
-
+where the first inequality comes directly from the definition of angle above as the cosine function cannot exceed \(1\), and the second from the fact that \((\vb{v} +\vb{w} )^2 = \abs{\vb{v} }^2+\abs{\vb{w} }^2 + 2\abs{\vb{v} }\abs{\vb{w} }     \). 
 
 Examples of scalar products include:
 
@@ -2236,7 +2435,7 @@ We can verify this in the case of the standard scalar product in \(\mathbb{R}^{n
 \end{equation}
 
 \begin{definition}
-A linear map \(f:V \rightarrow V\) on a vector space \(V\) with scalar product is called self-adjoint (or hermitian) if and only if \(f= f^{\dagger} \).
+A linear map \(f:V \rightarrow V\) on a vector space \(V\) with scalar product is called self-adjoint (or hermitian) if and only if \(f= f^{\dagger} \) (or \(A^{\dagger} = A\)).
 
 
 \end{definition}
@@ -3253,46 +3452,6 @@ The smallest example of a field in this class is \(\mathbb{F} _{2}  = \{0,1\} \)
 \end{table}
 
 Note that taking into account the \(\text{mod } 2 \) operation, in this field we have \(1+1 = 0\). Since the elements of \(\mathbb{F}_{2}  \) can be viewed as the two states of a bit, this field has important applications in computer science. 
-
-\section{Matrices for Elementary Row Operations} \label{APA} 
-
-Ther matrices corresponding to the 3 kinds of elementary row operations are given below as
-
-\begin{equation}
-    \begin{aligned}
-    P_{R_{i} \leftrightarrow R_{j}  } &= \begin{pmatrix}
-        1 &  &  &  &  &  &  &  &   \\
-         & \ddots  &  &  &  &  &  &  &   \\
-         &  & 1 &  &  &  &  &  &   \\
-         &  &  & 0 &  & 1 &  &  & i^{\text{th }}\text{row}    \\
-         &  &  &  & \ddots  &  &  &  &   \\
-         &  &  & 1 &  & 0 &  &  & j^{\text{th }}\text{row}   \\
-         &  &  &  &  &  & 1 &  &   \\
-         &  &  &  &  &  &  & \ddots  &   \\
-         &  &  &  &  &  &  &  &  1 \\
-    \end{pmatrix}, \\
-    P_{R_{i} \rightarrow \lambda R_{i}  } &= \begin{pmatrix}
-        1 &  &  &  &  &  &   \\
-         & \ddots  &  &  &  &  &   \\
-         &  & 1 &  &  &  &   \\
-         &  &  & \lambda  &  &  & i^{\text{th }}\text{row}   \\
-         &  &  &  & 1 &  &   \\
-         &  &  &  &  & \ddots  &   \\
-         &  &  & i^{\text{th }}\text{col.}  &  &  &  1 \\
-    \end{pmatrix} \text { and } \\
-    P_{R_{i} \rightarrow R_{i}+\lambda R_{j}   } &= \begin{pmatrix}
-        1 &  &  &  &  &  &   \\
-         & \ddots  &  &  &  &  &   \\
-         &  & 1 & \ldots  & \lambda  &  & i^{\text{th }}\text{row}   \\
-         &  &  & \ddots  & \vdots  &  &   \\
-         &  &  &  & 1 &  &   \\
-         &  &  &  &  & \ddots  &   \\
-         &  &  &  & j^{\text{th }}\text{col.}  &  & 1  \\
-    \end{pmatrix} .
-    \end{aligned}
-\end{equation}
-
-
 
 
 
