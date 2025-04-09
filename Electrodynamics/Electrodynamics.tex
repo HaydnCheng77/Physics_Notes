@@ -379,20 +379,27 @@ When \(\rho = 0\), we have the Laplace's equation
 \begin{equation}
     \laplacian V = 0.
 \end{equation}
-	
-The Laplace's equation can be visualized by picturing a thin rubber sheet stretched over a cardboard box with wavy boundaries and top part removed (\cref{laplace}). If we lay out coordinates \((x,y)\) on the bottom of the box, the height \(V(x,y)\) of the sheet will satisfy the Laplace's equation (as long as the surface does not deviate too radically from a plane). 
+
+The Laplace's equation can be visualized by picturing a thin rubber sheet stretched over a cardboard box with wavy boundaries and top part removed (see \cref{laplace}). If we lay out coordinates \((x,y)\) on the bottom of the box, the height \(V(x,y)\) of the sheet will satisfy the Laplace's equation (as long as the surface does not deviate too radically from a plane). 
 
 \onefig{laplace}{scale=0.4} 
 	
-From this analog, we see that the value of \(V\) at point \((x,y)\) is the average of those around the point. More precisely, if one draws a circle of any radius \(R\) about the point \((x,y)\), the average value of \(V\) on the circle is equal to the value at the center. Mathematically, 
+From this analog, we see that the value of \(V\) at point \((x,y)\) is the average of those around the point. More precisely, if one draws a circle of any radius \(R\) about the point \((x,y)\), the average value of \(V\) on the circle is equal to the value at the center. 
+
+This mean value property of the Laplace's equation in three dimension tells us that the potential at the center of a sphere is equals to the average potential over the surface of a sphere, which can be proved by noting that 
 
 \begin{equation}
-    V(x,y) = \frac{1}{2\pi R} \oint _{circle} Vdl.
+    \frac{\partial V_{\text{avg} } }{\partial R} = \frac{1}{4\pi R^2} \int_{S}^{} \frac{\partial V(R,\theta ,\phi )}{\partial x} dS = \frac{1}{4\pi R^2} \int_{S}^{} \grad{V} \cdot d\vb{S} = \frac{1}{4\pi R^2} \int_{V}^{} \laplacian V dV = 0.     
 \end{equation}
+
+This shows that the average potential over a sphere is independent of the sphere's radius \(R\), but clearly \(V_{\text{avg} } \to V_{\text{center} }  \) as \(R \to 0\), so we must have \(V_{\text{avg} } = V_{\text{center} }  \) for all \(R\).   
 
 Consequently, \(V\) has no local maxima or minima for the fact that for an extrema to occur, the surrounding points must all be larger or smaller than the extrema point. However, since the solution of the Laplace's equation is an averaging function, this cannot happen. As a result, all maxima or minima occur at the boundaries.
 
+This is consistent with our standard analysis of maxima and minima. Usually, we would compute the eigenvalues \(\lambda_i\) of the Hessian matrix \(H_{ij} = \partial^2 V / (\partial x_i \partial x_j)\). For \(V\) satisfying Laplace's equation \(\laplacian  V = \partial^2 V / (\partial x_i \partial x_i) = \partial^2 V / (\partial x_j \partial x_j) = 0\), the trace of the Hessian matrix vanishes, so we must have eigenvalues of opposite sign since \(\sum_{i} \lambda_i = 0\). Hence, any stationary point must be a saddle.
+
 As a result, a charged particle cannot be held in stable equilibrium by electrostatic forces alone, since for a stable equilibrium to exist, there must be a local minimum in potential energy which is proportional to \(V\). This is known as Earnshaw's theorem.
+
 
 \example{Average Potential over a Sphere.}
 {Consider a spherical surface with radius \(R\) centered at the origin. Find the average potential over the sphere
@@ -475,17 +482,21 @@ where \(\vb{E} _{\text{center} } \) only includes the contribution of the charge
     
 \begin{equation}
     \begin{aligned}
-        \laplacian V &= \frac{1}{r^2}\frac{d}{dr} (r^2 \frac{dV}{dr} ) = 0 \\ 
+        \laplacian V &= \frac{1}{r^2}\frac{d}{dr} \left(r^2 \frac{dV}{dr} \right) = 0 \\ 
         r^2 \frac{dV}{dr} &= c \\
         V &= \frac{c}{r} + k . 
     \end{aligned}
 \end{equation}
 
+This is the potential of a point charge at origin, but note that \(V \to \infty\) as \(r \to 0\), since \(\rho (\vb{r} ) \neq 0\) at the origin, so the Laplace's solution does not give the potential at that point. The volume we consider when solving the Laplace's equation is a sphere with a hole in a middle to exclude the point charge. 
+
+If we include the point charge and use the whole sphere as our volume, we must modified the charge density as \(\rho (\vb{r} ) = q \delta ^3 (\vb{r} )\), and solving the Poisson's equation gives the same result.  
+
 Similarly, if \(V\) only depends on \(\rho \) in cylindrical coordinates, such as in the case of a long wire, then the Laplace's equation becomes 
 
 \begin{equation}
     \begin{aligned}
-        \laplacian V &= \frac{1}{\rho } \frac{d}{d \rho} (\rho  \frac{dV}{d \rho}) = 0 \\
+        \laplacian V &= \frac{1}{\rho } \frac{d}{d \rho} \left(\rho  \frac{dV}{d \rho}\right) = 0 \\
         \rho \frac{dV}{d \rho} &= c \\
         V &= c \ln \rho + k.
     \end{aligned}	
@@ -494,14 +505,27 @@ Similarly, if \(V\) only depends on \(\rho \) in cylindrical coordinates, such a
 \section{Uniqueness Theorems}
 
 \begin{theorem}[The First Uniqueness Theorem]
-The solution to the Poisson's equation in some volume \(V\) is uniquely determined if the charge density \(\rho \) throughout the region is given and \(V\) is specified on the corresponding boundary surface \(S\) (the situation is summarized in \cref{1stuni}). 
+The solution to the Poisson's equation \(\laplacian V = \rho /\epsilon_0 \) in some volume \(\mathcal{V}\) is uniquely determined if 
+
+\begin{enumerate}
+    \item \(V\) is specified everywhere, or
+    \item \(V\) is specified anywhere and \(\vu{n} \cdot \grad{V} \) is specified elsewhere; 
+\end{enumerate}
+
+and is determined up to a constant if
+
+\begin{enumerate}
+    \item \(\vu{n} \cdot \grad{V} \) is specifed everywhere 
+\end{enumerate}
+
+on the corresonding boundary surface \(\mathcal{S}\) (see \cref{1stuni}).\footnote{Specifying \(V\) is known as the Dirichlet condition and specifying \(\vu{n} \cdot \grad{V} \) is known as the Neumann condition.}  
 
 \onefig{1stuni}{scale=0.3} 
 
 \end{theorem}
 
 \begin{proof}
-We will proof by contradiction. Suppose there are two solutions \(V_1 \text{ and } V_2\) which satisfy the Laplace's equation
+We will proof by contradiction. Suppose there are two solutions \(V_1 \text{ and } V_2\) which satisfy the Poisson's equation
 
 \begin{equation}
     \laplacian V_1 = \laplacian V_2 = -\frac{\rho }{\epsilon_0} .
@@ -510,53 +534,39 @@ We will proof by contradiction. Suppose there are two solutions \(V_1 \text{ and
 Subtracting the two equations, we have 
 
 \begin{equation}
-    \laplacian V_1 - \laplacian V_2 = \laplacian (V_1 - V_2) = 0.
+    \laplacian V_1 - \laplacian V_2 = \laplacian (V_1 - V_2) \equiv \laplacian V= 0.
 \end{equation}
 
-So we see that the \(V_1 - V_2\) satisfies the Laplace's equation. Also, we know that \(V_1 - V_2\) equals to zero on the boundaries since the value of \(V\) at the boundaries is fixed by the boundary conditions. 
+So we see that the \(V_1 - V_2 \equiv V\) satisfies the Laplace's equation. Also, we know that 
 
-On the other hand, we have proved that both maxima and minima occurs only at the boundaries for the Laplace's equation. Therefore both the maximum and the minimum value of \(V_1 - V_2\) equals to zero and thus \(V_1 - V_2\) equals to zero everywhere and hence \(V_1 = V_2\). 
+\begin{equation}
+    V = 0 ~\text { or }~ \vu{n} \cdot \grad{V} = 0 
+\end{equation}
 
-For a concrete picture, imagine that the wavy cardboard box in \cref{laplace} isn't wavy anymore but has a flat surface with constant height. Then it becomes obvious that the height of the rubber sheet will be the same as the boundaries everywhere.
+on the boundaries since \(V_1 \text { and } V_2 \) or \(\vu{n} \cdot \grad{V_1 } \text { and } \vu{n} \cdot \grad{V_2 }  \) are fixed to be the same on the boundaries. 
+
+Now we consider 
+
+\begin{equation}
+    \int_{V}^{} \div{(V\grad{V} )} dV = \int_{V}^{} (\grad{V } \cdot \grad{V} + V\laplacian V  ) dV = \int_{V}^{} \abs{\grad{V} }^2dV = \oint_{S} V {\grad{V}} \cdot d\vb{S} = \oint_{S} V(\vb{n} \cdot \grad{V} ) dS = 0,       
+\end{equation}
+
+so we have 
+
+\begin{equation}
+    \abs{\grad{V} }^2 \ge 0 \implies \grad{V} =0 \implies  V = \text{constant}.
+\end{equation}
+
+If the Dirichlet boundary conditions are imposed anywhere, then that constant must be zero as we have established. If only Neumann conditions are imposed, then the solution is only unique up to a constant.
 
 \end{proof}
 
-\begin{theorem}[The Second Uniqueness Theorem]
-In a volume \(V\) which contain conductors and whose outer boundary is either at infinity or is a conducting surface, the gradient of \(V\) (\textit{i.e.,} the electric field) is uniquely determined if the charge density \(\rho \) throughout the region is known and the total charge on each conductor is known (the situation is summarized in \cref{2nduni}).
+If \(V\) is specified everywhere on \(\mathcal{S}\), then since we have proved that both maxima and minima occurs only at the boundaries for the Laplace's equation. Therefore both the maximum and the minimum value of \(V\) equals to zero and thus \(V\) equals to zero everywhere. For a concrete picture, imagine that the wavy cardboard box in \cref{laplace} isn't wavy anymore but has a flat surface with constant height. Then it becomes obvious that the height of the rubber sheet will be the same as the boundaries everywhere.
 
-\onefig{2nduni}{scale=0.3} 
+If the volume contains conductors, then instead of the Dirichlet or the Neumann condition we can just specify the total charge on each conductor, which determines the potential on each conductor (see \cref{2nduni}). 
 
-\end{theorem}
 
-\begin{proof}
-We will prove by contradiction. Suppose there are two electric fields \(\vb{E} _{1} \text{ and } \vb{E} _{2} \) which satisfy the Poisson's equation
 
-\begin{equation}
-    \div{\vb{E} _{1} } = \div{\vb{E} _{2} } = \frac{\rho }{\epsilon_0}
-\end{equation}
-
-Letting \(\vb{E} _{3} = \vb{E} _{1} - \vb{E} _{2} \text{ and } V_3 = V_1 - V_2 \) and subtracting the two equations, we have
-
-\begin{equation}
-    \div{\vb{E} _{3} } = 0 \implies  \oint_{S} \vb{E} _{3} \cdot d\vb{S}  = 0 	\label{divE3} 
-\end{equation}
-
-Now, we integrate
-
-\begin{equation}
-    \div{(V_3\vb{E} _{3} )} = V_3(\div{\vb{E} _{3} }) + \vb{E} _{3} \cdot \grad{V_3} = \vb{E} _{3} \cdot (-\vb{E} _{3} ) = -E_3^2
-\end{equation}
-
-over \(V\), which gives
-
-\begin{equation}
-    \int _{V} (\div{V_3\vb{E} _{3} } ) d\tau  = \oint _{S} V_3\vb{E} _{3} \cdot d\vb{S} = V_3 \oint_{S} \vb{E} _{3}\cdot d\vb{S} = 0 = -\int _{V} E_3^2 d\tau 
-\end{equation}
-
-where we have taken out \(V_3 \) out of the integral sign since \(V_3\) is a constant over every surfaces (since the charges on each conductor is known, the potential on each conductor is also known, and for the outer surface at infinity, \(V_3 = 0\))
-
-Thus we have \(\vb{E} _{3} = 0 \implies \vb{E} _{1} = \vb{E} _{2}  \). 
-\end{proof}
 
 \example{Uniqueness Theorems.}
 {Determine that after connecting the charges in \cref{uni1} with wires as shown in \cref{uni2}, would the final charge configuration remains unchanged, or would it be the one shown in \cref{uni3}.}
@@ -587,11 +597,6 @@ Thus we have \(\vb{E} _{3} = 0 \implies \vb{E} _{1} = \vb{E} _{2}  \).
     \caption[]{\label{uni}}
 \end{figure}
 
-\example{A Variant to the Second Uniqueness Theorem.}
-{Prove that the electric field is uniquely determined when \(\rho \) is given and either \(V \text { or } \pdv{V}{n} \) is specified on each boundary surface.}
-{} 
-
-
 \section{The Method of Images}
 
 Suppose a point charge \(q\) is held a distance \(d\) above an infinite grounded conducting plane and we wish to find the potential in the region above the plane. From a mathematical standpoint, this is equivalent to solving the Poisson's equation in the region \(z > 0\), with \(\rho \) corresponds to a single point charge  \(q\) located at \((0,0,d )\), subject to the boundary conditions: 
@@ -611,10 +616,10 @@ This is because there is no electric field in the region \(z < 0\), or equivalen
 So in general the energy becomes \(U = q_{\text{real} } V \) and we only need to take into account the energy of the real charges. 
 
 \example{Image Charges of a Conducting Spherical Shell.}
-{A point charge \(q\) is situated a distance \(a\) from the center of a conducting shell\footnote{A conducting sphere works just as fine here as well. This is because for \(a > R\), the real charge density is zero inside the shell, so the internal field can be found by solving the Laplace's equation with \(\rho = 0\) and subject to the boundary condition of constant potential at the shell. By invoking the first uniqueness theorem, we see that the internal field equals to zero which resembles the case of a conductor is the only answer.} of radius \(R < a\)\footnote{The same can be done for \(R > a\) but we omit here for simplicity.}. Find the potential outside the spherical shell if it is  
+{A point charge \(q\) is situated a distance \(a\) from the center of a conducting shell\footnote{A conducting sphere works just as fine here as well. This is because for \(a > R\), the real charge density is zero inside the shell, so the internal field can be found by solving the Laplace's equation with \(\rho = 0\) and subject to the boundary condition of constant potential at the shell. By invoking the first uniqueness theorem, we see that the internal field equals to zero which resembles the case of a conductor is the only answer.} of radius \(R < a\).\footnote{The same can be done for \(R > a\) but we omit here for simplicity.} Find the potential outside the spherical shell if it is  
 \newline 
 \begin{enumerate}[itemsep=10pt] 
-    \item grounded\footnote{Grounded means \(V = 0 \) relative to infinity, since it is connected to the Earth by a wire, and Earth has infinite capacitance, if we consider the Earth and the sphere as one conductor, we get \(V = 0\) from \(Q = CV\).}, or
+    \item grounded,\footnote{Grounded means \(V = 0 \) relative to infinity, since it is connected to the Earth by a wire, and Earth has infinite capacitance, if we consider the Earth and the sphere as one conductor, we get \(V = 0\) from \(Q = CV\).} or
     \item held at potential \(V_0\), or
     \item isolated with net charge \(Q\).
 \end{enumerate}~}
@@ -1045,7 +1050,17 @@ Placing the dipole at the origin, orienting \(\vb{p} \) to point in the \(z\) di
     \vb{E} _{\text{dip} } (r, \theta ) = \frac{p}{4\pi \epsilon _0 r^3 }(2\cos \theta \vu{r} + \sin \theta \vu{\boldsymbol{\theta } }). 
 \end{equation}
 
+In fact, a quick way to generate the multipole potential is to simply take the gradient of the lower order potential, for example, to generate diopole potential from the monopole potential, we can imagine a negative charge \(-q\) located at \(\vb{r} '_{-}  \) and a positive charge \(+q\) located at \(\vb{r}' _{+}  \). Then the dipole potential is the combination of the monopole potential
 
+\begin{equation}
+    \begin{aligned} 
+    V_{\text{dip} } (\vb{r} ) &= V_{\text{mono,+q} } + V_{\text{mono,-q} } = kq \left( \frac{1}{\abs{\vb{r} - \vb{r} '_{+} }  } - \frac{1}{\abs{\vb{r} - \vb{r} '_{-} } }   \right) \\
+    &= kq \left( \frac{1}{r} + (-\vb{r} '_{+}) \cdot \grad{\left( \frac{1}{r }  \right)} - \frac{1}{r} - (-\vb{r} '_{-} ) \cdot \grad{\left( \frac{1}{r}  \right)}    \right) \\
+    &= -kq \grad{\left( \frac{1}{r}  \right)} \cdot d\vb{r} ' = \frac{k \vb{p} \cdot \vu{r} }{r^2} 
+    \end{aligned} 
+\end{equation}
+
+Ultimately, this method boils down to the fact that if \(V (\vb{r} )\) is a solution to the Laplace's equation, \textit{i.e.,} \(\laplacian V = 0\), then its gradient \(\grad{V(\vb{r} )} \) also is, since \(\laplacian (\grad{V(\vb{r} )} ) = \grad{\laplacian V(\vb{r} )} = 0 \), due to the linearity of the differential operators. Note that \(\rho (\vb{r} ) = 0\) everywhere, including the origin where the charges cancel out.
 
 
 
@@ -1221,7 +1236,7 @@ without having to split the integral into two parts.
 
 
 
-\section{Modified Gauss's Law}
+\section{Modified Gauss's Law} \label{mode} 
 
 While Gauss's law (\cref{gauss}) works completely fine inside polarized matter, where the electric field \(\vb{E} (\vb{r} )\) at a point \(\vb{r} \) is still related to the charge density \(\rho (\vb{r} )\)  by \(\div{\vb{E}(\vb{r} )} = \rho(\vb{r} ) / \epsilon_0 \), it is kind of useless since we do not know what \(\rho (\vb{r} )\) is: it composed of \(\rho = \rho _{f} + \rho _{b}  \), where the free charges \(\rho _{f} \) are the charges we can control and not arised from polarization while the bound charges \(\rho _{b} \) are the charges due to polarization of the material under an external electric field. 
 
@@ -1453,7 +1468,9 @@ The force is the same whether \(Q \text { or } V\) is held constant, it is deter
 
 Electrostatics is the study of the interactions between charged particles that are moving at a constant speed, or steady currents.\footnote{Intrinsically, eelctric forces are enormously stronger than magnetic ones. This has to do with the sizes of the constants \(\epsilon_0 \text { and } \mu_0 \). In general, it is only when both the source charges and the test charge are moving at velocities comparable to the spped of light that the magnetic force approaches the electric forc in strength. However, since it is current that matters, we can compensate for a smallish velocity by pourin prodigious amounts of charge down the wire such that the magnetic field is detectable. Ordinarily, this charge would simultaneously generate so large an electric force as to swamp the magnetic one. But if we arragne to keep the wire neutral, by embedding in it an equal quanitity of opposite charge at reast, the electric field cancels out, leaving the magnetic force to stand alone.} 
 
-\section{Magnetic Field and Magnetic Potential}
+\section{Magnetic Fields and Magnetic Potential}
+
+\subsection{Magnetic Fields}
 
 By the Biot-Savart Law, the magnetic field at position \(\vb{r} \) created by the volume current density \(\vb{J} (r')\) is\footnote{Note that unlike the Columb's law for point charge, there is no analogous Biot-Savart Law for point charge, in which one would expect the magnetic field created by a moving point charge is \(\vb{B} = \frac{\mu_0}{4\pi} \frac{q \vb{v} \cross \hrcurs }{\rcurs ^2} \), since Biot-Savart law only holds for steady current. Instead, if we introduce the concept of magnetic charges, we would get \(\vb{B} = \frac{\mu_0}{4\pi} \frac{q_{b} }{\rcurs ^2} \), exactly analogous to the Columb's law.} 
 
@@ -1484,6 +1501,8 @@ Taking the curl, we have
 where we have used the continuity euqation \( \div{\vb{J} } = \div{(\rho v)}  = -\partial \rho /\partial t = 0\) for steady currents.  
 
 These are the remaining two Maxwell's equations under magnetostatics assumptions.
+
+\subsection{Magnetic Potential}
 
 We can thus define the magnetic field as the curl of a vector function \(\vb{A} (\vb{r} )\) which we call it as magnetic vector potential defined by 
 
@@ -1583,6 +1602,26 @@ Therfore the vector potential is equals to the magnetic field created by current
 
 }
 
+
+\subsection{Magnetic Field Lines}
+
+In electrostatic the field lines originate on positive charges and terminate on negative ones (or extend to infinity). Magnetic field lines, however, do not begin or end anywhere. In many cases, they form closed loops, however, even more commonly, they do not close on itself but extend to infinity.
+
+Consider the magnetic field lines created by a circular ring caryying a steady current \(I \), together with a long straight wire with an adjustable current \(I'\). Except for certain very special values of \(I'\), the helical field lines that wind around the ring will not close on itself after circling the ring. In some sense, the density of the magnetic field lines in the vincity of the ring is infinite.
+
+To resolve our understanding of magnetic field lines, consider a flux tube with end surface \(\vb{S} _{1} \text { and } \vb{S} _{2} \). The surface integral of \(\vb{B} \) over this tube is
+
+\begin{equation}
+    \oint_{S} \vb{B} \cdot d\vb{S} = B_2 S_2 - B_1 S_1 = \int_{V}^{} (\div{\vb{B} } ) d\tau =0. 
+\end{equation}
+
+Therefore, the flux of \(\vb{B} \) is constant along the flux tube. If we have drawn a number of field lines proportional to the flux, \textit{i.e.,} \(n_1 = kB_1 S_1\), then \(B\) is proportional to the number of field lines per unit area all along the tube. Doing the same for every flux tube (with the same proportionality factor \(k\)), the density of field lines represents the strength of the field everywhere.  
+
+In deriving this result, however, we have assumed that magnetic fields form closed loop, so when a field line leaves the flux tube, it enters the flux tube again at the same point. However, we have seen that this is not always the case, and if it enters the flux tube at a different place, then we will suddenly have too many field lines to represent the strength of the field. 
+
+Either we abandon the idea that the density of field lines represents the magnitude of the magnetic field (in which icase we sacrifice the main point of the field-line picture) or else we must stop the errant line at the gate, and identify its continuation as one of the lines we alreday drew. However now we must except that the field lines are discontinuous at the boundary. They lose their identity and hop over to an existing field line.
+
+For example, in the example above, the field line makes one circuit of the loop, and then jumps over to rejoin its tail. 
 \chapter{Magnetic Field in Matter}
 
 \section{Multipole Expansion and Dipole moment}
@@ -1690,7 +1729,7 @@ inside the sphere and the field outside is the same as that of a perfect dipole
 \end{equation}~
 }
 
-\section{Modified Ampere's Law}
+\section{Modified Ampere's Law} \label{modb} 
 
 While Ampere's law (\cref{ampere}) works completely fine inside magnetized matter, where the magnetic field \(\vb{B} (\vb{r})\) at a point \(\vb{r} \) is still related to the current density \(\vb{J} (\vb{r} )\) by \(\curl{\vb{B} (\vb{r} )} = \mu_0 \vb{J} (\vb{r} ) \), it is kind of useless since we do not know what \(\vb{J} (\vb{r} )\) is: it composed of \(\vb{J} = \vb{J} _{f} + \vb{J} _{b}  \), where the free currents \(\vb{J} _{f} \) are the currents we can control and not arised from magnetiation while the bound currents \(\vb{J} _{b} \) are the currents due to magnetization of the material under an external magnetic field. 
 
@@ -1714,273 +1753,19 @@ But for the case of homogenous medium, where the magnetic susceptibility \(\chi 
 
 Similar to \cref{boundfree}, the volume bound current is proportional to the volume free current, since \(\vb{J} _{b} = \curl{\vb{M} } = \curl{(\chi _{m}\vb{H}  )} = \chi _{m}\vb{J} _{f} \). So unless the volume free current actually fows through the material, the volume bound current will be zero and all bound current will be on the surface.  
 
-
-\chapter{Conservation Laws}
-
-\section{Charge Conservation}
-
-The local conservation of charge tells us that if the charge in some region changes, then exactly that amount of charge must have passed in or out through the surface, so 
+In fact, there is an extra contribution to the current density due to the accumulation of the volume bound charge \(\rho _{b} \), known as the polarization current \(\vb{J} _{p} \), which can be found by the continuity equation (conservation of charge) 
 
 \begin{equation}
-    \frac{dQ}{dt} = \int_{V}^{} \frac{\partial \rho }{\partial t} d\tau =   -\oint_{S} \vb{J} \cdot d\vb{S}  = -\int_{V}^{} (\grad{\vb{J} } ) d\tau   \implies \frac{\partial \rho }{\partial t} = - \div{\vb{J} }.   \label{contincharge} 
+    \div{\vb{J} _{p} } = - \frac{\partial \rho _{b} }{\partial t} \implies  \vb{J} _{p} = \frac{\partial \vb{P} }{\partial t}.
 \end{equation}
 
-Note that this continuity equation is not an independent assumption but can be derived from the Maxwell's equations.
-
-\section{Energy Conservation}
-
-Suppose we have some charge and current configuration which, at time \(t\) produces fields \(\vb{E} \text { and } \vb{B} \). In the next instant, \(dt\), the charges move around a bit. The work done, \(dW\), by the electromagnetic forces on a charge \(q\), is then 
+So we should acutually divide the current density \(\vb{J} \) into three parts \((\vb{J} _{f}, \vb{J} _{b}, \vb{J} _{p})\),and the Ampere's law should be modified as 
 
 \begin{equation}
-    dW = q(\vb{E} + \vb{v} \cross \vb{B} ) \cdot (\vb{v} dt) \implies \frac{dW}{dt} = \int_{V}^{} (\vb{E} \cdot \vb{J} )d\tau . \label{dW} 
+    \curl{\vb{H} } = \vb{J} _{f} + \frac{\partial \vb{P} }{\partial t}. \label{comampere} 
 \end{equation}
 
-From the Ampere's law (\cref{comampere}), we have 
-
-\begin{equation}
-    \begin{aligned}
-        \vb{E} \cdot \vb{J} &= \frac{1}{\mu_0 } \vb{E} \cdot (\curl{\vb{B} } ) - \epsilon_0 \vb{E} \cdot \frac{\partial \vb{E} }{\partial t} \\
-        &= \frac{1}{\mu_0 } \left( \vb{B} \cdot (\curl{\vb{E} } ) - \div{(\vb{E} \cross \vb{B} )}  \right) - \frac{\epsilon_0 }{2} \frac{\partial E^2}{\partial t} \\
-        &= \frac{1}{\mu_0 } \left( -\vb{B} \cdot \frac{\partial \vb{B} }{\partial t} - \div{(\vb{E} \cross \vb{B} )}   \right) - \frac{\epsilon_0 }{2} \frac{\partial E^2}{\partial t}\\
-        &= -\frac{1}{2} \frac{\partial }{\partial t} \left( \epsilon_0 E^2 + \frac{1}{\mu_0 } B^2  \right)  - \frac{1}{\mu_0 } \div{(\vb{E} \cross \vb{B} )}.         
-    \end{aligned}
-\end{equation}
-
-So plugging this for the \(\vb{E} \cdot \vb{J} \) in \cref{dW}, we have
-
-\begin{equation}
-    \begin{aligned} 
-    \frac{dW}{dt} &=  \int_{V}^{}\left( -\frac{1}{2} \frac{\partial }{\partial t} \left( \epsilon_0 E^2 + \frac{1}{\mu_0 } B^2  \right)  - \frac{1}{\mu_0 } \div{(\vb{E} \cross \vb{B} )} \right) d\tau \\
-    &= -\frac{d}{dt} \int_{V}^{} \frac{1}{2} \left( \epsilon_0 E^2 + \frac{1}{\mu_0 }B^2  \right) d\tau - \frac{1}{\mu_0 } \oint_{S} (\vb{E} \cross \vb{B} ) \cdot d\vb{S'} \footnote{We used \(\vb{S} '\) to denote the vector area to avoid confusion with the Poynting vector \(\vb{S} \).} \\
-    &\equiv -\frac{d}{dt} \int_{V}^{} ud\tau - \oint_{S} \vb{S} \cdot d\vb{S'}.
-    \end{aligned} 
-\end{equation}
-
-Here the total energy stored in electromagnetic fields, per unit volume, is 
-
-\begin{equation}
-    u \equiv  \frac{1}{2} \left( \epsilon_0 E^2 + \frac{1}{\mu_0 } B^2  \right),
-\end{equation}
-
-whil the energy per unit time, per unti area, transported by the fiels, called the Poynting vector, is
-
-\begin{equation}
-    \vb{S} \equiv \frac{1}{\mu_0 } \left( \vb{E} \cross \vb{B}  \right)  = \vb{E} \cross \vb{H} .
-\end{equation}
-
-The Poynting's theorem then states that the decrease in energy stored by the electromagnetic fields in a certain volume (the first term on the RHS) is equals to the work done on the charges by the electromagnetic force (the term on the left), plus the energy that flows out through the surface (the second term on the right).
-
-If there is no work done on the charges, \textit{i.e.,} \(dW /dt = 0\), then
-
-\begin{equation}
-    \int_{V}^{} \frac{\partial u}{\partial t} d\tau = -\oint_{S} \vb{S} \cdot d\vb{S'} = -\int_{V}^{} (\div{\vb{S} } ) d\tau  \implies \frac{\partial u}{\partial t} = -\div{\vb{S} },   \label{continenergy} 
-\end{equation}
-
-which is exactly analogous to the charge continuity equation (\cref{contincharge}), where the energy density \(u\) plays the role of the charge density \(\rho \) and the Poynting vector (energy current density) \(\vb{S} \) plays the role of the current density \(\vb{J} \). 
-
-\section{Momentum Conservation}
-
-\subsection{Maxwell's Stress Tensor}
-
-The Maxwell's Stress Tensor \(\boldsymbol{\sigma } \) is defined as 
-
-\begin{equation}
-    \sigma _{ij}  = \epsilon_0 \left( E_{i}E_{j} - \frac{1}{2} \delta _{ij} E^2     \right) + \frac{1}{\mu_0 }\left( B_{i}B_{j} - \frac{1}{2} \delta _{ij}B^2     \right),
-\end{equation}
-
-which is the force per unit area in the \(i^{\text{th}} \) direction acting on an element of surface oriented in the \(j^{\text{th}} \) diretion. Diagonal elements \((\sigma _{ii}, \sigma _{jj}, \sigma _{kk}  )\) represents pressure and ``off-diagonal'' elements are shears.
-
-The divergence of \(\boldsymbol{\sigma }  \) is then 
-
-\begin{equation}
-    \begin{aligned}
-        (\div{\boldsymbol{\sigma }  } )_{j} =  \partial _{i}\sigma _{ij} = \epsilon_0 \left( (\div{\vb{E} } )E_{j} + (\vb{E} \cdot \grad{} )E_{j} - \frac{1}{2}\grad{}_{j}E^2      \right) + \frac{1}{\mu_0 } \left( (\div{\vb{B} } )B_{j}+(\vb{B} \cdot \grad{} )B_{j}-\frac{1}{2}\grad{}_{j}B^2      \right).   
-    \end{aligned}
-\end{equation}
-
-\example{Forces between Hemispheres of a Sphere.}
-{Here we revisit an example in \cref{surcha} and calculate the net force between the hemispheres of a sphere with radius \(R\) and charge \(Q\).}
-{Since the system is static and symmetic along the \(z\)-axis, the force is 
-
-\begin{equation}
-    F = \oint_{S} (\boldsymbol{\sigma } \cdot d\vb{S}  )_{z}.
-\end{equation}
-
-For the hemispherical bowl, the infinitesimal vector area is 
-
-\begin{equation}
-    d\vb{S} = R^2\sin \theta d \theta d\phi \vu{r} = R^2\sin \theta d \theta d\phi (\sin \theta \cos \phi \vu{x} + \sin \theta \sin \phi \vu{y} + \cos \theta \vu{z} ),
-\end{equation}
-
-and the electric field is 
-
-\begin{equation}
-    \vb{E} = \frac{1}{4\pi \epsilon_0} \frac{Q}{R^2}\vu{r} = \frac{1}{4\pi \epsilon_0} \frac{Q}{R^2} (\sin \theta \cos \phi \vu{x} + \sin \theta \sin \phi \vu{y} +\cos \theta \vu{z}),
-\end{equation}
-
-so the relevant components of the Maxwell's stress tensor are 
-
-\begin{equation}
-    \begin{aligned}
-        \sigma _{zx} &= \epsilon_0 E_{z}E_{x} = \epsilon_0 \left( \frac{Q}{4\pi \epsilon_0 R^2}  \right)^2 \sin \theta \cos \theta \cos \phi \\
-        \sigma _{zy} &= \epsilon_0 E_{z}E_{y} = \epsilon_0 \left( \frac{Q}{4\pi \epsilon_0 R^2}  \right)^2 \sin \theta \cos \theta \sin \phi \\
-        \sigma _{zz} &= \frac{\epsilon_0 }{2}\left( E_{z}^2- E_{x}^2-E_{y}^2    \right) = \frac{\epsilon_0 }{2} \left( \frac{Q}{4\pi \epsilon_0 R^2}   \right)^2 (\cos ^2\theta - \sin ^2\theta ),
-    \end{aligned}
-\end{equation}
-
-and the integrand is therefore
-
-\begin{equation}
-    (\boldsymbol{\sigma } \cdot d\vb{S} )_{z} =  \sigma _{zx}dS_{x} + \sigma _{zy}dS_{y}+ \sigma _{zz}dS_{z} = \frac{\epsilon_0 }{2} \left( \frac{Q}{4\pi \epsilon_0 R}   \right)^2 \sin \theta \cos \theta d \theta d\phi .       
-\end{equation}
-
-For the circular disk, the infinitesimal vector area is 
-
-\begin{equation}
-    d\vb{S} = -r dr d\phi \vu{z} ,
-\end{equation}
-
-and the electric field is 
-
-\begin{equation}
-    \vb{E} = \frac{1}{4\pi \epsilon_0} \frac{Q}{R^3 }\vb{r} = \frac{1}{4\pi \epsilon_0} \frac{Qr}{R^3 }(\cos \phi \vu{x} + \sin \phi \vu{y} ).  
-\end{equation}
-
-so the relevant component of the Maxwell's stress tensor is 
-
-\begin{equation}
-    \sigma _{zz} = \frac{\epsilon_0 }{2}\left( E_{z}^2 - E_{x}^2 - E_{y}^2    \right) = - \frac{\epsilon_0 }{2} \left( \frac{Q}{4\pi \epsilon_0 R^3 }  \right)^2r^2,
-\end{equation}
-
-and the integrand is therefore
-
-\begin{equation}
-    (\boldsymbol{\sigma } \cdot d\vb{S}  )_{z} =  \sigma _{zz}dS_{z} = \frac{\epsilon_0 }{2} \left( \frac{Q}{4\pi \epsilon_0 R^3 }  \right)^2 r^3 dr d\phi .  
-\end{equation}
-
-The total force is finally 
-
-\begin{equation}
-    F = \frac{\epsilon_0 }{2} \left( \frac{Q}{4\pi \epsilon_0 R}  \right)^2 2\pi \int_{0}^{\frac{\pi }{2} } \sin \theta \cos \theta d \theta + \frac{\epsilon_0 }{2} \left( \frac{Q}{4\pi \epsilon_0 R^3 }  \right)^2 2\pi \int_{0}^{R} r^3 dr = \frac{1}{4\pi \epsilon_0} \frac{3Q^2}{16R^2}
-\end{equation}
-
-as expected.
-
-In fact, any volume that encloses all of the charge in question (and no other charge) will do the job. For example, we can use the whoele region \(z > 0\). In place of the hemispherical bowl, we now have the outer portion of the plane, so the only relevant component of the Maxwell's stress tensor can be found by substituting \(\theta = \pi /2\) into the \(\sigma _{zz} \) found above as
-
-\begin{equation}
-    \sigma _{zz} = - \frac{\epsilon_0 }{2} \left( \frac{Q}{4\pi \epsilon_0 }  \right)^2 \frac{1}{r^4},    
-\end{equation} 
-
-so the integrand is 
-
-\begin{equation}
-    (\boldsymbol{\sigma }\cdot d\vb{S}  )_{z} = \frac{\epsilon_0 }{2} \left( \frac{Q}{4\pi \epsilon_0 }  \right)^2 \frac{1}{r^3 }dr d\phi ,   
-\end{equation}
-
-and the force is 
-
-\begin{equation}
-    F = \frac{\epsilon_0 }{2} \left( \frac{Q}{4\pi \epsilon_0 }  \right)^2 2\pi \int_{R}^{\infty} \frac{1}{r^3 }dr = \frac{1}{4\pi \epsilon_0} \frac{Q^2}{8R^2}.     
-\end{equation}
-}
-
-
-\subsection{Momentum Continuity Equation}
-
-To derive a continuity equation for momentum, we start by finding the totoal force \(\vb{F} = d\vb{p} /dt\) acting on a charge \(q\) in the same setting as in the previous section. 
-
-\begin{equation}
-    \vb{F} = \frac{d\vb{p} }{dt}  = q(\vb{E} + \vb{v} \cross \vb{B} ) = \int_{V}^{} (\rho \vb{E} + \vb{J} \cross \vb{B}) d\tau . 
-\end{equation}
-
-As usual, we will eliminate \(\rho \text { and } \vb{J} \) using the Gauss's law and the Ampere's law (\cref{gauss, comampere}) to simplify the force per unit volume \(\vb{f} = \rho \vb{E} + \vb{J} \cross \vb{B} \) 
-
-\begin{equation}
-    \begin{aligned}
-        \vb{f}  &= \epsilon_0 (\div{\vb{E} } )\vb{E}  + \left( \frac{1}{\mu_0} \curl{\vb{B} } - \epsilon_0 \frac{\partial \vb{E} }{\partial t}    \right) \cross \vb{B} \\
-        &= \epsilon_0 (\div{\vb{E} } )\vb{E}  - \frac{1}{\mu_0 }\vb{B} \cross (\curl{\vb{B} } ) - \epsilon_0 \left( \frac{\partial }{\partial t} \left( \vb{E} \cross \vb{B}  \right) - \left( \vb{E} \cross \frac{\partial \vb{B} }{\partial t}  \right) \right) \\
-        &= \epsilon_0 \left( (\div{\vb{E} } )\vb{E}  - \vb{E} \cross (\curl{\vb{E} } ) \right) - \frac{1}{\mu_0} \vb{B} \cross (\curl{\vb{B} } ) - \epsilon_0 \frac{\partial }{\partial t} (\vb{E} \cross \vb{B} ).
-    \end{aligned}
-\end{equation}
-
-To make things look more symmetrical, we throw in a term \((\div{\vb{B} } )\vb{B} =0\), and use the identity 
-
-\begin{equation}
-    \grad{E^2} = 2\left( \vb{E} \cdot \grad{}  \right) \vb{E} +2\vb{E} \cross (\curl{\vb{E} } )
-\end{equation}
-
-to get the force density \(\vb{f} \) as 
-
-\begin{equation}
-    \begin{aligned}
-       \vb{f}  &= \epsilon_0 \left( (\div{\vb{E} } )\vb{E} + (\vb{E} \cdot \grad{} )\vb{E}  \right) + \frac{1}{\mu_0 } \left( (\div{\vb{B} } )\vb{B}  + (\vb{B} \cdot \grad{} )\vb{B}  \right) \\
-        &~~~~ - \frac{1}{2} \grad{\left( \epsilon_0 E^2 + \frac{1}{\mu_0 }B^2 \right)} - \epsilon_0 \frac{\partial }{\partial t} \left( \vb{E} \cross \vb{B}  \right).
-        \end{aligned}
-\end{equation}
-
-So the force density \(\vb{f} \) becomes
-
-\begin{equation}
-    \vb{f} = \div{\boldsymbol{\sigma } } - \epsilon_0 \mu_0 \frac{\partial \vb{S} }{\partial t},    
-\end{equation}
-
-and the total force \(\vb{F} \) is therefore
-
-\begin{equation}
-    \begin{aligned} 
-    \vb{F} = \frac{d\vb{p} }{dt} &= \oint_{S} \boldsymbol{\sigma } \cdot d\vb{S} - \epsilon_0 \mu_0 \frac{d}{dt} \int_{V}^{} \vb{S} d\tau \\
-    &\equiv - \frac{d}{dt} \int_{V}^{} \vb{g}  d\tau + \oint_{S} \sigma \cdot d\vb{S} .
-    \end{aligned}   
-\end{equation}
-
-Here the total momentum stored in electromagnetic fields, per unit volume, is 
-
-\begin{equation}
-    \vb{g} = \epsilon_0 \mu_0 \vb{S} = \frac{\vb{S} }{c^2} = \epsilon_0 (\vb{E} \cross \vb{B} ) = (\vb{D} \cross \vb{B} ), 
-\end{equation}
-
-while the momentum per unit time, per unit area, transported by the fields, is the (negative of) Maxwell's stress tensor \(-\boldsymbol{\sigma } \). 
-
-The momentum conservation law then states that the decrease in momentum stored by the electromagnetic fields in a certain volume (the first term on the RHS) is equals to the impulse received by the charges by the electromagnetic force (the term on the right), plus the momentum that flows out through the surface (the second term on the right).
-
-If there is no force on the charges, \textit{i.e.,} \(d\vb{p} /dt = 0\), then 
-
-\begin{equation}
-    \int_{V}^{} \frac{\partial \vb{g} }{\partial t} d\tau = \oint_{S} \boldsymbol{\sigma } \cdot d\vb{S} = \int_{V}^{} (\div{\boldsymbol{\sigma } } ) d\tau \implies \frac{\partial \vb{g} }{\partial t} = \div{\boldsymbol{\sigma } },  \label{continmomentum} 
-\end{equation}
-
-which is exactly analogous to the charge and energy continuity eqution \cref{contincharge, continenergy}, where the momentum density \(\vb{g} \) plays the role of the charge and energy density \(\rho \text { and } u\) and the (negative of) Maxwell's stress tensor (momentum current density) \(-\boldsymbol{\sigma } \) plays the role of the current dnesity and the Poynting's vector \(\vb{J} \text { and } \vb{S} \).     
-
-\example{Resistancelses Coaxial Cable.}
-{As shown in \cref{coax}, a resistanceless coaxial cable of length \(l\) consists of an inner and an outer conductor at \(r = a \text { and } b\) respectively. It is connected to a battery at one end and a resistor at the other. 
-
-The inner conductor carries a unifrom charge per unit length \(\lambda \) and a steady current \(I\) to the right while the outer conductor has opposite charge and current. Find the electromagnetic momentum stored in the fields.}
-{The fields are 
-
-\begin{equation}
-    \vb{E} = \frac{1}{2\pi \epsilon_0 } \frac{\lambda }{s} \vu{\boldsymbol{\rho }} ~\text { and }~ \vb{B} = \frac{\mu_0 }{2\pi } \frac{I}{s} \vu{\boldsymbol{\phi }},      
-\end{equation}
-
-so the Poynting vector is 
-
-\begin{equation}
-    \vb{S} = \frac{\lambda I}{4\pi ^2\epsilon_0 s ^2}\vu{z}. 
-\end{equation}
-
-
-} 
-
-\onefig{coax}{scale=0.3} 
-
-
-\section{Angular Momentum Conservation}
-
-The angular momentum density is simply 
-
-\begin{equation}
-    \vb{l} = \vb{r} \cross \vb{g} = \epsilon_0 (\vb{r} \cross (\vb{E} \cross \vb{B} )).
-\end{equation}
+In fact, this is still not the complete modified Ampere's law, as we will see in \cref{displacement}, the current density \(\vb{J} \) has an extra artificial contribution.  
 
 
 \chapter{Electromagnetic Induction and Maxwell's Equations}
@@ -2335,6 +2120,107 @@ Similar to capacitance, inductance is an intrinsically positive quanitity. Howev
 {Before you turned on the current, the flux through the ring was zero. Afterward a flux appeared, and the emf generated in the ring led to a current (in the ring) which, according to Lenz’s law, was in such a direction that its field tended to cancel this new flux. This means that the current in the loop is opposite to the current in the solenoid. And opposite currents repel, so the ring flies off.} 
 \onefig{jumpingring}{scale=0.3} 
 
+\example{Magentic Forces do No Work (1).}
+{Refer to \cref{nowork1}, we model a car made of ferromagnetic material as a circular current loop, since magnetization is the same as magnetic dipole is the same as current loop. For simplicity, we picture the current loop as a nonconducting ring of radius \(a\), line charge density \(\lambda \), rotating at angular velocity \(\omega\). Analyze why the magnetic force do not work despite it is the force responsible in lifting the car.  }
+{The upwrd magnetic force on the loop is\footnote{Assume for now that the magnetic field remains constant as the loop rises. We will relax this assumption in the next example.} 
+
+\begin{equation}
+    F = 2\pi I a B_{\rho } = 2\pi \lambda \omega a^2B_{\rho } , 
+\end{equation}
+
+where \(B_{\rho } \) is the radial component of the magnetic field. 
+
+The work done on it is 
+
+\begin{equation}
+    dW = 2\pi \lambda \omega a^2B_{\rho }dz. 
+\end{equation}
+
+The motional emf induced in the ring is
+
+\begin{equation}
+    \mathcal{E} = \oint_{C} \vb{f} \cdot d\vb{l} = - \frac{d\Phi }{dt} = -\frac{d}{dt} (B_{\rho } 2\pi a dz ) = -B_{\rho } \frac{dz}{dt},   
+\end{equation}
+
+where \(\vb{f} \) is the force per unit charge,\footnote{Note that \(\vb{f} \) here is not electric force but magnetic force since there is no changing magnetic field, so we are using the flux rule but not the Faraday's law.} and the magnetic flux \(\Phi \) is found by considering the ribbon joining the ring at time \(t\) to the ring at time \(t+dt\) (accompanied by the fact that \(\div{\vb{B} } = 0 \)).    
+
+So the work done by the torque due to \(\vb{f} \) is 
+
+\begin{equation}
+    dW = Nd\phi = a\left( -B_{\rho } \frac{dz}{dt}   \right) \lambda (2\pi a)(\omega dt) = -2\pi \lambda \omega a^2B_{\rho }. 
+\end{equation}
+
+The ring slows down and the rotational energy it loses is precisely equal to the potential energy it gains. All the magnetic field did was to convert the rotational energy to gravitational potential energy, but did not provide extra energy to the system.
+
+If one would permit some sloppy language, the work done by the vertical component of the magnetic force to raise the car is equal and opposite to the work done by its horizontal component to weaken the magnetization of the car.
+
+
+} 
+
+\twofig{nowork1}{height=5cm}{nowork2}{width=\textwidth}{nowork} 
+
+\example{Magnetic Forces do No Work(2).}
+{In the above example, we have assumed that the magnetic field remains unchanged during the car's ascend. Carry out similar analysis process as above and explain the role the magnet does during the process.}
+{Refer to \cref{nowork2}, we model the magnet as a big circular loop of radius \(b\) resting on a table and carrying a current \(I_{b} \). At equilibrium, we have the magnetic force between the loops is 
+
+\begin{equation}
+    F_{\text{mag} } = m_{a}g  = \grad{(\vb{m} \cdot \vb{B} )} = \grad{\left( I_{a}\pi a^2 \frac{\mu_0 I_{b} }{2} \frac{b^2}{(b^2+z^2)^{\frac{3}{2} } }    \right)} = \frac{3\pi }{2} \mu_0 I_{a}I_{b}\frac{a^2b^2h}{(b^2+h^2)^{\frac{5}{2} } } .      
+\end{equation}
+
+When the loop rises an infinitesimal distance \(dz\), the increase in potential energy is 
+
+\begin{equation}
+    dU_{a}  = F_{\text{mag} } dz = \frac{3\pi }{2} \mu_0 I_{a}I_{b}\frac{a^2b^2h}{(b^2+h^2)^{\frac{5}{2} } }dz.     
+\end{equation}
+
+This energy is not provided by the magnetic field,\footnote{Straightly speaking, this work done is provided by the magnetic field, but the magnetic field also tries to do negative work by decreasing the current. So ultimately the power supply is the only source that provide energy to the system. It aims to increase the current but magnetic field steal this energy and put it as gravitational potential energy.} but by the power suppply that sustains the current in loop \(a\). As the loop rises, the motional emf induced in loop \(a\) is 
+
+\begin{equation}
+    \mathcal{E}_{a} = - \frac{d\Phi _{a} }{dt} = -I_{b} \frac{dM}{dt} = -I_{b}\frac{dM}{dt}\frac{dh}{dt} = -\frac{3\pi }{2} \mu_0 I_{b} \frac{a^2b^2h}{(b^2+h^2)^{\frac{5}{2} } }\frac{dz}{dt},          
+\end{equation}
+
+so the work done by the power supply fighting against this back emf is 
+
+\begin{equation}
+    dW_{a}  = -\mathcal{E}I_{a}dt = \frac{3\pi }{2}\mu_0 I_{a}I_{b}\frac{a^2b^2h}{(b^2+h^2)^{\frac{5}{2} } }dz,     
+\end{equation}
+
+which is the same as the work done in lifting the loop. If there is no power supply sustaining the current then the current will decrease, as in the previous example, where the angular velocity of the ring decreases.
+
+The above calculation is essentially the same as the previous example, just that the magnetic field created by the upper loop is explicitly expressed. 
+
+Meanwhile, a Faraday emf is induced in the upper loop due to the changing flux from the lower loop 
+
+\begin{equation}
+    \mathcal{E}_{b} = -I_{a}\frac{dM}{dt} = -\frac{3\pi }{2} \mu_0 I_{a}\frac{a^2b^2h}{(b^2+h^2)^{\frac{5}{2} } },      
+\end{equation}
+
+and the work done by the power supply fighting against this back emf is 
+
+\begin{equation}
+    dW_{b} = - \mathcal{E}I_{b}dt = \frac{3\pi }{2} \mu_0 I_{a}I_{b} \frac{a^2b^2h}{(b^2+h^2)^{\frac{5}{2} } }dz.      
+\end{equation}
+
+This work done is stored in the increasing magentic field n
+
+\begin{equation}
+    dU = d\left( \frac{1}{2}L_{a}I_{a}^2 = \frac{1}{2}L_{b}I_{b}^2 + MI_{a}I_{b}         \right) = I_{a}I_{b}\frac{dM}{dt}dt = dW_{b}.    
+\end{equation}
+
+If we care to apportion things this way, the power supply in loop \(a\) contributes the energy necessary to lift the lower ring, while the power supply in loop \(b\) provides the extra energy for the fields. If all we are interested in is the work done to raise the ring, we can ignoer the upper loop and the energy in the fields altogether, as in the previous example.
+} 
+
+\example{Magnetic Forces do No Work (3).}
+{If, however, in more practical scenerio, the magnet stays in contact with the car, and the magent-car system is raised by a rope, then do we no power supply for the loops?}
+{According to the apportion between work and energy established in the previous example, the upper loop need no power supply since the field energy remains unchanged. 
+
+On the other hand, we need no power supply either for the lower loop since the work done against the back emf is provided by the pulling force. To illustrate this point, refer to \cref{nowork3}, where we increase the current \(I\) in the loop so that the magnetic force exceed s the weight and the loop rises. The velocities and the forces of the loop during its ascend are shown in \cref{nowork4}.
+
+As the loop ascends, the magnetic force tilt back. While the vertical component is responsible for lifting the loop there must be } 
+
+\twofig{nowork3}{width=\textwidth}{nowork4}{width=\textwidth}{noworknowork} 
+
+
 \subsection{Magnetic Energy}
 
 The energy stored inside an inductor as magnetic energy is given by 
@@ -2366,7 +2252,9 @@ where the second term in the integrand vanishes when we take the volume to be al
 
 \section{Maxwell's Equations}
 
-Before we group the four Maxwell's Equations we have found, there is a small final modification to the Faraday's law, motivated by the fact that if we take the divergence of the Ampere's law we get
+\subsection{Displacement Current} \label{displacement} 
+
+Before we group the four Maxwell's Equations we have found, there is a small (but important) final modification to the Ampere's law, motivated by the fact that if we take the divergence of the Ampere's law we get
 
 \begin{equation}
     \div{(\curl{\vb{B} } )} = \mu_0 \div{\vb{J} } = -\mu_0 \frac{\partial \rho }{\partial t} = -\div{\left( \epsilon_0 \frac{\partial \vb{E} }{\partial t}  \right)}, 
@@ -2384,7 +2272,15 @@ and add this to the ordinary current density \(\vb{J} \), so that
     \div{(\curl{\vb{B} } )} = \mu_0 \div{(\vb{J} + \vb{J} _{d} )} = -\div{\left( \epsilon_0 \frac{\partial \vb{E} }{\partial t}  \right)} + \div{\left( \epsilon_0 \frac{\partial \vb{E} }{\partial t}  \right)} = 0. 
 \end{equation}
 
-\example{Current without Magnetic Field}
+Therfore, the complete modified Ampere's law is 
+
+\begin{equation}
+    \curl{\vb{H} } = \vb{J}_{f} + \frac{\partial \vb{P} }{\partial t} + \epsilon_0 \frac{\partial \vb{E} }{\partial t} = \vb{J} _{f} + \frac{\partial \vb{D} }{\partial t}.      
+\end{equation}
+
+To summarize, we spilt the current density \(\vb{J} \) into four terms: the free current \(\vb{J} _{f} \), the bound current \(\vb{J} _{b} \), the polarization current \(\vb{J} _{p} \) and an extra artificial displacement current \(\vb{J} _{d} \) to obtain this final form.     
+
+\example{Current without Magnetic Field.}
 {Consider two concentric metal spherical sheels with inner and outer radius \(\vb{a} \text { and } \vb{b} \) respectivley. The inner shell carries a charge \(Q(t)\) while the outer one carries an opposite charge. The space between them is filled with an ohmic material of conductivity \(\sigma \), find the magnetic fields.   }
 {This configuration is spherically symmetrical, so the magnetic field can only be raidal. However, from the Gauss's law for magnetism, we have 
 
@@ -2403,41 +2299,74 @@ The actual current density \(\vb{J} \) is
 while the displacement current is 
 
 \begin{equation}
-    \begin{aligned} 
-    \vb{J} _{b} &= \epsilon_0 \frac{\partial \vb{E} }{\partial t} = \frac{1}{4\pi } \frac{I}{r^2}\vu{r} \\
-    &= \frac{1}{4\pi r^2}\left( \int \vb{J} \cdot d\vb{S} \right)\vu{r} = -\frac{1}{4\pi \epsilon_0} \frac{\sigma Q}{r^2}\vu{r} = -\vb{J} . 
-    \end{aligned} 
+    \vb{J} _{b} = \epsilon_0 \frac{\partial \vb{E} }{\partial t} = \frac{1}{4\pi } \frac{I}{r^2}\vu{r} = \frac{1}{4\pi r^2}\left( \int \vb{J} \cdot d\vb{S} \right)\vu{r} = -\frac{1}{4\pi \epsilon_0} \frac{\sigma Q}{r^2}\vu{r} = -\vb{J} . 
+\end{equation}
+}
+
+\subsection{Maxwell's Equations and Boundary Conditions}
+
+The Maxwell's equations are, in differential forms,
+
+\begin{equation}
+    \boxed{
+    \begin{aligned}
+        \div{\vb{E} } &= \frac{\rho }{\epsilon_0 } ,\\
+        \curl{\vb{E} } &= -\frac{\partial \vb{B} }{\partial t},\\
+        \div{\vb{B} } &= 0,\\
+        \curl{\vb{B}} &= \mu_0 \vb{J} + \epsilon_0 \mu_0 \frac{\partial \vb{E} }{\partial t}.     
+    \end{aligned}}
 \end{equation}
 
+In integral forms, they are 
 
+\begin{equation}
+    \boxed{
+    \begin{aligned}
+        \oint_{S} \vb{E} \cdot d\vb{S} &= \frac{Q_{\text{enc} } }{\epsilon_0 } ,\\
+        \oint_{C} \vb{E} \cdot d\vb{l} &= - \frac{d}{dt} \int_{S}^{} \vb{B} \cdot d\vb{S}   ,\\
+        \oint_{S} \vb{B} \cdot d\vb{S} &= 0 ,\\
+        \oint_{C} \vb{B} \cdot d\vb{l} &= \mu_0 I_{\text{enc} } + \epsilon_0 \mu_0 \frac{d}{dt} \int_{S}^{} \vb{E} \cdot d\vb{S}     .     
+    \end{aligned}}
+\end{equation}
 
+In polarized or magnetized materials, however, the modified forms of the Maxwell's equations might be more convenient. In differential forms,
 
+\begin{equation}
+    \boxed{
+    \begin{aligned}
+        \div{\vb{D} } &= \rho _{f},\\
+        \curl{\vb{E} } &= -\frac{\partial \vb{B} }{\partial t},\\
+        \div{\vb{B} } &= 0,\\
+        \curl{\vb{H} } &= \vb{J} _{f} + \frac{\partial \vb{D} }{\partial t}.     
+    \end{aligned}}
+\end{equation}
 
-} 
+In integral forms, they are 
 
+\begin{equation} \label{boundary} 
+    \boxed{
+    \begin{aligned}
+        \oint_{S} \vb{D} \cdot d\vb{S} &= Q_{f_{\text{enc} } } ,\\
+        \oint_{C} \vb{E} \cdot d\vb{l} &= - \frac{d}{dt} \int_{S}^{} \vb{B} \cdot d\vb{S}   ,\\
+        \oint_{S} \vb{B} \cdot d\vb{S} &= 0 ,\\
+        \oint_{C} \vb{H} \cdot d\vb{l} &= I_{f_{\text{enc} } } + \frac{d}{dt} \int_{S}^{} \vb{D} \cdot d\vb{S}     .     
+    \end{aligned}}
+\end{equation}
 
+The differential forms are easier for derivation while the integal forms are more convenient for applications. The ordinary Maxwell's equations are more classical and are more general while the modified equations are more used for applications.
 
+The 4 corresponding boundary conditions are 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\begin{equation}
+    \boxed{
+    \begin{aligned}
+        \epsilon _{\text{above} }E_{\text{above} }^{\perp } - \epsilon _{\text{below} }E_{\text{below} }^{\perp } &= \sigma _{f} ,\\
+        B_{\text{above} }^{\perp } - B_{\text{below} }^{\perp } &=0,\\
+        \vb{E} _{\text{above} }^{\parallelsum} - \vb{E} _{\text{below} }^{\parallelsum} &= \boldsymbol{0} ,\\
+        \frac{1}{\mu _{\text{above} } }\vb{B} _{\text{above} }^{\parallelsum} - \frac{1}{\mu_{\text{below} } }\vb{B} _{\text{below} }^{\parallelsum} &=\vb{K} _{f}\cross \vu{n}  .                    
+    \end{aligned}
+    }
+\end{equation}
 
 \chapter{Circuit Theory}
 
@@ -2761,7 +2690,7 @@ One can prove that for \(\omega \text { and }  \vb{B} \) at arbitrary orientatio
     \vb{J} = - \frac{\sigma }{2} (\vb{r} \cross (\boldsymbol{\omega } \cross \vb{B}  )). 
 \end{equation}
 
-In particular, when \(\boldsymbol{\omega } \parallel \vb{B}  \), \(\vb{J} =0\) since the electric force exactly cancels the magnetic force.  
+In particular, when \(\boldsymbol{\omega } \parallelsum \vb{B}  \), \(\vb{J} =0\) since the electric force exactly cancels the magnetic force.  
 } 
 
 
@@ -2867,7 +2796,467 @@ The output voltage is thus
 
 \onefig{dac}{scale=0.5} 
 
+\chapter{Conservation Laws}
+
+\section{Charge Conservation}
+
+The local conservation of charge tells us that if the charge in some region changes, then exactly that amount of charge must have passed in or out through the surface, so 
+
+\begin{equation}
+    \frac{dQ}{dt} = \int_{V}^{} \frac{\partial \rho }{\partial t} d\tau =   -\oint_{S} \vb{J} \cdot d\vb{S}  = -\int_{V}^{} (\grad{\vb{J} } ) d\tau   \implies \frac{\partial \rho }{\partial t} = - \div{\vb{J} }.   \label{contincharge} 
+\end{equation}
+
+Note that this continuity equation is not an independent assumption but can be derived from the Maxwell's equations.
+
+\section{Energy Conservation}
+
+Suppose we have some charge and current configuration which, at time \(t\) produces fields \(\vb{E} \text { and } \vb{B} \). In the next instant, \(dt\), the charges move around a bit. The work done, \(dW\), by the electromagnetic forces on a charge \(q\), is then 
+
+\begin{equation}
+    dW = q(\vb{E} + \vb{v} \cross \vb{B} ) \cdot (\vb{v} dt) \implies \frac{dW}{dt} = \int_{V}^{} (\vb{E} \cdot \vb{J} )d\tau . \label{dW} 
+\end{equation}
+
+From the Ampere's law (\cref{comampere}), we have 
+
+\begin{equation}
+    \begin{aligned}
+        \vb{E} \cdot \vb{J} &= \frac{1}{\mu_0 } \vb{E} \cdot (\curl{\vb{B} } ) - \epsilon_0 \vb{E} \cdot \frac{\partial \vb{E} }{\partial t} \\
+        &= \frac{1}{\mu_0 } \left( \vb{B} \cdot (\curl{\vb{E} } ) - \div{(\vb{E} \cross \vb{B} )}  \right) - \frac{\epsilon_0 }{2} \frac{\partial E^2}{\partial t} \\
+        &= \frac{1}{\mu_0 } \left( -\vb{B} \cdot \frac{\partial \vb{B} }{\partial t} - \div{(\vb{E} \cross \vb{B} )}   \right) - \frac{\epsilon_0 }{2} \frac{\partial E^2}{\partial t}\\
+        &= -\frac{1}{2} \frac{\partial }{\partial t} \left( \epsilon_0 E^2 + \frac{1}{\mu_0 } B^2  \right)  - \frac{1}{\mu_0 } \div{(\vb{E} \cross \vb{B} )}.         
+    \end{aligned}
+\end{equation}
+
+So plugging this for the \(\vb{E} \cdot \vb{J} \) in \cref{dW}, we have
+
+\begin{equation}
+    \begin{aligned} 
+    \frac{dW}{dt} &=  \int_{V}^{}\left( -\frac{1}{2} \frac{\partial }{\partial t} \left( \epsilon_0 E^2 + \frac{1}{\mu_0 } B^2  \right)  - \frac{1}{\mu_0 } \div{(\vb{E} \cross \vb{B} )} \right) d\tau \\
+    &= -\frac{d}{dt} \int_{V}^{} \frac{1}{2} \left( \epsilon_0 E^2 + \frac{1}{\mu_0 }B^2  \right) d\tau - \frac{1}{\mu_0 } \oint_{S} (\vb{E} \cross \vb{B} ) \cdot d\vb{S'} \footnote{We used \(\vb{S} '\) to denote the vector area to avoid confusion with the Poynting vector \(\vb{S} \).} \\
+    &\equiv -\frac{d}{dt} \int_{V}^{} ud\tau - \oint_{S} \vb{S} \cdot d\vb{S'}.
+    \end{aligned} 
+\end{equation}
+
+Here the total energy stored in electromagnetic fields, per unit volume, is 
+
+\begin{equation}
+    u \equiv  \frac{1}{2} \left( \epsilon_0 E^2 + \frac{1}{\mu_0 } B^2  \right),
+\end{equation}
+
+whil the energy per unit time, per unti area, transported by the fiels, called the Poynting vector, is
+
+\begin{equation}
+    \vb{S} \equiv \frac{1}{\mu_0 } \left( \vb{E} \cross \vb{B}  \right)  = \vb{E} \cross \vb{H} .
+\end{equation}
+
+The Poynting's theorem then states that the decrease in energy stored by the electromagnetic fields in a certain volume (the first term on the RHS) is equals to the work done on the charges by the electromagnetic force (the term on the left), plus the energy that flows out through the surface (the second term on the right).
+
+If there is no work done on the charges, \textit{i.e.,} \(dW /dt = 0\), then
+
+\begin{equation}
+    \int_{V}^{} \frac{\partial u}{\partial t} d\tau = -\oint_{S} \vb{S} \cdot d\vb{S'} = -\int_{V}^{} (\div{\vb{S} } ) d\tau  \implies \frac{\partial u}{\partial t} = -\div{\vb{S} },   \label{continenergy} 
+\end{equation}
+
+which is exactly analogous to the charge continuity equation (\cref{contincharge}), where the energy density \(u\) plays the role of the charge density \(\rho \) and the Poynting vector (energy current density) \(\vb{S} \) plays the role of the current density \(\vb{J} \). 
+
+\section{Momentum Conservation}
+
+\subsection{Maxwell's Stress Tensor}
+
+The Maxwell's Stress Tensor \(\boldsymbol{\sigma } \) is defined as 
+
+\begin{equation}
+    \sigma _{ij}  = \epsilon_0 \left( E_{i}E_{j} - \frac{1}{2} \delta _{ij} E^2     \right) + \frac{1}{\mu_0 }\left( B_{i}B_{j} - \frac{1}{2} \delta _{ij}B^2     \right),
+\end{equation}
+
+which is the force per unit area in the \(i^{\text{th}} \) direction acting on an element of surface oriented in the \(j^{\text{th}} \) diretion. Diagonal elements \((\sigma _{ii}, \sigma _{jj}, \sigma _{kk}  )\) represents pressure and ``off-diagonal'' elements are shears.
+
+The divergence of \(\boldsymbol{\sigma }  \) is then 
+
+\begin{equation}
+    \begin{aligned}
+        (\div{\boldsymbol{\sigma }  } )_{j} =  \partial _{i}\sigma _{ij} = \epsilon_0 \left( (\div{\vb{E} } )E_{j} + (\vb{E} \cdot \grad{} )E_{j} - \frac{1}{2}\grad{}_{j}E^2      \right) + \frac{1}{\mu_0 } \left( (\div{\vb{B} } )B_{j}+(\vb{B} \cdot \grad{} )B_{j}-\frac{1}{2}\grad{}_{j}B^2      \right).   
+    \end{aligned}
+\end{equation}
+
+\example{Forces between Hemispheres of a Sphere.}
+{Here we revisit an example in \cref{surcha} and calculate the net force between the hemispheres of a sphere with radius \(R\) and charge \(Q\).}
+{Since the system is static and symmetic along the \(z\)-axis, the force is 
+
+\begin{equation}
+    F = \oint_{S} (\boldsymbol{\sigma } \cdot d\vb{S}  )_{z}.
+\end{equation}
+
+For the hemispherical bowl, the infinitesimal vector area is 
+
+\begin{equation}
+    d\vb{S} = R^2\sin \theta d \theta d\phi \vu{r} = R^2\sin \theta d \theta d\phi (\sin \theta \cos \phi \vu{x} + \sin \theta \sin \phi \vu{y} + \cos \theta \vu{z} ),
+\end{equation}
+
+and the electric field is 
+
+\begin{equation}
+    \vb{E} = \frac{1}{4\pi \epsilon_0} \frac{Q}{R^2}\vu{r} = \frac{1}{4\pi \epsilon_0} \frac{Q}{R^2} (\sin \theta \cos \phi \vu{x} + \sin \theta \sin \phi \vu{y} +\cos \theta \vu{z}),
+\end{equation}
+
+so the relevant components of the Maxwell's stress tensor are 
+
+\begin{equation}
+    \begin{aligned}
+        \sigma _{zx} &= \epsilon_0 E_{z}E_{x} = \epsilon_0 \left( \frac{Q}{4\pi \epsilon_0 R^2}  \right)^2 \sin \theta \cos \theta \cos \phi \\
+        \sigma _{zy} &= \epsilon_0 E_{z}E_{y} = \epsilon_0 \left( \frac{Q}{4\pi \epsilon_0 R^2}  \right)^2 \sin \theta \cos \theta \sin \phi \\
+        \sigma _{zz} &= \frac{\epsilon_0 }{2}\left( E_{z}^2- E_{x}^2-E_{y}^2    \right) = \frac{\epsilon_0 }{2} \left( \frac{Q}{4\pi \epsilon_0 R^2}   \right)^2 (\cos ^2\theta - \sin ^2\theta ),
+    \end{aligned}
+\end{equation}
+
+and the integrand is therefore
+
+\begin{equation}
+    (\boldsymbol{\sigma } \cdot d\vb{S} )_{z} =  \sigma _{zx}dS_{x} + \sigma _{zy}dS_{y}+ \sigma _{zz}dS_{z} = \frac{\epsilon_0 }{2} \left( \frac{Q}{4\pi \epsilon_0 R}   \right)^2 \sin \theta \cos \theta d \theta d\phi .       
+\end{equation}
+
+For the circular disk, the infinitesimal vector area is 
+
+\begin{equation}
+    d\vb{S} = -r dr d\phi \vu{z} ,
+\end{equation}
+
+and the electric field is 
+
+\begin{equation}
+    \vb{E} = \frac{1}{4\pi \epsilon_0} \frac{Q}{R^3 }\vb{r} = \frac{1}{4\pi \epsilon_0} \frac{Qr}{R^3 }(\cos \phi \vu{x} + \sin \phi \vu{y} ).  
+\end{equation}
+
+so the relevant component of the Maxwell's stress tensor is 
+
+\begin{equation}
+    \sigma _{zz} = \frac{\epsilon_0 }{2}\left( E_{z}^2 - E_{x}^2 - E_{y}^2    \right) = - \frac{\epsilon_0 }{2} \left( \frac{Q}{4\pi \epsilon_0 R^3 }  \right)^2r^2,
+\end{equation}
+
+and the integrand is therefore
+
+\begin{equation}
+    (\boldsymbol{\sigma } \cdot d\vb{S}  )_{z} =  \sigma _{zz}dS_{z} = \frac{\epsilon_0 }{2} \left( \frac{Q}{4\pi \epsilon_0 R^3 }  \right)^2 r^3 dr d\phi .  
+\end{equation}
+
+The total force is finally 
+
+\begin{equation}
+    F = \frac{\epsilon_0 }{2} \left( \frac{Q}{4\pi \epsilon_0 R}  \right)^2 2\pi \int_{0}^{\frac{\pi }{2} } \sin \theta \cos \theta d \theta + \frac{\epsilon_0 }{2} \left( \frac{Q}{4\pi \epsilon_0 R^3 }  \right)^2 2\pi \int_{0}^{R} r^3 dr = \frac{1}{4\pi \epsilon_0} \frac{3Q^2}{16R^2}
+\end{equation}
+
+as expected.
+
+In fact, any volume that encloses all of the charge in question (and no other charge) will do the job. For example, we can use the whoele region \(z > 0\). In place of the hemispherical bowl, we now have the outer portion of the plane, so the only relevant component of the Maxwell's stress tensor can be found by substituting \(\theta = \pi /2\) into the \(\sigma _{zz} \) found above as
+
+\begin{equation}
+    \sigma _{zz} = - \frac{\epsilon_0 }{2} \left( \frac{Q}{4\pi \epsilon_0 }  \right)^2 \frac{1}{r^4},    
+\end{equation} 
+
+so the integrand is 
+
+\begin{equation}
+    (\boldsymbol{\sigma }\cdot d\vb{S}  )_{z} = \frac{\epsilon_0 }{2} \left( \frac{Q}{4\pi \epsilon_0 }  \right)^2 \frac{1}{r^3 }dr d\phi ,   
+\end{equation}
+
+and the force is 
+
+\begin{equation}
+    F = \frac{\epsilon_0 }{2} \left( \frac{Q}{4\pi \epsilon_0 }  \right)^2 2\pi \int_{R}^{\infty} \frac{1}{r^3 }dr = \frac{1}{4\pi \epsilon_0} \frac{Q^2}{8R^2}.     
+\end{equation}
+}
+
+
+\subsection{Momentum Continuity Equation}
+
+To derive a continuity equation for momentum, we start by finding the totoal force \(\vb{F} = d\vb{p} /dt\) acting on a charge \(q\) in the same setting as in the previous section. 
+
+\begin{equation}
+    \vb{F} = \frac{d\vb{p} }{dt}  = q(\vb{E} + \vb{v} \cross \vb{B} ) = \int_{V}^{} (\rho \vb{E} + \vb{J} \cross \vb{B}) d\tau . 
+\end{equation}
+
+As usual, we will eliminate \(\rho \text { and } \vb{J} \) using the Gauss's law and the Ampere's law (\cref{gauss, comampere}) to simplify the force per unit volume \(\vb{f} = \rho \vb{E} + \vb{J} \cross \vb{B} \) 
+
+\begin{equation}
+    \begin{aligned}
+        \vb{f}  &= \epsilon_0 (\div{\vb{E} } )\vb{E}  + \left( \frac{1}{\mu_0} \curl{\vb{B} } - \epsilon_0 \frac{\partial \vb{E} }{\partial t}    \right) \cross \vb{B} \\
+        &= \epsilon_0 (\div{\vb{E} } )\vb{E}  - \frac{1}{\mu_0 }\vb{B} \cross (\curl{\vb{B} } ) - \epsilon_0 \left( \frac{\partial }{\partial t} \left( \vb{E} \cross \vb{B}  \right) - \left( \vb{E} \cross \frac{\partial \vb{B} }{\partial t}  \right) \right) \\
+        &= \epsilon_0 \left( (\div{\vb{E} } )\vb{E}  - \vb{E} \cross (\curl{\vb{E} } ) \right) - \frac{1}{\mu_0} \vb{B} \cross (\curl{\vb{B} } ) - \epsilon_0 \frac{\partial }{\partial t} (\vb{E} \cross \vb{B} ).
+    \end{aligned}
+\end{equation}
+
+To make things look more symmetrical, we throw in a term \((\div{\vb{B} } )\vb{B} =0\), and use the identity 
+
+\begin{equation}
+    \grad{E^2} = 2\left( \vb{E} \cdot \grad{}  \right) \vb{E} +2\vb{E} \cross (\curl{\vb{E} } )
+\end{equation}
+
+to get the force density \(\vb{f} \) as 
+
+\begin{equation}
+    \begin{aligned}
+       \vb{f}  &= \epsilon_0 \left( (\div{\vb{E} } )\vb{E} + (\vb{E} \cdot \grad{} )\vb{E}  \right) + \frac{1}{\mu_0 } \left( (\div{\vb{B} } )\vb{B}  + (\vb{B} \cdot \grad{} )\vb{B}  \right) \\
+        &~~~~ - \frac{1}{2} \grad{\left( \epsilon_0 E^2 + \frac{1}{\mu_0 }B^2 \right)} - \epsilon_0 \frac{\partial }{\partial t} \left( \vb{E} \cross \vb{B}  \right).
+        \end{aligned}
+\end{equation}
+
+So the force density \(\vb{f} \) becomes
+
+\begin{equation}
+    \vb{f} = \div{\boldsymbol{\sigma } } - \epsilon_0 \mu_0 \frac{\partial \vb{S} }{\partial t},    
+\end{equation}
+
+and the total force \(\vb{F} \) is therefore
+
+\begin{equation}
+    \begin{aligned} 
+    \vb{F} = \frac{d\vb{p} }{dt} &= \oint_{S} \boldsymbol{\sigma } \cdot d\vb{S} - \epsilon_0 \mu_0 \frac{d}{dt} \int_{V}^{} \vb{S} d\tau \\
+    &\equiv - \frac{d}{dt} \int_{V}^{} \vb{g}  d\tau + \oint_{S} \sigma \cdot d\vb{S} .
+    \end{aligned}   
+\end{equation}
+
+Here the total momentum stored in electromagnetic fields, per unit volume, is 
+
+\begin{equation}
+    \vb{g} = \epsilon_0 \mu_0 \vb{S} = \frac{\vb{S} }{c^2} = \epsilon_0 (\vb{E} \cross \vb{B} ) = (\vb{D} \cross \vb{B} ), 
+\end{equation}
+
+while the momentum per unit time, per unit area, transported by the fields, is the (negative of) Maxwell's stress tensor \(-\boldsymbol{\sigma } \). 
+
+The momentum conservation law then states that the decrease in momentum stored by the electromagnetic fields in a certain volume (the first term on the RHS) is equals to the impulse received by the charges by the electromagnetic force (the term on the right), plus the momentum that flows out through the surface (the second term on the right).
+
+If there is no force on the charges, \textit{i.e.,} \(d\vb{p} /dt = 0\), then 
+
+\begin{equation}
+    \int_{V}^{} \frac{\partial \vb{g} }{\partial t} d\tau = \oint_{S} \boldsymbol{\sigma } \cdot d\vb{S} = \int_{V}^{} (\div{\boldsymbol{\sigma } } ) d\tau \implies \frac{\partial \vb{g} }{\partial t} = \div{\boldsymbol{\sigma } },  \label{continmomentum} 
+\end{equation}
+
+which is exactly analogous to the charge and energy continuity eqution \cref{contincharge, continenergy}, where the momentum density \(\vb{g} \) plays the role of the charge and energy density \(\rho \text { and } u\) and the (negative of) Maxwell's stress tensor (momentum current density) \(-\boldsymbol{\sigma } \) plays the role of the current dnesity and the Poynting's vector \(\vb{J} \text { and } \vb{S} \).     
+
+\example{Resistancelses Coaxial Cable.}
+{As shown in \cref{coax}, a resistanceless coaxial cable of length \(l\) consists of an inner and an outer conductor at \(r = a \text { and } b\) respectively. It is connected to a battery at one end and a resistor at the other. 
+
+The inner conductor carries a unifrom charge per unit length \(\lambda \) and a steady current \(I\) to the right while the outer conductor has opposite charge and current. Find the electromagnetic momentum stored in the fields.}
+{The fields are 
+
+\begin{equation}
+    \vb{E} = \frac{1}{2\pi \epsilon_0 } \frac{\lambda }{s} \vu{\boldsymbol{\rho }} ~\text { and }~ \vb{B} = \frac{\mu_0 }{2\pi } \frac{I}{s} \vu{\boldsymbol{\phi }},      
+\end{equation}
+
+so the Poynting vector is 
+
+\begin{equation}
+    \vb{S} = \frac{\lambda I}{4\pi ^2\epsilon_0 s ^2}\vu{z}. 
+\end{equation}
+
+So energy is flowing downn the line, from the battery to the resistor. In fact, the power transported is 
+
+\begin{equation}
+    \vb{P} = \int \vb{S} \cdot d\vb{S} ' = \frac{\lambda I}{4\pi ^2\epsilon_0 } \int_{a}^{b} \frac{1}{s ^2} 2\pi s ds= \frac{\lambda I}{2\pi \epsilon_0 } \ln \left( \frac{b}{a}  \right) = IV, 
+\end{equation}
+
+as it should be..
+
+The momentum in the fields is 
+
+\begin{equation}
+    \vb{p} = \mu_0 \epsilon_0 \int \vb{S} d\tau = \frac{\mu_0 \lambda I}{4\pi ^2}\vu{z} \int_{a}^{b} \frac{1}{s ^2}2\pi s lds = \frac{\mu_0 \lambda Il}{2\pi } \ln \left( \frac{b}{a}  \right) \vu{z} = \epsilon_0 \mu_0 IVl \vu{z} .    
+\end{equation}
+
+Suppose now that we turn up the resistance, so the current decreases. The changing magnetic field will induce an electric field, which can be found by considering a rectangular loop in the coaxial cable as
+
+\begin{equation}
+    \oint_{C} \vb{E} \cdot dl = E(\rho _{0} )l - E(\rho )l = -\frac{d}{dt} \int \vb{B} \cdot d\vb{S} = - \frac{\mu_0 l}{2\pi } \frac{dI}{dt} (\ln \rho  - \ln \rho _0 ), 
+\end{equation}
+
+so the electric field is 
+
+\begin{equation}
+    \vb{E} (\rho ) = \left( \frac{\mu_0 }{2\pi } \frac{dI}{dt} \ln \rho +K  \right) \vu{z}.
+\end{equation}
+
+The momentum imparted to the cable as the current drops from \(I\) to 0, is therefore
+
+\begin{equation}
+    \begin{aligned} 
+    \vb{p}_{\text{mech} }  &= \int \vb{F} dt = \int \left(\lambda l \left( \frac{\mu_0 }{2\pi } \frac{dI}{dt} \ln a + K  \right)\vu{z} - \lambda l \left( \frac{\mu_0 }{2\pi } \frac{dI}{dt} \ln a + K  \right)\vu{z}\right) dt \\ 
+    &= \frac{\mu_0 \lambda Il}{2\pi } \ln \left( \frac{b}{a}  \right)\vu{z} = \vb{p} .
+    \end{aligned} 
+\end{equation}
+
+} 
+
+\onefig{coax}{scale=0.3} 
+
+
+\section{Angular Momentum Conservation}
+
+The angular momentum density is simply 
+
+\begin{equation}
+    \vb{l} = \vb{r} \cross \vb{g} = \epsilon_0 (\vb{r} \cross (\vb{E} \cross \vb{B} )).
+\end{equation}
+
 \chapter{Electromagnetic Waves}
+
+\section{Reflection and Transmission}
+
+For a plane electromagnetic wave \(\vb{E} (\vb{r} ,t) = \vb{E} _{0}(r)e^{i (\vb{k} \cdot \vb{r} -\omega t)} \text { and } \vb{B} (\vb{r} ,t) = \vb{B} _{0}e^{i(\vb{k} \cdot \vb{r} -\omega t)}\),\footnote{Rigorously, the electric field is \(\vb{E} (\vb{r} ,t) = \mathfrak{Re} (\vb{E} _{0}(\vb{r} ) e^{i(\vb{k} \cdot \vb{r} -\omega t)}  ) \), but in most cases we can simply omit the \(\mathfrak{Re} \) operator since the actual complex wave also satisfiy the Maxwell's equations due to their linearity. One can add its complex conjugate \(\vb{E} _{0}^* e^{-i(\vb{k} \cdot \vb{r} -\omega t)}  \) to make it real, but then the new amplitude is half the previous one and it is an unnecessary complication. As long as we take the real part at the end this two expressions are equivalent. The same holds for the magnetic field.} we have from Faraday's law that 
+
+\begin{equation}
+    i \vb{k} \cross \vb{E} _{0} = - i\omega \vb{B} _{0} \implies   \vb{B} _{0} = \frac{\vb{k} \cross \vb{E} _{0} }{\omega }  
+\end{equation}
+
+Refer to \cref{oblique}, where the incidence monochromatic plane wave has a polarization (electric field direction) parallel to the plane of incidence\footnote{A general polarization can be thought of the linear combination of the parallel and the perpendicular polarization.} 
+
+\onefig{oblique}{scale=0.3} 
+
+\begin{equation}
+    \vb{E} _{I}  = \vb{E} _{0,I} e^{i(\vb{k} _{I}\cdot \vb{r} -\omega t )}, \quad \vb{B} _{I} = \frac{\vb{k}_{R}  \cross \vb{E} _{0,R} }{\omega } e^{i(\vb{k} _{I}\cdot \vb{r} -\omega t )}.     
+\end{equation}
+
+gives rise to a reflected wave 
+
+\begin{equation}
+    \vb{E} _{R} = \vb{E} _{0,R} e^{i(\vb{k} _{R} \cdot \vb{r} - \omega t )}, \quad \vb{B} _{R} = \frac{\vb{k} _{R} \cross \vb{E} _{0,R}  }{\omega }   
+\end{equation}
+
+and a transmitted wave
+
+\begin{equation}
+    \vb{E} _{T} = \vb{E} _{0,T} e^{i(\vb{k} _{T} \cdot \vb{r} -\omega t )}, \quad \vb{B} _{T} = \frac{\vb{k} _{T} \cross \vb{E} _{0,T}  }{\omega }.   
+\end{equation}
+
+The boundary conditions are given by \cref{boundary}. Here we assume that the free charge density \(\rho _{f} \) and the free current density \(\vb{J} _{f} \) are zero.   
+
+All of them share the generic structure 
+
+\begin{equation}
+    ()e^{i(\vb{k} _{I}\cdot \vb{r} -\omega t )} + ()e^{i(\vb{k} _{R}\cdot \vb{r} - \omega t)} = () e^{i(\vb{k} _{T} \cdot \vb{r} -\omega t )}.
+\end{equation}
+
+Demanding each spatial and time depedency to be equal, we confirm that the frequency of the waves are the same, and we have
+
+\begin{equation}
+    \vb{k} _{I} \cdot \vb{r} = \vb{k} _{R} \cdot \vb{r} = \vb{k} _{T} \cdot \vb{r} \text{ at } z=0.   
+\end{equation}
+
+The \(x\) component of this equation reads 
+
+\begin{equation}
+    (k_{I} )_{y} = (k_{R} )_{y} = (k_{T} )_{y},  
+\end{equation}
+
+which implies that the incident, reflected and transmitted wave vectors form the plane of incidence. 
+
+The \(y\) component, on the other hand, gives 
+
+\begin{equation}
+    (k_{I} )_{x} = (k_{R} )_{x} = (k_{T} )_{x} \implies k_{I}\sin \theta _{I} = k_{R}\sin \theta _{R} = k_{T}\sin \theta _{T},      
+\end{equation}
+
+which gives rise to the law of reflection and refraction (Snell's law)
+
+\begin{equation}
+    \theta _{I} = \theta _{R} ~\text { and }~ n_{1}\sin \theta _{I} = n_{2}\sin \theta _{T}.      
+\end{equation}
+
+Having taken care of the exponential terms, the boundary conditions \cref{boundary} now read
+
+\begin{equation}
+    \begin{aligned}
+        \epsilon _{1} (\vb{E} _{0,I} + \vb{E} _{0,R} )_{z} &= \epsilon _{2} (\vb{E} _{0,T} )_{z},\\
+        ( \vb{B} _{0,I} + \vb{B} _{0,R}  )_{z} &= (\vb{B} _{0,T} )_{z},\\
+        (\vb{E} _{0,I} + \vb{E} _{0,R}  )_{x,y} &= (\vb{E} _{0,T} )_{x,y},\\
+        \frac{1}{\mu_1} (\vb{B} _{0,I} + \vb{B} _{0,R}   )_{x,y} &= (\vb{B} _{0,T} )_{x,y}.         
+    \end{aligned}
+\end{equation}
+
+The second boundary condition is useless since the magentic field has no \(z\) component, the three rest give two independent equations
+
+\begin{equation}
+    E _{I,0} +  E _{0,R} = \alpha E _{0,T} ~\text { and }~ E _{0,I}-E _{0,R} = \beta E _{0,T},      
+\end{equation}
+
+and solving gives 
+
+\begin{equation}
+    E _{0,R} = \left( \frac{\alpha -\beta }{\alpha +\beta }  \right) ~\text { and }~ E _{0,T} = \left( \frac{2}{\alpha +\beta }  \right) E_{0,I},
+\end{equation}
+
+where \(\alpha \equiv \cos \theta _{T} /\cos \theta _{I}  \) and \(\beta \equiv \sqrt{\epsilon _{1}/\mu _{1}  } /\sqrt{\epsilon _{2} /\mu _{2} }  \) is the ratio of the impedances in two medium.  
+
+When \(\alpha = \beta \), or \(\tan \theta _{B} = n_2 /n_1  \), then the refected wave is completely extinghuished. Becuawe waves polarized perpendicular to the plane of incidence exhibit no corresponding quenching of the reflectedd component, and arbitrary beam incident at Brewster's angle yields a reflected beam that is totally polarized parallel to the interface.
+
+The intensities striking the interface is \(\vb{S} \cdot \vu{z} \), for the incidence, reflected and transmitted waves, they are 
+
+\begin{equation}
+    \vb{I} _{I} = \frac{1}{2}\epsilon _{1}v_{1}E_{0,I}^2\cos \theta _{I}, \quad I_{R} = \frac{1}{2}\epsilon _{1}v_{1}E_{0,R}^2\cos \theta _{R} ~\text { and }~ I_{T} = \frac{1}{2}\epsilon _{2}v_{2}E_{0,T}^2\cos \theta _{T}.                  
+\end{equation}
+
+As one can easily verifed, 
+
+\begin{equation}
+    R + T \equiv \left( \frac{E_{0,R} }{E_{0,I} }  \right)^2 + \frac{\epsilon _{2}v_{2}\cos \theta _{T}   }{\epsilon _{1}v_{1}\cos \theta _{I}   }\left( \frac{E_{0,T} }{E_{0,I} }  \right)^2 = \left( \frac{\alpha -\beta }{\alpha +\beta }  \right)^2 + \alpha \beta \left( \frac{2}{\alpha +\beta }  \right)^2 = 1, 
+\end{equation}
+
+as it should.
+
+\section{Absorption and Dispersion}
+
+\subsection{Electromagnetic Waves in Conductors}
+
+In the previous section, we assumed that the free charge density \(\rho _{f} \) and the free current density \(\vb{J} _{f} \) are zero. Such a restriction is perfectly reasonable when we are talking about medium like a vaccum or insulating materials such as glass or pure water. In the case of conductors, however, we do not independently control the flow of charge and in general \(\rho _{f} \text { and }  \vb{J} _{f}  \) are non-zero. 
+
+As noted in \cref{mode,modb}, we can regard \(\rho _{f} \text { and }  \vb{J} _{f}  \) as the source for \(\vb{E} \text { and } \vb{B} \) with \(\epsilon_0 \text { and } \mu_0 \) replaced by \(\epsilon \text { and } \mu \), which are constants. In those cases, the Maxwell's equations read
+
+\begin{equation}
+    \begin{aligned}
+        \div{\vb{E} } &= \frac{\rho _{f} }{\epsilon },\\
+        \curl{\vb{E} } &= -\frac{\partial \vb{B} }{\partial t},\\
+        \div{\vb{B} } &= 0,\\
+        \curl{\vb{B} } &= \mu \sigma \vb{E} + \mu \epsilon \frac{\partial \vb{E} }{\partial t}. 
+    \end{aligned}
+\end{equation}
+
+Now the continuity equation for free charge, together with Ohm's law and Gauss's law, gives 
+
+\begin{equation}
+    \div{\vb{J} _{f} } = -\frac{\partial \rho _{f} }{\partial t} = -\sigma (\div{\vb{E} } ) = -\frac{\sigma }{\epsilon } \rho _{f} \implies \rho _{f} = \rho _{f}(0) e^{- \sigma t/\epsilon },   
+\end{equation}
+
+which states that the timescale for which the conductor moves the free charge to its surface is of order \(\tau \equiv \sigma /\epsilon \).\footnote{In fact, this timescale is so small (\(\sim \SI{10e-19}{\second}\) for copper) that the limiting factor is the collision time between atoms (\(\sim \SI{10e-14}{\second} \) for copper).}  
+
+Therefore, typically we can safely assume that \(\rho _{f} =0\). The modified wave equation for \(\vb{E} \text { and } \vb{B} \) are then 
+
+\begin{equation}
+    \laplacian \vb{E} = \mu_0 \epsilon \frac{\partial^2 \vb{E} }{\partial t^2} + \mu_0 \sigma \frac{\partial \vb{E} }{\partial t} ~\text { and }~ \laplacian \vb{B} = \mu \epsilon \frac{\partial^2 \vb{B} }{\partial t^2} + \mu \sigma \frac{\partial \vb{B} }{\partial t},   
+\end{equation}
+
+which admit plane wave solutions
+
+\begin{equation}
+    \vb{E} = \vb{E} _{0} e^{i(\vb{k} \cdot \vb{r} -\omega t)} ~\text { and }~ \vb{B} = \frac{\vb{k} \cross \vb{E} _{0} }{\omega }\vb{E}   
+\end{equation}
+
+However, \(\vb{k} \) is found to be complex
+
+\begin{equation}
+    k^2 = \mu \epsilon \omega ^2 + i\mu \sigma \omega \implies k \approx \sqrt{\frac{\omega \sigma \mu }{2} } (1+i). 
+\end{equation}
+
+where we have assumed \(\sigma \gg \epsilon \omega \). The imaginary part of \(k\) results in an attenuation of the wave, with the charateristic decay length \(d \equiv \frac{2}{\omega \sigma \mu } \). \(k\) being imaginary also means that \(\vb{B} \) now lags behind the electric field by the phase \(\phi = \tan ^{-1} (\mathfrak{Im} (k)/\mathfrak{Re} (k))\) due to the cross product between \(\vb{k} \text { and } \vb{E} \) when finding \(\vb{B} \). 
+
+\subsection{Reflection and Transmission at a Conducting Surface}
+
+
+
+
+
+
+
+
+
 
 \chapter{Potentials and Fields}
 

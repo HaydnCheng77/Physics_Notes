@@ -20,7 +20,7 @@ Vectors are mathemtical objects that satisfy certain properties, and they can be
 
 Field (denoted by \(\mathbb{F}\)) contains elements (called scalars) that can be combined (multiplied) with the basis chosen for the vector space to construct any arbitrary vectors in the vector space. Examples include the real numbers \(\mathbb{R}\) and the complex numbers \(\mathbb{C}\).\footnote{More examples of fields are given in \cref{fields}.} 
 
-The simplest \(n\)-dimensional vector space containing \(n\)-dimensional vectors is \(\mathbb{F}^{n} \), which is defined as the set of all ordered n-tuples of elements (called the components of a vector) in \(\mathbb{F}\)
+The simplest \(n\)-dimensional vector space containing \(n\)-dimensional vectors is \(\mathbb{F}^{n} \), which is defined as the set of all ordered n-tuples of elements (called the components of a vector) in \(\mathbb{F}\)\footnote{Note that we have not associate the vector to an arrow in space (yet), up till now we are still in an abstract mathematical discussion.} 
 
 \begin{equation}
     \mathbb{F}^{n} = \left\{ (a_1 , a_2 ,\ldots ,a_{n} ) \mid a_{i} \in F, i = 1,2,\ldots ,n  \right\} = \begin{pmatrix}
@@ -171,6 +171,8 @@ A sub vector space \(W \subset V \) is a non-empty subset of a vector space \(V\
     \item \(\alpha \vb{w} \in W \text{ for all } \alpha \in \vb{F} \text { and } \vb{w} \in W\).     
 \end{enumerate}
 \end{definition}
+
+The sum of \(U+W\) of two sub vector spaces is called direct if and only if \(U \cap W = {\boldsymbol{0} }\) and a direct sum is written as \(U \oplus W\).   
 
 \section{Span and Linear Independence}
 
@@ -903,13 +905,13 @@ is called the image of \(f\) and consists of all elements of the co-domain which
 Let \(f:X \rightarrow Y\) be a map between two sets \(X \text { and } Y\). The map \(f\) is called
 
 \begin{enumerate}
-    \item Injective: if every element of the co-domain is the image of at most one element of the domain. Mathematically,
+    \item Injective (one-to-one): if every element of the co-domain is the image of at most one element of the domain. Mathematically,
     
     \begin{equation}
         f(x) = f(\tilde{x} ) \implies x = \tilde{x} \text{ for all } x,\tilde{x} \in X.
     \end{equation}
 
-    \item Surjective: if every element of the co-domain is the image of at least one element of the domain. Mathematically,
+    \item Surjective (onto): if every element of the co-domain is the image of at least one element of the domain. Mathematically,
     
     \begin{equation}
         \Im (f) = Y
@@ -2160,7 +2162,7 @@ x_i = \frac{\det(B_{(i)})}{\det(A)} = \frac{\det(\mathbf{A}^1, \ldots, \mathbf{A
 
 \section{Real and Hermitian Scalar Products}
 
-\begin{definition} \label{scalarproduct} 
+\begin{definition}[Scalar Products] \label{scalarproduct} 
     A real (hermitian) scalar product on a vector space \( V \) over \( F = \mathbb{R} \) (\( F = \mathbb{C} \)) is a map \(\langle \cdot, \cdot \rangle : V \times V \rightarrow \mathbb{R} \) (\( \mathbb{C} \)) satisfying:
     \begin{enumerate}[label=(\(K\)\arabic*)]
         \item \(\langle \vb{v}, \vb{w} \rangle = \langle \vb{w}, \vb{v} \rangle\), for a real scalar product, \( F = \mathbb{R} \),\\
@@ -2171,29 +2173,45 @@ x_i = \frac{\det(B_{(i)})}{\det(A)} = \frac{\det(\mathbf{A}^1, \ldots, \mathbf{A
     for all vectors \(\vb{v}, \vb{u}, \vb{w} \in V\) and all scalars \(\alpha\), \(\beta \in F\).
     
     If (K1) and (K2), but not necessarily (K3) are satisfied, then \(\langle \cdot, \cdot \rangle\) is called a bi-linear form (in the real case \( F = \mathbb{R} \)) or a sesqui-linear form (in the complex case \( F = \mathbb{C} \)).
+
+    A real or hermitian scalar product is also referred to as an inner product on \(V\) and a vector space \(V\) with such a scalar product is also called an inner product (vector) space.
 \end{definition}
+
+
+\begin{definition}[Norms and Normed Vector Spaces]
+    A norm \(\lVert \cdot  \rVert \) on a vector space \(V\) over the field \(F = \mathbb{R} \text { or } \mathbb{C}\) is a map \(\lVert \cdot  \rVert : V \to \mathbb{R}\) which satisfies 
+
+    \begin{enumerate}[label=(L\arabic*)]
+        \item \(\lVert \vb{v}  \rVert > 0 \) for all non-zero \(\vb{v} \in V\),
+        \item \(\lVert \alpha \vb{v}  \rVert = \abs{\alpha } \lVert \vb{v}  \rVert \text{ for all } \alpha \in  F \text { and all } \vb{v} \in V    \),
+    \end{enumerate}
+    
+    A vector space \(V\) with a norm is called a normed vector space.
+\end{definition}
+
+Note that the notation \(\abs{\alpha } \) in \((L2)\) refers to the simple absolute value for \(F = \mathbb{R}\) and complex modulus for \(F = \mathbb{C}\). In fact, the complex modulus in \(\mathbb{C}\) is simply a generalization of the absolute value in \(\mathbb{R}\).     
 
 Since properties \((K1) \text { and } (K3)\) imply that \(\avg{\vb{v} ,\vb{v} } \) is real and non-negative, respectively, we can sensibly define the norm (or length) of a vector as 
 
 \begin{equation}
-    \abs{\vb{v} } = \sqrt{\avg{\vb{v} ,\vb{v} } }.
+    \lVert \vb{v} \rVert   = \sqrt{\avg{\vb{v} ,\vb{v} } }. 
 \end{equation}
 
 For a real scalar product, in analogy with the dot product, the Cauchy-Schwarz inequality allows the definition of the angle \(\sphericalangle (\vb{v} ,\vb{w} ) \in  [0,\pi ]\) between two non-zero vectors \(\vb{v} ,\vb{w} \) by
 
 \begin{equation}
-    \cos (\sphericalangle (\vb{v} ,\vb{w} )) \equiv \frac{\avg{\vb{v} ,\vb{w} } }{\abs{\vb{v} }\abs{\vb{w} }  }.
+    \cos (\sphericalangle (\vb{v} ,\vb{w} )) \equiv \frac{\avg{\vb{v} ,\vb{w} } }{\lVert \vb{v} \rVert\lVert \vb{w} \rVert  }.
 \end{equation}
 
 The Cauchy-Schwarz inequality and the triangle inequality are 
 
 \begin{equation}
-    \abs{\avg{\vb{v} ,\vb{w} } } \le \abs{\vb{v} }\abs{\vb{w} } ~\text { and }~  \abs{\vb{v} + \vb{w} } \le \abs{\vb{v} } + \abs{\vb{w} },      
+    \abs{\avg{\vb{v} ,\vb{w} } } \le \lVert \vb{v} \rVert\lVert \vb{w} \rVert ~\text { and }~  \abs{\vb{v} + \vb{w} } \le \lVert \vb{v} \rVert + \lVert \vb{w} \rVert,      
 \end{equation}
 
 \todo{More equality from riley} 
 
-where the first inequality comes directly from the definition of angle above as the cosine function cannot exceed \(1\), and the second from the fact that \((\vb{v} +\vb{w} )^2 = \abs{\vb{v} }^2+\abs{\vb{w} }^2 + 2\abs{\vb{v} }\abs{\vb{w} }     \). 
+where the first inequality comes directly from the definition of angle above as the cosine function cannot exceed \(1\), and the second from the fact that \((\vb{v} +\vb{w} )^2 = \lVert \vb{v} \rVert^2+\lVert \vb{w} \rVert^2 + 2\lVert \vb{v} \rVert\lVert \vb{w} \rVert     \). 
 
 Examples of scalar products include:
 
@@ -2728,7 +2746,102 @@ The two extra terms can be simplified further by recalling the definition \(W = 
 \end{equation}
 
 The three extra terms on the right are Coriolis force, centrifugal force and Euler force, respectively.
-\todo{dual vector space} 
+
+\section{Dual Vector Space}
+
+\begin{definition}[Definition of Dual Vector Space]
+    For a vector space \(V\) over \(F\) the dual vector space \(V^*\) is the set of all linear maps \(V \to F\) (where \(F\) is seen as a one-dimensional vector space). The elements of \(V^*\) are called linear functionals.   
+\end{definition}
+
+Examples of linear functionals include:
+
+\begin{enumerate}
+    \item For \(V = \mathbb{R}^{n} \) and a fixed vector \(\vb{w} \in V\) we can define \(\varphi _{\vb{w} }\in (\mathbb{R}^{n} )^* \) by 
+    
+    \begin{equation}
+        \varphi _{\vb{w} }(\vb{v} ) = \vb{w} ^T \vb{v} \in \mathbb{R}. 
+    \end{equation}
+
+    In fact, any linaer map from \(\mathbb{R}^{n} \) to \(\mathbb{R}\) can be completely described by a dot product with a unique vector \(\vb{w} \), this is because we can set \(\vb{w} = \sum_{i=1}^{n} \varphi (\vb{e} _{i} )\), where \(\vb{e} _{i} \) are the standard basis, then 
+    
+    \begin{equation}
+        \varphi (\vb{v} ) = \varphi \left( \sum_{i=1}^{n} v_{i} e_{i}  \right) = \sum_{i=1}^{n} v_{i} \varphi (\vb{e} _{i} ) = \sum_{i=1}^{n} v_{i} w_{i} = \vb{w} ^T\vb{v} = \varphi _{\vb{w} }(\vb{v} ).  
+    \end{equation}
+
+    \item For the vector space of continuous functions \(h:[a,b] \to \mathbb{R}\) the integral 
+    
+    \begin{equation}
+        I(h) = \int_{a}^{b} h(x)dx 
+    \end{equation}
+
+    is a linear functional. Another intersting functional on the same vector space is \(\delta _{x_0 }(h) \equiv h(x_0 ) \), where \(x_0 \in [a,b]\) is a fixed point, this is the famous Dirac delta function.  
+\end{enumerate}
+
+Since linear functionals map vector in \(\mathbb{R}^{n} \) to \(\mathbb{R}\), so they are described by \(1 \times n\) matrices, that is, by row vectors. So we can think of the vector space \(V\) as consisting of column vectors and its dual \(V^*\) as consisting of row vectors. 
+
+\begin{theorem}[Existence of Dual Basis]
+    For a basis \(\boldsymbol{\epsilon }_{1} , \ldots , \boldsymbol{\epsilon  }_{n}   \) of \(V\) there is a basis \(\boldsymbol{\epsilon }_{*}^{1}  , \ldots , \boldsymbol{\epsilon }_{*}^{n}    \) of \(V^*\), called the dual basis, such that 
+    
+    \begin{equation}
+        \boldsymbol{\epsilon }_{^*}^{i}  (\boldsymbol{\epsilon }_{j} ) = \delta ^{i} _{j} .  
+    \end{equation}
+
+    In particular, \(\dim (V^*) = \dim (V)\). 
+\end{theorem}
+
+\begin{proof}
+    We claim that the dual basis is
+    
+    \begin{equation}
+        \boldsymbol{\epsilon }_{*}^{i} \equiv \vb{e} _{i}^T \psi ^{-1} (\vb{v} ),
+    \end{equation}
+
+    where \(\psi (\boldsymbol{\alpha } ) = \sum_{i}^{} = \alpha _{i}\boldsymbol{\epsilon }_{i}    \) is the coordinate map which assigns to a coordinate vector \(\boldsymbol{\alpha } = (\alpha ^{1}, \ldots ,\alpha ^{n}  ) \) the corresponding vector, relative to the chosen basis \(\boldsymbol{\epsilon }_{i}  \).   
+
+    First we check 
+
+    \begin{equation}
+        \boldsymbol{\epsilon }^{i}_{*} (\boldsymbol{\epsilon }_{j}  ) = \vb{e} _{i}^T \psi ^{-1} (\boldsymbol{\epsilon }_{j}  ) = \vb{e} _{i}^T \vb{e} ^{j} = \delta _{i}^{j}.        
+    \end{equation}
+
+    To verify that \(\boldsymbol{\epsilon }_{*}^{i}  \) form a basis we first check linear independence. Applying \(\sum_{i}^{} \beta _{i}\boldsymbol{\epsilon }_{*}^{i} = 0 \) to \(\boldsymbol{\epsilon }_{j}  \) and using the above equations shows immediately that \(\beta _{j}= 0 \). 
+    
+    Next to see that they span \(V^*\) we start with an arbitrary functional \(\varphi \in V^*\) and a vector \(\vb{v} = \sum_{i}^{}v^{i}\boldsymbol{\epsilon }_{i}    \), then 
+
+    \begin{equation}
+        \varphi (\vb{v} ) = \varphi \left( \sum_{i}^{}v^{i}\boldsymbol{\epsilon }_{i}     \right)= \sum_{i}^{}v^{i} \varphi (\boldsymbol{\epsilon }_{i}  ) = \sum_{i}^{} \varphi _{i}v^{i} = \sum_{i}^{}\varphi _{i}\boldsymbol{\epsilon }_{*}^{i}(\vb{v} ).          
+    \end{equation}
+
+    This means \(\varphi = \sum_{i}^{} \varphi _{i}\boldsymbol{\epsilon }_{*}^{i}    \) so that we have written an arbitrary functional \(\varphi \) as a linear combination of \(\boldsymbol{\epsilon }_{*}^{i}   \).
+\end{proof}
+
+Vector space basis elements have lower indices and their coordinates have upper indices while the situation is reversed for dual vectors. This allows us to decide the origin of coordinate vectors simply by the position of their index. The situation is summarized in \cref{dual}. 
+
+\begin{table}[h] \label{dual} 
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        & \textbf{Vectors in \(V\)} & \textbf{Dual Vectors in \(V^*\)} \\
+        \hline
+        Vectors & \(\mathbf{v} = v^i \,\boldsymbol{\epsilon } _i\) &  \(\varphi = \varphi_j \,\boldsymbol{\epsilon } ^j_*\) \\
+        \hline
+        Coordinates & \(v^i\) &  \(\varphi_j\) \\
+        \hline
+    \end{tabular}
+\end{table}
+
+The action of dual vectors on vectors can be written as 
+
+\begin{equation}
+    \varphi (\vb{v} ) = \sum_{i,j}^{} \varphi _{i}v^{j}\boldsymbol{\epsilon }_{*}^{i} (\boldsymbol{\epsilon }_{j}  ) = \varphi _{i}v^{i}.        
+\end{equation}
+
+
+
+
+
+
+
 
 \chapter{Eigenvectors and Eigenvalues}
 
@@ -2755,7 +2868,7 @@ In this case, \(\vb{v} \) is called an eigenvector of \(f\) with eigenvalue \(\l
     A \vb{v} _{i} = \lambda _{i}\vb{v} _{i} \implies A^{-1} A \vb{v} _{i} = \lambda _{i}A^{-1} \vb{v} _{i} \implies A^{-1} \vb{v} _{i} = \frac{1}{\lambda _{i} }\vb{v} _{i},    
 \end{equation}
 
-thus \(A^{-1} \) has the same eigenvectors \(\vb{v} _{i} \) as does \(A\) but the corresponding eigenvalues are \(\frac{1}{\lambda _{i} } \).   
+thus \(A^{-1} \) has the same eigenvectors \(\vb{v} _{i} \) as does \(A\) but the corresponding eigenvalues are \(1 /\lambda _{i} \).   
 } 
 
 \example{Eigenvalues of a \(2 \times 2\) matrix.}
@@ -2805,7 +2918,7 @@ The characteristic polynomial \(\chi _{A}(\lambda ) \equiv \det (f-\lambda \math
 
 The above lemma shows that the determinant of a matrix is basis-independent, which we have already shown in \cref{detprop}. Further, it shows that the trace of a matrix A \(\Tr (A) \equiv \sum_{i=1}^{n} A_{ii}\) is also basis-independent. However this can be seen more directly by noting that \(\Tr (AB) = \sum_{i,j}^{} A_{ij} B_{ji} = \sum_{i,j}^{} B_{ji} A_{ij} = \Tr (BA)      \), so \(\Tr (PAP^{-1} ) = \Tr (P^{-1} PA) = \Tr (A)\).
 
-Resulting from the charateristic polynomial of the matrix, there will be \(n\) eigenvalues (which are not necessarily distinct) for a \(n \times n\) matrix. Distinct eigenvalues are also known as non-degenerate eigenvalues, and repeated eigenvlues are known as degenerate eigenvalues. If there happens to be a \(m-folded\) repeated root, then there will be usually \(m\) linearly indpendent eigenvector for the same eigenvalue, otherwise the matrix is called a defective matrix, and we will not be able to find \(n\) independent eigenvectors for the matrix and thus is not diagonalizable.
+Resulting from the charateristic polynomial of the matrix, there will be \(n\) eigenvalues (which are not necessarily distinct) for a \(n \times n\) matrix. Distinct eigenvalues are also known as non-degenerate eigenvalues, and repeated eigenvlues are known as degenerate eigenvalues. If there happens to be a \(m\)-folded repeated root, then there will be usually \(m\) linearly indpendent eigenvector for the same eigenvalue, otherwise the matrix is called a defective matrix, and we will not be able to find \(n\) independent eigenvectors for the matrix and thus is not diagonalizable.
 
 \section{Diagonalization of Matrices}
 
@@ -3017,6 +3130,72 @@ If the quadratic form of \(A\) is positive for all column vectors \(\vb{x} \), t
 
 Thus the length of the two axes are \(a = \frac{1}{\sqrt{2+\sqrt{2 } }} \text { and } b = \frac{1}{\sqrt{2-\sqrt{2} } }  \). 
 } 
+
+\chapter{Hibert Space}
+
+\section{Vector Spaces for Functions}
+
+\subsection{Classes of Functions}
+
+The set of all functions with the set \(S\) as their domain and \(V\) as their co-domain is denoted by 
+
+\begin{equation}
+    \mathcal{F}(S,V) \equiv {f:S \to V}.
+\end{equation}
+
+For example, if \(S = [a,b] \subset \mathcal{R} \text { and }  V = \mathbb{R}\), then we are considering all the real-valued functions whose domain is \([a,b]\). Sometimes \(\mathbb{R}\) is placed in the subscript, so \(\mathcal{C}_{\mathbb{R}}([a,b]) \) is the space with all real-valued continuous functions of \([a,b]\).
+
+Some commonly used sub vector spaces include \(\mathcal{C}([a,b])\), which is the set of all continuous functions on the interval \([a,b]\). \(\mathcal{C}^{k}([a,b]) \) is the sset of all \(k\) times continuously differentiable functions on this interval, where \(k = \infty\) is allowed. On the other hand, \(\mathcal{C}_{c} (\mathbb{R})\) contains all the continuous functions with compact support, \textit{i.e.,} there exist a certain radius \(R > 0\) such that \(f(x) = 0 \text{ for all } \abs{x} > R  \). The vector space of all polynomials is denoted by \(\mathcal{P}([a,b])\).             
+
+\subsection{Linear Maps}
+
+\subsubsection{Integral Operator}
+
+The map \(T:\mathcal{C}([a,b]) \to C([a,b])\) is an integral operator if
+
+\begin{equation}
+    T(f)(x) \equiv \int_{a}^{b} K(x,\tilde{x} )f(\tilde{x} )\tilde{dx} , 
+\end{equation}
+
+where \(K:[a,b]\cross [a,b] \to \mathbb{R}\) is a real-valued continuous function of two variables, called the kernel of this integral operator, which encodes important information about the operator. 
+
+\subsubsection{Differential Operator}
+
+The map \(D:\mathcal{C}^{\infty}([a,b]) \to \mathcal{C}^{\infty}([a,b])  \) is an differential operator if 
+
+\begin{equation}
+    D(f)(x) \equiv \frac{df}{dx} (x). 
+\end{equation}
+
+\subsubsection{Multiplication Operator}
+
+THe map \(M_{p}:C^{\infty}([a,b]) \to C^{\infty}[a,b]   \) is a multiplication operator if 
+
+\begin{equation}
+    M_{p}(f)(x) \equiv p(x)f(x), 
+\end{equation}
+
+where \(p \in \mathcal{C}^{\infty}([a,b]) \) is a fixed function. 
+
+\subsubsection{Linear Differential Operator}
+
+We can combine the differential operator and the multiplication operator to construct a linear differential operator \(T:\mathcal{C}^{\infty}([a,b]) \to \mathcal{C}^{\infty}([a,b])  \), defined by 
+
+\begin{equation}
+    T \equiv p_{k} \frac{d^{k} }{dx^{k} } + p_{k-1} \frac{d^{k-1}}{dx^{k-1} } + \cdots + p_1 \frac{d}{dx} + p_0 ,    
+\end{equation}
+
+where \(p_{i} \), for \(i = 0, 1, \ldots ,k\) are fixed functions in \(\mathcal{C}^{\infty}([a,b]) \).    
+
+\begin{definition}[Bounded Linear Operator]
+    A linear operator \(T:V \to W\) is called bounded if there exists a positive \(K \in \mathbb{R}\) such that \(\lVert T(\vb{v} ) \rVert_{W} \le K \lVert \vb{v}  \rVert_{V}    \) for all \(\vb{v} \in V\). The smallest number \(K\) for which this condition is satisfied is called the norm, \(\lVert T \rVert \), of the operator \(T\).    
+\end{definition}
+
+\begin{definition}[Isometries]
+    A bounded linear operator \(T:V \to W\) is an isometry if and only if \(\lVert T(\vb{v} ) \rVert_{W} = \lVert \vb{v}  \rVert_{\vb{V} } \) for all \(\vb{v} \in V\).   
+\end{definition}
+
+
 
 
 

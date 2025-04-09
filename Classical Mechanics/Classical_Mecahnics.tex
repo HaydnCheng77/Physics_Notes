@@ -12,54 +12,218 @@
 \tableofcontents
 	
 \chapter{Newtonian mechanics}
-\section{Point particle}
+\section{Point Particle}
 
-To solve for the motion of objects, one may employ the vectorial approach with Newton's second law
-
-\begin{equation}
-	\vb{F} = \frac{d\vb{p} }{dt}  = \frac{d (m\vb{v}) }{d t} . \label{new2} 
-\end{equation}
-
-In a special case where the mass of the body is changing, the law becomes
+The translation Newton's second law the net force on a system \(\vb{F} _{\text{net} } \) with its mass \(m\) and its center of mass velcoity \(\vb{v} _{\text{c.m.} } \) by  
 
 \begin{equation}
-	\vb{F} = m\vb{a} + \vb{v} _{\text{rel} } \frac{dm}{dt},  \label{new2prime} 
+	\vb{F}_{\text{net} }  = \frac{d\vb{p}_{\text{c.m.} }  }{dt}  = \frac{d (m\vb{v}_{\text{c.m.} } ) }{d t} . \label{new2} 
 \end{equation}
 
-where \(\vb{v} _{\text{rel} } \) is the velocity of the mass relative to the added mass.
-
-This equation is essentially a statement of the conservation of momentum of the system, and can be proved this way: suppose The added mass \(dm\) has speed \(u\) and the mass \(m\) has speed \(v\) and are together subjected to a force \(F\). After an infinitesmal amount of time, they travel together at the speed \(v+dv\).
-
-The impulse of the system is equals to the momenumtum change, \textit{i.e.,} 
+This equation works completely fine when the mass \(m\) varies with time. However, the center of mass velocity is hard to find in such cases. A more useful version is the modified Newton's second law
 
 \begin{equation}
-	Fdt= dp = (m+dm)(v+dv)-udm-vm \implies F = ma+\frac{dm}{dt}(v-u).  
+	\vb{F}_{\text{net} }  = m\vb{a} + \vb{v} _{\text{rel} } \frac{dm}{dt},  \label{new2prime} 
 \end{equation}
 
-The same equation works for when mass is being removed. In this case, \(\frac{dm}{dt} \) is negative, and \(\vb{v} _{\text{rel} } \) is the velocity of the mas relative to the removed mass.
+where \(\vb{a} \) is the acceleration of \(m\) and  \(\vb{v} _{\text{rel} } \) is the velocity of the mass relative to the added mass.
+
+This equation is simply an application of the impulse-momentum theorem of a system experiencing a net force \(\vb{F} _{\text{net} } \)  in a time period \(dt\) consisting of a mass \(m\) moving at velocity \(\vb{v} \) initially and an added mass \(dm\) moving at velocity \(\vb{u} \) initially.
+
+\begin{equation}
+	\vb{F}_{\text{net} }  dt = d\vb{p}  = (m+dm)(\vb{v} +d\vb{v} )-dm \vb{u} -m\vb{v}  \implies \vb{F} _{\text{net} }  = m\vb{a} +\frac{dm}{dt}(\vb{v} -\vb{u} ).  
+\end{equation}
+
+We see that the net force \(\vb{F}_{\text{net} }  \) is responsible for both the usual acceleration \(\vb{a} \) of the mass \(m\) and the acceleration of the added mass \(dm\) from its original velocity \(\vb{u} \) to the mass's velocity \(\vb{v} \) in time \(dt\)   
+
+For cases where the mass is decreasing, we have, if the removed mass is moving at velocity \(\vb{u} \) afterwards, 
+
+\begin{equation}
+	\vb{F} _{\text{net} } dt = d\vb{p} = (m+dm)(\vb{v} +d\vb{v} ) + (-dm)\vb{u}  - m\vb{v} \implies \vb{F} _{\text{net} } = m\vb{a} + \frac{dm}{dt} (\vb{v} - \vb{u} ),    
+\end{equation}
+
+which is the same as the equation for adding mass, just that \(\vb{v} _{\text{rel} } \) is now the velocity of the mass relative to the removed mass. Here the negative sign in \(-dm\) is due to the fact that \(m\) is defined as the mass of the massive object, so \(dm\) is inherently negative if mass is being removed.   
 
 \todo{reduced mass = work in cm frame?} 
 
-\example{Falling Chain (1).}
-{A uniform chain of length \(L\) and mass \(m\) is stretched out on a frictionless horizontal table with part of its length \(h\) hanging down through a hole in the table. Find the time it take for the chain to fall off.}
-{Let \(x\) be the fraction of the chain that has fallen off the table. Using the concept of generalized coordinates, we have 
+\example{Falling Chain off a Table (1).}
+{An uniform incompressible, inextendable and stretched chain of length \(L\) and mass \(m\) is stretched out on a frictionless horizontal table with part of its length \(h\) hanging down through a hole in the table. Find the time it take for the chain to fall off.}
+{The key words here are incompressible, inextendable and stretched which dictates the chain move together at a constant velocity. If we consider the chain as a whole, there are three forces acting on it: gravity, normal reaction by the table and normal reaction at the corner. The normal reaction must arises to provide horizontal acceleration for the center of mass of the whole system. If we consider the infinietesimal element of chain at the corner, we can conclude that \(N = \sqrt{2}T \).   
+	
+Since there are three unknown force, we know that considering the chain along is not sufficient to determine its equations of motion. Instead, we need to divide the system into the part on the table and the part that has fallen off the table (and the infinitesimal chain at the corner which is used to redirect the direction of tension at that point). 
+
+Let \(x\) be the fraction of the chain that has fallen off the table. The modified Newton's second law read
 
 \begin{equation}
-	xmg = mL \ddot{x}. 
+	T = (1-x)m \ddot{x}L ~\text { and }~ xmg - T = xm \ddot{x}L \implies xmg = mL \ddot{x}.   
 \end{equation}
 
-Solving, we get \(t = \sqrt{\frac{L}{g} } \cosh^{-1} \left( \frac{L}{h}  \right) \).
+Note that it does not need the additional term due to change in mass in the two systems since \(\vb{v} _{\text{rel} }  = 0\). 
+
+Solving, we get \(t = \sqrt{L /g } \cosh^{-1} \left( L /h  \right) \). 
+
+In fact, using the concept of generalized coordinate (in this case, along the chain) we can obtain the equation of motion in one line.
+
+
 } 
 
-\example{Falling Chain (2).}
-{A uniform chain of length \(L\) and mass \(m\) stetched vertically just above the surface of a weighing scale and then release from rest. Find the reading of the scale as the chain falls onto the scale.}
-{Chain, } 
+\example{Falling Chain(2).}
+{Solve the previous problem but the chain is slack initially and is coiled around a hole in a table.}
+{The slack part of the chain can have no tension -- this is the definition of being slack. However, when we consider the part of the chain on the table, we see that it experience a force since its mass is decreasing and the relative velocity between the removed mass and the mass itself is non-zero, how is that possible? 
+
+The velocities of different parts of the chain are now moving at different velocities, which is a promising sign to use the modified Newton's second law. Consider part of the chain that has fallen off the table, the modified Newton's second law reads
+
+\begin{equation}
+	xmg = xma + \frac{dm}{dt}v = xma + \frac{mv^2}{L}.
+\end{equation}
+
+This is a non-linaer first order differential equation, which can be solved by guessing \(x = At^{n} \). This is indeed the solution and solving for \(A \text { and }  n\) gives \(t = \sqrt{3L /g} \).
+
+} 
+
+
+\example{Falling Chain(3).}
+{An uniform chain of length \(L\) and mass \(m\) stetched vertically just above the surface of a weighing scale and then release from rest. Find the reading of the scale as the chain falls onto the scale.}
+{Since the chain is slack at the scale, the tension is zero at the bottom of the falling chain. The falling chain essentially undergoes free fall and the increase in normal reaction is simply provided only to the infinitesimal element of the chain that comes to stop when it hit the scale. 
+
+Let \(x\) be the length of the falling chain, measured from the scale up to the positive vertical direction. The speed of the falling chain can be found via energy conservation, which gives 
+
+\begin{equation}
+	\frac{dx}{dt} = -\sqrt{2g(l-x)}.  
+\end{equation}
+
+There are a few systems we can consider: 
+
+\begin{enumerate}
+	\item The infinitesimal element that comes to stop after hitting the scale,
+	\item the falling chain
+	\item the chain on the scale that is at rest, and
+	\item the whole chain.
+\end{enumerate}
+
+Firstly, we consider the infinitesimal element that comes to stop after hitting the scale. Having expereinces from previous examples, we see that this is the most natural choice as this is what the normal reaction is actually acting on and the normal reaction is dedicated entirely and only to stop this element of the chain from penetrating the scale. The Newton's second law reads
+
+\begin{equation}
+	N - gdm = dma \implies N = \frac{mdx}{L}\frac{\frac{dx}{dt} }{dt} = \frac{m}{L}\left( \frac{dx}{dt}  \right)^2 = 2\left( \frac{l-x}{l}  \right)mg. 
+\end{equation}
+
+Adding \(N\) with \(((l-x) /l) mg\), which is the contribution of the stationary chain to the reading of the scale gives \(N_{\text{tot} } = 3 \left( (l-x) /l \right)mg\).   
+
+Secondly, we can consider the modified Newton's second law of the falling chain 
+
+\begin{equation}
+	N - \frac{x}{l}mg = \frac{x}{l}m(-g) + \left(-\frac{dx}{dt} \right) \frac{d}{dt}\left( \frac{l-x}{l} m \right) \implies N = 2\left( \frac{l-x}{l}  \right)  mg.
+\end{equation}
+
+Adding \(N\) with \(((l-x) /l) mg\), which is the contribution of the stationary chain to the reading of the scale gives \(N_{\text{tot} } = 3 \left( (l-x) /l \right)mg\).   
+
+Thirdly, we can consider the part of the cahin on the scale that is at rest, but this is basically equivalent to consider the infinitesimal element in the first method, since the stationary chain does not add anything special.
+
+At last, we can consider the whole chain. The center of mass of the chain is located at 
+
+\begin{equation}
+	x_{\text{c.m.} }  = \frac{1}{m} \left( \frac{l-x}{l}m(0) + \frac{x}{l}m \frac{x}{2}    \right) = \frac{x^2}{2l}. 
+\end{equation}
+
+The center of mass velocity is therefore 
+
+\begin{equation}
+	\frac{dx_{\text{c.m.} } }{dt} = \frac{x}{l}\left( \frac{dx}{dt}  \right) = -\frac{x}{l} \sqrt{2g(l-x)}. 
+\end{equation}
+
+The center of mass acceleration is therefore
+
+\begin{equation}
+	\frac{d^2x_{\text{c.m.} } }{dt^2} = \frac{1}{l}\left( \frac{d^2x}{dt^2}  \right)^2 + \frac{x}{l}\frac{d^2x}{dt^2} = \left( \frac{l-x}{l}  \right)2g + \frac{x}{l}g.   
+\end{equation}
+
+The unmodified Newton's second law therefore gives
+
+\begin{equation}
+	N_{\text{tot} } =  m \frac{d^2x_{\text{c.m.} } }{dt^2} = 3 \left( \frac{l-x}{l}  \right) mg. 
+\end{equation}
 
 
 
-Of course, \cref{new2} still works but \cref{new2prime} provides more useful information that allows us to solve for the motion of the mass. A classic example would be the rocket equation.
 
-To account for the rotational motion of an object, torque \(\boldsymbol{\tau } \) and angular momentum \(\vb{L} \)\footnote{One may question the necessity to introduce the concept of torque and angular momentum. Indeed, with Newton's second law, one can virtually solve all mechanics problems without resorting to other physical laws. However, when analyzing rigid bodies with spatial extent (in contrast to a point particle), torque becomes useful because the internal forces in these bodies are generally very complicated. In fact, \(\boldsymbol{\tau } = \frac{d \vb{L}}{t} \) is merely an extension of Newton's second law as explained and derived \href{https://knzhou.github.io/handouts/M2Sol.pdf}{here}. With a different viewpoint, Noether's theorem dictates that since the universe is rotationally symmetric, so \(\vb{L} \) must be conserved, in some sense \(\vb{L}\) is just some useful conserved quantity that is a consequence of a certain symmetry just like how the Laplace-Runge-Lenz vector is the repercussion of some hidden symmetry in higher dimensions.} are introduced, defined by
+
+
+
+
+
+
+
+
+
+
+
+} 
+
+\example{Cart with Time-Varing Mass (1).}
+{Consider a cart with mass \(m\) moving at a constant velocity \(v\) under a force \(F\). In time period \(dt\) an infinitesimal mass \(dm\) is fell on the cart vertically. What is the equation of motion of the cart?}
+{Consider the cart as a system, we have from the modified Newton's second law 
+
+\begin{equation}
+	F = ma + \frac{dm}{dt} v = \frac{dm}{dt}v.  
+\end{equation}
+
+On the other hand, we can consider the added infinitesimal mass as a system, then we have 
+
+\begin{equation}
+	F = dm a = dm \frac{v}{t} = \frac{dm}{dt}v.   
+\end{equation}
+
+As we have found, the force \(F\) is not contributing to the usual acceleration \(\vb{a} \) of the mass \(m\) but is entirely entitiled to the acceleration of the infinitesimal mass \(dm\) from rest to velocity \(\vb{v} \).  
+} 
+
+\example{Cart with Time-Varing Mass (2).}
+{Consider a cart with mass \(m\) moving at an acceleartion \(a\) under a force \(F\). In time period \(dt\) an infinitesimal mass \(dm\) is leaked out of the cart vertically. What is the equation of motion of the cart? }
+{Consider the cart as a system, we ahve from the modified Newton's second law
+
+\begin{equation}
+	F = ma + \frac{dm}{dt} v_{\text{rel} } = ma. 
+\end{equation}
+
+As we can see, since there is no need to accelerate or decelerate the removed mass, it can be gone without using any part of the force \(F\), so \(F\) is dedicated fully to accelearte the mass \(m\). 
+} 
+
+\example{Pulling Carpet.}
+{A long, thin, pliable carpet of mass \(m\) and lenght \(l\) is laid on the floor. One end of the carpet is bent back and then pulled backwards with constant velocity \(v\), just above the part of the carpet which is still at rest on the floor. What is the minimum force \(F\) needed to pull the moving part,?}
+{Again, since different parts of the carpet is moving at different speed, it would be hard to find the 
+
+The modified Newton's second law of the moving part reads
+
+\begin{equation}
+	F = ma + \frac{dm}{dt} v = v \frac{dm}{dt} = \frac{mv}{L} \frac{dx}{dt} = \frac{mv}{L} \frac{\frac{L}{2} }{\frac{L}{v} } = \frac{mv^2}{L},    
+\end{equation}
+
+where we have taken the instant when the top and the bottom of the carpet overlap with each other to calculate \(dm /dt\).
+
+In retrospect, we can simply consider how much mass is accelerated from rest to \(v\) by force \(F\) in time \(dt\) since this is the only thing the force is responsible for when the mass is at constant velocity.
+
+} 
+
+\example{Rocket Equation.}
+{Find the speed of a rocket with initial velocity \(v_0 \), initial mass \(m_0 \) and final mass \(m \), ejecting fuel at velocity \(v_{\text{rel} } \). Gravity can be neglected. }
+{The modified Newton's second law of the rocket reads
+
+\begin{equation}
+	F = 0 = \frac{mdv}{dt} + \frac{dm}{dt}v_{\text{rel} } \implies v = v_0 + v_{\text{rel} }  \ln \left( \frac{m_0 }{m }  \right).
+\end{equation}~
+} 
+
+\example{Air Cannon.}
+{Consider a cylindrical tube with cross sectional area \(A\) with sealed end at one end and a piston of mass \(m\) at the other end. The piston is held stationary and the tube contain no air initially. Find the position \(x\) of the piston along the tube if the density and pressure of the air are \(\rho \text { and } P_0 \).}
+{Since air is incompressible, all air move at the same speed \(\dot{x} \) as the piston. The unmodified Newton's second law of the air inside the tube reads
+
+\begin{equation}
+	P_0 A = \frac{d}{dt}((m+xA\rho )\dot{x} ) \implies P_0 At = (m+xA\rho )\dot{x} \implies x = \frac{m}{\rho A}\left( \sqrt{1+\frac{P_0 \rho A^2t^2}{m^2} } -1 \right).  
+\end{equation}
+} 
+
+
+
+To account for the rotational motion of an object, torque \(\boldsymbol{\tau } \) and angular momentum \(\vb{L} \)\footnote{One may question the necessity to introduce the concept of torque and angular momentum. Indeed, with Newton's second law, one can virtually solve all mechanics problems without resorting to other physical laws. However, when analyzing rigid bodies with spatial extent (in contrast to a point particle), torque becomes useful because the internal forces in these bodies are generally very complicated. In fact, \(\boldsymbol{\tau } = \frac{d \vb{L}}{dt} \) is merely an extension of Newton's second law as explained and derived \href{https://knzhou.github.io/handouts/M2Sol.pdf}{here}. With a different viewpoint, Noether's theorem dictates that since the universe is rotationally symmetric, so \(\vb{L} \) must be conserved, in some sense \(\vb{L}\) is just some useful conserved quantity that is a consequence of a certain symmetry just like how the Laplace-Runge-Lenz vector is the repercussion of some hidden symmetry in higher dimensions.} are introduced, defined by
 
 \begin{equation}
 	\boldsymbol{\tau } = \vb{r} \cross \vb{F} ~\text { and }~ \vb{L} = \vb{r} \cross \vb{p} . 
@@ -564,7 +728,6 @@ The advantage of working in the body-fixed coordinates is that the inertia tenso
 	T_{rot} = \frac{1}{2} (I_1(\dot{\phi } \sin \theta \sin \psi + \dot{\theta } \cos \psi )^2 + I_2(\dot{\phi } \sin \theta \cos \psi -\dot{\theta } \sin \psi )^2) + I_3(\dot{\phi } \cos \theta + \dot{\psi } )^2).
 \end{equation}
 
-
 \chapter{Waves}
 
 \section{Normal Modes}
@@ -1062,7 +1225,7 @@ which has the general solution
 \end{equation}
 
 Solving the wave equation now becomes a matter of finding the coefficients \(A, B, C, D\) to satisfy the boundary conditions and initial conditions. The complete solution is built up of these stationary waves with different wavenumbers and frequencies.
-
+\todo{kx-omet/-kx+omet for forward and vice versa} 
 \example{Stretched String Fixed at Two Points.}
 {Consider a stretched string fixed at \(x=0\) and \(L\), with initial condition \(y_0 (x) \text { and }  \dot{y_0 }(x) \) as usual. Find the general solution to the wave equation. }
 {We have the boundary conditions \(X(0) = X(L) = 0\), so
@@ -1680,34 +1843,264 @@ At \(t=0\), the wave packet has the form \(y(x,t=0) = E(x)\cos (k_{c}x+\varphi  
 
 
 \chapter{Lagrangian mechanics}
-\section{Constraints}
-If the conditions of constraint can be expressed as equations in the form 
+\section{Euler-Lagrange Equation}
+
+Suppose that the function \(q(t)\) minimizes the action \(S\),\footnote{\(S\) is a functional which takes a function as its input and produces a real number as its output.} which is the integral of the Lagrangian \(\mathcal{L}(q(t), \dot{q}(t), t )\) 
+
+\begin{equation}
+	S = \int_{t_1  }^{t_2  } \mathcal{L}\left( q(t),\dot{q}(t) ,t \right) dt
+\end{equation}
+
+between two fixed time \(t_1 \text { and } t_2 \), where the particle transit from the generalized coordinate \(q_1 \) to \(q_2 \), \textit{i.e.,} \(q(t_1)=q_1 \text { and } q(t_2 ) = q_2 \).     
+
+To find \(q(t)\), we introduce variation \(\delta q(t)\) (and \(\dot{q} (t)\)) as
+
+\begin{equation}
+	\delta q(t) = q(\epsilon ,t) - q(0,t) = \epsilon \eta (t) \implies \delta \dot{q}(t) = \epsilon \dot{\eta }(t),  
+\end{equation}
+
+where \(\epsilon \) is a small paramter and \(\eta (t)\) is an arbitrary smooth function that vanishes at the endpoints, \textit{i.e.,} 
+
+\begin{equation}
+	\eta (t_1 ) = \eta (t_2 ) = 0. \label{etabound} 
+\end{equation}
+
+The corresponding variation in the Lagrangian \(\mathcal{L}\) is
+
+\begin{equation}
+	\delta \mathcal{L} = \frac{\partial \mathcal{L}}{\partial q} \delta q + \frac{\partial \mathcal{L}}{\partial \dot{q} } \delta \dot{q} = \epsilon \eta (t) \frac{\partial \mathcal{L}}{\partial q} + \epsilon \dot{\eta } \frac{\partial \mathcal{L}}{\partial t}     
+\end{equation}
+
+The corresponding variation in the action \(S\) is
+
+\begin{equation}
+	\delta S = \epsilon \int_{t_1 }^{t_2 } \left( \frac{\partial \mathcal{L}}{\partial q}q(t) + \frac{\partial \mathcal{L}}{\partial \dot{q} }\dot{q} (t)   \right) dt  =\epsilon \int_{t_1 }^{t_2 } \left( \frac{\partial \mathcal{L}}{\partial q} - \frac{d}{dt} \left( \frac{\partial \mathcal{L}}{\partial \dot{q} }  \right)   \right) \eta (t) dt,
+\end{equation}
+
+where in the last equality we used integration by part and the boundary term vanishes due to the \cref{etabound}. 
+
+Demanding \(\delta S = 0\) for minimum \(S\) gives the Euler-Lagrange equation
+
+\begin{equation}
+	\frac{\partial q}{\partial t} = \frac{d}{dt} \frac{\partial \dot{q} }{\partial t},
+\end{equation}
+
+since \(\eta (t)\) is an aribitrary function, so the integrand must be zero. 
+
+If the Lagragian \(\mathcal{L}\) contains more than one generalized coordinate \(q\), we simply apply the Euler-Lagrangian equation to each generalized coordinate \(q_{i} \) separately.   
+
+In fact this method is so general that \(t\) need not be time but any independent variable and \(q\) need not be generalized coordinate but any dependent variable. 
+
+To derive the Beltrami identity when \(\frac{\partial \mathcal{L}}{\partial q} = 0 \)
+
+\begin{equation}
+	\mathcal{L} - \dot{q} \frac{\partial \mathcal{L}}{\partial \dot{q} } = \text{constant},
+\end{equation}
+
+we note that 
+
+\begin{equation}
+	\frac{d \mathcal{L}}{dt} = \frac{\partial \mathcal{L}}{\partial t} + \frac{\partial \mathcal{L}}{\partial \dot{q} } \frac{dq}{dt} +  \frac{\partial \mathcal{L}}{\partial \dot{q} } \frac{d \dot{q} }{dt} ~\text { and }~ \frac{d}{dt}\left( \dot{q} \frac{\partial \mathcal{L}}{\partial \dot{q} }  \right) = \frac{\partial \mathcal{L}}{\partial \dot{q} } \frac{d \dot{q} }{dt} + \dot{q} \frac{d}{dt}\left( \frac{\partial \mathcal{L}}{\partial \dot{q} }  \right),
+\end{equation}
+
+where \(\frac{\partial \mathcal{L}}{\partial t} \neq \frac{d \mathcal{L}}{dt}  \) since \(\mathcal{L} = \mathcal{L}(q(t), \dot{q} (t),t)\). Combining the two equation gives 
+
+\begin{equation}
+	\frac{d}{dt} \left( \dot{q} \frac{\partial \mathcal{L}}{\partial \dot{q} }  \right) = \frac{d \mathcal{L}}{dt} - \frac{\partial \mathcal{L}}{\partial t} + \dot{q} \left( \frac{d}{dt} \frac{\partial \mathcal{L}}{\partial \dot{q} }  - \frac{\partial \mathcal{L}}{\partial q} \right) \implies \frac{\partial \mathcal{L}}{\partial t} = \frac{d}{dt} \left( \mathcal{L} - \dot{q} \frac{\partial \mathcal{L}}{\partial \dot{q} } \right).
+\end{equation}
+
+
+
+
+
+\example{Shortest Distance Between Two Points.}
+{Prove that the shortest distance between two points is a straight line.}
+{We want to minimize the arc length 
+
+\begin{equation}
+	L = \int_{x_1 }^{x_2 } \sqrt{1+ \left( \frac{dy}{dx}  \right)^2} dx,   
+\end{equation}
+
+so we can use the Euler-Lagrange equation, where \(\mathcal{L} = \sqrt{1+y'^2} \), which gives 
+
+\begin{equation}
+	\frac{\partial \mathcal{L}}{\partial y} = 0 = \frac{\partial \mathcal{L}}{\partial y'} \implies y = ax+b.
+\end{equation}
+
+} 
+
+\example{Brachistochrone Problem.}
+{Find the shape for the minimum transite time between two points \((0,0) \text { and } (x ,y )\) under gravity. }
+{We want to minimize the transit time 
+
+\begin{equation}
+	t = \int_{x_1 }^{x_2 } \frac{ds}{v} = \int_{y_1 }^{y_2 } \frac{\sqrt{1+x'^2} }{2gy} dy,      
+\end{equation}
+
+where we have changed the independent variable from \(x\) to \(y\). Applying the Euler-Lagrange equation gives 
+
+\begin{equation}
+	\frac{\partial t}{\partial x} = 0 = \frac{d}{dy} \frac{\partial t}{\partial x' }.   
+\end{equation}
+
+Solving gives 
+
+\begin{equation}
+	x = a(\theta -\sin \theta ) ~\text { and }~ y = a(1-\cos \theta ), 
+\end{equation}
+
+where \(\theta \) is a parameter, and the solution is a cycloid. 
+} 
+
+\example{Minimal Travel Cost.}
+{The cost of flying an aircraft at height \(z\) is \(e^{-\kappa z} \) per unit distance of flight-path. Find the shape of the flight path for minimal flying cost from \((-a,0) \) \((a,0)\).   }
+{We want to mimize the flying cost 
+
+\begin{equation}
+	C = \int_{-a}^{a} e^{-\kappa z} ds = \int_{-a}^{a} e^{-\kappa z} \sqrt{1+z'^2} dx.
+\end{equation}
+
+Applying the Euler-Lagrange equation gives 
+
+\begin{equation}
+	\frac{\partial \mathcal{L}}{\partial z} = -\kappa e^{-\kappa z}\sqrt{1+z'^2} = \frac{d}{dx} \frac{\partial \mathcal{L}}{\partial z'}= \frac{z''e^{-\kappa z} }{\sqrt{1+z'^2} } - \frac{\kappa z'^2e^{-\kappa z} }{\sqrt{1+z'^2} } - \frac{z''z'^2e^{-\kappa z} }{(1+z'^2)^{3 /2} }.      
+\end{equation}
+
+Solving gives 
+
+\begin{equation}
+	z(x) = \frac{1}{\kappa } \ln \frac{\cos (\kappa x)}{\cos (\kappa a)}.  
+\end{equation}~
+} 
+
+\example{Surface Area of a Cylindrically-Symmetric Soap Bubble.}
+{Consider the surface stretched by a soap bubble film with boundaries being two circular hoops. Find the shape of the soap bubble at equilibrium.}
+{We want to minimize the surface energy, which is proportional to the surface area 
+
+\begin{equation}
+	S = 2\pi \int \rho \sqrt{dz^2+d\rho ^2} = 2\pi \int_{z_1 }^{z_2 } \rho \sqrt{1+\left( \frac{d\rho }{dz}  \right)^2} dz = 2\pi \int_{\rho _{1} }^{\rho _{2} } \rho \sqrt{1+\left( \frac{dz}{d\rho }  \right)^2} dz.      
+\end{equation}
+
+If we choose \(z\) to be the independent variable, then the Euler-Lagrange equation reads
+
+\begin{equation}
+	\frac{\partial \mathcal{L}}{\partial \rho } = \sqrt{1+\rho '^2}  = \frac{d}{dz} \frac{\partial \mathcal{L}}{\partial \rho ' } = \frac{d}{dz} \left( \frac{\rho \rho '}{\sqrt{1+\rho '^2} }  \right),
+\end{equation}
+
+which is not an easy equation to solve.
+
+On the other hand, if we choose \(\rho \) to be the independent variable, then the Euler-Lagrange equation reads
+
+\begin{equation}
+	\frac{\partial \mathcal{L}}{\partial z} = 0 = \frac{d}{d\rho } \frac{\partial \mathcal{L}}{\partial z'} = \frac{d}{d\rho }. 
+\end{equation}
+
+Solving gives 
+
+\begin{equation}
+	\rho = a \cosh \left( \frac{z-b}{a}  \right),
+\end{equation}
+
+where \(a \text { and } b\) are constants determined by the boundary conditions. 
+} 
+
+\example{Fermat's Principle}
+{Refer to \cref{fermat} and derive the Snell's law \(n_1 \sin \theta _{1} = n_2 \sin \theta _{2}  \) when light propagate from one medium of refractive index \(n_1 \) with incidence angle \(\theta _{1} \) to another medium of refractive index \(n_2 \) with refracted angle \(\theta _{2} \).}
+{We want to minimize the transit time 
+
+\begin{equation}
+	t = \int_{y_1 }^{y_2 } \frac{ds}{v} = \int_{y_1 }^{-y_2 } \frac{1}{c} n(x,y,z) \sqrt{1+x'^2+z'^2}dy      
+\end{equation}
+
+The Euler-Lagrange equation for \(z\) reads
+
+\begin{equation}
+	0 + \frac{d}{dy} \left( \frac{1}{c} \left( \frac{n_1 z'}{\sqrt{1+x'^2+z'^2} } + \frac{n_2 z'}{\sqrt{1+x'^2+z'^2} }  \right)  \right) = 0 \implies z' = 0, 
+\end{equation}
+
+which is equivalent to saying that the \(z\)-coordinate of the light beam remains at \(z = 0\) at all times.
+
+The Euler-Lagrange equation for \(x\) reads
+
+\begin{equation}
+	0 + \frac{d}{dy} \left( \frac{1}{c} \left( \frac{n_1 \tan \theta _{1} }{\sqrt{1+\tan ^2\theta _{1} } } - \frac{n_2 \tan \theta _{2} }{\sqrt{1+\tan ^2\theta _{2} } }  \right)  \right) = \frac{d}{dy} \left( \frac{1}{c} \left( n_1 \sin \theta _{1} - n_2 \sin \theta _{2}   \right)  \right) = 0.  
+\end{equation}
+
+Therefore \(n_1 \sin \theta _{1} - n_2 \sin \theta _{2}  \)  is a constant, which must be zero since when \(n_1 = n_2 \) we have \(\theta _{1} = \theta _{2}  \). 
+
+In fact the geometry of this problem is simple enough that directly minimizing the path rather than using the Euler-Lagrage equation is faster. However due to the simplicity of this approach it is not illustrated here.
+} 
+
+\onefig{fermat}{scale=0.3} 
+
+\example{Minimum of \((\grad{\phi })^2 \) in a Volume.}
+{Find the function \(\phi (\vb{r} )\) that has the minimum value of \((\grad{\phi })^2\) per unit volume.  }
+{We want to minimize 
+
+\begin{equation}
+	J = \frac{1}{V} \int (\grad{\phi } )^2 dV = \frac{1}{V} \int \left( \left( \frac{\partial \phi }{\partial x}  \right)^2 + \left( \frac{\partial \phi }{\partial y}  \right)^2 + \left( \frac{\partial \phi }{\partial z}  \right)^2 \right).
+\end{equation}
+
+The Euler-Lagrange equation for the three coordinates read
+
+\begin{equation}
+	\frac{\partial \mathcal{L}}{\partial \phi } = 0 = \frac{\partial }{\partial x_{i} } \left( \frac{\partial \mathcal{L}}{\partial \phi '}  \right) \implies \frac{\partial^2 \phi }{\partial x_{i} ^2} = 0 \implies \sum_{i=1}^{3} \frac{\partial^2 \phi }{\partial x_{i} ^2} = 0 \implies \laplacian \phi =0,
+\end{equation}
+
+therefore \(\phi \) must satisfy the Laplace's equation in order that \((\grad{\phi } )^2\) is minimum.  
+
+
+} 
+
+\section{Constraints} \label{constraints} 
+In the above section we assumed the coordinates \(q_{i} \) are independent. However, there could be constriants in the system which relates the coordinates \(q_{i} \). The constriant in the form
 
 \begin{equation}
 	f(\vb{r} _{1} , \vb{r} _{2} , \vb{r} _{3} , ..., t) = 0,
 \end{equation}
 
-then the constraints are said to be holonomic. For example, the constraint for a rigid body is that the distance of any two points in the body is fixed, \textit{i.e.,} 
+Fpr example, the constriant on a rigid body is that the distance betewen any two points in the body is fixed, \textit{i.e.,} \(	\left| \vb{r} _{i} - \vb{r} _{j}  \right| = c_{ij} \).  
+
+A system consisting of \(N\) free particles has \(3N\) degrees of freedom and thus \(3N\) independent variables. If there are \(k\) holonomic constraints, then we can always find \(3N-k\) independent variables (known as the generalized coordinates), which is the minimum number of variables that can still fully describe the state of the system. We can then apply Euler-Lagrange equations to the \(3N-k\) generalized coordinates separately to obtain the system's equation of motion. 
+
+For example, for a double pendulum, we can use the two equations which state that the lengths of the two rods are constant to eliminate two of the four Cartesian variables. Alternatively, we can simply use the two generalized coordinates \(\theta _{1} \text { and } \theta _{2}  \).  
+
+In contrary, a constraint that cannot be expressed in the above form is called a nonholonomic constraint. For example, refering to \cref{noslip}, consider a disc with radius \(a\) rolling on the horizontal \(x\)-\(y\) plane such that the plane of the disc is always vertical. In addition to the \(x \text{ and }  y\) coordinates of the center of mass, we need specify its orientation using the angle between the disc's symmetric axis and the \(x\)-axis \(\theta \) and its rotated angle \(\phi \). 
+
+\onefig{noslip}{scale=0.3} 
+
+The angular velocity of the disc is 
 
 \begin{equation}
-	\left| \vb{r} _{i} - \vb{r} _{j}  \right| = c_{ij} .
+	\boldsymbol{\omega } = \dot{\theta }\vu{z} + \dot{\phi }(\cos \theta \vu{x} + \sin \theta \vu{y} ),   
 \end{equation}
 
-With Cartesian coordinates, there are initially \(3N\) degrees of freedom thus \(3N\) independent equations. If there are \(k\) holonomic constraints, then we can use them to eliminate variables and solve for the \(3N\) variables as well as the \(k\) constraint forces. In another viewpoint, we can introduce \(3N - k\) independent variables (also known as generalized coordinates \footnote{In some sense, generalized coordinates are just the minimum numbers of variables which can satisfy the whole system.} ) \(q_{1} , q_{2}, ...,q_{3N - k} \) in terms of the old coordinates \(\vb{r} _{1} , \vb{r} _{2} , ..., \vb{r} _{N} \) and time.  
+since the rotations in \(\theta \text { and } \phi \) occur about orthogonal axes (one horizontal and one vertical), so the angular velocity is simply the vector sum of the two contributions. One can show formally using the rotational matrix that \(\boldsymbol{\omega } = \dot{R}R^T  \) is indeed what we have claimed.  
 
-In contrary, a constraint on the particle's motion that cannot be expressed in the above form is called a nonholonomic constraint. For example, consider a disk with radius \(a\) rolling on the horizontal \(x-y\) plane such that the plane of the disk is always vertical. In addition to the \(x \text{ and }  y\) coordinates, we use \(\theta \) to specify the angle between the axis of the disk and the \(x\) axis and \(\phi \) to denote the angle of rotation about the axis of the disk. The constraint in this case is that the relative velocity of the contact point between the disk and the plane must be zero, \textit{i.e.,} 
+The constraint of the disc's motion is that the relative velocity of the contact point between the disc and the plane must be zero, \textit{i.e.,} 
 
 \begin{equation}
 \begin{aligned}
-	(\dot{x} \vu{x} + \dot{y} \vu{y} ) + \dot{\phi } (\cos \theta \vu{x} + \sin \theta \vu{y} ) \cross (-a\vu{z} ) &= 0 \\
+	\vb{v} _{\text{c.m.} } + \boldsymbol{\omega }\cross \vb{r} _{\text{contact} } &= 0\\  
+	\left(\dot{x} \vu{x} + \dot{y} \vu{y} \right) + \left( \dot{\theta }\vu{z} + \dot{\phi } (\cos \theta \vu{x} + \sin \theta \vu{y} )\right) \cross \left(-a\vu{z} \right) &= 0 \\
 	(\dot{x} \vu{x} + \dot{y} \vu{y} ) + a\dot{\phi } \cos \theta \vu{y} - a\dot{\phi } \sin \theta \vu{x} &= 0 \\
 	(\vb{x} - a\dot{\phi } \sin \theta) \vu{x} + (\vb{y} + a\dot{\phi } \cos \theta)\vu{y} &= 0 \\
-	\vb{x} = a\dot{\phi } \sin \theta ~~~~\text{ and }~~~~ \vb{y} = -a\dot{\phi } \cos \theta.
+	\vb{x} = a\dot{\phi } \sin \theta ~\text{ and }~ \vb{y} = -a\dot{\phi } \cos \theta.
 \end{aligned}
 \end{equation}
 
-However, neither of these equations can be integrated without first solving the problem itself, so there are nonholonomic.
+However, these equations of constriant are not relating the dependent variables \(x,y,\theta ,\phi \) but rather \(x,y,\dot{\theta },\dot{\phi }  \) and neither of these equations can be integrated without first solving the problem itself, so they are nonholonomic since we cannot eliminate the dependent variables using these equations.
 
+Another example of a nonholonomic constriant is a particle being put on the surface of a sphere of radius \(a\). In this case the constriant appears in the form of an inequality \(x^2+y^2+z^2  > a\). 
+
+The constriant can even come in integral form. For example, in the catenary problem the arc length \(\int_{x_1 }^{x_2 } \sqrt{1+y'^2}dx = l  \) is constrained to be equal to a fixed length \(l\). 
+
+
+\section{Lagrange Multipliers for Holonomic Constraints.}
+
+Beside using generalized coordinates to solve for the equation of motions with prescence of constraint forces as detailed in \cref{constraints}, we can use the method of Lagrange multipliers.
+
+Suppose there are \(m\) holonomic algebraic constraints for the \(n\) variables \(q_{i} \) \((1 \le i \le n)\), \textit{i.e.,} \(g_{k}(\vb{q} ) = 0 \) \((1 \le k \le m)\).
 
 
 

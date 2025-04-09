@@ -347,7 +347,7 @@ and the arc length is the norm of \(d \vb{r} \), which is
 
 The infinitesimal area perpendicular to \(\vu{w}\) will be a rectangle with area
 \begin{equation}
-	da = (fg)dudv \label{da}
+	dS = (fg)dudv \label{da}
 \end{equation} 
 
 as shown in \cref{infloop}.
@@ -371,14 +371,16 @@ as shown in \cref{infvol}.
 From \cref{spherical}, the relations of the two set of variables \((x,y,z) \text { and } (r,\theta ,\phi  )\)  are
 
 \begin{equation}
-    \begin{cases} x = r\sin \theta \cos \phi \\ y = r\sin \theta \sin \phi \\ z = r\cos \theta \end{cases} \text { or } \begin{cases} r = \sqrt{x^2+y^2+z^2} \\  \theta = \arctan {\left(\sqrt{(x^2+y^2)/z} \right)} \\  \phi = \arctan {\left(y /x\right)} \end{cases}. 
+    \begin{cases} x = r\sin \theta \cos \phi \\ y = r\sin \theta \sin \phi \\ z = r\cos \theta \end{cases} \text { or } \begin{cases} r = \sqrt{x^2+y^2+z^2} \\  \theta = \arctan {\left(\sqrt{x^2+y^2}/z   \right)} \\  \phi = \arctan {\left(y /x\right)} \end{cases}. 
 \end{equation}
 
-A general position vector can then be written as 
+A general position vector can then be written in 4 different ways as 
 
 \begin{equation}
-    \vb{r} = x \vu{i} + y \vu{j} + z \vu{k} = r\sin \theta \cos \phi \vu{i} + r\sin \theta \sin \phi \vu{j} + r \cos \theta \vu{k} .
+    \vb{r} = x \vu{i} + y \vu{j} + z \vu{k} = r\sin \theta \cos \phi \vu{i} + r\sin \theta \sin \phi \vu{j} + r \cos \theta \vu{k} = r \vu{r} = \sqrt{x^2+y^2+z^2}\vu{r}, 
 \end{equation}
+
+where the last one is seldom used.
 
 A general infinitismal displacement vector can be written as 
 
@@ -388,7 +390,7 @@ A general infinitismal displacement vector can be written as
     \end{aligned}
 \end{equation}
 
-where \(\partial \vb{r} /r, \partial \vb{r} /\partial \theta \text { and } \partial \vb{r} /\partial \phi \) can be found by direct differentiaion as 
+where \(\partial \vb{r} /\partial r, \partial \vb{r} /\partial \theta \text { and } \partial \vb{r} /\partial \phi \) can be found by direct differentiaion as 
 
 \begin{equation}
 	\begin{aligned} 
@@ -418,9 +420,11 @@ We can also solve for \((\vu{i} , \vu{j}, \vu{k} )\) in terms of \((\vu{r} , \vu
     \begin{cases}
         \vu{i} = \sin \theta \cos \phi \vu{r} + \cos \theta \cos \phi \vu{\boldsymbol{\theta } } - \sin \phi \vu{\boldsymbol{\phi } }, \\
         \vu{j} = \sin \theta \sin \phi \vu{r} + \cos \theta \sin \phi \vu{\boldsymbol{\theta } } + \cos \phi \vu{\boldsymbol{\phi } }, \\
-        \vu{k} = \cos \theta \vu{r} - \sin \theta \vu{\boldsymbol{\theta } }.
+        \vu{k} = \cos \theta \vu{r} - \sin \theta \vu{\boldsymbol{\theta } },
     \end{cases}
 \end{equation}
+
+which are seldomly used.
 
 
 
@@ -434,11 +438,13 @@ From \cref{cylindrical}, the relations of the two set of variables \((x,y,z) \te
     \begin{cases} x = \rho \cos \phi \\ y = \rho \sin \phi \\ z = z \end{cases} \text { or } \begin{cases} \rho  = \sqrt{x^2+y^2} \\  \phi = \arctan {\left( y /x  \right)} \\ z = z \end{cases}. 
 \end{equation}
 
-A general position vector can be written as 
+A general position vector can be written in 4 ways as
 
 \begin{equation}
-    \vb{r} = x \vu{i} + y \vu{j} + z \vu{k} = \rho \cos \phi  \vu{i} + \rho \sin \phi \vu{j} + \vu{k} .
+    \vb{r} = x \vu{i} + y \vu{j} + z \vu{k} = \rho \cos \phi  \vu{i} + \rho \sin \phi \vu{j} + \vu{k} = \rho \vu{\boldsymbol{\rho } } + z \vu{z} = \sqrt{x^2+y^2}\vu{\boldsymbol{\rho } } + z \vu{z} , 
 \end{equation}
+
+where the last one is seldom used.
 
 A general infinitismal displacement vector can be written as 
 
@@ -478,10 +484,11 @@ We can also solve for \((\vu{i} , \vu{j}, \vu{k} )\) in terms of \((\vu{\boldsym
     \begin{cases}
         \vu{i} &= \cos \phi  \vu{\boldsymbol{\rho } } - \sin \phi \vu{\boldsymbol{\phi } }, \\
         \vu{j} &= \sin \phi \vu{\boldsymbol{\rho } } + \cos \phi \vu{\boldsymbol{\phi } }, \\
-        \vu{k} &= \vu{k}. 
+        \vu{k} &= \vu{k},
         \end{cases}
 \end{equation}
 
+which are seldomly used.
 
 
 
@@ -552,9 +559,39 @@ Integrating, we get the fundamental theorem for gradients
 	
 This equation shows that if one would like to determine the height of Mountain Everest, one could place altimeters at the top and the bottom and subtract the two readings, or climb the mountain and measure the rise at each step.
 
-A quick corollary is that if the vector field \(\vb{T} (\vb{r} )\) can be written as the gradient of a scalar field \(\grad{t}  \), then the line integral \(\int_{\vb{a} }^{\vb{b} } \vb{T}(\vb{r} ) \cdot  d\vb{r}  = \int_{\vb{a} }^{\vb{b} } \grad{t} \cdot d\vb{r} = \int_{\vb{a} }^{\vb{b} }dt = t(\vb{b} ) - t(\vb{a} )\) is independent of \(\vb{a} \text { and } \vb{b} \) and the vector field \(\vb{T} (\vb{r} )\) is known as a conservative field. Then also, \(\oint_{C} \vb{T} (\vb{r} ) \cdot d\vb{r} = 0\) for any closed loop if \(\vb{T} (\vb{r} )\) is conservative, since \(t(\vb{b}) - t(\vb{a}) = 0\). 
+A quick corollary is that if the vector field \(\vb{T} (\vb{r} )\) can be written as the gradient of a scalar field \(\grad{t}  \), then the line integral 
 
-A quick way to check whether \(\vb{T} (\vb{r} )\) is conservative is to check if its curl is zero, since the curl of a gradient is always zero, so \(\curl{\vb{F} (\vb{r} )} = \curl{(\grad{t(\vb{r} )} )} =0 \).  
+\begin{equation}
+	\int_{\vb{a} }^{\vb{b} } \vb{T}(\vb{r} ) \cdot  d\vb{r}  = \int_{\vb{a} }^{\vb{b} } \grad{t} \cdot d\vb{r} = \int_{\vb{a} }^{\vb{b} }dt = t(\vb{b} ) - t(\vb{a} )
+\end{equation}
+
+is independent of \(\vb{a} \text { and } \vb{b} \) and the vector field \(\vb{T} (\vb{r} )\) is known as a conservative field. Then also, \(\oint_{C} \vb{T} (\vb{r} ) \cdot d\vb{r} = 0\) for any closed loop if \(\vb{T} (\vb{r} )\) is conservative, since \(t(\vb{b}) - t(\vb{a}) = 0\).\footnote{The converse, that we can always find a potential function \(t(\vb{r} )\) for \(\oint_{C}\vb{T} (\vb{r} )\cdot d\vb{r}  =0\) is also true, but involve \href{https:////www.damtp.cam.ac.uk//user//tong//vc//vc.pdf}{moderate algebra}, so we will take this obvious fact as granted.  } 
+
+A quick way to check whether \(\vb{T} (\vb{r} )\) is conservative is to check if its curl is zero, since the curl of a gradient is always zero, so \(\curl{\vb{F} (\vb{r} )} = \curl{(\grad{t(\vb{r} )} )} =0 \).
+
+An additional condition for us to safely say that \(\vb{T} (\vb{r} )\) is conservative, which is usually assumed to be met, is that \(t(\vb{r} )\) should be continuous. For example, for the field
+
+\begin{equation}
+	\vb{T} (\vb{r} ) = \left( -\frac{y}{x^2+y^2}, \frac{x}{x^2+y^2}   \right)
+\end{equation}
+
+zero curl, so the it is conservative and the corresonding potential function is 
+
+\begin{equation}
+	t(\vb{r} ) = \tan ^{-1} \left( \frac{y}{x}  \right).
+\end{equation}
+
+However, the loop integral 
+
+\begin{equation}
+	\oint_{C} \vb{T} (\vb{r} ) \cdot d\vb{r} = 2\pi \neq 0
+\end{equation}
+
+when \(C\) is a circle centered at the origin. The inconsistency arises from the fact that \(t(\vb{r} )\) is not continuous at the origin, so \(\vb{T} (\vb{r} )\) is only conservative on the plane excluding the origin, \textit{i.e.,} \(\mathbb{R}^2 - {0,0}\). If the loop integral of \(\vb{T} (\vb{r} )\) includes the origin then it would not be zero, since \(\vb{T} (\vb{r} )\) is no longer conservative. 
+
+
+
+
 
 It can also be shown that the gradient at a point can be written in terms of a surface integral over an infinitesimal surface surrounding the point
 
@@ -647,11 +684,11 @@ The gradient in Cartesian and spherical coordinates are stated here for referenc
 \subsection{Divergence}
 
 	
-In order to seek geometrical interpretation of the divergence operator, we consider the closed surface integral of \(\vb{T}\) over the surface of an infinitesimal volume depicted in \cref{infvol} (here we adopt the sign convention of \(\vb{A}\) is positive if \(\vb{A}\) is pointing outwards from the interior of the volume)
+In order to seek geometrical interpretation of the divergence operator, we consider the closed surface integral of \(\vb{T}\) over the surface of an infinitesimal volume depicted in \cref{infvol} (here we adopt the sign convention of \(\vb{S}\) is positive if \(\vb{S}\) is pointing outwards from the interior of the volume)
 
 \begin{equation} \label{divpre} 
 	\begin{aligned} 
-    \oint_{S} \vb{T} \cdot d\vb{A} &= ((T_u)|_{u+du} - (T_u)|_{u})(ghdvdw) \\ &+ ((T_v)|_{v+dv} - (T_v)|_{v})(fhdudw) \\ &+ ((T_w)|_{w+dw} - (T_w)|_{w})(fgdudv) \\
+    \oint_{S} \vb{T} \cdot d\vb{S} &= ((T_u)|_{u+du} - (T_u)|_{u})(ghdvdw) \\ &+ ((T_v)|_{v+dv} - (T_v)|_{v})(fhdudw) \\ &+ ((T_w)|_{w+dw} - (T_w)|_{w})(fgdudv) \\
     &= \frac{1}{fgh} \left( 
 		\frac{\partial}{\partial u} (ghT_{u} ) + 
 		\frac{\partial}{\partial v} (fhT_{v} )+ 
@@ -663,18 +700,11 @@ In order to seek geometrical interpretation of the divergence operator, we consi
 This result can be extended easily. As any arbitary volume can be divided infinitely into infinitesimal pieces, and the surface integral of each individual pieces cancel in pairs, the remaining part is only the surface integral of the surface of the whole volume. Therefore,
 	
 \begin{equation} 
-	\oint_{S} \vb{T} \cdot d\vb{A} = \int_{V}(\div{\vb{T} }) d\tau \label{divthm}. 
+	\oint_{S} \vb{T} \cdot d\vb{S} = \int_{V}(\div{\vb{T} }) d\tau \label{divthm}.  
 \end{equation}
 	
 This is the divergence theorem (also known as the Gauss's theorem or the Green's theorem). From the LHS of \cref{divthm}, it is evident that the divergence of a vector function is a measure of how much the function spreds out and diverges from a given point in space.
 
-It can also be shown that the curl at a point in terms of a surface integral over an infinitesimal surface surrounding the point
-
-\begin{equation}
-	\div{\vb{T} } = \lim_{V \to 0} \left( \frac{1}{V} \oint_{S} \vb{T}  \cdot d\vb{S}  \right).
-\end{equation}
-
-However the proof is comlicated and is not presented here.
 
 If \(\vb{T} \) satisfies \(\div{\vb{T} } = 0 \), then \(\vb{T} = \curl{\vb{T} ' + \grad{t} + \vb{C} } \) can be written as a curl of a vector \(\vb{T} '\), which statisfies \(\curl{\vb{T} '} = 0 \) plus a gradient of a scalar function \(t\) plus a constant vector \(\vb{C} \).        
 
@@ -685,38 +715,24 @@ The divergence in Cartesian and spherical coordinates are stated here for refere
 	
 \subsection{Curl}
 
-
-In order to seek geometrical interpretation of the curl operator, we consider the loop integral of \(\vb{T}\) over an infinitesimal loop depicted in \cref{infloop} (here since the coordinates system is right handed, \(\vu{w}\) points out of the page, hence we are obliged by the right-hand rule to run the line integral counterclockwise such that \(\vb{A}\) points in the same direction as \(\vu{w}\))
+In order to seek geometrical interpretation of the curl operator, we consider the loop integral of \(\vb{T}\) over an infinitesimal loop depicted in \cref{infloop} (here since the coordinates system is right handed, \(\vu{w}\) points out of the page, hence we are obliged by the right-hand rule to run the line integral counterclockwise such that \(\vb{S}\) points in the same direction as \(\vu{w}\))
 	
 \begin{equation} 
 	\begin{aligned} 
-		\oint_{C} \vb{T} \cdot d\vb{r} &= (T_u)|_{v}fdu + (T_v)|_{u+du}gdv + (T_u)|_{v+dv}(-fdu) + (T_v)|_{u}(-gdv) \\ &= \frac{1}{fg}\left(\frac{\partial }{\partial u} (T_{v} g) - \frac{\partial }{\partial v} (T_{u}f)\right)(\vu{w} \cdot d\vb{A}) \\ &= (\curl{\vb{T} } ) \cdot d\vb{A} . 
+		\oint_{C} \vb{T} \cdot d\vb{r} &= (T_u)|_{v}fdu + (T_v)|_{u+du}gdv + (T_u)|_{v+dv}(-fdu) + (T_v)|_{u}(-gdv) \\ &= \frac{1}{fg}\left(\frac{\partial }{\partial u} (T_{v} g) - \frac{\partial }{\partial v} (T_{u}f)\right)(\vu{w} \cdot d\vb{S}) \\ &= (\curl{\vb{T} } ) \cdot d\vb{S} . 
 	\end{aligned} 
 \end{equation}
 
 With the same argument as \cref{divpre}  to \cref{divthm}, the above equation can be extended to
 	
 \begin{equation} 
-	\oint_{C} \vb{T} \cdot d\vb{r} = \int_{S} (\curl{\vb{T}}) \cdot d\vb{A}. \label{stothm} 
+	\oint_{C} \vb{T} \cdot d\vb{r} = \int_{S} (\curl{\vb{T}}) \cdot d\vb{S}. \label{stothm} 
 \end{equation}
 	
 This is the Stoke's theorem. From the LHS of \cref{stothm}, it is evident that the curl of a vector function is a measure of how much the function rotates and curls around a given point in space.
-	
-From the above equation we can write the gradient at a point in terms of a line integral over a infinitesimal curve surrounding the point
-\begin{equation}
-	(\curl{\vb{T} } \cdot \vu{n} ) = \lim_{A \to 0} \left( \frac{1}{A} \oint_{C} \vb{T} \cdot d\vb{r}  \right). 
-\end{equation}
-
-An equivalent form is 
-
-\begin{equation}
-	\curl{\vb{T} } = \lim_{V \to 0} \left( \frac{1}{V} \oint_{S} d\vb{S} \cross \vb{T}  \right).
-\end{equation}
-
-However the proof is complicated and is not presented here.
 
 
-A quick corollary is that the integral \(\int_{S} (\curl{\vb{T}}) \cdot d\vb{A}\) is independent of the surface used but only depends on the boundary line. Hence, \( \oint_{S} (\curl{\vb{T}}) \cdot d\vb{A} = 0\) for any closed surface, since the boundary line, like the mouth of a ballon, shrinks down to a point, and thus \(\oint_{P} \vb{T} \cdot d\vb{r} = 0\).
+A quick corollary is that the integral \(\int_{S} (\curl{\vb{T}}) \cdot d\vb{S}\) is independent of the surface used but only depends on the boundary line. Hence, \( \oint_{S} (\curl{\vb{T}}) \cdot d\vb{S} = 0\) for any closed surface, since the boundary line, like the mouth of a ballon, shrinks down to a point, and thus \(\oint_{P} \vb{T} \cdot d\vb{r} = 0\).
 
 \(\vb{T} \) is called conservative if \(\int_{A}^{B}  \vb{T} \cdot d\vb{r}  \) is independent of the path taken from \(A\) to \(B\). This implies that \( \oint_{C} \vb{T} \cdot d\vb{r} = 0\) and thus \(\curl{\vb{T} } = 0\) and \(\vb{T} = \grad{t} \) can be written as a gradient of some scalar function \(t\). Also, \(\vb{T} \cdot d\vb{r} \) is an exact differential.      
 
@@ -742,7 +758,7 @@ The two product rules for divergence are
 \begin{equation}
 \begin{cases} 
 	\div{(f\vb{A})} = f(\div{\vb{A}}) + \vb{A} \cdot (\grad{f}), \\
-	\div (\vb{A} \cross \vb{B}) = \vb{B} \cdot (\curl {\vb{A}}) = \vb{A} \cdot (\curl{\vb{B}}). 
+	\div (\vb{A} \cross \vb{B}) = \vb{B} \cdot (\curl {\vb{A}}) - \vb{A} \cdot (\curl{\vb{B}}). 
 \end{cases}
 \end{equation}
 
@@ -751,7 +767,7 @@ The two product rules for curl are
 	
 \begin{equation}
 \begin{cases} 
-	\curl{(f\vb{A})} = f(\curl{\vb{A}}) - \vb{A} \cross (\grad{f}), \\
+	\curl{(f\vb{A})} = f(\curl{\vb{A}}) - (\vb{A} \cross (\grad{f})), \\
 	\curl (\vb{A} \cross \vb{B}) = (\vb{B} \cdot \grad)\vb{A} - (\vb{A} \cdot \grad)\vb{B} + \vb{A}(\div{\vb{A}}) - \vb{B}(\div{\vb{A}}). 
 \end{cases}
 \end{equation}
@@ -764,6 +780,8 @@ Here note that
 		(\vb{A} \cdot \grad) \vb{B} &= \left(A_x\pdv{x} + A_y\pdv{y} + A_z\pdv{z}\right)\left(B_x\vu{i} + B_y\vu{j} + B_z\vu{k}\right) \\ &= \left(A_x\pdv{B_x}{x} + A_y\pdv{B_x}{y} + A_z\pdv{B_x}{z}\right)\vu{i} \\ &+ \left(A_x\pdv{B_y}{x} + A_y\pdv{B_y}{y} + A_z\pdv{B_y}{z}\right)\vu{j} \\ &+ \left(A_x\pdv{B_z}{x} + A_y\pdv{B_z}{y} + A_z\pdv{B_z}{z}\right)\vu{k} \\ &\neq \vb{A} \cdot (\grad{\vb{B}}) \\ &= A_x\pdv{B}{x} + A_y\pdv{B}{y} + A_z\pdv{B}{z} .
 	\end{aligned} 
 \end{equation}
+
+In component form, this is \((\vb{A} \cdot \grad{} )_{i} = A_{i}\partial _{i}   \). Another differential operator we can construct is \((\vb{A} \cross  \grad{} )_{k} = \epsilon _{ijk} A_{i}\partial _{j}     \) but it is seen much less often. 
 	
 With the product rules in hand, we can perform the so-called ``Integration by part'' trick. For example, by integrating the first product rule of divergence and using the divergence theorem, we have
 	
@@ -864,17 +882,30 @@ From the nature of gradient, divergence and curl, we can construct five species 
 	\end{equation}	
 \end{enumerate}	
 	
-For the 5 second derivatives listed above, only \cref{prelap,curlcurl} are used regularly in physics enough that they are worth remembering. All of the identities can be easily proved in index notation, as long as one remembers the basic rules 
+For the 5 second derivatives listed above, only \cref{prelap,curlcurl} are used regularly in physics enough that they are worth remembering. All of the identities can be easily proven in index notation, as long as one remembers the basic rules 
 
 \begin{equation}
 	(\grad{t} )_{i} = \partial _{i}t, \quad (\div{\vb{T} } )_{i} = \partial _{i}T_{i} ~\text { and }~ (\curl{\vb{T} } )_{i} = \epsilon _{ijk}\partial _{j}T_{k}.          
 \end{equation}
 
+To find \(\grad{r^{p} } \), for example, we have 
+
+\begin{equation}
+	\partial _{i}r^{p} = \partial _{i}(x_{j}x_{j}  )^{\frac{p}{2} } = \frac{p}{2}(x_{j}x_{j})^{\frac{p}{2}-1 } \partial _{i}(x_{j}x_{j}  ) = pr^{p-2}x_{i} \implies \grad{r^{p} } = pr^{p-1}\vu{r} .           
+\end{equation}
+
+To prove that \(\curl{\grad{t} } = 0\), for example, we can show that 
+
+\begin{equation}
+	(\curl{\grad{t} })_{i}  = \epsilon _{ijk} \partial _{i}\partial _{j}t = 0,  
+\end{equation}
+
+since the \(\epsilon _{ijk} \) is antisymmetric over \(ij\), but the partial derivatives \(\partial _{i}\partial _{j}  \) are symmetric, so the terms like \(\partial _{1}\partial _{2} - \partial _{2}\partial _{1}    \)  cancel.   
 
 	
 \subsection{Dirac Delta Function}
 	
-The motivation of the dirac delta function comes from the result of the divergence of the vector function \( \vb{T} = \vb{r} /r^2\):
+The motivation of the dirac delta function comes from the result of the divergence of the vector function \( \vb{T} = \vu{r}  /r^2\):
 	
 \begin{equation} 
 	\div{\left(\frac{\vu{r}}{r^2}\right)} = \frac{1}{r^2} \pdv{r}(r^2\left(\frac{1}{r^2}\right)) = 0, \label{notmatchone} 
@@ -978,6 +1009,17 @@ From \cref{gradrcurs}, we have also
 \begin{equation} 
 	\laplacian{\left(\frac{1}{\rcurs}\right)} = -4\pi\delta^3(\brcurs). \label{laprj} 
 \end{equation}
+
+With this equation in hand, we can find prove that the potential created by the charge distribution \(\rho (\vb{r} ')\) satisfies the Poisson's equation 
+
+\begin{equation}
+	\begin{aligned} 
+	\laplacian V(\vb{r} ) &= \laplacian  \left( \frac{1}{4\pi \epsilon_0} \int \frac{\rho (\vb{r} ')}{\rcurs }d\tau '  \right) = \frac{1}{4\pi \epsilon_0} \int \rho (\vb{r} ') \laplacian \left( \frac{1}{\rcurs }  \right) d\tau' \\
+	&= \frac{1}{4\pi \epsilon_0} \int \rho (\vb{r} ')(-4\pi \delta ^3 (\brcurs ))d\tau ' = -\frac{\rho (\vb{r} )}{\epsilon_0 }.   
+	\end{aligned} 
+\end{equation}
+
+
 	
 \example{Griffith (5th ed.) Problem 1.47}
 {Find the charge density \(\rho(\vb{r})\) for
@@ -1003,7 +1045,7 @@ From \cref{gradrcurs}, we have also
 
 Explain the discrepancy in Stokes' theorem using Dirac delta function.
 }
-{Fro this velocity field \(\curl{\vb{v} } =0\) everywhere except on the axis \(\rho =0\) where \(\vb{v}\) has a singularity. Therefore \( \oint_{C} \vb{v} \cdot d\vb{r} =0\) for any path \(C\) that does not enclose the vortex line on the axis and \(2\pi \) if \(C\) does enclose the axis.
+{From this velocity field \(\curl{\vb{v} } =0\) everywhere except on the axis \(\rho =0\) where \(\vb{v}\) has a singularity. Therefore \( \oint_{C} \vb{v} \cdot d\vb{r} =0\) for any path \(C\) that does not enclose the vortex line on the axis and \(2\pi \) if \(C\) does enclose the axis.
 
 In order for Stokes' theorem to be valid for all paths \(C\), we therefore set 
 
@@ -1144,25 +1186,125 @@ The result is \(V = abc /6 \). }
 
 \section{Line, Surface and Volume Integration}
 
-Line, surface and volume sum up scalar or vector field times an infinitesimal quantity. The infinitisimal quantities are (in Cartesian coordinates), \(d\vb{r} = dx \vu{i} + dy \vu{j} + dz \vu{k}, d\vb{S} \footnote{The general form of \(d\vb{S} \) is not trivial. It is exactly this property which makes surface integral the hardest type to deal with.}\text { and } dV = dxdydz\),\footnote{\(dV\) is a scalar since an infinitesimal volume has no preferred direction in three-dimensional space.} out of which the first two are vectors and the last one is scalar.\footnote{Note that if the final form of integrands contain vectors then we must convert it into Cartesian coordinates, since it is the only coordiante system where the unit vectors are fixed (and so can be brought out of the integral sign).}
+Line, surface and volume sum up scalar or vector field times an infinitesimal quantity. The infinitisimal quantities are (in Cartesian coordinates), \(d\vb{r} = dx \vu{i} + dy \vu{j} + dz \vu{k}, d\vb{S} \footnote{The general form of \(d\vb{S} \) is not trivial. It is exactly this property which makes surface integral the hardest type to deal with.}\text { and } dV = dxdydz\),\footnote{\(dV\) is a scalar since an infinitesimal volume has no preferred direction in three-dimensional space.} out of which the first two are vectors and the last one is scalar.\footnote{Note that if the final form of integrands contain vectors then we must convert it into Cartesian coordinates, since it is the only coordiante system where the unit vectors are fixed (and so can be brought out of the integral sign).} 
 
-\subsection{Space Curves and Surfaces}
+\subsection{Curves and Surfaces}
 
-A curve in space can be described by the vector \(\vb{r} (u)\) joining the origin \(O\) of a coordinate system to a point on the curve. As the parameter \(u\) varies, the end-point on the curve moves along the curve. Some common examples of the parameter are time \(t\) and arclength \(s\). In Cartesian coordinates, 
+In evaluating line and surface integrals, we always have to specify what curve and surface are we integrating over, and we therefore need to devise a way to describe these curves and surfaces. For both curves and surfaces, they can be represented in parameterized form, where an extra variable(s) is(are) introduced to specify a point on the curve or surface. Alternatively, they can be represented algebrically.
 
-\begin{equation}
-	\vb{r} (u) = x(u) \vu{i} + y(u) \vu{j} + z(u) \vu{k} .
-\end{equation}
+\subsubsection{Curves}
 
-Alternatively, a space curve in three-dimensional space can be represented by two simultaneous equations \(F(x,y,z) = G(x,y,z) = 0\). 
-
-The arc length of the curve from point \(\vb{a} \) to \(\vb{b} \) can be found by
+A curve in space\footnote{In the following discussion we assume that the surfaces are orientable, \textit{i.e.,} there is a consistent choice for the normal vector \(\vu{n} \) which varies smoothly over the surface. Exmples of non-orientable surfaces include the Möbius strip and the klein bottle.} can be described by the vector \(\vb{r} (u)\) joining the origin \(O\) of a coordinate system to a point on the curve. It can be viewed as a map\(f: \mathbb{R} \to \mathbb{R}^{3} \), where we assign each parameter \(u\) in \(\mathbb{R}\) a corresponding vector in \(\mathbb{R}^{3} \).  As the parameter \(u\) varies, the end-point on the curve moves along the curve.\footnote{A useful visualization is imagine sliding the sidebar for \(u\) on Desmos and the point corresponding point will move along the curve accordingly.} Some common examples of parameterized curves include
 
 \begin{equation}
-	s = \int_{\vb{a} }^{\vb{b} } \abs{d \vb{r} (u)} = \int_{\vb{a} }^{\vb{b} } \abs{\frac{d\vb{r} }{du} } du = \int_{\vb{a} }^{\vb{b} } \sqrt{\left( \frac{dx}{du}\right) + \left( \frac{dy}{du}  \right)^2 + \left( \frac{dz}{du}  \right)^2} du.
+	\vb{r} (t) = (\cos t, \sin t, t), 
 \end{equation}
 
-We can also define a orthogonal coordinate system that is intrinsic to the curve. For the three axes, an obvious choice would be the tangential direction, whose unit vector can be defined by
+which describes a helical path of a particle if \(t\) is time. We also note that the choice of parameterization is not unique. The parameterized curve \(\vb{r} (t) = (\cos \lambda t, \sin \lambda t, \lambda t)\) describes the same helix for all \(\lambda \neq 0\).\footnote{Sometimes, one may ponder upon an unwise choice of parameterization in which the derivative \(\dot{\vb{r} } \) vanishes at some point. For example, consider the curve \(\vb{r} (t) = (t^3 ,t^3 )\), which is just the straight line \(x=y\). However, \(\dot{\vb{r} } \) vanishes at \(t=0\). Using the parameterization \(\vb{r} (t) = (t,t)\) which describes the same curve, we find that this vanishing is not a property of the curve but of our choice of parameterization. We will assume that the curves we encounter are always regularly parameterized, which ensures proper definition of relevant parameters such as the tangent vector and the arc length.}  
+
+Another example is the unit circle, which can be parameterized by 
+
+\begin{equation}
+	\vb{r} (t) = (\cos t, \sin t) ~\text { or }~ \left( \frac{2t}{t^2+1}, \frac{t^2-1}{t^2+1}   \right).\footnote{With the exception of the point \((0,1)\) since we have \((t^2-1)/(t^2+1) < 0\) for all \(t\), so the y-coordinate would not be equal to 1 unless \(t = \infty\), but \(t\) in reality only tends to infinity.}
+\end{equation}
+
+Often \(x = t\) so we can simply treat \(x\) as the parameter and express the integral in terms of \(x\). 
+
+Alternatively, a space curve in three-dimensional space can be represented by two simultaneous equations algebrically as \(F(x,y,z) = G(x,y,z) = 0\). For example, the first example above can be described equivalently as \(x - \cos z = y - \sin z = 0\). However, we lost the picture of the particle's position evloving through space, and it is not a convenient form to work in integrals. 
+
+\subsubsection{Surfaces}
+
+A point on a surface, on the other hand, requires two parmeters \(u \text { and } v\), and it can be viewe as a map \(f:\mathbb{R}^2 \to \mathbb{R}^3 \). A common example of parameterized curves is 
+
+\begin{equation}
+	\vb{r} (\theta ,\phi ) = R(\sin \theta \cos \phi , \sin \theta \sin \phi , \cos \theta ),
+\end{equation}
+
+which describes the surface of a sphere with radius \(R\).
+
+Alternatively, a space surface in three-dimensional space can be represented by a single equation algebrically as \(F(x,y,z) = 0\). 
+
+There are generally two ways to compute an infinitesimal surface \(dS\). If the parametric form of the surface is given, then refer to \cref{jacobian}, since \(v\) is constant along \(KL\), the line element \(KL\) can be written as 
+
+\begin{equation}
+	d\vb{r} _{KL} = \frac{\partial \vb{r} }{\partial u}du+ \frac{\partial \vb{r} }{\partial v}dv = \frac{\partial \vb{r} }{\partial u}du = \frac{\partial x}{\partial u} du \vu{i} + \frac{\partial y}{\partial u} du \vu{j}.
+\end{equation}
+
+Similarly, \(d\vb{r} _{KN}  = (\partial x / \partial v) dv \vu{i} + (\partial y/\partial v)dv \vu{j}\), thus the area of the parallelogram \(KLMN\) is given by
+
+\begin{equation}
+	dS_{u,v} = \abs{d\vb{r} _{KL} \cross  d\vb{r} _{KN}} = \abs{\frac{\partial \vb{r} }{\partial u} \cross \frac{\partial \vb{r} }{\partial v} }dudv = \abs{\frac{\partial x}{\partial u} \frac{\partial y}{\partial v}  - \frac{\partial x}{\partial v}  \frac{\partial y}{\partial u} }dudv = \abs{\frac{\partial (x,y)}{\partial (u,v)} } dudv.
+\end{equation}
+
+Since both \(\frac{\partial \vb{r} }{\partial u} \text { and } \frac{\partial \vb{r} }{\partial v}  \) lie in the tangent plane to the surface at \(\vb{r} \), the direction of the infinitesimal surface is also encoded in the cross product
+
+\begin{equation}
+	d\vb{S} _{u,v} =\left( \frac{\partial \vb{r} }{\partial u} \cross \frac{\partial \vb{r} }{\partial v} \right) dudv.   
+\end{equation}
+
+
+\onefig{jacobian}{scale=0.4} 
+
+If the algebraic form of the surface is given, then we usually project the surface \(S\) onto the \(xy\)-plane (sometimes the \(yz\)- or \(xz\)- planes are more useful). From \cref{dS}, we see that 
+
+\begin{equation} \label{dseq} 
+	dA = \abs{\cos \alpha }dS \implies dS = \frac{dA}{\vu{n} \cdot \vb{k} } = \frac{dA}{\frac{\grad{f} }{\abs{\grad{f} } } \cdot \vu{k}  } =  \frac{\partial z}{\partial f}dA\abs{\grad{f} } \implies d\vb{S} = \frac{\partial z}{\partial f} dA\grad{f} , 
+\end{equation}
+
+where \(\alpha \) is the angle between the unit vector \(\vu{k} \) in the \(z\)-direction and the unit normal \(\vu{n} \) to the surface, and \(f(x,y,z)=0\) is the equation which describe the surface.\footnote{If the equation is in the form \(z = g(x,y) \implies f(x,y,z) = z-g(x,y) = 0\), then \(\frac{\partial f}{\partial z} = 1\) and the relation between surface and area becomes \(dS = \abs{\grad{f} }dA\).} 
+
+\onefig{dS}{scale=0.4} 
+
+Using the above equation, we can convert any surface integral over \(S\) as a double integral over the region \(R\) in the \(xy\)-plane.
+
+Note that in the above discussion, however, tht we assumed any line parallel to the \(z\)-axis only intersects \(S\) once. If this is not the case, we must split up the surface into smaller surfaces \(S_1, S_2 \textit{ etc.}\) Also, sometimes instead of projecting the surface onto the \(xy\)-plane, it might be easier to project it onto the \(zx\)-plane or the \(yz\)-plane.     
+
+A surface that comes up all the time is a spherical surface with raidus \(R\). Parametrically, the surface is described as 
+
+\begin{equation}
+	\vb{r} (\theta ,\phi ) = R \vu{r} = R(\sin \theta \cos \phi , \sin \theta \sin \phi , \cos \theta ),
+\end{equation}
+
+so we have  
+
+\begin{equation}
+	\begin{aligned} 
+	d\vb{S} &= \left( \frac{\partial \vb{r} }{\partial \theta }  \cross \frac{\partial \vb{r} }{\partial \phi }   \right) d \theta d\phi = R^2 \begin{pmatrix}
+		 \cos \theta \cos \phi  \\
+		 \cos \theta \sin \phi  \\
+		 -\sin \theta  \\
+	\end{pmatrix} \cross \begin{pmatrix}
+		 -\sin \theta \sin \phi  \\
+		 \sin \theta \cos \phi  \\
+		 0 \\
+	\end{pmatrix} d \theta d \phi \\
+	&= R^2 \sin \theta d \theta d\phi  (\sin \theta \cos \phi , \sin \theta \sin \phi , \cos \theta ) = R^2\sin \theta d \theta d\phi \vu{r} .
+	\end{aligned} 
+\end{equation}
+
+Algebrically, the surface is described as 
+
+\begin{equation}
+	f(x,y,z) = x^2+y^2+z^2 - R^2 = 0,
+\end{equation}
+
+so we have
+
+\begin{equation}
+	\begin{aligned} 
+	d\vb{S} &= \frac{\partial z}{\partial f} dA \grad{f} = \frac{1}{2z} dxdy 2(x,y,z) = \abs{\frac{\partial (x,y)}{\partial (\theta ,\phi )} }d \theta d\phi (\frac{x}{z},\frac{y}{z},1  ) \\
+	&= (R^2\cos \theta \sin \phi )(\tan \theta \cos \phi , \tan \theta \sin \phi ,1) d \theta d \phi  = r^2\sin \theta d \theta d\phi \vu{r} .
+	\end{aligned} 
+\end{equation}
+
+
+
+
+
+
+\subsubsection{Frenet-Serret Equations}
+
+We can also define an orthogonal coordinate system that is intrinsic to the curve. For the three axes, an obvious choice would be the tangential direction, whose unit vector can be defined by
 
 \begin{equation}
 	\vu{t} = \frac{d\vb{r} }{ds} = \frac{d \vb{r} }{\abs{d \vb{r} } }.
@@ -1174,7 +1316,7 @@ The curvature \(\kappa \) and the pricinpal normal unit vector are defined toget
 	\kappa \vu{n}  = \frac{d \vu{t} }{ds} = \frac{d^2\vb{r} }{ds^2}
 \end{equation}
 
-and the radius of curvature is defined as \(\rho = 1/\kappa  \). 
+and the radius of curvature is defined as \(\rho = 1/\kappa  \). We see that the radius of curvature measures the second derivative, capturing how much the curve fails to be a straight line. Both \(\vu{n} \text { and } \vu{t} \) lie on the plane that the small segements around \(\vb{r} \) form.  
 
 The binormal unit vector is then defined as the unit vector perpendicular to both \(\vu{t}  \text { and } \vu{n} \) 
 
@@ -1188,7 +1330,7 @@ We can similarly define the torsion \(\tau \) as the rate of change of \(\vu{b} 
 	-\tau \vu{n} =  \frac{d \vu{b} }{ds}, 
 \end{equation}
 
-and radius of torsion as \(\sigma  = 1/ \tau  \). 
+and radius of torsion as \(\sigma  = 1/ \tau  \). We see that the radius of torsion measures the third derivative, capturing how much the curve fails to be planar.
 
 In summary, \(\vu{t} , \vu{n} \text { and } \vu{b} \) and their derivatives with respect to \(s\) are related to one another by the relations (called the Frenet-Serret formulae) 
 
@@ -1196,7 +1338,9 @@ In summary, \(\vu{t} , \vu{n} \text { and } \vu{b} \) and their derivatives with
 	\frac{d \vu{t} }{ds} = \kappa \vu{n} , ~~\frac{d \vu{n} }{ds} = \tau \vu{b} - \kappa \vu{t}~~ \text { and } ~~\frac{d \vu{b} }{ds} = -\tau \vu{n} .  
 \end{equation}
 
-Note that the shape of a curve is completely determined by \(\kappa \text { and } \tau \), for example, a curve is planar if \(\tau = 0\), and a curve in which \(\vu{t} \) makes a constant angle with a fixed direction, \textit{i.e.,} when either \(\kappa \text { or } \tau \) is independent of \(s\).    
+Note that the shape of a curve is completely determined by \(\kappa \text { and } \tau \), for example, a curve is planar if \(\tau = 0\), and a curve in which \(\vu{t} \) makes a constant angle with a fixed direction, \textit{i.e.,} when either \(\kappa \text { or } \tau \) is independent of \(s\). 
+
+
 
 \example{Acceleration of a Particle.}
 {Show that the acceleration of a particle travelling along a trajectory \(\vb{r} (t)\) is given by 
@@ -1214,83 +1358,49 @@ Note that the shape of a curve is completely determined by \(\kappa \text { and 
 ~
 }
 
-A point on a surface, on the other hand, requires two parmeters \(u \text { and } v\) 
-
-\begin{equation}
-	\vb{r} (u,v)  = x(u,v) \vu{i} + y(u,v) \vu{j} + z(u,v) \vu{k},
-\end{equation}
-
-or algebrically as \(f(x,y,z) = 0\). 
-
-There are generally two ways to compute an infinitesimal surface \(dS\). If the parametric form of the surface is given, then refer to \cref{jacobian}, since \(v\) is constant along \(KL\), the line element \(KL\) can be written as 
-
-\begin{equation}
-	d\vb{r} _{KL} = \frac{\partial \vb{r} }{\partial u}du+ \frac{\partial \vb{r} }{\partial v}dv = \frac{\partial \vb{r} }{\partial u}du = \frac{\partial x}{\partial u} du \vu{i} + \frac{\partial y}{\partial u} du \vu{j}.
-\end{equation}
-
-Similarly, \(d\vb{r} _{KN}  = (\partial x / \partial v) dv \vu{i} + (\partial y/\partial v)dv \vu{j}\), thus the area of the parallelogram \(KLMN\) is given by
-
-\begin{equation}
-	dS_{u,v} = \abs{d\vb{r} _{KL} \cross  d\vb{r} _{KN}} = \abs{\frac{\partial \vb{r} }{\partial u} \cross \frac{\partial \vb{r} }{\partial v} } = \abs{\frac{\partial x}{\partial u} du \frac{\partial y}{\partial v} dv - \frac{\partial x}{\partial v} dv \frac{\partial y}{\partial u} du} = \abs{\frac{\partial (x,y)}{\partial (u,v)} } dudv.
-\end{equation}
-
-Since both \(\frac{\partial \vb{r} }{\partial u} \text { and } \frac{\partial \vb{r} }{\partial v}  \) lie in the tangent plane to the surface at \(\vb{r} \), the direction of the infinitesimal surface is also encoded in the cross product
-
-\begin{equation}
-	d\vb{S} _{u,v} = \frac{\partial \vb{r} }{\partial u} \cross \frac{\partial \vb{r} }{\partial v}.   
-\end{equation}
-
-
-\onefig{jacobian}{scale=0.4} 
-
-If the algebraic form of the surface is given, then we usually project the surface \(S\) onto the \(xy\)-plane (sometimes the \(yz \text { or } xz\)- plane are more useful). From \cref{dS}, we see that 
-
-\begin{equation} \label{dseq} 
-	dA = \abs{\cos \alpha }dS \implies dS = \frac{dA}{\vu{n} \cdot \vb{k} } = \frac{dA}{\frac{\grad{f} }{\abs{\grad{f} } } \cdot \vu{k}  } =  \frac{\partial z}{\partial f}dA\abs{\grad{f} } \implies d\vb{S} = \frac{\partial z}{\partial f} dA\grad{f} , 
-\end{equation}
-
-where \(\alpha \) is the angle between the unit vector \(\vu{k} \) in the \(z\)-direction and the unit normal \(\vu{n} \) to the surface, and \(f(x,y,z)=0\) is the equation which describe the surface.\footnote{If the equation is in the form \(z = g(x,y) \implies f(x,y,z) = z-g(x,y) = 0\), then \(\frac{\partial f}{\partial z} = 1\) and the relation between surface and area becomes \(dS = \abs{\grad{f} }dA\).} 
-
-\onefig{dS}{scale=0.4} 
-
-Using the above equation, we can convert any surface integral over \(S\) as a double integral over the region \(R\) in the \(xy\)-plane.
-
-Note that in the above discussion, however, tht we assumed any line parallel to the \(z\)-axis only intersects \(S\) once. If this is not the case, we must split up the surface into smaller surfaces \(S_1, S_2 \textit{ etc.}\) Also, sometimes instead of projecting the surface onto the \(xy\)-plane, it might be easier to project it onto the \(zx\)-plane or the \(yz\)-plane.     
-
-\example{Area of a Sphere.}
-{Find the element of area on the surface of a sphere of radius \(a\), and hence calculate the total surface area of the sphere.}
-{We can represent a point \(\vb{r} \)  on the surface of the sphere in terms of the two parameters \(\theta \text { and } \phi \) as
-
-\begin{equation}
-	\vb{r} = a \sin \theta \cos \phi \vu{i} + a \sin \theta \sin \phi \vu{j} + a \cos \theta \vu{k} .
-\end{equation}
-
-An infinitesimal area is given by 
-
-\begin{equation}
-	dA = \abs{\frac{\partial \vb{r} }{\partial \theta } \cross \frac{\partial \vb{r} }{\partial \phi } } = a^2\sin \theta d \theta d \phi 
-\end{equation}
-
-And the total surface area is then 
-
-\begin{equation}
-	A = \int_{0}^{\pi }\int_{0}^{2\pi } a^2 \sin \theta d \theta d \phi = 4\pi a^2.    
-\end{equation}
-} 
-
 \subsection{Line Integrals}
 
 Integrals along a line can involve vector and scalar fields. There are four kinds of line integrals, namely
 
 \begin{equation}
-	\int _{C} f(x,y,z) dr, ~~ \int_{C}^{} f(x,y) d\vb{r} , ~~ \int_{C}^{} \vb{F} (x,y,z) \cdot d\vb{r} ~ \text { and }  \int_{C}^{} \vb{F} (x,y,z) \cross d\vb{r} . 
+	\int _{C} f(\vb{r} ) ds, ~~ \int_{C}^{} f(\vb{r} ) d\vb{r} , ~~ \int_{C}^{} \vb{F} (\vb{r} ) \cdot d\vb{r} ~ \text { and }  \int_{C}^{} \vb{F} (\vb{r} ) \cross d\vb{r} . 
 \end{equation}
 
 The curve \(C\) can be open, \textit{i.e.,} the beginning and end point are not the same; or closed, where \(C\) is a closed loop and we will add a circle to the integral sign as \(\oint_{C} \). For a closed curve the direction of integration is conventionally taken to be anticlockwise.
 
-\(dx\) is used in single integral to represent a straight infinitesimal interval element \(\in \mathbb{R}\). \(dr\) is used in line integral to represent an arbitrary infinitesimal line element \(\in \mathbb{R}^3 \). So the main difference between the first integral and an ordinary single integral is that the line \(r\) here can span through three dimensions while the interval \(x\) in single integral is confined to one dimension.
+Note that for the first type of the four line integrals above \(ds = \abs{d \vb{r} } \) is an intrinsically positive quantity, which represent an infinitesimal arc length in \(\mathbb{R}^3 \). On the other hand, \(dx\) in a single integral represents a straight infinitesimal interval element in \(\mathbb{R}\), so it carries sign. The integral is typically carried out as
+
+\begin{equation}
+	s = \int_{\vb{a} }^{\vb{b} }f(\vb{r} )ds = \int_{\vb{a} }^{\vb{b} } f(\vb{r} )\abs{d \vb{r} (u)} = \int_{u_{\vb{a} } }^{u_{\vb{b} }  } f(\vb{r} )\abs{\frac{d\vb{r} }{du} } \abs{du}  = \int_{u_{ \vb{a}} }^{u_{ \vb{b}} }f(\vb{r} ) \sqrt{\left( \frac{dx}{du}\right)^2 + \left( \frac{dy}{du}  \right)^2 + \left( \frac{dz}{du}  \right)^2} \abs{du},
+\end{equation}
+
+If \(u_{\vb{b} } > u_{\vb{a} }  \), then \(du\) is positive and we can omit the absolute sign of \(du\). If \(u_{\vb{b} } < u_{\vb{a} }  \), then \(du\) is negative, and we can omit the absolute sign of \(du\) if we add a negative sign in front. This is equivalent of reversing the limit of the integrations \((u_{\vb{a} } \text { and } u_{\vb{b} }  )\). Therefore, the limit of integration does not matter when evaluating the first type of the four line integrals above. 
 
 \example{Line Integral (1).}
+{Consider the scalar function \(\phi (\vb{r} ) = 2\). Evaluate the line integral \(I = \int_{C}^{} \phi ds \), along a straight line from \((0,1)\) to \((1,0)\) and in the reverse direction.}
+{The forward and backward parameterizations are
+
+\begin{equation}
+	\vb{r} (u) = (u,0) ~\text { and }~ \vb{r}' (u) = (1-u,0).
+\end{equation}
+
+The forward line integral is 
+
+\begin{equation}
+	I = \int_{C}^{} \phi ds = \int_{0}^{1} 2 \abs{\frac{d\vb{r} }{du} } du = 2 \int_{0}^{1} \sqrt{1^2 + 0^2} du = 2.     
+\end{equation}
+
+The backward line integral is 
+
+\begin{equation}
+	I = \int_{C}^{} \phi ds = \int_{0}^{1} 2 \abs{\frac{d\vb{r} }{du} } du = 2 \int_{0}^{1} \sqrt{1^2 + 0^2} du = 2.     
+\end{equation}
+
+The limits of the line integral in both cases are 0 to 1, due to the different paratermization used. Of course, we can use the same parameterization in the second line integral as the first one, where the limits of integration will be from 1 to 0, but then we should not replace \(\abs{du} \) by \(du\), but should add a negative sign, which gives the same answer.  
+} 
+
+
+\example{Line Integral (2).}
 {Evaluate the line integral \(I = \int_{C}^{} \vb{F} \cdot d\vb{r}  \) from \((1,1)\) to \((4,2)\), where \(\vb{F}  = (x+y)\vu{i} + (y-x)\vu{j} \), along 
 \begin{enumerate}[itemsep=10pt]
 	\item the parabola \(y^2 = x\),
@@ -1328,7 +1438,7 @@ The curve \(C\) can be open, \textit{i.e.,} the beginning and end point are not 
 } 
 
 
-\example{Line Integrals (2).}
+\example{Line Integrals (3).}
 {Evaluate the line integral \(I = \oint_{C} x dy\), where \(C\) is the circle in the \(xy\)-plane defined by \(x^2 + y^2 = a^2, z=0\). }
 {Since \(x\) is not a single-valued function of \(y\), we must divide the path into two parts with \(x = +\sqrt{a^2-y^2} \) for \(x\geq 0\) and \(x = -\sqrt{a^2-y^2} \) for \(x \le 0\). So
 
@@ -1343,7 +1453,7 @@ Alternatively, we can represent the entire circle parametrically, by \(x = a \co
 \end{equation}
 } 
 
-\example{Line Integral (3).}
+\example{Line Integral (4).}
 {Evaluate the line integral \( I = \int_{C}^{} (x-y)^2 ds \), where \(C\) is the semicircle of radius \(a\) running from \(A = (a,0)\) to \(B = (-a,0)\) and for which \(y \ge 0\).}
 {Introducing a parametric variable \(\phi \) running from \(0\) to \(2\pi \), we have 
 
@@ -1358,7 +1468,7 @@ Thus
 \end{equation}
 } 
 
-\example{Line Integral (4).}
+\example{Line Integral (5).}
 {Evaluate the integral \(\oint_{C} (dx + xydz)\), where \(C\) is the closed curve forming the boundary of the surface given by the equation \(z = x^2 - y^2\), for \(x^2 + y^2 \le 1\).}
 {Parametrizing the curve in terms of \(\theta \), the integral becomes 
 
@@ -1375,10 +1485,10 @@ Alternatively, we can use Stokes' theorem to rewrite the integral as
 where \(\vb{F} (\vb{r} ) = (1,0,xy) \implies \curl{\vb{F} (\vb{r} )} = (x,-y,0) \). The infinitesimal surface is 
 
 \begin{equation}
-	d\vb{S} = \grad{g(x,y,z)} = (-2x,2y,1), 
+	d\vb{S} = \grad{g(\vb{r} )} = (-2x,2y,1), 
 \end{equation}
 
-where \(g(x,y,z) = z - f(x,y) = z - x^2 + y^2\). 
+where \(g(\vb{r} ) = z - f(x,y) = z - x^2 + y^2\). 
 
 Inserting these expressions into the integral we have
 
@@ -1395,15 +1505,37 @@ Inserting these expressions into the integral we have
 As with line integrals, integrals over a surface can involve vector and scalar fields. There are four kinds of surface integrals, namely 
 
 \begin{equation}
-    \int_{S}^{} \phi(x,y,z) dS,  ~~ \int_{S}^{} \phi(x,y,z) d\vb{S} , ~~ \int_{S}^{} \vb{F}(x,y,z) \cdot d\vb{S} ~ \text { and } \int_{S}^{} \vb{F}(x,y,z) \cross d\vb{S},    
+    \int_{S}^{} \phi(\vb{r}) dS,  ~~ \int_{S}^{} \phi(\vb{r}) d\vb{S} , ~~ \int_{S}^{} \vb{F}(\vb{r}) \cdot d\vb{S} ~ \text { and } \int_{S}^{} \vb{F}(\vb{r}) \cross d\vb{S},    
 \end{equation}
 
 where \(d\vb{S} = \vu{n} dS\) is the infinitesimal vector area element. The direction of \(\vu{n} \) is conventionally assumed to be directed outwards from the closed volume if the surface is closed; or given by the right-hand rule if the surface is open and spans some perimeter curve \(C\). 
 
 \(dA\) is used in double integral to represent a flat infinitesimal area element \(\in \mathbb{R}^2\). \(dS\) is used in surface integral to represent an arbitrary infinitesimal surface element \(\in \mathbb{R}^3 \). So the main difference between the first integral and an ordinary double integral is that the surface \(S\) here can span through three dimensions while the area \(A\) in double integral is confined to two dimensions.
 
+Entirely analogous to the fact that the first type of line integrals in the previous subsection is independent of the limits of integration (\textit{i.e.,} the orientation of the curve), the firsty type of the four surface integrals above is also independent of the orientation of the surface (\textit{i.e.,} the limits of integration). 
 
-\example{Surface Integral (1).}
+\example{Surface Integral(1).}
+{Find the element of area on the surface of a sphere of radius \(a\), and hence calculate the total surface area of the sphere.}
+{We can represent a point \(\vb{r} \)  on the surface of the sphere in terms of the two parameters \(\theta \text { and } \phi \) as
+
+\begin{equation}
+	\vb{r} = a \sin \theta \cos \phi \vu{i} + a \sin \theta \sin \phi \vu{j} + a \cos \theta \vu{k} .
+\end{equation}
+
+An infinitesimal area is given by 
+
+\begin{equation}
+	dS = \abs{\frac{\partial \vb{r} }{\partial \theta } \cross \frac{\partial \vb{r} }{\partial \phi } } = a^2\sin \theta d \theta d \phi 
+\end{equation}
+
+And the total surface area is then 
+
+\begin{equation}
+	S = \int_{0}^{\pi }\int_{0}^{2\pi } a^2 \sin \theta d \theta d \phi = 4\pi a^2.    
+\end{equation}
+} 
+
+\example{Surface Integral (2).}
 {Evaluate the surface integral \( I = \int_{S}^{} \vb{F}(\vb{r} ) \cdot d\vb{S} \), where \(F = x \vu{i}  \) and \(S\) is the surface of the hemisphere \(x^2 + y^2 + z^2 = a^2\).}
 {Parameterizing the surface by \(\theta \text { and } \phi \), 
 
@@ -1417,7 +1549,7 @@ we have
 	I = a^3 \int_{0}^{\frac{\pi }{2} } \sin ^3 \theta d \theta \int_{0}^{2\pi } \cos ^2\phi d\phi = \frac{2\pi a^3 }{3}.    
 \end{equation}
 
-Alternatively, we can describe the surface of the hemisphere as \(f(x,y,z) = x^2 + y^2 + z^2 - a^2 = 0\), so we have 
+Alternatively, we can describe the surface of the hemisphere as \(f(\vb{r}) = x^2 + y^2 + z^2 - a^2 = 0\), so we have 
 
 \begin{equation}
 	\abs{\grad{f} } = 2\abs{\vb{r} } = 2a, ~~ 	\frac{\partial f}{\partial z} = 2z = 2\sqrt{a^2-x^2-y^2} ~\text { and }~ \vu{i} \cdot \vu{r} = \vu{i} \cdot \frac{\vb{r} }{\abs{\vb{r} } } = \frac{x}{a}. 
@@ -1430,12 +1562,12 @@ Therfore the integral becomes
 \end{equation}
  } 
  
-\example{Surface Integral (2).}
+\example{Surface Integral (3).}
 {Evaluate \(\int_{S}^{}   \vb{F} (\vb{r} )\cdot d\vb{S} \) over the surface bounded by the paraboloid \(y = x^2+z^2\) for \(y \in [0,1]\), and the disc \(x^2+z^2 \le 1\) at \(y=1\), for \(\vb{F} = (0,y,-z)\).}
-{The algebraic form of the curved surface is \(g(x,y,z) = y - f(x,z) = y - x^2 - z^2 = 0\), whose gradient is \(\grad{g(x,y,z)} = (-2x,1,-2z) \) (and \(\frac{\partial g}{\partial y} = 1\)). This vector points inward to the surface, so we should change its sign to adhere to the normal convention of outward-pointing normals. The integral over the curved surface then becomes
+{The algebraic form of the curved surface is \(g(\vb{r}) = y - f(x,z) = y - x^2 - z^2 = 0\), whose gradient is \(\grad{g(\vb{r})} = (-2x,1,-2z) \) (and \(\frac{\partial g}{\partial y} = 1\)). This vector points inward to the surface, so we should change its sign to adhere to the normal convention of outward-pointing normals. The integral over the curved surface then becomes
 
 \begin{equation}
-	\int_{S'}^{}   \vb{F(\vb{r} )} \cdot \grad{g(x,y,z)} dxdz = \int_{S'}^{} (-x^2-3z^2)dxdz,
+	\int_{S'}^{}   \vb{F(\vb{r} )} \cdot \grad{g(\vb{r})} dxdz = \int_{S'}^{} (-x^2-3z^2)dxdz,
 \end{equation}
 
 where the surface \(S'\) is the projection of the paraboloid onto the \(xz\)-plane, which is a circle, which is most conveniently parameterized by the polar coordinates \((r,\theta )\), so the integral becomes
@@ -1448,7 +1580,7 @@ The integral over the end surface is trivial, which upon integration gives \(\pi
 
 } 
 
-\example{Surface Integral (3).}
+\example{Surface Integral (4).}
 {Evaluate \(\int_{S}^{} \vb{F} (\vb{r} ) \cdot d\vb{S}  \) over the upper half of the sphere \(x^2+y^2+z^2 = 9\) and for \(\vb{F} (\vb{r} ) = (x,y,z^4)\).}
 {The surface is given parametrically by the equation 
 
@@ -1470,7 +1602,7 @@ Then the integral can be carried out straightforwardly as
 
 } 
 
-\example{Surface Integral (4).}
+\example{Surface Integral (5).}
 {Viviani's window is the part of the surface of the sphere of radius \(R\) centered in the origin, contained within the right cylinder with base given by a circumference of radius \( R/2\), centered at \((x,y) = \left(R /2, 0\right)\), for \(z \ge 0\) (see \cref{vivi}). Find the area \(S\) of the Viviani's window.}
 {We are tasked with solving the integral \(S = \int_{S}^{} dS \), and the difficulty lies on parameterizing the surface \(S\). One is to project the surface onto the base and evaluate the double integral, an equally valid way is to parameterize the surface with \(r, \theta \) according to \cref{para}, where 
 
@@ -1555,6 +1687,24 @@ as the volume of each cone is \(dV =  \vb{r} \cdot d\vb{S} /3 \).
 
 \onefig{cone2}{scale=0.3} 
 
+\example{Volume Integrals (1).}
+{Find the volume of a sphere with a cylinder of raidus \(s < R\) removed from the middle. }
+{The most natural choice of coordinates is the cylindrical corrdinates, and the region we want to integrate over is \(x^2+y^2+z^2 \le R^2\), together with \(x^2+y^2 \ge s ^2\). In cylindrical corrdinates, these become 
+
+\begin{equation}
+	s \le \rho \le R ~\text { and }~ -\sqrt{R^2-\rho ^2} \le z \le \sqrt{R^2-\rho ^2}. 
+\end{equation}
+
+So the volume is
+
+\begin{equation}
+	V = \int_{-\sqrt{R^2-\rho ^2} }^{\sqrt{R^2-\rho ^2} } \int_{0}^{2\pi } \int_{s}^{R} \rho d\rho d \phi dz = \frac{4\pi }{3} (R^2-s ^2)^{\frac{3}{2} }.       
+\end{equation}
+
+As we have noted, sometimes it is easier to find the limits of integration by writing them in Cartesian coordinates first and then express them in the coordinate system one is using.
+} 
+
+
 \section{Integral Theorems}
 
 \subsection{The Divergence Theorem}
@@ -1563,6 +1713,14 @@ The divergence theorem states that
 \begin{equation} \label{divthmm} 
 	\int _{V}(\div{\vb{F} } )dV = \oint_{S} \vb{F} \cdot d\vb{S} .
 \end{equation}
+
+The corresponding 2D-version is 
+
+\begin{equation}
+	\int_{S}^{} (\div{\vb{F} } ) dS = \oint_{C} \vb{F} \cdot d\vb{r} . 
+\end{equation}
+
+With this pattern we can easily generalize the divergence theorem into higher dimensions. 
 
 \example{Surface Integral by the Divergence Theorem.}
 {Evaluate the surface integral \(I = \int_{S}^{} \vb{F} \cdot d\vb{S}  \), where \(\vb{F} = (y-x)\vu{i} + x^2z \vu{j} + (z+x^2) \vu{k}\) and \(S\) is the open surface of the hemisphere \(x^2 + y^2 + z^2 = a^2, z \ge 0\).}
@@ -1601,6 +1759,74 @@ But since the volume \(V\) is arbitrary the integrand must be identically zero, 
 For the flow of an incompressible fluid \(\rho = \text{constant} \) and the continuity equation becomes simply \(\div{v} = 0\).~
 }
 
+\example{Predator-Prey Systems.}
+{Suppose the population of the predator and prey are \(w(t) \text { and } c(t)\) respectively, then the set of differential equations governing this sytem is 
+
+\begin{equation}
+	\begin{cases}
+		\frac{dw}{dt}  &= w(-\alpha +c-\mu w ),\\
+		\frac{dc}{dt} &= c(\beta -w - \nu c ),
+	\end{cases}
+\end{equation}
+
+where the meaning of the coefficients \((\alpha , \beta , \mu , \nu )\) can be easily interpreted.  
+
+Does there exist a periodic orbit in the \(c\)-\(w\) phase space? 
+}
+{We first change the form of the differential equation as 
+
+\begin{equation}
+	\frac{d\vb{a} }{dt} = \vb{p} , \quad \vb{a} = \begin{pmatrix}
+		 w \\
+		 c \\
+	\end{pmatrix}, \quad \vb{p} = \begin{pmatrix}
+		 w(-\alpha +c-\mu w) \\
+		 c(\beta -w-\nu c) \\
+	\end{pmatrix},
+\end{equation}
+
+which makes it clear that \(\vb{p} \) is the tangent to any path \(\vb{a} (t)\) in the animal phase plane. Using the divergence theorem in 2 dimensions, we have
+
+\begin{equation}
+	\int_{S}^{} (\div{(b(w,c))\vb{p} } )dS = \oint_{C} b(w,c) \vb{p} \cdot \vu{n} dt,
+\end{equation}
+
+where \(b(c,w)\) can be any function of our choice. If \(b(w,c) = 1/wc\), then we have 
+
+\begin{equation}
+	\div{\left( \frac{\vb{p} }{wc}  \right)} = - \frac{\mu }{c} - \frac{\nu }{w},  
+\end{equation}
+
+which is strictly negative. However, if \(\div{(\vb{p} /wc)} \) is always negative then there's no way to integrate it over a region and get zero. There for by contradiction we conclude that there is no closed orbit in the animal phse plane. In other words, therei is no nice periodic solutions.
+
+
+} 
+
+\example{Integral Form and Differntial Form of Gauss's Law.}
+{Asuuming spherical symmetry, prove that the integral form and the differential form of the Gauss's law are equivalent by considering the volume enclosed by two spherical shells of radius \(r \text { and } r+ dr\).   }
+{Since there is spherical symmetry, we have \(\vb{E} (\vb{r} ) = \vb{E} (r)\). From the integral from of the Gauss's law we have
+
+\begin{equation}
+	\begin{aligned} 
+	4\pi (r+dr)^2 E(r+dr) - 4\pi r^2 E(r) &= \frac{\rho (4\pi r^2dr)}{\epsilon_0 }\\
+	(r^2+2rdr)(E(r)+dE) - r^2E(r) &= \frac{\rho r^2dr}{\epsilon_0 }\\
+	2rE(r)dr +r^2dE &= \frac{\rho r^2dr}{\epsilon_0 }\\
+	\frac{2E}{r} + \frac{dE}{dr} &= \frac{1}{r^2} \frac{d}{dr}(r^2E(r)) = \frac{\rho }{\epsilon_0 }\\     
+	\end{aligned} 
+\end{equation}
+
+The differential form of the Gauss's law, on the other hand, reads
+
+\begin{equation}
+	\div{\vb{E} } = \frac{1}{r^2} \frac{d}{dr} ( r^2E(r)) = \frac{\rho }{\epsilon_0 },    
+\end{equation}
+
+which is equivalent to the integral form.
+
+
+} 
+
+
 \subsubsection{Green's Theorems}
 
 Consider two scalar functions \(\phi \text { and } \psi \) in some volume \(V\) bounded by a surface \(S\). Applying the divergence theorem to the vector field \(\phi \grad{\psi } \), we get 
@@ -1624,23 +1850,104 @@ This is known as the Green's second theorem.
 Letting \(\vb{F} \) in \cref{divthmm} to be a gradient of another scalar function, or the cross product of two other vector functions, we get 
 
 \begin{equation}
-	\int_{V}^{} \grad{f} dV = \oint_{S} fd\vb{S} \text { and } \int_{V}^{} \curl{\vb{F} } dV = \oint_{S} d\vb{S} \cross \vb{F} .     
+	\int_{V}^{} \grad{f} dV = \oint_{S} fd\vb{S} \text { and } \int_{V}^{} (\curl{\vb{F} }) dV = \oint_{S} d\vb{S} \cross \vb{F} .     
 \end{equation}
 
 \subsection{Stokes' Theorem}
 The Stokes' theorem states that 
 
 \begin{equation} \label{stothmm} 
-	\int_{S}^{} (\curl{\vb{F} } ) dS = \oint_{C} \vb{F} \cdot d\vb{r} .
+	\int_{S}^{} (\curl{\vb{F} } ) \cdot d\vb{S}  = \oint_{C} \vb{F} \cdot d\vb{r} .
 \end{equation}
 
-In two dimensions, the above equation reduces to 
+In two dimensions, curl is not defiend, but the main idea stands:
 
 \begin{equation}
-	\oint_{C} (Pdx + Qdy) = \int \int_{R}^{} \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}  \right) dxdy,
+	\int_{S}^{} \left( \frac{\partial F_{y} }{\partial x} - \frac{\partial F_{x} }{\partial y}  \right) dS = \oint_{C} (F_{x} dx+F_{y} dy). 
 \end{equation}
 
-known as the Green's theorem.\footnote{The divergence theorem also reduces to the Green's theorem in two dimensions.} 
+This is known as the Green's theorem in a plane, which is equivalent to the two-dimensional divergence theorem. Apply to a rectangular region, Green's theorem in a plane reduces to the fundamental theorem of calculus.
+
+If an area has a number of disconnected componenets, then the integral should be done in an anti-clockwise direction around the exterior boundary, and in a clockwise direction on any interior boundary. The quickest way to see this is to do the integration around a continouous boundary as shown in \cref{green}, with an infinitesimal gap. The two contributions across the gap then cancel.
+
+\onefig{green}{scale=0.3} 
+
+\example{Stokes' Theorem (1).}
+{Let \(S\) be the cap of a sphere of radius \(R\) that is covered by the angle \(0 \le \theta \le \alpha \). Confirm the Stokes' theorem with the vector field \(\vb{F} = (0,xz,0)\)  }
+{The surface integral is 
+
+\begin{equation}
+	\int_{S}^{} (\curl{\vb{F} } ) \cdot d\vb{S}  = \int_{0}^{2\pi } \int_{0}^{\alpha } R^2\sin \theta d \theta d\phi \begin{pmatrix}
+		 -x \\
+		 0 \\
+		 z \\
+	\end{pmatrix} \cdot  \begin{pmatrix}
+		 \sin \theta \cos \phi  \\
+		 \sin \theta \sin \phi  \\
+		 \cos \theta  \\
+	\end{pmatrix} = \pi R^3 \cos \alpha \sin ^2 \alpha .    
+\end{equation}
+
+The line integral is performed around the rim \(C\) parameterized by the angle \(\phi \), given by 
+
+\begin{equation}
+	\vb{r} (\phi ) = R(\sin \alpha \cos \phi ,\sin \alpha \sin \phi ,\cos \alpha ) \implies d\vb{r} = R(-\sin \alpha \sin \phi , \sin \alpha \cos \phi , 0)d\phi.
+\end{equation}
+
+So the line integral is
+
+\begin{equation}
+	\oint_{C} \vb{F} \cdot d\vb{r} = \int_{0}^{2\pi } Rxz \sin \alpha \cos \phi d\phi = \pi R^3 \sin ^2\alpha \cos \alpha .  
+\end{equation}
+
+} 
+
+\example{Stokes' Theorem (2).}
+{Consider the conical surface \(S\) defined by \(z^2 = x^2+ y^2\) with \(0 < a \le z \le b\). Confirm the Stoke's theorem with the vector field \(\vb{F} = (0,xz,0)\).   }
+{The surface is parameterized, in cylindrical polar coordinates, by 
+
+\begin{equation}
+	\vb{r} (\rho , \phi ) = (\rho \cos \phi , \rho \sin \phi , z)
+\end{equation}
+
+with \(a \le \rho \le b\) and \(0 \le \phi  < 2\pi \).  
+
+So the infinitesimal surface vector area \(d\vb{S} \) can be found by 
+
+\begin{equation}
+	d\vb{S}  = \frac{\partial \vb{r} }{\partial \rho } \cross \frac{\partial \vb{r} }{\partial \phi } = (- \cos \phi , - \sin \phi , 1 ) \rho d\rho d\phi .  
+\end{equation}
+
+The surface integral is 
+
+\begin{equation}
+	\int_{S}^{} (\curl{\vb{F} } ) \cdot d\vb{S} = \int_{0}^{2\pi } \int_{a}^{b} \begin{pmatrix}
+		 -x \\
+		 0 \\
+		 z \\
+	\end{pmatrix} \cdot \begin{pmatrix}
+		 -\cos \phi  \\
+		 -\sin \phi  \\
+		 1 \\
+	\end{pmatrix} \rho d\rho d\phi = \pi (b^3 -a^3 ).
+\end{equation}
+
+Now the line integral is performed around the two circumferences \(C_1 \text { and } C_2 \) with radius \(R = a \text { and } b\), which are parameterized by the angle \(\phi \), given by 
+
+\begin{equation}
+	\vb{r} (\phi ) = R(\cos \phi , \sin \phi , 1) \implies d\vb{x} = R(-\sin \phi , \cos \phi ,0)d\phi ,
+\end{equation}
+
+so the line integral of one of the circumference is 
+
+\begin{equation}
+	\oint_{C} \vb{F} \cdot d\vb{r} = \int_{0}^{2\pi } R^3 \cos ^2\phi d\phi = \pi R^3 .  
+\end{equation}
+
+Since the orientation of \(C_1 \text { and } C_2 \) are in opposite direction, substituting \(R = a \text { and } b\) and subtracting the results give the same result as the surface integral.   
+} 
+
+
 
 \example{The Ampere's Law.}
 {Convert the integral form of Ampere's Law into differential form}
