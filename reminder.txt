@@ -1,0 +1,11 @@
+# Physics-Notes
+git status
+git add .
+git commit -m "update"
+git push origin main
+
+Crtl+~
+
+mklink "C:\Users\User\Downloads\Physics Notes\Machine Learning\mypackage.sty" "C:\Users\User\Downloads\Physics Notes\mypackage.sty"
+
+run command prompt as administrator (not terminal)
