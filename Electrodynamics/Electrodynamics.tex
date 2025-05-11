@@ -13,7 +13,7 @@
     
 \chapter{Electrostatics}
 
-Electrostatics is the study of the interactions between charged particles that are stationary.\footnote{Actually, it is not necessary that the charges be stationary, but only that the charge dneisy at each poitn be constat. For example, a rotating sphere with uniform charge density produce an electrostatic field \( \vu{r} / 4\pi \epsilon_0 r^2 \), even though the charges are moving.} 
+Electrostatics is the study of the interactions between charged particles that are stationary.\footnote{Actually, it is not necessary that the charges be stationary, but only that the charge density at each point be constant. For example, a rotating sphere with uniform charge density produces an electrostatic field \( \vu{r} / 4\pi \epsilon_0 r^2 \), even though the charges are moving.} 
 
 \section{Electric Fields and Potentials}
 
@@ -168,13 +168,13 @@ which can be showed to be identical to \( q_1 q_2 /4\pi \epsilon_0 a \).
 Therefore, when handling artificial problem involving point charges, where we only care about the energy by moving them around, we better stick with the assembly method.} 
 
 \example{Energy of a System.}
-{Find the energy required to move a point charge  \(q\) from the center of a conducting spherical shell with inner radius and outer radius \(\vb{a} \text { and } \vb{b} \) to infinity}
-{We know that the energy of the system in its final configuration is zero, as there is only one point charge at infinity and a conductor with no net or induced charge. Note that the initial charge configuration consists of a point charge \(q\) at the origin, a spherical shell with charge \(-q\) and radius \(a\) and a spherical shell with charge \(q\) and radius \(b\) which encompasses both point charge and uniformly distributed charge so we have to be careful in what \(V\) we use in our calculation.
+{Find the energy required to move a point charge  \(q\) from the center of a conducting spherical shell with inner radius and outer radius \(a \text { and } b \) to infinity.}
+{We know that the energy of the system in its final configuration is zero, as there is only one point charge at infinity and a conductor with no net or induced charge. Note that the initial charge configuration consists of a point charge \(q\) at the origin, a spherical shell with charge \(-q\) with radius \(a\) and a spherical shell with charge \(q\) and radius \(b\).
     
 For the point charge, the potential at the origin is 
 
 \begin{equation}
-    V_{point} = \frac{1}{4\pi\epsilon_0} \frac{-q}{a} + \frac{1}{4\pi\epsilon_0} \frac{q}{b}  = \frac{q}{4\pi \epsilon_0} \left(\frac{1}{b} - \frac{1}{a} \right)
+    V_{\text{point} } = \frac{1}{4\pi\epsilon_0} \frac{-q}{a} + \frac{1}{4\pi\epsilon_0} \frac{q}{b}  = \frac{q}{4\pi \epsilon_0} \left(\frac{1}{b} - \frac{1}{a} \right)
 \end{equation}
 
 where we excluded the contribution to the potential at the origin by the point charge itself since it blows up and it should not be included anyways.
@@ -202,10 +202,10 @@ Combining the results, we have
 Thus the work done by the external agent is
 
 \begin{equation}
-    W = \Delta U = U_{i} - U_{f} = U_{i} = \frac{q^2}{8\pi \epsilon_0} (\frac{1}{a} - \frac{1}{b} ) .
+    W = \Delta U = U_{i} - U_{f} = U_{i} = \frac{q^2}{8\pi \epsilon_0} \left(\frac{1}{a} - \frac{1}{b} \right) .
 \end{equation}
 
-An alternative way is that since we know that the difference in the electric field pattern between the initial and the final state is in the region of the conductor, where the electric field is zero in the former case when compare to \( \frac{q}{4\pi \epsilon _{0} r^2} \) in the latter case, so the energy require to reconstruct this electric field is 
+An alternative way is that since we know that the difference in the electric field pattern between the initial and the final state is in the region of the conductor, where the electric field is zero in the former case when compare to \(q/4\pi \epsilon_0 r^2 \) in the latter case, so the energy require to reconstruct this electric field is 
 
 \begin{equation}
     W = \int_{a}^{b} \left(\frac{1}{4\pi\epsilon_0} \frac{q}{2} \right)^2 4\pi r^2dr =   \frac{q^2}{8\pi \epsilon_0} \left(\frac{1}{a} - \frac{1}{b} \right) .
@@ -214,6 +214,33 @@ An alternative way is that since we know that the difference in the electric fie
 An incorrect way to compute this would be to consider the assembly process, since the point charge can be brought to the origin without any work done, the inner shell can be brought in with the work done \( W =  q^2/4\pi \epsilon_0 a\) and the outer shell can be brought in again without any work done since the electric field of the point charge and the inner shell cancel each other out in the region \(r > a\), so it seems like the work done required is \( q^2 /4\pi \epsilon_0 a\). However, the defect of this argument is that while it is true that it requires a work done of \(W = q^2/4\pi \epsilon_0 a \) to move a point charge from infinity to \(a\) in the vicinity of the point charge at the origin, it requires energy to spread them out to a spherical shell, since the spherical shell is no longer an equipotential surface after adding the second point charge.}
 
 \todo{modify above} 
+
+\example{Sphere in Cylinder.}
+{A long cylinderical capacitor of length \(l\) consists of an outer conductor of radius \(a\) and an inner conductor of radius \(b\), where \(l \gg a\). The outer conductor is earthed and the inner conductor is hollow, insulated and unchared. A sphere of radius \(R\) is charged to a potential \(V\) far from any other bodies and is then inserted inside the inner conuctor of the cylindrical capacitor without touching it. 
+
+Sketch the electric field lines, calculate the electric field strength at a radius \(b<r<a\), and find the potential of the inner cylinder and the sphere.}
+{The charged sphere of radius \(R\) sits at potential \(V\), so in free space it would have charge \(q = 4\pi \epsilon_0 RV\). The radial electric field prodcued by this charge then induces charge \(-q\) on the inner surface of the inner conductor and \(+q\) on its outer surface. The \(-q\) charges in the inner conductor is not evenly distributed, while the \(+q\) charges on its outer surface is uniformly distributed. In other words, the meat of the inner conductor shields any information about the charge distribution inside but only reveals the amount of net charge in it. Outside of the inner conductor there is then an uniform electric field directed towards the outer conductor. Outside of the outer conductor there could be no electric field, since it is grounded, which is at the same potential as infinity.
+
+The electric field can be found by considering a cylindrical Gaussian surface between the inner and the outer conductor, which gives
+
+\begin{equation}
+    E(2\pi rl) = \frac{4\pi \epsilon_0 RV}{\epsilon_0 } \implies E = \frac{2RV}{lr}.  
+\end{equation}
+
+The potential of the inner conductor can then be found by the negative electric field line integral 
+
+\begin{equation}
+    V(b) = -\int_{a}^{b} \frac{2RV}{lr} = \frac{2RV}{l} \ln \left( \frac{a}{b}  \right).
+\end{equation}
+
+The potential of the sphere can then by found by further integrating the electric field inside the inner conductor, so 
+
+\begin{equation}
+    V(R) = V(b) - \int_{b}^{R} -\frac{q}{4\pi \epsilon_0 r^2}dr = V\left( 1-\frac{R}{b}  \right)  + \frac{2RV}{l} \ln \left( \frac{a}{b}  \right).
+\end{equation}
+~
+} 
+
 
 \section{Conductors}
 
@@ -331,13 +358,13 @@ By taking appropriate limits, find
     
     Since 
     \begin{equation}
-        \sigma = \frac{Q}{4\pi ac^2\sqrt{\frac{x^2}{a^4} + \frac{r^2}{c^4} } },
+        \sigma = \frac{Q}{4\pi ac^2\sqrt{x^2/a^4 + r^2/c^4 } },
     \end{equation}
 
     thus
     
     \begin{equation}
-        \lambda (x) = \frac{dq}{dx} = 2\pi r\sigma \frac{ds}{dx}  = 2\pi r \frac{Q}{4\pi ac^2\sqrt{\frac{x^2}{a^4} + \frac{r^2}{c^4} } }\frac{dx \frac{c^2}{r} \sqrt{\frac{x^2}{a^4} + \frac{r^2}{c^4} } 
+        \lambda (x) = \frac{dq}{dx} = 2\pi r\sigma \frac{ds}{dx}  = 2\pi r \frac{Q}{4\pi ac^2\sqrt{x^2/a^4 + r^2/c^4} }\frac{dx \frac{c^2}{r} \sqrt{x^2/a^4 + r^2/c^4 } 
         }{dx} = \frac{Q}{2a} .
     \end{equation}
     
@@ -601,19 +628,26 @@ If the volume contains conductors, then instead of the Dirichlet or the Neumann 
 
 Suppose a point charge \(q\) is held a distance \(d\) above an infinite grounded conducting plane and we wish to find the potential in the region above the plane. From a mathematical standpoint, this is equivalent to solving the Poisson's equation in the region \(z > 0\), with \(\rho \) corresponds to a single point charge  \(q\) located at \((0,0,d )\), subject to the boundary conditions: 
 \begin{enumerate}
-    \item \(V = 0\) when \(z = 0\), and
-    \item \(V \rightarrow 0\) for \(x^2 + y^2 + z^2 \gg d^2\).	
+    \item \(V = 0\) when \(z = 0\), and \item \(V \rightarrow 0\) for \(x^2 + y^2 + z^2 \gg d^2\).	
 \end{enumerate}
 
-By some clever insights, we see that for the potential created by a pair of opposite charge with \(q\) located at \((0,0,d)\) and \(-q\) located at \((0,0,-d)\) satisfy \(\rho \) in the region \(z > 0\)\footnote{We cannot place iamge charges in the volume \(V\) where we are calculating the potential, since for the first uniqueness theorem to stand, the charge density throughout the region has to be fixed as the given \(\rho \). Also the images charges must add up to the correct total in each region. (why?)} 
+By some clever insights, we see that for the potential created by a pair of opposite charge with \(q\) located at \((0,0,d)\) and \(-q\) located at \((0,0,-d)\) satisfy \(\rho \) in the region \(z > 0\).\footnote{We cannot place iamge charges in the volume \(V\) where we are calculating the potential, since for the first uniqueness theorem to stand, the charge density throughout the region has to be fixed as the given \(\rho \). Also the images charges must add up to the correct total in each region. (why?)} 
 
-Since the electric field is just \(\vb{E} = -\grad{V} \), it is also uniquely determined and the force that the real charge experience can be easily calculated as \( \vb{F} = -\frac{q^2}{4\pi \epsilon _{0} (2d)^2} \vu{z}  \).
+Since the electric field is just \(\vb{E} = -\grad{V} \), it is also uniquely determined and the force that the real charge experience can be easily calculated as \( \vb{F} = -q^2\vu{z}/ 4\pi \epsilon_0 (2d)^2\).
 
-The potential energy of the system can be found by integrating the force from infinity to \(d\) which yields \( U = \int_{\infty}^{d}  \frac{q^2}{4\pi \epsilon _{0} (2z)^2} dz = -\frac{q^2}{16\pi \epsilon _{0} d}  \) which is only half of the energy of a pair of real charge \(q \text{ and }  -q\) separated by a distance \(2d\). 
+The potential energy of the system can be found by integrating the force from infinity to \(d\) which yields 
+
+\begin{equation}
+    U = \int_{\infty}^{d}  \frac{q^2}{4\pi \epsilon _{0} (2z)^2} dz = -\frac{q^2}{16\pi \epsilon _{0} d} ,
+\end{equation}
+
+which is only half of the energy of a pair of real charge \(q \text{ and }  -q\) separated by a distance \(2d\). 
 
 This is because there is no electric field in the region \(z < 0\), or equivalently, the image charge can be moved for free, since there isn't any electric field to oppose. 
 
 So in general the energy becomes \(U = q_{\text{real} } V \) and we only need to take into account the energy of the real charges. 
+
+
 
 \example{Image Charges of a Conducting Spherical Shell.}
 {A point charge \(q\) is situated a distance \(a\) from the center of a conducting shell\footnote{A conducting sphere works just as fine here as well. This is because for \(a > R\), the real charge density is zero inside the shell, so the internal field can be found by solving the Laplace's equation with \(\rho = 0\) and subject to the boundary condition of constant potential at the shell. By invoking the first uniqueness theorem, we see that the internal field equals to zero which resembles the case of a conductor is the only answer.} of radius \(R < a\).\footnote{The same can be done for \(R > a\) but we omit here for simplicity.} Find the potential outside the spherical shell if it is  
@@ -631,7 +665,7 @@ So in general the energy becomes \(U = q_{\text{real} } V \) and we only need to
         \item \(V \rightarrow 0\) for  \(x^2 + y^2 + z^2 \gg R\) .		
     \end{enumerate} 
     
-    It so happens that the potential created by a point charge \(q' = -\frac{R}{a} q\) located at \(\frac{R^2}{a} \) from the center of the sphere (which always stay inside the sphere since \(R < a\)) together with the real charge satisfies both the boundary conditions and the charge density requirement. 
+    It so happens that the potential created by a point charge \(q' = -Rq /a\) located at \(R^2 /a \) from the center of the sphere (which always stay inside the sphere since \(R < a\)) together with the real charge satisfies both the boundary conditions and the charge density requirement. 
     
     Thus, by the first uniqueness theorem, the potential created by the two charges is our final and only answer.\newline 
     
@@ -692,7 +726,7 @@ Substituting our proposed solution and separating the variables,
     
 \begin{equation}
     \begin{aligned}
-        Y \frac{d^2X}{dx^2} + X \frac{d^2Y}{dy^2} + Z \frac{d^2Z}{dz^2} &= 0 \\
+        YZ \frac{d^2X}{dx^2} + XZ \frac{d^2Y}{dy^2} + XY \frac{d^2Z}{dz^2} &= 0 \\
         \frac{1}{X} \frac{d^2X}{dx^2} + \frac{1}{Y} \frac{d^2Y}{dy^2} + \frac{1}{Z} \frac{d^2Z}{dz^2} &= 0. 
     \end{aligned}
 \end{equation}
@@ -700,7 +734,7 @@ Substituting our proposed solution and separating the variables,
 Since we have an equation in the form of \(f(x) + g(y) + h(z) = 0\), the only way the this could possibly be true is that both  \(f,g \text{ and }  z\) must be constant or else I could say vary \(x\) while keeping \(y \text { and } z\) constant and the equality wouldn't hold. Thus, we have
     
 \begin{equation}
-    \frac{1}{X} \frac{d^2X}{dx^2} = C_1, ~~~\frac{1}{Y} \frac{d^2Y}{dy^2} = C_2 ~~~ \text{ and } ~~~ \frac{1}{Z} \frac{d^2Z}{dz^2} = C_3, ~~~ \text{ with }  C_1 + C_2 + C_3 = 0.
+    \frac{1}{X} \frac{d^2X}{dx^2} = C_1, \quad \frac{1}{Y} \frac{d^2Y}{dy^2} = C_2 ~ \text{ and } ~ \frac{1}{Z} \frac{d^2Z}{dz^2} = C_3, \quad C_1 + C_2 + C_3 = 0.
 \end{equation}
 
 \example{Separation of Variables in Cartesian Coordinates.}
@@ -1770,9 +1804,9 @@ In fact, this is still not the complete modified Ampere's law, as we will see in
 
 \chapter{Electromagnetic Induction and Maxwell's Equations}
 
-\section{Electromotive Force}
+\section{Electromotive Force} \label{emf} 
 
-\subsection{Ohm's Law}
+\subsection{Ohm's Law} \label{ohmlaw} 
 
 To make a current flow, you have to push on the charges. How fast they move, in response to a given push, depends on the material's conductivity \(\sigma \) defined by 
 
@@ -1796,7 +1830,7 @@ Ordinarily, the velocity of the charges is sufficiently small that the second te
 
 which is the famous Ohm's law, though it is only a special case of \(\vb{J} = \sigma \vb{f} \), which is actually just the definition of conductivity. In fact it is not really a true law, in the sense of Coulomb's or Ampere's, rather it is a ``rule of thumb'' that applies pretty well to many substances.
 
-Note that the force \(\vb{f}\) does not include the ``resistive force'' in the resistor because it is not really a force but the constant instant collisions between the charges and the material can be modelled as a force, which cancels out with the external force \(\vb{f}\), to give a constant current.
+Note that the force \(\vb{f}\) does not include the ``resistive force'' in the resistor because it is not really a force but the constant instant collisions between the charges and the material. This effect can be modelled as a force, which cancels out with the external force \(\vb{f}\), to give a constant current.
 
 It is a little like this: suppose you are driving down a street with a stop sign at every intersection, so that, although you accelerate constantly in between, you are obliged to start all over again with each new block. Your average speed is then a constant, in spite of the fact that (except for the periodic abrupt stops) you are always accelerating. If the length of a block is \(\lambda \)  and your acceleration is \(a\), the time it takes to go a block is \(t = \sqrt{2 \lambda /a} \) and hence your average velocity is \( \avg{v} =at /2 = \sqrt{\lambda a /2 }  \). 
 
@@ -1819,10 +1853,12 @@ For steady currents, continuity implies
 If we have uniform conductivity (\textit{i.e.,} \(\sigma = \text{constant}  \)), then Ohm's law implies that 
 
 \begin{equation}
-    \div{\vb{E} } = \frac{\rho }{\epsilon_0 } = \frac{1}{\sigma } \div{\vb{J} } = 0, 
+    \div{\vb{E} } = \frac{1}{\sigma } \div{\vb{J} } = \frac{\rho }{\epsilon_0 } = 0, 
 \end{equation}
 
 and therfore the charge density \(\rho \) is zero and any unbalanced charge resides on the surface.
+
+\subsection{Definition}
 
 
 A circuit in the most general sense is simply a closed loop \(C\). The definition of the elctromotive force of this circuit is the line integral \(\vb{f} \) along \(C\) (taken in the positive sense of \(C\), which is usually anticlockwise)  
@@ -1856,7 +1892,7 @@ A circuit in the most general sense is simply a closed loop \(C\). The definitio
 
 This formula is basically identical to the definition of work done, where \(W = \int_{a}^{b} \vb{F} \cdot d \vb{s}  \), just that we always perform loop integral for \(\mathcal{E}\) and the forces we use for calculating emf is per unit charge. Therefore, emf can also be interpreted as the work done by the net force per unit charge around a circuit.\footnote{This intepretation is flawed when the circuit itself is in motion. We will deal with this problem when discussing generators.}
 
-There are really two force involved in driving charges around a circuit: the source force, \(q \vb{f} _{s}  \), which is usually confined to one portion of the loop (a battery, say) and an electromagnetic force, \(q(\vb{E} + \vb{v} \cross \vb{B} ) \).
+There are really two force involved in driving charges around a circuit: the source force, \(q \vb{f} _{s}  \), which is usually confined to one portion of the loop (a battery, say) and an electromagnetic force, \(q(\vb{E} + \vb{v} \cross \vb{B} ) \), \textit{i.e.,} 
 
 \begin{equation}
     \vb{f} = \vb{f} _{s} + \vb{E} . 
@@ -1994,72 +2030,10 @@ If one would like, \(\partial \vb{B} /\partial t\) can be regarded as a current 
     \vb{E} = -\frac{1}{4\pi } \frac{d}{dt} \int_{V}^{} \frac{\vb{B} \cross \hrcurs }{\rcurs ^2} d\tau .  
 \end{equation}
 
-However, this equation is seldom use since symmetries are usually present to avoid equation.
+However, this equation is seldom used since symmetries are usually present to avoid equation.
 
 
 
-
-\subsection{Circuit with Battery and Resistor}
-
-Consdier the follwing circuit consisting of a battery and a resistor:
-
-\begin{center}
-    \begin{circuitikz}
-        % Draw the resistor and label current I
-        \draw (1.5,0) to[R] (4.5,0);
-        \draw[->] (3.5, 0.5) -- (2.5, 0.5) node[midway, above] {\(I \) };
-        
-        % Draw the top wire
-        \draw (0,0) -- (1.5,0);
-        \draw (4.5,0) -- (6,0);
-        
-        % Draw the right wire and arrows
-        \draw (6,0) -- (6,-3);
-        
-        % Draw the battery with terminals a and b
-        \draw (6,-3) to[battery] (0,-3);
-        \filldraw (1.5,-3) circle (1pt) node[above] {\(a\) };
-        \filldraw (4.5,-3) circle (1pt) node[above] {\(b\) };
-        \node at (3.5,-3.2) {\(+\) };
-        \node at (2.5,-3.2) {\(-\) };
-        
-        % Draw the bottom wire and label current I
-        \draw (0,-3) -- (0,0);
-        
-        % Draw electric field vector E
-        \draw[->] (4,-3.5) -- (2,-3.5) node[midway, below] {\(\vb{E} \) };
-        \draw[->] (4,-0.5) -- (2,-0.5) node[midway, below] {\(\vb{E} \) };
-
-        % Draw vector f0 in the middle
-        \draw[->] (2.5, -2.5) -- (3.5, -2.5) node[midway, above] {\(\vb{f} _{s} \) };
-    \end{circuitikz}
-\end{center}
-
-While to calculate the emf we have to measure the force per unit charge at every position of the circuit simulataneously, but since we are dealing with a static (time-independent) situation, we can imagine a single charge \(q\) making a complete tour around \(C\). The force per unit charge is then the combination of contribution from the source force \( \vb{f} _{s}    \) and the electric force \(q\vb{E}    \), so \(\vb{f} = \vb{f} _{s} + \vb{E}\) and the emf becomes
-
-\begin{equation}
-    \mathcal{E}= \oint_{C} \vb{f} \cdot d \vb{l} = \oint_{C} \vb{f}_{s}  \cdot d \vb{l} + \oint_{C} \vb{E} \cdot d \vb{l} = \oint_{C} \vb{f} _{s} \cdot d \vb{l} = \int_{a}^{b} \vb{f} _{s} \cdot d \vb{l}           
-\end{equation}
-
-since \(\oint_{C} \vb{E} \cdot d \vb{l} =0 \) for all electrostatic field and \(\vb{f} _{s} \) is non-zero only inside the battery. 
-
-Now since the current \(I\) is constant, the charge \(q\) moves at constant speed along the circuit, which means that the total force on \(q\) in the direction of the path \(C\) is zero. In the interior of the resistor, the electrostatic force \( q\vb{E}  \) which arises from Ohm's law, is counterbalanced by the ``force'' on \(q\) due to the collision of the charges with the positive ions of the metal. In the battery, assuming the internal resistance is zero, there must be an electric field opposing the soruce force so \(\vb{E} = - \vb{f} _{s} \). This is also consistent to the fact that \(\vb{E} \) is curless around the circuit and \(\vb{f} = \vb{f} _{s} + \vb{E}  \) in \cref{ohm} should be zero if \(\sigma \rightarrow \infty\). 
-
-The potential difference between the terminals is therefore 
-
-\begin{equation}
-    V = -\int_{a}^{b} \vb{E} \cdot d \vb{l} = \int_{a}^{b} \vb{f} _{s} \cdot d \vb{l} = \mathcal{E},
-\end{equation}
-
-which makes qualitative sense because the electromotive force is meant to push the charges up the potential hill.
-
-The work done by the source force is then 
-
-\begin{equation}
-    W = \int_{a}^{b} q \vb{f} _{s} \cdot d \vb{l} = q \mathcal{E} = qV.
-\end{equation}
-
-Current in this electric circuit is somewhat analogous to the flow of water in a closed system of pipes, with gravity playing the role of the electrostatic field, and a pump (lifting the water up against gravity) in the role of the battery. In this story, height is analogous to voltage.
 
 \section{Electromagnetic Induction and Magnetic Energy}
 
@@ -2113,7 +2087,20 @@ The total induced emf in loop 2 is therefore
 
 Similar to capacitance, to find \(M \text { or } L\), the standard procedure is to run a current through one of the loop and find the flux through the another loop in terms of this current. 
 
-Similar to capacitance, inductance is an intrinsically positive quanitity. However, Lenz's law, which is enforced by the minus signs in the above equations, dictates that the emf is in such a direction as to oppose any change in current. Whenever you try to alter the current in a wire, you must fight against this the back emf due to the loop's self inductance. Inductance plays an analogous role in electric circuits that mass plays in mechanical systems: the greater \(L\) is, the harder it is to change the current, just as the alrger the mass, the harder it is to change an object's velocity.
+Since the positive sense of \(\Phi _{1} \) is defined by the direction of the thumb when using the right hand rule while the four other fingers are pointing towards the positive current \(I_1 \), \(\Phi_{1}  \) must increase when \(I_1 \) increase and vice versa, so \(L = \Phi _{1} /I_1  \) is an intrinsically positive quantity. However, an increase in current in loop 1 \(I_1 \) can produce a positive or negative flux in loop 2 \(\Phi _{2} \), depending on how the positive sense of current is defined in loop 2, so the mutual inductance \(M = \Phi _{2} /I_1  \) can be positive or negative depending on the winding sense. If they are wounded in the same sense on a cylinder then \(M > 0\), and if they are wounded in the opposite sense on a cylinder then \(M > 0\).  
+
+Lenz's law, which is enforced by the minus signs in the above equations, dictates that the emf is in such a direction as to oppose any change in magnetic flux. Whenever you try to alter the current in a wire, you must fight against this the back emf due to the loop's self inductance. Inductance plays an analogous role in electric circuits that mass plays in mechanical systems: the greater \(L\) is, the harder it is to change the current, just as the larger the mass, the harder it is to change an object's velocity.
+
+\example{Transformer.}
+{Coil \(A\) is driven by a voltage of the form \(V = V_0 \sin (\omega t)\). Find the voltage across coil \(B\).  }
+{The equation for coil \(A\) is 
+
+\begin{equation}
+    V_0 \sin (\omega t) = L_{A} \frac{dI_{A} }{dt}  
+\end{equation}
+
+} 
+
 
 \example{Jumping Ring.}
 {If you wind a solenoidal coil around an iron core (which serves to beef up the magnetic field), place a metal ring on top, and connect the coil with an AC source, the ring will jump in the air. Why? (The situation is illustrated in \cref{jumpingring}).}
@@ -2370,30 +2357,47 @@ The 4 corresponding boundary conditions are
 
 \chapter{Circuit Theory}
 
-\section{Energy in Circuits}
+\section{Electromotive Force, Potential Difference and Voltage}
 
 Before dealing with any circuit components, it is important to distinguish between 3 very similar quantities:
 
 \begin{enumerate}
-    \item Electromotive force (emf) (\(\mathcal{E}\)): Both emf of a circuit and emf of a circuit element make sense to say. The emf of a circuit is defined as the loop integral of the total force per unit charge, which is equivalent to the work done (energy transfer) to charges per unit charge per loop. Emf of a circuit element is the loop integral of the emf source force per unit charge, which is non-zero meaning that the force is non-conservative, which is also equivalent to the work done by the emf source to charges per unit charge per loop. Battery and inductor are examples of emf sources, where the source force is ``chemical force'' and electric force, respectively.
-    \item Potential difference (\(\Delta V\)): Potential difference is only well-defined for conservative electric field, as the negative of the line integral of the electric field, which is equivalent to the negative of the work done by the electric field. For non-conservative electric field the potential difference between two points is ill-defined since the line integral is path dependent so there is no unique answer. 
-    \item Voltage (\(V\)): A general term used usually in circuit theory to describe the potential difference or emf. As we we show below, the voltage at each point of circuit is well-defined and unique (as long as the ground (the point where the voltage is defined to be zero)) is given.
+    \item Electromotive force (emf) (\(\mathcal{E}\)): 
+
+    Emf of a circuit element is the loop integral of the force provided by the circuit element (emf source) per unit charge, which is also equivalent to the work done by the emf source to charges per unit charge per loop. This is generally non-zero, meaning that the force is non-conservative.
+    
+    Emf of a circuit also make sense to say, which is simply the sum of all individual emf from every emf source.
+
+    Battery and inductor are examples of emf sources, where the source force is a constant ``chemical force'' and a non-conservative electric force, respectively. A more detailed discussion on emf can be refered to the dedicated section \cref{emf}. 
+
+    \item Potential difference (\(\Delta V\)): 
+    
+    Potential difference is only well-defined for conservative electric field, as the negative of the conservative electric field line integral, which is equivalent to the negative work done by the electric field per unit charge.
+    
+    For non-conservative electric field the potential difference between two points is ill-defined since the line integral is path dependent so there is no unique answer. 
+
+    Therefore, since the electric fields in a resistor, capacitor and battery are conservative (generated by static charges), the potential differences across them is well defined. However, we cannot define a potential difference across an inductor since the electric field in an inductor is non-conservative. We will discuss more on this in \cref{elec}. 
+
+    \item Voltage (\(V\)): 
+    
+    Voltage is a general term used exclusively in circuit theory to refer to both the potential difference and emf. As we will show, the voltage at each point of a circuit is well-defined (as long as the ground (the point where the voltage is defined to be zero)) is given.
 \end{enumerate}
 
+\section{Circuit Elements}
 
-Before analyzing any circuit, it is useful to first understand basic properties of the 4 main cirucit elements, they can be calssified into active circuit elements, which are those that can supply energy to a circuit, or passive circuit element, which are those that cannot generate energy but instead store, release or dissipate energy supplied by the active elements:
+Before analyzing any circuit, it is useful to first understand basic properties of the 4 main cirucit elements, they can be calssified into active circuit elements (or emf sources), which are those that can supply energy to a circuit, or passive circuit element, which are those that cannot generate energy but instead store, release or dissipate energy supplied by the active elements:
 
 \begin{enumerate}
     \item Battery (\(\mathcal{E} = \mathcal{E}_{0} \)): An emf source where the source force is a ``chemical force'', pointing from the negative terminal to the positive terminal, thus an active circuit element.
     \item Resistor (\(\Delta V = -IR\)): Disspate energy via collisions between charges and positive ions inside the resistor as heat, thus a passive circuit element.
-    \item Capacitance (\(\Delta V = -\frac{q}{C} \)): Store and energy via electric field, thus a passive circuit element.
-    \item Inductor (\(\mathcal{E} = -L\frac{dI}{dt} \text { or } \Delta V = L\frac{dI}{dt} \)): An emf source where the source force is an electric force, pointing along the curled wire. Due to the negative sign as enforced by Len'z law, an inductor would always oppose the change in curerent and is not capable of generating energy. Therefore, instead of intepretaing an inductor as an emf source (which pushes charges along the circuit) with negative emf (which is also valid), we usually intepret it as a passive circuit element, which store and release energy via magnetic field.   
+    \item Capacitance (\(\Delta V = -q /C \)): Store and release energy via electric field, thus a passive circuit element.
+    \item Inductor (\(\mathcal{E} = -L(dI /dt) \text { or } \Delta V = L(dI /dt)\)): An emf source where the source force is an electric force, pointing along the curled wire. Due to the negative sign as enforced by Len'z law, an inductor would always oppose the change in curerent and is not capable of generating energy. Therefore, instead of intepretaing an inductor as an emf source (which pushes charges along the circuit) with negative emf (which is also valid), we usually intepret it as a passive circuit element, which store and release energy via magnetic field.   
 \end{enumerate}
 
 The generic equation of any circuit is 
 
 \begin{equation}
-    \text{Energy provided to the circuit} = \text{Energy used by the circuit},
+    \text{Energy provided to the circuit} = \text{Energy consumed by the circuit},
 \end{equation}
 
 or equivalently, 
@@ -2402,15 +2406,13 @@ or equivalently,
     \sum_{\text{loop} }^{} \mathcal{E} = \sum_{\text{loop} }^{} \Delta V. 
 \end{equation}
 
-So we can define voltage as \(V = \mathcal{E}\) for emf or \(V = \Delta V\) for passive circuit elements such that 
+So we can define voltage as \(V = \mathcal{E}\) for emf sources or \(V = \Delta V\) for passive circuit elements such that 
 
 \begin{equation}
     \sum_{\text{loop} }^{} V = 0 
 \end{equation}
 
-and thus \(V\) is well-defined and unique at every point in a circuit as stated above when we first introduce the concept of voltage.
-
-
+and thus \(V\) is well-defined and unique at every point in a circuit provided that ground (point of zero voltage) is defined prior.
 
 In the case of a LRC circuit, this equation would be transformed to 
 
@@ -2418,7 +2420,7 @@ In the case of a LRC circuit, this equation would be transformed to
     \mathcal{E}_{0} - L\frac{dI}{dt} = IR + \frac{q}{C} \text {  ~~ or  ~~ } \mathcal{E}_{0} = IR + \frac{q}{C} + L\frac{dI}{dt} .  
 \end{equation}
 
-\section{Electric Fields in Circuits}
+\section{Electric Fields in Circuits} \label{elec} 
 
 To understand the operation of circuit fully, we have to connect to the theory of electromagnetism and apply it here. 
 
@@ -2435,9 +2437,79 @@ For every circuit elements in a circuit, there has to be an associated electric 
 
 When we consider the emf of the circuit, we take the loop integral of the total force per unit charge. As every electrostatic field is curless, the work done by the electric field in the resistor, capacitor and battery all sum up to zero, which left the only work done to be the contribution of the source force and the electric field of the inductor. This is the LHS of \cref{energycircuit}. The RHS is then explaining where this energy go. It goes to heat in the resistor (or equivalently, work done against the resistive force) and energy stored in electric fields in capacitor. 
 
+\section{Circuit with Battery and Resistor}
+
+Consdier the following circuit consisting of a battery and a resistor:
+
+\begin{center}
+    \begin{circuitikz}
+        % Draw the resistor and label current I
+        \draw (1.5,0) to[R] (4.5,0);
+        \draw[->] (3.5, 0.5) -- (2.5, 0.5) node[midway, above] {\(I \) };
+        
+        % Draw the top wire
+        \draw (0,0) -- (1.5,0);
+        \draw (4.5,0) -- (6,0);
+        
+        % Draw the right wire and arrows
+        \draw (6,0) -- (6,-3);
+        
+        % Draw the battery with terminals a and b
+        \draw (6,-3) to[battery] (0,-3);
+        \filldraw (1.5,-3) circle (1pt) node[above] {\(a\) };
+        \filldraw (4.5,-3) circle (1pt) node[above] {\(b\) };
+        \node at (3.5,-3.2) {\(+\) };
+        \node at (2.5,-3.2) {\(-\) };
+        
+        % Draw the bottom wire and label current I
+        \draw (0,-3) -- (0,0);
+        
+        % Draw electric field vector E
+        \draw[->] (4,-3.5) -- (2,-3.5) node[midway, below] {\(\vb{E} \) };
+        \draw[->] (4,-0.5) -- (2,-0.5) node[midway, below] {\(\vb{E} \) };
+
+        % Draw vector f0 in the middle
+        \draw[->] (2.5, -2.5) -- (3.5, -2.5) node[midway, above] {\(\vb{f} _{s} \) };
+    \end{circuitikz}
+\end{center}
+
+While to calculate the emf we have to measure the force per unit charge at every position of the circuit simulataneously, but since we are dealing with a static (time-independent) situation, we can imagine a single charge \(q\) making a complete tour around \(C\). The force per unit charge is then the combination of contribution from the source force \( \vb{f} _{s}    \) and the electric force \(q\vb{E}    \), so \(\vb{f} = \vb{f} _{s} + \vb{E}\) and the emf becomes
+
+\begin{equation}
+    \mathcal{E}= \oint_{C} \vb{f} \cdot d \vb{l} = \oint_{C} \vb{f}_{s}  \cdot d \vb{l} + \oint_{C} \vb{E} \cdot d \vb{l} = \oint_{C} \vb{f} _{s} \cdot d \vb{l} = \int_{a}^{b} \vb{f} _{s} \cdot d \vb{l}           
+\end{equation}
+
+since \(\oint_{C} \vb{E} \cdot d \vb{l} =0 \) for all electrostatic field and \(\vb{f} _{s} \) is non-zero only inside the battery. 
+
+Now since the current \(I\) is constant, the charge \(q\) moves at constant speed along the circuit, which means that the total force on \(q\) in the direction of the path \(C\) is zero. In the interior of the resistor, the electrostatic force \( q\vb{E}  \) which arises from Ohm's law, is counterbalanced by the ``force'' on \(q\) due to the collision of the charges with the positive ions of the metal. In the battery, assuming the internal resistance is zero, there must be an electric field opposing the soruce force so \(\vb{E} = - \vb{f} _{s} \). This is also consistent to the fact that \(\vb{E} \) is curless around the circuit and \(\vb{f} = \vb{f} _{s} + \vb{E}  \) in \cref{ohm} should be zero if \(\sigma \rightarrow \infty\). 
+
+The potential difference between the terminals is therefore 
+
+\begin{equation}
+    \Delta V = -\int_{a}^{b} \vb{E} \cdot d \vb{l} = \int_{a}^{b} \vb{f} _{s} \cdot d \vb{l} = \mathcal{E},
+\end{equation}
+
+which makes qualitative sense because the electromotive force is meant to push the charges up the potential hill.
+
+The work done by the source force is then 
+
+\begin{equation}
+    W = \int_{a}^{b} q \vb{f} _{s} \cdot d \vb{l} = q \mathcal{E} = q\Delta V.
+\end{equation}
+
+In general, the energy gained by a charge \(q\) across a circuit element is given by 
+
+\begin{equation}
+    W = qV,
+\end{equation}
+
+where \(V\) is the voltage difference between two ends of a circuit element. If the difference is negative (with respect to the positive direction of the cirucuit loop), then enegy is lost instead of gained.
+
+Current in this electric circuit is somewhat analogous to the flow of water in a closed system of pipes, with gravity playing the role of the electrostatic field, and a pump (lifting the water up against gravity) in the role of the battery. In this story, height is analogous to voltage.
+
 \section{Sign Conventions}
 
-To analyze any circuit, we have to first define a positive direction of each loop. The (loop) current is conveninently chosen to be the positive direction and the positive direction (terminal) of an emf is defined such that charges will be pushed along the positive direction of the loop while the positive direction (terminal) of passive circuit elements is reversed (this is called the passive sign convention). This is consistent to how charges accumulate on the ends of resistor, capacitor and battery and thus correctly show the direction of electric field and voltage change across circuit elements. The most standard RLC circuit is shown below:
+To analyze any circuit, we have to first define a positive direction of each loop. The positive direction (terminal) of an emf is defined such that charges will be pushed along the positive direction of the loop while the positive direction (terminal) of passive circuit elements is reversed (this is called the passive sign convention). This is consistent to how charges accumulate on the ends of resistor, capacitor and battery and thus correctly show the direction of electric field and voltage change across circuit elements. The most standard RLC circuit is shown below:
 
 
 
@@ -2492,11 +2564,9 @@ And the two circuit equations for the two loops are
     \mathcal{E}_{0} = I_1 R + \frac{q}{C} \text { ~~ and ~~ } 0 = L\frac{dI_2 }{dt} - \frac{q}{C}    
 \end{equation}
 
-Again, if we view \(V_{C_1 } \text { and } V_{C_2 } \) as vectors, it becomes clear why there is a negative sign for the second circuit equation above. This is becasue \(V_{C_1 } = \frac{q}{C} = -V_{C_2 }\). 
+Again, if we view \(V_{C_1 } \text { and } V_{C_2 } \) as vectors, it becomes clear why there is a negative sign for the second circuit equation above. This is becasue \(V_{C_1 } = q /C = -V_{C_2 }\). 
 
 Sometimes, instead of loop current, we define different currents for each separate wire segment. Sometimes the equations are easily to solve this way, but then note that when writing down the loop equation a minus sign should be added if the current's pre-defined direction is opposite to how you are trasversing the loop.
-
-The initial conditions are \(V=1\) at \(t=0\) and \(I = 0\)  thus \(dV /dt \)  at \(t=0\)  since the inductor will not allow the current to rise discontinously so all three cases start with zero slope.
 
 \section{LRC Circuits}
 
@@ -2508,19 +2578,57 @@ The standard equation for LRC circuit is
 
 The equation can be solved using standard techniques detailed in the ``Differential Equations'' notes. The solution contains the sum of a homogeneous solution, which corresponds to the transient behaviour which will dies out eventually, and a particular solution. 
 
-However, a faster way to find the particular solution is to use complex voltages, currents, and impedances. The definition of complex voltages and currents are just the quantities \(\tilde{V} \text { and } \tilde{I} \), which satisifies the same differential equation as \(V \text { and } I\), and the driving function is written in complex form (\textit{e.g.,} \(\cos (\omega t) \to e^{i \omega t} \)). The standard method of finding the particular solution is to susbstitute \(\tilde{q}  = \tilde{q_0 }e^{i \omega t} \implies \tilde{I} = d \tilde{q} /dt = i \omega \tilde{q_0 } e^{i \omega t}\), and we get
+However, a faster way to find the particular solution is to use complex voltages, currents, and impedances. The definition of complex voltages and currents are just the quantities \(\tilde{V} \text { and } \tilde{I} \), which satisifies the same differential equation as \(V \text { and } I\), and the driving function is written in complex form (\textit{e.g.,} \(\cos (\omega t) \to e^{i \omega t} \)). The standard method of finding the particular solution is to susbstitute 
+
+\begin{equation}
+    \tilde{q}  = \tilde{q_0 }e^{i \omega t} \implies \tilde{I} = d \tilde{q} /dt = i \omega \tilde{q_0 } e^{i \omega t}
+\end{equation}
+
+to obtain
 
 \begin{equation}
     -\omega ^2 L \tilde{q_0 }e^{i \omega t} + \frac{RL}{C} i \omega \tilde{q_0 } e^{i \omega t} + \frac{1}{C} \tilde{q_0 }e^{i \omega t} = i \omega L \tilde{I} + R \tilde{I} + \frac{1}{i \omega C} \tilde{I} = \mathcal{E}_{0}e^{i \omega t}.        
 \end{equation}
 
-Thus, we see that the complex analog of resistance, which we call (complex) impedance are \(X_{R} = R, X_{C} = 1 /i\omega C \text { and } X_{L} = i \omega L \), for resistor, capacitor and inductor respectively. They satisfies the ``complex Ohm's law'' \(\tilde{V} = X \tilde{I} \), and can be added in parallel or in series like ordinary resistors. 
+Thus, we see that the complex analog of resistance, which we call (complex) impedance are 
 
-The power supply to an electronic apparatus is \(P = \mathfrak{Re} (\tilde{I} )\mathfrak{Re} (\tilde{V} )  \), but we cannot define a ``complex power'' \(\tilde{P} = \tilde{I} \tilde{V}   \), since \(\mathfrak{Re} (\tilde{I} \tilde{V}  ) \neq \mathfrak{Re} (\tilde{I} ) \mathfrak{Re} (\tilde{V} )  \). Instead, we have \(P = V_0 \cos (\omega t) I_0 \cos (\omega t+ \varphi _{\text{rel} } ) \implies \avg{P} = \frac{1}{2}V_0 I_0 \cos (\varphi _{\text{rel} }) = V_{\text{rms} }I_{\text{rms} }\cos (\varphi _{rel})   \). This is the reason why inductor and capacitor cannot dissipate energy since \(V \text { and } I\) of them are \(\frac{\pi }{2} \) out of phase, so the avergae power over time is zero.  
+\begin{equation}
+    X_{R} = R,\quad  X_{C} = \frac{1}{i\omega C}  ~\text { and }~ X_{L} = i \omega L 
+\end{equation}
+
+for resistor, capacitor and inductor respectively. They satisfies the ``complex Ohm's law'' 
+
+\begin{equation}
+    \tilde{V} = X \tilde{I},
+\end{equation}
+
+and can be added in parallel or in series like ordinary resistors. 
+
+The power supply to a circuit element is 
+
+\begin{equation}
+    P = \mathfrak{Re} (\tilde{I} )\mathfrak{Re} (\tilde{V} ),
+\end{equation}
+
+but we cannot define a ``complex power'' \(\tilde{P} = \tilde{I} \tilde{V}   \), and say \(P = \mathfrak{Re} (\tilde{P} ) \). This is because \(\mathfrak{Re} (\tilde{I} \tilde{V}  ) \neq \mathfrak{Re} (\tilde{I} ) \mathfrak{Re} (\tilde{V} )  \). Instead, we have 
+
+\begin{equation}
+    P = V_0 \cos (\omega t) I_0 \cos (\omega t+ \varphi _{\text{rel} } ) \implies \avg{P} = \frac{1}{2}V_0 I_0 \cos (\varphi _{\text{rel} }) = V_{\text{rms} }I_{\text{rms} }\cos (\varphi _{rel}),
+\end{equation}
+
+or in terms of current alone,
+
+\begin{equation}
+    P = I_0 ^2 \cos ^2(\omega t) R \implies \left \langle {P} \right \rangle = \left \langle {I^2} \right \rangle R = I_{\text{rms} }^2R. 
+\end{equation}
+
+This is the reason why inductor and capacitor cannot dissipate energy since \(V \text { and } I\) of them are \(\pi /2 \) out of phase, so the avergae power over time is zero.  
+
+It is also important to note that this method only finds the particular solution, but not the homgenous one.
 
 \example{Principles of Inductors.}
 {Refere to \cref{inductor}, and find \(V_{A} \text { and } V_{B}  \) right after the switch is opened.}
-{Before the switch is opened, \(V_{A} = V_{B} = 0\), and the current passes through the inductor is \(I_{L} = \frac{V_0 }{R}  \), since the inductor behaves essentially like a wire. After the swtich is opened, \(V_{A} = V_{0}  \) is trivial and since the current passes through the inductor is still \(I_{L} = \frac{V_0 }{R}  \), because the current must change continuously over an inductor, and therefore \(V_{B} = V_{A} + I_{L}R_2 = V_{0} \left( 1+ \frac{R_2 }{R_1 }  \right)   \).   } 
+{Before the switch is opened, \(V_{A} = V_{B} = 0\), and the current passes through the inductor is \(I_{L} = V_0 /R  \), since the inductor behaves essentially like a wire. After the swtich is opened, \(V_{A} = V_{0}  \) is trivial and since the current passes through the inductor is still \(I_{L} = V_0 /R  \), because the current must change continuously over an inductor, and therefore \(V_{B} = V_{A} + I_{L}R_2 = V_{0} \left( 1+ \frac{R_2 }{R_1 }  \right)   \).   } 
 
 \onefig{inductor}{scale=0.5} 
 
@@ -2694,7 +2802,7 @@ In particular, when \(\boldsymbol{\omega } \parallelsum \vb{B}  \), \(\vb{J} =0\
 } 
 
 
-\chapter{Operational Amplifiers}
+\section{Operational Amplifiers}
 
 The shematic diagram of an operational amplifier is shown below
 
@@ -2716,7 +2824,7 @@ The shematic diagram of an operational amplifier is shown below
     \end{circuitikz}
 \end{center}
 
-In the diagram, \(V_{\text{cc} }^{\pm }  \) are the power supply voltages, which are usually omitted. \(V_{\text{in} }^{\pm }  \) are the input voltages and \(V_{out} \) is the output voltage.   
+In the diagram, \(V_{\text{cc} }^{\pm }  \) are the power supply voltages, which are usually omitted. \(V_{\text{in} }^{\pm }  \) are the input voltages and \(V_{\text{out} } \) is the output voltage.   
 
 The characteristic equation of an op-amp is 
 
@@ -2726,7 +2834,7 @@ The characteristic equation of an op-amp is
 
 Typically, the open-loop voltage gain \(A_{\text{OL}}\) is very large \((\sim 10^{5} )\) , but the output voltage \(V_{\text{out}}\) is limited within a range set by two saturation voltages \(V_{\text{sat}}^{\pm} \approx V_{\text{cc}}^{\pm} \mp 1V\). This implies that any small difference between the op-amp inputs will cause the output to saturate.
 
-\section{Non-Linear Applications}
+\subsection{Non-Linear Applications}
 An op-amp can be used as a comparator: 
 
 
@@ -2756,28 +2864,82 @@ If the inverting input signal is fixed at, say \(1V\), then the output voltage w
 
 \onefig{comparator}{scale=0.3} 
 
-\section{Linear Applications}
+\subsection{Linear Applications}
 
 We can state the two ``golden rules'' of an ideal linear op-amp:
 
 \begin{enumerate}
-    \item The output will do whatever is necessary to make the voltage difference between the inputs zero.\footnote{Note that it does not mean that the op-amp acutally changes the voltage at tis inputs. What it does is ``look'' at its input terminals and swing its output terminal around so that the external feedback betwork brings the input differential to zero.}
-    \item No current flows into the inputs.\footnote{But current can flows out of the output.} 
+    \item The output will do whatever is necessary to make the voltage difference between the inputs zero.\footnote{Note that it does not mean that the op-amp acutally changes the voltage at the inputs. What it does is ``look'' at its input terminals and swing its output terminal around so that the external feedback betwork brings the input differential to zero.}
+    \item No current flows into the inputs (but current can flow out of the output).
 \end{enumerate}
 
-A simple inverting amplifier is shown in \cref{invertingopamp} 
+\subsubsection{Simple Inverting Amplifier}
+
+A simple inverting amplifier is shown in \cref{invertingopamp}.
 
 \onefig{invertingopamp}{scale=0.3} 
 
-Since \(B\) is at ground, so by ``golden rule'' 1 \(A\) is also at ground. Therefore the voltage across \(R_2 \) is \(V_{\text{out}} \) and the voltage across \(R_1 \) is \(V_{\text{in}} \). And by rule 2 we have \(V_{\text{out} } /R_2 = - V_{\text{in} }/ R_1  \). 
+Since \(B\) is at ground, so by the first ``golden rules'' \(A\) is also at ground. Therefore the voltage across \(R_2 \) is \(V_{\text{out}} \) and the voltage across \(R_1 \) is \(V_{\text{in}} \). And by the second ``golden rules'' we have \(V_{\text{out} } /R_2 = - V_{\text{in} }/ R_1  \). 
 
-To understand what is really happening, imagine initially all the terminals are at zero voltage, now \(V_{\text{in}} \) is raised to \(+1V\). Due to the enormous input unbalance, \(V_{\text{out}} \) is dropped to the saturation voltage  
+To understand what is really happening, imagine initially all the terminals are at zero voltage, now \(V_{\text{in}} \) is raised to \(+1V\). Due to the enormous input unbalance, \(V_{\text{out}} \) is dropped to the saturation voltage.
+
+The input resistance is the resistance between the driving-point voltage and point \(A\), \textit{i.e.,} \(R_1 \). The output resistance is the resistance between the output voltage and the output of the op-amp, \textit{i.e.,} 0.
+
+\subsubsection{Summing and Difference Amplifier}
+
+A summing amplifier and a difference amplifier are shown in \cref{sumdifamp}.
+
+For the summing amplifier from the figure we have 
+
+\begin{equation}
+    i = \frac{V_1 }{R_1 } + \frac{V_2 }{R_1 } + \frac{V_3 }{R_1 } = -\frac{V_{\text{out} } }{R_2 } \implies V_{\text{out} } = -\frac{R_2 }{R_1 } (V_1 +V_2 +V_3 ).    
+\end{equation}
+
+For the difference amplifier from the figure we have 
+
+\begin{equation}
+    V_{+} = \frac{R_2 }{R_1 +R_2 }V_2 = V_{-} = \frac{R_2 V_1 +R_1 V_{\text{out} } }{R_1 +R_2 } \implies V_{\text{out} } = \frac{R_2 }{R_1 }(V_2 -V_1 ).     
+\end{equation}
+
+\twofig{sumamp}{width=\textwidth}{difamp}{width=\textwidth}{sumdifamp} 
+
+\subsubsection{Differentiator and Integrator}
+
+A differentiator and an integrator are shown in \cref{diffintamp}.
+
+For the differentiator from the figure we have
+
+\begin{equation}
+    V_{\text{out} } = -iR = -RC \frac{dV_{\text{in} } }{dt}. 
+\end{equation}
+
+For the integrator from the figure we have
+
+\begin{equation}
+    V_{\text{out} } = -\frac{1}{C} \int_{0}^{t} idt = -\frac{1}{RC} \int_{0}^{t} V_{\text{in} }dt.    
+\end{equation}
+
+\twofig{diffamp}{width=\textwidth}{intamp}{width=\textwidth}{diffintamp} 
+
+\subsubsection{High Pass Filter}
+
+A high pass filter is shown in \cref{highpassfilter}.
+
+From the figure we have 
+
+\begin{equation}
+    V_{\text{out} } = -iR_2 = -\frac{V_0 e^{j \omega t} }{R_1 -j /\omega C} = -\frac{j \omega C R_2 e^{j \omega t} }{1+j \omega CR_1 } V_0.  
+\end{equation}
+
+As \(\omega \to 0\), \(V_{\text{out} } \to 0\) and as \(\omega \to \infty\), \(V_{\text{out} } \to -(R_2 /R_1 )V_0 e^{j \omega t} \).    
+
+\onefig{highpassfilter}{scale=0.3} 
 
 \example{Digital to Analogue Converter.}
 {Refer to \cref{dac}, find \(V_{\text{out} } \) in terms of \(V_{\text{in} }\text { and } R \).  }
 {Since the inverting input is virtually grounded, so the potential at the position of the switch is always zero regardless of the state of the switch, and can be combined with the true ground at the upper right corner of the diagram.
 
-The swtich simply determine whether the current flowing through each bracnhes flows towards the op-amp, or into the ground. Combining the resistors using simple techniques, the voltages at the top of the resistors at each branches are \(V_{\text{in}, \frac{V_{\text{in} } }{2} }, \frac{V_{\text{in} } }{4}  \text { and } \frac{V_{\text{in} } }{8}  \) respectively. 
+The swtich simply determine whether the current flowing through each bracnhes flows towards the op-amp, or into the ground. Combining the resistors using simple techniques, the voltages at the top of the resistors at each branches are \(V_{\text{in} }, V_{\text{in} } /2, V_{\text{in} } /4  \text { and } V_{\text{in} }/8  \) respectively. 
 
 Thus the total current flowing towards the op-amp is
 
@@ -2788,10 +2950,10 @@ Thus the total current flowing towards the op-amp is
 The output voltage is thus 
 
 \begin{equation}
-    V_{\text{out} } = - IR =  - \frac{V_{\text{in} } }{2}\left( S_0 + \frac{S_1}{2} + \frac{S_2 }{4} + \frac{S_3}{8} \right).
+    V_{\text{out} } = - IR =  - \frac{V_{\text{in} } }{2}\left( S_0 + \frac{S_1}{2} + \frac{S_2 }{4} + \frac{S_3}{8} \right),
 \end{equation}
 
-
+where \(S_{i} = 1\) if the \(i^{\text{th}} \) switch is closed, and 0 otherwise.   
 } 
 
 \onefig{dac}{scale=0.5} 
@@ -2965,6 +3127,11 @@ and the force is
     F = \frac{\epsilon_0 }{2} \left( \frac{Q}{4\pi \epsilon_0 }  \right)^2 2\pi \int_{R}^{\infty} \frac{1}{r^3 }dr = \frac{1}{4\pi \epsilon_0} \frac{Q^2}{8R^2}.     
 \end{equation}
 }
+
+
+\example{Pinch Pressure.}
+{Find the pressure experienced by the wall when a current \(I\) flows in a long cylinder of radius \(R\).}
+{} 
 
 
 \subsection{Momentum Continuity Equation}
@@ -3245,7 +3412,7 @@ However, \(\vb{k} \) is found to be complex
     k^2 = \mu \epsilon \omega ^2 + i\mu \sigma \omega \implies k \approx \sqrt{\frac{\omega \sigma \mu }{2} } (1+i). 
 \end{equation}
 
-where we have assumed \(\sigma \gg \epsilon \omega \). The imaginary part of \(k\) results in an attenuation of the wave, with the charateristic decay length \(d \equiv \frac{2}{\omega \sigma \mu } \). \(k\) being imaginary also means that \(\vb{B} \) now lags behind the electric field by the phase \(\phi = \tan ^{-1} (\mathfrak{Im} (k)/\mathfrak{Re} (k))\) due to the cross product between \(\vb{k} \text { and } \vb{E} \) when finding \(\vb{B} \). 
+where we have assumed \(\sigma \gg \epsilon \omega \). The imaginary part of \(k\) results in an attenuation of the wave, with the charateristic decay length \(d \equiv 2 /\omega \sigma \mu  \). \(k\) being imaginary also means that \(\vb{B} \) now lags behind the electric field by the phase \(\phi = \tan ^{-1} (\mathfrak{Im} (k)/\mathfrak{Re} (k))\) due to the cross product between \(\vb{k} \text { and } \vb{E} \) when finding \(\vb{B} \). 
 
 \subsection{Reflection and Transmission at a Conducting Surface}
 

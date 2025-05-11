@@ -1,35 +1,28 @@
-from PIL import Image
+import numpy as np
+import matplotlib.pyplot as plt
 
-def stretch_image(image_path, new_width, new_height, output_path):
-    """
-    Opens an image, resizes it to new dimensions (distorting it if necessary),
-    and saves the result.
+# Define the extended grid over [-100, 100] × [-100, 100]
+x = np.linspace(-20, 20, 400)
+y = np.linspace(-10, 10, 400)
+X, Y = np.meshgrid(x, y)
 
-    Parameters:
-        image_path (str): Path to the input image.
-        new_width (int): New width of the image.
-        new_height (int): New height of the image.
-        output_path (str): Path to save the resized image.
-    """
-    # Open the input image
-    img = Image.open(image_path)
-    
-    # Resize the image to the specified new dimensions using LANCZOS filter
-    img_resized = img.resize((new_width, new_height), Image.LANCZOS)
-    
-    # Save the new image
-    img_resized.save(output_path)
-    print(f"Image saved as {output_path}")
+# Define the function f(x,y) = x * y * exp(x - y)
+Z = X * Y * np.exp(X - Y)
 
-if __name__ == "__main__":
-    # Input image path (using a raw string for Windows file paths)
-    input_image = r"C:\Users\User\Downloads\Physics Notes\GP04 Lab Report\setup.png"
-    
-    # Output image path
-    output_image = r"C:\Users\User\Downloads\Physics Notes\GP04 Lab Report\setup_fatter.png"
-    
-    # Desired new dimensions (change these values to make the image "fatter")
-    desired_width = 600  # Increase the width
-    desired_height = 800  # Keep or adjust the height as needed
-    
-    stretch_image(input_image, desired_width, desired_height, output_image)
+# Mask out everything except the second quadrant (x < 0, y > 0)
+mask = ~((X < 0) & (Y > 0))       # True outside Q2, False inside
+Z_masked = np.ma.masked_where(mask, Z)
+
+# Create the contour plot with 200 levels
+plt.figure(figsize=(8, 8))
+contours = plt.contour(
+    X, Y, Z_masked,
+    levels=200,
+    cmap='viridis'
+)
+plt.clabel(contours, inline=True, fontsize=4)
+plt.title(r'Contour plot of $f(x,y) = x\,y\,e^{\,x - y}$ (Q2 only, extended grid)')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.grid(True)
+plt.show()

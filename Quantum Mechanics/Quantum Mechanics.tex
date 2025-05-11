@@ -1375,10 +1375,10 @@ In particular, for \(V(x) = - \alpha \delta (x)\) the integral gives
 
 \chapter{Three Dimensions}
 
-In three dimensions, the time dependent Schrödinger equation reads
+In three dimensions, the time-dependent Schrödinger equation reads
 
 \begin{equation}
-  i \hbar \frac{\partial \Psi }{\partial t} = -\frac{\hbar ^2}{2m} \laplacian \Psi +V\Psi   
+  i \hbar \frac{\partial \Psi }{\partial t} = -\frac{\hbar ^2}{2m} \laplacian \Psi +V\Psi ,
 \end{equation}
 
 while the time-independent Schrödinger equation reads
@@ -1632,6 +1632,92 @@ or
 \begin{equation}
   \sum_{j=0}^{\infty} j(j+1)c_{j+1}\rho ^{j} + 2(\ell +1)\sum_{j=0}^{\infty} j(j+1)c_{j+1}\rho ^{j} - 2\sum_{j=0}^{\infty} j c_{j}\rho ^{j} + (\rho _{0} - 2(\ell +1) ) \sum_{j=0}^{\infty}c_{j}\rho ^{j} = 0.
 \end{equation}
+
+Equating the coefficients of like powers yields 
+
+\begin{equation}
+  c_{j+1} = \left( \frac{2(j+\ell +1)-\rho _{0} }{(j+1)(j+2\ell +2)}  \right) c_{j}. 
+\end{equation}
+
+For \(u(\rho )\) to be normalizable, however, the power series must terminate at some \(j=N\), where 
+
+\begin{equation}
+  2(N+1) - \rho _{0} = 0 \implies \rho _{0} = 2n, \quad n \equiv N+\ell.
+\end{equation}
+
+The allowed energies are then 
+
+\begin{equation}
+  E_{n} = -\left( \frac{m_{e} }{2\hbar ^2} \left( \frac{e^2}{4\pi \epsilon_0 }  \right)^2  \right) \frac{1}{n^2} = \frac{E_1 }{n^2}, \quad n = 1,2,3, \ldots .  
+\end{equation}
+
+The wavefunction is then labeled by three quantum numbers \(n, \ell \text { and } m\) as 
+
+\begin{equation}
+  \psi _{n \ell m}(r,\theta ,\phi ) = R_{n \ell }(r)Y_{\ell }^{m} (\theta ,\phi ), \quad R_{n \ell }(r) = \frac{1}{r}\rho ^{\ell +1} e^{-\rho } v(\rho )        
+\end{equation}
+
+
+\chapter{Identical Particles}
+
+\section{Two-Particle Systems}
+
+For a two-particle system, the time-dependent Schrödinger Equation reads
+
+\begin{equation}
+  i \hbar \frac{\partial \Psi }{\partial t} = -\frac{\hbar ^2}{2m_1 } \laplacian _{1}\Psi - \frac{\hbar ^2}{2m_2 } \laplacian _{2} \Psi + V \Psi,
+\end{equation}
+
+while the time-independent Schrödinger Equation reads
+
+\begin{equation}
+  -\frac{\hbar ^2}{2m_1 }\laplacian _{1}\psi - \frac{\hbar ^2}{2m_2 }\laplacian _{2}\psi  + V\psi = E\psi .   
+\end{equation}
+
+For non-interacting particles, the potential energy has the form
+
+\begin{equation}
+  V(\vb{r} _{1},\vb{r} _{2}  ) = V_1 (\vb{r} _{1} ) + V_2 (\vb{r} _{2} ),
+\end{equation}
+
+and the time-independent Schrödinger Equation can be solved by separation of variables 
+
+\begin{equation}
+  \psi (\vb{r} _{1},\vb{r} _{2}  ) = \psi _{a}(\vb{r} _{1} )\psi _{b}(\vb{r} _{2} ).  
+\end{equation}
+
+Carrying out the standard procedure of separation of variables we find that \(\psi _{a}(\vb{r} _{1} ) \text { and } \psi _{b}(\vb{r} _{2} )  \) each satisfy the one-particle Schrödinger Equation, so the two-particle wavefunction is a simple product of one-particle wavefunctions
+
+\begin{equation}
+  \Psi (\vb{r} _{1},\vb{r} _{2},t  ) = \psi _{a}(\vb{r} _{1} )\psi _{b}(\vb{r} _{2} ) e^{-i (E_{a}+E_{b}  )t /\hbar } = \Psi _{a}(\vb{r} _{1},t )\Psi _{b}(\vb{r} _{2},t ).    
+\end{equation}
+
+In fact, any linear combination of such solution, such as 
+
+\begin{equation}
+  \Psi (\vb{r} _{1},\vb{r} _{2},t  ) = \frac{3}{5} \Psi _{a}(\vb{r} _{1} ,t) \Psi _{b}(\vb{r} _{2},t ) + \frac{4}{5} \Psi _{c}(\vb{r} _{1},t ) \Psi _{d}(\vb{r} _{2},t ),    
+\end{equation}
+
+also satisfies the time-dependent Schrödinger Equation, in which case the state of particle 1 depends on the state of particle 2, in the sense that if you measure the energy of particle 1, you might get \(E_{a} \) (with probability 9/25), in which case the energy of particle 2 is definitely \(E_{b} \). THe two particles are said to be entangled, which is one that cannot be written as a product of single-particle states.  
+
+If the particles interact only with one another, via a potential that depends on their separation 
+
+\begin{equation}
+  V(\vb{r} _{1}, \vb{r} _{2}  ) = V(\abs{\vb{r} _{1}-\vb{r} _{2}  } ), 
+\end{equation}
+
+then the two-body problem reduces to an equivalent one-body problem via the introduction of the reduced mass.
+
+
+
+
+
+
+
+
+
+
+
 
 
 

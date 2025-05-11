@@ -44,7 +44,7 @@ The first two facts translate into
 
 The third fact can be used by asking how fast does a person in \(S\) see a clock in \(S'\) ticks and the analogous question how fast does a person in \(S'\) see a clock in \(S\) ticks? 
 
-The answer to the first question can be solved by letting \(\Delta x' = 0\), which gives \(\Delta t = \Delta t'\). The second question can be solved by letting \(\Delta x = 0\), which gives \(\Delta t' = \frac{\Delta t}{A - Dv} \). Comparing the two equations, we have \(D = \frac{1}{v}(A - \frac{1}{A}) \). 
+The answer to the first question can be solved by letting \(\Delta x' = 0\), which gives \(\Delta t = \Delta t'\). The second question can be solved by letting \(\Delta x = 0\), which gives \(\Delta t' = \Delta t/(A-Dv) \). Comparing the two equations, we have \(D = (A-1 /A )/v \). 
 
 The fourth fact can be used to say that if \(\Delta x' = c \Delta t'\), then \(\Delta x = c \Delta t\). Solving for \(A\)  gives \(A = \gamma \). 
 
@@ -62,9 +62,17 @@ Solving for \(\Delta x' \text { and }  \Delta t'\), we have the same form as abo
 
 If two events occur simultaneously in frame \(S\), then \(\Delta t = 0\), so \((\Delta x', \Delta t') = (\gamma \Delta x, -\gamma v \Delta x)\). Thus the two events does not occur simultaneously in frame \(S'\) and length is contracted.
 
-If two events occur at the same place in \(S'\), then \(\Delta x' = 0\), so \(\Delta x = \gamma v\Delta t', \Delta t = \gamma \Delta t'\). Thus time is dilated. 
+\subsection{Time Dilation}
 
-Note that proper length (the length of an object in its rest frame) is always longest and the proper time (the time interval in which the events occurs at the same place) is always to shortest. This distinguish whether we should multiply or divide by \(\gamma \). 
+To prove that proper time (the time interval in which the events occur at the same place) is dilated we substitute \((\Delta x', \Delta t') = (0, \Delta t')\) into the Lorentz transformation which gives \((\Delta x,\Delta t) = (v\gamma \Delta t', \gamma \Delta t')\). 
+
+\subsection{Length Contraction}
+
+To prove that proper length (the length of an object in its rest frame) is contracted we substitute \((\Delta x', \Delta t) = (\Delta x', 0)\) into the Lorentz transformation which gives \((\Delta x, \Delta t') = (\Delta x' / \gamma , - v\Delta x' /c^2)\).  
+
+The two relevant events here are that the measurement of the position of the head and the end of the object, which happens simultaneously in the unprimed frame \(S\) but not according to \(S'\).
+
+\subsection{Velocity Addition}
 
 Both longitudinal and transverse velocity addition can be easily done with Lorentz transformation, as
 
@@ -75,7 +83,9 @@ Both longitudinal and transverse velocity addition can be easily done with Loren
     \end{aligned}
 \end{equation}
 
-where \(v\) is the relative speed of the two frames and \(\vb{v} '\) is the velocity of the object observed in the primed frame.  
+where \(v\) is the relative speed of the two frames and \(v '\) is the velocity of the object observed in the primed frame.  
+
+\subsection{Spacetime Interval}
 
 As will be proved in later chapters, the spacetime interval (or invariant interval)
 
@@ -88,17 +98,17 @@ is an invariant (does not depend on which reference frame you are measuring it f
 There are 3 possible signs for \((\Delta s)^2\):
 
 \begin{enumerate}
-    \item \((\Delta s)^2 > 0 \implies \abs{\frac{x}{t} } < c \) (timelike separation): We can always find a frame \(S'\) in which the two events happen at the same place, since \(\Delta x' = \gamma (\Delta x - v\Delta t)\) can be equals to zero. This implies that it is possible for an object to travel from one event to the other.  
+    \item \((\Delta s)^2 > 0 \implies \abs{x/t } < c \) (timelike separation): We can always find a frame \(S'\) in which the two events happen at the same place, since \(\Delta x' = \gamma (\Delta x - v\Delta t)\) can be equals to zero. This implies that it is possible for an object to travel from one event to the other.  
     
     In this case, the invariant interval \(\Delta s\) is the proper time \(\tau \), since \(\Delta x = \Delta y = \Delta z\) in the frame \(S'\) where the two events happen at the same place.    
 
-    \item \((\Delta s)^2 < 0 \implies \abs{\frac{x}{t} } > c \) (spacelike separation): We can always find a frame \(S'\) in which the two events happen at the same time, since \(\Delta t' = \gamma (\Delta t - v\Delta x)\) can be equals to zero.
+    \item \((\Delta s)^2 < 0 \implies \abs{x/t} > c \) (spacelike separation): We can always find a frame \(S'\) in which the two events happen at the same time, since \(\Delta t' = \gamma (\Delta t - v\Delta x)\) can be equals to zero.
     
     Now the invariant interval \(\Delta s\) is no longer proper time, since there is no frame in which the two events happen in the same place. 
     
     The invariant interval \(\Delta s\) is now the negative of proper length, since \(\Delta t = 0\) in the frame \(S'\) where the two events happen at the same time.
     
-    \item \((\Delta s)^2 = 0 \implies \abs{\frac{x}{t} } = c \) (lightlike separation): It is not possible to find a frame \(S'\) in which the two events happen at the same place or the same time. However, a photon emitted at one of the events will arrive at the other in every frame.       
+    \item \((\Delta s)^2 = 0 \implies \abs{x/t } = c \) (lightlike separation): It is not possible to find a frame \(S'\) in which the two events happen at the same place or the same time. However, a photon emitted at one of the events will arrive at the other in every frame.       
 \end{enumerate}
 
 In a spacetime diagram, the third case corresponds to the events happen at the origin and on the light cone. Timelike events are the events at the origin and above or below the light cone. Spacelike separation are the events at the origin and at the left or right of the light cone.
@@ -107,6 +117,101 @@ In a spacetime diagram, the third case corresponds to the events happen at the o
 \example{Exceeding the speed of light.}
 {A laser beam is swepted through the space as it shines on the moon, the speed of the spot on the moon can be made arbitarily large as it is directly proportional to the distance from the moon to the Earth, why does it not violate special relativity?}
 {Each photon travels independently at the speed of light. The speed of the spot does not bear any physical significance since it is defined based on uncorrelated events (each photon hitting the moon), and thus cannot be used to transfer any information.} 
+
+
+\section{Doppler Effect}
+
+\subsection{Classical Doppler Effect}
+
+The classical limit is when the source and observer speeds, \(v_{s}\text { and } v_{o}  \) respectively, are much smaller than the speed of light. Note, however, that the speed of the wave \(v\) can be close to the speed of light \(c\), \textit{i.e.,} \(v_{o} \ll c \text { and } v_{s} \ll c  \). 
+
+\subsubsection{One-Dimensional}
+
+In one-dimensional classical case, the doppler effect formula is trivially given by
+
+\begin{equation}
+    f_{o} = \frac{v \pm v_{o} }{v \pm v_{s} } f_{s},  
+\end{equation}
+
+where the \(\pm \) sign can be deduced from common sense.
+
+\subsubsection{Two-Dimensional}
+
+In two-dimensional classical case, the doppler effect formula is modifed to only take into account only the relevant components of velocities
+
+\begin{equation}
+    f_{s} = \frac{v \pm v_{o} \cos \theta _{o}  }{v \pm v_{s} \cos \theta _{s} } f_{o} ,  
+\end{equation}
+
+where \(\theta _{s} \) is the angle between the angle between the sound and the source and \(\theta _{o} \) is the angle between the sound and the observer. 
+
+\onefig{doppler}{scale=0.3} 
+
+From \cref{doppler} we have 
+
+\begin{equation}
+    \abs{\vb{x} } = ct ~\text { and }~ \abs{\vb{x} + \vb{v} _{0}\delta t_0 - \vb{v} _{s} \delta t_{s}   }^2 = c^2(t+\delta t_0 -\delta t_{s} )^2,  
+\end{equation}
+
+which implies 
+
+\begin{equation}
+    \vb{x} \cdot \vb{v} _{0}\delta t_o - \vb{x} \cdot \vb{v} _{s} \delta t_{o} = \abs{\vb{x} } c(\delta t_o - \delta t_{s} ),    
+\end{equation}
+
+so we have 
+
+\begin{equation}
+    f_{o} = \frac{\delta t_s }{\delta t_{o} } f_{s} = \frac{v-\vb{v} _{o} \cdot \vu{x}   }{v-\vb{v} _{s}\cdot \vu{x}  } f_{s}.  
+\end{equation}
+
+Note that for relativistic case this reduces to 
+
+\begin{equation}
+    f_{o} = \frac{\delta t_{s} }{\delta \tau _{o} } f_{s} = \frac{\gamma _{s}\delta t_{s}  }{\gamma _{o} \delta t_{o}  } f_{s}.    
+\end{equation}
+
+\subsection{Relativistic Doppler Effect}
+
+The relativistic limit is that the relative speed of the source and the observer \(v\) is comparable to the speed of light \(c\), \textit{i.e.,} \(v ~ c\). 
+
+\subsubsection{One-Dimensional}
+
+In one-dimensional relativistic case, the doppler effect formula is given by 
+
+\begin{equation}
+    f_{o} = \sqrt{\frac{c\pm v}{c \mp v} } f_{s} ,  
+\end{equation}
+
+where the \(\pm \) sign can be deduced from common sense.
+
+The formula is easiest proven in the observer's frame (see \cref{obv}), where from the one-dimensional classical doppler effect formula and time dilation formula we have 
+
+\begin{equation}
+    f_{o} = \frac{c}{c+v} f_{s}', \quad f_{s}' = \frac{f_{s} }{\gamma } \implies f_{o} = \sqrt{\frac{1-\beta }{1+\beta } } f_{s}.   
+\end{equation}
+
+where \(f_{s} '\) is the frequency of the source observed by the observer, while \(f_{s} \) is the frequency of the source in the source's rest frame. 
+
+One can also proof the formula in the source's frame (see \cref{source}), using the Lorentz transformation 
+
+\begin{equation}
+    (\Delta x,\Delta t) = \left( \frac{vc}{c-v} \frac{1}{f_{s} }, \frac{c}{c-v} \frac{1}{f_{s} }     \right) \implies (\Delta x', \Delta t') = \left( 0, \sqrt{\frac{1+\beta }{1-\beta } } \frac{1}{f_{s} }  \right).
+\end{equation}
+
+\onefig{obv}{scale=0.3} 
+
+\onefig{source}{scale=0.3} 
+
+
+We also note that when \(v \ll c\) the formula is reduced to 
+
+\begin{equation}
+    f_{o} \approx \frac{c+v}{c} f_{s} \approx \frac{v}{c+v} f_{s},     
+\end{equation}
+
+as it should by the correspondence principle.  
+
 
 
 
@@ -187,7 +292,7 @@ The force 4-vector is then the derivative of the momentum 4-vector with respect 
     F \equiv \frac{dP}{d\tau } = \gamma \left(\frac{dE}{dt}, \vb{f}\right),
 \end{equation}
 
-where \(\vb{f} \equiv \frac{d(\gamma m\vb{v} )}{dt} \) is the usual 3-force defined as the rate of change of momentum.  
+where \(\vb{f} \equiv d(\gamma m\vb{v} )/dt \) is the usual 3-force defined as the rate of change of momentum.  
 
 In terms of acceleration 4-vector, we can write 
 
@@ -286,7 +391,7 @@ Thus we get
 {The 3-acceleration in \(S\) is simply
 
 \begin{equation}
-    \vb{a} = (0,\frac{v^2}{r}, 0 ).
+    \vb{a} = \left(0,\frac{v^2}{r}, 0 \right).
 \end{equation}
 
 There is nothing fancy going on here; the standard nonrelativistic proof of the centripetal acceleration works just fine again in the relativistic case. 
@@ -294,25 +399,25 @@ There is nothing fancy going on here; the standard nonrelativistic proof of the 
 The 4-accleration in \(S\) is then 
 
 \begin{equation}
-    A = (0,0,\gamma ^2\frac{v^2}{r}, 0 ).
+    A = \left(0,0,\gamma ^2\frac{v^2}{r}, 0 \right).
 \end{equation}
 
 Transforming to \(S'\), we have 
 
 \begin{equation}
-    A' = (0,0, \gamma ^2 \frac{v^2}{r}, 0 ).
+    A' = \left(0,0, \gamma ^2 \frac{v^2}{r}, 0 \right).
 \end{equation}
 
 So the 3-acceleration in \(S'\) is then the space part of \(A'\)
 
 \begin{equation}
-    \vb{a} ' = (0,\gamma ^2\frac{v^2}{r}, 0 ).
+    \vb{a} ' = \left(0,\gamma ^2\frac{v^2}{r}, 0 \right).
 \end{equation}
 
 Of course, we can arrive at this result with a simple time-dilation argument, since
 
 \begin{equation}
-    a_{y}' = \frac{d^2y'}{dt'^2} = \frac{d^2y}{(\frac{dt}{\gamma }) ^2} = \gamma ^2 a_{y} = \gamma ^2 \frac{v^2}{r}.     
+    a_{y}' = \frac{d^2y'}{dt'^2} = \frac{d^2y}{(dt /\gamma ) ^2} = \gamma ^2 a_{y} = \gamma ^2 \frac{v^2}{r}.     
 \end{equation}
 }
 
@@ -320,7 +425,7 @@ Note that in special relativity, if a statement has any chance of being true in 
 
 All of this is exactly analogous to the situation in 3-dimensional space. In Newtonian mechanics, \(\vb{f}  = m\vb{a} \) is a possible law (and indeed a physcal law), because both sides are 3-vectors. But \(\vb{f} = m(2a_{x}, a_{y},a_{z})\) has no chance of being a physical law, because the right hand side is not a 3-vector; it depends on which axis you label as the \(x\) axis.
 
-Physcial laws may also take the form of scalar equations, such as \(P \cdot P = m^2\) A scalar is by definition a quantity that is frame independent. So if a scalar statement is true in one inertial frame, then it is true in all inertial frames.  
+Physcial laws may also take the form of scalar equations, such as \(P \cdot P = m^2\). A scalar is by definition a quantity that is frame independent. So if a scalar statement is true in one inertial frame, then it is true in all inertial frames.  
 
 \section{Collisions}
 
@@ -345,9 +450,9 @@ Note that the energy of a particle even in Newtonian physics consists of the res
 
 In an elastic collision, no kinetic energy is transformed into other forms of energy, so the mass is conserved (To not introduce another degree of freedom, we assume that individual masses are conserved, not just the sum of them, so particles cannot transfer their internal energy to one another), so we can neglect writing down the rest mass energies when applying the law of conservation of energy.
 
-An inelastic collision, on the other hand, converts kinetic energy to internal energy (e.g., thermal energy) which increases the masses of the particles\footnote{All internal energy such as thermal, rotational and potential energy contributes to the rest mass of an object. In fact, the vast majority of the mass of an atom is due to the internal energy between quarks that make up the nucleus rather than the rest mass of the quarks themselves.}, so the mass is not conserved and thus the Newtonian kinetic energy \(\frac{1}{2}mv^2\) is not conserved. 
+An inelastic collision, on the other hand, converts kinetic energy to internal energy (e.g., thermal energy) which increases the masses of the particles\footnote{All internal energy such as thermal, rotational and potential energy contributes to the rest mass of an object. In fact, the vast majority of the mass of an atom is due to the internal energy between quarks that make up the nucleus rather than the rest mass of the quarks themselves.}, so the mass is not conserved and thus the Newtonian kinetic energy \(mv^2 /2\) is not conserved. 
 
-Similar to the relation \(E = \frac{p^2}{2m} \text { or } p = \sqrt{2mE}  \) in Newtonian physics, we can relate the energy and the momentum of a particle by this ``very-important-relationship''
+Similar to the relation \(E = p^2/2m \text { or } p = \sqrt{2mE}  \) in Newtonian physics, we can relate the energy and the momentum of a particle by this ``very-important-relationship''
 
 \begin{equation}\label{veryimportantrelationship} 
     E^2 = p^2 + m^2.
@@ -517,11 +622,123 @@ Alternatively, we have
     \end{pmatrix}'_{\text{lab} }.
 \end{equation}
 
-Therfore, we have \(\gamma = \frac{Q+M}{Q_0 + M} \text { and } v\gamma = \frac{Q}{Q_0 + M}\). Using the identity \(\gamma ^2- \beta ^2\gamma ^2 = 1\), we get the same result \(Q = Q_0 \left( 1 + \frac{Q_0 }{2Mc^2} \right)\).
+Therfore, we have \(\gamma = (Q+M) /(Q_0 +M) \text { and } v\gamma = Q /(Q_0 +M)\). Using the identity \(\gamma ^2- \beta ^2\gamma ^2 = 1\), we get the same result \(Q = Q_0 \left( 1 + Q_0 /2Mc^2 \right)\).
 
 The important point here to note is the the internal energy \(Q_0 \) is added to \(M\) are transformed together, thus internal energy is equivalent to mass.  
 } 
 
+\example{Meson-Photoproduction.}
+{\begin{enumerate}
+    \item Consider a group of \(N\) particle, where the \(i^{\text{th}} \) particle has energy \(E_{i} \) in the laboratory frame. Starting from the Lorentz transformations of energy and momentum show that the Lorentz factor of the center of mass frame, \(\gamma _{\text{c.m.} } \), can be written as 
+    
+    \begin{equation}
+        \gamma _{\text{c.m.} } = \frac{\sum_{i=1}^{N} E_{i} }{E_{\text{c.m.} } }. 
+    \end{equation}
+    
+    \item Consider a photon which collides with a proton at rest in the laboratory frame. The collision produces a neutral \(\pi \)  meson and a proton via 
+    
+    \begin{equation}
+        \gamma + p \to \pi + p.
+    \end{equation}
+    
+    Find the threshold photon energy for this reaction to occur.
+
+    \item A \(\pi \) meson is produced at threhold via the interaction given in (b), and subsequently decays to two photons. One photon travels in a directino parallel, and the other anti-parallel, to the initial line of light of the \(\pi \) meson in the laboratory frame. Calculate the energy of each photon in the laboratory frame.     
+\end{enumerate}
+~
+}
+{\begin{enumerate}
+    \item The Lorentz transformation of energy and momentum are 
+    
+    \begin{equation}
+        \begin{cases}
+            E' &= \gamma (E-vp),\\
+            p' &= \gamma (p-vE).
+        \end{cases}
+    \end{equation}
+    
+    Upon summation we have 
+
+    \begin{equation}
+        \begin{cases}
+            \sum_{i=1}^{N} E' &= E_{\text{c.m.} } = \gamma \left(\sum_{i=1}^{N} E_{i} - v\sum_{i=1}^{N} p_{i} \right),\\
+            \sum_{i=1}^{N} p' &= p_{\text{c.m.} } = 0 = \gamma \left( \sum_{i=1}^{N} p_{i} - v\sum_{i=1}^{N} E_{i}   \right).
+        \end{cases}
+    \end{equation}
+    
+    Eliminating \(\sum_{i=1}^{N} p_{i} \) we get 
+    
+    \begin{equation}
+        \gamma _{\text{c.m.} } = \frac{\sum_{i=1}^{N} E_{i} }{E_{\text{c.m.} } }. 
+    \end{equation}
+    
+    This is incidentally a very useful result, when the usual forula 
+
+    \begin{equation}
+        \gamma _{\text{c.m.} } = \frac{\sum_{i=1}^{N} p_{i} }{\sum_{i=1}^{N} E_{i}  } } 
+    \end{equation}
+    
+    does not work.
+    
+    \item From the energy-momentum invariant we get 
+    
+    \begin{equation}
+        (m_{\pi} + m_{p} )^2 = (E_{\gamma } + m_{p}  )^2 - E_{\gamma }^2 \implies E_{\gamma } = m_{\pi}\left( 1+\frac{m_{\pi} }{2m_{p} }  \right).
+    \end{equation}
+    
+    \item We first notice that the Lorentz factor of the \(\pi \) meson is the same as the Lorentz factor of the center of mass, since the \(\pi \) meson is stationary in the center of mass frame after the threshold collision, so
+    
+    \begin{equation}
+        \gamma _{\pi } = \gamma _{\text{c.m.} } = \frac{\sum_{i=1}^{N}E_{i}  }{E_{\text{c.m.} } }=  \frac{E_{\gamma } + m_{p}  }{m_{\pi} + m_{p}  }.    
+    \end{equation}
+    
+    In the \(\pi \) meson's frame, the momentum and energy of the photons are 
+    
+    \begin{equation}
+        p_{\gamma } = \pm \frac{m_{\pi} }{2} ~\text { and }~ E_{\gamma } = \frac{m_{\pi} }{2}.    
+    \end{equation}
+    
+    We can now simply boost to lab frame to obtain the final answer
+
+    \begin{equation}
+        E_{\text{lab} } = \gamma _{\pi } (E_{\gamma } + v_{\pi} p_{\gamma }   ) = \SI{77.2}{\MeV } ~\text { or }~ \SI{59.0}{\MeV }.  
+    \end{equation}
+\end{enumerate}
+~
+} 
+
+
+\example{Collision.}
+{A ball of rest mass \(M\) and energy \(E\) collides elastically with a stationary ball of rest mass \(m\), such that the direction of motion is along the line joining the centers of the two balls. Find the final energy of \(M\).}
+{From the conservation of the energy-momentum 4-vectors, we have
+
+\begin{equation}
+    \begin{pmatrix}
+         E\\\
+         \sqrt{E^2-M^2}  \\
+    \end{pmatrix} + \begin{pmatrix}
+         m \\
+         0 \\
+    \end{pmatrix} = P_{m} + \begin{pmatrix}
+         E' \\
+         \sqrt{E'^2-M^2}  \\
+    \end{pmatrix}.
+\end{equation}
+
+Isolating \(P_{m} \) on one side and squaring both sides, 
+
+\begin{equation}
+    \begin{aligned} 
+    2M^2 + m^2 + 2(mE) - 2 (EE' - \sqrt{E^2-M^2}\sqrt{E'^2-M^2}  ) -2(mE') &= m^2 \\
+    (M^2 + mE - mE' - EE')^2 +(E^2-M^2)(E'^2-M^2) &=0  \\
+    m^2 (E-E')^2 + 2M^2m(E-E') - 2M^2EE' - 2m(E-E')EE' + M^2E^2 + M^2E'^2 &=0 \\ 
+    m^2(E-E')^2 + 2M^2m(E-E') - 2m(E-E')EE' +M^2(E-E')^2 &= 0\\
+    E' = \frac{2mM^2+E(m^2+M^2)}{2Em+m^2+M^2}, 
+    \end{aligned} 
+\end{equation}
+
+where we have divided the whole equation by \(E-E'\), indicating that \(E= E'\) is a trivial solution. 
+} 
 
 
 \section{Force}
@@ -554,12 +771,12 @@ The asymmetric arises from the fact that \(v_{x} = v \text { and }  v_{y} = 0 \)
 
 The acceleration, on the other hand, must point along the rod, simply because the bead always lies on the rod (and the rod itself does not accelerate). 
 
-The force, however, does not point along the rod. This is because the \(y\) component of the force on the bead is decreased by a factor of \(\gamma \) while the \(x\) component is unchanged. So \(\frac{F_{y}}{F_{x} } \) is smaller than \(\frac{F_{y}'}{F_{x}'} \) by a factor \(\gamma \). So we have \(\tan \phi = \frac{1}{\gamma }\tan \theta ' \). 
+The force, however, does not point along the rod. This is because the \(y\) component of the force on the bead is decreased by a factor of \(\gamma \) while the \(x\) component is unchanged. So \(F_{y}/F_{x}   \) is smaller than \(F_{y}'/F_{x}'   \) by a factor \(\gamma \). So we have \(\tan \phi = \tan \theta ' /\gamma  \). 
 
 To double check the direction of acceleration, 
 
 \begin{equation}
-    \frac{a_{y} }{a_{x} } = \gamma ^2 \frac{F_{y} }{F_{x} } = \gamma ^2\frac{\frac{F_{y}' }{\gamma }  }{F_{x}' }  = \gamma \tan \theta ' = \tan \theta .  
+    \frac{a_{y} }{a_{x} } = \gamma ^2 \frac{F_{y} }{F_{x} } = \gamma ^2\frac{F_{y}' /\gamma    }{F_{x}' }  = \gamma \tan \theta ' = \tan \theta .  
 \end{equation}
 
 Note that the rod does not exert a force of constraint. The bead does not need to touch the rod in \(S'\) so it does not need to touch it in \(S\). \(\vb{F} \) simply does not have to be collinear with \(\vb{a} \) in relativistic physics.  

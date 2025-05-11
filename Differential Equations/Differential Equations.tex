@@ -13,28 +13,33 @@
 
 \chapter{First Order Differential Equations}
 
+\section{Existence and Uniqueness}
 \todo{singular solution \textit{e.g.,} y'= cos(y+x) imp y= pi/2 - x or sth sim} 
 
-A first order differential equation \(F(x,y,y')\) are usually written in one of the two equivalent standard forms depending on the method of solving it
+A first order differential equation is usually written in one of the two equivalent standard forms depending on the method of solving it
 
 \begin{equation} \label{first} 
-    \frac{dy}{dx} = F(x,y)\footnote{If a differential equation has more than one solution of the first form (perhaps the equation is quadratic in \(y'\), so there are two roots for \(y'\)), then the differential equation generally has more than one solution. Given the initial condition \((x,y) = (x_0 ,y_0 )\), we also have to specify which integral curve we are following by specifying the slope at that point.}  ~\text { or }~ P(x,y) dx + Q(x,y) dy = 0. \footnote{The first form can always be recast into the second form (the symmetric form). However, \(Q(x,y)\) may vanishes in some places, thus preventing one from dividing it and converting the symmetric form to the the first form. We shall assume that \(\abs{P(x,y)}+\abs{Q(x,y)}\ge 0 \), \textit{i.e.,} \(P(x,y)\) and \(Q(x,y)\) do not vanish simultaneously, such that the symmetric form can be always recast into \(\frac{dy}{dx} = F_{y}(x,y), \text { or } \frac{dx}{dy} = F_{x}(x,y)\).} 
+    \frac{dy}{dx} = F(x,y)\footnote{If a differential equation has more than one solution of the first form (perhaps the equation is quadratic in \(y'\), so there are two roots for \(y'\)), then the differential equation generally has more than one solution. Given the initial condition \((x,y) = (x_0 ,y_0 )\), we also have to specify which integral curve we are following by specifying the slope at that point.}  ~\text { or }~ P(x,y) dx + Q(x,y) dy = 0. \footnote{The first form can always be recast into the second form (the symmetric form). However, \(Q(x,y)\) may vanishes in some places, thus preventing one from dividing it and converting the symmetric form to the the first form. We shall assume that \(\abs{P(x,y)}+\abs{Q(x,y)}\ge 0 \), \textit{i.e.,} \(P(x,y)\) and \(Q(x,y)\) do not vanish simultaneously, such that the symmetric form can be always recast into \(dy/dx = F_{y}(x,y), \text { or }dx/dy = F_{x}(x,y)\).} 
 \end{equation}
 
-The first from above allows us to essentially solve the differential equation without knowing the relation between \(x \text { and } y\). Since the slope \(dy /dx\) is given as a function in terms of the position \((x,y)\), we can simply draw a small line on every point whose the slope is \(F(x,y)\). What we have created is called the direction field of the ODE and the solutions \(y(x)\) are called the integral curves that are at each point tangent to the direction field. As one can see from \cref{integralcurves} that there are infinite of them, and we can specify any one of them by providing the coordinates of any point (known as the initial condition or the boundary condition)\footnote{Initial conditions specify the value of the independent variable and its derivatives \((y,y',\ldots ,y^{(n-1)} )\) at a single \(x = x_0 \) while boundary conditions specify them at two or more \(x\) values.} on the curve.\footnote{This is only true if both \(F(x,y) \text { and } \frac{\partial F(x,y)}{\partial y} \) exist at that point. Otherwise the integral curves may intersect at the point and we would not get an unique solution. For example, the differential equation \(\frac{dy}{dx} = y^{\frac{2}{3} } \), accompanied with the initial condition \(y(0) = 0\) is not unique, as \(y(t) = 0 \text { and } y(t) = (\frac{t}{3} )^3 \) are both valid solutions. And it does not guarantees that the integral curve found would not blows up in finite \(x\). For example, the differential equation \(\frac{dy}{dx} = ay^2 \), accompanied by the initial condition \(y(x_0 )= x_0 \) has the solution \(y = \frac{1}{a(x_0 +\frac{1}{ay_0 }-x )} \), which blows up at a finite interval at \(x = x_0 + \frac{1}{ay_0 } \). Beyond that point, the solution would still gives a solution of \(y\) for every \(x\), but it does not make sense anymore. For linear differential equation, however, the existence and uniqueness is global, and the solution is valid at all \(x\).} 
+The first from above allows us to essentially solve the differential equation without knowing the relation between \(x \text { and } y\). Since the slope \(dy /dx\) is given as a function in terms of the position \((x,y)\), we can simply draw a small line on every point whose the slope is \(F(x,y)\). What we have created is called the direction field of the ODE and the solutions \(y(x)\) are called the integral curves that are at each point tangent to the direction field. As one can see from \cref{integralcurves} that there are infinite of them, and we can specify any one of them by providing the coordinates of any point. Initial conditions specify the value of the independent variable and its derivatives \((y,y',\ldots ,y^{(n-1)} )\) at a single \(x = x_0 \) while boundary conditions specify them at two or more \(x\) values on the curve.
 
 \onefig{integralcurves}{scale=0.4} 
 
-The second form in \cref{first}, on the other hand, treat the variables \(x \text { and } y\) on equal foots, as it should, since the assignation of \(y \text { and } x\) as the dependent and the independent variable respectively is entirely arbitrary (if \(x \text { and } y\) do not carry any physical meaning). It is crucial to understand that \(x \text { and } y\) are simply two variables that are related to each other, if \(y(x)\) is a function of \(x\) then \(x(y)\) is a function of \(y\). The realm of possibilites of the integral curves is also slightly richer because now the integral curves can be vertical (see \cref{integralcurves2}).\footnote{In fact, higher order differential equations can also be inverted such that \(x\) becomes the dependent variable instead of \(y\). However this cannot be done as easily as in first order differential equation (by simply rearranging the terms), and is rarely useful.}\footnote{A general theorem states that the general solution of all \(n^{\text{th}} \) order differential equation contains \(n\) integration constants. For example, the function \(y=\frac{1}{6} x^3 + C_1 x + C_2 \) which is the solution to the differential equation \(y'' = x\) has two integration constants \(C_1 \text { and } C_2 \) stemming from integration. Another example is the function \(y = Ae^{ t} + Be^{- t}  \) which is the solution to the differential equation \(y'' = y\) has two integration constants \(A\text { and } B\) although the equation is not necessarily solved by direct integration (but by guessing the solution \(y=e^{\alpha t} \)) and leveraging the homogenity of the equation. Consequently, there must be \(n\) boundary conditions or initial conditions to fix the values of these integration constants.}
+\footnote{This is only true if both \(F(x,y) \text { and } \partial F(x,y)/\partial y \) exist at that point. Otherwise the integral curves may intersect at the point and we would not get an unique solution. For example, the differential equation \(dy /dx = y^{2 /3 } \), accompanied with the initial condition \(y(0) = 0\) is not unique, as \(y(t) = 0 \text { and } y(t) = (t /3 )^3 \) are both valid solutions. And it does not guarantees that the integral curve found would not blows up in finite \(x\). For example, the differential equation \(dy /dx = ay^2 \), accompanied by the initial condition \(y(x_0 )= x_0 \) has the solution \(y = 1 /a(x_0 +1 /ay_0 -x ) \), which blows up at a finite interval at \(x = x_0 + 1/ay_0 \). Beyond that point, the solution would still gives a solution of \(y\) for every \(x\), but it does not make sense anymore. For linear differential equation, however, the existence and uniqueness is global, and the solution is valid at all \(x\).} 
+
+The second form in \cref{first}, on the other hand, treat the variables \(x \text { and } y\) on equal foots, as it should, since the assignation of \(y \text { and } x\) as the dependent and the independent variable respectively is entirely arbitrary (if \(x \text { and } y\) do not carry any physical meaning). It is crucial to understand that \(x \text { and } y\) are simply two variables that are related to each other, if \(y(x)\) is a function of \(x\) then \(x(y)\) is a function of \(y\). The realm of possibilites of the integral curves is also slightly richer because now the integral curves can be vertical (see \cref{integralcurves2}).\footnote{In fact, higher order differential equations can also be inverted such that \(x\) becomes the dependent variable instead of \(y\). However this cannot be done as easily as in first order differential equation (by simply rearranging the terms), and is rarely useful.}\footnote{A general theorem states that the general solution of all \(n^{\text{th}} \) order differential equation contains \(n\) integration constants. For example, the function \(y=x^3 /6 + C_1 x + C_2 \) which is the solution to the differential equation \(y'' = x\) has two integration constants \(C_1 \text { and } C_2 \) stemming from integration. Another example is the function \(y = Ae^{ t} + Be^{- t}  \) which is the solution to the differential equation \(y'' = y\) has two integration constants \(A\text { and } B\) although the equation is not necessarily solved by direct integration (but by guessing the solution \(y=e^{\alpha t} \)) and leveraging the homogenity of the equation. Consequently, there must be \(n\) boundary conditions or initial conditions to fix the values of these integration constants.}
 
 \onefig{integralcurves2}{scale=0.5} 
+
+Sometimes to be rigourous we say that a differential equation are continuous on a rectangle \([a,b] \times [\alpha ,\beta ]\), which simply means that \(x\) is constrained by \(a \le x \le b\) and \(y\) by \(\alpha \le y \le \beta \).   
 
 \section{First Order Separable}
 
 A first order differential equation is separable if it is in the form
 
 \begin{equation}
-    \frac{dy}{dx} = f(x)g(y)
+    \frac{dy}{dx} = f(x)g(y),
 \end{equation}
 
 which can be solved by direct integration. Note that if \(f(x) \to \infty \text { or } g(y) \rightarrow 0\) for any \(x=x_0 \text { or } y=y_0 \) respectively then the constant functions \(x=x_0 \text { or } y = y_0 \) might also be solutions to the equation. These are called singular solutions and they can be hard to spot.
@@ -254,10 +259,10 @@ The variable \(y\) can be eliminated, and instead be replaced by the new variabl
     \end{aligned}  
 \end{equation}~
 
-Let \(u \equiv xy \text { and } v \equiv \frac{x}{y} \), then \(\frac{y^{5} }{x} = \frac{u^2}{v^3 }    \), and the differential equation becomes separarble as
+Let \(u \equiv xy \text { and } v \equiv x /y\), then \(y^5 /x = u^2 /v^3     \), and the differential equation becomes separarble as
 
 \begin{equation}
-    v^3 du+u^2dv = 0 \implies y = -\frac{1}{2}^3 . 
+    v^3 du+u^2dv = 0. 
 \end{equation}~
 } 
 
@@ -354,7 +359,7 @@ where the equation is dimensionally consistent if \(y = zx^{m} \).
     \left( y^2 + \frac{2}{x}  \right) dx + 2xydy = 0.
 \end{equation}
 }
-{Giving \(y\text { and } dy\) weight \(m\) and \(x\text { and } dx\) the weight 1, the sums of powers in each term on the LHS are \(2m+1,0 \text { and } 2m+1\) respectively. These are equal if \(m = -\frac{1}{2} \). Therefore we substitute \(y = zx^{-\frac{1}{2} } \) and get
+{Giving \(y\text { and } dy\) weight \(m\) and \(x\text { and } dx\) the weight 1, the sums of powers in each term on the LHS are \(2m+1,0 \text { and } 2m+1\) respectively. These are equal if \(m = -1 /2 \). Therefore we substitute \(y = zx^{-\frac{1}{2} } \) and get
 
 \begin{equation}
     zdz + \frac{dx}{x} = 0 \implies \frac{1}{2}y^2x + \ln x = C. 
@@ -378,7 +383,7 @@ This equation can be solved by the substitution
 which makes the equation linear, as
 
 \begin{equation}
-    \frac{dz}{dx} + (1-n) P(x)z = (1-n)Q(x).  
+    \frac{dz}{dx} + (1-n) P(x)z = (1-n)Q(x).  \footnote{Alternatively, one can first find the homogenous solution \(y_{H}(x) \) by solving \(y' + P(x)y = 0\) and use the method of variations of parameters to guess the particular solution as \(y_{P}(x) = \psi (x)y_{H}(x)  \) and solve for \(\psi (x)\). This only works for the Bernoulli's equation where the inhomogenous term is in the form \(Q(x)y^{n} \) but does not work for a general function \(F(x,y)\) (except, of course if \(F(x,y) = F(x)\) does not depend on \(y\)). This method has no rationale other than mere coincidence, so it is put in the footnotes.} 
 \end{equation}
 
 \section{Riccati's Equation}
@@ -449,7 +454,7 @@ An autonomous system is described by a differential equation that does not expli
     \ddot{r} = f(r,\dot{r} ),
 \end{equation}
 
-which can be solved by noting \(\ddot{r} = \dot{r} \frac{d \dot{r} }{dr}  \), which would give a first order differential equation upon substituion:
+which can be solved by noting \(\ddot{r} = \dot{r} ( d \dot{r} /dr )  \), which would give a first order differential equation upon substituion:
 
 \begin{equation}
     \frac{d \dot{r} }{dr} = \frac{f(r,\dot{r} )}{\dot{r} } .
@@ -467,7 +472,7 @@ Conservative systems have a even more strict requirement on \(f(r,v)\), where \(
 
 Here the integration constant \(E\) corresponds to the total energy of the system and \(V(r) = - \int f(r)dr\) is the potential of the force. 
 
-Solving further for \(v = \frac{dr}{dt} \), 
+Solving further for \(v = dr /dt \), 
 
 \begin{equation}
     \frac{dr}{dt} = \pm \sqrt{2(E-V(r))} \implies \int \frac{dr}{\sqrt{2(E-V(r))} } = \pm \int dt = \pm t + C. 
@@ -912,7 +917,7 @@ Taking the real part and combining the homogeneous and inhomogeneous solution, w
 
 \section{Special Cases of \(\omega \) }
 
-\subsection{Resonance}
+\subsection{Undamped Resonance}
 
 When \(\gamma = 0\) and as \(\omega \to \pm \omega _{0}\), we have \(y_{P} \to \infty  \), so the guess in \cref{parguess} does not work anymore. The mathematical reason is that since \(i \omega \to  i \omega _{0} = \lambda _{\pm } \), the particular solution coincides with the homogenous solutions, so we would have to find another independent solution. 
 
@@ -949,7 +954,7 @@ If \(\omega \ll \omega _{0} \), then from the general solution we have \(\varphi
 
 If \(\omega \gg \omega _{0}\) (and \(\gamma \ll \omega \)), then from the general solution we have \( \varphi \approx -\pi \text { and } A \approx F_0 /\omega ^2  \). Mathematically, the damping term and the restoring term is negligible, so the driving force is soley responsible for the acceleration.
 
-\subsection{Quality Factor}
+\subsection{Damped Resonance}
 
 \subsubsection{Definition of Quality Factor}
 
@@ -1071,29 +1076,98 @@ Finally, \(y = A\) is trivally true, since every term in the equation contains \
 
 \todo{PS2 2.5 onwards} 
 
-\chapter{Systems of Linear Differential Equations}
+\chapter{Coupled Linear Differential Equations}
+
+\section{\(1^{\text{st} } \) Order Vector Equation}
+
+\subsection{Single Scalar Equation}
 
 For a general \(n^{\text{th}} \) order linear differential equation
 
 \begin{equation}
-    y^{(n)}(x) + a_{n-1}y^{(n-1)}(x) + \cdots + a_1 (x)y'(x) + a_0 (x)y(x) = f(x),   
+    y^{(n)}(x) + a_{n-1}(x)y^{(n-1)}(x) + \cdots + a_1 (x)y'(x) + a_0 (x)y(x) = f(x),   
 \end{equation}
 
-it can be treated as a system of \(n\) first order linear differential equations of \(n\) unknown functions, namely \(y,y',\ldots ,y^{(n-1)}  \text { and } y^{(n)} \), where the first \(n-1\) ones are trivial  \(y'(x) = \frac{d}{dx}y(x), y''(x) = \frac{d}{dx} y'(x)\) and the \(n^{\text{th}} \) equation is simply the original equation.
-
-This seems like a meaningless thing to do but if introduce the vector \(\vb{y} = (y,y',\ldots ,y^{(n-2)}, y^{(n-1)})\), then the system of equations can be rewritten into a much more compact form
+it can be treated as a system of \(n\) first order linear differential equations of \(n\) unknown functions \(y(x),y'(x),\ldots ,y^{(n-1)}(x) \), 
 
 \begin{equation}
-    \vb{y} ' = A (x)\vb{y} + \vb{f} (x), \label{inhomosys} 
+    \begin{aligned}
+        y'(x) &= \frac{d}{dx}y(x),\\
+        y''(x) &= \frac{d}{dx}y'(x),\\
+        &\vdots  ,\\
+        y^{(n-1)}(x) &= \frac{d}{dx}y^{(n-2)}(x),\\   
+        \frac{d}{dx}y^{(n-1)}(x) + a_{n-1}(x)y^{(n-1)}(x) + &\cdots + a_1 (x)y'(x) + a_0 (x)y(x) = f(x).
+    \end{aligned}
 \end{equation}
 
-where \(A\) is a square matrix containing the coefficients of the \(n\) equations, and \(\vb{f} = (0,\ldots ,0,\ldots ,f(x))\).
+Introducing the natural vector 
 
-For \(k\) system of \(n^{\text{th}} \) order differential equations, they can be written as a system of \(n \times k\) first order differential equations, or one first order vector differential equation, like the above equation, but the vector has \(n \times k\) entries.   
+\begin{equation}
+    \vb{y} = (y,y',\ldots ,y^{(n-2)}, y^{(n-1)}),
+\end{equation}
 
-\section{Homogeneous Linear Systems with Constant Coefficients} \label{homosys} 
+we can rewrite the system of equation into a more compact form as
 
-We start with the case where \(A(x) = A\) is independent of \(x\) and \(\vb{f} (x) = 0\) (\textit{i.e.,} the differential equation is homogeneous), so
+\begin{equation}
+    \vb{y} ' = A (x)\vb{y} + \vb{f} (x), \quad \vb{f} (x) = (0,\ldots 0,\ldots ,f(x)),   \label{inhomosys} 
+\end{equation}
+
+and
+
+\begin{equation}
+    A = \begin{pmatrix}
+        0 & 1 & 0 & \cdots  & 0 &  0 \\
+        0 & 0 & 1 & \cdots  & 0 &  0 \\
+        \vdots  & \vdots  &  & \ddots  &  & \vdots   \\
+        0 & 0 & 0 & \cdots  & 1 &  0 \\
+        0 & 0 & 0 & \cdots  & 0 &  1 \\
+        -a_0(x)  & -a_1 (x) & -a_2 (x) & \cdots  & -a_{n-2}(x)  & -a_{n-1}(x)   \\
+    \end{pmatrix}.
+\end{equation}
+
+Therefore, we have sucessfully simplified the problem of solving a \(n^{\text{th}} \) order linear differential equation into solving a single first order vector differential eqution. 
+
+However, we would almost directly solve the \(n^{\text{th}} \) order differential equation instead of writing it in this form. 
+
+\subsection{Coupled Scalar Equation}
+
+For a system of \(k\) \(n^{\text{th}} \) order differential equations, they can be written as a system of \(n \times k\) first order differential equations, or one first order vector differential equation, like the above equation, but the vector has \(n \times k\) entries (not a \(n \times k\) matrix).
+
+For example, the equations of motion of two coupled harmonic oscillators read
+
+\begin{equation} \label{harmon} 
+    \begin{cases}
+        \ddot{y_1 } &= -\gamma _{1}  \dot{y}_{1}  - k_1 y_1 - k_2 (y_1 -y_2 ), \\
+        \ddot{y_2 } &= -\gamma _{2} \dot{y}_{2}  - k_2 (y_2 -y_1 ).
+    \end{cases}    
+\end{equation}
+
+Introducing the natural vector 
+
+\begin{equation}
+    \vb{y} (t) = (y_1 (t) \dot{y}_{1} (t), y_2 (t), \dot{y}_{2} (t) ),
+\end{equation}
+
+we have 
+
+\begin{equation}
+    \dot{\vb{y} }(t) = \begin{pmatrix}
+        0 & 1 & 0 &  0 \\
+        -k_1 -k_2  & -\gamma _{1}  & k_2  & 0  \\
+        0 & 0 & 0 & 1  \\
+        k_2  & 0 & -k_2  & -\gamma _{2}   \\
+    \end{pmatrix} \vb{y} (t).
+\end{equation}
+
+Note that we could have labeled the variables in a different order which does not affect the solution.
+
+\section{Solving \(1^{\text{st} } \) Order Vector Equation}
+
+\subsection{Homogeneous}\label{homosys}
+
+\subsubsection{Diagonal}
+
+We start with the case where \(A(x) = A\) is independent of \(x\) and \(\vb{f} (x) = \boldsymbol{0} \), so
 
 \begin{equation}
     \vb{y}'(x) = A \vb{y}(x).  
@@ -1102,29 +1176,71 @@ We start with the case where \(A(x) = A\) is independent of \(x\) and \(\vb{f} (
 If \(A\) is diagonal with elements \(A_{ii} = a_{i}\) , then the equations are independent, as the \(i^{\text{th}} \) component of the equation simply reads
 
 \begin{equation}
-    y'_{i} = a_{i} y_{i}(x) \implies y_{i} (x) = C_{i}e^{a_{i}x }    
+    y'_{i} = a_{i} y_{i}(x) \implies y_{i} (x) = C_{i}e^{a_{i}x }. 
 \end{equation}
 
-If \(A\) is not diagonal, but is diagonalizable, \textit{e.g.,} \(A = A^{\dagger} \), then we introduce the change of basis matrix \(P = (\vb{v} _1, \ldots ,  \vb{v} _n )\), and write the equation in eigenvectors basis, where the transformed matrix now becomes \(A' = P^{-1} AP = \text{diag}(\lambda _{1}, \ldots , \lambda _{n}  )\) 
+Explicitly, we have
 
 \begin{equation}
-    \vb{z}' = A' \vb{z}, \quad  \vb{z} = P^{-1} \vb{y} \implies z_{i}(x) = C_{i}e^{\lambda _{i}x },  
+    \vb{y} (x) = C_1 e^{a_{i}x }\begin{pmatrix}
+         1 \\
+         0 \\
+         0 \\
+         \vdots  \\
+         0 \\
+    \end{pmatrix} + C_2 e^{a_{2}x } \begin{pmatrix}
+         0 \\
+         1 \\
+         0 \\
+         \vdots  \\
+         0 \\
+    \end{pmatrix} + C_n e^{a_{n}x }  \begin{pmatrix}
+         0 \\
+         0 \\
+         0 \\
+         \vdots  \\
+         1 \\
+    \end{pmatrix}.
 \end{equation}
 
-so we have
+
+
+\subsubsection{Diagonalizable}
+
+If \(A\) is not diagonal, but still diagonalizable, we can diagonalize \(A\) by introducing the change of basis matrix \(P\) containing the eigenvectors \(\vb{v} _{1},\ldots ,\vb{v} _{n}  \) 
+
+\begin{equation}
+    P = (\vb{v} _1, \ldots ,  \vb{v} _n ), \quad \vb{y}(x) = P\vb{z}(x) .
+\end{equation}
+
+The equation now becomes 
+
+\begin{equation}
+    P\vb{z} '(x) = AP\vb{z} (x) \implies \vb{z} '(x) = P^{-1} AP \vb{z} (x) =  \text{diag} (\lambda _{1},\ldots ,\lambda _{n}  )\vb{z} (x).
+\end{equation}
+
+The solution is therefore
 
 \begin{equation}  \label{homovec} 
-    \vb{y} = P \vb{z} = (\vb{v}_1, \cdots, \vb{v} _n ) (\text{diag}(e^{\lambda _{1}x }, \ldots , e^{\lambda _{n}x }  ))\vb{C} 
+    z_{i}(x) = C_{i}e^{\lambda _{i}x } \implies \vb{y} = P \vb{z} = (\vb{v}_1, \ldots , \vb{v} _n ) (\text{diag}(e^{\lambda _{1}x }, \ldots , e^{\lambda _{n}x }  ))\vb{C} \equiv PE(x)\vb{C}
 \end{equation}
 
 where \(\vb{C} = (C_1 ,C_2 ,\ldots ,C_{n} )\) is a constant vector.
 
-\section{Inhomogeneous Linear Systems}
-
-Now we return to the general form in \cref{inhomosys} and suppose we know the homogeneous solution \(\vb{y} _{H}(x) \) (given in \cref{homovec})\footnote{There is no need to use the complete general solution of the homogeneous solution, we can just choose one of the independent solutions (as long as the solution used solves the homogeneous equation so that cancellation can be acheived), but there is no harm either.} and would like to find the particular solution. We again use the method of variation of parameters and guess 
+Explicity, we have
 
 \begin{equation}
-    \vb{y} _{P}(x) = \boldsymbol{\psi }(x) \vb{y} _{H}(x).  
+    \vb{y} (x) = C_1 e^{\lambda _{1}x } \vb{v} _{1} + \cdots + C_{n}e^{\lambda _{n}x }\vb{v} _{n}.    
+\end{equation}
+
+The usual solution \(y(x)\) of the \(n^{\text{th}} \) order linear differential solution is simply the first row of this vector equation. However, this solution also provides the solutions for \(y'(x), y''(x), \ldots y^{(n-1)}(x) \).     
+
+\subsection{Inhomogeneous}
+
+Now suppose \(\vb{f} (x) \neq \boldsymbol{0}\) and we would like to find the particular solution \(\vb{y} _{P}(x) \) given the homogenous solution \(\vb{y} _{H}(x) \). We use the method of variation of parameters and guess
+
+\begin{equation}
+    \vb{y} _{P}(x) = \boldsymbol{\psi }(x) \vb{y} _{H}(x).\footnote{There is no need to use the complete general solution of the homogeneous solution, we can just choose one of the independent solutions (as long as it solves the homogeneous equation so that cancellation can be acheived), but there is no harm either.} 
 \end{equation}
 
 Substituting into the differential equation we get
@@ -1136,22 +1252,43 @@ Substituting into the differential equation we get
 Since \(\vb{y} _{H}(x)  \) solves the homogeneous equation, two terms vanish and we have
 
 \begin{equation}
-    \boldsymbol{\psi }'(x)\vb{y} _{H}(x) = \vb{f} (x) \implies  \boldsymbol{\psi }(x) = \int \vb{y} _{H} (x)^{-1} \vb{f} (x) dx,
+    \boldsymbol{\psi }'(x)\vb{y} _{H}(x) = \vb{f} (x) \implies  \boldsymbol{\psi }(x) = \int \vb{y} _{H} (x)^{-1} \vb{f} (x) dx,\footnote{The constant vector of intgration gives back the homogenous solution, as usual.} 
 \end{equation}
 
-and the general solution is 
+and the particular solution is 
 
 \begin{equation}
-    \vb{y} = \vb{y} _{H}(x) + \vb{y} _{P}(x) = \vb{y} _{H}(x) \left( \int \vb{y} _{H} (x)^{-1} \vb{f} (x) dx + \vb{C}  \right).
+    \vb{y}_{P}(x)  = \vb{y} _{H}(x) \int \vb{y} _{H} (x)^{-1} \vb{f} (x) dx .
 \end{equation}
 
-\section{Non-diagonlizable System}
+Usually, however, the particular solution is find by simple guessing. For example, if \(\vb{f} (x) = e^{5t}(4,0) \) then we would guess \(e^{5t}(A,B) \).  
 
-If \(A\) is non-diagonlizable, then we can solve the system of linear equations via triangulation or Jordan form.
+
+\subsection{Complete Solution with Initial Conditions}
+
+The complete solution is therefore
+
+\begin{equation}
+    \vb{y} (x) = \vb{y} _{H}(x) + \vb{y} _{P}(x) = PE(x)\vb{C} + PE (x) \int E^{-1} (x)P^{-1} \vb{f} (x)dx.  
+\end{equation}
+
+Given initial conditions \(\vb{y} (x ) = \vb{y} (x_0  )\) at \(x = x_0  \), we have \(\vb{C} =  E(x)^{-1} P^{-1} \vb{y} (x_0  )\) if we choose the lower limit of the integral to be \(x_0 \).\footnote{We have this freedom since making any other choice only differs from this choice by an integration vector constant, which can be absorbed by \(\vb{C} \). In other words, \(\vb{C} \text { and }  x_0 \) can be chosen arbitrarily as long as they together satisfies the initial conditions, and we choose \(x_0 \) conviently so that \(\vb{C} \) is simple.} and the general solution is given by 
+
+\begin{equation}
+    \vb{y} (x) = \vb{y} _{H}(x) + \vb{y} _{P}(x) = PE(x-x_0 )P^{-1} \vb{y} (x_0 ) + PE(x)\int_{x_0 }^{x} E^{-1} (x')P^{-1} \vb{f} (x')dx'.
+\end{equation}
+
+
+
+\section{Non-diagonlizable}
 
 \subsection{Triangulation}
 
-For any matrix \(A\), there exists an unitary matrix \(U\) such that the transformed matrix \(T = U^{-1} AU\) is upper triangular, where the diagonal carries the eigenvalues of \(A\), since \(\det (A-\lambda \mathbb{I}) = \det (UTU^{-1} - \lambda U U^{-1}  ) = \det (U(T-\lambda \mathbb{I})U^{-1} ) = \det (T-\lambda \mathbb{I})\).  
+For any matrix \(A\), there exists an unitary matrix \(U\) such that the transformed matrix \(T = U^{-1} AU\) is upper triangular, where the diagonal carries the eigenvalues of \(A\), since 
+
+\begin{equation}
+    \det (A-\lambda \mathbb{I}) = \det (UTU^{-1} - \lambda U U^{-1}  ) = \det (U(T-\lambda \mathbb{I})U^{-1} ) = \det (T-\lambda \mathbb{I}).  
+\end{equation}
 
 Following the footsteps in \cref{homosys}, substituting \(A = UTU^{-1} \), we have
 
@@ -1163,46 +1300,340 @@ The system of linear differential equations encoded in the above equation can th
 
 \subsection{Jordan Form}
 
-Consider an eigenvalue \(\lambda _{1} \) with degeneracy \(m\), with a eigenvector \(\vb{v} _{1} \). The set of vectors \(\left\{ \vb{v}_1, \ldots , \vb{v}_k \right\}\) is called a Jordan chain of \(\lambda _{1} \), or the generalized eigenvectors of \(A\), if they satisfy
+Consider an eigenvalue \(\lambda _{1} \) with degeneracy \(m\), with a single eigenvector \(\vb{v} _{1} \). The set of vectors \(\left\{ \vb{v}_1, \ldots , \vb{v}_k \right\}\) is called a Jordan chain of \(\lambda _{1} \), or the generalized eigenvectors of \(A\), if they satisfy
 
 \begin{equation}
-    \begin{aligned}
-        A\vb{v} _{1}&=\lambda _{1}\vb{v} _{1}\\
-        A\vb{v} _{2}&=\lambda _{1}\vb{v} _{2}+\vb{v} _{1}\\
-        &\vdots \\
-        A\vb{v} _{k}&=\lambda _{1}\vb{v} _{k}+\vb{v} _{k-1}.           
-    \end{aligned}
+    \begin{cases}
+        \begin{aligned}
+            (A-\lambda _{1}\mathbb{I} )\vb{v} _{1} &= \boldsymbol{0} , \\
+            (A-\lambda _{1}\mathbb{I} )\vb{v} _{2} & = \vb{v} _{1}  , \\
+            &\vdots \\
+            (A-\lambda _{1}\mathbb{I} )\vb{v} _{k} &=\vb{v} _{k-1}  .  
+        \end{aligned}
+    \end{cases}
+    ~\text { or }~
+    \begin{cases}
+        \begin{aligned}
+            (A-\lambda _{1}\mathbb{I} )\vb{v} _{1} &= \boldsymbol{0} , \\
+            (A-\lambda _{1}\mathbb{I})^2\vb{v} _{2} & = \boldsymbol{0}  , \\
+            &\vdots \\
+            (A-\lambda _{1}\mathbb{I} )^{k} \vb{v} _{k} &=\boldsymbol{0}   .  
+        \end{aligned}
+    \end{cases}
+    ~\text { or }~
+    \begin{cases}
+        \begin{aligned}
+            A\vb{v} _{1}&=\lambda _{1}\vb{v} _{1},\\
+            A\vb{v} _{2}&=\lambda _{1}\vb{v} _{2}+\vb{v} _{1},\\
+            &\vdots \\
+            A\vb{v} _{k}&=\lambda _{1}\vb{v} _{k}+\vb{v} _{k-1}.           
+        \end{aligned}
+    \end{cases} 
 \end{equation}
 
-As usual, if we pack all the generalized eigenvectors into \(R\), then the transformed matrix would be the jordan form
+As usual, we introduce the change of basis matrix \(P\) containing all the \(n\) generalized eigenvectors \(\vb{v} _{1}, \ldots ,v_{n}  \)
 
 \begin{equation}
-    J = R^{-1} AR = \begin{pmatrix}
-        J_1  &  & 0  \\
-         & J_2  &   \\
-        0 &  &  \ddots \\
+    P=(\vb{v} _{1},\ldots ,\vb{v} _{n}  ), \quad \vb{y}(x) = P\vb{z}(x) .
+\end{equation}
+
+The equation now becomes
+
+\begin{equation}
+    P\vb{z} '(x) = AP\vb{z} (x) \implies \vb{z} '(x) = P^{-1} AP\vb{z} (x) \equiv J\vb{z} (x), 
+\end{equation}
+
+where \(J\) is the transformed matrix, called the jordan form 
+
+\begin{equation}
+    J \equiv  P^{-1} AP = \begin{pmatrix}
+        J_1  & 0 & \cdots  & 0  \\
+        0 & J_2  & \cdots  & 0  \\
+        \vdots  & \vdots  & \ddots  & \vdots   \\
+        0 & 0 & \cdots  & J_{s}   \\
+    \end{pmatrix}, \quad     J_{i} = \begin{pmatrix}
+        \lambda _{i}  & 1 & \cdots  & 0  \\
+        0 & \lambda _{i}  & \ddots  & \vdots   \\
+        \vdots  & \vdots  & \ddots & 1  \\
+        0 & 0 & \cdots  & \lambda _{i}  \\
     \end{pmatrix},
 \end{equation}
 
-where to each Jordan chain of eigenvalue \(\lambda _{i} \) corresponds to the Jordan block 
+where \(s\) is the number of distinct eigenvalues.
+
+For example, 
 
 \begin{equation}
-    J_{i} = \begin{pmatrix}
-        \lambda _{i}  & 1 &  & 0  \\
-         & \lambda _{i}  & 1 &   \\
-         &  & \ddots & 1  \\
-        0 &  &  & \lambda _{i}  \\
+    J = \begin{pmatrix}
+        4 & 1 &  0 \\
+        0 & 4 &  0 \\
+        0 & 0 &  3 \\
+    \end{pmatrix} = \begin{pmatrix}
+        J_1  & 0  \\
+        0 & J_2   \\
+    \end{pmatrix}, \quad J_1 = \begin{pmatrix}
+        4 &  1 \\
+        0 &  4 \\
+    \end{pmatrix}, \quad J_2 = \begin{pmatrix}
+         3 \\
     \end{pmatrix}.
 \end{equation}
 
-Substituting \(A = RJR^{-1} \), we have
+For simplicity, we assume that \(\lambda _{1} = \lambda _{2} = \cdots = \lambda _{k} \equiv \lambda  \neq \lambda _{k+1} \neq \lambda _{k+1} \neq \cdots \neq \lambda _{n} \), \textit{i.e.,} there is only 1 degenerate eigenvalue \(\lambda _{1} = \lambda _{2} = \cdots = \lambda _{k}  \equiv \lambda  \) with degeneracy \(k\) and all other eigenvalues are distinct.
+
+Then expanding the vector equation we have
 
 \begin{equation}
-    \vb{z} ' = J\vb{z} , \quad \vb{z} = R^{-1} \vb{y}.
+    \begin{cases}
+    \begin{aligned} 
+    z _{1}' &= \lambda z _{i} + z _{2},\\ 
+    &\vdots \\
+    z _{k-1}' &= \lambda z _{k-1} + z _{k},\\
+    z _{k}' &= \lambda z _{k},\\  
+    z_{k+1}' &= \lambda _{k+1}z_{k+1}, \\
+    z_{k+2}' &= \lambda _{k+2}z_{k+2},\\
+    &\vdots \\
+    z_{n}' &= \lambda _{n} z_{n}.          
+    \end{aligned}  
+    \end{cases}
 \end{equation}
 
-The system of linear differential equations encoded in the above equation can then be solved one by one, where each one requires the results of all the subsequent solutions. After finding \(\vb{z}\), we can invert the equation to get \(\vb{y}  = R\vb{z} \).  
+Withing the first jordan block, the last equation can solved direcctly and then substituted upwards consecutively and the solutions become
 
+\begin{equation}\
+    \begin{cases}
+    \begin{aligned}
+        z _{k} &= C_{k}e^{\lambda x },\\
+        z _{k-1} &= (C_{k-1} + C_{k}x  ) e^{\lambda x},\\
+        &\vdots \\
+        z _{1} &= \left( C_1 + C_2 x+ \cdots +C_{k} \frac{x^{k-1} }{(k-1)!} \right) e^{\lambda x },\\
+        z_{k+1} &= C_{k+1}e^{\lambda _{k+1}x },\\
+        z_{k+2} &= C_{k+2}e^{\lambda _{k+2}x },\\
+        &\vdots \\
+        z_{n} &= C_{n}e^{\lambda _{n}x }.        
+    \end{aligned}
+    \end{cases}
+\end{equation}
+
+The general solution is therefore
+
+\begin{equation}
+    \vb{y} (x) = P\vb{z} (x) = (\vb{v} _{1}, \ldots ,\vb{v} _{n}  )E(x)\vb{C} ,
+\end{equation}
+
+which has the same form as \cref{homovec}, but \(E(x)\) is more complex now. In the above example, \(E(x)\) is given by 
+
+\begin{equation}
+    E(x) = \begin{pmatrix}
+        e^{\lambda x}  & x e^{\lambda x}  &  &  & \frac{x^{k-1} }{(k-1)!}e^{\lambda x }  & 0 & \cdots  &  &  0  \\
+        0 & e^{\lambda x}  & xe^{\lambda x }  &  &  &  &  &  &   \\
+         & 0 & \ddots & \ddots  &  & \vdots  &  & \iddots &   \\
+         &  & 0 &  e^{\lambda x }  & xe^{\lambda x } &  &  &  &  \\
+        \vdots  &  &  & 0 & e^{\lambda x } & 0 &  &  &  \vdots  \\
+         &  &  &  & 0 & e^{\lambda _{k+1}x }  & 0 &  &   \\
+         &  & \iddots &  &  & 0 & e^{\lambda _{k+2} x}  & 0 &   \\
+         &  &  &  &  &  & 0 & \ddots  & 0  \\
+        0 &  &  & \cdots  &  &  &  & 0 & e^{\lambda _{n}x }   \\
+    \end{pmatrix}.
+\end{equation}
+
+Explicitly, we have
+
+\begin{equation}
+    \begin{aligned} 
+    \vb{y} (x) &= C_1 e^{\lambda x}\vb{v} _{1} + C_2 e^{\lambda x}(x \vb{v} _{1}+\vb{v} _{2}  ) + \cdots + C_{k}e^{\lambda x}\left( \frac{x^{k-1} }{(k-1)!} \vb{v} _{1} + \cdots +x\vb{v} _{k-1}+\vb{v} _{k}    \right) \\
+    &+ C_{k+1}e^{\lambda _{k+1}x }\vb{v} _{k+1} + \cdots + C_{n}e^{\lambda _{n}x }\vb{v} _{n}.    
+    \end{aligned}        
+\end{equation}
+
+This solution has a similar form as if \(A\) is not defective, with only the eigenvectors replaced by the generalized eigenvectors.
+
+\example{Non-Diagonalizable System.}
+{Solve the equation \(\vb{y} '(x) = A\vb{y} (x)\), where 
+
+\begin{equation}
+    A = \begin{pmatrix}
+        -1 & 1 &  -2 \\
+        4 & 1 &  0 \\
+        2 & 1 &  -1 \\
+    \end{pmatrix}. 
+\end{equation}
+~
+}
+{\(A\) is defective with eigenvalues \(\lambda _{1} = \lambda _{2} = 1  \text { and } \lambda _{3} = 1 \). The eigevectors are 
+
+\begin{equation}
+    \vb{v} _{1} = \begin{pmatrix}
+         -1 \\
+         2 \\
+         1 \\
+    \end{pmatrix} ~\text { and }~ \vb{v} _{3} = \begin{pmatrix}
+         0 \\
+         2 \\
+         1 \\
+    \end{pmatrix}.  
+\end{equation}
+
+We find a generalized eigenvector 
+
+\begin{equation}
+    (A - (-1)\mathbb{I})^2 \vb{v} _{2} = \boldsymbol{0} \implies \vb{v} _{2} = \begin{pmatrix}
+         0 \\
+         1 \\
+         1 \\
+    \end{pmatrix}.  
+\end{equation}
+
+Given the eigenvalues and the generalized eigenvectors we give the solution directly as 
+
+\begin{equation}
+    \vb{y} (x) = e^{-t}\left( C_1 \begin{pmatrix}
+         -1 \\
+         2 \\
+         -1 \\
+    \end{pmatrix}  + C_2 \left( \begin{pmatrix}
+         -1 \\
+         2 \\
+         1 \\
+    \end{pmatrix}t + \begin{pmatrix}
+         0 \\
+         1 \\
+         1 \\
+    \end{pmatrix} \right) \right) + C_3 e^{t} \begin{pmatrix}
+         0 \\
+         2 \\
+         1 \\
+    \end{pmatrix}.  
+\end{equation}
+} 
+
+\section{Solving Higher Order Vector Equation}
+
+Note that for the coupled differential equation in \cref{harmon} 
+
+\begin{equation}
+    \begin{cases}
+        \ddot{y_1 } &= -\gamma _{1}  \dot{y}_{1}  - k_1 y_1 - k_2 (y_1 -y_2 ), \\
+        \ddot{y_2 } &= -\gamma _{2} \dot{y}_{2}  - k_2 (y_2 -y_1 ),
+    \end{cases}    
+\end{equation}
+
+instead of introducing the state vector \(\vb{y} = (y_1 , \dot{y} _{1}, y_2 , \dot{y}_{2}    )\), we can simply introduce the vector \(\vb{y} = (x,y)\), 
+
+and rewrite the coupled second ordre scalar differential equation in a single second order vector differential equation 
+
+\begin{equation}
+    \ddot{\vb{y} }  + \begin{pmatrix}
+        \gamma _{1}  & 0  \\
+        0 & \gamma _{2}   \\
+    \end{pmatrix}\dot{\vb{y} } + \begin{pmatrix}
+        k_1 +k_2  &  -k_2  \\
+        -k_2  &  k_2  \\
+    \end{pmatrix} \vb{y} = 0.
+\end{equation}
+
+We can then solve this equation as usual, by guessing
+
+\begin{equation}
+    \vb{y} = \vb{u} e^{\lambda t} 
+\end{equation}
+
+to obatin 
+
+\begin{equation}
+    \left( \lambda ^2 \begin{pmatrix}
+        1 &  0 \\
+        0 &  1 \\
+    \end{pmatrix}+ \lambda \begin{pmatrix}
+        \gamma _{1}  & 0  \\
+        0 & \gamma _{2}   \\
+    \end{pmatrix} + \begin{pmatrix}
+        k_1 +k_2  &  -k_2  \\
+        -k_2  &  k_2  \\
+    \end{pmatrix} \right) \vb{u} = 0.
+\end{equation}
+
+Reqruiring the determinant equals to zero we get four roots for \(\lambda \). The general solution is then given by 
+
+\begin{equation}
+    \sum_{i=1}^{4} C_{i} \vb{u} _{i} e^{\lambda _{i}t }.   
+\end{equation}
+
+
+\example{Second Order Vector Differential Equation.}
+{Solve the coupled differential equation
+
+\begin{equation}
+    \begin{cases}
+        2y''-3y'+2z'+3y+z &= e^{2x}, \\
+        y''-3y'+z'+2y-z &= 0.
+    \end{cases}  
+\end{equation}
+~
+}
+{Introducing the vector \(\vb{v} = (y,z)\) we rewrite the coupled scalar equation in a single vector equation
+
+\begin{equation}
+    \begin{pmatrix}
+        2 &  0 \\
+        1 &  0 \\
+    \end{pmatrix} \vb{v} '' + \begin{pmatrix}
+        -3 &  2 \\
+        -3 &  1 \\
+    \end{pmatrix}z' + \begin{pmatrix}
+        3 &  1 \\
+        2 &  -1 \\
+    \end{pmatrix}\vb{v} = \begin{pmatrix}
+         e^{2x}  \\
+         0 \\
+    \end{pmatrix}.
+\end{equation}
+
+We substitute the homogenous equation
+
+\begin{equation}
+    \vb{v} _{H}(x) = \vb{u}_{H} e^{\lambda x}  
+\end{equation}
+
+and obtain 
+
+\begin{equation}
+    \left( \lambda ^2 \begin{pmatrix}
+        2 &  0 \\
+        1 &  0 \\
+    \end{pmatrix}+ \lambda \begin{pmatrix}
+        -3 &  2 \\
+        -3 &  1 \\
+    \end{pmatrix} + \begin{pmatrix}
+        3 &  1 \\
+        2 &  -1 \\
+    \end{pmatrix} \right) \vb{u}_{H}  = 0.
+\end{equation}
+
+Requiring that the determinant of the matrix in fron to be zero we get \(\lambda =1\) and the corresponding eigenvector \(\vb{u} = (3,-2)\). 
+
+Guess the particular solution 
+
+\begin{equation}
+    \vb{v} _{P} = \vb{u} _{P} e^{2x}, 
+\end{equation}
+
+we obtain \(\vb{u} _{P} = (1/5,0) \). Therefore the general solution is 
+
+\begin{equation}
+    \begin{pmatrix}
+         y \\
+         z \\
+    \end{pmatrix}= Ce^{x} \begin{pmatrix}
+         3 \\
+         -2 \\
+    \end{pmatrix} + \frac{1}{5} \begin{pmatrix}
+         1 \\
+         0 \\
+    \end{pmatrix} e^{2x}.  
+\end{equation}
+~
+} 
 
 
 

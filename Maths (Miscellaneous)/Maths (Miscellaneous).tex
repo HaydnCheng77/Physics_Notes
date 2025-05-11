@@ -11,7 +11,9 @@
 \maketitle
 \tableofcontents
 
-\chapter{Complex Numbers}
+\chapter{Functions of Complex Variables}
+
+\section{Complex Numbers}
 
 A complex number is most conveniently thought of as a vector with the \(x\)-axis replaced by the real axis with unit vector \(1\) and the \(y\)-axis replaced by the imaginary axis with unit vector \(i = \sqrt{-1} \). An arbitrary vector can then be represented in polar form or Cartesian form
 
@@ -19,8 +21,14 @@ A complex number is most conveniently thought of as a vector with the \(x\)-axis
 	z = re^{i \theta } = x + iy, 
 \end{equation}
 
-where \( r = \abs{z} = \sqrt{x^2 + y^2} \text { and } \theta = \arg (z)\) is the angle between the complex number (vector) and the positive \(x\)-axis. If the complex number (vector) lies in the first quadrant, then \(\arg (z) = \arctan {\left(y /x \right)} \), otherwise, \(\pi \text { or } 2\pi \) must be added, since the domain of the arctan function is only from \(- \pi /2\) to \(\pi  /2 \). \(2\pi \) can also be added to any argument, but usually we use the pricipal value of the argument, \textit{i.e.,} \(\arg (z) \in [-\pi , \pi ) \text { or } [0,2\pi )\).   
+where \( r = \abs{z} = \sqrt{x^2 + y^2} \text { and } \theta = \arg (z)\) is the angle between the complex number (vector) and the positive \(x\)-axis, measured counterclockwisely. If the complex number (vector) lies in the first quadrant, then 
 
+\begin{equation}
+    \arg (z) = \arctan {\left(y /x \right)} + 2\pi k
+\end{equation}
+
+If it is not in the first quadrant then \(\pi /2 \text { or } \pi \) must be added. \(k\) can be any integer value, but usually we use the pricipal value of the argument, the value of \(n\) such that \textit{i.e.,} \(\arg (z) \in (-\pi ,\pi ]\).
+ 
 In particular, if \(r=1\), then it is easy to show that 
 
 \begin{equation}
@@ -29,7 +37,7 @@ In particular, if \(r=1\), then it is easy to show that
 
 since we simply decompose a complex number (vector) into its components. This equation can also be verified using the Taylors' expansion of the exponential, sine and cosine function.
 
-Raising both sides of the above equation to the power \(n\), we have
+Raising both sides of the above equation to the power \(n\), we have the DeMoivre's formula
 
 \begin{equation}
 	(\cos \theta + i \sin \theta )^{n} = e^{i n \theta } = \cos (n \theta ) + i \sin (n \theta ).
@@ -60,61 +68,111 @@ Geometrically, we flip the imaginary axis (\(y\)-axis) upside down. Therefore, \
 When extend to complex numbers, the natural logarithm is always multivalued, this is because 
 
 \begin{equation}
-    \ln (z) = \ln (\abs{z}e^{(i \theta )}  ) = \ln (\abs{z} ) + i \theta .
+    \ln (z) = \ln (\abs{z}e^{i \theta + 2\pi k}  ) = \ln (\abs{z} ) + i (\theta +2\pi k).
 \end{equation}
+
+The princpial value is defined as the value when \(\theta \in (-\pi ,\pi ]\).  
 
 The hyperbolic trigonometric formulas are largely reminiscent of the ordinary trigonometric formulas, with a few exceptions:
 
 \begin{equation}
-    \cosh^2(x) - \sinh^2(x) = 1, \quad 1 - \tanh^2(x) = \sech^2(x), \quad \text{and} \cosh^2(x) + \sinh^2(x) = \cosh(2x).
+    \cosh^2(x) - \sinh^2(x) = 1, \quad 1 - \tanh^2(x) = \sech^2(x) ~\text { and }~  \cosh^2(x) + \sinh^2(x) = \cosh(2x).
+\end{equation}
+
+The inverse of trigonometric functions can be written in terms of the natural logorithmic function. For example, we have
+
+\begin{equation}
+    z = \tan w = \frac{1}{i} \left( \frac{e^{iw} - e^{-iw} }{e^{iw} + e^{-iw}  }  \right) \implies e^{2iw} = \frac{1+iz}{1-iz}  \implies \tan ^{-1} z = \frac{1}{2i} \ln \left( \frac{1+iz}{1-iz}  \right). \label{tan} 
+\end{equation}
+
+\example{Inverse Trigonometric Functions of Complex Variables (1).}
+{Express \(\tan ^{-1} {(\sqrt{3}i )} \) in the form \(a+bi\). Hence solve the equation \(\tan z = \sqrt{3} i\).}
+{To calculate \(\tan ^{-1} {(\sqrt{3} i)}\) we substitute \(z = \sqrt{3}i \) into \cref{tan} and get
+
+\begin{equation}
+    \tan ^{-1} (\sqrt{3} i) = \frac{1}{2i} \ln (\frac{1-\sqrt{3} }{1+\sqrt{3} } ) = \frac{1}{2i} \ln \left( \frac{\sqrt{3}-1 }{\sqrt{3}+1 } e^{i\pi }  \right) = -\frac{i}{2} \ln (2-\sqrt{3} ) + \frac{\pi }{2}.    
+\end{equation}
+
+To solve the equation \(\tan z = \sqrt{3} i\), we add \(n\pi \) to \(\tan \sqrt{3}i \) to get 
+
+\begin{equation}
+    z = - \frac{i}{2} \ln (2-\sqrt{3} ) + \frac{\pi }{2} (1+ 2n).  
+\end{equation}
+ } 
+
+\example{Inverse Trigonometric Functions of Complex Variables (2).}
+{Express \(\sin ^{-1} (3)\) in the form \(a+bi\). Hence solve the equation \(\sin z = 3\).}
+{To calculate \(\sin ^{-1} (3)\) we substitute \(z = 3\) into \cref{sin} and get
+ 
+\begin{equation}
+    \sin ^{-1} (3) = \frac{\pi }{2} - i \ln (3+2\sqrt{2} ). 
+\end{equation}
+ 
+To solve the equation \(\sin z = 3\) we add \(2\pi n\) to \(\sin ^{-1} (3)\) or we subtract \(\sin ^{-1} (3) \) from \( \pi + 2\pi n\) and get
+
+\begin{equation}
+    z = \frac{\pi }{2} - i \ln (3+2\sqrt{2} ) + 2\pi n ~\text { or } ~ \frac{\pi }{2} + i \ln (3+2\sqrt{2} ) + 2\pi n,
+\end{equation}
+
+which we may combine compactly as 
+
+\begin{equation}
+    z = \frac{\pi }{2} + 2\pi n \pm i \ln (3+2\sqrt{2} ),
+\end{equation}
+
+We can also solve the eqaution without using the predetermined formula, but start from
+
+\begin{equation}
+    \sin z = \frac{e^{iz}-e^{-iz}  }{2i} = 3 
+\end{equation}
+
+to get 
+
+\begin{equation}
+    \begin{aligned} 
+    z &= -i \ln (i (3+2\sqrt{2} )) = -i \left(i \frac{\pi }{2} + 2\pi in + \ln (3 \pm \sqrt{2} ) \right) \\
+    &= \frac{\pi }{2} + 2n\pi - i\ln (3+2\sqrt{2} ) ~\text { or } ~ \frac{\pi }{2} + 2n\pi -i\left( \ln (-1) + \ln (2\sqrt{2}-3 ) \right) \\
+    &= \frac{\pi }{2} + 2n\pi -i \ln (3+2\sqrt{2} ) ~\text { or } ~ \frac{\pi }{2} + 2n\pi -i\left( i \pi + 2\pi ki - \ln (3+2 \sqrt{2} ) \right)\\
+    &=  \frac{\pi }{2} + 2n\pi -i \ln (3+2\sqrt{2} ) ~\text { or } ~ -\frac{\pi }{2} + 2n\pi + i \ln (3+2\sqrt{2} ).  
+    \end{aligned} 
 \end{equation}
 
 
-
-
-\example{Inverse Trigonometric Functions of Complex Inputs.}
-{Express \(\tan ^{-1} {(\sqrt{3}i )} \) in the form \(a+bi\). }
-{Define \(z \equiv \tan ^{-1} {(\sqrt{3}i)} \text { and } \alpha \equiv e^{iz} \), then 
 \begin{equation}
-    \begin{aligned}
-        \sqrt{3}i &= \tan (z) = \frac{e^{iz}-e^{-iz}  }{i(e^{iz} +e^{-iz} )} \implies \alpha = \pm \sqrt{\frac{\sqrt{3}-1 }{\sqrt{3}+1 } }i \\
-        z &= \frac{\ln \alpha }{i} = -i\left( \frac{1}{2}\ln \left(\frac{\sqrt{3}-1 }{\sqrt{3}+1 }\right) + \ln (\pm i)  \right) \\ &= -i\ln (e^{\frac{1}{2}(\pm i\pi (1+2k)) } ) - \frac{1}{2}\ln \left( \frac{\sqrt{3}-1 }{\sqrt{3} +1}  \right) i \\ &= \frac{\pi }{2}(1+2k) - \frac{1}{2}\ln \left( \frac{\sqrt{3}-1 }{\sqrt{3}+1 } \right)i.      
-    \end{aligned}
-\end{equation}~
-
- } 
-
- \example{Inverse Hyperbolic Functions of Complex Inputs.}
- {Express \(\sinh^{-1}(-1) \) in the form \(a+bi\).   }
- {Define \(z \equiv \sinh^{-1} (\sqrt{3}i) \text { and } \alpha \equiv e^{z} \), then 
- \begin{equation}
-        \alpha = \sqrt{2}-1   \implies  z = \ln (\abs{\sqrt{2}-1 })  + 2\pi ni = \frac{1}{2} \ln (3 )+2\pi ni.
- \end{equation}
-
- Note that we have discarded the negative root of the quadratic equation, this is because for real \(z\), \(\alpha = e^{z} \) must be positive.   
-
- Note also that the absolute sign means the norm (length) of the complex number (vector), but not just fixing the positive and negative signs.
- 
- } 
+    z = \frac{\pi }{2} + 2\pi n + i \ln (3 \pm 2 \sqrt{2} ).
+\end{equation}
+~
+} 
  
 
-
-\example{Plot on the Complex Plane.}
-{Plot the equation \( \arg \left((z-4)/(z-1)\right)=\frac{3\pi }{2} \) on the complex plane. }
+\example{Plot on the Complex Plane (1).}
+{Plot the equation \( \arg \left((z-4)/(z-1)\right)=3\pi /2 \) on the complex plane. }
 {Writing \(z = x+iy\), we have 
 
 \begin{equation}
     \frac{z-4}{z-1} = \frac{(x-4)(x-1)+y^2}{(x-1)^2+y^2} + i \frac{3y}{(x-1)^2+y^2}.  
 \end{equation}
 
-The real part must be zero and the imaginary part must be negative for the argument to be \(3\pi /2\), so we get \((x-4)(x-1)+y^2=0 \implies (x-\frac{5}{2} )^2+y^2 = 0 \text { and } y<0\). Note we cannot use the formula \(\arg (z) =  \arctan {\left(y /x\right) } \), since the complex number does not lie in the first quadrant.   
+The real part must be zero and the imaginary part must be negative for the argument to be \(3\pi /2\), so we get \((x-4)(x-1)+y^2=0 \implies (x-5/2)^2+y^2 = 0 \text { and } y<0\). Note we cannot use the formula \(\arg (z) =  \arctan {\left(y /x\right) } \), since the complex number does not lie in the first quadrant.   
 } 
 
-To find the cosine or sine of some multiples of angle (\textit{e.g.,} \(\sin (6\theta )\) ), the simpliest way is always expand \((\cos \theta +i\sin \theta )^6 = \cos (6\theta ) + i\sin (6\theta )\) and compare the imaginary (or real) part. 
+\example{Plot on the Complex Plane (2).}
+{Plot the equation \(\arg (z-3i) = \pi /4\) on the complex plane. }
+{Writing \(z = x+iy\), we have
 
-To find some power of cosine or sine of angle (\textit{e.g.,} \((\sin ^6(\theta ))\) ) in terms of single power of cosine or sine, the sipmliest way is always write \(\sin \theta = e^{i \theta }-e^{-i \theta }  /2i \), and expand. 
+\begin{equation}
+    \arg \left( x+i(y-3) \right) =\frac{\pi }{4} \implies y - 3 = x. 
+\end{equation}
 
-The fundamental theorem of algebra states that a \(n^{\text{th}}\) order polynomial equation will have exactly \(n\) roots. For example, the equation \(x^{8} = 16\) has eight roots \(x = \sqrt[8]{16} = (16e^{2\pi n})^{\frac{1}{8} } = \sqrt{2}e^{\frac{\pi n}{4} }\), where \(n = (0,\ldots 7) \text { or } (1,\ldots 8)\).   
+However, an extra condition \(x > 0\) has to be imposed so that the point \((x,y-3)\) lies in the direction corresponding to an angle of \(\pi /4\).  
+
+} 
+
+To find the cosine or sine of some multiples of angle (\textit{e.g.,} \(\sin (6\theta )\)), the simpliest way is always expand \((\cos \theta +i\sin \theta )^6 = \cos (6\theta ) + i\sin (6\theta )\) and compare the imaginary (or real) part. 
+
+To find some power of cosine or sine of angle (\textit{e.g.,} \(\sin ^{6} \theta \)) in terms of single power of cosine or sine, the sipmliest way is always write \(\sin \theta = (e^{i \theta }-e^{-i \theta })/2i \), and expand. 
+
+The fundamental theorem of algebra states that a \(n^{\text{th}}\) order polynomial equation will have exactly \(n\) roots. For example, the equation \(x^{8} = 16\) has eight roots \(x = \sqrt[8]{16} = (16e^{2\pi k})^{1 /8 } = \sqrt{2}e^{\pi n/4 }\), where \(n = (0,\ldots 7) \text { or } (1,\ldots 8)\).   
 
 The sum and product of roots of the polynomial equation
 
@@ -127,6 +185,1069 @@ can be extracted to be
 \begin{equation}
     \sum_{i=1}^{n} z_{i} = - \frac{a_{n-1} }{a_{n} } ~\text { and }~ \prod_{i=1}^{n} z_{i} = (-1)^{n} \left(\frac{a_{0} }{a_{n} }\right).     
 \end{equation}
+
+\section{Analytic Functions}
+
+\subsection{Definition}
+
+For a complex vector 
+
+\begin{equation}
+    z(x,y) = x+iy,
+\end{equation}
+
+a complex function \(f(x,y)\) maps a complex vector \(x+iy\) to one or more vectors of \(f(x,y)\),\footnote{In rigorous definition a function should be singled-valued. However, it serves no harm to define a ``multi-valued'' function, and this is a widely accepted terminology. In later sections we will choose one of the many possible \(f(x,y)\) as the principal value, which resolves the ``issue'' of having a function that gives multiple values on a single input.}  and can be represented by
+
+\begin{equation}
+    f(x,y) = u(x,y) + iv(x,y).
+\end{equation}
+
+In fact, since \((x,y)\) and \((z,\overline{z} )\) are related by 
+
+\begin{equation}
+    x = \frac{\overline{z} +z }{2} ~\text { and }~ y = \frac{i(\overline{z} -z)}{2},
+\end{equation}
+
+we can rewrite the functions in terms of \(z \text { and } \overline{z} \), \textit{i.e.,} \(f(x,y) = f(z, \overline{z} )\). 
+
+\begin{equation}
+    \begin{aligned} 
+    f_1 (x,y) &= (x^2-y^2,2xy) = f_1 (z,\overline{z} ) = z^2,\\
+    f_2 (x,y) &= (x^2+y^2,0) = f_2 (z,\overline{z} ) = z \overline{z} ,\\
+    f_3 (x,y) &= (x^3 +xy,0) = f_3 (z,\overline{z} ) = \frac{1}{8} (z + \overline{z} )^2 - \frac{i}{4}(z^2-\overline{z} ^2). 
+    \end{aligned} 
+\end{equation}
+
+At first glance, one may think that since \(\overline{z} \) is a ``function'' of \(z\), so \(f(z,\overline{z} )\) is just \(f(z)\). However, we cannot recreate \(x \text { or } y\) from \(z\) alone without using the \(\mathfrak{Re} \text { or } \mathfrak{Im}  \) ``functions''. In other words, there is no elementary way of describing all possibles transformations on the complex plane with \(z\) alone. For example, for \(f(x,y) = x\), indeed we can write the equivalent \(f(z) = \mathfrak{Re} (z) \), but it would be difficult to work in this form as the \(\mathfrak{Re} \) ``function'' is not easy to work with. Instead it is much more convenient to introduce \(\overline{z} \), where we can write the function as \(f(z,\overline{z} ) = (z + \overline{z} ) /2\). 
+
+Therefore, \(f(z)\) is only a subset of all the possible transformations of \(z\), where the general \(f(z,\overline{z} ) = f(z)\) depends on \(z\) alone but not \(\overline{z} \). This type of complex functions will be our main focus due to its usefulness.
+
+For a complex function \(f(z,\overline{z} )\) to be independent of \(\overline{z} \) we must have 
+
+\begin{equation}
+    \frac{\partial f}{\partial \overline{z} } = 0. 
+\end{equation}
+
+We start from writing the total derivative of \(f(x,y)\) in terms of \(x \text { and } y\)
+
+\begin{equation}
+    df = f_{x}  dx + f_{y}  dy.
+\end{equation}
+
+Dividing both sides by \(d \overline{z} \) while keeping \(z\) constant we have 
+
+\begin{equation}
+    \left( \frac{\partial f}{\partial \overline{z} } \right)_{z} = f_{x} \left( \frac{\partial x}{\partial \overline{z} } \right)_{z} + f_{y} \left( \frac{\partial y}{\partial \overline{z} } \right)_{z} = \frac{1}{2} \left( \frac{\partial }{\partial x} + i \frac{\partial }{\partial y}  \right) (u+iv) = \frac{1}{2} \left( \frac{\partial u}{\partial x} -\frac{\partial v}{\partial y}  \right) + \frac{i}{2} \left( \frac{\partial v}{\partial x} + \frac{\partial u}{\partial y}  \right).
+\end{equation}
+
+Enforcing it to be zero we obtain the Cauchy-Riemann conditions
+
+\begin{equation}
+    \frac{\partial u}{\partial x} = \frac{\partial v}{\partial y} ~\text { and }~ \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}.
+\end{equation}
+
+A single-valued function \(f(z)\) is differentiable point \(z\) if the derivative 
+
+\begin{equation}
+    \frac{df}{dz} = \lim_{\delta z \to 0} \frac{f(z+\delta z)-f(z)}{\delta z}   
+\end{equation}
+
+exists\footnote{The existence of \(df/dz\) is the same as the existence of just \(f(z)\).} and is unique, in that its value does not depend on the direction in the copmlex plane from which \(\delta z\) tends to zero. 
+
+A function \(f(z)\) is said to be holomorhpic at a point \(a\) if it is differentiable at every point within some open disk centered at \(a\), and is said to be analytic at \(a\) if in some open disck centered at \(a\) it can be expanded as a convergent power series 
+
+\begin{equation}
+    f(z) = \sum_{n=0}^{\infty} c_{n} (z-a)^{n},   
+\end{equation}
+
+which is the Taylor series of \(f(z)\) around the point \(z = a\). It could be shown that in complex analysis holomorhpic functions are analytic and vice versa. In the following we will be mostly using the term analytic except otherwise specified.
+
+Given that the derivative \(df /dz\) exists, consider as \(\delta z\) appraoches zero along the \(x\)- and \(y\)- axes  
+\begin{equation}
+    \begin{aligned}
+        \frac{df}{dz} &= \lim_{\delta x \to 0}  \frac{f(x+\delta x,y)-f(x,y)}{\delta x} = \left( \frac{\partial f}{\partial x} \right)_{y} = \frac{\partial u}{\partial x} + i\frac{\partial v}{\partial x} ,\\
+        \frac{df}{dz} &= \lim_{\delta y \to 0}   \frac{f(x,y+\delta y)-f(x,y)}{i \delta y} = \left( \frac{\partial f}{\partial y} \right)_{x} = \frac{1}{i} \frac{\partial u}{\partial y} + \frac{\partial v}{\partial y}.
+    \end{aligned}
+\end{equation}
+
+For the derivatives to be unique we require the two results to be equal we obtain the Cauchy-Riemann conditions. This shows that a complex function being analytic is the same as saying that the function \(f(z,\overline{z} ) = f(z)\) depends on \(z\) alone but not \(\overline{z} \). 
+
+Their relations can be summarized by 
+
+\begin{equation}
+    f(z) \text{ is analytic (given existence)} \longleftrightarrow \text{Cauchy-Riemann Conditions} \longleftrightarrow f(z) = f(z,\overline{z} ).
+\end{equation}
+
+A function may be analytic in a domain except at a finite number of points, called the singularities of \(f(z)\) (or an infinite number if the domain is infinite). Functions that are analytic everywhere (excpet, maybe, at \(z = \infty\)) are called entire of integral functions.
+
+\example{\(f\) Being Constant.}
+{Prove that if \(f\) is real-valued or if \(\abs{f} \) is constant, then \(f\) is constant given that \(f\) is an analytic function.}
+{If \(f\) is real-valued, then \(v(x,y) = 0\). From the Cauhy-Riemann conditions we have \(u_{x} = u_{y} = 0  \), so \(u\) is constant. 
+
+If \(\abs{f} \) is constant, then we have 
+
+\begin{equation}
+    u^2+v^2=R^2 \implies \begin{cases}
+        u u_{x}+v v_{x} &=0,\\
+        u u_{y} + v v_{y} &= 0.
+    \end{cases} \implies 
+    \begin{cases}
+        uv_{y}+v v_{x} &=0,\\
+        u(-v_{x} )+v v_{y} &=0 .
+    \end{cases}  
+\end{equation}
+
+Viewed as a linear system in the unknowns \(v_{x}\text { and } v_{y}  \), the determinant is \(v^2+u^2=R^2 > 0\), hence the only solution is \(v_{x}=v_{y}=u_{x}=u_{y}=0   \), so \(f\) is a constant.   
+} 
+
+
+\subsection{Properties and Examples}
+
+\subsubsection{\(u(x,y) = c_1 \text { and } v(x,y) = c_2 \) being Orthogonal}
+
+Consider the lines on the Argand plane that satisfy 
+
+\begin{equation}
+    u(x,y) = c_1 ~\text { and }~ v(x,y) = c_2.
+\end{equation}
+
+The normal vectors to these curves are 
+
+\begin{equation}
+    \vb{n} _{u} = \grad{u(x,y)} = \left( \frac{\partial u}{\partial x} , \frac{\partial u}{\partial y}  \right) ~\text { and }~ \vb{n} _{v} = \grad{v(x,y)} = \left( \frac{\partial v}{\partial x} , \frac{\partial v}{\partial y}  \right).
+\end{equation}
+
+If we now take the dot product between these two vectors we find 
+
+\begin{equation}
+    \vb{n} _{u} \cdot \vb{n} _{v} = \frac{\partial u}{\partial x} \frac{\partial v}{\partial x} + \frac{\partial u}{\partial y}  \frac{\partial v}{\partial y} = \frac{\partial v}{\partial y} \frac{\partial v}{\partial x} - \frac{\partial v}{\partial x} \frac{\partial v}{\partial y} =0.  
+\end{equation}
+
+In other words, curves of constant \(u \text { and } v\) are orthogonal to each other, wherever the function is analytic.
+
+\subsubsection{Conformality}
+
+Consider two infinitesimal changes to \(z\)  which are at angle \(\theta \)
+
+\begin{equation}
+    z_1 = z+ \epsilon e^{i \theta _{1} } ~\text { and }~ z_2 = z+ \epsilon e^{i \theta _{2} } \implies \frac{z_2 -z}{z_1 -z} = e^{i \theta }.    
+\end{equation}
+
+We now transform the two points 
+
+\begin{equation}
+    w_{1} = f(z_1 ) ~\text { and }~ w_{2} = f(z_2 ).  
+\end{equation}
+
+But given that the function is analytic we can also Taylor expand to get 
+
+\begin{equation}
+    w+\delta w_1 = f(z) + f'(z)\epsilon e^{i \theta _{1} } ~\text { and }~ w+\delta w_2 = f(z) + f'(z)\epsilon  e^{i \theta _{2} },
+\end{equation}
+
+so the angle between the two transformed points is 
+
+\begin{equation}
+    \arg \left( \frac{\delta w_2 }{\delta w_1 }  \right) = \arg \left( \frac{f'(z)\epsilon e^{i \theta _{1} } }{f(z)\epsilon e^{i \theta _{2} } }  \right).
+\end{equation}
+
+Such angle preserving transformations are also known as conformal transfrmations.
+
+An analytic function is conformal at a point \(z_0 \) when its derivative there is non-zero, \textit{i.e.,} \(f'(z_0 )=0\).  
+
+\subsubsection{Examples}
+
+Examples of analytic functions include 
+
+\begin{equation}
+    f(z) = z^{n}, \quad f(z) = e^{z} \equiv \sum_{k=0}^{\infty} \frac{z^{k} }{k!}, \quad f(z) = \cos (z) \equiv \sum_{k=0}^{\infty} \frac{(-1)^{k}z^{2k}  }{(2k)!}.   
+\end{equation}
+
+But by for the most commonly used complex functions are the multivalued functions
+
+\begin{equation}
+    z^{1 /n } = \abs{z}^{1 /n}  e^{i(\theta + 2\pi k) /n} ~\text { and }~ \ln (z) = \ln \abs{z} + i (\theta + 2\pi k).
+\end{equation}
+
+For multivalued functions there is a canonical choice called the principal value, which preserve the injective property of ordinary function. For the examples above, we restrict ourselves to \((\theta +2\pi k) \in (0,2\pi ] \text { or } \in (-\pi ,\pi ]\), depending our the convention adopted. 
+
+If we restrict ourselves to the princpal roots, then the function \(f(z) = z ^{1 /2} \) transforms the complex plane into the upper half plane while the function \(f(z) = z^{1 /4} \) transforms the complex plane into the first quadrant, \textit{etc.} On the other hand, the natural logarithmic function transforms the complex plane into an infinite horizontal strip with boundaries at \(y = 0 \text { and } 2\pi\).   
+
+A less commonly used multivalued function is the complex power
+
+\begin{equation}
+    t^{z} = e^{z \ln t} = \sum_{k=0}^{\infty} \frac{z^{k} (\ln \abs{t} + i(\theta +2\pi k) )^{t} }{k!}.  
+\end{equation}
+
+One particularly interesting example maps the half plane onto a circle
+
+\begin{equation}
+    f(z) = \left( \frac{z-z_0 }{z-\overline{z_0} }  \right) e^{i \theta _{0} },
+\end{equation}
+
+where the point \(z_0 \) will be mapped onto the origin while \(-\infty \text { and } + \infty\) will be mapped onto the point \(e^{i \theta _{0} } \).  
+
+Another interesting mapping is the Möbius map
+
+\begin{equation}
+    f(z) = \frac{az+b}{cz+d}, 
+\end{equation}
+
+which carries generalized circles, \textit{i.e.,} Euclidean circles or straight lines, into generalized circles. So given any three distinct points \(z_1 ,z_2, z_3 \) on one generalized cirlce and any three distinct images \(f(z_1 ), f(z_2 ), f(z_3 )\) on another generalized circle, there is exactly one Möbius map sending \(z_{i} \mapsto f(z_{i} ) \) for \(i = 1,2,3\).    
+
+\example{Analytic Functions.}
+{Given that \(v(x,y)  = (x^2-y^2) + y^2\) and \(f(0)=0\), find \(f(z)\).  }
+{We notice that the first part is simply \(\mathfrak{Re} (z^2) \) while the second part is \(\mathfrak{Im} (z) \). We therefore guess that 
+
+\begin{equation}
+    f(z) = iz^2+z+c, 
+\end{equation}
+
+where \(c = 0\) to satisfy the condition at \(z = 0\).
+
+Alternatively we can use a more ssytematic method and find from the Cauchy-Riemann conditions that 
+
+\begin{equation}
+    \frac{\partial u}{\partial x} = \frac{\partial v}{\partial y} = -2y+1 \implies u = -2xy+x+h(y),
+\end{equation}
+
+and 
+
+\begin{equation}
+    \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x} = -2x \implies h(y) = c = 0.
+\end{equation}
+~
+} 
+
+\example{Jacobian.}
+{Prove that \(\abs{J} = \abs{f'}^2 \). }
+{Using the Cauchy-Riemann conditions we see that 
+
+\begin{equation}
+    \abs{J} = \abs{\frac{\partial u}{\partial x} \frac{\partial v}{\partial y} - \frac{\partial v}{\partial x} \frac{\partial u}{\partial y} } = \left( \frac{\partial u}{\partial x}  \right)^2 + \left( \frac{\partial u}{\partial y}  \right)^2 = \left( \frac{\partial v}{\partial y}  \right)^2 + \left( \frac{\partial v}{\partial x}  \right)^2.   
+\end{equation}
+
+On the other hand we have
+
+\begin{equation}
+    \begin{aligned} 
+    f'(z) &= \frac{df}{dz} = \frac{1}{2} \left( \frac{\partial }{\partial x} - i \frac{\partial }{\partial y}  \right) (u+iv) \\
+    &= \frac{1}{2} \left( \frac{\partial u}{\partial x} - \frac{\partial v}{\partial y}  \right) - \frac{i}{2} \left( \frac{\partial v}{\partial x} + \frac{\partial u}{\partial y}  \right) = \frac{\partial u}{\partial x} - i \frac{\partial u}{\partial y} = \frac{\partial v}{\partial y} + i \frac{\partial v}{\partial x}.
+    \end{aligned} 
+\end{equation}
+
+Thus the norm-sqaured is 
+
+\begin{equation}
+    \abs{f'(z)}^2 = \left( \frac{\partial u}{\partial x}  \right)^2 + \left( \frac{\partial u}{\partial y}  \right)^2 = \left( \frac{\partial v}{\partial x}  \right)^2 + \left( \frac{\partial v}{\partial y}  \right)^2 = \abs{J}^2.  
+\end{equation}
+~
+} 
+
+\example{Conformal Mapping.}
+{Consider the function 
+
+\begin{equation}
+    f: z  \mapsto w = z+\frac{1}{z} .
+\end{equation}
+
+\begin{enumerate}
+    \item Give the subset of the complex \(z\)  plane in which \(f\) is holomorhpic.
+    \item Determine whether the mapping is conformal in the region of holomorphy.
+    \item  Onto which subset of the \(w\) plane does \(f\) map the upper half and lower half of circle \(\abs{z} = 1 \)?
+    \item What is the image through \(f\) of a cirlce \(\abs{z} = \rho \) with \(\rho \neq 1\)?  
+\end{enumerate}
+~
+}
+{\begin{enumerate}
+    \item The function is holomorhpic everywhere except at the pole \(z = 0 \text { and } \infty\).
+    \item  The derivative is zero at \(z = \pm 1\), so the function is conformal everywhere except at \(x = 0 \text { and } \pm 1\).
+    \item On the unit circle we parametrize 
+    \item 
+    \begin{equation}
+        z = e^{i \theta }, \quad 0 \le \theta <2\pi ,
+    \end{equation}
+
+    then
+
+    \begin{equation}
+        f(z) = f(e^{i \theta } ) = e^{i \theta } + e^{-i \theta } = 2 \cos \theta.
+    \end{equation}
+    
+    Hence both upper and lower half of the cirlce get mapped to the real segment \([-2,2]\). 
+
+    \item We parametrize the circle by 
+    
+    \begin{equation}
+        z=\rho e^{i \theta }, \quad 0 \le \theta < 2\pi ,
+    \end{equation}
+    
+    then 
+
+    \begin{equation}
+        f(z) = f(\rho e^{i \theta } )= \left( \rho +\frac{1}{\rho }  \right)\cos \theta + i \left( \rho - \frac{1}{\rho }  \right) \sin \theta .
+    \end{equation}
+    
+    Defining 
+
+    \begin{equation}
+        x \equiv \mathfrak{Re} (f(z)) = \left( \rho +\frac{1}{\rho }  \right) \cos \theta ~\text { and }~ y \equiv \mathfrak{Im} (f(z)) = \left( \rho -\frac{1}{\rho }  \right) \sin \theta ,
+    \end{equation}
+    
+    one sees that \((x,y)\) satisfies the ellipse equation 
+
+    \begin{equation}
+        \frac{x^2}{(\rho +1 /\rho )^2} + \frac{y^2}{(\rho -1 /\rho )^2} = 1.  
+    \end{equation}
+    
+    Thus the cirlce \(\abs{z} = \rho  \) is carried to the ellipse centered at the origin with semi-axes
+    
+    \begin{equation}
+        a = \rho + \frac{1}{\rho } ~\text { and }~ b = \abs{\rho +\frac{1}{\rho } }.
+    \end{equation}
+\end{enumerate}
+~
+} 
+
+
+
+
+\section{Power Series in a Complex Variable}
+
+If the power series
+
+\begin{equation}
+    f(z) = \sum_{n=0}^{\infty} a_{n}z^{n}  = \sum_{n=0}^{\infty} a_{n}r^{n} e^{in\theta }        
+\end{equation}
+
+converge then its real (and imaginary) part must be convergent, \textit{i.e.,}  
+
+\begin{equation}
+    \sum_{n=0}^{\infty} \abs{a_{n} }r^{n}   
+\end{equation}
+
+is convergent. 
+
+The radius of convergence \(R\) can be found by the Cauchy-root test or the ratio test
+
+\begin{equation}
+    \frac{1}{R} = \lim_{n \to \infty} \abs{a_{n}  } ^{1/n} = \lim_{n \to \infty} \abs{\frac{a_{n} }{a_{n+1} } },  
+\end{equation}
+
+and it can be proved that the series is convergent if \(\abs{z} <R \) and divergent if \(\abs{z}>R \). If \(\abs{z} =R \) then no particular conclusion may be drawn and must be considered separately.   
+
+It can also be shown that the power series \(\sum_{n=0}^{\infty} a_{n}z^{n}  \) has a sum that is an analytic function of \(z\)  inside its circle of convergence. As a corollary, it may further be shown that if \(f(z) = \sum_{n=0}^{\infty} a_{n}z^{n}  \) then, inside the circle of convergence of the series \(f'(z) = \sum_{n=0}^{\infty} n a_{n} z^{n-1}   \). Repeated application of this result demonstrates that any power series can be differentiated any number of times inside its circle of convergence.
+
+
+
+
+\section{Solutions to the Laplace's Equation}
+
+We notice that if \(f(x,y)\) is analytic, then \(u(x,y) \text { and } v(x,y)\) are harmonic functions, \textit{i.e.,} they satisfy the Laplace's equation in two dimensions, since
+
+\begin{equation}
+    \laplacian u(x,y) = \frac{\partial }{\partial x} \left( \frac{\partial u}{\partial x}  \right) + \frac{\partial }{\partial y} \left( \frac{\partial u}{\partial y}  \right) = \frac{\partial }{\partial x} \left( \frac{\partial v}{\partial y}  \right) - \frac{\partial }{\partial y} \left( \frac{\partial v}{\partial x}  \right) = 0.
+\end{equation}
+
+The same holds for \(\laplacian v(x,y) = 0\). 
+
+\section{Singularities}
+
+\subsection{Definitions}
+
+As we have defined eariler, a singulartiy is a point on the comlex plane, where \(f(z)\) fails to be analytic. It can either be an isolated singularity, which includes a pole, a removable singularity and an essential singularity, or a non-isolated singularity.
+
+Formally, if the limit of a function \(\lim_{z \to z_0 } f(z)\) does not exist but satisfies
+
+\begin{equation}
+    \lim_{z \to z_0 } ((z-z_0 )^{n}f(z) ) = a, \label{lim} 
+\end{equation}
+
+then \(z = z_0 \)  is a pole of order \(n\) and \(a \equiv \text{Res}(f,z) \) is the residue of \(f(z)\) if \(n =1\).\footnote{The formula for finding the residue with pole of any order will be introduced later.} If no finite value of \(n\) can be found such that this equation is satisified then \(z = z_0 \) is called an essential singularity. A non-isolated singularity occurs when poles accumluates together at one point.
+
+If the limit \(\lim_{z \to z_0 } f(z)\) exists and unique then \(z = z_0 \) is called a removable singularities.  
+
+The behaviour of a function \(f(z)\) at \(z = \infty\) is the same as the behaviour of the function \(f(1 /\xi )\) at \(\xi  = 0\).   
+
+\subsection{Poles}
+
+A pole is a point on the complex plane where the derivative \(df /dz\) is infinite. A simple example is
+
+\begin{equation}
+    f(z) = \frac{1}{z}, 
+\end{equation}
+
+which has a pole at \(z = 0\) with order \(1\).
+
+For another example the function
+
+\begin{equation}
+    f(z) = \frac{1}{(z-a)^{n} }
+\end{equation}
+
+has a pole at \(z = a\) with order \(n\). 
+
+\subsection{Removable Singularities}
+
+A removable singularity is one that has a finite limit at the singularity, so the function can be rendered completely analytic by setting \(f(z_0 ) = \lim_{z \to z_0 } f(z) \), for example,
+
+\begin{equation}
+    f(z) = \frac{\sin z}{z} 
+\end{equation}
+
+has a singularity at \(z = 0\), but can be easily removed by setting \(f(0) = 1\). Note that the function do not exist at removable singularity but the limit exists.
+
+The behaviour of a function \(f(z)\) at infinity is given by that of \(f(1 /\xi )\) at \(\xi =0\), where \(\xi \equiv 1 /z\).   
+
+\subsection{Essential Singularities}
+
+A singularity which is neither removable or a pole is known as an essential singularity. A particularly notorious example is 
+
+\begin{equation}
+    f(z) = e^z.
+\end{equation}
+
+To analyse the function's behaviour at \(z = \infty\), consider the function \(f(1/\xi )\) at \(\xi =0\)
+
+\begin{equation}
+    f\left( \frac{1}{\xi }  \right) = e^{1/\xi } = \sum_{n=0}^{\infty} \frac{1}{\xi ^{n} n! }.  
+\end{equation}
+
+We have \(\xi =0\) as a pole with infinite order thus \(z = 0\) is an essential singularity.
+
+\subsection{Non-isolated Singularities}
+
+For the function 
+
+\begin{equation}
+    f(z) = \frac{1}{\sin (1 /z)}, 
+\end{equation}
+
+we have poles at \(z = 1/n \pi \) of order 1. However, at \(z = 0\) the poles accumulate together so we call the singularity at \(z = 0\) a non-isolated one.
+
+Another example of a non-isolated singularity is the fucntion 
+
+\begin{equation}
+    f(z) = \tan z 
+\end{equation}
+
+at \(z = \infty\). This is because the function 
+
+\begin{equation}
+    f\left( \frac{1}{\xi }  \right) = \tan \left( \frac{1}{\xi }  \right) = \sum_{n=0}^{\infty} a_{2n-1} \xi ^{1-2n},  
+\end{equation}
+
+which has a pole of infinite order at \(\xi = 0\). 
+
+\example{Singularities.}
+{Find the singularities of the functions 
+
+\begin{equation}
+    f(z) = \tanh z.
+\end{equation}
+~
+}
+{We rewrite the function as 
+
+\begin{equation}
+    f(z) = \tanh z = \frac{e^{z}-e^{-z}  }{e^{z}+e^{-z}  }. 
+\end{equation}
+
+Therefore \(f(z)\) has a singularity when
+
+\begin{equation}
+    e^{z} = - e^{-z} = e^{i(2n+1)\pi -z} \implies z = \left( n+\frac{1}{2}  \right) \pi i.   
+\end{equation}
+
+
+
+} 
+
+
+\section{Branch Points, Branch Cuts, Principal Branch and Riemann Surface}
+
+\subsection{Branch Points, Branch Cuts and Principal Branch}
+
+In the definition of an analytic function, one of the conditions imposed was that the function is sinlge-valued. Nevertheless, it happens that the properties of analytic functions can still be applied to multi-valued functions provided that suitable care is taken. 
+
+\subsubsection{Branch Points}
+
+Consider the root of a complex vector
+
+\begin{equation}
+    f(z) = z^{1/2} = r^{1 /2} e^{i \theta /2}.
+\end{equation}
+
+It is clear that as the point \(z\) traverses any closed contour \(C\) that does not enclose the origin, \(\theta \) will return to its original value after one complete circuit. However, for any closed contour \(C'\) that does enclose the origin, after one circuit we have 
+
+\begin{equation}
+    \theta \to \theta +2\pi \implies f(z) \to -f(z).
+\end{equation}
+
+We call \(z = 0\) the branch point \(f(z)\) with order 1, since the function return to its original value after 2 loops (which is the minimum number of loops).
+
+Further, infinity is also a second order branch point for \(f(z) = z^{1 /2} \), as \(\xi =0\) is a branch point of \(f(\xi ) = \xi ^{- 1/2} \), by the same argument as above.  
+
+Now consider the logarithm of a complex vector
+
+\begin{equation}
+    f(z) = \ln z = \ln r + i \theta .
+\end{equation}
+
+With the same arguements as above, \(z = 0 \text { and } \infty\) are branch points of the function. They have \(\infty\) order, since the function would not return to its original value no matter how many loop one transverse. In general, the function \(\ln (G(z))\) has branch points at \(G(z) = 0 \text { or } \infty\) with \(\infty\) order.   
+
+\subsubsection{Branch Cuts}
+
+In order that \(f(z)\) may be treated as single-valued, recovering the traditional notion of a function, we may define a branch cut, which is a curve in the complex plane that serves as an articficial barrier that we must not cross, preventing one from making a complete circuit around any branch point. 
+
+For the both of the functions above \(f(z) = z^{1/2} \text { or } \ln z\), the branch cut can be any curve starting at the origin \(z = 0\) and extending out to \(\abs{z} = \infty \) in any direction, restricting \(\theta \) to lie in the range \(0 \le \theta <2\pi \).
+
+\subsubsection{Principal Branch}
+
+A branch is a single-valued choice of the multi-valued function on the complex plane with the branch cut. The principal branch is the standard and most commonly used branch. For both the functions \(f(z) = z^{1 /2} \text { and }  f(z) = \ln z \), the principal branch is obtained by cutting along the negative \(x\)-axis, and taking the argument as \(\arg (z) \in (-\pi ,\pi )\).   
+
+\subsubsection{Riemann Surfaces}
+
+Alternatively we can also introduce a Riemann surface. For examples, the Riemann surface of \(f(z) = z^{1 /2} \) is shown in \cref{sqrtz} and that of \(f(z) = \ln z\) is shown in \cref{logz}.
+
+For the complex logarithm, we cut the complex plane along \(x > 0\) and glue the \(y > 0\) edge of one copy to the \(y <0\) edge of another copy. On the first sheet we have \(0 \le \theta \le 2\pi \), and on the second sheet we have \(2\pi \le \theta \le 4\pi \) \textit{etc.} 
+
+For the square root function, we start off the same way but after that we take the \(y<0\) edge of the second copy and glue it back onto the \(y >0\) edge of the first one. For the general \(f(z) = z^{ 1/n} \), we stack \(n\) copies of the complex plane before wrapping the last one onto the first one.   
+
+\twofig{logz}{width=\textwidth}{sqrtz}{width=\textwidth}{logsqrtz} 
+
+\example{Branch Points, Branch Cuts and Riemann Surfaces (1).}
+{Find the location and order of the branch points of the function
+
+\begin{equation}
+    f(z) = \sqrt{z^2+1}, 
+\end{equation}
+
+and hence sketch suitable arrangements of branch cuts and describe the Riemann surfaces.}
+{We begin by writing \(f(z)\) as 
+
+\begin{equation}
+    f(z) = \sqrt{z^2+1} = \sqrt{(z+i)(z-i)}.  
+\end{equation}
+
+We expect \(f(z)\) to have branch points at values of \(z\) that make the expression under the square root equal to zero, \textit{i.e.,} at \(z = i \text { and } z = -i\), and they are first order branch points.
+
+If we let 
+
+\begin{equation}
+    z - i  = r_1 e^{i \theta _{1} } ~\text { and }~ z+i = r_2 e^{i \theta _{2} } \implies f(z) = \sqrt{r_1 r_2 } e^{i(\theta _{1}+\theta _{2}  ) /2},     
+\end{equation}
+
+then we have the four cases: If \(C\) encloses
+
+\begin{enumerate}
+    \item neither branch points, then \(\theta _{1} \to \theta _{1} \text { and } \theta _{2}\to \theta _{2}    \) and so \(f(z) \to f(z)\);
+    \item \(z = i\) but not \(z = -i\), then \(\theta _{1} \to \theta _{1}+2\pi   \text { and } \theta _{2} \to \theta _{2}  \) and so \(f(z) \to -f(z)\);
+    \item \(z = -i\) but not \(z = i\), then \(\theta _{1} \to \theta _{1} \text { and } \theta _{2} \to \theta _{2} + 2\pi     \) and so \(f(z) \to -f(z)\); 
+    \item both branch points, then \(\theta _{1} \to \theta _{1} + 2\pi   \text { and } \theta _{2} \to \theta _{2} + 2\pi   \) and so \(f(z) \to f(z)\).
+\end{enumerate}
+
+From this the suitable cuts are shown in \cref{cut1}.
+
+The Riemann surface 
+
+Note that infinity is not a branch point, since at \(z \gg 1\), we have \(f(z) \approx z = \abs{z}e^{i \theta }  \), which does not flips the sign of \(f(z)\) as \(\theta  \to \theta + 2\pi \). 
+
+Alternatively, we can see this by consider \(f(1 /\xi )= \sqrt{1+\xi ^2} /\xi  \), which does not have \(\xi = 0\) as one of its branch points. 
+} 
+
+\onefig{cut1}{scale=0.3} 
+
+\example{Branch Points, Branch Cuts and Riemann Surface (2).}
+{Find the location and order of the branch points of the function 
+
+\begin{equation}
+    w = (z-1)^{1 /3}
+\end{equation}
+
+and describe a branch cut. 
+
+Describe a Riemann surface for this function and determine the image of each Riemann sheet in the \(w\) plane.
+}
+{\(z = 1 \text { and } \infty\) are second order branch points. A branch cut is a ray from \(z = 1\) to \(z = \infty\).
+
+The Riemann surface consists of three sheets \(R_0 ,R_1 ,R_2 \) each cut along the chosen branch cut above, where the upper edge cut in \(R_2 \) is joined back to the lower edge cut in \(R_0\).
+
+On sheet \(k\), we have 
+
+\begin{equation}
+    z-1 = re^{i \theta }, \quad \theta \in (2\pi k, 2\pi (k+1)), 
+\end{equation}
+
+so after the mapping we have
+
+\begin{equation}
+    w = (z-1)^{1 /3} = r^{1/3} e^{i \theta /3} \implies \arg (w) = \theta /3 \in \left( \frac{2\pi k}{3}, \frac{2\pi (k+1)}{3}   \right).
+\end{equation}
+
+Therefore \(R_0 \) gets mapped to \(0 < \arg (w) < 2\pi /3\), \(R_1 \) gets mapped to \(2\pi /3 < \arg (w) < 4\pi /3\) and \(R_2 \) gets mapped to \(4\pi /3 < \arg (w) < 2\pi \).      
+
+In this way the full Riemann surface \(z\) covers the entire \(w\) plane exactly once through \(w(z)\), making the cube root a single-valued function.
+}
+
+\example{Branch Points and Principal Branch.}
+{Show that the inverse sine function is given by 
+
+\begin{equation}
+    f(z) = \sin ^{-1} (z) = -i \ln (iz + \sqrt{1-z^2}). 
+\end{equation}
+
+Give the location and order of the branch points of this function.
+
+Consider the branch of \(f(z)\) with the branch cut from -1 to \(-\infty\) and from \(+1\) to \(+\infty\). Taking the principal branch of the logarithm and the square root, determine the value of \(f(z)\) at the point \(z = 3\).       
+}
+{We have
+
+\begin{equation}
+    z = \sin w = \frac{e^{iw}-e^{-iw}  }{2i} \implies e^{iw} = iz \pm \sqrt{1-z^2} \implies \sin ^{-1} z = w = -i \ln (iz + \sqrt{1-z^2} ). \label{sin}  
+\end{equation}
+
+Note that we have neglected the \(\pm \) sign in the final expression. This is because the \(\pm \) sign is in fact comes from the multivaluedness of the square root function and by choosing the principal branch we only care about the plus sign. 
+
+This is why we say \(\sqrt{4} =2 \) but solving \(x^2=4\) gives \(x = \pm 2\). Similarly, by choosing the principal branch the \(\sin ^{-1} (z)\) function is single-valued, however if we are told to solve the equation \(\sin z = a\) we would need to say \(z = \sin ^{-1} (a) + 2\pi n \text { or } \pi -\sin ^{-1} (a) + 2\pi n\).   
+
+The branch point of this function is \(z = \pm 1\) due to the square root, and they are first order. Note that \(z = \infty\) is not a branch point of \(f(z)\) since \(\xi = 0\) is not a branch point of \(f(1 /\xi )\).
+
+Taking the principal branch we have 
+
+\begin{equation}
+    f(3) = -i \ln (3i +2\sqrt{2}i ) = -i \ln i - i \ln (3+2\sqrt{2} ) = \frac{\pi }{2} - i \ln (3+2 \sqrt{2} ). 
+\end{equation}
+~
+} 
+
+
+
+\section{Integration}
+
+\subsection{Cauchy's Theorem}
+
+Since the complex plane is two-dimensional we can talk about the contour integral 
+
+\begin{equation}
+    \int_{C}^{} f(z) dz = \int_{C}^{} (u+iv)(dx+idy) = \int_{C}^{} (udx-vdy) + i\int_{C}^{} (vdx+udy).   
+\end{equation}
+
+The Cauchy's theorem states that if \(f(z)\) is an analytic function in a region \(R\) enclosed by a contour \(C\), then 
+
+\begin{equation}
+    \oint_{C} f(z)dz = 0. \label{cau} 
+\end{equation}
+
+This is because using the Stokes' theorem we have 
+
+\begin{equation}
+    \oint_{C}f(z) dz = \oint_{C} (udx-vdy) + i \oint_{C} (vdx+udy) = \int_{S}^{} \left( -\frac{\partial u}{\partial y} - \frac{\partial v}{\partial x}  \right) dxdy + i \int_{S}^{} \left( -\frac{\partial v}{\partial y} + \frac{\partial u}{\partial x}   \right)  dxdy = 0,
+\end{equation}
+
+according to the Cauchy-Riemann conditions.
+
+By the usual argument in vector calculus since the loop integral vanishes the path integral is path independent, \textit{i.e.,} 
+
+\begin{equation}
+    \int_{C}^{} f(z)dz = \int_{C'}^{} f(z)dz.  
+\end{equation}
+
+
+
+\example{Fourier Transform of the Gaussian.}
+{Evaluate the integral
+
+\begin{equation}
+    \int_{-\infty}^{+\infty} e^{-x^2} \cos (2kx)dx.   
+\end{equation}
+~
+}
+{The integral can be rewritten as a complex integral by 
+
+\begin{equation}
+    \int_{-\infty}^{+\infty} e^{-x^2} \cos (2kx)dx = \mathfrak{Re} \left( \int_{-\infty}^{+\infty} e^{-x^2} e^{-2ikx}     \right). 
+\end{equation}
+
+Normally we would take a change of variables \(u=x+ik\) and wave our hands into doing the integral on the real line. 
+
+To do this formally we consider the contour shown in \cref{handwave}. The integral around the contour is zero since the function is analytic, so we have
+
+\begin{equation}
+    \oint_{\Gamma } e^{-z^2} dz = \int_{-R}^{R} e^{-x^2}dx + \int_{0}^{k} e^{-(R+iy)^2}dy + \int_{R}^{-R} e^{-(x+ik)^2} dx + \int_{k}^{0} e^{-(-R+iy)^2} dy.          
+\end{equation}
+
+When \(R \to \infty\) we get rid of the integrals associated to paths \(\ell _{-} \text { and } \ell _{+}  \). Flipping the order of integration in the third integral gives 
+
+\begin{equation}
+    \int_{-\infty}^{+\infty} e^{-(x+ik)^2} dx  = \int_{-\infty}^{+\infty} e^{-x^2}dx = \sqrt{\pi }.      
+\end{equation}
+
+Taking the real part we find the integral desired to be 
+
+\begin{equation}
+    \int_{-\infty}^{+\infty} e^{-x^2} \cos (2kx)dx = e^{-k^2}\sqrt{\pi }. 
+\end{equation}
+~
+} 
+
+\onefig{handwave}{scale=0.3} 
+
+\example{Fresnel's Integrals.}
+{Consider the intagral of the function \(f(z) = e^{iz^2} \) round the closed path \(\Gamma \) in the complex \(z\) plane given in \cref{fres} 
+
+\begin{equation}
+    \oint_{\Gamma } e^{iz^2}dz.  
+\end{equation}
+
+Evaluate this integral for arbitrary \(R > 0\).
+
+Consider the third line segement \(\Gamma _{3} \), joining the points \(z = Re^{i \pi /4} \text { and } z = 0\). Evaluate this integral for \(R \to \infty\).
+
+Consider the second line segement \(\Gamma _{2} \), along the circular arc between the points \(z = R \text { and } z = Re^{i \pi /4} \). Show that this integral vanishes for \(R \to \infty\).
+
+Use the results to comupute the Fresnel's integrals
+
+\begin{equation}
+    \int_{0}^{\infty} \cos (x^2)dx ~\text { and }~ \int_{0}^{\infty} \sin (x^2)dx.    
+\end{equation}
+~
+}
+{Since \(f(z)\) is entire, \textit{i.e.,} analytic everywhere, so from Cauchy's Theorem we have
+
+\begin{equation}
+    \oint_{\Gamma } e^{iz^2} = 0.  
+\end{equation}
+
+We parameterize \(\Gamma _{3} \) by \(z = re^{i \pi /4} \), then the integral becomes 
+
+\begin{equation}
+    \int_{\Gamma _{3} }  e^{i z^2}dz = \int_{0}^{R} e^{i r^2 e^{i \pi /2} } (e^{i \pi /4}dr ) = e^{i \pi /4} \int_{0}^{\infty} e^{-r^2}dr = e^{i \pi /4} \frac{\sqrt{\pi } }{2}.  
+\end{equation}
+
+We parameterize \(\Gamma _{2} \) by \(z = Re^{i \theta } \), then
+
+\begin{equation}
+    \abs{e^{iz^2} } = \abs{e^{i R^2 (\cos 2\theta + i \sin 2\theta )} } = e^{-R^2\sin 2\theta }  \implies \text{max}(\abs{f(z)})= e^{-R^2}.  
+\end{equation}
+
+Using the ML inequality we have 
+
+\begin{equation}
+    \abs{\int_{\Gamma _{2} }^{} e^{i z^2}dz } \le (\text{max} (\abs{f(z)} ))  (\text{length of } \Gamma _{2} ) = e^{-R^2} \left( \frac{\pi R}{4}  \right).
+\end{equation}
+
+As \(R \to \infty\), we get the integral to be zero as desired since the exponential term \(e^{-R^2} \) grows faster than the counteracting \(R\).
+
+From above we conclude that 
+
+\begin{equation}
+    \begin{aligned} 
+    \oint_{\Gamma }e^{i z^2}dz &= \int_{\Gamma _{1} }^{} e^{i z^2} dz + \int_{\Gamma _{2} }^{} e^{i z^2}dz + \int_{\Gamma _{3} }^{}   e^{i z^2}dz = 0 \\
+    \int_{0}^{\infty} e^{i x^2}dx &= e^{i \pi /4} \frac{\sqrt{\pi } }{2}.
+    \end{aligned}       
+\end{equation}
+
+Taking the real and imaginary part we have
+
+\begin{equation}
+    \int_{0}^{\infty} \cos (x^2)dx = \frac{\sqrt{2\pi } }{4} = \int_{0}^{\infty} \sin (x^2)dx.     
+\end{equation}
+~
+} 
+
+\onefig{fres}{scale=0.3} 
+
+
+\subsection{Cauchy's Integral Formula}\todo{Poisson's integral formula} 
+
+In the previous subsection we consider the loop integral of \(f(z)\) alone (\cref{cau}). Now consider the integral of \(f(z) /z-a\) around a circle centered at \(a\) with radius \(R\) 
+
+\begin{equation}
+    \oint_{C} \frac{f(z)}{z-a}dz = \oint_{C} \frac{f(a+Re^{i \theta } )}{R e^{i \theta } } i Re^{i \theta } d \theta = i \oint_{C} f(a + Re^{i \theta } ) d \theta ,
+\end{equation}
+
+which is analytic everywhere in the contour \(C\) except at \(z = a\). 
+
+By the reasoning from the previous section \(R\) can take any value we want. Taking the limit as \(\epsilon \to 0\) yields 
+
+\begin{equation}
+   f(a) = \frac{1}{2\pi } \oint_{C} f(a+Re^{i \theta } ) d \theta = \frac{1}{2\pi i}  \oint_{C} \frac{f(z)}{z-a} dz .  \label{cau2} 
+\end{equation}
+
+The former equality is known as the Gaussian mean-value theorem and the latter is known as the Cauchy's integral formula. The first theorem states that the average of an analytic function over a circle is equals to its value at the center. The later formula states that we can know the value of any point of a function as long as we have know the value of the function at the contour, which is any circle centered at the point at interest.
+
+Since the real part of any analytic function is harmonic, taking the real part of the Gaussian mean-value theorem we have that the average of any harmonic function over a circle is equals to its value at the center, coinciding with our understanding of the solution to the Laplace's equation.
+
+Further we can determine the value of any derivative of \(f\) from 
+
+\begin{equation}
+    f^{(n)}(a) = \frac{n!}{2\pi i} \oint_{C} \frac{f(z)}{(z-a)^{n+1} } dz. 
+\end{equation}
+
+The taylor expansion around \(a\) is therefore 
+
+\begin{equation}
+    \begin{aligned}
+        f(a+\epsilon) &= \frac{1}{2\pi i}\oint_C \frac{f(z)}{z - a - \epsilon}\,dz = \frac{1}{2\pi i}\oint_C \frac{f(z)}{(z - a)\bigl(1 - \frac{\epsilon}{z-a}\bigr)}\,dz \\
+&= \frac{1}{2\pi i}\oint_C \frac{f(z)}{z - a} = \sum_{n=0}^{\infty} \frac{\epsilon^n}{(z - a)^n}\,dz = \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}\,\epsilon^n.
+    \end{aligned}
+\end{equation}
+
+\example{Liouville's Theorem}
+{Show that every bounded entire function must be constant.}
+{From the Cauchy;s formula we have 
+
+\begin{equation}
+    f'(z_0 ) = \frac{1}{2\pi i} \oint_{\gamma _{R} } \frac{f(z)}{(z-a)^2} dz,   
+\end{equation}
+
+where \(\gamma _{R} \) is a circle centered at \(z = a\) with radius \(R\).
+
+Applying the ML inequality we have 
+
+\begin{equation}
+    \abs{f'(z_0 )} \le (\max (\abs{f(z)} )) (\text{length of } \gamma _{R} ) = \frac{1}{2\pi } MR^{-2} (2\pi R) = \frac{M}{R}.   
+\end{equation}
+
+As \(R \to \infty\), \(f'(z_0 ) \to 0\), therefore \(f(z) = 0\) since \(z_0 \) is arbitrary.   
+} 
+
+\example{Gassian Mean-Value Theorem.}
+{Evaluate the follwoing integrals
+
+\begin{equation}
+    I_1 = \int_{0}^{2\pi } \cos (\cos \theta ) \cosh (\sin \theta ) d \theta ~\text { and }~ I_2 = \int_{0}^{2\pi } \sin (\cos \theta ) \sinh (\sin \theta ) d \theta .   
+\end{equation}
+~
+}
+{First we notice that 
+
+\begin{equation}
+    I_1 + iI_2 = \int_{0}^{2\pi } \cos (\cos \theta + i \sin \theta ) d \theta = \int_{0}^{2\pi } \cos (e^{i \theta } ) d \theta .    
+\end{equation}
+
+To evaluate the last integral we have 
+
+\begin{equation}
+    \int_{0}^{2\pi } \cos (e^{i \theta } ) d \theta = \frac{1}{2} \int_{0}^{2\pi } \sum_{n=0}^{\infty} \frac{i ^{n} e^{i n \theta } + (-i)^{n} e^{i n \theta }}{n!} = \frac{1}{2} (1+1) (2\pi ) = 2\pi ,     
+\end{equation}
+
+where we have used the well known 
+
+\begin{equation}
+    \int_{0}^{2\pi } e^{in \theta } = 2\pi \delta _{n,0}.   
+\end{equation}
+
+Taking the real and imaginary part we conclude that \(I_1 = 2\pi \text { and } I_2 = 0\).
+
+Alternatively, we can evaluate the integral directly using the Gaussian mean-value theorem
+
+\begin{equation}
+    \cos (0) = \frac{1}{2\pi i} \oint_{C} \frac{\cos z}{z}dz = \frac{1}{2\pi } \int_{0}^{2\pi } \cos (e^{i \theta } ) d \theta = 1,
+\end{equation}
+
+and get the same result from here on out.
+} 
+
+
+
+\subsection{Laurent Expansion}
+
+Taylor expansion still works in the complex plane and we can expand the function about any point, but it would only converge inside the circular disc with radius smaller than the radius of convergence (the distance from the point of expansion to the nearest pole). Outside this disc we would need the Laurent expansion.
+
+For a function \(f(z)\) which has a pole of order \(p \) at \(z = a\), we known from \cref{lim} that \((z-a)^{p} f(z) \) is analytic at \(z  = a\) and we can Taylor expand around this pole to get
+
+\begin{equation}
+    (z-a)^{p} f(z) =  \sum_{n=0}^{\infty} b_{n} (z-a)^{n} \implies f(z) = \sum_{n=-p}^{\infty} a_{n} (z-a)^{n}.   
+\end{equation}
+
+This expansion which contains negative power of \(z-a\) is called the Laurent expansion. This part of the series which only contains negative power of \(z-a\) is called the principal part. We also note that the residue of the function is given by the coefficient \(\text{Res}(f,a) = a_{-1} \). 
+
+\example{Laurent Expansion about a Pole.}
+{Find the Laurent expansion of the fucntion 
+
+\begin{equation}
+    f(z) = \frac{(z+1)^2}{(z-1)^2} 
+\end{equation}
+
+about the pole \(z = 1\). 
+}
+{To obtain the Laurent expansion about the pole at \(z = 1\) we rewrite the function \(f(z)\) in terms of the variable \(z-1\)  
+
+\begin{equation}
+    f(z) = \frac{(z+1)^2}{(z-1)^2} = \frac{(z-1+2)^2}{(z-1)^2} = \frac{(z-1)^2+2(z-1)(2)+2^2}{(z-1)^2} = \frac{4}{(z-1)^2} + \frac{4}{z-1} + 1.
+\end{equation}
+} 
+
+\example{Laurent Expansion about the Origin.}
+{Find the Laurent expansion for the function
+
+\begin{equation}
+    f(z) = \frac{1}{(z+1)(z+3)} 
+\end{equation}
+
+\begin{enumerate}
+    \item about the origin in the disk \(\abs{z} < 1 \);
+    \item about the origin in the annulus \(1  < \abs{z} <3\);
+    \item about the origin in the region \(\abs{z} > 3\);
+    \item about the pole \(z = -1\) and give its region of convergence.
+\end{enumerate}
+~
+}
+{First it is easiest to begin with the partial fraction decomposition
+
+\begin{equation}
+    f(z) = \frac{1}{(z+1)(z+3)} = \frac{1}{2} \frac{1}{z+1} - \frac{1}{2} \frac{1}{z+3}.    
+\end{equation}
+
+\begin{enumerate}
+    \item For \(\abs{z} <1 \), the Laurent series is the usual Taylor series 
+
+    \begin{equation}
+        f(z) = \frac{1}{2} \sum_{n=0}^{\infty} (-1)^{n} z^{n} -\frac{1}{2}  \sum_{n=0}^{\infty} (-1)^{n} \frac{z^{n} }{3^{n+1} } = \frac{1}{2} \sum_{n=0}^{\infty} (-1)^{n} (1-3^{-(n+1)} ) z^{n} .  
+    \end{equation}
+
+    \item For \(1 < \abs{z} < 3\), the Laurent series is found by expanding the first fraction in negative powers and the second fraction as usual
+    
+    \begin{equation}
+        f(z) = \frac{1}{2z} \frac{1}{1+1 /z} - \frac{1}{2} \frac{1}{z+3} = \frac{1}{2} \sum_{n=0}^{\infty} (-1)^{n} z^{-(n+1)} - \frac{1}{2} \sum_{n=0}^{\infty} (-1)^{n} \frac{z^{n} }{3^{n+1} }.         
+    \end{equation}
+
+    \item For \(\abs{z} > 3\), we expand both fractions in negative powers
+    
+    \begin{equation}
+        \begin{aligned} 
+        f(z) &= \frac{1}{2z} \frac{1}{1+1 /z} - \frac{1}{2z} \frac{1}{1+3 /z} \\
+        &= \frac{1}{2} \sum_{n=0}^{\infty} (-1)^{n}z^{-(n+1)} - \frac{1}{2} \sum_{n=0}^{\infty} (-1)^{n} 3^{n} z^{-(n+1)} \\
+        &= \frac{1}{2} \sum_{n=0}^{\infty} (-1)^{n} (1-3^{n} ) z^{-(n+1)}.
+        \end{aligned}             
+    \end{equation}
+    
+    \item About the pole \(z = -1\) we let \(w = z+1\) and get 
+    
+    \begin{equation}
+        f(z) = \frac{1}{w(w+2)} = \frac{1}{2w} \sum_{n=0}^{\infty} (-1)^{n} \left(\frac{w}{2} \right)^{n} = \sum_{n=0}^{\infty} (-1)^{n} \frac{(z+1)^{n-1} }{2^{n+1} }.      
+    \end{equation}
+
+    The radius of convergence is \(0 < \abs{z+1} <2 \). 
+\end{enumerate}
+~
+} 
+
+\example{Laurent Expansion about an Essential Singularity.}
+{Determine the Laurent Expansion of the function 
+
+\begin{equation}
+    f(z) = (z-3) \sin \left( \frac{1}{z+2}  \right)
+\end{equation}
+
+about the point \(z=-2\).
+}
+{We let \(z w = z+2\) and rewrite the function as 
+
+\begin{equation}
+    \begin{aligned} 
+    f(z) &=  (w-5) \sin \left( \frac{1}{w}  \right) = (w-5)  \sum_{n=0}^{\infty} (-1)^{n} \frac{1}{(2n+1)!}w^{-(2n+1)}\\
+    & = \sum_{n=0}^{\infty} (-1)^{n} \frac{(z+2)^{-2n} - 5(z+2)^{-(2n+1)}  }{(2n+1)!}.      
+    \end{aligned} 
+\end{equation}
+
+As we see there can be a Laurent expansion about an essential singularity, but not for non-isolated singularity.
+~
+} 
+
+\subsection{Cauchy's Residue Theorem}
+
+Consider the following integral
+
+\begin{equation}
+    \oint_{C} (z-a)^{n} dz, 
+\end{equation}
+
+where \(C\) is a circle centered at \(z = a\) with an infinitesimal radius \(z = a+\epsilon e^{i \theta } \). We then have
+
+\begin{equation}
+    \oint_{C} (z-a)^{n} dz = i \int_{0}^{2\pi } \epsilon ^{n+1} e^{i(n+1)\theta } d \theta = \begin{cases}
+        0,& n \neq -1,\\
+        2\pi i,& n = -1.
+    \end{cases}
+\end{equation}
+
+We can now use this fact to calculate such integral for an \(f(z)\) which has a Laurent expansion
+
+\begin{equation}
+    \oint_{C} f(z)dz = \sum_{n=-p}^{\infty} a_{n} \oint_{C} (z-a)^{n} dz = 2\pi i a_{-1}.
+\end{equation}
+
+In other words, the contour integral for a function \(f(z)\) around a loop that contains a pole is simply given by the residue of the pole (upto a factor of \(2\pi i\)). This is known as the Cauchy Residue Theorem.
+
+If the contour encloses \(N\) poles at \(z = w_{k} \) then we have the general
+
+\begin{equation}
+    \oint_{C} f(z)dz = 2\pi i \sum_{k=1}^{N} \text{Res}(f,w_{k} ). 
+\end{equation}
+
+\example{Cauchy's Residue Theorem(1).}
+{Evaluate the integral 
+
+\begin{equation}
+    \oint_{C} \frac{z+1}{z(z^2+1)}dz,
+\end{equation}
+
+where \(C\) is the circle centered at \(z = 0\) with radius \(2\). 
+}
+{We see that the integrand has 3 poles at \(z_0 =0 \text { and } \pm i\). To find the residues of each of these poles we use partial fraction to rewrite the integrand as 
+
+\begin{equation}
+    \frac{z+1}{z(z^2+1)} = \frac{1}{2} (z+1)\left( \frac{2}{z} - \frac{1}{z+i} - \frac{1}{z-i}    \right)
+\end{equation}
+
+and directly read off the residues using \cref{lim} as \(1,-(1+i)/2 \text { and } -(1-i) /2\), respectively.
+
+Alternatively, we can find the residues in a more general way by considering the Laurent expansion at each poles. For example, for \(z= 0\) we have 
+
+\begin{equation}
+    \frac{z+1}{z(z^2+1)} =  
+\end{equation}
+
+
+Applying the Cauchy's residue theorem we have that 
+
+\begin{equation}
+    \oint_{C} \frac{z+1}{z(z^2+1)}dz = 2\pi i\left( 1 - \frac{1+i}{2} - \frac{1-i}{2}   \right) = 0.
+\end{equation}
+~
+}
+
+\subsection{Integrations Around Branch Cuts.}
+
+In the previous subsection we have seen how to integrate around a pole using the Cauchy's residue theorem. In this subsection we will try and integrate around branch cuts, where the function fails to be analytic.
+
+Consider 
+
+
+
+
+
+
+
+
+
+
+
+\section{Temperory}
+
+The sterographic projection is when we map each point on a sphere with radius \(1\) centered at \((0,0,1)\) onto a complex number, where the a line strating from the north pole at \((0,0,2)\) and ending at complex number intersect the sphere exactly once. By this mapping any point at infinity on the plane will be identified with the north pole. The sphere is called the Riemann sphere and is shown in \cref{sphere}.
+
+\onefig{sphere}{scale=0.3} 
+
+If \((x,y,z)\) are the coordinates on the sphere and \((X,Y)\) are coordinates on the plane we have the mapping 
+
+\begin{equation}
+    (X,Y) = \left(\frac{2x}{2-z}, \frac{2y}{2-z}  \right) ~\text { and }~ (x,y,z) = \left( \frac{4X}{4+X^2+Y^2},\frac{4Y}{4+X^2+Y^2}, \frac{2(X^2+Y^2)}{4+X^2+Y^2}    \right).
+\end{equation}
+
 
 
 
@@ -386,7 +1507,51 @@ The conditional distribution \(\rho _{x} (x)\) given \(y = y_0 \) is obtained by
 \end{enumerate}~
 } 
 
+\example{Relations Between Variables.}
+{\(X\) has the probability distribution function
 
+\begin{equation}
+    f_{X}(x) = \frac{1}{2}e^{- \abs{x} }.
+\end{equation}
+
+Find the culmulative distribution function and probability distribution function for \(Y = X^2\), \textit{i.e.,} \(F_{Y}(y) \text { and } f_{Y}(y) \).  
+}
+{For the culmulative distribution function, since \(Y \ge 0\), \(P(Y \le 0) = 0\), so \(F_{Y}(y) = 0 \) for \(y \le 0\). For \(y \ge 0\),
+
+\begin{equation}
+    F_{Y}(y) = P(Y \le y) = P(-\sqrt{y} \le X \le \sqrt{y}  ) = \int_{-\sqrt{y} }^{\sqrt{y} } \frac{1}{2} e^{- \abs{x} }dx = 1-e^{-\sqrt{y} }. 
+\end{equation}
+
+For the probability distribution function, we simply take the derivative
+
+\begin{equation}
+    f_{Y}(y) = \frac{d}{dy} (1-e^{-\sqrt{y} } ) = \frac{e^{-\sqrt{y} } }{2\sqrt{y} }.  
+\end{equation}
+
+This is for \(y \ge 0\), and for \(y \le 0\) it is still zero.  
+} 
+
+
+\example{Marginal Probability Density Functions.}
+{A two dimensional joint probability density function is given by 
+
+\begin{equation}
+    f_{XY}(x,y) = \begin{cases}
+        6xy,& 0 \le x \le 1, 0 \le y \le \sqrt{x}, \\
+        0,& \text{otherwise} .
+    \end{cases}
+\end{equation}
+
+Find the marginal probability density functions, \(f_{X}(x) \text { and } f_{Y}(y)  \).
+}
+{The marginal probabilty density functions are 
+
+\begin{equation}
+    f_{X}(x) = \int_{0}^{\sqrt{x} } 6xy dy = 3x^2 ~\text { and }~ f_{Y}(y) = \int_{y^2}^{1} 6xy dx = 3y(1-y^4).      
+\end{equation}
+
+Note that to find \(f_{X}(x) \), we are focusing on a particular value of \(x\), and we sum up all the \(6xy \times dy\). The same holds for \(f_{Y}(y) \).    
+} 
 
 
 

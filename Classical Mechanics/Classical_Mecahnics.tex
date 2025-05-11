@@ -104,7 +104,7 @@ There are a few systems we can consider:
 Firstly, we consider the infinitesimal element that comes to stop after hitting the scale. Having expereinces from previous examples, we see that this is the most natural choice as this is what the normal reaction is actually acting on and the normal reaction is dedicated entirely and only to stop this element of the chain from penetrating the scale. The Newton's second law reads
 
 \begin{equation}
-	N - gdm = dma \implies N = \frac{mdx}{L}\frac{\frac{dx}{dt} }{dt} = \frac{m}{L}\left( \frac{dx}{dt}  \right)^2 = 2\left( \frac{l-x}{l}  \right)mg. 
+	N - gdm = dma \implies N = \frac{mdx}{L}\frac{dx /dt }{dt} = \frac{m}{L}\left( \frac{dx}{dt}  \right)^2 = 2\left( \frac{l-x}{l}  \right)mg. 
 \end{equation}
 
 Adding \(N\) with \(((l-x) /l) mg\), which is the contribution of the stationary chain to the reading of the scale gives \(N_{\text{tot} } = 3 \left( (l-x) /l \right)mg\).   
@@ -170,7 +170,7 @@ The unmodified Newton's second law therefore gives
 On the other hand, we can consider the added infinitesimal mass as a system, then we have 
 
 \begin{equation}
-	F = dm a = dm \frac{v}{t} = \frac{dm}{dt}v.   
+	F = dm a = dm \frac{v}{dt} = \frac{dm}{dt}v.   
 \end{equation}
 
 As we have found, the force \(F\) is not contributing to the usual acceleration \(\vb{a} \) of the mass \(m\) but is entirely entitiled to the acceleration of the infinitesimal mass \(dm\) from rest to velocity \(\vb{v} \).  
@@ -208,7 +208,7 @@ In retrospect, we can simply consider how much mass is accelerated from rest to 
 {The modified Newton's second law of the rocket reads
 
 \begin{equation}
-	F = 0 = \frac{mdv}{dt} + \frac{dm}{dt}v_{\text{rel} } \implies v = v_0 + v_{\text{rel} }  \ln \left( \frac{m_0 }{m }  \right).
+	F = 0 = m\frac{dv}{dt} + \frac{dm}{dt}v_{\text{rel} } \implies v = v_0 + v_{\text{rel} }  \ln \left( \frac{m_0 }{m }  \right).
 \end{equation}~
 } 
 
@@ -221,9 +221,18 @@ In retrospect, we can simply consider how much mass is accelerated from rest to 
 \end{equation}
 } 
 
+\example{Interstellar Travel.}
+{Consider a probe with mass \(m_0 \) and cross sectional surface area \(S\)  to be travelling in interstellar space with initial velocity \(u\) and enters a uniform stationary dust cloud of density \(\rho \). Assuming that all the dust in the path of the satellite sticks to the forward facing surface, obtain expressions for the spped of the satellite into the cloud at a later time \(t\). }
+{Using the modified Newton's second law, we have
+
+\begin{equation}
+	F = 0 = mdv + vdm = \frac{v}{u} m_0 dv + v (\rho vSdt) \implies v(t) = u/\sqrt{1+2\rho Sut /m_0 }.
+\end{equation}
+~
+} 
 
 
-To account for the rotational motion of an object, torque \(\boldsymbol{\tau } \) and angular momentum \(\vb{L} \)\footnote{One may question the necessity to introduce the concept of torque and angular momentum. Indeed, with Newton's second law, one can virtually solve all mechanics problems without resorting to other physical laws. However, when analyzing rigid bodies with spatial extent (in contrast to a point particle), torque becomes useful because the internal forces in these bodies are generally very complicated. In fact, \(\boldsymbol{\tau } = \frac{d \vb{L}}{dt} \) is merely an extension of Newton's second law as explained and derived \href{https://knzhou.github.io/handouts/M2Sol.pdf}{here}. With a different viewpoint, Noether's theorem dictates that since the universe is rotationally symmetric, so \(\vb{L} \) must be conserved, in some sense \(\vb{L}\) is just some useful conserved quantity that is a consequence of a certain symmetry just like how the Laplace-Runge-Lenz vector is the repercussion of some hidden symmetry in higher dimensions.} are introduced, defined by
+To account for the rotational motion of an object, torque \(\boldsymbol{\tau } \) and angular momentum \(\vb{L} \)\footnote{One may question the necessity to introduce the concept of torque and angular momentum. Indeed, with Newton's second law, one can virtually solve all mechanics problems without resorting to other physical laws. However, when analyzing rigid bodies with spatial extent (in contrast to a point particle), torque becomes useful because the internal forces in these bodies are generally very complicated. In fact, \(\boldsymbol{\tau } = d \vb{L} /dt \) is merely an extension of Newton's second law as explained and derived \href{https://knzhou.github.io/handouts/M2Sol.pdf}{here}. With a different viewpoint, Noether's theorem dictates that since the universe is rotationally symmetric, so \(\vb{L} \) must be conserved, in some sense \(\vb{L}\) is just some useful conserved quantity that is a consequence of a certain symmetry just like how the Laplace-Runge-Lenz vector is the repercussion of some hidden symmetry in higher dimensions.} are introduced, defined by
 
 \begin{equation}
 	\boldsymbol{\tau } = \vb{r} \cross \vb{F} ~\text { and }~ \vb{L} = \vb{r} \cross \vb{p} . 
@@ -256,12 +265,12 @@ so that we can say the work done by the net force is equal to the change in the 
  \end{equation} 
 
 
-If we define \(\vb{F} _{net} = \vb{F} _{con} + \vb{F} _{non-con} \) which is comprised of both conservative forces such as gravity where \(\vb{F} \propto \frac{\vu{r} }{r^2} \) as well as non-conservative forces such as friction.
+If we define \(\vb{F} _{net} = \vb{F} _{con} + \vb{F} _{non-con} \) which is comprised of both conservative forces such as gravity where \(\vb{F} \propto \vu{r} /r^2\) as well as non-conservative forces such as friction.
 
 The defining properties of conservative forces are:
 
 \begin{enumerate}
-	\item \(\oint \vb{F} \cdot d\vb{r} = 0\), or equivalently, from the Stoke's theorem,
+	\item \(\oint \vb{F} \cdot d\vb{r} = 0\), or equivalently, from the Stokes' theorem,
 
 	\item \(\curl{\vb{F} } = 0\), which both imply
 
@@ -307,13 +316,13 @@ Having laid out the rudimentary principles, we now investigate the motion of a s
 The translational equation of motion of the \(i \text{th} \) particle is 
 
 \begin{equation}
-	\vb{F} _{i} = \sum_{j}^{} \vb{F} _{j \rightarrow i} + \vb{F} _{i, ext} = \dv[2]{(m_{i} \vb{r} _{i} )}{t}     .
+	\vb{F} _{i} = \sum_{j}^{} \vb{F} _{j \rightarrow i} + \vb{F} _{i, ext} = \dv[2]{(m_{i} \vb{r} _{i} )}{dt}     .
 \end{equation}
  
 Summing over all particles,
 
 \begin{equation}
-	\sum_{i}^{} \sum_{j}^{} \vb{F} _{j \rightarrow i} + \sum_{i}^{} F_{i,ext} = F_{ext, net } =  \sum_{i}^{} \dv[2]{(m_{i} \vb{r} _{i} )}{t} = \dv[2]{t} \sum_{i}^{} m_{i} \vb{r} _{i} =  (\sum_{i}^{} m_{i} ) \ddot{\vb{R} },
+	\sum_{i}^{} \sum_{j}^{} \vb{F} _{j \rightarrow i} + \sum_{i}^{} F_{i,\text{ext.} } = F_{\text{ext.,net} } =  \sum_{i}^{} \dv[2]{(m_{i} \vb{r} _{i} )}{dt} = \dv[2]{dt} \sum_{i}^{} m_{i} \vb{r} _{i} =  (\sum_{i}^{} m_{i} ) \ddot{\vb{R} },
 \end{equation}
 
 where we have used Newton's third law, stating that \(\vb{F} _{i \rightarrow j} = -\vb{F} _{j \rightarrow i} \) and  
@@ -335,12 +344,14 @@ Now for the rotational equation of motion of the \(i \text{th} \) particle, we h
 Summing over all particles, 
 
 \begin{equation}
-	\sum_{i}^{} (\vb{r} _{i} \cross \vb{F} _{i,ext}) + \sum_{i}^{} (\vb{r} _{i} \cross \sum_{j}^{} \vb{F} _{j \rightarrow i}) = \boldsymbol{\tau }_{ext}  + \sum_{i}^{} ((\vb{r} _{i} - \vb{r} _{j} ) \cross  \vb{F} _{j \rightarrow  i } ) = \boldsymbol{\tau } _{ext} = \sum_{i}^{} \frac{dL_{i} }{dt}  = \dot{\vb{L}_{tot}}. 
+	\sum_{i}^{} (\vb{r} _{i} \cross \vb{F} _{i,\text{ext.} }) + \sum_{i}^{} (\vb{r} _{i} \cross \sum_{j}^{} \vb{F} _{j \rightarrow i}) = \boldsymbol{\tau }_{\text{ext.} }  + \sum_{i}^{} ((\vb{r} _{i} - \vb{r} _{j} ) \cross  \vb{F} _{j \rightarrow  i } ) = \boldsymbol{\tau } _{\text{ext.} } = \sum_{i}^{} \frac{dL_{i} }{dt}  = \dot{\vb{L=}}_{\text{tot.} } . 
 \end{equation}
 
 where we again used Newton's third law and assumed that the internal forces are central, \textit{i.e.,} the force between two particles act on the line connecting them.
 
-To express \(\vb{L} _{tot} \) in a more convenient form, we define \(\vb{r}'_{i} = \vb{r} _{i} - \vb{R}  \)\footnote{We will adopt this convention for the rest of this set of notes}  as shown in \cref{riprime}  \onefig{riprime}{scale=0.3}, thus \(\vb{p} _{i} = m_{i}\dot{\vb{r} '_{i} }  + m_{i} \dot{\vb{R} }  \) and the total angular momentum becomes 
+To express \(\vb{L} _{tot} \) in a more convenient form, we define \(\vb{r}'_{i} = \vb{r} _{i} - \vb{R}  \)\footnote{We will adopt this convention for the rest of this set of notes}  as shown in \cref{riprime}, thus \(\vb{p} _{i} = m_{i}\dot{\vb{r} '_{i} }  + m_{i} \dot{\vb{R} }  \) and the total angular momentum becomes 
+
+\onefig{riprime}{scale=0.3}
 
 \begin{equation}
 	\vb{L} _{tot} = \sum_{i}^{} \vb{r} _{i} \cross \vb{p} _{i} = \sum_{i}^{}  ((\vb{r} '_{i} + \vb{R} ) \cross (m_{i}\dot{\vb{r} '_{i} }  + m_{i} \dot{\vb{R} } )) = (\sum_{i}^{} m_{i}) \vb{R} \cross \dot{\vb{R} } + \sum_{i}^{} m_{i} (\vb{r} '_{i} \cross \dot{\vb{r} '_{i} } )  \label{L1}   
@@ -364,7 +375,7 @@ where we neglect the cross term \(\sum_{i}^{} m_{i} (\dot{\vb{r} '_{i} } \cdot \
 \newpage
 \section{Rigid Body Mechanics}
 \subsection{Prerequisites}
-If one were to choose a theorem that represents the crux of rigid body motion, one would have to pick Chasles' Theorem, which states that it is always possible to describe an arbitrary displacement of a rigid body by a translation of its center of mass plus a rotation around its center of mass (it can rotate about an arbitrary point but the center of mass is the most convenient choice). \footnote{Another way to construct any displacement is first to do a rotation and then translate parallel to the axis of rotation, we reverse the order of translation and rotation while adding a constraint on the translating direction.} \footnote{Yet another interesting and useful fact is that if the motion of the body is planer (\textit{i.e.,} the angular velocity is perpendicular to the linear velocity), then there always exists an instantaneous axis of rotation (which need not be inside the rigid body) that is parallel to the angular velocity such that any infinitesimal displacement can be constructed by rotating around this axis (This is the third way in which a displacement of a rigid body can be constructed). The proof of this fact is given \href{https://physics.stackexchange.com/q/541554}{here}. The instantaneous axis of rotation can be constructed geometrically mentioned in idea 33 of \href{https://www.ioc.ee/~kalda/ipho/kin_ENG.pdf}{this handout} by Jaan Kalda.}  The formal proof requires complex matrix algebra but a simple way to demonstrate the theorem is given in \cref{ap1}. Since the translational and the rotational motion of a rigid body are separable, so we almost always assume that the translational motion has already been accounted for. In fact, we will assume that the center of mass is at rest for the rest of this section.
+If one were to choose a theorem that represents the crux of rigid body motion, one would have to pick Chasles' Theorem, which states that it is always possible to describe an arbitrary displacement of a rigid body by a translation of its center of mass plus a rotation around its center of mass (it can rotate about an arbitrary point but the center of mass is the most convenient choice).\footnote{Another way to construct any displacement is first to do a rotation and then translate parallel to the axis of rotation, we reverse the order of translation and rotation while adding a constraint on the translating direction.}\footnote{Yet another interesting and useful fact is that if the motion of the body is planer (\textit{i.e.,} the angular velocity is perpendicular to the linear velocity), then there always exists an instantaneous axis of rotation (which need not be inside the rigid body) that is parallel to the angular velocity such that any infinitesimal displacement can be constructed by rotating around this axis (This is the third way in which a displacement of a rigid body can be constructed). The proof of this fact is given \href{https://physics.stackexchange.com/q/541554}{here}. The instantaneous axis of rotation can be constructed geometrically mentioned in idea 33 of \href{https://www.ioc.ee/~kalda/ipho/kin_ENG.pdf}{this handout} by Jaan Kalda.}  The formal proof requires complex matrix algebra but a simple way to demonstrate the theorem is given in \cref{ap1}. Since the translational and the rotational motion of a rigid body are separable, so we almost always assume that the translational motion has already been accounted for. In fact, we will assume that the center of mass is at rest for the rest of this section.
 
 If one were to pick a second theorem, then it would be Euler's Theorem, which states that any displacement of a rigid body such that a point on the rigid body remains fixed is equivalent to a single rotation about some axis that runs through the fixed point. Since the center of mass is always fixed as established above, it tells us that rotation about the center of mass means that all points on the rigid body undergo circular motion with respect to the closest point on an axis that runs through the center of mass where the direction of the axis defines the rotational motion and is in the same direction as the angular velocity which will be explored more in the next subsection. The proof of Euler's Theorem will not be given here due to its complexity.
 
@@ -377,7 +388,7 @@ Before diving into the physics of rigid body motion, some conventions of notatio
 
 	\item The instantaneous inertial frame with axes labeled \(\vu{e} _{1},\vu{e} _{2} \text{ and } \vu{e} _{3} \) is an inertial frame which its axes coincide with the body's principal axes only at time instant \(t\). This frame is not rotating with respect to the lab frame so it is equally superior. 
 	
-	\item The Euler angles that are used to transform between these two coordinate systems are rotated in the \(z-x-z\) sequence. 
+	\item The Euler angles that are used to transform between these two coordinate systems are rotated in the \(z\)-\(x\)-\(z\) sequence. 
 \end{enumerate}
 
 \subsection{Angular velocity vector}
@@ -385,7 +396,7 @@ Before handling the rather complicated mathematical treatments, it is useful to 
 
 Angular velocity, similar to linear velocity, is a quantity describing a body's (more rigorously, the body-fixed frame's) motion that is independent of the choice of a coordinate system or origin. One may imagine there is an ``angular-speedometer" that can measure the angular velocity of a rigid body undergoing any general motion. However, it is frame-dependent, meaning that the angular velocity observed in the lab frame is different from that observed from another. 
 
-Suppose we have 3 orthogonal frames: the lab frame, which is not rotating and fixed in space \footnote{From the similarity between angular velocity and linear velocity, one may think there is no universally superior frame of reference when analyzing rotational motion due to relativity. However, rotation is absolute as one may determine whether it is rotating from local measurement, e.g. whether the equipotential surface of a bucket of water is parabolic or horizontal. Although there is still debate on this topic, e.g. \href{https://en.wikipedia.org/wiki/Mach\%27s_principle}{here}, we take this fact for granted as we are still in the realm of Newtonian physics.}. And two other frames whose origins remained fixed (as our interests do not lie on the translational motions and rotational motions can be analyzed separately from translational motions) and can rotate freely about their origins. Each of these two frames possess their own angular velocity vector as observed from the fixed lab frame, which passes through their origins and the direction defines their rotational motion as guaranteed by Euler's theorem, where every points co-rotating with the frame trace out a circle with the center at the closet point to the rotation axis.
+Suppose we have 3 orthogonal frames: the lab frame, which is not rotating and fixed in space.\footnote{From the similarity between angular velocity and linear velocity, one may think there is no universally superior frame of reference when analyzing rotational motion due to relativity. However, rotation is absolute as one may determine whether it is rotating from local measurement, e.g. whether the equipotential surface of a bucket of water is parabolic or horizontal. Although there is still debate on this topic, e.g. \href{https://en.wikipedia.org/wiki/Mach\%27s_principle}{here}, we take this fact for granted as we are still in the realm of Newtonian physics.} And two other frames whose origins remained fixed (as our interests do not lie on the translational motions and rotational motions can be analyzed separately from translational motions) and can rotate freely about their origins. Each of these two frames possess their own angular velocity vector as observed from the fixed lab frame, which passes through their origins and the direction defines their rotational motion as guaranteed by Euler's theorem, where every points co-rotating with the frame trace out a circle with the center at the closet point to the rotation axis.
 
 As linear velocity is defined as the time derivative of the displacement vector, one may be tempted to define an ``angular displacement vector", describing how an object undergo rotation and the angular velocity can be simply defined as the time derivative of the ``angular displacement vector". However, this is not possible for the fact that finite rotations do not commute in 3-dimensional space (for 2D case, rotations do commute as there are only 2 degrees of freedom which can be assigned to positive and negative signs) as one can play with literally any object to try it out, so 
 
@@ -439,6 +450,36 @@ Another very useful property of the angular velocity vector is that the law of a
 
 To prove this, we first define clearly what do we mean by relative velocity in the linear case. Suppose we have a point \(P_1\) co-rotating with \(S_1\) and \(P_2\) fixed in \(S_2\). In the lab frame \(S_3\), the displacement vectors of \(P_1\) and \(P_2\) are defined as the changes in their linear positions as measured in the lab frame. The linear velocity vectors are defined as the displacement vectors divided by a regular time interval, and the relative velocity of the 2 points (or 2 frames) is the difference in their linear velocity vectors. In the angular velocity case, we can simply follow the same argument as ``angular displacement vector" is well defined as long as the time interval concerned tends to zero. It is helpful to visualize the ``angular displacement vector" in the 2D case, where the time interval concerned is not limited to infinitesimally small, then it becomes clear that angular velocity vectors do add like linear velocity vectors by considering the most simple case: \(S_1\) rotating with the angular velocity \(\omega _{1} \vu{z} \) and \(S_2\) with \(\omega _{2} \vu{z} \), then after a time interval \(\Delta t\), the angular displacement vectors are \(\boldsymbol{\theta } _{1}  = \omega _{1}  \Delta t \vu{z} \text{ and } \boldsymbol{\theta } _{2}   = \omega _{2} \Delta t \vu{z} \) and the relative displacement vector is \(\boldsymbol{\theta }  _{1 rel. 2} = (\omega _{1} - \omega _{2}) \Delta t \vu{z} \) thus the relative angular velocity vector is \(\boldsymbol{\omega }  _{1 rel. 2} = (\omega _{1} - \omega _{2} )\vu{z} \). The same thing applies in our 3D world, just that \(\Delta \rightarrow \delta \) and it is harder to visualize the entire process. 
 
+\example{Rolling Cylinder.}
+{A cylinder of raidus \(r\) is rolling down a inclinded plane with angle \(\alpha \) to the horizontal. The axis of the cylinder moes at constant velocity \(v\). Let \((x,y)\) be a point on the cylinder at distance \(a\) from the cylinder's axis. Determine the condition on \(a\) that the point sometimes moves in an exactly upwards manner.}
+{We set the origin at the center of mass of the cylinder when \(t = 0\), then we have 
+
+\begin{equation}
+	\vb{v} _{a} = \vb{v} _{\text{c.m.} } + \boldsymbol{\omega } \cross \vb{r} _{\vb{a} }.   
+\end{equation}
+
+In components form,
+
+\begin{equation}
+	\begin{cases}
+		\dot{x} &= v\cos \alpha  + \frac{v}{r} (y+vt\sin \alpha ),\\
+		\dot{y} &= -v\sin \alpha - \frac{v}{r} (x-vt\sin \alpha ).
+	\end{cases}
+\end{equation}
+
+When \(\dot{x} = 0\), we get 
+
+\begin{equation}
+	y = -r \cos \alpha - vt\sin \alpha \implies \dot{y} = -v\sin \alpha \implies x = vt \cos \alpha .
+\end{equation}
+
+Imposing the condition \(x^2+y^2 \le a^2\), \textit{i.e.,} the point where \(\dot{x} = 0\) is inside the cylinder, we get 
+
+\begin{equation}
+	a \ge r\cos \alpha .
+\end{equation}
+~
+} 
 
 
 \section{Tensor of Inertia}
@@ -520,8 +561,12 @@ If the tensor of inertia about the center of mass \(\tilde{\vb{I} } _{c.m. } \) 
 
 where the last term in each of the equations vanishes due to the property of the center of mass.
 
+\subsection{Perpendicular Axis Theorem}
+
+The perpendicular axis theorem states that for a planar lamina the moment of inertia about an axis perpendicular to the plane of the lamina is equal to the sum of the moments of inertia about two mutually perpendicular axes in the plane of the lamina, which intersect at the point where the perpendicular axis passes through. This theorem applies only to planar bodies and is valid when the body lies entirely in a single plane, with the exception that the body has cylindrical symmetry about the perpendicular axis, such as a cylinder.
+
 \subsection{Euler's Equations}
-With all the prerequisites explained, we are now ready to tackle the seemingly simple differential equation \(\boldsymbol{\tau } = \frac{d \vb{L}}{t} \). Consider a time instant \(t\) when a rigid body is rotating with \(\boldsymbol{\omega } \). Since the body frame is non-inertial, we cannot apply this rotational Newton's law here. What we can do, however, is to consider an inertial frame that only coincides with the body frame at time \(t\). 
+With all the prerequisites explained, we are now ready to tackle the seemingly simple differential equation \(\boldsymbol{\tau } = d \vb{L} /dt \). Consider a time instant \(t\) when a rigid body is rotating with \(\boldsymbol{\omega } \). Since the body frame is non-inertial, we cannot apply this rotational Newton's law here. What we can do, however, is to consider an inertial frame that only coincides with the body frame at time \(t\). 
 
 It is very important to have this picture in mind: at time \(t\), the inertial frame axes \(\vu{e} _{1}, \vu{e} _{2}, \vu{e} _{3} \) are the same as the body axes \(\vu{1}, \vu{2},\vu{3} \). Then, after time \(dt\), the axes of the body-fixed coordinate system rotate by an angle of \(\omega dt\) along \(\boldsymbol{\omega } \) while the inertial frame axes remained stationary. So from the inertial frame, the body axes actually rotate with \(\boldsymbol{\omega } \). We then repeat this procedure infinite time.
 
@@ -529,8 +574,8 @@ Writing out the equation of motion in this inertial coordinate system, we have
 
 \begin{equation}
 	\begin{aligned}
-		\boldsymbol{\tau } = \frac{d \vb{L}}{t} &= \frac{d}{dt} (L_1 \vu{1} + L_2 \vu{2} + L_3 \vu{3}  ) = \frac{d L_1}{t} \vu{1}  + L_{1} \frac{d \vu{1}}{t} + \frac{d L_2}{t} \vu{2}  + L_{2} \frac{d \vu{2}}{t} + \frac{d L_3}{t} \vu{3}  + L_{3} \frac{d \vu{3} }{dt}     \\ 
-		&= \frac{d L_1}{t} \vu{1}  + \frac{d L_2}{t} \vu{2} + \frac{d L_3}{t} \vu{3}   + (\boldsymbol{\omega } \cross \vu{1}  )L_{1} + (\boldsymbol{\omega } \cross \vu{2}  )L_{2}  + (\boldsymbol{\omega } \cross \vu{3}  )L_{3} 
+		\boldsymbol{\tau } = \frac{d \vb{L}}{dt} &= \frac{d}{dt} (L_1 \vu{1} + L_2 \vu{2} + L_3 \vu{3}  ) = \frac{d L_1}{dt} \vu{1}  + L_{1} \frac{d \vu{1}}{dt} + \frac{d L_2}{dt} \vu{2}  + L_{2} \frac{d \vu{2}}{dt} + \frac{d L_3}{dt} \vu{3}  + L_{3} \frac{d \vu{3} }{dt}     \\ 
+		&= \frac{d L_1}{dt} \vu{1}  + \frac{d L_2}{dt} \vu{2} + \frac{d L_3}{dt} \vu{3}   + (\boldsymbol{\omega } \cross \vu{1}  )L_{1} + (\boldsymbol{\omega } \cross \vu{2}  )L_{2}  + (\boldsymbol{\omega } \cross \vu{3}  )L_{3} 
 	\end{aligned}
 \end{equation}
 
@@ -557,7 +602,7 @@ Also, since the Euler equations only depend on the principal moments of inertia 
 To explain this phenomenon, we suppose that the body initially spins with \(\boldsymbol{\omega } = \omega _{1} \hat{\vb{e} _{1}  }\) and receives small perturbations on \(\omega _{2} \text{ and } \omega _{3} \). Then according to the Euler's equations, we have \(\omega _{1} = \text{constant} \) and 
 
 \begin{equation}
-	\dv[2]{\omega _{2} }{t} + (\frac{(I_1-I_2)(I_1-I_3)}{I_2I_3} \omega _{1} ^2)\omega _{2} = 0
+	\dv[2]{\omega _{2} }{dt} + (\frac{(I_1-I_2)(I_1-I_3)}{I_2I_3} \omega _{1} ^2)\omega _{2} = 0
 \end{equation}
 
 as one can easily verify. So we see that \(\omega _{2} \) undergo simple harmonic motion if \(I_1\) is the largest or the smallest moment of inertia, but increase exponentially with time and the motion is unstable.\footnote{For a more intuitive explanation, refer to the \href{https://mathoverflow.net/a/82020}{explanation} given by the famous mathematician Terrance Tao as well as this \href{https://www.youtube.com/watch?v=1VPfZ_XzisU}{video} by the famous YouTuber Veritasium.} }
@@ -576,7 +621,7 @@ So we conclude that \(\theta \) undergo simple harmonic motion with angular freq
 One of the most classic applications of Euler's equations is a torque-free procession. Consider a symmetric top with \(I_1\) being the moment of inertia about the symmetric axis and \(I_2 = I_3 = I_{\perp } \). Then the equations give \(\omega _{1} = \text{constant} = \omega _{s}  \) and 
 
 \begin{equation}
-	\dv[2]{\omega _{2} }{t} + (\frac{I_1-I_{\perp } }{I_{\perp } } )^2 \omega _{s} ^2 \omega _{2} = 0 .
+	\dv[2]{\omega _{2} }{dt} + (\frac{I_1-I_{\perp } }{I_{\perp } } )^2 \omega _{s} ^2 \omega _{2} = 0 .
 \end{equation}
 
 So \(\omega _{2} \) undergo simple harmonic motion with angular frequency \(\gamma = \left| \frac{I_1-I_{\perp } }{I_{\perp } }  \right| \omega _{s}  \) 
@@ -732,7 +777,7 @@ The advantage of working in the body-fixed coordinates is that the inertia tenso
 
 \section{Normal Modes}
 
-\subsection{Basics}
+\subsection{Equal Masses}
 
 We start with the simple case with the equation
 
@@ -742,7 +787,7 @@ We start with the simple case with the equation
 
 where \(K\) is symmetric (if the system conserves energy as we will show below), thus having orthogonal eigenvectors \(\vb{v} _{i} \) with eigenvalues \(\lambda _{i} \).
 
-Substituitng \(\vb{x} = P \vb{q} \) into the equation, where \(P = (\vb{v} _{1},\ldots ,\vb{v} _{n}   )\), we get
+We have already discussed how to solve this kind of vector differential equation in the Ordinary Differential Equations notes. In short, we substitute \(\vb{x} = P \vb{q} \) into the equation, where \(P = (\vb{v} _{1},\ldots ,\vb{v} _{n}   )\), we get
 
 \begin{equation}
     m \ddot{\vb{q} } = -K'\vb{q},
@@ -790,6 +835,73 @@ where the eigenvalues are real, and orthogonal, in the sense that if \(\lambda _
 
 As the general solution is still linear combination of \(\vb{v} e^{i \omega t} \), guessing it directly to find \(\omega \) still works.  
 
+Enforcing \(\vb{x} \) to be real gives \(A_{i} = B_{i}^*  \). Assuming to take the real part we drop off half of the terms and we have 
+
+\begin{equation}
+	\vb{x} = \sum_{i=1}^{n} A_{i}e^{i \sqrt{\lambda _{i} }t }\vb{v} _{i}.   \label{this} 
+\end{equation}
+
+A more detailed explanation as to why this simplified form contains the same information is explained in \cref{explain}.
+
+However, despite its simplicity this form is still not so useful due to it invovling complex numbers. To understand the solution and to apply and boundary and initial conditions more easily we take the real part to get the real solution 
+
+\begin{equation}
+	\vb{x} = A_1 \vb{v} _{1}\cos (\omega _{1}t+\varphi _{1}  ) + \cdots + A_{n} \vb{v} _{n} \cos (\omega _{n}t + \varphi _{n}  ),   \label{that} 
+\end{equation}
+
+which can be derived from both \cref{this,that} directly, again showing that the ``solution must be real'' reasoning is the same as taking the real part of one of the solutions.
+
+Different terms corresponds to different normal modes, a pattern of oscillation in which all parts of the system oscillate a single frequency where the ratio between different parts' displacements remains fixed in time. If the initial condition matches an eigenvector \(\vb{v} _{i} \) corresponding to the eigenfrequency \(\omega _{i} \), \textit{i.e.,} \(\vb{x} (0) = C \vb{v} _{i} \text { and } \dot{\vb{x} }(0) = \boldsymbol{0}  \),\footnote{Here \(C\) is just a scaling constant, since only the relative positions of the masses matter but not the absolute positions.}\footnote{Of course one can also have the relative positions not equal to the eigenvector but have the velocities compensate for it so that the system still exhibits a single normal mode but it is less intuitive and less pratical.} then the masses will oscillate together at the same, single frequency \(\omega _{i} \).  
+
+If one of the eigenvalue is \(\omega^2 = 0\), then the corresonding solution should be \(x_1 = x_2 = \cdots  = x_{n} = X_{\text{c.m.} } + V_{\text{c.m.} }t   \).   
+
+\subsection{Beats}
+
+Beating occurs when the normal mode frequencies are close to each other. For a two equal masses system, the normal mode frequencies and their corresponding eigenvectors are
+
+\begin{equation}
+	\omega _{s} = \sqrt{\frac{k}{m} }, \quad  \omega _{f} = \sqrt{\frac{k+2\kappa }{2m} } ~\text { and }~ \vb{v} _{s} = \begin{pmatrix}
+		 1 \\
+		 1 \\
+	\end{pmatrix}, \quad \vb{v} _{f} = \begin{pmatrix}
+		 1 \\
+		 -1 \\
+	\end{pmatrix}.
+\end{equation}
+
+The general solution for \(\vb{x} (t) = (x_1(t) ,x_2 (t))\) is therefore
+
+\begin{equation}
+	\vb{x} = A_1 \begin{pmatrix}
+		 1 \\
+		 1 \\
+	\end{pmatrix} \cos \omega _{s}t  + A_2 \begin{pmatrix}
+		 1 \\
+		 1 \\
+	\end{pmatrix} \sin \omega _{s}t  + B_1 \begin{pmatrix}
+		 1 \\
+		 -1 \\
+	\end{pmatrix} \cos \omega _{f}t  + B_2 \begin{pmatrix}
+		 1 \\
+		 -1 \\
+	\end{pmatrix} \sin \omega _{f}t .
+\end{equation}
+
+If \(\kappa \ll k\), then we have \(\omega _{s} \approx \omega _{f}  \) and for the initial condition \(\vb{x} (0) = (0,A) \text { and } \dot{\vb{x} }(0) = (0,0) \) we have 
+
+\begin{equation}
+	\begin{cases}
+		x_1 (t) = A(\cos \omega _{s}t - \cos \omega _{f}t ) /2 = A \sin \Omega t \sin \epsilon t,\\
+		x_2 (t) = A(\cos \omega _{s}t + \cos \omega _{f}t ) /2 = A \cos \Omega t \cos \epsilon t,
+	\end{cases}, \quad \Omega \equiv \frac{\omega _{s}+\omega _{f}  }{2} ~\text { and }~ \epsilon \equiv \frac{\omega _{f}-\omega _{s}  }{2}.  
+\end{equation}
+
+The solutions are plotted in \cref{beats}. We can see that the rapid \(\Omega \) oscillation is enveloped by the slow \(\epsilon \) oscillation. An important point to note is that the beat freqeuncy is the frequency of the ``bubbles'' in the envelope curve, so this frequency is \(\omega _{\text{beat} } = 2 \epsilon = \omega _{f}-\omega _{s}  \), but not \(\epsilon \).    
+
+\onefig{beats}{scale=0.3} 
+
+Note that there is no restriction on the slope of the \(x_1 (t) \text { and } x_2 (t)\) curves at the intersection between the curves \(\pm \cos \Omega t\). 
+
 \subsection{Damped and Forced Oscillators}
 
 If there is damping, then the equation becomes 
@@ -815,9 +927,10 @@ which adds a particular solution \(\vb{x}_{P}  = \mathfrak{Re} (\vb{C} e^{i \ome
 where \(G = \text{diag}((\lambda _{i} - \omega ^2+i \gamma \omega  ))^{-1}  \). If the driving force frequency is close to one of the normal-node frequencies, say \(\omega \approx \omega _{1} \), then \(G\) is dominated by the entry with \(i = 1\), so we get 
 
 \begin{equation}
-    \vb{C} \approx \vb{v} _{1} \frac{\vb{v} _{1} ^T \vb{F} }{i \gamma \omega }  \implies \vb{x} _{P} \approx \vb{v} _{1} \frac{\vb{v} _{1} ^T \vb{F}  }{\gamma \omega }\sin (\omega t)
+    \vb{C} \approx \vb{v} _{1} \frac{\vb{v} _{1} ^T \vb{F} }{i \gamma \omega }  \implies \vb{x} _{P} \approx \vb{v} _{1} \frac{\vb{v} _{1} ^T \vb{F}  }{\gamma \omega }\sin (\omega t),
 \end{equation}
 
+and the system is simply in the corresponding normal mode.
 
 \subsection{Energy Conservation}
 
@@ -842,6 +955,19 @@ In equal masses case,
 \begin{equation}
     E = \frac{1}{2} \sum_{i=1}^{n} \left(  m \dot{q_{i} }^2+\lambda _{i}q_{i}^2     \right).
 \end{equation}
+
+Writing the potential energy and kinetic energy in quadratic forms \(U = \vb{x} ^T V \vb{x} /2\) and \(K = \dot{\vb{x} }  ^T T \dot{\vb{x} }  /2\) we can use energy conservation to derive the equation of motion
+
+\begin{equation}
+	\frac{dE}{dt} = \frac{d}{dt}(U+K) = 0 = \dot{\vb{x} }^TV \vb{x} + \vb{x} ^T V \dot{\vb{x} } + \ddot{\vb{x} }^T T \dot{\vb{x} }  + \dot{\vb{x} }  ^T T \ddot{\vb{x} }    
+\end{equation}
+
+Dividing \(\dot{\vb{x} } \) and noting that the first and second, and the third and fourth terms are equal, since \(V \text { and } T\) are symmetric we yield 
+
+\begin{equation}
+	T \ddot{\vb{x} } + V \vb{x} = 0.
+\end{equation}
+
 
 
 
@@ -883,11 +1009,44 @@ As ususal, we guess \(\vb{x} = \vb{v} e^{i \omega t} \), but instead of taking t
 
 with \(v_{0} = v_{n+1} =0 \) to cover \(n=1 \text { or } n\) cases.  
 
-It turns out that \(v_{n} = A \sin (n \theta ) + B\cos (n \theta ) \) is a general solution to the equation, and to accomodate for \(v_{0} = v_{n+1} = 0  \), we require \(B = 0 \text { and }  \theta = nm\pi /(N+1), \text{ where } m = 1,\ldots , N \). Substituting into the above equation, we have
+It turns out that \(v_{n} = A \sin (n \theta ) + B\cos (n \theta ) \) is a general solution to the equation, as can proved by induction, and to accomodate for \(v_{0} = v_{n+1} = 0  \), we require \(B = 0 \text { and }  \theta = m\pi /(N+1), \text{ where } m = 1,\ldots , N \). Substituting into the above equation, we have
 
 \begin{equation}
 	\omega_{m}  = 2 \omega _{0}\sin \left( \frac{m\pi }{2(N+1)}  \right) ~\text { and }~ v_{n} = A \sin \left( nm\pi /(N+1)  \right). \label{normalmode} 
 \end{equation}
+
+Here \(n\) is the label of each mass, \(m\) is the label of each normal mode and \(N\) is the total number of masses, which also equals to the total number of normal modes.
+
+The complete general solution is therefore
+
+\begin{equation}
+	\begin{aligned} 
+	\vb{x} = \begin{pmatrix}
+		 x_1  \\
+		 x_2  \\
+		 \vdots  \\
+		 x_{n}  \\
+	\end{pmatrix} &= A_1  \begin{pmatrix}
+		 \sin \left( \pi /(N+1)  \right) \\
+		 \sin \left( 2\pi /(N+1)  \right) \\
+		 \vdots  \\
+		 \sin \left( N\pi /(N+1)  \right) \\
+	\end{pmatrix}\cos (\omega _{1}t+ \varphi _{1}  ) + A_2 \begin{pmatrix}
+		 \sin \left( 2\pi /(N+1)  \right) \\
+		 \sin \left( 4\pi /(N+1)  \right) \\
+		 \vdots  \\
+		 \sin \left( 2N\pi /(N+1)  \right) \\
+	\end{pmatrix} \cos (\omega _{2}t+\varphi _{2}  ) \\
+	&+ \cdots + A_{n} \begin{pmatrix}
+		 \sin \left( N\pi /(N+1)  \right) \\
+		 \sin \left( 2N\pi /(N+1)  \right) \\
+		 \vdots  \\
+		 \sin \left( N^2\pi /(N+1)  \right) \\
+	\end{pmatrix}\cos (\omega _{n}t+\varphi _{n}  ).
+	\end{aligned} 
+\end{equation}
+
+Again, we have omitted the \(-\omega _{i} \) solution by forcing the solution to be real, concluding that half of the terms can be neglected as long as we take the real part at the end. 
 
 When \(N \to \infty\), we have 
 
@@ -895,18 +1054,21 @@ When \(N \to \infty\), we have
 	\omega _{m} =  \frac{m\pi }{L} \sqrt{\frac{T}{\rho } } = m \omega _{1} , \quad m \ll N.
 \end{equation}
 
-The cases where \(m = 1,2,3,4,5,N\) are shown in \cref{normalmodes}. 
+The cases where \(m = 1,2,3,4,5\) for \(N = 6\) and the case where \(m = N = 18\) are shown in \cref{normalmodes}. 
 
 \onefig{normalmodes}{scale=0.4} 
 
-Essentially, a system with \(N\) particles would have \(N\) normal modes. A normal mode is a state that the system is in oscillating at the normal mode frequency. A certain normal mode can be excited by tuning the initial condition in a specific way, normally by releasing each masses at rest each at a specific amplitude. A genearl initial condition can be written as a linaer combination of the initial conditions of the \(N\) normal modes, thus exciting the system into different normal mode by a different extent. 
+Essentially, a system with \(N\) particles would have \(N\) normal modes. A normal mode is a state that the system is in oscillating at the normal mode frequency. A certain normal mode can be excited by tuning the initial condition in a specific way, normally by releasing each masses at rest each at a specific amplitude. A general initial condition can be written as a linaer combination of the initial conditions of the \(N\) normal modes, thus exciting the system into different normal mode by a different extent. 
 
-Therefore, the relative amplitudes of the masses at a certain normal mode can be found by considering the continous cases, and selecting the mass elements at regular interval. On the other hand, the frequencies of each normal mode can be found by dividing a quarter circle with raidus \(2 \omega _{0} \) into \(N+1\) equal intervals, and finding the \(\) values of the resulting points. The case for \(N=3\) is illustrated in \cref{frequencies}.
+Therefore, the relative amplitudes of the masses at a certain normal mode can be found by considering the continuous cases, and selecting the mass elements to be on the continuous wave at regular interval, as shown in \cref{normalmodes}. 
+
+On the other hand, the frequencies of each normal mode can be found by dividing a quarter circle with raidus \(2 \omega _{0} \) into \(N+1\) equal intervals, and finding the values of the resulting points. The case for \(N=3\) is illustrated in \cref{frequencies}.
 
 \onefig{frequencies}{scale=0.3} 
 
-In the above discussion, we have restricted ourselves to \(1 \le m \le N\), but in theory \(m\) can take any values. In discrete case this is not a problem, since the frequencies and the relative amplitudes are the same regardless of \(m = 3 \text { or } 17\). However, in the continuous case, this means that there is no way to tell what mode the string is really in if we only look at six equally spaced points. This ambiguity is known as aliasing, or the Nyquist effect.
+In the above discussion, we have restricted ourselves to \(1 \le m \le N\), but in theory \(m\) can take any values. In discrete case this is not a problem, since the frequencies and the relative amplitudes are the same regardless of \(m = 3 \text { or } 17\). So this ambuiguity is purely mathematical, which can simply resolved by restricted ourselves to the values of \(m\) in the range \(1 \le m \le N\), and affect nothing physical. 
 
+However, in the continuous case, this means that there is no way to tell what mode the string is really in if we only look at six equally spaced points. This ambiguity is known as aliasing, or the Nyquist effect.
 
 \section{Examples of Wave Equations}
 
@@ -990,7 +1152,7 @@ Since \(p_1 \propto \partial \xi /\partial x\), so the excess pressure \(p_1 \) 
 The characteristic impedance is 
 
 \begin{equation}
-	Z = \frac{p_1 }{\frac{\partial \xi }{\partial t} } = \frac{\kappa \frac{\partial \xi }{\partial x} }{\frac{\partial \xi }{\partial t} } = \frac{\kappa k}{\omega } = \sqrt{\rho \kappa }.     
+	Z = \frac{p_1 }{\partial \xi  /\partial t } = \frac{\kappa \partial \xi /\partial x }{\partial x /\partial t} = \frac{\kappa k}{\omega } = \sqrt{\rho \kappa }.     
 \end{equation}
 
 
@@ -1054,7 +1216,7 @@ We can then solve for \(f(x) \text { and } g(x)\) to get and obtain the solution
 Consider the initial condition 
 
 \begin{equation}
-	y_0 (x) = \begin{cases} a\left(1+\frac{x}{L} \right) &\text{ for } -L \le x < 0, \\ a\left(1-\frac{x}{L} \right) &\text{ for } 0 \le x < L, \\ 0 &\text{ otherwise}. \end{cases} ~\text { and }~ \dot{y_0} (x) = 0.   
+	y_0 (x) = \begin{cases} a\left(1+x /L \right),& -L \le x < 0, \\ a\left(1-x /L \right),& 0 \le x < L, \\ 0,& \text{ otherwise}. \end{cases} ~\text { and }~ \dot{y_0} (x) = 0.   
 \end{equation}
 
 We find that the solution is 
@@ -1070,8 +1232,9 @@ as indicated in \cref{wave1}. The red line is the actual displacement while the 
 If the initial condition is given by 
 
 \begin{equation}
+	y_0 (x) = 0 ~\text { and }~ 
 	\dot{y_0 }(x) = \begin{cases}
-		V &\text{ for } -L \le x \le L,\\
+		V,& -L \le x \le L,\\
 		0 &\text{ otherwise} ,
 	\end{cases}
 \end{equation}
@@ -1080,9 +1243,9 @@ then the solution is
 
 \begin{equation}
 	y(x,t) = \frac{1}{2c} \int_{x-ct}^{x+ct} \dot{y_0 }(s)ds = \begin{cases}
-		 -VL/2c  &\text{ for } x<L,\\
-		 Vx/2c  &\text{ for } -L \le x <L,\\
-		 VL/2c &\text{ for } x \ge L,
+		 -VL/2c ,& x<L,\\
+		 Vx/2c ,& -L \le x <L,\\
+		 VL/2c,& x \ge L,
 	\end{cases} 
 \end{equation}
 
@@ -1093,23 +1256,23 @@ as indicated in \cref{wave2}.
 If we want a wave of the shape \(y_0 (x)\) traveling towards positive \(x\), we would need to have 
 
 \begin{equation}
-	y(x,t) = f(x-ct) = y_0 (x-ct) \implies \dot{y_0 }(x) = \eval{\frac{\partial y}{\partial t} }_{(x,0)}^{} = -cy_0 '(x).  
+	y(x,t) = f(x-ct) = y_0 (x-ct) \implies \dot{y_0 }(x) = \frac{\partial y}{\partial t}(x,0)  = -cy_0 '(x).  
 \end{equation}
 
 \subsubsection{Semi-infinite String}
 
 In all the cases above, we have ignored the ends of the stretched string by assuming that it is infinite. The hidden boundary condition that we have assumed was that \(y \to 0\) as \(x \to \pm \infty\).
 
-If the string is not infinite, then we have to impose suitable boundary conditions, such as \(y=0\) at fixed points, or \( \partial y/\partial x = 0\) at free points, due to the necessary of zero negative force acting on a infinitesimal mass element.  
+If the string is not infinite, then we have to impose suitable boundary conditions, such as \(y=0\) at fixed points, or \( \partial y/\partial x = 0\) at free points, due to the necessary of zero force acting on an infinitesimal mass element.  
 
 For example, for the intial condition 
 
 \begin{equation}
 	y_0(x) =
 \begin{cases}
-    \frac{ax}{L} & \text{for } 0 \leq x < L, \\
-    a\left(2 - \frac{x}{L}\right) & \text{for } L \leq x < 2L, \\
-    0 & \text{for } x \geq 2L,
+    ax /L,& 0 \leq x < L, \\
+    a\left(2 - x/L\right),& L \leq x < 2L, \\
+    0,&x \geq 2L,
 \end{cases}
 \end{equation}
 
@@ -1118,9 +1281,9 @@ and
 \begin{equation}
 	\dot{y}_0(x) = c y_0'(x) =
 \begin{cases}
-    \frac{ca}{L} & \text{for } 0 \leq x < L, \\
-    -\frac{ca}{L} & \text{for } L \leq x < 2L, \\
-    0 & \text{for } x \geq 2L,
+    ac /L,& 0 \leq x < L, \\
+    ac /L,& L \leq x < 2L, \\
+    0,& x \geq 2L,
 \end{cases}
 \end{equation}
 
@@ -1128,19 +1291,21 @@ which is sketched in \cref{wave3}, we would obtain for \(f(u) \text { and }  g(v
 
 \begin{equation}
 	f(u) = \begin{cases}
-		?? &\text{ for } u<0,\\
-		0 &\text{ for } u \ge 0.
+		??,& u<0,\\
+		0,& u \ge 0,
 	\end{cases} ~\text { and }~ g(v) = \begin{cases}
-		?? &\text{ for } v<0,\\
-		y_0 (v) &\text{ for } v \ge 0.
+		??,& v<0,\\
+		y_0 (v),& v \ge 0.
 	\end{cases}
 \end{equation}
 
 \onefig{wave3}{scale=0.35} 
 
-It is not until we impose the boundary condition \(y= 0 \text { or } \partial y/\partial x = 0\) at \(x=0\) do we get \(f(u) = -g(-u) \text { or } f(u) = g(-u)\) and the solution is therefore determined, as showned in \cref{wave4} for the former case and \cref{wave5} for the latter case
+It is not until we impose the boundary condition \(y= 0 \) at \(x=0\) do we get \(f(u) = -g(-u)\) and the solution is therefore determined, as shown in \cref{wave4}.
 
 \onefig{wave4}{scale=0.45} 
+
+If instead we have a free end, so that \(\partial y /\partial x = 0\) at \(x = 0\) we get \(f(u) = g(-u)\) and the solution is shown in \cref{wave5}.   
 
 \onefig{wave5}{scale=0.35} 
 
@@ -1150,11 +1315,11 @@ We will now consider a finite string fixed at both ends at \(x= 0 \text { and } 
 
 \begin{equation}
 	y_0 (x) = \begin{cases}
-		ax /L &\text{ for } 0 \le x < L,\\
-		a(2-x /L) &\text{ for } L \le x <2L.
+		ax /L,& 0 \le x < L,\\
+		a(2-x /L),& L \le x <2L,
 	\end{cases} ~\text { and }~ \dot{y_0 }(x) = cy_0'(x) = \begin{cases}
-		ac /L &\text{ for } 0 \le x<L,\\
-		-ac /L &\text{ for } L \le x <2L.
+		ac /L,& 0 \le x<L,\\
+		-ac /L,& L \le x <2L.
 	\end{cases} 
 \end{equation}
 
@@ -1162,11 +1327,11 @@ Using the d'Alembert's solution, we get
 
 \begin{equation}
 	f(u) = \begin{cases}
-		?? &\text{ for } u < 0,\\
-		0 &\text{ for } 0 \le u \le 2L.
+		??,& u < 0,\\
+		0,& 0 \le u \le 2L,
 	\end{cases} ~\text { and }~ g(v) = \begin{cases}
-		y_0 (v) &\text{ for } 0 \le  v < 2L,\\
-		??  &\text{ for } v \ge 2L.
+		y_0 (v),& 0 \le  v < 2L,\\
+		?? ,& v \ge 2L.
 	\end{cases}
 \end{equation}
 
@@ -1174,13 +1339,13 @@ Due to the boundary condition at \(x=0 \text { and } L\), we can show that \(f(u
 
 \begin{equation}
 	f(u) = \begin{cases}
-		?? &\text{ for } u < 2L,\\
-		-y_0 (-u) &\text{ for } -2L \le u <0,\\
-		0 &\text{ for } 0 \le u \le 2L.
+		??,& u < 2L,\\
+		-y_0 (-u),& -2L \le u <0,\\
+		0,& 0 \le u \le 2L,
 	\end{cases} ~\text { and }~ g(v) = \begin{cases}
-		y_0 (v) &\text{ for } 0 \le  v < 2L,\\
-		0 &\text{ for } 2L \le v <4L,\\ 
-		??  &\text{ for } v \ge 4L.
+		y_0 (v),& 0 \le  v < 2L,\\
+		0,& 2L \le v <4L,\\ 
+		?? ,& v \ge 4L.
 	\end{cases}
 \end{equation}
 
@@ -1194,13 +1359,15 @@ The complete solution can thus be constructed step by step as shown in \cref{fin
 
 \subsection{Separation of Variables} \label{sepvar} 
 
+\subsubsection{General Approach}
+
 Just as how we guess \(\vb{x} = \vb{v} e^{i \omega t} \) as the solution to the equation
 
 \begin{equation}
 	m\ddot{\vb{x} } = -K\vb{x} ,  
 \end{equation}
 
-we guess \(y = X(x)T(t)\) to the equation 
+we guess \(y(x,t) = X(x)T(t)\)\footnote{To be less formal one can also just substitute \(y(x,t) = X(x)e^{i \omega t} \) and obtain the general solution \(y(x,t) = e^{ikct}(Ce^{ikx}+De^{-ikx})\), but then \(k\) need to range from \(- \infty \to + \infty\) (excluding \(k = 0\)), recovering the other half of the solutions given in \cref{ThetaQ}.} to the equation 
 
 \begin{equation}
 	\frac{\partial^2 y}{\partial t^2} = c^2 \frac{\partial^2 y}{\partial x^2}, 
@@ -1212,31 +1379,91 @@ where \(c^2 \partial ^2 y/\partial x^2 \) now plays the role of \(-K\), thus hav
 	\frac{1}{c^2 T} \frac{d^2T}{dt^2} = \frac{1}{X}\frac{d^2X}{dx^2}.
 \end{equation}
 
-Since the LHS and RHS are functions of different variables, they can only be equal if they equals to the same constant \(-\Lambda^2 \), where we have require the constant to be negative because we expect oscillating behaviour but not exponentials, which in wome case is what we expect such as in evanescent waves or in matter waves. Substituting, we have
+Since the LHS and RHS are functions of different variables, they can only be equal if they equals to the same constant \(-k^2 \), where we have require the constant to be negative because we expect oscillating behaviour but not exponentials, which in wome case is what we expect such as in evanescent waves or in matter waves. Substituting, we have
 
 \begin{equation}
-	\frac{d^2T }{dt^2} = -(\Lambda c)^2T ~\text { and }~ \frac{d^2X}{dx^2} = -\Lambda ^2Q,
+	\frac{d^2T }{dt^2} = -(k c)^2T ~\text { and }~ \frac{d^2X}{dx^2} = -k ^2X,
 \end{equation}
 
 which has the general solution
 
-\begin{equation}
-	y(x,t) = T(t)X(x) = \left( Ae^{i\Lambda ct}+Be^{-i\Lambda ct}    \right)\left( Ce^{i \Lambda x}+De^{-i \Lambda x}   \right). \label{ThetaQ}   
+\begin{equation}\label{ThetaQ}   
+	y(x,t) = T(t)X(x) = \left( Ae^{ik ct}+Be^{-ik ct}    \right)\left( Ce^{i k x}+De^{-i k x}   \right) 
 \end{equation}
 
-Solving the wave equation now becomes a matter of finding the coefficients \(A, B, C, D\) to satisfy the boundary conditions and initial conditions. The complete solution is built up of these stationary waves with different wavenumbers and frequencies.
-\todo{kx-omet/-kx+omet for forward and vice versa} 
+Solving the wave equation now becomes a matter of finding the coefficients \(A, B, C, D\) to satisfy the boundary conditions and initial conditions. The complete solution is built up of these stationary waves with different wavenumbers \(k\) and frequencies \(\omega = ck\). 
+
+\subsubsection{Linear Combination of Stationary Waves}
+
+Stationary wave, also called standing wave, is a wave in which certain points, called nodes remain fixed in space while other points, called antinodes, oscillate with maximum amplitude, so the amplitude of oscillation waries with position. A standing waves stores energy locally and does not transmit any net power. It is the superposition of two waves of the same frequency and amplitude travel in opposite directions in the same medium.
+
+The most general form of a stationary wave with wavenumber \(k\) (thus frequency \(\omega = kc\)) is given by 
+
+\begin{equation}
+	y(x,t) = A \sin (kx + \varphi _{x} )\sin (\omega t+\varphi _{t} ),
+\end{equation}
+
+where we can also use cosine instead of sine due to the freedom imposed by \(\varphi _{x}\text { and } \varphi _{t}  \).   
+
+If we enforce \(y(x,t)\) is real for all \(x \text { and } t\), we have \(A=B^* \equiv T_0 e^{i\epsilon } \text { and } C=D^* \equiv X_0 e^{i\delta } \), we see that the general solution in \cref{ThetaQ} from the separation of variables is in fact a stationary wave
+
+\begin{equation}
+	y(x,t) = T_0 (e^{i (\Lambda ct + \epsilon )}+e^{-i(\Lambda ct+\epsilon )}  ) X_0 (e^{i(\Lambda x+\delta )}+e^{-i(\Lambda x+\delta )} ) = X_0 T_0 \cos (\Lambda ct + \epsilon ) \cos (\Lambda x+\delta ).
+\end{equation}
+
+Note that we do not limit the generality of the solution by enforcing \(y(x,t)\) to be real, since we, in fact, live in a real world. If one insist that \(y(x,t)\) being complex is more general, it is also fine, however the real initial and boundary conditions make the imaginary part zero, forcing it to be real. 
+
+In short, this procedure is not a must, but would help us more intuitively understand the solution, since we are real creatures.
+
+The complete general solution is the linear combination of these stationary waves with different wavenumbers \(k\) (thus \(\omega = ck\)).
+
+The boundary conditions, usually specifying two fixed nodes or antinodes, fix the values of \(\delta \text { and } \Lambda \), while the initial conditions, usually the initial displacement and velocity, fix the values of \(X_0 T_0 \text { and } \epsilon \).
+
+\subsection{Complex and Real Waves} \label{explain}
+
+To represent a forward propagating wave, the most traditional and general expressions are
+
+\begin{equation}
+	y(x,t) = A\cos (kx-\omega t+\delta ) = A \cos (\omega t - kx - \delta ), \quad A \in \mathbb{R}.
+\end{equation}
+
+However since trigonometric functions are harder to deal with we usually take the shortcut 
+
+\begin{equation}
+	y(x,t) = \mathfrak{Re} (\tilde{A} e^{i(kx-\omega t)} ) = \mathfrak{Re} (\tilde{A} ^*e^{i(\omega t-kx)} ), \quad  \tilde{A} \equiv  Ae^{i\delta }   \in \mathbb{C}.   
+\end{equation}
+
+It is customary to omit the \(\mathfrak{Re} \) sign and assume that taking the real part of a complex wave is understood, so
+
+\begin{equation}
+	y(x,t) = Ae^{i(kx-\omega t)} = A^*e^{i(\omega t-kx)}.  
+\end{equation}
+
+In physics, we use the \(kx-\omega t\) notation to denote a forward propagating wave, while engineneers prefer the \(\omega t-kx\) notation. Some texts like to write a general forward propagating wave as 
+
+\begin{equation}
+	y(x,t) = Ae^{i(kx-\omega t)} + A^*e^{(\omega t-kx)} 
+\end{equation}
+
+to make the wave real but this is entirely uneccessary and, in fact, just a more complicated procedure to take the real part of the first term.
+
+Similarly, \(-kx-\omega t\) is used to denote a backward propagating wave in physics.
+
+At this point, one might think that the general solution in \cref{ThetaQ} using the separation of variables method can be further simplified, since terms like \(Ae^{i(\Lambda ct)}+Be^{-i(\Lambda ct)}  \) can be represented by just the first term given that \(A = B^*\) since the solution must be real. However, this is not correct since the whole premise of this simplication is that we would take the real part at the end and recover the same real wave as if we did not neglect the second term.
+
+The difference is that in \cref{ThetaQ}, we are taking the real part of the product of two complex numbers, which is generally not equal to the product of their real parts, but we also have to consider the product of their imaginary parts, which complicate things even more. Therefore in such cases, it is best to restrict ourselves to the current form of \cref{ThetaQ}.
+
 \example{Stretched String Fixed at Two Points.}
 {Consider a stretched string fixed at \(x=0\) and \(L\), with initial condition \(y_0 (x) \text { and }  \dot{y_0 }(x) \) as usual. Find the general solution to the wave equation. }
 {We have the boundary conditions \(X(0) = X(L) = 0\), so
 
 \begin{equation}
-	C = - D ~\text { and }~ \sin (\Lambda L) = m \pi , \quad m = 1,2,\ldots 
+	C = - D ~\text { and }~ kL = m \pi , \quad m = 1,2,\ldots 
 \end{equation}
 
-where negative \(m\) is not considered as we can combine the the coefficients of negative \(m\) and positive \(m\), while \(k = 0\) is not considered since then the genearl solution given in \cref{ThetaQ} no longer works, but is given by \(X(x) = C + Dx\), which gives \(C = D = 0\), and is trivial.
+where negative \(m\) is not considered as we can combine the the coefficients of negative \(m\) and positive \(m\), while \(k = 0\) is not considered since then the general solution given in \cref{ThetaQ} no longer works, but is given by \(X(x) = C + Dx\), which gives \(C = D = 0\), and is trivial.
 
-If the boundary conditions permit \(C \text { or } D\) to be non-trivial then we would have to take this solution into account as well. 
+If the boundary conditions permit \(C \text { or } D\) to be non-zero then we would have to take this solution into account as well. 
 
 The general solution of the wave equation is therefore
 
@@ -1259,23 +1486,23 @@ and compare them with \(A \text { and } B \) to get
 \end{equation}}
 
 \example{A General Boundary Condition.}
-{Consider a stretched string attached to a vertical spring at \(x=0\) with spring constant \(K\). Find the general solution to the wave equation. }
+{Consider a stretched string with tension \(T\) attached to a vertical spring at \(x=0\) with spring constant \(K\). Find the amplitude ratio of incident and reflected waves. }
 {The boudary condition is 
 
 \begin{equation}
-	T \frac{\partial y}{\partial x} (0,t) - K y(0,t) = 0. 
+	- T \frac{\partial y}{\partial x} (0,t) - K y(0,t) = 0. \footnote{The negative signs can be explained by using the vector equation \(\vb{F} _{\text{net} } = \vb{F} _{\text{tension} } = \vb{F} _{\text{spring} } \), where \(\vb{F} _{\text{tension} } = -T \partial y /\partial x \) is due to the fact with the slope of the string is positive then the force is negative, while \(\vb{F} _{\text{spring} } = -Ky \) is due to the fact with the displacement of the string is positive then the force is negative.} 
 \end{equation}
 
 Substitute 
 
 \begin{equation}
-	y = A e^{i (kx+\omega t)} + A^* e^{-i (kx+\omega t)} + B e^{i (kx-\omega t)} + B^* e^{-i (kx-\omega t)},  
+	y = A e^{i (kx+\omega t)} + B e^{i (kx-\omega t)},  
 \end{equation}
 
 we have
 
 \begin{equation}
-	\frac{A}{B} = e^{i \varphi }, \quad \varphi  = - \pi + 2\tan ^{-1} \left( \frac{kT}{K}  \right).
+	\frac{A}{B} = e^{i \varphi }, \quad \varphi  = \pi + 2\tan ^{-1} \left( \frac{kT}{K}  \right).
 \end{equation}
 
 } 
@@ -1295,13 +1522,10 @@ The boundary conditions are
 We substitute 
 
 \begin{equation}
-	\begin{aligned} 
-	y_1  &= A e^{i (k_1 x+\omega_1  t)} + A^* e^{-i (k_1 x+\omega _1 t)} + B e^{i (k_1 x-\omega _1 t)} + B^* e^{-i (k_1 x-\omega _1 t)}, \\
-	y_2 &= C e^{i (k_2 x-\omega _2 t)} + C^* e^{-i (k_2 x - \omega_2t )},  
-	\end{aligned} 
+	y_1  = A e^{i (k_1 x+\omega_1  t)} + B e^{i (k_1 x-\omega _1 t)} ~\text { and }~ y_2 = C e^{i (k_2 x-\omega _2 t)},
 \end{equation}
 
-where \(y_2 \) has two less terms since there is no left-travelling wave on string \(2\). Alternatively one can just substitute, for example, \(y_{2} = Ce^{i(k_{2}x-\omega _{2}t  )}  \), where we take the real part of this soluton at the end. Imposing the boundary conditions we get 
+Imposing the boundary conditions we get 
 
 \begin{equation}
 	\omega _1 = \omega _2, \quad A+B=C ~\text { and }~ k_1(A-B) = k_2C.
@@ -1312,7 +1536,6 @@ Solving for reflection and transmission coefficients \(r \equiv B /A \text { and
 \begin{equation}
 	r = \frac{k_1 - k_2 }{k_1 + k_2 } ~\text { and }~ t = \frac{2 k_1 }{k_1 + k_2 }.  
 \end{equation}
-
 
 
 If there are two strings with different tension, then the boundary conditions are modified to be 
@@ -1335,8 +1558,8 @@ We usually define the impedance \(Z_{i} \equiv T_{i} / v_{i} \propto k_{i} T_{i}
 
 } 
 
-\example{Stretched Strings connecte by a Mass.}
-{Find the genearl solution to the wave equation if at \(x=0\) the two strings are connnected by a mass \(M\)}
+\example{Stretched Strings connected by a Mass.}
+{Find the general solution to the wave equation if at \(x=0\) the two strings are connnected by a mass \(M\).}
 {The boundary conditions now becomes
 
 \begin{equation}
@@ -1398,12 +1621,12 @@ Subsituting
 
 \begin{equation}
 	\begin{aligned} 
-	V(x,t) &= Ae^{i (\omega t-kx) } + A^*e^{-i (\omega t-kx)} + Be^{i (\omega t+kx)} + B^* e^{-i(\omega t + kx)}, \\
-	Z_0 I(x,t) &= Ae^{i(\omega t-kx)} + A^*e^{-i (\omega t- kx)} - Be^{i(\omega t+kx)} - B^* e^{-i(\omega t+kx)}, 
+	V(x,t) &= Ae^{i (\omega t-kx) }  + Be^{i (\omega t+kx)}, \\
+	Z_0 I(x,t) &= Ae^{i(\omega t-kx)}  - Be^{i(\omega t+kx)}, 
 	\end{aligned}       
 \end{equation}
 
-we get the reflectionn coefficient 
+we get the reflection coefficient 
 
 \begin{equation}
 	r = \frac{Z_{T}- Z_0 }{Z_{T}+Z_0  }. 
@@ -1443,7 +1666,7 @@ For simple sinusoidal wave, the average enery density is given by
 We proceed to study the time evolution of the energy density (\textit{i.e.,} the power density). Firstly, we have
 
 \begin{equation}
-	\frac{\partial \epsilon  }{\partial t} = \mu \frac{\partial y}{\partial t} \frac{\partial^2 y}{\partial t^2} + T \frac{\partial y}{\partial x} \frac{\partial^2 y}{\partial \partial t \partial x} = T\left( \frac{\partial y}{\partial t} \frac{\partial^2 y}{\partial x^2}+ \frac{\partial y}{\partial x} \frac{\partial^2 y}{\partial t \partial x}    \right) = \frac{\partial }{\partial x} \left( T \frac{\partial y}{\partial x} \frac{\partial y}{\partial t}  \right).  
+	\frac{\partial \epsilon  }{\partial t} = \mu \frac{\partial y}{\partial t} \frac{\partial^2 y}{\partial t^2} + T \frac{\partial y}{\partial x} \frac{\partial^2 y}{ \partial t \partial x} = T\left( \frac{\partial y}{\partial t} \frac{\partial^2 y}{\partial x^2}+ \frac{\partial y}{\partial x} \frac{\partial^2 y}{\partial t \partial x}    \right) = \frac{\partial }{\partial x} \left( T \frac{\partial y}{\partial x} \frac{\partial y}{\partial t}  \right).  
 \end{equation}
 
 Integrating from \(x = 0 \) to \(L\), we get the power
@@ -1452,7 +1675,7 @@ Integrating from \(x = 0 \) to \(L\), we get the power
 	\frac{dE}{dt} = \eval{\left( T \frac{\partial y}{\partial x} \frac{\partial y}{\partial t}  \right)}_{x=0}^{x=L} = \eval{\left( F_{y}v_{y}   \right)}_{x=0}^{x=L}  
 \end{equation}
 
-Thus at each point \(Fv_{y} \) is the power flowing flowing from the left to the right. 
+Thus at each point \(F_{y} v_{y} \) is the power exerted by the right side to the left side.
 
 Using the d'Alembert's solution, we can rewrite the energy density as 
 
@@ -1486,7 +1709,7 @@ which means that the energy is conserved for individual waves.
 
 One can also show that if the boundary conditions are simple (\textit{i.e.,} only consist of restrictions on \(y \text { or } \partial y /\partial x \) but not both), then the total energy is the sum of energy of each mode.
 
-The genearl solution when the boundary conditions are simple is 
+The general solution when the boundary conditions are simple is 
 
 \begin{equation}
 	y(x,t) = A_0 + A_1 t + \sum_{k=1}^{\infty} C_{k} \cos \left( \sqrt{- \Lambda _{k} }ct-\varphi _{k}   \right)Q_{k}(x),    
@@ -1561,9 +1784,11 @@ Thus energy is conserved.
 
 \section{Dispersive Waves}
 
-Waves that does not satisfy the wave equation \cref{waveequation} are dispersive waves, mainly because the relations between the frequencies \(\omega \) and wavenumbers \(k\) are not so simple anymore. 
+A dispersive medium is one which waves of different wavenumber \(k\) travel at different speeds. Its dispersion relation \(\omega (k)\) gives the angular frequency \(\omega \) as a function of \(k\). Note that dispersive wvaes does not obey \cref{waveequation}.
 
-The genearl approach to solving dispersive wave equation is still to use the method of separation of variables and to guess \(y = A e^{i (kx-\omega t)} \) to find out the relation between \(\omega \text { and } k\).   
+Examples of dispersion includes water waves, where deep-water waves obey \(\omega ^2 = gk\) and shallow-water waves obey \(\omega ^2 = gh\); light in glass where the refractive index \(n(\lambda )\) depends on wavelength, a prism disperses whitelight into its component colours for wavelength analysis uses this pricniple; and seismic waves where \(P\)- and \(S\)- waves' speeds depend on frequency.    
+
+The general approach to solving dispersive wave equation is still to use the method of separation of variables and to guess \(y = A e^{i (kx-\omega t)} \) to find out the relation between \(\omega \text { and } k\).   
 
 \subsection{Phase Velocity}
 
@@ -1573,7 +1798,7 @@ The phase velocity
 	v_{p}(k) = \frac{\omega (k)}{k}  
 \end{equation}
 
-is the velocity in which the wave with wavenumber \(k\) is moving. Different components of the wave with different wavenumbers thus move at different speeds and therefore the wave do not maintain its initial shape while they move.
+is the velocity of a single monochromatic wave with wavenumber \(k\). Different components of the wave with different wavenumbers thus move at different speeds and therefore the wave do not maintain its initial shape while they move.
 
 For the \(N\) masses case, the wavelength of the \(m^{\text{th}} \) normal mode is \(\lambda _{m} = 2L /m \implies m = k_{m}L /\pi  \) and the angular frequency given by \cref{normalmode}
 
@@ -1585,6 +1810,13 @@ where \(l = L /(N+1)\) is the distance between each masses. And of course the fr
 
 \subsection{Group Velocity}
 
+The group velocity 
+
+\begin{equation}
+	v_{g}(k) = \frac{d \omega }{dk}  
+\end{equation}
+
+is the velocity at which a wave-packet envelope travels.
 
 
 \subsection{Gravity Waves with Surface Tension}
@@ -1648,13 +1880,225 @@ Wavepackets are composed of a carrier wave with wavelength \(k_{c} \) and an env
 
 At \(t=0\), the wave packet has the form \(y(x,t=0) = E(x)\cos (k_{c}x+\varphi  )\), where \(E(x)\) is the envelope.   
 
+\chapter{Central Forces}
+
+\section{Reduced Mass}
+
+For two particles at \(\vb{r} _{1} \text { and } \vb{r} _{2}  \) we introduce two natural coordintaes (\textit{i.e.,} the center of mass coordinates and the relative position coordinates)
+
+\begin{equation}
+	\vb{R} = \frac{m_1 \vb{r} _{1} + m_2 \vb{r} _{2}  }{m_1 + m_2 } ~\text { and }~ \vb{r} = \vb{r} _{1} - \vb{r} _{2}  .   
+\end{equation}
+
+Under central forces (\textit{e.g.,} gravity, collisions, springs) the equation of motions of the two particles are 
+
+\begin{equation}
+	m_1 \ddot{\vb{r}}_{1} = \vb{F} (\vb{r} _{1}-\vb{r} _{2}  ) ~\text { and }~ m_2 \ddot{\vb{r} }_{2} = - \vb{F} (\vb{r} _{1}-\vb{r} _{2}  ).     
+\end{equation}
+
+Dividing the first equation by \(m_1 \) and the second equation by \(m_2 \) and subtracting them we get 
+
+\begin{equation}
+	\mu \ddot{\vb{r} } = \vb{F} (\vb{r} ). 
+\end{equation}
+
+The positions of the particles relative to the center of mass are then 
+
+\begin{equation}
+	\vb{r} _{1}' = \vb{r} _{1} - \vb{R} = \frac{m_2 }{m_1 +m_2 }\vb{r} ~\text { and }~ \vb{r} _{2}' = \vb{r} _{2} - \vb{R} = -\frac{m_1 }{m_1 +m_2 } \vb{r}  .
+\end{equation}
+
+It can be proved easily that the energy of the system can be written as 
+
+\begin{equation}
+	\frac{1}{2}m_1v_1 ^2 + \frac{1}{2}m_2 v_2 ^2 = \frac{1}{2} M \dot{\vb{R} } ^2 + \frac{1}{2} \mu \dot{\vb{r} }^2, \quad M = m_1 +m_2 ~\text { and }~ \mu = \frac{m_1 m_2 }{m_1 +m_2 }.     
+\end{equation}
+
+As we can see the energy of a system can be splitted into the energy of the center of mass and the energy due to the relative velocity. The former is frame-dependent but the later is not. 
+
+This observation urges us to consider the system in a frame in which the center of mass energy vanshies, \textit{i.e.,} \(\dot{\vb{R} } = 0\), or \(\vb{R} = \vb{C} \equiv 0\), where the energy observed in this frame becomes
+
+\begin{equation}
+	\frac{1}{2} m_1 v_1 ^2+ \frac{1}{2} m_2 v_2 ^2 = \frac{1}{2} \mu \dot{\vb{r} }^2.  
+\end{equation}
+
+In totally inelastic collisions the particles stop moving in the center of mass frame, corresponding to the loss of all kinetic energy.
 
 
 
 
+In the center of mass frame, \(\dot{\vb{R} } = 0\), which also implies that the total momentum observed in this frame is zero. In other words, the momenta of the two particles must be equal and opposite. This fact is very useful in solving collision problems.
+
+The most classic of all is the problem of 1-dimensional elastic collisions: find the veclocities of the two particles \(\vb{v} _{1}' \text { and } \vb{v} _{2}'  \)  after an elastic collision with initial velocities \(\vb{v} _{1} \text { and } \vb{v} _{2}  \). In the center of mass frame, the two particles simply reverse their velocicities after collision, since this is the only way for their velocities to change under the premise that their momenta must be equal and opposite and that the energy is conserved. In symbols, we have 
+
+\begin{equation}
+	(\vb{v} _{1}, \vb{v} _{2}  ) \stackrel{\text{c.m.} }{=} (\vb{v} _{1} - \vb{v} _{\text{c.m.} }, \vb{v} _{2} - \vb{v} _{\text{c.m.} }) \stackrel{\text{collision} }{=} (\vb{v} _{\text{c.m.} } - \vb{v} _{1}, \vb{v} _{\text{c.m.} }- \vb{v} _{2}    ) \stackrel{\text{lab} }{=} (2\vb{v} _{\text{c.m.} }- \vb{v} _{1}, 2\vb{v} _{\text{c.m.} }- \vb{v} _{2} ).
+\end{equation}
+
+The coefficient of restitution is defined generally as
+
+\begin{equation}
+	e = \frac{\abs{\vb{v} _{\text{rel} }'  \cdot \vu{n} } }{\abs{\vb{v} _{\text{rel} } \cdot \vu{n} } },
+\end{equation}
+
+where \(\vu{n} \) is the direction of collision, which is a frame-independent quantity since it only depends on the relative velocities of the two objects.
+
+It is very clear in the center of mass frame that if \(e = 1\), then \(\vb{v} _{\text{rel} }' = \vb{v} _{\text{rel} } \) and the energy is conserved.   
+
+\example{2-Dimensional Collision.}
+{A particle of mass \(m\)  is travelling with initial speed \(u\)  along the \(x\)-axcis when it cllides elastically and obliquely with a more massive stationary particle of mass \(M\). Find the angle of deflection \(\theta \) of the mass \(m\) in terms of the angle of deflection \(\phi \) of mass \(M\).}
+{We start with energy and momentum conservation 
+
+\begin{equation}
+	\begin{cases}
+		mu &= mv \cos \theta + MV \cos \phi ,\\
+		mv \sin \theta &= MV \sin \phi ,\\
+		mu ^2&=mv^2+MV^2.
+	\end{cases}
+\end{equation}
+
+We first eliminate \(V\)  by plugging \(V = mv \sin \theta /M\sin \phi \) into the first equation
+
+\begin{equation}
+		mu = mv\cos \theta + M\left( \frac{mv\sin \theta }{M\sin \phi }  \right)\cos \phi \implies v = \frac{u \sin \phi }{\sin (\theta +\phi )},
+\end{equation}
+
+and substitute \(v \text { and } V\) into the last equation
+
+\begin{equation}
+	mu^2= m\left( \frac{\sin ^2\phi }{\sin ^2(\theta +\phi )}  \right)u^2+M\left( \frac{m\sin \theta }{M\sin \phi }  \right)^2\left( \frac{\sin ^2\phi }{\sin ^2(\theta +\phi )}  \right).
+\end{equation}
+
+Simplying we get 
+
+\begin{equation}
+	\sin ^2(\theta +\phi ) = \sin ^2\phi + \frac{m}{M} \sin ^2\theta .
+\end{equation}
+
+Expanding the LHS we have 
+
+\begin{equation}
+	\sin ^2\theta \cos ^2\phi +\cos ^2\theta \sin ^2\phi + \frac{1}{2} \sin 2\theta \sin 2\phi = \sin ^2\phi + \frac{m}{M} \sin ^2\theta 
+\end{equation}
+
+Writing \(\cos ^2\theta = 1-\sin ^2\theta \) we have 
+
+\begin{equation}
+	\sin ^2\theta \cos 2\phi + \frac{1}{2} \sin 2\theta \sin 2\phi = \frac{m}{M} \sin ^2\theta \implies \tan \theta = \frac{M\sin 2\phi }{m - M\cos 2\phi }. 
+\end{equation}
+~
+} 
 
 
 
+
+\section{Effective Potential}
+
+Considering the reduced mass concept introduced in the last section we can recast the two-dimensional two-bodies central force problem into a two-dimensional one-body central force problem.
+
+For a central froce \(F(r)\), using the conservation of angular momentum 
+
+\begin{equation}
+	J = mr^2 \ddot{\theta }, 
+\end{equation}
+
+the energy of a particle can be written as 
+
+\begin{equation}
+	E = \frac{1}{2}m(\dot{r} ^2+ r^2 \dot{\theta }^2 ) + U(r) = \frac{1}{2}m\dot{r} ^2 + \frac{J^2}{2mr^2} + U(r), 
+\end{equation}
+
+where \(J\) is the angular momentum about the origin and \(U(r)\) is the potential energy. 
+
+We have reduced a two-dimensional problem into a one-dimensional one, where we can consider another particle moving in the radial direction experiencing the effective potential 
+
+\begin{equation}
+	U_{\text{eff} } = \frac{J^2}{2mr^2} + U(r), 
+\end{equation}
+
+where the kinetic energy associated with the angular motion is combined into the potential energy.
+
+For the typical \(F(r) \propto -1/r^2\), the effective potential is shown in \cref{eff}.
+
+\onefig{eff}{scale=0.3} 
+
+An orbit is bounded if the total energy is smaller than the value of its effective potential at infinity, so this case \(E > 0\) corresponds to unbounded orbits (hyperbola), and \(E < 0\) corresponds to bounded orbits (ellipse or cirlce) and \(E = 0\) corresponds to the marginal case (parabola). 
+
+For a bounded orbit the energy lies between the minimum point of \(U_{\text{eff} } \) and the \(x\)-axis. Two two points where they coincide are the perigee and apogee, since at those points we have 
+
+\begin{equation}
+	E = \frac{1}{2}m \dot{r} ^2 + U_{\text{eff} } = U_{\text{eff} } \implies \dot{r} =0. 
+\end{equation}
+
+By this logic we have the minimum point of \(U_{\text{eff} } \) being the circular orbits, since the radius remain fixed, we have \(\dot{r} = 0\) at all times. 
+
+
+Taking the time derivative we get 
+
+\begin{equation}
+	m \ddot{r} = \frac{J^2}{mr^3 } - \frac{dU}{dr},
+\end{equation}
+
+which is the same is directly writing down the Newton's second law 
+
+\begin{equation}
+	-\frac{dU}{dr} = m(\ddot{r} - r \dot{\theta }^2  ).
+\end{equation}
+
+The tangential angular velocity plus the gravitational potential consitutes the effective potential, which further reduces the two-dimensional one-body central force problem into a one-dimensional one-body problem. 
+
+Zeros of \(E-V_{\text{eff} }(r)  \) give perigee and apogee. Minima of \(V_{\text{eff} }(r) \) correspond to stable circular orbits. The ``centrifugal barrier'' term \(J^2/2mr^2\) explains why the particle cannot reach \(r=0\) unless \(J=0\).      
+
+\subsection*{Wavepacket Construction and Group‐Velocity Dispersion}
+
+A localized wavepacket can be built by superposing plane waves whose wavenumbers lie in a small band around \(k_0\):
+\[
+\Psi(x,t) 
+= \int_{k_0 - \Delta k}^{\,k_0 + \Delta k} 
+A(k)\,e^{\,i\bigl(kx - \omega(k)\,t\bigr)}\,\mathrm{d}k,
+\]
+where we take the dispersion relation
+\[
+\omega(k) = \frac{k^2}{m}.
+\]
+
+\medskip
+
+\paragraph{Phase and group velocities}
+\begin{align*}
+\text{Phase velocity:}\quad &v_p = \frac{\omega(k_0)}{k_0}
+= \frac{k_0^2/m}{k_0} = \frac{k_0}{m},\\
+\text{Group velocity:}\quad &v_g = \left.\frac{\mathrm{d}\omega}{\mathrm{d}k}\right|_{k_0}
+= \frac{2k_0}{m}.
+\end{align*}
+Thus the \emph{carrier} oscillations \(e^{i(k_0 x - \omega_0 t)}\) move at \(v_p\), while the slowly–varying envelope (determined by the width \(\Delta k\)) travels at \(v_g\).
+
+\medskip
+
+\paragraph{Spreading of the packet}
+Expand \(\omega(k)\) about \(k_0\):
+\[
+\omega(k) \approx \omega(k_0)
+  + (k-k_0)\,\omega'(k_0)
+  + \tfrac12\,(k-k_0)^2\,\omega''(k_0)
+  + \cdots
+\]
+with
+\[
+\omega'(k_0) = v_g,
+\qquad
+\omega''(k_0) = \frac{2}{m}.
+\]
+Inserting into the integral and performing the standard Gaussian approximation shows the envelope acquires a factor
+\[
+\exp\Bigl[-\,\tfrac{(x - v_g t)^2}{2(\Delta x)^2 + i\,(\omega''(k_0)\,t)}\Bigr],
+\]
+where \(\Delta x\sim1/\Delta k\).  Because \(\omega''(k_0)\neq0\), the width
+\(\sigma_x(t)\) grows in time, i.e.\ the wavepacket \emph{spreads out}:
+\[
+\sigma_x(t) \;=\;\sigma_x(0)\,\sqrt{1 + \Bigl(\tfrac{\omega''(k_0)\,t}{2\,\sigma_x(0)^2}\Bigr)^{\!2}}.
+\]
+This phenomenon is called \emph{group‐velocity dispersion}.  
 
 
 
@@ -1891,13 +2335,31 @@ If the Lagragian \(\mathcal{L}\) contains more than one generalized coordinate \
 
 In fact this method is so general that \(t\) need not be time but any independent variable and \(q\) need not be generalized coordinate but any dependent variable. 
 
-To derive the Beltrami identity when \(\frac{\partial \mathcal{L}}{\partial q} = 0 \)
+\subsection{Cyclic Coordinates}
+
+A cyclic coordinate is one which does not appear explicitly in the Lagragian 
 
 \begin{equation}
-	\mathcal{L} - \dot{q} \frac{\partial \mathcal{L}}{\partial \dot{q} } = \text{constant},
+	\frac{\partial L}{\partial q_{i} } = 0. 
 \end{equation}
 
-we note that 
+From the Euler-Lagrange equation it follows immediately that 
+
+\begin{equation}
+	\frac{d}{dt} \left( \frac{\partial L}{\partial \dot{q }_{i}   }  \right) = 0 \implies p_{i} = \frac{\partial L}{\partial \dot{q} _{i} }  = \text{constant},
+\end{equation}
+
+where \(p_{i} \) is called the conjugate momentum. 
+
+The Beltrami identity
+
+\begin{equation}
+	\mathcal{L} - \dot{q} \frac{\partial \mathcal{L}}{\partial \dot{q} } = \text{constant}
+\end{equation}
+
+holds for cyclic coordinates.
+
+To prove the identity, we note that 
 
 \begin{equation}
 	\frac{d \mathcal{L}}{dt} = \frac{\partial \mathcal{L}}{\partial t} + \frac{\partial \mathcal{L}}{\partial \dot{q} } \frac{dq}{dt} +  \frac{\partial \mathcal{L}}{\partial \dot{q} } \frac{d \dot{q} }{dt} ~\text { and }~ \frac{d}{dt}\left( \dot{q} \frac{\partial \mathcal{L}}{\partial \dot{q} }  \right) = \frac{\partial \mathcal{L}}{\partial \dot{q} } \frac{d \dot{q} }{dt} + \dot{q} \frac{d}{dt}\left( \frac{\partial \mathcal{L}}{\partial \dot{q} }  \right),
@@ -2056,10 +2518,10 @@ therefore \(\phi \) must satisfy the Laplace's equation in order that \((\grad{\
 In the above section we assumed the coordinates \(q_{i} \) are independent. However, there could be constriants in the system which relates the coordinates \(q_{i} \). The constriant in the form
 
 \begin{equation}
-	f(\vb{r} _{1} , \vb{r} _{2} , \vb{r} _{3} , ..., t) = 0,
+	f(q_{1}, q_{2}, ..., t) = 0,
 \end{equation}
 
-Fpr example, the constriant on a rigid body is that the distance betewen any two points in the body is fixed, \textit{i.e.,} \(	\left| \vb{r} _{i} - \vb{r} _{j}  \right| = c_{ij} \).  
+For example, the constriant on a rigid body is that the distance betewen any two points in the body is fixed, \textit{i.e.,} \(	\left| \vb{r} _{i} - \vb{r} _{j}  \right| = c_{ij} \).  
 
 A system consisting of \(N\) free particles has \(3N\) degrees of freedom and thus \(3N\) independent variables. If there are \(k\) holonomic constraints, then we can always find \(3N-k\) independent variables (known as the generalized coordinates), which is the minimum number of variables that can still fully describe the state of the system. We can then apply Euler-Lagrange equations to the \(3N-k\) generalized coordinates separately to obtain the system's equation of motion. 
 
@@ -2101,6 +2563,89 @@ The constriant can even come in integral form. For example, in the catenary prob
 Beside using generalized coordinates to solve for the equation of motions with prescence of constraint forces as detailed in \cref{constraints}, we can use the method of Lagrange multipliers.
 
 Suppose there are \(m\) holonomic algebraic constraints for the \(n\) variables \(q_{i} \) \((1 \le i \le n)\), \textit{i.e.,} \(g_{k}(\vb{q} ) = 0 \) \((1 \le k \le m)\).
+
+\example{Rolling Cylinder.}
+{As shown in \cref{roll}, a uniform solid cylinder of mass \(M_{c} \) and radius \(R\)  rolls without slipping down the inclided surface of a wedge-shaped block with mass \(M_{b} \) and angle of inclination \(\alpha \). 
+
+\begin{enumerate}
+	\item Justify that the system can be described in terms of two generalized coordinates and determine the linear accelerations \(\ddot{X} \text { and } \ddot{s}  \), where \(X \text { and } s\) are the position of the block and distance along the inclined surface to the cylinder, respectively.       
+	\item Consider the case where the block is fixed in position determine the constraint forces by treating the system as having three generalised coordintaes \((r,s,\theta )\). Hence find the rolling-without-slipping condition to hold.
+\end{enumerate}
+~
+}
+{\begin{enumerate}
+	\item The two coordinates \(\theta \text { and } s\) are related by \(R \theta = s + \text{constant} \), through a constriant force \(f\), so we can just consider either \(\theta \text { or } s\) and omit the constriant force \(f\). 
+	
+	The Lagragian is 
+
+	\begin{equation}
+		\mathcal{L} = \frac{1}{2} M_{b}\dot{X} ^2+ \frac{1}{2} M_{c}\left( \left( \dot{X} + \dot{s} \cos \alpha  \right)^2 + (\dot{s} \sin \alpha )^2\right) + \frac{1}{2} \left( \frac{1}{2} M_{c}R^2  \right) \dot{\theta }^2 - M_{c} gs \cos \alpha .  
+	\end{equation}
+
+	Applying the Euler-Lagrange equations then give
+
+	\begin{equation}
+		\ddot{X} = \frac{2M_{c} g\cos ^2\alpha }{3(M_{b}+M_{c}  )-2M_{c} \cos ^2\alpha } ~\text { and }~ \ddot{s} = \frac{-2(M_{b}+M_{c}  )M_{c}g \cos ^2\alpha }{M_{c} \cos \alpha (3(M_{b}+M_{c}  )-2M_{c}\cos ^2\alpha  )}.  
+	\end{equation}
+	
+	\item The Lagragian is now 
+	
+	\begin{equation}
+		\mathcal{L} = \frac{1}{2} M_{c}^2 \dot{s}^2  + \frac{1}{2} M_{c}\dot{r} ^2  + \frac{1}{2} \left( \frac{1}{2}M_{c}R^2   \right) \dot{\theta }^2 - M_{c}g(s \cos \alpha +r\sin \alpha )+ Nr+fs+fR \theta .  
+	\end{equation}
+	
+	The Euler-Lagrange equations now read
+
+	\begin{equation}
+		\begin{aligned} 
+			\frac{\partial \mathcal{L}}{\partial r} &= N-M_{c}g\sin \alpha = \frac{d}{dt} \frac{\partial \mathcal{L}}{\partial \dot{r} } = M_{c}\ddot{r} = 0 ,\\
+			\frac{\partial \mathcal{L}}{\partial s} &= f-M_{c} g\cos \alpha = \frac{d}{dt} \frac{\partial \mathcal{L}}{\partial \dot{s} } = M_{c} \ddot{s},\\
+			\frac{\partial \mathcal{L}}{\partial \theta } &= fR  = \frac{d}{dt} \frac{\partial \mathcal{L}}{\partial \dot{\theta } } = \frac{1}{2} M_{c}R^2 \ddot{\theta }.   
+			\end{aligned} 
+	\end{equation}
+	
+	From the first equation, and using the \(\ddot{s} = -R \ddot{\theta }  \),\footnote{This is because we have assumed clockwise as the positive direction for \(\theta \). If we have defined anti-clockwise as positive, then we would have \(\ddot{s} = R \ddot{\theta }  \), but then the \(fR \theta \) term in the Lagrangian should have an extra negative sign.} the last two equations combined to give 
+
+	\begin{equation}
+		N = M_{c}g \sin \alpha ~\text { and }~  f = \frac{1}{3} M_{c}g \cos \alpha \implies \mu \ge \frac{\abs{f}}{\abs{N}} = \frac{1}{3} \tan \alpha.
+	\end{equation}
+
+	Here note that we note that \(\theta \text { and } s\) are related by the constriant force \(f\). Either we include both \(\theta \text { and } s\) in the Lagrangian to find \(f\), or we simply treat either \(\theta \text { or } s\) as the generalized coordinate and omit \(f\) completely.    
+\end{enumerate}
+~
+} 
+
+\onefig{roll}{scale=0.3} 
+
+\section{Hamiltonian Mechanics}
+
+\subsection{Hamiltonian}
+
+The Hamiltonian \(H\) of a system is defined as 
+
+\begin{equation}
+	H = \sum_{i}^{} \dot{q}_{i} \frac{\partial L}{\partial \dot{q}_{i}  } - L.    
+\end{equation}
+
+
+A system is isolated if its Lagrangian has no explicit time dependence
+
+\begin{equation}
+	\frac{\partial L}{\partial t} = 0.
+\end{equation}
+
+In those cases the Hamiltonian \(H\) is conserved 
+
+\begin{equation}
+	\begin{aligned} 
+	\frac{dE}{dt} &= \sum_{i}^{}  \ddot{q} _{i} \frac{\partial L}{\partial \dot{q}_{i}  }  + \sum_{i}^{} q_{i} \frac{d}{dt} \left( \frac{\partial L}{\partial \dot{q}_{i}  } \right)   - \frac{dL}{dt} \\
+	&= \sum_{i}^{}  \ddot{q} _{i} \frac{\partial L}{\partial \dot{q}_{i}  }  + \sum_{i}^{} q_{i} \frac{d}{dt} \left( \frac{\partial L}{\partial \dot{q}_{i}  } \right) - \left( \sum_{i}^{} \frac{\partial L}{\partial q_{i} } \dot{q}_{i}  + \sum_{i}^{} \frac{\partial L}{\partial \dot{q}_{i} } \ddot{q}_{i}  + \frac{\partial L}{\partial t}     \right) \\
+	&= \sum_{i}^{} \dot{q} _{i} \left( \frac{d}{dt} \left( \frac{\partial L}{\partial \dot{q} _{i} }   \right) - \frac{\partial L}{\partial \dot{q}_{i}  }  \right) - \frac{\partial L}{\partial t} = 0.
+	\end{aligned} 
+\end{equation}
+
+
+
 
 
 

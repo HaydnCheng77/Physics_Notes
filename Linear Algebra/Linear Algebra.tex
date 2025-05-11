@@ -588,7 +588,7 @@ For two non-zero vectors \(\vb{a} \text { and } \vb{b} \), the Cauchy-Schwarz in
     -1 \le \cos \theta = \frac{\vb{a} \cdot \vb{b} }{\abs{a}\abs{b}  } \le 1 \implies \vb{a} \cdot \vb{b} = \abs{\vb{a} } \abs{\vb{b} }\cos \theta .  
 \end{equation}
 
-We call two vectors orthogonal (or perpendicular) if and only if \(\vb{a} \cdot \vb{b} = 0, \text { or }  \theta = \frac{\pi }{2} \).
+We call two vectors orthogonal (or perpendicular) if and only if \(\vb{a} \cdot \vb{b} = 0, \text { or }  \theta = \pi /2 \).
 
 \subsection{Vector Product in \(\mathbb{R}^3 \) }
 	
@@ -719,15 +719,18 @@ where \(\vb{a} \) is the position vector of some fixed point on the plane, \(\vb
 
 \example{Line of Intersection of Two Planes.}
 {Find the direction of the line of intersection of the two planes \(x+3y-z=5 \text { and } 2x-2y+4z=3\). }
-{The two planes have normal vectors \(\vu{n} _{1} = \vu{x} + 3\vu{y} -\vu{z} \text { and } \vu{n} _{2} = 2\vu{x} -2\vu{y} + 4\vu{z}   \). The direction of the intersecting line mst be parallel to both planes and hence perpendicular to both normals. Therfore, \(\vb{p} = \vu{n} _{1}\cross \vu{n} _{2} = 10\vu{x}-6\vu{y} -8\vu{z}   \). } 
-
-The general equation of a sphere is 
+{The two planes have normal vectors 
 
 \begin{equation}
-    \abs{\vb{r} - \vb{c} }^2 = a^2, 
+    \vu{n} _{1} = \vu{x} + 3\vu{y} -\vu{z} \text { and } \vu{n} _{2} = 2\vu{x} -2\vu{y} + 4\vu{z}.
 \end{equation}
 
-where \(\vb{c} \) is the position vector of the center of the sphere and \(a\) is the radius of the sphere.
+The direction of the intersecting line mst be parallel to both planes and hence perpendicular to both normals. Therfore, 
+
+\begin{equation}
+    \vb{p} = \vu{n} _{1}\cross \vu{n} _{2} = 10\vu{x}-6\vu{y} -8\vu{z}.
+\end{equation}
+~} 
 
 \example{Planes and Spheres.}
 {Find the radius \(\rho \) of the circle that is the intersection of the plane \(\vu{n} \cdot \vb{r} = p\) and the sphere of radius \(a\) centered on the point with position vector \(\vb{c} \).}
@@ -761,6 +764,55 @@ We finally yields \(\rho = \sqrt{a^2- (p-c \cdot \vu{n} )^2} \).
 
 } 
 
+\example{Circle of Intersection of Two Spheres.}
+{The equations of two spheres are 
+
+\begin{equation}
+    \begin{cases}
+        (\vb{r} -\vb{a} ) \cdot (\vb{r} -\vb{a} )&=\alpha ^2,\\
+        (\vb{r} -\vb{b} ) \cdot (\vb{r} -\vb{b} )&=\beta ^2.
+    \end{cases}
+\end{equation}
+
+Find the condition for the spheres to intersect. For the case where the spheres do intersect, find the position vector of the center of the circle of intersectio \(\vb{R}\). 
+}
+{The spheres intersect if the distnace \(d\) between their ceneres is less than or equal to the sum of their radii and greater than or equal to the difference of their radii, so 
+
+\begin{equation}
+    \abs{\abs{\beta } - \abs{\alpha }  } \le \abs{\vb{b} -\vb{a} } \le \abs{\alpha } + \abs{\beta }.  
+\end{equation}
+
+Expanding the two equations of the two spheres and subtracting them gives the equation for the circle of intersection
+
+\begin{equation}
+    \begin{aligned} 
+    2\vb{r} \cdot (\vb{b} -\vb{a} )  &= \alpha ^2-\beta ^2 - \abs{\vb{a} }^2 + \abs{\vb{b} }^2\\
+    \vb{r} \cdot \frac{\vb{b} -\vb{a} }{\abs{\vb{b} -\vb{a} } } &= \frac{(\alpha ^2-\beta ^2 - \abs{\vb{a} }^2 + \abs{\vb{b} }^2)}{2\abs{\vb{b} -\vb{a} } }.
+    \end{aligned} 
+\end{equation}
+
+We then let \(\vb{R} = \vb{a} + t(\vb{b} -\vb{a} )\) and substitute into the equation of the circle above to get 
+
+\begin{equation}
+    2 (\vb{a} +t(\vb{b} -\vb{a} )) \cdot (\vb{b} -\vb{a} ) = \alpha ^2-\beta ^2-\abs{\vb{a} }^2+\abs{\vb{b} }^2 \implies t = \frac{\alpha ^2-\beta ^2+\abs{\vb{b} -\vb{a} }^2 }{2\abs{\vb{b} -\vb{a} }^2 },     
+\end{equation}
+
+so 
+
+\begin{equation}
+    \vb{R} = \frac{1}{2} \left( \vb{a} +\vb{b} +\frac{(\alpha ^2-\beta ^2)(\vb{b} -\vb{a} )}{\abs{\vb{b} -\vb{a} }^2 }  \right).
+\end{equation}
+
+Alternatively, we can project \(\vb{a} \) (or \(\vb{b} \)) onto the plane of the circle of intersection, and get the same answer 
+
+\begin{equation}
+    \vb{R} = \vb{a} - \vb{a} _{\perp } = \vb{a} - \left( \vb{a} \cdot \frac{\vb{b} -\vb{a} }{\abs{\vb{b} -\vb{a} } } -\frac{(\alpha ^2-\beta ^2 - \abs{\vb{a} }^2 + \abs{\vb{b} }^2)}{2\abs{\vb{b} -\vb{a} } }  \right) \frac{\vb{b} -\vb{a} }{\abs{\vb{b} -\vb{a} } },
+\end{equation}
+
+where we have used the distance from a point to a plane formula (\cref{pointplane}).
+} 
+
+
 \section{Distances Between Points, Lines and Planes}
 
 \subsection{Distances From a Point to a Line}
@@ -776,7 +828,7 @@ The minimum distance \(d\) from a point \(P\) with position vector \(\vb{p} \) t
 The minimum distance \(d\) from a point \(P\) with position vector \(\vb{p} \) to the plane \((\vb{r} - \vb{a} )\cdot \vu{n} = 0\)  is given by 
 
 \begin{equation}
-    d = \abs{\vb{p} - \vb{a} }\sin \theta = \abs{\vb{p} - \vb{a} }\cdot \vu{n} .  
+    d = \abs{\vb{p} - \vb{a} }\sin \theta = \abs{(\vb{p} -\vb{a} )\cdot \vu{n} }  .  \label{pointplane} 
 \end{equation}
 
 Note that the sign of \(d\) indicate whether the point \(P\) is on the same or opposite side of the surface as the origin. 
@@ -794,15 +846,15 @@ The common normal unit vector of the two planes is
 and the minimum distance \(d\) is 
 
 \begin{equation}
-    d = \abs{\vb{b} \cross \vb{a} } \sin \theta = \abs{(\vb{b} \cross \vb{a} )\cdot \frac{\vb{b} \cross \vb{a} }{\abs{\vb{b} \cross \vb{a} } }} .
+    d = \abs{\vb{b} - \vb{a} } \sin \theta = \abs{(\vb{b} - \vb{a} )\cdot \frac{\vb{b}' \cross \vb{a}' }{\abs{\vb{b}' \cross \vb{a}' } }} .
 \end{equation}
 
 \subsection{Distances From a Line to a Plane}
 
-The minimum distance \(d\) from a line \(\vb{r} = \vb{a} + \lambda \vb{b} \) to a plane \((\vb{r}' - \vb{a} ')\cdot \vu{n} \) is always zero unless the line is parallel to the plane (\textit{i.e.,} \(\vb{b} \cdot \vu{n} = 0\)). In those cases, the minimum distance \(d\) is 
+The minimum distance \(d\) from a line \(\vb{r} = \vb{a} + \lambda \vb{b} \) to a plane \((\vb{r} - \vb{a} ')\cdot \vu{n} = 0\) is always zero unless the line is parallel to the plane (\textit{i.e.,} \(\vb{b} \cdot \vu{n} = 0\)). In those cases, the minimum distance \(d\) is 
 
 \begin{equation}
-    d = \abs{(\vb{r} ' - \vb{a} ) \cdot \vu{n} }. 
+    d = \abs{(\vb{a} ' - \vb{a} ) \cdot \vu{n} }. 
 \end{equation}
 
 \subsection{Ratio Theorem}
@@ -855,6 +907,57 @@ Equating the coefficients, we have
 
 \onefig{centroid}{scale=0.3} 
 
+\example{Shortest Distance between Lines.}
+{Find \(\lambda \) at the ponit at which the two lines
+
+\begin{equation}
+    \begin{cases}
+        \vb{r} _{1} &= \vb{a} + \lambda \vb{b},\\
+        \vb{r} _{2} &= \vb{c} + \mu \vb{d}
+    \end{cases}
+\end{equation}
+
+are at the shortest distance.
+}
+{At the shortest distance, we have 
+
+\begin{equation}
+    \Delta \vb{r} \cdot \vb{b} = \Delta \vb{r} \cdot \vb{d} = 0.
+\end{equation}
+
+Substitute \(\Delta \vb{r} = \vb{c} -\vb{a} +\mu \vb{d} -\lambda \vb{b} \), we have a linear system of equations for \(\lambda \text { and } \mu \)
+
+\begin{equation}
+    \begin{cases}
+        (\vb{c} -\vb{a} ) \cdot \vb{b} + \mu (\vb{d} \cdot \vb{b} ) - \lambda (\vb{b} \cdot \vb{b} ) &= 0,\\
+        (\vb{c} -\vb{a} ) \cdot \vb{d} + \mu (\vb{d} \cdot \vb{d} ) - \lambda (\vb{b} \cdot \vb{d} ) &= 0.
+    \end{cases}
+\end{equation}
+
+Solving for \(\lambda \) gives 
+
+\begin{equation}
+    \lambda = \frac{(\vb{c} -\vb{a} ) \cdot \left( (\vb{d} \cdot \vb{d} )\vb{b} -(\vb{b} \cdot \vb{d} )\vb{d}  \right)}{\abs{\vb{b} }^2 \abs{\vb{d} }^2 - (\vb{b} \cdot \vb{d} )^2  }.
+\end{equation}
+~
+} 
+
+
+\example{Shortest Distance between Lines.}
+{Two particles have position vectors at time \(t\) given by \(\vb{r} _{1}(t) \text { and } \vb{r} _{2}(t) \) where
+
+\begin{equation}
+    \begin{cases}
+        \vb{r} _{1}(t) &= \vb{a} _{1} + \vb{b} _{1}(t-t_1 ) ,\\
+        \vb{r} _{2}(t) &= \vb{a} _{1} + \vb{b} _{2}(t-t_2 ).
+    \end{cases}
+\end{equation}
+
+Find the condition on \(t_2 -t_1 \) for the particles to achieve minimum separation. 
+}
+{} 
+
+
 \section{Reciprocal Vectors}
 
 The two sets of vectors \(\vb{a} ,\vb{b}, \vb{c} \) and \(\vb{a} ', \vb{b} ', \vb{c} '\) are called reciprocal sets if \(\vb{a} \cdot \vb{a} ' = \vb{b} \cdot \vb{b} ' = \vb{c} \cdot \vb{c} ' = 1\) while other possible combinations of dot product is zero. 
@@ -862,22 +965,28 @@ The two sets of vectors \(\vb{a} ,\vb{b}, \vb{c} \) and \(\vb{a} ', \vb{b} ', \v
 They are related by 
 
 \begin{equation}
-    \vb{a} ' = \frac{\vb{b} \cross \vb{c} }{\vb{a} \cdot (\vb{b} \cross \vb{c} )} = \frac{\vb{b} \cross \vb{c} }{\det (\vb{a} , \vb{b} , \vb{c} )}, \quad \vb{b} ' = \frac{c \cross \vb{a} }{\det (\vb{a} ,\vb{b} ,\vb{c} )} ~\text { and }~ \vb{c} '= \frac{\vb{a} \cross \vb{b} }{\det (\vb{a} ,\vb{b} ,\vb{c} )}.   
+    \vb{a} ' = \frac{\vb{b} \cross \vb{c} }{\vb{a} \cdot (\vb{b} \cross \vb{c} )}, \quad \vb{b} ' = \frac{\vb{c}  \cross \vb{a} }{\vb{a} \cdot (\vb{b} \cross \vb{c} )} ~\text { and }~ \vb{c} '= \frac{\vb{a} \cross \vb{b} }{\vb{a} \cdot (\vb{b} \cross \vb{c} )}.   
 \end{equation}
 
-If \(\vb{a} ,\vb{b} ,\vb{c} \) are mutually orthogonal then \(\vb{a} ' = \vb{a} , \vb{b} ' = \vb{b} \text { and } \vb{c} '=\vb{c} \).  
-
-The reciprocal vectors are useful, since the components of an arbitrary vector can be represented by a dot product, similar to how for an orthogonal basis, we have \(\vb{v} = \sum_{i=1}^{n} (\vb{v} \cdot \vb{e} _{i}  ) \vb{e} _{i}  \), but for non-orthogonal basis we replace \(\vb{e} _{i}\) by \( \vb{e} _{i}'  \), so \(\vb{v} = \sum_{i=1}^{n} v_{i}\vb{e} '_{i}  \). This is because
+The reciprocal vectors are useful, since the components of an arbitrary vector can be represented by a dot product
 
 \begin{equation}
-    \vb{v} \cdot \vb{e} '_{i} = \sum_{i=1}^{n} v_{i} \vb{e} _{i} \cdot \vb{e} '_{i} = v_{i}.       
+    \vb{v} = (\vb{v} \cdot \vb{a} ')\vb{a} + (\vb{v} \cdot \vb{b} ')\vb{b} + (\vb{c} \cdot \vb{c} ')\vb{c} ,
 \end{equation}
 
+which can be easily verified by taking the scalar product of \(\vb{v} \) and, say \(\vb{a} '\) to get 
 
+\begin{equation}
+    \vb{v} \cdot \vb{a} ' = (\vb{v} \cdot \vb{a} ') (\vb{a} \cdot \vb{a} ') + (\vb{v} \cdot \vb{b} ')(\vb{b} \cdot \vb{a} ') + (\vb{v} \cdot \vb{c} ')(\vb{c} \cdot \vb{a} ') = (\vb{v} \cdot \vb{a} ').
+\end{equation}
 
+If \(\vb{a} ,\vb{b} ,\vb{c} \) are mutually orthogonal then \(\vb{a} ' = \vb{a} , \vb{b} ' = \vb{b} \text { and } \vb{c} '=\vb{c} \), in those cases we have
 
+\begin{equation}
+    \vb{v} = (\vb{v} \cdot \vb{a} )\vb{a} + (\vb{v} \cdot \vb{b} )\vb{b} + (\vb{v} \cdot \vb{c} )\vb{c} ,
+\end{equation}
 
-
+as expected.
 
 \chapter{Linear Maps and Matrices}
 
@@ -1484,7 +1593,7 @@ We have \(\rank (A)\) = rank(f) and, in particular, \(A\) is invertible if and o
 
 \section{Change of Basis} \label{basischange} 
 
-We consider a linear map \(f:V \rightarrow V\) from a vector space to itself and we would like to change the basis in both vector spaces. The two sets of basis vectors, coordinate maps, coordinate vectors and the representing matrices are then dentoed by
+We consider a linear map \(f:V \rightarrow V\) from a vector space to itself and we would like to change the basis in both vector spaces. The two sets of basis vectors, coordinate maps, coordinate vectors and the representing matrices are then denoted by
 
 \begin{equation}
 \begin{array}{cccc}
@@ -1633,7 +1742,7 @@ Arranging the coefficients into columns, we have the transformed matrix
 
 \subsection{General Structures of Solutions}
 
-Consider a linear map \(f:V \to W\). We would like to find all solutions \(\vb{x} \in V\) of the inhomogeneous equation \(f(\vb{x} ) = \vb{b} \), where \(\vb{b} \in W\) is a fixed vector. In other words, which vectors \(\vb{x}  \in V\) get mapped to \(\vb{b} \in W\). We need to find first the solution to the associated homogenous equation \(f(\vb{x} ) = \boldsymbol{0} \), where the general solution is \(\ker (f)\). In language of ordinary differential equation, \(\ker (f)\) are the homogenous solution \((e^{\lambda x} )\), and the inhomogeneous solution is the particular integral.         
+Consider a linear map \(f:V \to W\). We would like to find all solutions \(\vb{x} \in V\) of the inhomogeneous equation \(f(\vb{x} ) = \vb{b} \), where \(\vb{b} \in W\) is a fixed vector. In other words, which vectors \(\vb{x}  \in V\) get mapped to \(\vb{b} \in W\). We need to find first the solution to the associated homogenous equation \(f(\vb{x} ) = \boldsymbol{0} \), where the homogeneous solution is \(\vb{x} = \ker (f)\).     
 
 \begin{lemma} \label{homoinhomo} 
 If \(\vb{x} _{0} \in V\) solves the inhomogenous equation, \textit{i.e.,} \(f(\vb{x} _{0} ) = \vb{b}\), then \(\vb{x} _{0} + \ker (f) \) is the general solution of the inhomogenous equation.   
@@ -1643,13 +1752,9 @@ If \(\vb{x} _{0} \in V\) solves the inhomogenous equation, \textit{i.e.,} \(f(\v
     \(f(\vb{x} _{0} + \ker (f)) = f(\vb{x} _{0} ) + f(\ker (f)) = f(\vb{x} _{0} ) = \vb{b} \). 
 \end{proof}
 
-The geometry of the solutions is schematically as indicated in \cref{generalstructure}.
+Since every linear map \(f\) can be represented by a matrix \(A\), this is equivalent to solving the matrix equation \(A\vb{x} = \vb{b} \), where \(A\) is a \(m \times n\) matrix and \(\vb{x} \) and \(\vb{b} \) are \(n\)-dimensional and \(m\)-dimensional column vectors respectively. 
 
-\onefig{generalstructure}{scale=0.3} 
-
-Since every linear map \(f\) can be represented by a matrix \(A\), the general problem is to solve the matrix equation \(A\vb{x} = \vb{b} \), where \(A\) is a \(m \times n\) matrix and \(\vb{x} \) and \(\vb{b} \) are \(n\)-dimensional and \(m\)-dimensional column vectors respectively. 
-
-That is, we want to find the linear combinations of the column vectors in \(A\) that produces the column vector \(\vb{b} \). In other words, we want to find a vector \(\vb{x} \) which gets mapped to \(\vb{b} \) after the transformation. If we expand the matrix equation, we have \(m\) linear equations with \(n\) variables. The solutions can be no solution, an unique solution, or infinitely many solutions. The two latter case can be viewed as one category (there exists a solution with no or some free parameters).
+That is, we want to find the linear combinations (represented by entries in \(\vb{x} \)) of the column vectors in \(A\) that produces the column vector \(\vb{b} \). In other words, we want to find a vector \(\vb{x} \) which gets mapped to \(\vb{b} \) after the transformation. If we expand the matrix equation, we have \(m\) linear equations with \(n\) variables. The solutions can be no solution, an unique solution, or infinitely many solutions. The two latter case can be viewed as one category (there exists a solution with no or some free parameters).
 
 To distinguish the cases of the general structure of the solution, it is extremely helpful to visualize that the action of \(A\) as transformating all vectors from one place to another, and the columns of \(A\) are the new basis (in terms of the old basis). The rank of the matrix is defined as the dimension of the image of \(A\), which is the dimension of the vector space spanned by the column vectors of \(A\). 
 
@@ -1675,7 +1780,9 @@ If \(m > n\), then \(\max (\rank (A)) = n < m\); if \(m \le n\), then \(\max (\r
 
 The three relevant case of a square matrix are 1a), 2ai) and 2b.
 
-For example, for a \(4 \times 6\) matrix \(A\) with \(\rank (A) = 3\), there can be a solution only when \(\vb{b} \in  \text{Im}(A) \), \textit{i.e.,} \(\rank (A' = (A \mid \vb{b} )) = \rank (A)\), so we expect if the equations are consistent, there will be a line \(0 = 0\) at the last row of the augmented matrix, and there will be 3 free paramters.     
+For example, for a \(4 \times 6\) matrix \(A\) with \(\rank (A) = 3\), there can be a solution only when \(\vb{b} \in  \text{Im}(A) \), \textit{i.e.,} \(\rank (A' = (A \mid \vb{b} )) = \rank (A)\), and we expect a line \(0 = 0\) at the last row of the augmented matrix, denoting a wasted dimension and there will be \(6-3=3\) free paramters.     
+
+As another example, for a \(5 \times 3\) matrix \(B\) with \(\rank (B) = 2\), there can be s olution only when \(\vb{v} \in \mathfrak{Im} ((B)) \), \textit{i.e.,} \(\rank (B' = (B \mid \vb{b} )) = \rank (B)\), and we expect a line \(0=0\) at the end with \(5-2 = 3\) free parameters.      
 
 It is very important to note that the above discussion is under the premise that \(\vb{b} \neq 0\), \textit{i.e.,} we are finding the particular solution to the inhomogeneous equation, and we have to add the homogeneous solution \(\ker (A)\) to yield the complete solution, according to \cref{homoinhomo}.   
 
@@ -1699,7 +1806,7 @@ The following manipulations of a matrix are called elementary row operations:\fo
 This fact allow us to easily read off the rank of a matrix, which is not affected by the elementary row operations, as
 
 \begin{equation}
-    \rank (A) = r = \text{the number of steps in row echelon form}
+    \rank (A) = r = \text{the number of steps in row echelon form.}
 \end{equation}
 
 If every sub square matrices are invertible, then by operations \((I2)\) (and \((I3)\) but it is just a special case of \((I2)\) and is only for simplifying.), we can reduce any matrix \(A\) to its row echelon form, \todo{magic squares and coding theory} where all zero rows (if there is any) are at the bottom and the leading entry of every non-zero row (called the pivot) is on the right of the leading entry of every row above. 
@@ -1998,6 +2105,42 @@ so the determinant is simply the product of the diagonal elements.
 For a large matrix, it is usually easier to first convert the matrix in to upper triangular form, by elementary row operations, which then the determinant is just the product of the diagonal entries. 
 
 The effect of the operations to the determinant is minimal, since exchanging rows only change the sign of a determinant, multiplying a row with a non-zero scalar only change the determinant by the same factor, and adding a multiple of one row to another leaves the determinant unchanged. This is true because it is equivalent of adding a multiple of one column to another because of \(\det (A^{T} ) = \det (A) \). Thus, \(\det (\vb{A} ^{1}, \ldots , \vb{A} ^{j}, \ldots , \vb{A} ^{k} + \lambda \vb{A} ^{j}, \ldots , \vb{A} ^{n}    ) = \det (\vb{A} ^{1}, \ldots , \vb{A} ^{n}    ) + \lambda \det (\vb{A} ^{1}, \ldots , \vb{A} ^{j}, \ldots , \vb{A} ^{j}, \ldots , \vb{A} ^{n}    ) = \det (\vb{A} ^{1}, \ldots ,  \vb{A} ^{n}    )\).   
+
+\example{Tranformation Law for the Cross Product.}
+{Prove the identity 
+
+\begin{equation}
+    R(\vb{u} \cross \vb{v} ) = \det (R) (R\vb{u} \cross R\vb{v} ).
+\end{equation}
+~
+}
+{Using the Levi-Civita symbol we have 
+
+\begin{equation}
+    \begin{aligned}
+        \left( R\vb{u} \cross R\vb{v}  \right)_{i} &= \epsilon _{ijk} (R\vb{u} )_{j}(Rv)_{k} = \epsilon _{ijk} R_{jm}u_{m} R_{kn} v_{n} \\
+        &= R_{jm} R_{kn} \epsilon _{ijk}u_{m} v_{n} = \det (R)R_{il}\epsilon _{lmn} u_{m}v_{n} = \det (R)\left( R(\vb{u} \cross \vb{v} ) \right)_{i}.
+    \end{aligned}
+\end{equation}
+~
+} 
+
+\example{Volumes and Determinants.}
+{Given that \(\det (A) = 23\), find \(\lambda \) such that the volume corresponding to \(\lambda A\) is the same as the volume corresponding to \(A^{5} \).}
+{The volume of the parallelepiped for \(\lambda A\) is 
+
+\begin{equation}
+    V = \abs{\det (\lambda A)} = \abs{\lambda }^3 \det (A) = 23 \abs{\lambda}^3 , 
+\end{equation}
+
+which is equal to the volume of the parallepiped for \(A^{5} \), which is 
+
+\begin{equation}
+    V = \abs{\det (A^{5} )} = \abs{\det (A)}^{5} = 23^{5},  
+\end{equation}
+
+so we get \(\lambda  = 23^{4/3} \). 
+} 
 
 \section{Properties of Determinants} \label{detprop} 
 
@@ -2367,7 +2510,7 @@ Taking the scalar product of this equation with \(\boldsymbol{\epsilon } _{k} \)
 which are the matrix elements of the linear map \(f\).
 
 \begin{lemma} \label{linearuniquemap} 
-If two linear maps \( f : V \rightarrow V \) and \( g : V \rightarrow V \) satisfy \( \langle \mathbf{v}, f(\mathbf{w}) \rangle = \langle \mathbf{v}, g(\mathbf{w}) \rangle \) (or \( \langle f(\mathbf{v}), \mathbf{w} \rangle = \langle g(\mathbf{v}), \mathbf{w} \rangle \)) for all \( \mathbf{v}, \mathbf{w} \in V \) then \( f = g \), \textit{i.e.,} a linear map is uniquely determined by its matrix elements.\footnote{The proof for this trivial fact is given in \cref{linearuniqueapp}.} 
+If two linear maps \( f : V \rightarrow V \) and \( g : V \rightarrow V \) satisfy \( \langle \mathbf{v}, f(\mathbf{w}) \rangle = \langle \mathbf{v}, g(\mathbf{w}) \rangle \) (or \( \langle f(\mathbf{v}), \mathbf{w} \rangle = \langle g(\mathbf{v}), \mathbf{w} \rangle \)) for all \( \mathbf{v}, \mathbf{w} \in V \) then \( f = g \), \textit{i.e.,} a linear map is uniquely determined by its matrix elements.\footnote{The proof for this trivial fact is given in \cref{uniquelinearapp}.} 
 \end{lemma}
 
 \example{Matrix Elements of a Linear Map}
@@ -2556,9 +2699,19 @@ To prove that \(U\) is unitary, we calculate
 \end{equation}
 
 The last equality from the first relation of the above equation can be understand by regarding the RHS as a scalar product of \(\vb{e} '_{i} \text { and } \vb{e} '_{j}  \), where \(\avg{\vb{e} '_{i}, \vb{e} '_{j}   } = \sum_{k=1}^{n} (\vb{e} '_{i} )^*_{k}(\vb{e} '_{j} )_{k} = \sum_{k=1}^{n} \avg{\vb{e} '_{i},\vb{e} _{k}  } \avg{\vb{e} _{k}, \vb{e} '_{j}  }    \).  
-
-
 } 
+
+\example{Exponential of Matrices.}
+{Let \(M\) be a Hermitian matrix. Prove that the matrix \(e^{iM} \) is unitary by writing it as a power series.}
+{We first compute that hermitian conjugate 
+
+\begin{equation}
+    M^{\dagger} = \left( \sum_{n=0}^{\infty} \frac{(iM)^{n} }{n!}   \right){}^{\dagger} = \sum_{n=0}^{\infty} \frac{(-iM^{\dagger} )^{n} }{n!} = \sum_{n=0}^{\infty} \frac{(-iM)^{n} }{n!} = e^{-iM}, 
+\end{equation}
+
+it then follows directly that \(M^{\dagger} M = e^{-iM}e^{iM} = \mathbb{I}  \). 
+} 
+
 
 
 
@@ -2916,7 +3069,11 @@ The characteristic polynomial \(\chi _{A}(\lambda ) \equiv \det (f-\lambda \math
 
 \end{proof}
 
-The above lemma shows that the determinant of a matrix is basis-independent, which we have already shown in \cref{detprop}. Further, it shows that the trace of a matrix A \(\Tr (A) \equiv \sum_{i=1}^{n} A_{ii}\) is also basis-independent. However this can be seen more directly by noting that \(\Tr (AB) = \sum_{i,j}^{} A_{ij} B_{ji} = \sum_{i,j}^{} B_{ji} A_{ij} = \Tr (BA)      \), so \(\Tr (PAP^{-1} ) = \Tr (P^{-1} PA) = \Tr (A)\).
+The above lemma shows that the determinant of a matrix is basis-independent, which we have already shown in \cref{detprop}. Further, it shows that the trace of a matrix A \(\Tr (A) \equiv \sum_{i=1}^{n} A_{ii}\) is also basis-independent. However this can be seen more directly by noting that 
+
+\begin{equation}
+    \Tr (AB) = \sum_{i,j}^{} A_{ij} B_{ji} = \sum_{i,j}^{} B_{ji} A_{ij} = \Tr (BA) \implies \Tr (PAP^{-1} ) = \Tr (P^{-1} PA) = \Tr (A).
+\end{equation}
 
 Resulting from the charateristic polynomial of the matrix, there will be \(n\) eigenvalues (which are not necessarily distinct) for a \(n \times n\) matrix. Distinct eigenvalues are also known as non-degenerate eigenvalues, and repeated eigenvlues are known as degenerate eigenvalues. If there happens to be a \(m\)-folded repeated root, then there will be usually \(m\) linearly indpendent eigenvector for the same eigenvalue, otherwise the matrix is called a defective matrix, and we will not be able to find \(n\) independent eigenvectors for the matrix and thus is not diagonalizable.
 
@@ -2987,14 +3144,38 @@ Let \(V\) be a vector space over \(\mathbb{R} (\mathbb{C})\) with real (hermitia
 
 \begin{proof}
 \begin{enumerate}[label=(\(P\)\arabic*)]
-    \item \((A - \lambda \mathbb{I})\vb{v} = 0 \implies {((A-\lambda \mathbb{I})\vb{v} )}^{\dagger}((A-\lambda \mathbb{I})\vb{v}) = {\vb{v} }^{\dagger}(A-\lambda \mathbb{I})^{\dagger} (A-\lambda \mathbb{I})\vb{v} = {\vb{v} }^{\dagger} (A-\lambda \mathbb{I})(A-\lambda \mathbb{I})^{\dagger}\vb{v} = ({(A-\lambda \mathbb{I})}^{\dagger}\vb{v})^{\dagger}  ((A-\lambda \mathbb{I})^{\dagger}\vb{v}) = 0 \implies (A-\lambda \mathbb{I})^{\dagger}\vb{v}  = (A^{\dagger} - \lambda ^* \mathbb{I})\vb{v}  = 0\).
-    \item For two eigenvectors \(\vb{v} _{1} \text { and } \vb{v} _{2}  \) with eigenvalues \(\lambda _{1} \text { and } \lambda _{2}  \) resepctively, we have
+    \item Since \((A-\lambda \mathbb{I})\vb{v} = 0\), the norm of this vector must be zero
+    
     \begin{equation}
-        A\vb{v} _{1} = \lambda _{1}\vb{v} _{1} \implies {(\vb{v} _{2} )}^{\dagger} A\vb{v} _{1} = (A^{\dagger} \vb{v} _{2} )^{\dagger} \vb{v} _{1} = (\lambda _{2}^*\vb{v} _{2}  )^{\dagger}\vb{v} _{1} = \lambda _{2}(\vb{v} _{2})^{\dagger}\vb{v} _{1} = \lambda _{1} {(\vb{v} _{2} )}^{\dagger}\vb{v} _{1}.
+        ((A-\lambda \mathbb{I})\vb{v} ){}^{\dagger} ((A-\lambda \mathbb{I})\vb{v} ) = \vb{v} {}^{\dagger} (A-\lambda \mathbb{I}){}^{\dagger} (A-\lambda \mathbb{I})\vb{v} =0.
     \end{equation}
 
-    Thus if \(\lambda _{1} \neq \lambda _{2}  \), \textit{i.e.,} the eigenvalues of the eigenvectors are not the same \({\vb{v} _{2} }^{\dagger}\vb{v} _{1} = \avg{\vb{v} _{2}, \vb{v} _{1}  } =0 \), which means that the eigenvectors are orthogonal.  
+    Using the normality of \(A\), we swap the middle terms to get 
+
+    \begin{equation}
+        \vb{v} {}^{\dagger} (A-\lambda \mathbb{I})(A-\lambda \mathbb{I}){}^{\dagger} \vb{v} = ((A-\lambda \mathbb{I}){}^{\dagger} \vb{v} ){}^{\dagger} ((A-\lambda \mathbb{I}){}^{\dagger} \vb{v} ) = 0.
+    \end{equation}
     
+    The norm of the vector \((A-\lambda \mathbb{I}){}^{\dagger} \vb{v}\) is zero, so the vector itself must be zero
+
+    \begin{equation}
+        (A-\lambda \mathbb{I}){}^{\dagger} \vb{v} = (A^{\dagger} - \lambda ^*\mathbb{I})\vb{v} =0.
+    \end{equation}
+
+    Therefore \(\lambda ^*\) are the eigenvalues of the matrix \(A^{\dagger} \).  
+    
+    \item For two eigenvectors \(\vb{v} _{1} \text { and } \vb{v} _{2}  \) with eigenvalues \(\lambda _{1} \text { and } \lambda _{2}  \) resepctively, we take the inner product of \(\vb{v} _{2} \) with \(A_{\vb{v} _{1} } \)
+    \begin{equation}
+        \vb{v} _{2} {}^{\dagger} (A\vb{v} _{1}) = \lambda _{1} \vb{v} _{2} {}^{\dagger}\vb{v} _{1}. 
+    \end{equation}
+
+    However, for a normal matrix the inner product can also be written as 
+
+    \begin{equation}
+        \vb{v} _{2} {}^{\dagger} (A\vb{v} _{1}) = (A^{\dagger} \vb{v} _{2}) {}^{\dagger}  \vb{v} _{1} = (\lambda _{2}^* \vb{v} _{2} ){}^{\dagger} \vb{v} _{1} = \lambda _{2}\vb{v} _{2} {}^{\dagger}   \vb{v} _{1}. 
+    \end{equation}
+
+    By comparing the two equations we conclude that if \(\lambda _{1} \neq \lambda _{2}  \), then \(\vb{v} _{2}{}^{\dagger} \vb{v} _{1} = 0 \), which means that \(\vb{v} _{1} \text { and } \vb{v} _{2}\) are orthogonal.    
 \end{enumerate}
 
 \end{proof}
@@ -3008,7 +3189,18 @@ For hermitian matrices this means that all eigenvalues of \(f\) are real. For an
 
 \example{The Eigenvalues and Eigenvectors of a Hermitian Matrix.}
 {Prove that the eigenvalues of a hermitian matrix are real and the eigenvectors are orthogonal directly.}
-{We have \(\avg{\vb{v} , A \vb{v}} = \lambda \avg{\vb{v},\vb{v}  } = \avg{A \vb{v}, \vb{v}  } = \lambda ^*\avg{\vb{v},\vb{v}  } \implies \lambda = \lambda ^*  \), and \(\avg{\vb{v}_{1}, A \vb{v}_{2}  } = \lambda _{2} \avg{\vb{v}_{1} ,\vb{v}_{2}   } = \avg{A \vb{v}_{1}, \vb{v}_{2}    }  = \lambda _{1} \avg{\vb{v}_{1}, \vb{v}_{2}    } \implies \avg{\vb{v}_{1}, \vb{v}_{2}    } = 0\).
+{We have 
+
+\begin{equation}
+    \avg{\vb{v} , A \vb{v}} = \lambda \avg{\vb{v},\vb{v}  } = \avg{A \vb{v}, \vb{v}  } = \lambda ^*\avg{\vb{v},\vb{v}  } \implies \lambda = \lambda ^*,
+\end{equation}
+
+and 
+
+\begin{equation}
+    \avg{\vb{v}_{1}, A \vb{v}_{2}  } = \lambda _{2} \avg{\vb{v}_{1} ,\vb{v}_{2}   } = \avg{A \vb{v}_{1}, \vb{v}_{2}    }  = \lambda _{1} \avg{\vb{v}_{1}, \vb{v}_{2}    } \implies \avg{\vb{v}_{1}, \vb{v}_{2}    } = 0.
+\end{equation}
+~
 } 
 
 
@@ -3057,17 +3249,22 @@ A simple way to test whether the eigenvectors are linearly independent is by cal
 \end{pmatrix}\). }
 {There are two eigenvalues \(\lambda _{1} = 2 \text { and } \lambda _{2} =1 \).  } 
 
-\example{Simultaneous Eigenvectors.}
-{Prove that the eigenvalues of \(A \text { and } B\) are the same if and only if \(A \text { and } B\) commute, \textit{i.e.,} \(AB=BA\).   }
-{To prove ``If and only if'' statement, we have to prove the equivalency in both directions. But for simplicity we only show that the forward direction.
-
-We have 
+\example{\(AB \text { and } BA\) share the same eigenvalues.}
+{Prove that \(\lambda \) is an eigenvalue of \(AB\) if and only if \(\lambda \) is an eigenvalue of \(BA\).}
+{If \(\lambda \) is an eigenvalue of \(AB\), then 
 
 \begin{equation}
-    AB \vb{v} = BA \vb{v} = B \lambda \vb{v} = \lambda B \vb{v},
+    AB\vb{v} = \lambda \vb{v} .
 \end{equation}
 
-thus \(B \vb{v} \) is an eigenvector of \(A\) corersponding to the same eigenvalue \(\vb{v} \), \textit{i.e.,} \(B \vb{v} = \mu \vb{v}   \), showing that \(\vb{v} \) is an eigenvalue for \(B\) as well. 
+Multiplying \(B\) on both sides we get 
+
+\begin{equation}
+    BA(B\vb{v} ) = \lambda B\vb{v},
+\end{equation}
+
+so \(\lambda \) is also an eigenvalue of \(BA\). 
+
 } 
 
 \example{Trace Formula.}
@@ -3094,17 +3291,29 @@ which is equals to the determinant of \(A\), since
 
 \section{Quadratic and Hermitian Forms}
 
-A quadractic function in terms of the components of a vector \(\vb{x} = \begin{pmatrix}
-    x_1  & x_2  & x_3   \\
-\end{pmatrix}^T \) can be written in matrix form as 
+A quadractic function in terms of the components of a vector \(\vb{x} = (x_1 ,x_2 ,x_3 )\) can be written in matrix form as 
 
 \begin{equation}
-    Q(x) = \vb{x} ^T A\vb{x} ,
+    Q(\vb{x} ) = \vb{x} ^T A\vb{x} ,
 \end{equation}
 
-where \(A\) being a symmetric matrix already covers the most general case. (In other words, \(Q\) is unchanged by considering only the symmetric part of \(A\). This can be proved by considering \(A\) as a sum of a symmetric and an anti-symmetric matrix). 
+where \(A\) is a symmetric matrix.
 
-\(Q\) is basis-independent if the change of basis matrix \(P\) is orthogonal (\textit{i.e.,} the column vectors in \(P\) are orthogonal), as \(Q'(\vb{x} ') = \vb{x} '^TA'\vb{x} = (P^{-1} \vb{x} )^TP^{-1} AP(P^{-1} \vb{x} ) = \vb{x} ^TA\vb{x} = Q(\vb{x} )\).
+If \(A\) is not symmetric, then we have
+
+\begin{equation}
+    Q(\vb{x} ) = \vb{x} ^T A \vb{x} = \frac{1}{2} (\vb{x} ^TA\vb{x} + \vb{x} ^TA^T\vb{x} ) = \vb{x} ^T\left( \frac{A+A^T}{2}  \right)\vb{x},
+\end{equation}
+
+where \((A+A^T) /2\) is a symmetric matrix. Note that we have used \(\vb{x} ^T A^T\vb{x} = \vb{x} ^T A \vb{x} \), since one is a transpose of another, and both of them are scalar.  
+
+\(Q\) is basis-independent if the change of basis matrix \(P\) is orthogonal (\textit{i.e.,} the column vectors in \(P\) are orthogonal), as 
+
+\begin{equation}
+    Q'(\vb{x} ') = \vb{x} '^TA'\vb{x} = (P^{-1} \vb{x} )^TP^{-1} AP(P^{-1} \vb{x} ) = \vb{x} ^TA\vb{x} = Q(\vb{x} ),
+\end{equation}
+
+where we have used the orthogonality of \(P\), \textit{i.e.,} \(P^TP = \mathbb{I}\) to rewrite \((P^{-1} )^T = P\).
 
 Since eigenvectors are generally orthogonal, so if we choose them to be the basis, we have 
 

@@ -13,13 +13,28 @@
     
 \chapter{Geometrical Optics}
 
-Imaging systems are devices that aim to produce an image of an object. For this to happen we need that all the rays of light leaving from a single point \(A\) in the object arrive at a single point \(A'\) in the image, whatever their point of entry \(M\) in the device. 
+\section{Basic Principles}
 
-Since Fermat's principle tells us that light always takes the fastest path from \(A\) to \(A'\), this means that the optical path of all rays emerging from \(A\) and arriving at \(A'\) must be the same and equal to an extrema.   
+\subsection{Fermat's Principle}
+
+The Fermat's principle states that the paths between two points taken by a beam of light are the ones corresponding to stationary travel times. In fact, Fermat's principle is merely a special case of the \href{https:////www.youtube.com//watch?v=Q10_srZ-pbs}{least action principle} applied to the motion of light. Light take all possible paths between points \(A \text { and } B\), but only those with the similar phase construtively interfere.
+
+If a photon leaves point \(A\) with internal phase \(\varphi _{0} \), then it also arrives \(B\) with the same internal phase \(\varphi _{0} \). Suppose two photons emitted from \(A\) at different times \(t_1 \text { and } t_2 \) interfere at \(B\) simultaneously, then the phase difference when they interfere is \(\Delta \varphi = \varphi _{02}- \varphi _{01}  = \omega (t_2 -t_1 ) = \omega \Delta t\). For the phase difference to vanish, we require \(\Delta t = 0\), so the time travels is stationary.
+
+\subsection{Huygens' Principle}
+
+The Huygens' principle states that every point on a wavefront can be considered the source of spherical wvaelets with the same wavelength and propagating in the same direction of the original wavefront. The evelope of these wavelets then forms the new wvaefront. 
+
+\section{Imaging Systems}
+
+Imaging systems are devices that aim to produce an image of an object. For this to happen we need that all the rays of light leaving from a single point \(O\) in the object arrive at a single point \(I\) in the image, whatever their point of entry \(M\) in the device. To image an actual object, this requirement must hold for every object point and its conjugate image point. By the principle of reversibility, \(O\) is the image point of the object point \(I\) if light travels back in time.
+
+Since Fermat's principle tells us that light always takes the fastest path from \(O\) to \(I\), this means that the optical path of all rays emerging from \(O\) and arriving at \(I\) must be the same and equal to an extrema. This is often the way to find the shape of an optical instrument.
 
 In almost all of geometrical optics problems, we employ the paraxial approximation, which assumes that all light rays are nearly parallel to the optical axis, which implies that the angles formed by the light rays with the optical axis is always small enough that the small angle approximations are valid.
 
-\section{Fundamentals}
+Nonideal images are formed in practice becuase of light scattering, due to unwanted reflections and refractions, abbrrations, due to the small angle approximation no longer holding, and diffractions, due to the system only intercepting a portion of the wavefronts emerging from the object.
+
 
 \subsection{Sign Conventions}
 
@@ -47,9 +62,29 @@ However, using the sign convention defined above, we can generalized the two equ
     \frac{1}{u} + \frac{1}{v} = \frac{2}{R} \equiv \frac{1}{f}.
 \end{equation}
 
-The quanitity \(\frac{1}{u} + \frac{1}{v}\) of a imaging system is a constant, then the imaging system will focus 
+The quantity \(2/R\) is denoted as \(1/f\), since this is universal for all \(u \text { and } v\), and defines the image point for an infinity far object.   
+
+\Cref{mirror} shows the ray diagram for an object reflecting off a spherical surface, the case for a concave lens can be constructed simply by reversing the role of object and image.
+
+\threefig{mirror1}{width=\textwidth}{mirror2}{width=\textwidth}{mirror3}{width=\textwidth}{mirror} 
 
 The case where the object distance \(u\) is negative, which only occurs when there are more than two imaging systems, can be regarded as if \(u\) is real but \(v \text { and } R\) are negative, which corresponds to switching between the first case and the second case mentioned above. Therefore, it is equivalent as if there is a real object situated at the opposite side of the mirror with the same distance from the mirror. This implies that we can simply treat the image point of the first imaging system as the object point of the second imaging system.
+
+To avoid spherical abberations for large angles, one find, from Fermat's principle, that the exact shape of a perfect reflecting surface is one of the conic sections, as shown in \cref{perfectreflect} 
+
+Note, however, that the aberration-free imaging so achieved applies only to object point \(O\) at the correct distance from the lens and on axis. For nearby points, closer or further from the lens, or off the axis, is not imaged perfectly.
+
+\threefig{perfectreflect1}{width=\textwidth}{perfectreflect2}{width=\textwidth}{perfectreflect3}{width=\textwidth}{perfectreflect} 
+
+The linear magnification is given by 
+
+\begin{equation}
+    m = \frac{h_{i} }{h_{o} } = -\frac{ v}{ u}.  
+\end{equation}
+
+The image formation for a spherical mirror is summarized in \cref{imageformationmirror}, where \(R \text { and }  V\) refer to real and virtual, and \(O \text { and } I\) refers to object and image.
+
+\twofig{imageformationmirror1}{width=\textwidth}{imageformationmirror2}{width=\textwidth}{imageformationmirror}
 
 \subsection{Spherical Refracting Surfaces}
 
@@ -65,7 +100,26 @@ However, using the sign convention defined above, we can generalized the equatio
     \frac{n_1 }{u} + \frac{n_2 }{v} = \frac{n_1 - n_2 }{R}.
 \end{equation}
 
-\section{Thin Lens}
+The quantity \((n_1 -n_2 )/R\) is universal for all \(u \text { and } v\), and defines the image point for an infinity far object, but has no special name for it.   
+
+To avoid spherical abberations for large angles, one find, from Fermat's principle, that the eaxt shpe of a perfect refracting surface is the Cartesian ovoid of revolution. In most cases, however, we want to construct a lens that has two spherical surfaces and refracts light rays twice to produce a real image outside of the lens. Thus it is of particular interest to determine the shape of the surface that render every object ray parallel after the first refraction, which is either a hyperbolic or an ellipse depending on the relative magnitudes of the refractive indices, as shown in \cref{perfectrefract}.
+
+Note, however, that the aberration-free imaging so achieved applies only to object point \(O\) at the correct distance from the lens and on axis. For nearby points, closer or further from the lens, or off the axis, is not imaged perfectly.
+
+\twofig{perfectrefract1}{width=\textwidth}{perfectrefract2}{width=\textwidth}{perfectrefract} 
+
+The linear magnification is given by 
+
+\begin{equation}
+    m = \frac{h_{i} }{h_{o} } = -\frac{n_1 v}{n_2 u}.  
+\end{equation}
+
+The image formation for a thin lens is summarized in \cref{imageformationlens}, where \(R \text { and }  V\) refer to real and virtual, and \(O \text { and } I\) refers to object and image.
+
+\twofig{imageformationlens1}{width=\textwidth}{imageformationlens2}{width=\textwidth}{imageformationlens} 
+\subsection{Thin Lens}
+
+\subsubsection{Lensmaker's Equation}
 
 From the two fundamental building blocks, we can construct a lens with two sphereical surfaces. Treating the image of the first surface as the object of the second surface, we can derive the lensmaker's equation 
 
@@ -73,16 +127,16 @@ From the two fundamental building blocks, we can construct a lens with two spher
     \frac{1}{f} = (n-1) \left(\frac{1}{R_1 } - \frac{1}{R_2 }\right).  
 \end{equation}
 
-
+\subsubsection{Thin Lens Equation}
 
 Suppose our thin lens has thickness \(d(z) \ll  u,v \), which depends on height \(z\). The paraxial approximation tells us that \(z \ll  u,v\) and the path length of light travelled inside the lens is simply \(d(z)\). Therefore, using Fermat's principle, we have
 
 \begin{equation}
     \begin{aligned} 
     L(z) &= \sqrt{\left(u-\frac{d(z)}{2}\right) ^2+z^2} + nd(z) + \sqrt{\left( v-\frac{d(z)}{2}  \right)^2+z^2} \\
-    &\approx  \left( u- \frac{d(z)}{2}  \right) \left( 1 + \frac{z^2}{2\left( u - \frac{d(z)}{2}  \right)^2}  \right) + d(z) + \left( v- \frac{d(z)}{2}  \right) \left( 1 + \frac{z^2}{2\left( v - \frac{d(z)}{2}  \right)^2}  \right) \\
+    &\approx  \left( u- \frac{d(z)}{2}  \right) \left( 1 + \frac{z^2}{2\left( u - \frac{d(z)}{2}  \right)^2}  \right) + nd(z) + \left( v- \frac{d(z)}{2}  \right) \left( 1 + \frac{z^2}{2\left( v - \frac{d(z)}{2}  \right)^2}  \right) \\
     &= u + v + (n-1) d(z) + \frac{z^2}{2} \left( \frac{1}{\left( u-\frac{d(z)}{2}  \right)} + \frac{1}{\left( v-\frac{d(z)}{2}  \right)}  \right) \\
-    &\approx u+v+(n-1)d(z) + \frac{z^2}{2}(\frac{1}{u} + \frac{1}{v}  ) = \text{constant}.  
+    &\approx u+v+(n-1)d(z) + \frac{z^2}{2}\left(\frac{1}{u} + \frac{1}{v}  \right) = \text{constant}.  
     \end{aligned} 
 \end{equation}
 
@@ -90,7 +144,7 @@ Upon differentiation,
 
 \begin{equation}
     \begin{aligned} 
-    \frac{d}{dz}d(z) &= -\frac{z}{n-1}(\frac{1}{u} + \frac{1}{v}  ) \\
+    \frac{d}{dz}d(z) &= -\frac{z}{n-1}\left(\frac{1}{u} + \frac{1}{v}  \right) \\
     \implies  d(z) &= d(0) - \frac{z^2}{2(n-1)} \left( \frac{1}{u} + \frac{1}{v}   \right).   
     \end{aligned} 
 \end{equation}
@@ -98,16 +152,219 @@ Upon differentiation,
 For the lens to work with arbitrary \(u, v\), we require that 
 
 \begin{equation}
-    \frac{1}{u} + \frac{1}{v} \equiv \frac{1}{f} = \text{constant}.    
+    \frac{1}{u} + \frac{1}{v} = \text{constant} \equiv \frac{1}{f}. 
+\end{equation}
+
+One can introudce the variables \(x = u-f \text { and } x'= v-f\), and rewrite the thin lens equation into the Newtonian form
+
+\begin{equation}
+    xx' = f^2.
+\end{equation}
+
+A way to reduce spherical aberrations is to combine convex and concave lens such that the spherical aberration from one tends to cancels that from the other. One can also simply block the light with large incidence angle but this would reduce the image brightness.
+
+\subsubsection{Chromatic and Coma Aberration}
+
+Chromatic aberration occurs since the refraction index of a material differs for different wavelengths, so light with different wavelengths will focus at different points (logitudinal chromatic aberration) and have different magnifications (lateral chromatic aberration), leading to color frinages and blurred white-light image.
+
+To resolve this issue two lens of opposite powers are often used. The effective focal length \(f\) of two thin lenses with focal lengths \(f_1 \text { and } f_2 \), separated by a distance \(L\) is give by 
+
+\begin{equation}
+    \frac{1}{f} = \frac{1}{f_1 } + \frac{1}{f_2 } - \frac{L}{f_1 f_2 } = (n-1)(K_1 +K_2 ) - L(n-1)^2K_1 K_2,
+\end{equation}
+
+where \(K_1 \text { and } K_2 \) are quantities related to the radii of curvatures of the lens surfaces.
+
+To correct for chromatic aberration,\footnote{Only the transverse chromatic aberration can be fixed but not the longitudinal since the principla planes of the system do not coincide.} we require that the effective focal length remain independent of refractive index
+
+\begin{equation}
+    \frac{d(1 /f)}{dn} = K_1 + K_2 - 2LK_1 K_2 (n-1) = 0 \implies L = \frac{1}{2}(f_1 +f_2 ).  
+\end{equation}
+
+Coma aberration refers to when the image of an off-axis point object appears with a comet-like flare, especially for rays where the paraxial approximation breaks down.
+
+
+
+
+
+
+
+
+\todo{chromatic resolving power pedrotti} 
+
+\subsection{Plano-Cylindrical Lens}
+
+Refer to \cref{cylindricalinf}, we see that focusing occurs for rays along a vertical section but not for rays along a horizontal section, where the lens represents no curvature. A point object at infinity thus forms a horizontal line instead of a point at the focus. \Cref{cylindricalfin} shows the case where the object distance is finite.
+
+Consider the non-focusing light rays at the edge of the lens we can relate the effective length of the lens and the length of the line image, as
+
+\begin{equation}
+    AB = \left( \frac{u+v}{u}  \right) CL.
+\end{equation}
+
+\twofig{cylindricalinf}{width=\textwidth}{cylindricalfin}{width=\textwidth}{cylindrical} 
+
+
+
+\section{Applications}
+
+\subsection{Terminology}
+
+\subsubsection{Aperture Stops and Pupils}
+
+Aperture stop (AS) is the physical element in an optical system that limits the size of the light cone entering the system from any object point on the optical axis. This is usually the first optical element, but in some cases, such as in \cref{term1}, if the object is placed close enough to the lens then at some point the lens becomes the aperature stop of the system. As another example, in \cref{term2}, the aperature stop is placed behind the lens, which limits the size of the maximum cone of rays. 
+
+Entrance pupil (ENP) is the image of the aperture stop as seen from the object side of the system, formed by the optical elements positioned before the aperture stop. If aperture stop is the first element of the optical system then it is also the entrance pupil by this definition. 
+
+Exit pupil (EXP) is the image of the aperture stop formed by the optical elements that follow the aperture stop, as seen from the image side.
+
+\onefig{term1}{scale=0.3} 
+
+\onefig{term2}{scale=0.3} 
+
+The aperture stop of an optical system is not always obvious. To find the aperature stop in \cref{term4}, we have to compare the size of the entrance pupil assuming that the candidate component is the aperture stop, and we have the aperature \(A\) is the aperture stop of the system since the rim of its image subtends the smallest angle at \(O\). 
+
+\onefig{term4}{scale=0.3} 
+
+\subsubsection{Chief Ray and Marginal Ray}
+
+Chief ray is the ray from an object point that passes through the axial point in the plane of the entrance pupil, while marginal ray is that passes through the rim of the entrance pupil.
+
+\subsubsection{Field Stops and Windows}
+
+Field stop (FS) is the physical stop positioned in the optical system that limits the angular field of view, which restricts the extent of off-axis light rays that contribute to the formation of the image. In \cref{term5,term6}, for example, only a portion of light ray from points below \(T\) can reachs the lens, and points below \(V\) cannot reach the lens at all, so the image formed will be dimmer as we approach the edge. 
+
+Entrance window (ENW) is the image of the field stop formed by the optical elements placed before the field stop.
+
+Exit window (EXW) is the image of the field stop formed by the optical elements that come after the field stop.
+
+\onefig{term5}{scale=0.3} 
+
+\onefig{term6}{scale=0.3} 
+
+\Cref{term7} shows the general situation with all the components we have discussed above.
+
+\onefig{term7}{scale=0.3} 
+
+\example{Terminology.}
+{An optical system (see \cref{term8}) is made up of a positive thin lens \(L_{1} \) of diameter \(\SI{6}{\cm} \) and focal length \(f_1 = \SI{6}{\cm} \), a negative lens \(L_2 \) of diameter \(\SI{6}{\cm} \) and focal length \(f_2 = -\SI{10}{\cm} \), and an aperture \(A\) of diameter \(\SI{3}{\cm} \). The aperture \(A\) is located \(\SI{3}{\cm} \) in front of lens \(L_1 \), which is located \(\SI{4}{\cm} \) in front of lens \(L_2 \). An object \(OP\) of height \(\SI{3}{\cm} \) is located \(\SI{18}{\cm} \) to the left of \(L_1 \). 
+
+\begin{enumerate}
+    \item Determine which element \((A,L_1 \text { or } L_2 )\) serves as the aperture stop.
+    \item Determine the size and location of the entrance and exit pupils.
+    \item Determine the location and size of the intermediate image of \(OP\) formed by \(L_1 \) and the final image formed by the system.
+    \item Draw a diagram of the optical system and locate the two pupils, intermediate image \(O'P'\) and the final image \(O''P''\).
+    \item Draw the chief ray from object point \(P\) to its conjugate in the final image, P''.   
+\end{enumerate}
+~
+}
+{\begin{enumerate}
+    \item Elements \(A \text { and }  L_1\) have no ``optics'' to their left, so each subtends a half-angle directly. For element \(A\), this is \(\theta _{A} = 1.5/15 = \SI{0.1}{\radian}  \). For element \(L_1 \), this is \(\theta _{L_1 } = 3/18 = \SI{0.17}{\radian} \). 
+
+    For \(L_2 \), we have to first find its image through \(L_1 \) by the thin lens equation, which is found to be \(\SI{12}{\cm} \) to the right of \(L_1 \), so the angle subtended is \(\theta _{L_2}  = 9/30 = \SI{0.3}{\radian}  \).     
+
+    Comparing the half-angles, we have the element \(A\) serving the aperture stop.
+
+    \item Since there are no optics to the left of the aperture stop, element \(A\) also serves as the entrance pupil. To locate the exit pupil, we find the image of \(A\) through \(L_1 \text { and } L_2 \) as usual, which gives the exit pupil locating \(\SI{5}{\cm} \) to the left of \(L_2 \). The size is found by multiplying the magnifications at \(L_1 \text { and } L_2 \) by its original size, which is found to be unchanged, \textit{i.e.,} \(\SI{3}{\cm} \).
+    
+    \item Using the thin lens equation, \(O'P'\) is inverted, \(\SI{1.5}{\cm} \) long, and \(\SI{5}{\cm} \) to the right of \(L_2 \), while \(O''P''\) is inverted, \(\SI{3}{\cm} \) long, and \(\SI{10}{\cm} \) from \(L_2 \). 
+    
+    \item The final drawing is shown in \cref{term9}.
+    
+    \item The chief ray from point \(P\) to its conjugate point \(P''\) is shown in \cref{term9}. Note that it leaves \(P\), passes through \(M\), the center of \(AS\) and \(ENP\), underoges refraction at \(L_1 \), heads for \(O'P'\), refracts again at \(L_2 \) before reaching \(O'P'\) and heads for \(O''P''\), the final image. Note also that the segment of the chief ray from \(L_2 \) to \(P''\), if traced backward, will appear to be coming from point \(N\), the center of the exit pupil \(EXP\). THus the chief ray involves the centers of \(AS, ENP \text { and } EXP\), as defined.          
+    
+\end{enumerate}
+~
+} 
+
+\onefig{term8}{scale=0.3} 
+
+\onefig{term9}{scale=0.3}
+
+\subsection{Pinhole Camera}
+
+\Cref{pinhole} shows the simple mechanism of a pinhole camera. Since the aperture stop is small, it requires a long exposure time. On the other hand, the depth of field is unlimited, and can focus object from any distance. In general, the aperture size is inversely related to the depth of field, since a smaller aperture produces a smaller blur circle (the image of a point source when it is slightly out of focus). Because the individual point sources spread less when the aperture is reduced, the system can tolerate more diviation from the perfect focus position before the blur becomes noticeable. 
+
+\onefig{pinhole}{scale=0.3} 
+
+\subsection{The Eye}
+
+For simplicity, a human eye can be regarded as a lens with adjustable focal length, and the closest point that can be imaged is called the Puntum Proximum (PP), and is often taken to be \(\SI{25}{\cm} \).  
+
+If somebody's Puntum Proximum is at \(\SI{70}{cm}\), then we would need to add a convex lens such that an object positioned at \(\SI{25}{\cm} \) appear to be at \(\SI{70}{\cm} \).
+
+\subsection{Magnifying Lens}
+
+The maximum angular size of an object with height \(L\) is \(\theta _{0} = L /PP\). There are two configurations in which a convex lens can be placed to produce different magnfications.\footnote{Angular magnification refers to the ratio of angular size while linear magnification refers to the ratio of height. We will be predominately using angular magnification hereafter and it is assumed that we are refering to angular magnificiation when we say magnification, unless otherwise specified. This choice is justified becuase when the image is at infinity the lateral magnifications also approches infinity and is not very useful.} 
+
+If the object is placed at the focal point of the lens so that a virtual image is created at \(v = \infty\) with height \(L'\), then the angular size of the object is given by
+
+\begin{equation}
+    \theta = \frac{L'}{v} = \frac{L}{f},  
+\end{equation}
+
+so the magnification is 
+
+\begin{equation}
+    M = \frac{\theta }{\theta _{0} } = \frac{L/f}{L/PP} = \frac{PP}{f}. 
+\end{equation}
+
+If the object is placed closer to the lens then at the focal point, so that a virtual image is formed at \(v = -PP\), then the angular size of the image would be 
+
+\begin{equation}
+    \theta = \frac{L'}{v} = \left( \frac{vL}{u}  \right) \left( \frac{1}{v}  \right) = \frac{L}{u}, 
+\end{equation}
+
+so the magnification is 
+
+\begin{equation}
+    M = \frac{\theta }{\theta _{0} } = \frac{L /u}{L / PP} = \frac{PP}{u} = PP \left( \frac{1}{f} + \frac{1}{PP}   \right) = 1 + \frac{PP}{f}. 
+\end{equation}
+
+\subsection{Refracting Telescope}
+
+The purpose of a telescope is to take a real object at infinity and make a real image at infinity with a larger angular size. Refering to \cref{telescope}, it consists of two convex lens, with an objective lens with focal length \(f_{o} \) and an eyepiece with focal length \(f_{e} \). The two lens are arranged so that the focal point of the objective and the eyepiece coincides. 
+
+\onefig{telescope}{scale=0.3} 
+
+From the figure we find the magnification as 
+
+\begin{equation}
+    M = \frac{\alpha '}{\alpha } = \frac{f_{o}  }{f_{e} }.
+\end{equation}
+
+At the focal plane one can place a masking device to block the light of one of the sources but not the other. This technique, called chronography is used to image planets around other stars, which is usually much fainter than its host star.
+
+\subsection{Compound Microscope}
+
+The goal of a microscope is to make a large image at the Puntum Proximum of an object that is very small. Similar to the telescope it uses an objective lens of focal length \(f_{o} \) and an eyepiece of focal length \(f_{e} \), but the object we are trying to image is not at infinity but close to the objective (see \cref{microscope}).
+
+Since the image is positioned at the Puntum Proximum, the angular magnification is the same as the linear magnification and is given by 
+
+\begin{equation}
+    M = \frac{PP}{f_{\text{eff.} } } = \frac{PP(f_{e} + f_{o} - d  )}{} 
 \end{equation}
 
 
 
+\onefig{microscope}{scale=0.3} 
+
+\subsection{Prism}
+
+With some angle tracing, we can find the deviation angle of a light passing through a prism with refractive index \(n\), apex angle \(\alpha \), incident angle \(\theta _{1} \) and refracted angle \(\theta _{2} \)  as 
+
+\begin{equation}
+    \begin{aligned} 
+    \delta &= \theta _{1} + \theta _{2} - \left( \sin ^{-1} \left( \frac{\sin \theta _{1} }{n}  \right) + \sin ^{-1} \left( \frac{\sin \theta _{2} }{n}  \right)\right) \\
+    &= \theta _{1} - \alpha + \sin ^{-1} \left( n\sin \left( \alpha - \sin ^{-1} \left( \frac{\sin \theta _{1} }{n}  \right) \right) \right). 
+    \end{aligned} 
+\end{equation}
+
+To find the minimum deviation angle \(\delta \), we can set the derivative to be zero. Alternatively, we can use the reversibility of light and argue that by symmetry the light must be parallel to the base of the prism while travelling inside the prism. More formally, since \(\delta \) is a symmetric function of \(\theta _{1} \text { and } \theta _{2}  \), \textit{i.e.,} \(\delta (\theta _{1}, \theta _{2}  ) = \delta (\theta _{2}, \theta _{1}  )\), so at minimum we must have \(\theta _{1} = \theta _{2}  \), therefore the minimum deviation angle can be found as \(\delta _{\text{min.} } = 2 \sin ^{-1} (n \sin (\alpha /2)) - \alpha  \). 
+
+It is this minimum deviation angle that leads to the formation of halo and rainbow, since more light will cross the crystals or raindrop with a deflection angle close to the minimum angle.
 
 
-\section{Refracting Telescope}
-
-\section{Copmound Microscope}
 
 \chapter{Interference and diffraction}
 
@@ -139,9 +396,9 @@ When \(\vb{E} _{01} \parallel \vb{E} _{02} \text { and } E_0  \equiv E_{01} = E_
 
 where \(\alpha \) is the phase difference between two electric fields and at the last step we assumed it to be constant in time.
 
-\section{Far-field Limit}
+\section{Fraunhofer diffraction}
 
-The far-field limit in optics is the region where the diffracted wavefronts from an aperture or slit can be approximated as planar, which is typically met when \(D \gg a^2/\lambda \), where \(D\) is the distance from the aperature or slit to the screen and \(a\) is the charateristic size of the aperature or the slit.\footnote{Aperature and slit are not fundamentally different objects and slit is simply a special extreme case of an aperature, just as interference and diffraction are not fundamentally different processes, diffraction is simply a special name for interference when light passes through an aperature.} This can be seen from \cref{diffraction} since the width of the central maximum is given by \(W = 2D\lambda /a\), and we require it to be much greater than \(a\) to acheive far-field limit. 
+The Fraunhofer diffraction (or far-field limit) occus when the phase from each point in the diffracting object varies linearly with the transverse position, so that the diffracted wavefronts from an aperature or a slit can be approximated as planar, which is typically met when a focusing lens is used, so that the screen is effectively at infinity, or when \(D \gg a^2/\lambda \), where \(D\) is the distance from the aperature or slit to the screen and \(a\) is the charateristic size of the aperature or the slit.\footnote{Aperature and slit are not fundamentally different objects and slit is simply a special extreme case of an aperature, just as interference and diffraction are not fundamentally different processes, diffraction is simply a special name for interference when light passes through an aperature.} This can be seen from \cref{diffraction} since the width of the central maximum is given by \(W = 2D\lambda /a\), and we require it to be much greater than \(a\) to acheive far-field limit. The source must also be placed sufficiently far away such that it hits the aperature or the slit in planar manner.
 
 As a result, for a certain point on the screen, all the lights arrive approximately in parallel and the electric field has the same amplitude \(E_0 (\theta ) = E_0 (0) / \sqrt{\cos \theta } \) for cylindrical wave (or 2D spherical wave),\footnote{Although Huygen's principle says that the secondary wavelets are spherical in nature, the wavefronts of the spherical waves created by a cylindrical source (the slit) is cylindrical in nature, thus the \(1 /\sqrt{r} \) decaying factor instead of \(1/r\). But in doing so we must replace the electric field per unit area to the electric field per unit lenght. Equivalently, the changing of \(1/r\) to \(1/\sqrt{r} \) is due to one of the two integrations needed in a double integration.} usually we will further neglect this dependency and have \(E(\theta ) = E(0) \equiv  E_0 \). Note also that we are not using the electric fields at the aperature or the slit, since due to the singularity at the source one could not obatin the realtionship between the electric fields at the screen and at the source by simple means, except for the simple plane wave case where the electric field amplitude remain constnat througout.
 
@@ -159,13 +416,27 @@ To find the interference pattern \(I(\theta )\), we have
     E(\theta ) = E_0 e^{i(kr_1 - \omega t)} + E_0 e^{i(kr_2 - \omega t)} = 2E_0 \left( e^{i(k(r_1 -r_2 )/2)} + e^{-i(k(r_1 -r_2 )/2)}    \right) e^{i (k(r_1 +r_2 ) /2- \omega t)},   
 \end{equation}
 
-where \(E_0 \) is the electric field produced by the single slit at \(x=0\) on the screen. We have also assumed the parallel of the electric fields, thus used scalar addition, and we have changed \(\vb{k} \cdot \vb{r} \) to just \(kr\) since \(\vb{k} \) and \(\vb{r} \) are parallel if we use the coordinate systems where the origins are located at the two slits when doing the two dot products. Note that we do not have to use the same coordinate systems throughout, as long as the same coordinate system is used to evaluate one dot product.
+where \(E_0 \) is the electric field produced by the single slit at \(x=0\) on the screen, which is not to be confused with \(E(0)\), which is the electric field produced by both of the slits at \(x = 0\).
+
+We have also assumed the parallel of the electric fields, thus used scalar addition, and we have changed \(\vb{k} \cdot \vb{r} \) to just \(kr\) since \(\vb{k} \) and \(\vb{r} \) are parallel if we use the coordinate systems where the origins are located at the two slits when doing the two dot products. Note that we do not have to use the same coordinate systems throughout, as long as the same coordinate system is used to evaluate one dot product.
 
 \begin{equation}
     I(\theta ) = \avg{\abs{E(y)}^2 } = 4 E_0 ^2\cos ^2\left( \frac{kd \sin \theta }{2}  \right) = 4I_0 \cos ^2\left( \frac{kdx}{2D}  \right) = 4I_0 \cos ^2\left( \frac{\alpha }{2}  \right),
 \end{equation}
 
 where \(I_0 \equiv  E_0 ^2\), but \(I(0) = (2E_0 )^2 = 4I_0 \), as expected. The interference pattern are evenly spaced fringes with separation \(\Delta x = \lambda D /d\), shown in \cref{doubleslit}. 
+
+The minima occurs at 
+
+\begin{equation}
+    \frac{\alpha }{2} = (m+\frac{1}{2} )\pi , 
+\end{equation}
+
+and the maxima occur at 
+
+\begin{equation}
+    \frac{\alpha }{2} = m\pi . 
+\end{equation}
 
 \onefig{doubleslit}{scale=0.3} 
 
@@ -176,19 +447,33 @@ We start with finding the electric field
 \begin{equation}
     \begin{aligned} 
     E(\theta ) &= E_0 e^{i(kr_1 -\omega t)} \sum_{n=1}^{N} e^{i(k(n-1)d\sin \theta )} = E_0 e^{i(kr_1 - \omega t)} \left( \frac{Z^{N}-1 }{Z-1}  \right) \\
-    &= E_0 e^{i(kr_1 -\omega t)} \frac{Z^{N /2}(Z^{N /2} - Z^{-N /2}  ) }{Z^{1 /2} (Z^{1 /2} - Z^{- 1/2}  ) } = E_0 e^{i(kr_1 -\omega t + (N-1)kd\sin \theta /2)} \left( \frac{\sin \left(\frac{Nkd\sin \theta }{2} \right)}{\sin \left( \frac{kd\sin \theta }{2}  \right)}  \right),
+    &= E_0 e^{i(kr_1 -\omega t)} \frac{Z^{N /2}(Z^{N /2} - Z^{-N /2}  ) }{Z^{1 /2} (Z^{1 /2} - Z^{- 1/2}  ) } = E_0 e^{i(kr_1 -\omega t + (N-1)kd\sin \theta /2)} \left( \frac{\sin \left(Nkd\sin \theta /2\right)}{\sin \left( kd\sin \theta /2  \right)}  \right),
     \end{aligned}        
 \end{equation}
 
 where \(Z \equiv e^{ikd\sin \theta } = e^{i\alpha }   \). So the intensity is 
 
 \begin{equation}
-    I(\theta ) = \avg{\abs{E(x)}^2 } = I_0 \left( \frac{\sin \left( \frac{Nkd\sin \theta }{2}  \right)}{\sin \left( \frac{kd\sin \theta }{2}  \right)}  \right)^2 = I_0 \left( \frac{\sin \left( \frac{Nkdx}{2D}  \right)}{\sin \left( \frac{kdx}{2D}  \right)}  \right)^2 = I_0 \left( \frac{\sin \left(N\alpha /2 \right)}{\sin \left(\alpha /2  \right)}  \right)^2. \label{Nslits} 
+    I(\theta ) = \avg{\abs{E(x)}^2 } = I_0 \left( \frac{\sin \left( Nkd\sin \theta /2 \right)}{\sin \left(k d\sin \theta /2  \right)}  \right)^2 = I_0 \left( \frac{\sin \left( Nkdx/2D  \right)}{\sin \left( kdx/2D \right)}  \right)^2 = I_0 \left( \frac{\sin \left(N\alpha /2 \right)}{\sin \left(\alpha /2  \right)}  \right)^2. \label{Nslits} 
 \end{equation}
 
 Here \(I (0) = (NE_0 )^2 = N^2I_0 \), which can be verified from the above equation by taking the limit as \(\alpha \to 0\). Note that although \(\theta \ll 1\), \(kd\) is not necessarily much smaller than 1, so the expression can not be simplified further. 
 
-Therefore, the minima occurs when the numerator is zero while the denominator is not, \textit{i.e.,} \(N \alpha /2 = m\pi \), for \(m \neq nN\), while the global maximum occurs when both the numerator and the denomiator are zero, \textit{i.e.,} \(\alpha /2 = n\pi \), which is when all the lights are in phase. The local minima can be found by differentiation, which gives \(\tan (N\alpha /2) = N\tan (\alpha /2)\). For large \(N\), the solutions for \(\alpha \) genearlly gives symmetric solutions, and the intensity is the smallest for the local maximum centered between the global maxima, as shown in \cref{Nslit} for the \(N=8\).
+Therefore, the minima occurs when the numerator is zero while the denominator is not, \textit{i.e.,} 
+
+\begin{equation}
+    \frac{N\alpha }{2} = m\pi \implies d \sin \theta = \frac{m \lambda }{N} , \quad m \neq nN,
+\end{equation}
+
+while the global maximum occurs when both the numerator and the denomiator are zero, \textit{i.e.,}
+
+\begin{equation}
+    \frac{\alpha }{2} = n \pi \implies d\sin \theta = n\lambda  
+\end{equation}
+
+which is when the lights from all slits are in phase. 
+
+The local minima can be found by differentiation, which gives \(\tan (N\alpha /2) = N\tan (\alpha /2)\). For large \(N\), the solutions for \(\alpha \) genearlly gives symmetric solutions, and the intensity is the smallest for the local maximum centered between the global maxima, as shown in \cref{Nslit} for the \(N=8\).
 
 \twofig{Nslit}{width=\textwidth}{phasor1}{width=\textwidth}{Nslitphasor21} 
 
@@ -202,6 +487,46 @@ This diagram also visualize the pairwise cancellation of electric field when min
 
 Diffraction grating is essentially \(N\) slits interference with \(N \gg 1\), since then the intensity of the local maximum is negligible, since it scales with \(1/N^2\), so the maxima are only observed when \(\alpha = 2n\pi \), or \(\lambda = d\sin \theta \).    
 
+The angular diffraction of a grating is defined as 
+
+\begin{equation}
+    \frac{d \theta }{d \lambda } =  \frac{m}{d \cos \theta },
+\end{equation}
+
+which measures how much the maxima angle changes for a small change in wavelength.
+
+A diffration grating can be used to make a spectrometer. Firstly an objective lens image the lamp's arc onto a narrow entrance slit, creating a small and well-defined line source. A collimating lens then converts the diverging rays from the slit into a paralle beam, and strikes normally at the diffraction grating. Lights with different wavelengths then construtively interfere and forming maxima intensity at different angles as shown in \cref{lens}. 
+
+The objective lens is important since the lamp is not a point source, so each point on the lamp would form its own spectrum, blurring over one another. Collimated light is essential so the rays incident on the grating is parallel. Also the whole diffraction grating should be illuminated to maximize the resolving power \(R\).
+
+The resolving power of a grating is defined in general by 
+
+\begin{equation}
+    R = \frac{\lambda }{\Delta \lambda _{\text{min} } },
+\end{equation}
+
+where \(\Delta \lambda _{\text{min} } \) is the smallest wavelength difference that the instrument can just resolve at wavelength \(\lambda \).  
+
+The change in diffraction angle \(\Delta \theta \) when the wavelength is changed by a small amount \(\Delta \lambda \) is given by 
+
+\begin{equation}
+    \Delta \theta = \frac{m \Delta \lambda }{d \cos \theta }. 
+\end{equation}
+
+On the other hand the angular width of a principal maximum is given by 
+
+\begin{equation}
+    \delta \theta = \frac{\lambda }{Nd \cos \theta }. 
+\end{equation}
+
+From the Rayleigh criterion we state that two wavelengths \(\lambda \text { and } \lambda +\Delta \lambda \) are just resolved when the angular separation of their maxima equals the half-width of a single maximum
+
+\begin{equation}
+    \Delta \theta = \delta \theta \implies \frac{m \Delta \lambda }{d \cos \theta } = \frac{\lambda }{Nd \cos \theta } \implies \Delta \lambda _{\text{min} } = \frac{\lambda }{mN} \implies R = \frac{\lambda }{\Delta \lambda _{\text{min} } }     = mN.
+\end{equation}
+
+
+
 
 \subsection{Diffraction}
 
@@ -210,20 +535,24 @@ Diffraction grating is essentially \(N\) slits interference with \(N \gg 1\), si
 If the slit width \(a\) is not negligible, then for a single slit the intensity can be found by treating every points in the slit as a single slit with slit separation \(d = a /N \to 0\) and number of slits \(N \to \infty\), so from \cref{Nslits} 
 
 \begin{equation}
-    I(\theta ) =  \frac{I(0)}{N^2}  \left( \frac{\sin \left( \frac{Nkdx}{2D}  \right)}{\sin \left( \frac{kdx}{2D}  \right)}  \right)^2 = I(0) \left( \frac{\sin \left( \beta /2  \right)}{\beta /2 }  \right)^2, \quad \beta  = ka\sin \theta , \label{diffraction} 
+    I(\theta ) =  \frac{I(0)}{N^2}  \left( \frac{\sin \left( Nkdx /2D  \right)}{\sin \left( kdx /2D  \right)}  \right)^2 = I(0) \left( \frac{\sin \left( \beta /2  \right)}{\beta /2 }  \right)^2, \quad \beta  = ka\sin \theta , \label{diffraction} 
 \end{equation}
 
-which as a sine function with a \(1/x\) envelope, as shown in \cref{dif}. Therefore, minima occurs when \(\beta /2 = m\pi \), or \(\lambda = ma \sin \theta \approx ma \theta \), which is when the electric fields from the top and bottom of the slits are in phase, since then if we divide the slits into two halfs (for \(m=1\)) (or four quarters for \(m=2\) \textit{etc.}), we can always find a corresponding electric field is out of phase for any electric field, achieving pairwise cancellation. The maxima condition is now \(\tan (\beta /2) = \beta /2\), which occur roughly halfway between the zeros. 
+was shown in \cref{dif}. Therefore, minima occurs when
 
-If \(a \ll \lambda \), then we effectively have a line source since no matter how the lights tilt no significant path difference can be acheived so no diffraction pattern. If \(a \gg  \lambda \), then even the slightest tilt of the beam would lead to a path differenece comparable to \(\lambda \), so the diffraction pattern is very narrow. In any rate, the rule of thumb is that \(\theta \approx  \lambda /a\) for the first minima.    
+\begin{equation}
+    \frac{\beta }{2} = m\pi \implies \lambda = ma\sin \theta \approx ma \theta , 
+\end{equation}
+
+which is when the electric fields from the top and bottom of the slits are in phase, since then if we divide the slits into two halfs (for \(m=1\)) (or four quarters for \(m=2\) \textit{etc.}), we can always find a corresponding electric field is out of phase for any electric field, achieving pairwise cancellation. The maxima condition is now \(\tan (\beta /2) = \beta /2\), which occur roughly halfway between the zeros. 
 
 More rigorously, we can find the intensity profile by summing the electric field by the infinite slits with width \(dx\) and taken the averaged modulus squared to find the intensity, we start with 
 
 \begin{equation}
-    E(\theta ) = \int_{-\frac{a}{2} }^{\frac{a}{2} } (E_0 ' dx ) e^{-ikx\sin \theta } = \frac{E_0 '}{-ik\sin \theta }\left( e^{-ik(a /2)\sin \theta }- e^{ik(a /2)\sin \theta }   \right) = E_0 'a \left( \frac{\sin \left( \beta /2 \right)}{\beta /2 }  \right), 
+    E(\theta ) = \int_{-a /2 }^{a /2 } (E_0 ' dx ) e^{ikx\sin \theta } = \frac{E_0 '}{-ik\sin \theta }\left( e^{ik(a /2)\sin \theta }- e^{-ik(a /2)\sin \theta }   \right) = E_0 'a \left( \frac{\sin \left( \beta /2 \right)}{\beta /2 }  \right), 
 \end{equation}
 
-where \(E_0 '\) is the electric field per unit length across the slit produced at \(x=0\) on the screen, averaging the modulus squared give the same result as above.
+where \(E_0 '\) is the electric field per unit length across the slit produced at \(x=0\) on the screen, and thus \(E_0 'a\) is the electric field of the slit produced at \(x = 0\). Therefore averaging the modulus squared give the same result as above.
 
 In fact the electric field can be obtained by the fourier transforming the transimitivity function \(T(x)\)
 
@@ -233,9 +562,7 @@ In fact the electric field can be obtained by the fourier transforming the trans
 
 From the theory of Fourier transform, this means that if \(T\) has a large componnet with spatial frequency \(k\sin \theta \), then the electric field at angle \(\theta \) will be larger, which is true as when the spatial frequency of \(T\) is \(k\sin \theta = 2\pi /(\lambda /\sin \theta )\), then from \cref{fourier} we see that the light generally constructively interfere with one another.   
 
-The above results can also be seen from \cref{phasor4}, where the digaram is constructed by noting that the phase diffrence between the elctric fields at the top and the bottom of the slit is given by \(\beta \), then the ratio of intensity is given by the ratio of the length between the straight line and the arc, which gives \(I(x) / I(0) = (2r \sin (\beta /2) /r \beta )^2\), which is the same as the above equation.  
-
-The minima condition \(\beta = 2\pi \) corresponds to the fact that the arc in \cref{phasor4} turns into a full circle, so the resultant electric field is zero. 
+The above results can also be seen from \cref{phasor4}, where the digaram is constructed by noting that the phase diffrence between the elctric fields at the top and the bottom of the slit is given by \(\beta \), then the ratio of intensity is given by the ratio of the length between the straight line and the arc, which gives \(I(x) / I(0) = (2r \sin (\beta /2) /r \beta )^2\), which is the same as the above equation. The minima condition \(\beta = 2\pi \) corresponds to the fact that the arc in \cref{phasor4} turns into a full circle, so the resultant electric field is zero. 
 
 \twofig{dif}{width=\textwidth}{phasor4}{width=\textwidth}{difphasor4} 
 \twofig{fourier}{width=\textwidth}{four}{width=\textwidth}{fourierfour} 
@@ -273,6 +600,30 @@ where \(E_0 ''\) is the electric field per unit area over the aperature produced
 \onefig{circular}{scale=0.3} 
 
 The first minimum occurs when \(\gamma = 3.832\), or \(D \sin \theta = 1.22 \lambda\). Rayleigh's criterion for just-resolvable images requires that the central maximum of one image coincedes with the first minimum of the another image, \textit{i.e.,} \(\Delta \theta = 1.22 \lambda /D\), where \(D\) is usually the diameter of the lens if we are viewing two starts through a microscope.   
+
+\subsection{Rayleigh Criterion}
+
+The Rayleigh Criterion states that two diffraction-limited point images can be resolved when the central maximum of one coincides with the first minimum of the other.
+
+\example{Rayleigh Criterion.}
+{A spy satellite orbits \(\SI{200}{\km} \) above the surface of the Earth and observes light at wavelength \(\SI{550}{\nm} \). Estimate the size of the main mirror on the spy satellite if it is able to read the leahlines of a tabloid newspaper, with a font thickness of \(\SI{3}{\cm} \). 
+
+A digital camera is used to record the image at the focus of the spy satellite's main mirror. If the main mirror of the spy satellite has a focal length of \(\SI{80}{\m} \), estimate the maaximum distance between the centers of adjacent pixels for the camera to fully resolve the newspaper headlines.}
+{Using the Rayleigh Criterion we have
+
+\begin{equation}
+    \theta = \frac{\SI{3}{\cm} }{\SI{200}{\km} } = 1.22 \frac{\SI{550}{nm} }{D} \implies D = \SI{4.47}{m}.
+\end{equation}
+
+As a visual aid, consider two sets of parallel beam, separated by angle \(\theta \) forming two images at the focal plane, one of which is located on the optical axis. The maximum size of a pixel is then trivially the distance bewteen the image. In the same vein we have 
+
+\begin{equation}
+    d = \frac{\theta f}{2} = \SI{6}{\um},  
+\end{equation}
+
+where the 1/2 factor comes the Nyquist sampling theorem, which demands at least two samples per resolution element.
+} 
+
 
 \section{Optical Interferometry}
 

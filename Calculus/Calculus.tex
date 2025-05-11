@@ -11,7 +11,7 @@
 \maketitle
 \tableofcontents
 
-\chapter{Differentiation}
+\chapter{Partial Differentiation}
 
 \section{Ordinary Differentiation}
 
@@ -37,72 +37,320 @@ If \(d^2f / dx^2 = 0\) but it does not change sign before and after the stationa
 
 An inflection point (which is not stationary) is when \(d^2f / dx^2 = 0\) but \(df/dx \neq 0\) where the concavity of the fucntion changes.  
 
-\section{Partial Differentiation}
+\section{Independent and Dependent Variables}
+
+Variables are some quantities that can change. Relations or constriants are equations that relate the variables and put constriants on how they can change. 
+
+Independent Variables are variables that can change independently without affecting other independent variables. If there are no constriants then all the variables are independent variables and they can change freely without one affecting another.
+
+Dependent Variables are variables that would change when the independent variables change due to constriants. If there are, say, 3 variables \(x,y,z\) and 1 constriant then there would be 1 dependent variables and \(3-1=2\) independent variables. The constriant can be written in the form \(z = z(x,y)\), meaning that \(z\) is the dependent variable that depends on \(x \text { and } y\), which are the independent variables. In other words, \(z\) is a function of \(x \text { and } y\).   
+
+It is important to note that the assignation of independent and dependent variables is entirely arbitrary. As in the case of the above example, we can call any 2 of the 3 variables \(x,y,z\) independent, and the rest change according to the constriant. That is to say that the constriant may also be written in the form \(x(y,z) \text { or } y(x,z)\). 
+
+That said, there is usually an obvious dependent variable, such as the price of an orange \(z\), with obvious independent variables, such as the supply \(x\) and the demand \(y\).  
+
+\section{1 Constriant}
+
+Since the whole point of multivariable calculus is to find how a variable change with another when there are more than the two usual variables \(x \text { and } y\), there is at least one constriant imposed on the variables. 
+
+We start our discussion by considering the bare-minimum -- 3 variables \(x,y,f\) with 1 constriant \(f = f(x,y)\). Here we use the variable \(f\) instead of \(z\) to emphasize that \(f\) is chosen (arbitrary) to be our dependent variable and \(x \text { and } y\) can change independently, \textit{i.e.,} \(f(x,y)\) is a function of \(x \text { and } y\).  
 
 \subsection{Partial Derivatives}
 
-Suppose we have three variables \(x,y \text { and } f\), with \(f = f(x,y)\) being assinged (arbitraily) as the dependent variable, and \(x,y\) being the independent variables (which are independent of each other, \textit{i.e.,} \(x \text { and } y\) can vary independently). The rate in which \(f\) changes as \(x\) changes while keeping \(y\) fixed can be calculated by the partial derivative of \(f\) with respect to \(x\)
+The rate in which \(f\) changes as one of the independent variables, say \(x\), changes while keeping the other, say \(y\), is found by the partial derivative of \(f\) with respect to \(x\) as
 
 \begin{equation}
-    \left( \frac{\partial f}{\partial x} \right)_{y} = \frac{\partial f}{\partial x} = f_{x}  = \lim_{\Delta x \to 0} \frac{f(x+\Delta x,y) - f(x,y)}{\Delta x},
-\end{equation}
-
-where the variable which is kept constant is omitted at the first equality. In most cases, omitting the constant variable is conventional as they are obvious. However, care must be taken when the independent variables are not independent of each other. 
-
-The situation is best illustrated by an example. Suppose
-
-\begin{equation}
-	f(x,y) = x^2+y^2+(x^2+y^2)^2,
-\end{equation}
-
-and we introduce another independent variable \(z = x^2+y^2\), which is independent of \(x \text { and } y\). Then there would be infinite ways to express \(f(x,y,z)\) in terms of the independent variables \(x,y \text { and } z\), such as \(f(x,y,z) = x^2+y^2+z^2 = z+z^2 = x^2+y^2+z(x^2+y^2)\) \textit{etc.} 
-
-If we want to calculate the partial derivative of \(f(x,y,z)\) with respect to \(x\), then we must write down explicitly the variable we would like to keep constant. In fact, the variable that is kept constant need not be \(y \text { or } z\), it can be any combination of \(x,y \text { and } z\), such as \(w = y^2\sin (x+\sqrt{z} )\). 
-
-If we keep \(y\) to be constant (and \(z\) be whatever \(z = x^2+y^2\) is), then the partial derivative is 
-
-\begin{equation}
-	\left( \frac{\partial f(x,y,z)}{\partial x}  \right)_{y} = \frac{\partial }{\partial x} (x^2+y^2+(x^2+y^2)^2) = 2x+4x^3 +4xy^2.  
-\end{equation}
-
-On the other hand, if we keep \(z\) to be constant (and \(y\) be whatever \(y = \pm \sqrt{z-x^2} \) is), then the partial derivative is 
-
-\begin{equation}
-	\left( \frac{\partial f(x,y,z)}{\partial x}  \right)_{z} = \frac{\partial }{\partial x} (z+z^2) = 0. 
-\end{equation}
-
-To see why is this so, refer to \cref{paraboloid}, which shows the relation \(z = x^2+y^2\), and the variable \(f(x,y,z)\) calculates the square of the distance from the origin. 
-
-Suppose we want to calculate the partial derivative of \(f(x,y,z)\) with respect to \(x\) at the point \(P_0 = (1,0,1)\). If we hold \(y\) fixed and let \(x\) varies, then the point \(P\) moves in the \(xz\)-plane towards \(A\), and the distance increases as \(x\) increases. However, if we hold \(z\) fixed and let \(x\) varies, then point \(P\) moves in the plane \(z = 1\), along the circular path towards \(B\) and the distance is fixed.   
-
-\onefig{paraboloid}{scale=0.3} 
-
-A very useful fact about the second partial derivative which the proof is not given here is that 
-
-\begin{equation}
-    \frac{\partial^2 f}{\partial x \partial y} = \frac{\partial }{\partial x} \left( \frac{\partial f}{\partial y}  \right) = f_{xy} = f_{yx} = \frac{\partial }{\partial y} \left( \frac{\partial f}{\partial x}  \right) = \frac{\partial^2 f}{\partial y \partial x}.     
+	\left( \frac{\partial f}{\partial x} \right)_{y} \equiv  \lim_{\Delta x \to 0} \frac{f(x+\Delta x,y) - f(x,y)}{\Delta x}.  
 \end{equation}
 
 \subsection{Total Derivatives}
 
-Now we consider how \(f(x,y)\) changes when both \(x \text { and } y\) change. We have
+To consider how \(f(x,y)\) changes when both \(x \text { and } y\) change, we can calculate the infinitesimal difference of \(f\) as 
 
 \begin{equation} \label{totaldf} 
     \begin{aligned}
         \Delta f &= f(x+\Delta x,y+\Delta y) - f(x,y) \\
         &= f(x+\Delta x,y+\Delta y) - f(x,y) + f(x,y+\Delta y) - f(x,y+\Delta y) \\
         &= \frac{f(x+\Delta x,y+\Delta y)-f(x,y+\Delta y)}{\Delta x}\Delta x + \frac{f(x,y+\Delta y)-f(x,y)}{\Delta y} \Delta y \\
-        &\approx \frac{\partial f}{\partial x} \Delta x + \frac{\partial f}{\partial y} \Delta y. 
+        &\approx \left(\frac{\partial f}{\partial x} \right)_{y} \Delta x + \left(\frac{\partial f}{\partial y}\right)_{x}  \Delta y.
     \end{aligned}
 \end{equation}
 
-Note that the partial deriavtives are carried out as if all the independent variables are independent of each other (although they might be dependent). The approximation becomes exact as \(\Delta x \rightarrow  0 \text { and }  \Delta y \rightarrow 0\).  
+As \(\Delta x \to 0 \text { and } \Delta y \to 0\), we have the total differential \(df\) as 
 
-This result shows that if the changes in \(x \text { and } y\) are small enough, we can consider the change in \(f(x,y)\) due to \(x \text { and } y\) separately, as any change in \(f(x,y)\) that is not linear to \(\Delta x \text { or } \Delta y\) is negligble as \(\Delta x \rightarrow 0 \text { and } \Delta y \rightarrow 0\).     
+\begin{equation}
+	df = \left( \frac{\partial f}{\partial x} \right)_{y} dx + \left( \frac{\partial f}{\partial y} \right)_{x} dy.  
+\end{equation}
 
-\example{Partial and Total Derivatives.}
-{Find \( \left( \partial w / \partial y  \right)_{x,t} \), where \(w = x^3 y-z^2t \text { and } xy = zt\).  }
-{Straightforwardly, we have
+
+\section{More than 1 Constriant}
+
+Suppose apart from the constriant (relation to be more precise) that determines \(f = f(x,y)\), we introduce an extra dependent variable \(z = z(x,y)\) as one of the arguement of \(f\), \textit{i.e.,} \(f = f(x,y,z(x,y))\), so there are now 4 variables and 2 constriants in total. 
+
+Again, we can also, say, treat \(y \text { and } z\) as the independent variables and \(x\) as the dependent variable, so it would be misleading to write \(f=f(x,y,z(x,y))\). We would simply bear in mind that \(x,y,z\) related by 1 constriant and write \(f=f(x,y,z)\). 
+
+\subsection{Partial Derivatives}
+
+In the 2 arguments case discussed above, since \(x\) and \(y\) are independent of each other so to find the rate of change in \(f\) with respect to \(x\) only we fix \(y\) to be constant.
+
+Now however, out of the 3 arguments, only two are independent, and the one remaining dependent variable changes as the independent variables change. We therefore have to specifying, when finding the rate of change in \(f\) with respect to \(x\), which other argument, \(y \text { or } z\) are we keeping constant.\footnote{Note that we can instead keep things like \(\sqrt{y+z}\sin (y-z)\) to be constant, and \(y \text { and } z\) change as \(x \text { and } \sqrt{y+z}\sin (y-z)\) change independently. However, this is equivalent to introducing yet another variable and we shall refrain from complicating simple thing. So we wil asuume only \(y \text { or } z\) can be kept constant (when differentiating with respect to \(x\)).}   
+
+If we keep \(y\) to be the independent variable which is kept constant, then the partial derivative of \(f\) with respect to \(x\) is
+
+\begin{equation}
+	\left( \frac{\partial f}{\partial x} \right)_{y} \equiv \lim_{\Delta x \to 0} \frac{f(x+\Delta x,y,z(x+\Delta x,y)) - f(x,y,z(x,y))}{\Delta x}. \label{useless} 
+\end{equation}
+
+On the other hand if we keep \(z\) to be the independent variable which is kept constant, then the partial deriavtive of \(f\) with respect to \(x\) is 
+
+\begin{equation}
+	\left( \frac{\partial f}{\partial x} \right)_{z} \equiv \lim_{\Delta x \to 0} \frac{f(x+\Delta x, y(x+\Delta x,z),z) - f(x,y(x,z),z)}{\Delta x}. 
+\end{equation}
+
+
+In general, if there are \(n\) variables with \(m\) constraints, then we have to specify which \(n-m-1\) variables are kept constant while finding the derivative with respect to one of the \(n\) variables. 
+
+For instance if we have the function and constriant as 
+
+\begin{equation}
+	f = f(x,y,z,t), \quad xy = zt,
+\end{equation}
+
+then only 3 out of the 5 variables \(x,y,z,t,f\) can be independent; the fourth and fifth are then determined through the equation \(xy = zt \text { and } f = f(x,y,z,t)\). Thus we would write expressions like
+
+\begin{equation}
+	\left( \frac{\partial f}{\partial x}  \right)_{y,t} = \text{partial derivative of \(f\) with respect to \(x\) while keeping \(y\) and \(t\) constant.}  
+\end{equation}
+
+\subsection{Formal Partial Derivatives}
+
+The formal partial derivative is to carry out a partial derivative assuming that all the arguments are indepndent of each other and keeping all of them constant except for the variable under differentiation. For example, the formal partial derivative of \(f(x,y,z)\) with respect to \(x\) is 
+
+\begin{equation}
+	\left( \frac{\partial f}{\partial x} \right)_{y,z} \equiv f_{x} \equiv  \lim_{\Delta x \to 0} \frac{f(x+\Delta x,y,z) - f(x,y,z)}{\Delta x}.
+\end{equation}
+
+This form of partial derivative becomes handy when discussing the total derivative when the arguments are related.
+
+\subsection{Total Derivatives}
+
+To consider how \(f(x,y,z(x,y))\) changes when \(x,y \text { and } z\) change, we can calculate the infinitesimal difference of \(f\) as 
+
+\begin{equation}
+	\begin{aligned} 
+	\Delta f &= f(x+\Delta x,y+\Delta y,z+\Delta z) - f(x,y,z) \\
+	&= f(x+\Delta x,y+\Delta y,z+\Delta z) - f(x,y,z) \\
+	&+ f(x,y+\Delta y,z+\Delta z) -f(x,y+\Delta y,z+\Delta z) \\
+	&+ f(x,y,z+\Delta z) - f(x,y,z+\Delta z)\\
+	&= \frac{f(x+\Delta x,y+\Delta y,z+\Delta z) - f(x,y+\Delta y,z+\Delta z)}{\Delta x} \Delta x \\
+	&+ \frac{f(x,y+\Delta y,z+\Delta z)-f(x,y,z+\Delta z)}{\Delta y}\Delta y \\
+	&+ \frac{f(x,y,z+\Delta z)-f(x,y,z)}{dz} \Delta z\\
+	& \approx  \left( \frac{\partial f}{\partial x} \right)_{y,z} \Delta x + \left( \frac{\partial f}{\partial y} \right)_{x,z} \Delta y + \left( \frac{\partial f}{\partial z} \right)_{x,y} \Delta z.  
+	\end{aligned} 
+\end{equation}
+
+As \(\Delta x \to 0, \Delta y \to 0 \text { and } \Delta z \to 0\), we have the total differential \(df\) as 
+
+\begin{equation} \label{totaldf} 
+	df = \left( \frac{\partial f}{\partial x} \right)_{y,z} dx + \left( \frac{\partial f}{\partial y} \right)_{x,z} dy + \left( \frac{\partial f}{\partial z} \right)_{x,y} dz = f_{x} dx + f_{y}dy + f_{z}dz.     
+\end{equation}
+
+It is important to note that the partial derivatives involved in the total differential \(df\) are formal partial derivatives but not actual partial derivatives, although \(x,y,z\) might depend on each other.  
+
+\subsection{Chain Rule}
+
+We are too close to introducing the chain rule in multivariable calculus that it make no sense to jump to the next topic.
+
+If we want to evaluate the partial deriavtive of \(f(x,y,z)\) with repsect to \(x\) while keeping \(y\) constant (and \(z\) be whatever \(z = z(x,y)\) be), one can in principle use \cref{useless}. However, a faster and more pratical method is to use the chain rule, which is when we divide both sides in \cref{totaldf} by \(dx\) while keeping \(y\) constant
+
+\begin{equation}
+	\left( \frac{\partial f}{\partial x} \right)_{y} = \left( \frac{\partial f}{\partial x} \right)_{y,z} + \left( \frac{\partial f}{\partial z} \right)_{x,y} \left( \frac{\partial z}{\partial x} \right)_{y} = f_{x} + f_{z} \left( \frac{\partial z}{\partial x} \right)_{y}. 
+\end{equation}
+
+If we use the form \(f(x,y,z) = f(x(z),y(z),z) = f(z)\), then \(f_{x} = 0 \) and the above equation becomes reminiscent to the ordinary chain rule
+
+\begin{equation}
+	\left( \frac{\partial f}{\partial x} \right)_{y} = \left( \frac{\partial f}{\partial z} \right)_{x,y} \left( \frac{\partial z}{\partial x} \right)_{y}. 
+\end{equation}
+
+The same formula can be more easily obtain if we first write the differential of \(f\), \textit{i.e.,} \(df\) in terms of \(z\), \textit{i.e.,} \(df = f_{z}dz \).  
+
+If for example, instead, we have 3 constriants for the 4 variables, namely \(f = (x,y,z), x=x(z) \text { and } y=y(z)\), then we can find the partial (now ordinary) derivative of \(f\) with respect to \(z\) as
+
+\begin{equation}
+	\frac{df}{dz} = \left( \frac{\partial f}{\partial x} \right)_{y,z} \frac{dx}{dz} + \left( \frac{\partial f}{\partial y} \right)_{x,z} \frac{dy}{dz} + \left( \frac{\partial f}{\partial z} \right)_{x,y} = f_{x} \frac{dx}{dz} + f_{y} \frac{dy}{dz} + f_{z}.
+\end{equation}
+
+
+
+\section{Exact Differentials}
+
+Before discussing how to evaluate partial derivatives when the arguments are dependent, we mention the concept of exact differentials, which is closely related to the concept of total derivatives.
+
+An arbitrary differential 
+
+\begin{equation}
+    A(x,y) dx + B(x,y) dy
+\end{equation}
+
+is exact if it is the total derivative of a function \(f(x,y)\) 
+
+\begin{equation}
+    df(x,y) = \left(\frac{\partial f}{\partial x}\right)_{y}  dx + \left(\frac{\partial f}{\partial y}\right)_{x} dy.
+\end{equation}
+
+Therefore, we have
+
+\begin{equation}
+    A(x,y) = \frac{\partial f}{\partial x} ~\text { and }~ B(x,y) = \frac{\partial f}{\partial y}
+\end{equation}
+
+Since \( \partial ^2f / \partial x \partial y = \partial ^2f / \partial y \partial x\), we obtain a necessary (and a sufficient) condition for the differential to be exact, which is
+
+\begin{equation}
+    \frac{\partial A}{\partial y} = \frac{\partial B}{\partial x}.\footnote{Determining whether a differential containing many variables \(x_1, x_2, \ldots, x_{n}\) is exact is a simple extension of the above: a differential \(df = \sum_{i=1}^{n} g_{i}(x_1 ,x_2 ,\ldots , x_{n} )dx_{i}  \) is exact if \(\partial g_{i} /\partial x_{j}  = \partial g_{j} / \partial x_{i}   \) for all pairs \(i,j\).}
+\end{equation}
+
+
+\section{Elimination, Chain Rule and Differentials} \label{chain} 
+
+There are three ways to carry out partial derivatives when the arguments are dependent, namely elimination, chain rule and differentials.
+
+This is best illustrated by an example. Suppose we have the function
+
+\begin{equation}
+	f(x,y) = x^2+y^2+(x^2+y^2)^2
+\end{equation}
+
+Now we introduce an extra variable \(z(x,y) = x^2+y^2\), so that \(f\) now can be rewritten in virtually infinite ways
+
+\begin{equation}
+	f(x,y,z) = x^2+y^2+z^2 = z+z^2 = x^2+y^2+z(x^2+y^2) \quad \textit{etc.} 
+\end{equation}
+
+We, in the next few subsections are going to find the partial derivatives of \(f\) with respect to \(x \text { and }  z\)\footnote{\(x \text { and } y\) are symmetric so the partial derivatives of \(f\) respect to \(y\) is neglected.}  using the three methods mentioned. 
+
+\subsection{Elimination}
+
+To evaluate the partial derivative of \(f\) with respect to \(x\) while keeping \(y\) constant (and let \(z\) be whatever \(z = x^2+y^2\) is), we eliminate \(z\) from \(z = z(x,y)\) and differentiate the function \(f=f(x,y)\)  
+
+\begin{equation}
+	\left( \frac{\partial f}{\partial x}  \right)_{y} = \frac{\partial }{\partial x} (x^2+y^2+(x^2+y^2)^2) = 2x+4x^3 +4xy^2.  
+\end{equation}
+
+To evaluate the partial derivative of \(f\) with respect to \(x\) while keeping \(z\) constant (and let \(y\) be whatever \(y = \pm \sqrt{z-x^2} \) is), we eliminate \(y\) from \(y = y(x,z)\) and differentiate the function \(f=f(x,z)\) 
+
+\begin{equation}
+	\left( \frac{\partial y}{\partial x} \right)_{z} = \frac{\partial }{\partial x}(x^2+(z-x^2)+z^2) = 0.
+\end{equation}
+
+
+To evaluate the partial derivative of \(f\) with respect to \(z\) while keeping \(x\) (or \(y\)) constant (and let \(y\) (or \(x\)) be whatever \(y = \pm \sqrt{z-x^2} \) is), we eliminate \(y\) from \(y = y(x,z)\) and differentiate the function \(f = f(x,z)\)
+
+\begin{equation}
+	\left( \frac{\partial f}{\partial z} \right)_{x} = \frac{\partial }{\partial z} (x^2+(z-x^2)+z^2) = 1+2z. 
+\end{equation}
+
+\subsection{Chain Rule}
+
+To use the chain rule we first write down the total differential of \(z(x,y)\), \textit{i.e.,} \(dz\) as
+
+\begin{equation}
+	dz = z_{x} dx + z_{y} dy = 2x dx + 2ydy.   
+\end{equation}
+
+Now we divide the whole equation by \(dx\) while keeping \(y\) constant to get 
+
+\begin{equation}
+	\left( \frac{\partial z}{\partial x} \right)_{y} = 2x.
+\end{equation}
+
+If we instead divide the whole equation by \(dx\) while keeping \(z\) constant we get
+
+\begin{equation}
+	\left( \frac{\partial y}{\partial x} \right)_{z} = -\frac{x}{y}.  
+\end{equation}
+
+Dividing the whole equation by \(dz\) while keeping \(x\) constant yields
+
+\begin{equation}
+	\left( \frac{\partial y}{\partial z} \right)_{x} = \frac{1}{2y}.
+\end{equation}
+
+
+
+
+We can now find the partial derivative of \(f\) with respect to \(x\) while keeping \(y\) constant
+
+\begin{equation}
+	\left( \frac{\partial f}{\partial x} \right)_{y} = \frac{\partial }{\partial x}  (x^2+y^2+z^2) = 2x + 2z \left( \frac{\partial z}{\partial x} \right)_{y} = 2x + 2(x^2+y^2) (2x) = 2x + 4x^3 + 4xy^2.
+\end{equation}
+
+
+The partial derivative of \(f\) with respect to \(x\) while keeping \(z\) constant is
+
+\begin{equation}
+	\left( \frac{\partial f}{\partial x} \right)_{z} = \frac{\partial }{\partial x} (x^2+y^2+z^2) = 2x + 2y \left( \frac{\partial y}{\partial x} \right)_{z} = 2x + 2\left( -\frac{x}{y}  \right)  = 0.
+\end{equation}
+
+The partial derivative of \(f\) with respect to \(z\) while keeping \(x\) constant is
+
+
+\begin{equation}
+	\left( \frac{\partial f}{\partial z} \right)_{x} = \frac{\partial }{\partial z} (x^2+y^2+z^2) = 2y \left( \frac{\partial y}{\partial z} \right)_{x} + 2z = 2y \left( \frac{1}{2y} \right) + 2z = 2+2z.
+\end{equation}
+
+\subsection{Differentials}
+
+To use the differentials method we write down the differential forms of the constriants
+
+\begin{equation}
+	df = 2x dx + 2y dy + 2z dz,
+\end{equation}
+
+and 
+
+\begin{equation}
+	dz = 2x dx + 2y dy.
+\end{equation}
+
+To find the partial derivative of \(f\) with respect to \(x\) while keeping \(y\) constant we eliminate the differential \(dz\) to get 
+
+\begin{equation}
+	df = (2x + 4x(x^2+y^2))dx + (2y+4y(x^2+y^2))dy \implies \left( \frac{\partial f}{\partial x} \right)_{y} = 2x + 4x^3 + 4xy^2.
+\end{equation}
+
+To find the partial derivative of \(f\) with respect to \(x\) while keeping \(z\) constant we eliminate the differential \(dy\) to get 
+
+\begin{equation}
+	df = (2z+1)dz \implies \left( \frac{\partial f}{\partial x} \right)_{z} = 0. 
+\end{equation}
+
+TO find the partial derivative of \(f\) with respect to \(z\) while keeping \(x\) constant we eliminate the differential \(dy\) to get 
+
+\begin{equation}
+	df = (2z+1)dz \implies \left( \frac{\partial f}{\partial z} \right)_{x} = 1+2z.
+\end{equation}
+
+
+\subsection{Intepretation}
+
+To visualize the results, we refer to \cref{paraboloid}, which shows the relation \(z = x^2+y^2\), and the function \(f(x,y,z)\) calculates the square of the distance from the origin. 
+
+Suppose we want to calculate the partial derivative of \(f(x,y,z)\) with respect to \(x\) at the point \(P_0 = (1,0,1)\). If we hold \(y\) fixed and let \(x\) varies, then the point \(P\) moves in the \(xz\)-plane towards \(A\), and the distance increases as \(x\) increases. However, if we hold \(z\) fixed and let \(x\) varies, then point \(P\) moves in the plane \(z = 1\), along the circular path towards \(B\) and the distance is fixed.   
+
+\onefig{paraboloid}{scale=0.3} 
+
+
+
+\example{Partial and Total Derivatives (1).}
+{Find \( \left( \partial w / \partial y  \right)_{x,t} \), where 
+
+\begin{equation}
+	w(x,y,z,t) = x^3 y-z^2t \text { and } xy = zt.
+\end{equation}
+}
+{With chain rule, we have
 
 \begin{equation}
 	\left( \frac{\partial w}{\partial y}  \right)_{x,t} = x^3 -2zt \left( \frac{\partial z}{\partial y}  \right)_{x,t} = x^3 - 2zx.  
@@ -117,43 +365,117 @@ Alternatively, we have
 Eliminating \(dz\), we have 
 
 \begin{equation}
-	dw = (3x^2y-2zy)dx + (x^3 2zx)dy+z^2dt \implies \left( \frac{\partial w}{\partial y}  \right)_{x,t} = x^3 -2zx
+	dw = (3x^2y-2zy)dx + (x^3 - 2zx)dy+z^2dt. 
 \end{equation}
 
+Comparing with the total derivative of \(w(x,y,t)\) 
 
+\begin{equation}
+	dw = \left( \frac{\partial w}{\partial x}  \right)_{y,t} dx + \left( \frac{\partial w}{\partial y}  \right)_{x,t} dy +  \left( \frac{\partial w}{\partial t}  \right)_{x,y} dt ,  
+\end{equation}
 
+we obtain the same answer.
+} 
 
+\example{Partial and Total Derivatives (2).}
+{Find \((\partial w /\partial x)_{y} \text { and } (\partial w /\partial y)_{x} \), where
+
+\begin{equation}
+	w = x^2-yz+t^2, \quad z^2=x+y^2 ~\text { and }~ xy = zt.
+\end{equation}
+}
+{Taking the differential of the three above equations we have
+
+\begin{equation}
+	dw = 2xdx - zdy - ydz + 2tdt, \quad x dy + ydx = zdt + tdz ~\text { and }~ 2zdz = dx + 2ydy.
+\end{equation}
+
+Elminating \(dt \text { and } dz\), we have
+
+\begin{equation}
+	dw = \left( 2x - \frac{y}{2z} + \frac{2ty}{z} - \frac{t^2}{z^2}    \right) dx + \left( -z - \frac{y^2}{z} + \frac{2xt}{z} - \frac{2t^2y}{z^2}    \right) dy.
+\end{equation}
+
+Comparing with the total derivative of \(w(x,y)\) 
+
+\begin{equation}
+	dw = \left( \frac{\partial w}{\partial x}  \right)_{y} dx + \left( \frac{\partial w}{\partial y}  \right)_{x} dy, 
+\end{equation}
+
+we obtain the desired solutions.
+
+It would be very messy if we try to compute the partial derivatives directly like the first method in the above example.
+
+} 
+
+\example{Partial and Total Derivatives (3).}
+{Suppose the variables \(x,y,z\) satisfy an equation \(g(x,y,z) = 0\) and the point \(P = (1,1,1)\) lies on the surface \(g=0\) with \((\grad{g} )_{P} = (-1,1,2) \).
+
+Let \(f(x,y,z)\) be another function and assume that \((\grad{f} )_{P} = (1,2,1) \). 
+
+Find the gradient of the function \(w = f(x,y,z(x,y))\) of the two independent variables \(x \text { and } y\) at the point \(x = 1 \text { and } y = 1\).     }
+{In differential forms we have
+
+\begin{equation}
+	(d w)_{P} = dx+2dy+dz, \quad (dg)_{P} = -dx+dy+2dz = 0.  
+\end{equation}
+
+Eliminating \(dz\) we have 
+
+\begin{equation}
+	(dw)_{P}= \frac{3}{2}dx + \frac{3}{2}dy \implies (\grad{w} )_{P}= \frac{3}{2}\vu{i} + \frac{3}{2}\vu{j} .      
+\end{equation}
+} 
+
+\example{Formal and Actual Partial Derivatives (1).}
+{Suppose \(w = w(x,r)\), with \(r = r(x,\theta )\). Give an expression for \(\left( \partial w /\partial r \right)_{\theta } \) in terms of formal partial derivatives of \(w \text { and } r\).  }
+{The total derivative of \(w\) with \(r \text { and } \theta \) being the independent variables is 
+
+\begin{equation}
+	dw = w_{x} dx + w_{r} dr. 
+\end{equation}
+
+Dividing the equation by \(dr\) while keeping \(\theta \) constant, we have 
+
+\begin{equation}
+	\left(\frac{\partial w}{\partial r}\right) _{\theta } = w_{x} \left( \frac{\partial x}{\partial r}  \right)_{\theta } + w_{r} =  w_{x}\left( \frac{\partial r}{\partial x}  \right)^{-1} _{\theta } + w_{r} = \frac{w_{x} }{r_{x} } + w_{r}.    
+\end{equation}
+~
+} 
+
+\example{Formal and Actual Partial Derivatives (2).}
+{If \(f(x,y,z) = xy^2z^{4} \), where \(z = 2x+3y\), find the three formal derivatives \(f_{x},f_{y} \text { and } f_{z}   \)  and the three of the many possible actual partial derivatives \((\partial f/\partial x)_{y}, (\partial f /\partial y)_{x} \text { and } (\partial f / \partial z)_{x}  \).}
+{The three formal derivatives are 
+
+\begin{equation}
+	f_{x}= y^2z^{4}, \quad f_{y} = 2xyz^{4} ~\text { and }~ f_{z} = 4xy^2z^3 .     
+\end{equation}
+
+The three actual partial derivatives are 
+
+\begin{equation}
+	\begin{cases}
+		\begin{aligned}
+			\left( \frac{\partial f}{\partial x}  \right)_{y} &= f_{x} + f_{z}\left( \frac{\partial z}{\partial x}  \right)_{y} = y^2z^{4}+8xy^2z^3,\\
+			\left( \frac{\partial f}{\partial y}  \right)_{x} &= f_{y} + f_{z}\left( \frac{\partial z}{\partial y}  \right)_{x} = 2xyz^{4}+12xy^2z^3,\\
+			\left( \frac{\partial f}{\partial z}  \right)_{x} &= f_{y}\left( \frac{\partial y}{\partial z}  \right)_{x} + f_{z} = \frac{2}{3}xyz^{4}+4xy^2z^3, 
+		\end{aligned}s
+	\end{cases}
+\end{equation}
+
+where we have used the chain rule at each line.
 } 
 
 
 
-\subsection{Exact Differentials}
 
-An arbitrary differential 
+\section{Symmetry of Mixed Derivatives, Reciprocity Relation and Cyclic Relation}
 
-\begin{equation}
-    A(x,y) dx + B(x,y) dy
-\end{equation}
-
-is exact if it is the differential of a function 
+A very useful fact about the second partial derivative which the proof is not given here (but is intuitive to understand) is the symmetry of mixed derivatives
 
 \begin{equation}
-    df(x,y) = \frac{\partial f}{\partial x} dx + \frac{\partial f}{\partial y} dy.
+    \frac{\partial^2 f}{\partial x \partial y} = \frac{\partial }{\partial x} \left( \frac{\partial f}{\partial y}  \right) = f_{xy} = f_{yx} = \frac{\partial }{\partial y} \left( \frac{\partial f}{\partial x}  \right) = \frac{\partial^2 f}{\partial y \partial x}.     
 \end{equation}
-
-Therefore, we have
-
-\begin{equation}
-    A(x,y) = \frac{\partial f}{\partial x} \text { and } B(x,y) = \frac{\partial f}{\partial y}
-\end{equation}
-
-Since \( \partial ^2f / \partial x \partial y = \partial ^2f / \partial y \partial x\), we obtain a necessary (and a sufficient) condition for the differential to be exact, which is
-
-\begin{equation}
-    \frac{\partial A}{\partial y} = \frac{\partial B}{\partial x}.\footnote{Determining whether a differential containing many variables \(x_1, x_2, \ldots, x_{n}\) is exact is a simple extension of the above: a differential \(df = \sum_{i=1}^{n} g_{i}(x_1 ,x_2 ,\ldots , x_{n} )dx_{i}  \) is exact if \(\frac{\partial g_{i} }{\partial x_{j} } = \frac{\partial g_{j} }{\partial x_{i} } \) for all pairs \(i,j\).}
-\end{equation}
-
-\subsection{Reciprocity Relation and Cyclic Relation}
 
 So far our discussion has centred on a function \(f(x,y)\) dependent on two variables, \(x\text { and } y\). However, \(f(x,y)\) is not superior, \(x(f,y) \text { and } y(x,f)\) are equally valid and are expressing the identical relation between \(x,y \text { and } f\). To emphasise the point that all the variables are of equal standing we now replace \(f\) by \(z\). Then we have
 
@@ -167,18 +489,16 @@ So far our discussion has centred on a function \(f(x,y)\) dependent on two vari
 Since \(dx \text { and }  dz\) are independent, we the reciprocity and the cyclic relations
 
 \begin{equation}
-    \left( \frac{\partial x}{\partial y}  \right)_{z} = \left( \frac{\partial y}{\partial x}  \right)_{z}^{-1} \text { and } \left( \frac{\partial y}{\partial z}  \right)_{x} \left( \frac{\partial z}{\partial x}  \right)_{y} + \left( \frac{\partial x}{\partial y}  \right)_{z} = -1 
+    \left( \frac{\partial x}{\partial y}  \right)_{z} = \left( \frac{\partial y}{\partial x}  \right)_{z}^{-1} ~\text { and }~ \left( \frac{\partial y}{\partial z}  \right)_{x} \left( \frac{\partial z}{\partial x}  \right)_{y} + \left( \frac{\partial x}{\partial y}  \right)_{z} = -1 
 \end{equation}
-
-The same relationships can be found by dividing the total derivative by \(df \text { or } dx\) while keeping \(y \text { or } f\) constant, respectively.
-
-It is important to note that in the reciprocity relationship, the same thing is held constant in both partial derivatives. 
 
 The reciprocity and the cyclic relations can be generalized to higher number of variables. For the reciprocity relation, we simply keep linking each numerator with the previous denominator while keeping the same constraint, \textit{e.g.,} 
 
 \begin{equation}
-	\left( \frac{\partial f}{\partial x}  \right)_{y} \left( \frac{\partial x}{\partial z}  \right)_{y} \left( \frac{\partial z}{\partial f}  \right)_{y} = 1. 
+	\left( \frac{\partial f}{\partial x}  \right)_{y} \left( \frac{\partial x}{\partial z}  \right)_{y} \left( \frac{\partial z}{\partial f}  \right)_{y} = 1 \implies \left( \frac{\partial f}{\partial x}  \right)_{y}  = \left( \frac{\partial f}{\partial z}  \right)_{y} \left( \frac{\partial z}{\partial x}  \right)_{y}.  
 \end{equation}
+
+Some call this the chain rule in multivariable calculus.
 
 For the cyclic relation, the further variables simply appear as ``spectators'' which are held constant in all the terms, \textit{e.g.,} 
 
@@ -188,61 +508,140 @@ For the cyclic relation, the further variables simply appear as ``spectators'' w
 
 
 
+\section{Change of Variables}
 
+\subsection{Change of Gradients}
 
-\subsection{Change of Variables}
-
-Again, we emphasize that it is completely fine if the variables are related by some separate relations or cosntriant. Suppose \(x \text { and } y\) are parameterized by some other variable \(u\), \textit{i.e.,} \(x = x(u) \text { and } y = y(u)\). Then to find out how \(f(x,y)\) changes with \(u\), we simplify divide the total derivative of \(f\) with respect to \(x \text { and } y\) by \(du\), so
+In \cref{chain}, we have discussed the case for 3 arguments with 2 constriants. We, however, would mostly deal with the case for 4 arguments with 2 constriants, when we try to change the whole set of independent variables from \((x,y)\) to \((u,v)\). The two constriants in this case can be expressed as \(x=x(u,v) \text { and } y=y(u,v)\). To find the partial derivatives of \(f\) with respect to \(u \text { and } v\) are, we first write down the total derivative of \(f\), \textit{i.e.,} \(df\), with respect to all the arguments \(x,y,u\text { and } v\)
 
 \begin{equation}
-    \frac{df}{du} = \left( \frac{\partial f}{\partial x}  \right)_{y} \frac{dx}{du} + \left( \frac{\partial f}{\partial y}  \right)_{x} \frac{dy}{du},  
+	df = f_{x}  dx + f_{y}  dy + f_{u} du + f_{v} dv.    
 \end{equation}
 
-which is analogous to chain rule in ordinary differentiation.
-
-Suppose now instead of having a constriant on \(x\text { and } y\), we would like to change the whole set of variables from \((x,y)\) to \((u,v)\). Then we have \(x = x(u,v) \text { and } y = y(u,v)\). So the derivatives become
+Now we divide the whole equation by \(du\) while keeping \(v\) constant 
 
 \begin{equation} \label{changeofvar} 
-    \left( \frac{\partial f}{\partial u}  \right)_{v} = \left( \frac{\partial f}{\partial x}  \right)_{y} \left( \frac{\partial x}{\partial u}  \right)_{v}  + \left( \frac{\partial f}{\partial y}  \right)_{x} \left( \frac{\partial y}{\partial u}  \right)_{v} ~\text { and }~ \left( \frac{\partial f}{\partial v}  \right)_{u} = \left( \frac{\partial f}{\partial x}  \right)_{y}\left( \frac{\partial x}{\partial v}  \right)_{u} + \left( \frac{\partial f}{\partial y}  \right)_{x} \left( \frac{\partial y}{\partial v}  \right)_{u}.      
+    \left( \frac{\partial f}{\partial u}  \right)_{v} = f_{x}  \left( \frac{\partial x}{\partial u}  \right)_{v}  + f_{y}  \left( \frac{\partial y}{\partial u}  \right)_{v},
 \end{equation}
 
-To generalize the above discussion, suppose we want to change the set of \(n\) variables from \(\vb{x}\) to \(\vb{u} \), then the \(n\) equations are 
+where the term \((\partial f/\partial u)_{v} \) vanishes since \(f(x,y,u,v) = x^2+y^2\) has no explicit \(u\)-dependence. One might argue that \(f(x,y,u,v) = u+v\) has \(u\)-dependence. However, we have to use the same form of \(f\) throughout. Since we have already assumed \(f_{x} \neq 0 \text { and } f_{y} \neq 0  \), we have implicitly assumed that we are using \(f(x,y,u,v) = x^2+y^2\) instead of \(f(x,y,u,v) = u+v\). If instead we use the latter expression then we would get something like \((\partial f /\partial u )_{v} = f_{u}  \), which is trivial.
+
+Similarly we divide the whole equation by \(dv\) while keeping \(u\) constant
 
 \begin{equation}
-	\frac{\partial f}{\partial u_{i} } = \frac{\partial f}{\partial x_1 }\frac{\partial x_1}{\partial u_{i} } + \frac{\partial f}{\partial x_2 }\frac{\partial x_2 }{\partial u_{i} } + \cdots + \frac{\partial f}{\partial x_{n} }\frac{\partial x_{n} }{\partial u_{i} } = \sum_{j=1}^{n} \frac{\partial x_{j} }{\partial u_{i} }\frac{\partial f}{\partial x_{j} },
+	\left( \frac{\partial f}{\partial v}  \right)_{u} = f_{x} \left( \frac{\partial x}{\partial v}  \right)_{u} + f_{y}  \left( \frac{\partial y}{\partial v}  \right)_{u},
 \end{equation}
 
-or written in matrix form \(\boldsymbol{\nabla }_{\vb{u} } = J^T \boldsymbol{\nabla }_{\vb{x} }\), where \(J\) is the Jacobian matrix 
+where \((\partial f/\partial v)_{u} \) vanishes since \(f(x,y,u,v) = x^2+y^2\) has no explicity \(v\)-dependence.  
+
+To generalize the above discussion, suppose we want to change the set of \(n\) variables from \(\vb{x} = (x_1 ,x_2 ,\ldots ,x_{n} )\) to \(\vb{u} =(u_1 ,u_2 ,\ldots ,u_{n} ) \), then the \(n\) equations are 
+
+\begin{equation}
+	\frac{\partial f}{\partial u_{i} } = f_{x_1 } \frac{\partial x_1}{\partial u_{i} } + f_{x_2 } \frac{\partial x_2 }{\partial u_{i} } + \cdots + f_{x_{n} } \frac{\partial x_{n} }{\partial u_{i} } = \sum_{j=1}^{n} f_{x_{j} } \frac{\partial x_{j} }{\partial u_{i} }.
+\end{equation}
+
+In matrix form this is
+
+\begin{equation}
+	\grad{}_{\vb{u} } = \left( \frac{\partial }{\partial u_1}, \frac{\partial }{\partial u_2 }, \ldots ,\frac{\partial }{\partial u_{n} }  \right) = J^T \grad{}_{\vb{x} } = J^T \left( \frac{\partial }{\partial x_1 }, \frac{\partial }{\partial x_2 }, \ldots , \frac{\partial }{\partial x_{n} }    \right),
+\end{equation}
+
+where \(J\) is the Jacobian matrix 
 
 \begin{equation}
 	J \equiv \frac{\partial (x,y,z)}{\partial (u,v,w)} = \begin{pmatrix}
-		\frac{\partial x}{\partial u}  & \frac{\partial x}{\partial v}  & \frac{\partial x}{\partial w}   \\
-		\frac{\partial y}{\partial u}  & \frac{\partial y}{\partial v}  & \frac{\partial y}{\partial w}   \\
-		\frac{\partial z}{\partial u}  & \frac{\partial z}{\partial v}  & \frac{\partial z}{\partial w}   \\
-	\end{pmatrix},
+		\partial x/\partial u  & \partial x/\partial v  & \partial x/\partial w   \\
+		\partial y/\partial u  & \partial y/\partial v  & \partial y/\partial w   \\
+		\partial z/\partial u  & \partial z/\partial v  & \partial z/\partial w   \\
+		\end{pmatrix} = \begin{pmatrix}
+			x_{u}  & x_{v}  & x_{w}   \\
+			y_{u}  & y_{v}  & y_{w}   \\
+			z_{u}  & z_{v}  & z_{w}   \\
+		\end{pmatrix},
 \end{equation}
 
-where we have assumed, for example, that \(v \text { and } w\) are kept constant in \(\frac{\partial x}{\partial u} \).  
+where we have assumed, for example, that \(v \text { and } w\) are kept constant in \(\partial x /\partial u \).  
 
 In three dimensions, the 3 equations are
 
-\begin{equation} \label{jacobderi} 
-	\begin{pmatrix}
-		 \frac{\partial }{\partial u }  \\
-		 \frac{\partial }{\partial v }  \\
-		 \frac{\partial }{\partial w }  \\
-	\end{pmatrix} f = \begin{pmatrix}
-		\frac{\partial x}{\partial u}  & \frac{\partial x}{\partial v}  & \frac{\partial x}{\partial w}   \\
-		\frac{\partial y}{\partial u}  & \frac{\partial y}{\partial v}  & \frac{\partial y}{\partial w}   \\
-		\frac{\partial z}{\partial u}  & \frac{\partial z}{\partial v}  & \frac{\partial z}{\partial w}   \\
-	\end{pmatrix}^T \begin{pmatrix}
-		\frac{\partial }{\partial x }  \\
-		\frac{\partial }{\partial y }  \\
-		\frac{\partial }{\partial z }  \\
-   \end{pmatrix} f.
+\begin{equation} \label{jacobderi}
+		\begin{pmatrix}
+			\partial/\partial u \\
+			\partial/\partial v \\
+			\partial/\partial w
+		\end{pmatrix} 
+		=
+		\begin{pmatrix}
+			x_{u} & y_{u} & z_{u} \\
+			x_{v} & y_{v} & z_{v} \\
+			x_{w} & y_{w} & z_{w}     
+		\end{pmatrix}
+		\begin{pmatrix}
+			\partial/\partial x \\
+			\partial/\partial y \\
+			\partial/\partial z
+		\end{pmatrix} .	
 \end{equation} 
 
-For three sets of variables \(\vb{x} ,\vb{y} \text { and } \vb{z} \), we have
+\subsection{Change of Areas and Volumes}
+
+From \(x=x(u,v) \text { and } y=y(u,v)\) we have 
+
+\begin{equation}
+	\begin{cases}
+		dx = x_{u} du + x_{v}  dv \\
+		dy = y_{u} du + y_{v}  dv.  
+	\end{cases}
+\end{equation}
+
+In matrix form,
+
+\begin{equation}
+	d\vb{r} =
+	\begin{pmatrix}
+		 dx \\
+		 dy \\
+	\end{pmatrix} = \begin{pmatrix}
+		x_{u}   & x_{v}    \\
+		y_{u}   & y_{v}    \\
+	\end{pmatrix} \begin{pmatrix}
+		 du \\
+		 dv \\
+	\end{pmatrix}.
+\end{equation}
+
+On the \(x\)-\(y\) plane, the infinitesimal displacement vector which keeps \(v \text { and } u\) constant are, respectively
+
+\begin{equation} \label{dr} 
+	d\vb{r} _{u} = \begin{pmatrix}
+		 x_{u}  \\
+		 y_{u}   \\
+	\end{pmatrix}du  ~\text { and }~ d\vb{r} _{v} = \begin{pmatrix}
+		 x_{v}  \\
+		 y_{v}  \\
+	\end{pmatrix}dv.
+\end{equation}
+
+To relate the area \(dA_{x,y} = dxdy = dA_{u,v}\),\footnote{Note that the \(dA_{u,v} = dA_{x,y} \) since both refers to an infinitesimal area in the \(x\)-\(y\) plane. Formally, we have \(\det (d\vb{r} _{u},d\vb{r} _{v}  ) = \det (\mathbb{I})dxdy = dxdy\) if we use the former expression for \(d\vb{r} \) in \cref{dr} instead of the latter.} we have 
+
+\begin{equation}
+	dA_{u,v} = \det  (d\vb{r} _{u},d\vb{r} _{v}  ) = \begin{vmatrix}
+		x_{u}  & x_{v}   \\
+		y_{u}  & y_{v}   \\
+	\end{vmatrix} dudv = \left|\frac{\partial (x,y)}{\partial (u,v)}\right|dudv. 
+\end{equation}
+
+For volume we have
+
+\begin{equation}
+	dV_{u,v,w} = \left| \frac{\partial (u,v,w)}{\partial (x,y,z)}\right| dudvdw.  
+\end{equation}
+
+When changing variables in multiple integral, the limits of integration has to change accordingly by finding the maximum and minimum values for \(u \text { and } v\) in the same region. 
+
+\subsection{Multiple Jacobians}
+
+For three sets of variables \(\vb{x} ,\vb{y} \text { and } \vb{z} \), we have, from chain rule
 
 \begin{equation}
 	\frac{\partial x_{i} }{\partial z_{j} } = \sum_{k=1}^{n} \frac{\partial x_{i} }{\partial y_{k} } \frac{\partial y_{k} }{\partial z_{j} }.   
@@ -256,7 +655,147 @@ Now let \(A, B \text { and } C\) as the matrices whose \(ij^{\text{th }} \) elem
 
 In the special case where \(z_{i} = x_{i}  \), we get \(J_{xy}J_{yx} =1  \).  
 
-\subsection{Taylor's Theorem}
+\example{Jacobian Rule (1).}
+{Prove the first Jacobian rule 
+
+\begin{equation}
+	\left( \frac{\partial u}{\partial x}  \right)_{v} \left( \frac{\partial v}{\partial y}  \right)_{x} = \left| \frac{\partial (u,v)}{\partial (x,y)} \right|.
+\end{equation}
+~
+}
+{We start with the total derivative of \(u\) in terms of \(x \text { and } y\)
+
+\begin{equation}
+	du = \left( \frac{\partial u}{\partial x}  \right)_{y} dx + \left( \frac{\partial u}{\partial y} \right)_{x} dy.  
+\end{equation}
+
+Dividing the whole equation by \(dx\) while keeping \(v\) constant, we have
+
+\begin{equation}
+	\left( \frac{\partial u}{\partial x}  \right)_{v} = \left( \frac{\partial u}{\partial x}  \right)_{y} + \left( \frac{\partial u}{\partial y}  \right)_{x} \left( \frac{\partial y}{\partial x}  \right)_{v}. 
+\end{equation}
+
+We then write down the total derivative of \(v\) in terms of \(x \text { and } y\)
+
+\begin{equation}
+	dv = \left( \frac{\partial v}{\partial x}  \right)_{y} dx + \left( \frac{\partial v}{\partial y}  \right)_{x} dy.  
+\end{equation}
+
+Dividing the whole equation by \(dx\) while keeping \(v\) constant, we have
+
+\begin{equation}
+	\left( \frac{\partial v}{\partial x}  \right)_{v}  =0 = \left( \frac{\partial v}{\partial x}  \right)_{y} + \left( \frac{\partial v}{\partial y}  \right)_{x} \left( \frac{\partial y}{\partial x}  \right)_{v}.    
+\end{equation}
+
+Solving for \(\left( \partial y /\partial x \right)_{v} \) gives
+
+\begin{equation}
+	\left( \frac{\partial y}{\partial x}  \right)_{v} = -\left( \frac{\partial v}{\partial x}  \right)_{y} \left( \frac{\partial v}{\partial y}  \right)^{-1} _{x}.  
+\end{equation}
+
+Substituting back into \(\left( \partial u/\partial x \right)_{v} \), we have
+
+\begin{equation}
+	\left( \frac{\partial u}{\partial x}  \right)_{v} = \left( \frac{\partial u}{\partial x}  \right)_{y} - \left( \frac{\partial u}{\partial y}  \right)_{x} \left( \frac{\partial v}{\partial x}  \right)_{y} \left( \frac{\partial v}{\partial y}  \right)^{-1} _{x}. \label{imm} 
+\end{equation}
+
+Rearranging we get
+
+\begin{equation}
+	\left( \frac{\partial u}{\partial x}  \right)_{v} \left( \frac{\partial v}{\partial y}  \right)_{x} = \left( \frac{\partial u}{\partial x}  \right)_{y} \left( \frac{\partial v}{\partial y}  \right)_{x} - \left( \frac{\partial u}{\partial y}  \right)_{x} \left( \frac{\partial v}{\partial x}  \right)_{y},      
+\end{equation}
+
+as desired.
+} 
+
+\example{Jacobian Rule (2).}
+{Prove the second Jacobian rule
+
+\begin{equation}
+	\left( \frac{\partial u}{\partial x}  \right)_{v} = \left( \frac{\partial u}{\partial x}  \right)_{y} - \left( \frac{\partial u}{\partial v}  \right)_{x} \left( \frac{\partial v}{\partial x}  \right)_{y}.    
+\end{equation}
+~
+}
+{We start an intermediate step (\cref{imm}) from the above exmample
+
+\begin{equation}
+	\left( \frac{\partial u}{\partial x}  \right)_{v} = \left( \frac{\partial u}{\partial x}  \right)_{y} - \left( \frac{\partial u}{\partial y}  \right)_{x} \left( \frac{\partial v}{\partial x}  \right)_{y} \left( \frac{\partial v}{\partial y}  \right)^{-1} _{x}.
+\end{equation}
+
+To relate \(\left( \partial u /\partial y \right)_{x} \) to \(\left( \partial u/\partial v \right)_{x} \), we have the chain rule
+
+\begin{equation}
+	\left( \frac{\partial u}{\partial v} \right)_{x} = \left( \frac{\partial u}{\partial y} \right)_{x} \left( \frac{\partial y}{\partial v} \right)_{x} \implies \left( \frac{\partial u}{\partial y} \right)_{x} = \left( \frac{\partial u}{\partial v} \right)_{x} \left( \frac{\partial v}{\partial y} \right)_{x}.
+\end{equation}
+
+Substitute this into the intermediate step, we have
+
+\begin{equation}
+	\left( \frac{\partial u}{\partial x} \right)_{v} = \left( \frac{\partial u}{\partial x} \right)_{y} - \left( \left( \frac{\partial u}{\partial v} \right)_{x} \left( \frac{\partial v}{\partial y} \right)_{x}  \right) \left( \frac{\partial v}{\partial x} \right)_{y} \left( \frac{\partial v}{\partial y} \right)_{x} ^{-1} = \left( \frac{\partial u}{\partial x} \right)_{y} - \left( \frac{\partial u}{\partial v} \right)_{x} \left( \frac{\partial v}{\partial x} \right)_{y},
+\end{equation}
+
+as desired.
+}
+
+\example{Jacobian Rule (3).}
+{Prove the third Jacobian rule
+
+\begin{equation}
+	\left( \frac{\partial u}{\partial v} \right)_{w} = \left| \frac{\partial (u,w)}{\partial (x,y)}\right| \left|\frac{\partial (v,w)}{\partial (x,y)}\right|^{-1} .  
+\end{equation}
+~
+}
+{When \(w\) is held constant, we have
+
+\begin{equation}
+	dw = w_{x}dx+w_{y}dy =0 \implies \frac{dy}{dx} = -\frac{w_{x} }{w_{y} }.    
+\end{equation}
+
+Therefore we have 
+
+\begin{equation}
+	\left( \frac{\partial u}{\partial x} \right)_{w} = u_{x} + u_{y} \frac{dy}{dx} = u_{x} - u_{y} \frac{w_{x} }{w_{y} },      
+\end{equation}
+
+and similarly 
+
+\begin{equation}
+	\left( \frac{\partial v}{\partial x} \right)_{w} = v_{x} + v_{y}\frac{dy}{dx} = v_{x} - v_{y} \frac{w_{x} }{w_{y} }.      
+\end{equation}
+
+From chain rule we therefore get
+
+\begin{equation}
+	\left( \frac{\partial u}{\partial v} \right)_{w} = \left( \frac{\partial u}{\partial x} \right)_{w} \left( \frac{\partial v}{\partial x} \right)_{w} ^{-1} = \frac{u_{x}w_{y}-u_{y}w_{x}    }{v_{x}w_{y}-v_{y}w_{x}    } =\left| \frac{\partial (u,w)}{\partial (x,y)}\right| \left|\frac{\partial (v,w)}{\partial (x,y)}\right|^{-1},  
+\end{equation}
+
+as desired.
+} 
+
+
+\example{Thermodynamics.}
+{In thermodynamics, some of the variables associated with a confined gas are \(p\)(pressure), \(V\)(volume), \(T\)(temperature), \(U\)(internal energy), \(S\)(entropy) and \(H\)(enthalpy). Any two are independent and their values then determine all the others. 
+
+Suppose there is a thermogynamics law 
+
+\begin{equation}
+	\left( \frac{\partial U}{\partial p}  \right)_{T} + T \left( \frac{\partial V}{\partial T}  \right)_{p} + p \left( \frac{\partial V}{\partial p}  \right)_{T} = 0, 
+\end{equation}
+
+where \(p \text { and } T\) are the independent variables in this equation since they appear at the denominators. 
+
+What is the equation for this law when \(V \text { and } T\) are the independent variables? 
+}
+{Using chain rule, cyclic relation and reciprocity relation on the three terms respectively we have 
+
+\begin{equation}
+	\left( \frac{\partial U}{\partial V}  \right)_{T} \left( \frac{\partial V}{\partial p}  \right)_{T} - T \left( \frac{\partial p}{\partial T}  \right)_{V}\left( \frac{\partial V}{\partial p}  \right)_{T} + p \left( \frac{\partial V}{\partial p}  \right)_{T} = 0 = \left( \frac{\partial U}{\partial V}  \right)_{T} - T\left( \frac{\partial p}{\partial T}  \right)_{V} + p .  
+\end{equation}
+
+} 
+
+
+\section{Taylor's Theorem}
 When \(\Delta x \text { and }  \Delta y\) are finite, we can no longer neglect the terms which are not linear in \(\Delta x \text { or } \Delta y\) in \cref{totaldf}, instead, we get the taylor series 
 
 \begin{equation}
@@ -271,7 +810,7 @@ It can be shown that the general Taylor's theorem can be written as
     f(\vb{x} ) = \sum_{n=0}^{\infty} \frac{1}{n!} \eval{\left[ (\Delta \vb{x} \cdot \nabla )^{n} f(\vb{x} ) \right]}_{\vb{x} = \vb{x} _{0}}  .
 \end{equation}
 
-\subsection{Speical Points of a Function}
+\section{Speical Points of a Function}
 
 From the Taylor's series above, we can see that a necessary and sufficient condition for a stationary point is that both partial derivatives vanish
 
@@ -290,7 +829,7 @@ For a minimum point, we require that \(df>0\) for arbitrary \(\Delta x \text { a
 \begin{enumerate}
     \item Minimum point: \(f_{xx} > 0, f_{yy} > 0 \text { and } f_{xy}^2 < f_{xx}f_{yy}\).
     \item Maximum point: \(f_{xx} < 0, f_{yy} < 0 \text { and } f_{xy}^2 < f_{xx}f_{yy}\).
-    \item Saddle point: \(f_{xx} \text { and } f_{yy}\) have opposite signs, or \(f_{xy}^2 > f_{xx}f_{yy}\). 
+    \item Saddle point: \(f_{xy}^2 > f_{xx}f_{yy}\). 
 \end{enumerate}
 
 If \(f_{xy}^2 = f_{xx}f_{yy}\), then \(df\) must be one of the four forms \(\pm  (\abs{f_{xx} }^{\frac{1}{2} } \Delta x /2 \pm \abs{f_{yy} }^{\frac{1}{2} }\Delta y)^2\), then for some choice of the ratio \(\Delta y / \Delta x\), \(df = 0\) so higher order terms are needed to find the nature of the stationary point. 
@@ -310,6 +849,8 @@ To investigate the nature of the stationary points, we again use the second orde
 \end{equation}
 
 which must be positive for all \(\Delta x_{i} \).
+
+\chapter{Vector Calculus}
 
 \section{Curvilinear coordinates}
 
@@ -517,7 +1058,7 @@ We start by stating the gerneral form of del operator, gradient, divergence, cur
 \curl{\vb{T} }  &= \frac{1}{fgh} 
 \begin{vmatrix} 
 f \vu{u} & g \vu{v} & h \vu{w} \\ 
-\frac{\partial}{\partial u} & \frac{\partial}{\partial v} & \frac{\partial}{\partial w} \\ 
+\partial /\partial u & \partial /\partial v & \partial /\partial w \\ 
 fT_{u}  & g T_{v}  & h T_{w}  
 \end{vmatrix}, \\[10pt]
 \laplacian t &= \div{(\grad{t} )} =  (1 / fgh) \left[
@@ -569,6 +1110,8 @@ is independent of \(\vb{a} \text { and } \vb{b} \) and the vector field \(\vb{T}
 
 A quick way to check whether \(\vb{T} (\vb{r} )\) is conservative is to check if its curl is zero, since the curl of a gradient is always zero, so \(\curl{\vb{F} (\vb{r} )} = \curl{(\grad{t(\vb{r} )} )} =0 \).
 
+Note that if \(\vb{T} (\vb{r} )\) is conservative then its total differential \(\vb{T} (\vb{r} ) \cdot d\vb{r} = \grad{t(\vb{r} )} \cdot d\vb{r} = dt \) is exact.  
+
 An additional condition for us to safely say that \(\vb{T} (\vb{r} )\) is conservative, which is usually assumed to be met, is that \(t(\vb{r} )\) should be continuous. For example, for the field
 
 \begin{equation}
@@ -587,7 +1130,9 @@ However, the loop integral
 	\oint_{C} \vb{T} (\vb{r} ) \cdot d\vb{r} = 2\pi \neq 0
 \end{equation}
 
-when \(C\) is a circle centered at the origin. The inconsistency arises from the fact that \(t(\vb{r} )\) is not continuous at the origin, so \(\vb{T} (\vb{r} )\) is only conservative on the plane excluding the origin, \textit{i.e.,} \(\mathbb{R}^2 - {0,0}\). If the loop integral of \(\vb{T} (\vb{r} )\) includes the origin then it would not be zero, since \(\vb{T} (\vb{r} )\) is no longer conservative. 
+when \(C\) is a circle centered at the origin. More generally the loop integral is \(2\pi n\), where \(n\) is the number of times the loop winds around the origin. 
+
+The inconsistency arises from the fact that \(t(\vb{r} )\) is not continuous at the origin, or in other words, \(\vb{T} (\vb{r} )\) is not continuously differentiable and fails to be defined at the origin, so \(\vb{T} (\vb{r} )\) is only conservative on the plane excluding the origin, \textit{i.e.,} \(\mathbb{R}^2 - \{0,0\}\). If the loop integral of \(\vb{T} (\vb{r} )\) includes the origin then it would not be zero, since \(\vb{T} (\vb{r} )\) is no longer conservative. 
 
 
 
@@ -674,6 +1219,27 @@ Note that the answer \(2r(\cos \theta ,\sin \theta )\) is still in Cartesian coo
 
 } 
 
+\example{Gradient to Compute Changes.}
+{Consider the function \(T\) in the \(x\)-\(y\) plane, given by \(T = \ln (x^2+y^2)\). At point \((1,2)\),
+
+\begin{enumerate}
+	\item in which direction is the increase in \(T\) most rapid?
+	\item what distance in the direction found in (a) gives an increase of 0.2?
+	\item what distance in the direction of \(\vu{i} + \vu{j} \) gives an increase of 0.12?
+	\item in which directions will \(T\) be stationary? 
+\end{enumerate}
+~
+}
+{\begin{enumerate}
+	\item The direction is given by its gradient \(\grad{T} = (2/ 5, 4 /5) \).
+	\item The change in \(T\) is given by \(dT = \grad{T} \cdot d\vb{r} = \abs{\grad{T} }s = 0.2 \), so \(s = \sqrt{5} /10 \).  
+	\item The change in \(T\) is given by \(dT = \grad{T} \cdot d\vb{r} =  \grad{T} \cdot (1,1) s /\sqrt{2} = 0.12\), so \(s = 4 \sqrt{5}/ 10 \).  
+	\item We require \(dT = 0\), so \(d \vb{r} \perp \grad{T} \), so the direction is \(\pm (2,-1)\).   
+\end{enumerate}
+~
+} 
+
+
 
 The gradient in Cartesian and spherical coordinates are stated here for reference:
 
@@ -743,7 +1309,37 @@ The curl in Cartesian and spherical coordinates are stated here for reference:
     \end{aligned}
 \end{equation}
 	
-\subsection{Product Rules}
+
+\example{Curl.}
+{Find the vector function \(\vb{G} \) such that \(\curl{\vb{G} } = \vb{F} \), given that \(\vb{F} = (xz^2,-yz^2,0)\).  }
+{Since \(F_{z}= 0 \), a simple approach is to set \(G_{x} = G_{y} =0  \), then the curl reduces to 
+
+\begin{equation}
+	\curl{\vb{G} } = (\partial _{y}G_{z} ,- \partial _{x}G_{z}, 0    ). 
+\end{equation}
+
+So we need 
+
+\begin{equation}
+	\partial _{y}G_{z} = xz^2 ~\text { and }~ \partial _{x}G_{z} = yz^2.    
+\end{equation}
+
+Integrating the first equation gives
+
+\begin{equation}
+	G_{z} = xyz^2 + h(x,z).  
+\end{equation}
+
+Substituting into the second equation gives 
+
+\begin{equation}
+	\partial _{x}G_{z} = yz^2 + \frac{\partial h}{\partial x} = yz^2 \implies \frac{\partial h}{\partial x} = 0 \implies h = \text{constant}.   
+\end{equation}
+
+Therefore the \(\vb{G} = (0,0,xyz^2 + C)\). 
+} 
+
+\section{Product Rules}
 The two product rules for gradient are
 
 \begin{equation}
@@ -816,7 +1412,7 @@ and
 	\int_{V} \vb{B} \cdot (\curl{\vb{T}}) d\tau = \int_{V} \vb{T} \cdot (\curl{\vb{B}}) d\tau + \oint_{S} (\vb{T} \cross \vb{B}) \cdot d\vb{A}. 
 \end{equation}
 	
-\subsection{Second Derivatives}
+\section{Second Derivatives}
 	
 From the nature of gradient, divergence and curl, we can construct five species of second derivatives. They are 
 \begin{enumerate}
@@ -888,7 +1484,7 @@ For the 5 second derivatives listed above, only \cref{prelap,curlcurl} are used 
 	(\grad{t} )_{i} = \partial _{i}t, \quad (\div{\vb{T} } )_{i} = \partial _{i}T_{i} ~\text { and }~ (\curl{\vb{T} } )_{i} = \epsilon _{ijk}\partial _{j}T_{k}.          
 \end{equation}
 
-To find \(\grad{r^{p} } \), for example, we have 
+To find \(\grad{(r^{p}) } \), for example, we have 
 
 \begin{equation}
 	\partial _{i}r^{p} = \partial _{i}(x_{j}x_{j}  )^{\frac{p}{2} } = \frac{p}{2}(x_{j}x_{j})^{\frac{p}{2}-1 } \partial _{i}(x_{j}x_{j}  ) = pr^{p-2}x_{i} \implies \grad{r^{p} } = pr^{p-1}\vu{r} .           
@@ -902,8 +1498,35 @@ To prove that \(\curl{\grad{t} } = 0\), for example, we can show that
 
 since the \(\epsilon _{ijk} \) is antisymmetric over \(ij\), but the partial derivatives \(\partial _{i}\partial _{j}  \) are symmetric, so the terms like \(\partial _{1}\partial _{2} - \partial _{2}\partial _{1}    \)  cancel.   
 
+\example{Index Notation (1).}
+{Simplify \(\curl{(\varphi \vb{F} )} \). }
+{We have 
+
+\begin{equation}
+	(\curl{\varphi \vb{F} } )_{i} = \epsilon _{ijk}\partial _{j}(\varphi \vb{F} )_{k}  = \epsilon _{ijk}(F_{k} (\partial _{j}\varphi  ) + \varphi (\partial _{j}F_{k} )) = \left( \grad{\varphi } \cross \vb{F}   \right)_{i} + \varphi (\curl{\vb{F} })_{i}.   
+\end{equation}
+
+} 
+
+\example{Index Notation (2).}
+{Simplify \(\curl{(\boldsymbol{\omega } \cross \vb{r}  )} \), where \(\boldsymbol{\omega } = \omega \vu{z} \).  }
+{We have 
+
+\begin{equation}
+	\begin{aligned} 
+	(\curl{(\boldsymbol{\omega }\cross \vb{r}  )} ) &= \epsilon _{ilm} \partial _{l} \epsilon _{mjk} \omega _{j} r_{k} = \epsilon _{ilm} \epsilon _{mjk} \omega _{j} \partial _{l} r_{k} \\
+	&= \epsilon _{ilm} \epsilon _{mjk}  \omega _{j} \delta _{lk}  = (\delta _{ij} \delta _{kk} - \delta _{ik} \delta _{jk}   ) \omega _{j} = (3 \delta _{ij} - \delta _{ij}  ) \omega _{j} = \omega _{i}.
+	\end{aligned}            
+\end{equation}
+
+Note that from the first equality to the second we have pulled \(\omega _{j} \) out of \(\partial _{l} \) since it is a constant and does not depends on position.  
+
+} 
+
+
+
 	
-\subsection{Dirac Delta Function}
+\section{Dirac Delta Function}
 	
 The motivation of the dirac delta function comes from the result of the divergence of the vector function \( \vb{T} = \vu{r}  /r^2\):
 	
@@ -911,7 +1534,7 @@ The motivation of the dirac delta function comes from the result of the divergen
 	\div{\left(\frac{\vu{r}}{r^2}\right)} = \frac{1}{r^2} \pdv{r}(r^2\left(\frac{1}{r^2}\right)) = 0, \label{notmatchone} 
 \end{equation}
 	
-which is not consistent with the result we would expect from the divergence theorem, since the suface integral over a hypothetical sphere with raidus \(R\) is 	
+which is not consistent with the result we would expect from the divergence theorem, since the suface integral over a hypothetical sphere with radius \(R\) is 	
 
 \begin{equation}
 	\oint_{S} \left( \frac{\vu{r} }{R^2} \right) \cdot  (R^2\sin \theta d \theta d \phi \vu{r} )  = 4\pi .
@@ -924,7 +1547,7 @@ The root of this problem lies on the fact that the function itself blows up at t
 To describe this behaviour, we introduce the dirac delta function which is defined by
 	
 \begin{equation} 
-	\delta(x) = \begin{cases} \infty &\text{if} ~~~ x=0 \\ ~0 &\text{if} ~~~ x\neq0 \end{cases} \text{ and }	\int_{-\infty}^{+\infty} \delta(x) dx = 1. \label{dd2} \footnote{Therefore, \(\delta(x)\) has the dimension of the inverse of its argument} 
+	\delta(x) = \begin{cases} \infty &\text{if} ~~~ x=0 \\ ~0 &\text{if} ~~~ x\neq0 \end{cases} ~\text { and }~ 	\int_{-\infty}^{+\infty} \delta(x) dx = 1. \label{dd2} \footnote{Therefore, \(\delta(x)\) has the dimension of the inverse of its argument} 
 \end{equation}	
 	
 The appearance of this function is shown in \cref{dd}.\onefig{dd}{scale = 0.7}
@@ -964,7 +1587,7 @@ The absolute signs are necessary since if \(k\) is negative then the lower and t
 		
 \example{Dirac Delta Function (2).}{Show that \(-\delta(x) = x\dv{x}(\delta(x))\)}
 
-\example{Dirac Delta Function (3).}{Show that \(\delta(x) = \dv{\theta}{x}\), where \(\theta(x)\) is the Heaviside step function defined as \(\theta(x) = \begin{cases} 0 ~~~ \text{if} ~~ x~\le~0, \\  1 ~~~ \text{if} ~~ x~>~0. \end{cases}\)}
+\example{Dirac Delta Function (3).}{Show that \(\delta(x) = d \theta /dx\), where \(\theta(x)\) is the Heaviside step function defined as \(\theta(x) = \begin{cases} 0 ~~~ \text{if} ~~ x~\le~0, \\  1 ~~~ \text{if} ~~ x~>~0. \end{cases}\)}
 
 It is natural to generalize \(\delta(x)\) to three dimensions as follows:
 	
@@ -976,22 +1599,22 @@ The characteristic equations the three-dimensional delta function are then
 	
 
 \begin{equation} 
-	\int_{all~space} \delta^3(\vb{r})
+	\int_{\text{all space} } \delta^3(\vb{r})
 	d\tau = \int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty} \delta(x)\delta(y)\delta(z) ~dxdydz = 1 
 \end{equation}
 	
 and
 	
 \begin{equation} 
-	\int_{all~space} f(\vb{r}) \delta^3(\vb{r} - \vb{a}) = f(\vb{a}). 
+	\int_{\text{all space} } f(\vb{r}) \delta^3(\vb{r} - \vb{a}) = f(\vb{a}). 
 \end{equation} 
 	
 As in the one-dimensional case, the \(\delta^3(\vb{r} - \vb{a})\) picks out the value of \(f(\vb{r})\) at \(\vb{a}\).
 	
-The inconsistency can now be resolved as the divergence of the vector function \(\vb{T} = \frac{\vu{r}}{r^2}\) is in fact
+The inconsistency can now be resolved as the divergence of the vector function \(\vb{T} = \vu{r} /r^2\) is in fact
 	
 \begin{equation} 
-	\div{\frac{\vu{r}}{r^2}} = 4\pi\delta^3(\vb{r}). 
+	\div{\left(\frac{\vu{r}}{r^2}\right)} = 4\pi\delta^3(\vb{r}). 
 \end{equation}
 	 
 which equals to 0 except in the origin where it equals to \(4\pi\).
@@ -1033,7 +1656,7 @@ With this equation in hand, we can find prove that the potential created by the 
 
 	\item \(\rho(\vb{r}) = -q\delta(\vb{r}) + q\delta(\vb{r} - \vb{a})\)\\	
 
-	\item \(\rho(r) = A\delta(r - a)\), where \(A\) can be determined by \(\int_{V} \rho(r) d\tau = \int A\delta(r-a) 4\pi r^2 dr = 4\pi Aa = q\), thus \(A = \frac{q}{4\pi a}\). Therefore, \(\rho(r) = \frac{q}{4\pi a}\delta(r - a)\).
+	\item \(\rho(r) = A\delta(r - a)\), where \(A\) can be determined by \(\int_{V} \rho(r) d\tau = \int A\delta(r-a) 4\pi r^2 dr = 4\pi Aa = q\), thus \(A = q /4\pi a\). Therefore, \(\rho(r) = q\delta(r - a) /4\pi a\).
 \end{enumerate}~}
 
 \example{Vortex Flow.}
@@ -1059,7 +1682,7 @@ So \(\vb{v} \) is locally conservative over any region that excludess the axis, 
 
 
 	
-\subsection{Helmholtz Theorem}
+\section{Helmholtz Theorem}
 
 \begin{theorem}[Helmoholtz Theorem]
 Given the divergence and curl of a differentiable vector function \(\vb{T}(\vb{r} ) \), it can be written as some gradient of some scalar function \(\Phi(\vb{r} ) \) plus some vector function \(\vb{A}(\vb{r} ) \) if \(\vb{T} \) goes to zero faster than \(1 /r \) as \(r \to \infty\), where \(\Phi \text { and } \vb{A} \) are given by
@@ -1115,7 +1738,7 @@ Now, the first term is simply \(\curl{\vb{T} }\) in a similar fashion as the div
 	\end{aligned}
 \end{equation}
 
-where we used \( \grad{\left(1 /\rcurs \right)} = - \boldsymbol{\nabla}'\left(1/\rcurs  \right) \) since the derivative of \(\rcurs = \left| \vb{r} - \vb{r} ' \right| \) with respect to the primed coordinates differ by a sign from that with respect to unprimed coordinates.\footnote{More precisely, \(\frac{\partial }{\partial x} f(x-x') = - \frac{\partial }{\partial x'} f(x-x')\).} Also, we assumed that \(\curl{\vb{T} } \) goes to zero faster than \(1 /r^2 \) as \(r \to  \infty\) so the surface integral goes to zero.    
+where we used \( \grad{\left(1 /\rcurs \right)} = - \boldsymbol{\nabla}'\left(1/\rcurs  \right) \) since the derivative of \(\rcurs = \left| \vb{r} - \vb{r} ' \right| \) with respect to the primed coordinates differ by a sign from that with respect to unprimed coordinates.\footnote{More precisely, \(\partial f(x-x')/\partial x  = - \partial f(x-x')/\partial x' \).} Also, we assumed that \(\curl{\vb{T} } \) goes to zero faster than \(1 /r^2 \) as \(r \to  \infty\) so the surface integral goes to zero.    
 
 Of course we still have to prove that the given forms for the divergence and curl of \(\vb{T} \) converge. At the large \(r'\) limit, they have the form
 
@@ -1172,7 +1795,7 @@ The above analysis can be extended to triple integration easily.
 {The volume can be written as a double or triple integral, depending on how one inteprets the summing process. In triple integral,
 
 \begin{equation}
-	V = \int_{0}^{a} \int_{0}^{b-\frac{bx}{a} } \int_{0}^{c(1-\frac{y}{b} - \frac{x}{a}  )} dxdydz,
+	V = \int_{0}^{a} \int_{0}^{b-\frac{bx}{a} } \int_{0}^{c\left(1-\frac{y}{b} - \frac{x}{a}  \right)} dxdydz,
 \end{equation}
 
 which can be easily reduced to a double integral by evaluating the integral involving \(z\) as
@@ -1190,7 +1813,7 @@ Line, surface and volume sum up scalar or vector field times an infinitesimal qu
 
 \subsection{Curves and Surfaces}
 
-In evaluating line and surface integrals, we always have to specify what curve and surface are we integrating over, and we therefore need to devise a way to describe these curves and surfaces. For both curves and surfaces, they can be represented in parameterized form, where an extra variable(s) is(are) introduced to specify a point on the curve or surface. Alternatively, they can be represented algebrically.
+In evaluating line and surface integrals, we always have to specify what curve and surface are we integrating over, and we therefore need to devise a systematic way to describe these curves and surfaces. For both curves and surfaces, they can be represented in parameterized form, where an extra variable(s) is(are) introduced to specify a point on the curve or surface. Alternatively, they can be represented algebrically.
 
 \subsubsection{Curves}
 
@@ -1210,6 +1833,20 @@ Another example is the unit circle, which can be parameterized by
 
 Often \(x = t\) so we can simply treat \(x\) as the parameter and express the integral in terms of \(x\). 
 
+But the most common parameterization is a straight line, given a point \(\vb{r} _{0} =  (x_0 ,y_0 ,z_0 )\) on the line and a vector \(\vb{d} = (a,b,c)\) along the line, which has the form
+
+\begin{equation}
+	\vb{r} (t) = \vb{r} _{0}+ t\vb{d} = (x_0 + at, y_0 + bt, z_0 +ct),
+\end{equation}
+
+then the infinitesimal displacement vector is simply given by 
+
+\begin{equation}
+	d\vb{r} (t) = \vb{d} dt = (a,b,c)dt.
+\end{equation}
+
+
+
 Alternatively, a space curve in three-dimensional space can be represented by two simultaneous equations algebrically as \(F(x,y,z) = G(x,y,z) = 0\). For example, the first example above can be described equivalently as \(x - \cos z = y - \sin z = 0\). However, we lost the picture of the particle's position evloving through space, and it is not a convenient form to work in integrals. 
 
 \subsubsection{Surfaces}
@@ -1222,7 +1859,7 @@ A point on a surface, on the other hand, requires two parmeters \(u \text { and 
 
 which describes the surface of a sphere with radius \(R\).
 
-Alternatively, a space surface in three-dimensional space can be represented by a single equation algebrically as \(F(x,y,z) = 0\). 
+Alternatively, a space surface in three-dimensional space can be represented by a single equation algebrically as \(F(x,y,z) = 0\), or \(z = f(x,y)\).  
 
 There are generally two ways to compute an infinitesimal surface \(dS\). If the parametric form of the surface is given, then refer to \cref{jacobian}, since \(v\) is constant along \(KL\), the line element \(KL\) can be written as 
 
@@ -1236,7 +1873,7 @@ Similarly, \(d\vb{r} _{KN}  = (\partial x / \partial v) dv \vu{i} + (\partial y/
 	dS_{u,v} = \abs{d\vb{r} _{KL} \cross  d\vb{r} _{KN}} = \abs{\frac{\partial \vb{r} }{\partial u} \cross \frac{\partial \vb{r} }{\partial v} }dudv = \abs{\frac{\partial x}{\partial u} \frac{\partial y}{\partial v}  - \frac{\partial x}{\partial v}  \frac{\partial y}{\partial u} }dudv = \abs{\frac{\partial (x,y)}{\partial (u,v)} } dudv.
 \end{equation}
 
-Since both \(\frac{\partial \vb{r} }{\partial u} \text { and } \frac{\partial \vb{r} }{\partial v}  \) lie in the tangent plane to the surface at \(\vb{r} \), the direction of the infinitesimal surface is also encoded in the cross product
+Since both \(\partial \vb{r} /\partial u \text { and } \partial \vb{r} /\partial v  \) lie in the tangent plane to the surface at \(\vb{r} \), the direction of the infinitesimal surface is also encoded in the cross product
 
 \begin{equation}
 	d\vb{S} _{u,v} =\left( \frac{\partial \vb{r} }{\partial u} \cross \frac{\partial \vb{r} }{\partial v} \right) dudv.   
@@ -1245,19 +1882,19 @@ Since both \(\frac{\partial \vb{r} }{\partial u} \text { and } \frac{\partial \v
 
 \onefig{jacobian}{scale=0.4} 
 
-If the algebraic form of the surface is given, then we usually project the surface \(S\) onto the \(xy\)-plane (sometimes the \(yz\)- or \(xz\)- planes are more useful). From \cref{dS}, we see that 
+If the algebraic form of the surface is given, then we usually project the surface \(S\) onto the \(xy\)-plane (sometimes the \(y\)-\(z\) or \(x\)-\(z\) planes are more useful). From \cref{dS}, we see that 
 
 \begin{equation} \label{dseq} 
-	dA = \abs{\cos \alpha }dS \implies dS = \frac{dA}{\vu{n} \cdot \vb{k} } = \frac{dA}{\frac{\grad{f} }{\abs{\grad{f} } } \cdot \vu{k}  } =  \frac{\partial z}{\partial f}dA\abs{\grad{f} } \implies d\vb{S} = \frac{\partial z}{\partial f} dA\grad{f} , 
+	dA = \abs{\cos \alpha }dS \implies dS = \frac{dA}{\vu{n} \cdot \vb{k} } = \frac{dA}{\frac{\grad{f} }{\abs{\grad{f} } } \cdot \vu{k}  } =  \frac{\abs{\grad{f} } }{\partial f/\partial z}dA \implies d\vb{S} = \frac{\grad{f}}{\partial f/\partial z } dA, 
 \end{equation}
 
-where \(\alpha \) is the angle between the unit vector \(\vu{k} \) in the \(z\)-direction and the unit normal \(\vu{n} \) to the surface, and \(f(x,y,z)=0\) is the equation which describe the surface.\footnote{If the equation is in the form \(z = g(x,y) \implies f(x,y,z) = z-g(x,y) = 0\), then \(\frac{\partial f}{\partial z} = 1\) and the relation between surface and area becomes \(dS = \abs{\grad{f} }dA\).} 
+where \(\alpha \) is the angle between the unit vector \(\vu{k} \) in the \(z\)-direction and the unit normal \(\vu{n} \) to the surface, and \(f(x,y,z)=0\) is the equation which describe the surface.
 
 \onefig{dS}{scale=0.4} 
 
-Using the above equation, we can convert any surface integral over \(S\) as a double integral over the region \(R\) in the \(xy\)-plane.
+Using the above equation, we can convert any surface integral over \(S\) as a double integral over the region \(R\) in the \(x\)-\(y\) plane.
 
-Note that in the above discussion, however, tht we assumed any line parallel to the \(z\)-axis only intersects \(S\) once. If this is not the case, we must split up the surface into smaller surfaces \(S_1, S_2 \textit{ etc.}\) Also, sometimes instead of projecting the surface onto the \(xy\)-plane, it might be easier to project it onto the \(zx\)-plane or the \(yz\)-plane.     
+Note that in the above discussion, however, tht we assumed any line parallel to the \(z\)-axis only intersects \(S\) once. If this is not the case, we must split up the surface into smaller surfaces \(S_1, S_2 \textit{ etc.}\) Also, sometimes instead of projecting the surface onto the \(xy\)-plane, it might be easier to project it onto the \(z\)-\(x\) or the \(y\)-\(z\) plane.     
 
 A surface that comes up all the time is a spherical surface with raidus \(R\). Parametrically, the surface is described as 
 
@@ -1292,12 +1929,84 @@ so we have
 
 \begin{equation}
 	\begin{aligned} 
-	d\vb{S} &= \frac{\partial z}{\partial f} dA \grad{f} = \frac{1}{2z} dxdy 2(x,y,z) = \abs{\frac{\partial (x,y)}{\partial (\theta ,\phi )} }d \theta d\phi (\frac{x}{z},\frac{y}{z},1  ) \\
+	d\vb{S} &= \frac{\partial z}{\partial f} dA \grad{f} = \frac{1}{2z} dxdy 2(x,y,z) = \abs{\frac{\partial (x,y)}{\partial (\theta ,\phi )} }d \theta d\phi \left(\frac{x}{z},\frac{y}{z},1  \right) \\
 	&= (R^2\cos \theta \sin \phi )(\tan \theta \cos \phi , \tan \theta \sin \phi ,1) d \theta d \phi  = r^2\sin \theta d \theta d\phi \vu{r} .
 	\end{aligned} 
 \end{equation}
 
 
+\example{Space Surface.}
+{Consider the surface \(\phi (x,y,z) = c\), 
+
+\begin{enumerate}
+	\item Show that \(\grad{\phi } \) is a vector perpendicular to the surface \(\phi \).
+	\item Let \(R\) be the distance from a fixed point \(A\) to any point \(P\) on the surface \(\phi \). Show that \(\grad{R} \) is a unit vector in the direction \(AP\). 
+	\item Let \(P\) be any point on an ellipse whose foci are at points \(A \text { and } B\). Given that the distances \(AP \text { and } BP\) obeys \(AP + BP = s\), prove that lines \(AP \text { and } BP\) make equal angles with the tangent \(T\) to the ellipse at \(P\).       
+	\item Imagine a source is emitting sound waves at focus \(A\) of the ellipse. Give a physical interpretation of the result in \((c)\). 
+\end{enumerate}
+~
+}
+{\begin{enumerate}
+	\item From 
+	
+	\begin{equation}
+		d \phi = \grad{\phi } \cdot d\vb{r}
+	\end{equation}
+	
+	where \(\vb{r} \) is the position vector of an arbitrary point on the surface and \(d\vb{r} \) is an arbitrary tangent vector that lies on the surface, we have \(\grad{\phi } \perp \text{ every tangent vectors} \). 
+	\item We calculate the gradient of \(R= ((x-x_0 )^2+(y-y_0 )^2+(z-z_0 )^2)^{1 /2} \) to be
+	\begin{equation}
+		(\grad{R} )_{i} = \partial _{i} \left( (x_{i} - c_{i}  ) (x_{i } - c_{i}  )\right)^{1 /2} = \left( (x_{i}-c_{i}  )(x_{i} - c_{i}  ) \right)^{-1/2} (x_{i} - c_{i}  ) = \frac{\vb{R}_{i} }{\abs{\vb{R} } }.      
+	\end{equation}
+	\item Using the fact that \(AP + BP = s\), the ellipse can be described by the equation \(\phi (x,y) = AP + BP = s\). From \((a) \text { and } (b)\), we have the normal vector \(\vb{n} \)
+	\item  
+	\begin{equation}
+		\vb{n} = \grad{\phi (x,y)} = \grad{AP} + \grad{BP} = \frac{\vb{A} \vb{P} }{AP} + \frac{\vb{B} \vb{P} }{BP}     
+	\end{equation}
+
+	The equal angles can be shown by 
+
+	\begin{equation}
+		\frac{\vb{A} \vb{P} }{AP} \cdot \vb{n} = 1 + \frac{\vb{A} \vb{P} \cdot \vb{B} \vb{P} }{(AP)(BP)} = \frac{\vb{B} \vb{P} }{BP} \cdot \vb{n} = \frac{\vb{B} \vb{P} \cdot \vb{A} \vb{P} }{(BP)(AP)} + 1.    
+	\end{equation}
+	
+	Alternatively, we can desribe the ellipse using 
+
+	\begin{equation}
+		\phi (x,y) = \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1 \implies \grad{\phi (x,y)} = \left( \frac{2x}{a^2},\frac{2y}{b^2}   \right).
+	\end{equation}
+
+	Explicitly, we have
+
+	\begin{equation}
+		AP = \left( (x+c)^2+y^2 \right)^{1 /2} ~\text { and }~ BP = \left( (x-c)^2+y^2 \right) ^{1 /2}, 
+	\end{equation}
+
+	with their gradients
+
+	\begin{equation}
+		\grad{AP} = \frac{(x+c)\vu{i} +y \vu{j} }{AP} ~\text { and }~ \grad{BP} = \frac{(x-c)\vu{i} +y \vu{j} }{BP}.    
+	\end{equation}
+
+	The equal angles can be shown by 
+
+	\begin{equation}
+		\grad{AP} \cdot \grad{\phi } = \grad{BP} \cdot \grad{\phi }.    
+	\end{equation}
+	
+	Substituting and expanding we get 
+
+	\begin{equation}
+		a^2y^2 + a^2x^2 + a^2c^2- a^{4} - x^2c^2 = 0, 
+	\end{equation}
+	
+	which is indeed true once we substitute \(c^2 = a^2-b^2\) and the ellipse equation \(x^2 /a^2 + y^2 /b^2 = 1\).  
+	
+	\item If a point source at \(A\) emits sound, each ray travles to the ellipse and reflects according to the law of reflection. By \((c)\), every sound-ray leaving \(A\) and hitting the inner boundary of the ellipse will be reflected straight to the other focus \(B\). Thus a listener at \(B\) hears sound from \(A\) clearly no matter which idrection it intially left \(A\).
+	
+\end{enumerate}
+~
+} 
 
 
 
@@ -1360,7 +2069,7 @@ Note that the shape of a curve is completely determined by \(\kappa \text { and 
 
 \subsection{Line Integrals}
 
-Integrals along a line can involve vector and scalar fields. There are four kinds of line integrals, namely
+Integrals along a line can involve vector and scalar fields. There are four kinds of line integrals,\footnote{However usually only the first and the third integrals are used often enough to be recognized as line integrals.}  namely
 
 \begin{equation}
 	\int _{C} f(\vb{r} ) ds, ~~ \int_{C}^{} f(\vb{r} ) d\vb{r} , ~~ \int_{C}^{} \vb{F} (\vb{r} ) \cdot d\vb{r} ~ \text { and }  \int_{C}^{} \vb{F} (\vb{r} ) \cross d\vb{r} . 
@@ -1371,7 +2080,10 @@ The curve \(C\) can be open, \textit{i.e.,} the beginning and end point are not 
 Note that for the first type of the four line integrals above \(ds = \abs{d \vb{r} } \) is an intrinsically positive quantity, which represent an infinitesimal arc length in \(\mathbb{R}^3 \). On the other hand, \(dx\) in a single integral represents a straight infinitesimal interval element in \(\mathbb{R}\), so it carries sign. The integral is typically carried out as
 
 \begin{equation}
-	s = \int_{\vb{a} }^{\vb{b} }f(\vb{r} )ds = \int_{\vb{a} }^{\vb{b} } f(\vb{r} )\abs{d \vb{r} (u)} = \int_{u_{\vb{a} } }^{u_{\vb{b} }  } f(\vb{r} )\abs{\frac{d\vb{r} }{du} } \abs{du}  = \int_{u_{ \vb{a}} }^{u_{ \vb{b}} }f(\vb{r} ) \sqrt{\left( \frac{dx}{du}\right)^2 + \left( \frac{dy}{du}  \right)^2 + \left( \frac{dz}{du}  \right)^2} \abs{du},
+	\begin{aligned} 
+	s &= \int_{\vb{a} }^{\vb{b} }f(\vb{r} )ds = \int_{\vb{a} }^{\vb{b} } f(\vb{r} )\abs{d \vb{r} (u)} = \int_{u_{\vb{a} } }^{u_{\vb{b} }  } f(\vb{r} )\abs{\frac{d\vb{r} }{du} } \abs{du}  \\
+	&= \int_{u_{ \vb{a}} }^{u_{ \vb{b}} }f(\vb{r} ) \sqrt{\left( \frac{dx}{du}\right)^2 + \left( \frac{dy}{du}  \right)^2 + \left( \frac{dz}{du}  \right)^2} \abs{du},\\
+	\end{aligned} 
 \end{equation}
 
 If \(u_{\vb{b} } > u_{\vb{a} }  \), then \(du\) is positive and we can omit the absolute sign of \(du\). If \(u_{\vb{b} } < u_{\vb{a} }  \), then \(du\) is negative, and we can omit the absolute sign of \(du\) if we add a negative sign in front. This is equivalent of reversing the limit of the integrations \((u_{\vb{a} } \text { and } u_{\vb{b} }  )\). Therefore, the limit of integration does not matter when evaluating the first type of the four line integrals above. 
@@ -1381,19 +2093,19 @@ If \(u_{\vb{b} } > u_{\vb{a} }  \), then \(du\) is positive and we can omit the 
 {The forward and backward parameterizations are
 
 \begin{equation}
-	\vb{r} (u) = (u,0) ~\text { and }~ \vb{r}' (u) = (1-u,0).
+	\vb{r}_{1}  (u) = (u,0) ~\text { and }~ \vb{r}_{2} (u) = (1-u,0).
 \end{equation}
 
 The forward line integral is 
 
 \begin{equation}
-	I = \int_{C}^{} \phi ds = \int_{0}^{1} 2 \abs{\frac{d\vb{r} }{du} } du = 2 \int_{0}^{1} \sqrt{1^2 + 0^2} du = 2.     
+	I = \int_{C}^{} \phi ds = \int_{0}^{1} 2 \abs{\frac{d\vb{r} _{1} }{du} } du = 2 \int_{0}^{1} \sqrt{1^2 + 0^2} du = 2.     
 \end{equation}
 
 The backward line integral is 
 
 \begin{equation}
-	I = \int_{C}^{} \phi ds = \int_{0}^{1} 2 \abs{\frac{d\vb{r} }{du} } du = 2 \int_{0}^{1} \sqrt{1^2 + 0^2} du = 2.     
+	I = \int_{C}^{} \phi ds = \int_{0}^{1} 2 \abs{\frac{d\vb{r} _{2} }{du} } du = 2 \int_{0}^{1} \sqrt{1^2 + 0^2} du = 2.     
 \end{equation}
 
 The limits of the line integral in both cases are 0 to 1, due to the different paratermization used. Of course, we can use the same parameterization in the second line integral as the first one, where the limits of integration will be from 1 to 0, but then we should not replace \(\abs{du} \) by \(du\), but should add a negative sign, which gives the same answer.  
@@ -1443,7 +2155,7 @@ The limits of the line integral in both cases are 0 to 1, due to the different p
 {Since \(x\) is not a single-valued function of \(y\), we must divide the path into two parts with \(x = +\sqrt{a^2-y^2} \) for \(x\geq 0\) and \(x = -\sqrt{a^2-y^2} \) for \(x \le 0\). So
 
 \begin{equation}
-	I = \int_{-a}^{a} \sqrt{a^2-y^2}dy + \int_{a}^{-a} (-\sqrt{a^2-y^2})dy= \pi a^2    .
+	I = \int_{-a}^{a} \sqrt{a^2-y^2}dy + \int_{a}^{-a} \left(-\sqrt{a^2-y^2}\right)dy= \pi a^2    .
 \end{equation}
 
 Alternatively, we can represent the entire circle parametrically, by \(x = a \cos \phi , y = a \sin \phi \) with \(\phi \) running from \(0\) to \(2 \pi \) and we have 
@@ -1473,7 +2185,7 @@ Thus
 {Parametrizing the curve in terms of \(\theta \), the integral becomes 
 
 \begin{equation}
-	\oint_{C} (dx+xydz) = \int_{0}^{2\pi }(-\sin \theta +\sin \theta \cos \theta (-2\cos \theta \sin \theta -2\sin \theta \cos \theta ))d \theta = -\pi .  
+	\oint_{C} (dx+xydz) = \int_{0}^{2\pi }(-\sin \theta + \cos \theta \sin \theta  (-2\cos \theta \sin \theta -2\sin \theta \cos \theta ))d \theta = -\pi .  
 \end{equation}
 
 Alternatively, we can use Stokes' theorem to rewrite the integral as 
@@ -1536,14 +2248,20 @@ And the total surface area is then
 } 
 
 \example{Surface Integral (2).}
-{Evaluate the surface integral \( I = \int_{S}^{} \vb{F}(\vb{r} ) \cdot d\vb{S} \), where \(F = x \vu{i}  \) and \(S\) is the surface of the hemisphere \(x^2 + y^2 + z^2 = a^2\).}
+{Evaluate the surface integral \( I = \int_{S}^{} \vb{F}(\vb{r} ) \cdot d\vb{S} \), where \(\vb{F}  = x \vu{i}  \) and \(S\) is the surface of the hemisphere \(x^2 + y^2 + z^2 = a^2\).}
 {Parameterizing the surface by \(\theta \text { and } \phi \), 
 
 \begin{equation}
 	\vb{F} \cdot d\vb{S}  = x(\vu{i} \cdot \vu{r} )dS = (a \sin \theta \cos \phi )(\sin \theta \cos \phi )(a^2\sin \theta d \theta d\phi ),
 \end{equation}
 
-we have 
+where we have used
+
+\begin{equation}
+	\vu{i} \cdot \vu{r} = \vu{i} \cdot \frac{\vb{r} }{\abs{\vb{r} } } = \vu{i} \cdot \frac{x \vu{i} + y \vu{j} + z \vu{k} }{a} = \frac{x}{a}.
+\end{equation}
+
+So the integral becomes
 
 \begin{equation}
 	I = a^3 \int_{0}^{\frac{\pi }{2} } \sin ^3 \theta d \theta \int_{0}^{2\pi } \cos ^2\phi d\phi = \frac{2\pi a^3 }{3}.    
@@ -1552,19 +2270,21 @@ we have
 Alternatively, we can describe the surface of the hemisphere as \(f(\vb{r}) = x^2 + y^2 + z^2 - a^2 = 0\), so we have 
 
 \begin{equation}
-	\abs{\grad{f} } = 2\abs{\vb{r} } = 2a, ~~ 	\frac{\partial f}{\partial z} = 2z = 2\sqrt{a^2-x^2-y^2} ~\text { and }~ \vu{i} \cdot \vu{r} = \vu{i} \cdot \frac{\vb{r} }{\abs{\vb{r} } } = \frac{x}{a}. 
+	\abs{\grad{f} } = 2\abs{\vb{r} } = 2a, ~~ 	\frac{\partial f}{\partial z} = 2z = 2\sqrt{a^2-x^2-y^2}.
 \end{equation}
 
 Therfore the integral becomes
 
 \begin{equation}
-	I = \int \int_{R}^{} \frac{x^2}{\sqrt{a^2-x^2-y^2} }dxdy = \frac{2\pi a^3 }{3}.    
+	I = \int \int_{R}^{} \frac{x^2}{\sqrt{a^2-x^2-y^2} }dxdy = \frac{2\pi a^3 }{3},
 \end{equation}
+
+where the integral is evaluated by changing to polar coordinates.
  } 
  
 \example{Surface Integral (3).}
 {Evaluate \(\int_{S}^{}   \vb{F} (\vb{r} )\cdot d\vb{S} \) over the surface bounded by the paraboloid \(y = x^2+z^2\) for \(y \in [0,1]\), and the disc \(x^2+z^2 \le 1\) at \(y=1\), for \(\vb{F} = (0,y,-z)\).}
-{The algebraic form of the curved surface is \(g(\vb{r}) = y - f(x,z) = y - x^2 - z^2 = 0\), whose gradient is \(\grad{g(\vb{r})} = (-2x,1,-2z) \) (and \(\frac{\partial g}{\partial y} = 1\)). This vector points inward to the surface, so we should change its sign to adhere to the normal convention of outward-pointing normals. The integral over the curved surface then becomes
+{The algebraic form of the curved surface is \(g(\vb{r}) = y - f(x,z) = y - x^2 - z^2 = 0\), whose gradient is \(\grad{g(\vb{r})} = (-2x,1,-2z) \) (and \(\partial g /\partial y= 1\)). This vector points inward to the surface, so we should change its sign to adhere to the normal convention of outward-pointing normals. The integral over the curved surface then becomes
 
 \begin{equation}
 	\int_{S'}^{}   \vb{F(\vb{r} )} \cdot \grad{g(\vb{r})} dxdz = \int_{S'}^{} (-x^2-3z^2)dxdz,
@@ -1585,7 +2305,7 @@ The integral over the end surface is trivial, which upon integration gives \(\pi
 {The surface is given parametrically by the equation 
 
 \begin{equation}
-	\vb{r} (\theta , \phi ) = 3(\sin \theta \cos \phi , \sin \theta \sin \phi , \cos \theta ), \quad \theta \in [0,\frac{\pi }{2} ], \phi \in [0, 2\pi ].
+	\vb{r} (\theta , \phi ) = 3(\sin \theta \cos \phi , \sin \theta \sin \phi , \cos \theta ), \quad \theta \in \left[0,\frac{\pi }{2} \right], \quad \phi \in [0, 2\pi ].
 \end{equation}
 
 The infinitesimal surface vector \(d\vb{S} \) can be calculated explicitly by 
@@ -1604,7 +2324,38 @@ Then the integral can be carried out straightforwardly as
 
 \example{Surface Integral (5).}
 {Viviani's window is the part of the surface of the sphere of radius \(R\) centered in the origin, contained within the right cylinder with base given by a circumference of radius \( R/2\), centered at \((x,y) = \left(R /2, 0\right)\), for \(z \ge 0\) (see \cref{vivi}). Find the area \(S\) of the Viviani's window.}
-{We are tasked with solving the integral \(S = \int_{S}^{} dS \), and the difficulty lies on parameterizing the surface \(S\). One is to project the surface onto the base and evaluate the double integral, an equally valid way is to parameterize the surface with \(r, \theta \) according to \cref{para}, where 
+{We are tasked with solving the integral \(S = \int_{S}^{} dS \), and the difficulty lies on parameterizing the surface \(S\). 
+
+Since the surface is inherently a sphere, the algebraic form is \(f(x,y,z) = x^2+y^2+z^2-R^2= 0\). An infinitesimal surface area is then given by 
+
+\begin{equation}
+	dS = \frac{\abs{\grad{f(x,y,z)} } }{\partial f/\partial z}dxdy = \frac{R}{\sqrt{R^2-x^2-y^2} }dxdy.  
+\end{equation}
+
+Changing to polar coordinates with the substitution \(x = R/2 + \rho \cos \phi \text { and } y = \rho \sin \phi \),
+
+\begin{equation}
+	\begin{aligned} 
+	S &= \int_{S}^{} dS = \int_{S}^{} \frac{R}{\sqrt{R^2-x^2-y^2} }dxdy \\
+	&= \int_{0}^{2\pi } \int_{0}^{R /2} \frac{R}{\sqrt{R^2-(R/2 + \rho \cos \phi )^2 - (\rho \sin \phi )^2} } \rho d\rho d\theta ,   
+	\end{aligned}   
+\end{equation}
+
+which has no hope to be integrated easily.
+
+Instead, we can parameterize the sphere with the usual \(\theta \text { and } \phi \), where \(\phi \in [-\pi /2, \pi /2]\) and use the cylinder's equation to find the condition of \(\theta \)
+
+\begin{equation}
+	\left( x-\frac{R}{2}  \right)^2+y^2 \le \left( \frac{R}{2}  \right)^2 \implies \sin \theta \le \cos \phi \implies \theta \le \sin ^{-1} (\cos \phi ) =  \frac{\pi }{2} - \abs{\phi }.  
+\end{equation}
+
+The integral becomes 
+
+\begin{equation}
+	S = \int_{S}^{} dS = \int_{-\pi /2}^{\pi /2} \int_{0}^{\pi /2 - \abs{\phi } } R^2\sin \theta d \theta d\phi = R^2(\pi -2).     
+\end{equation}
+
+Alternatively, we can parameterize the surface with \(r, \theta \) according to \cref{para}, where 
 
 \begin{equation}
 	x = r\cos \theta , \quad y = r\sin \theta ~\text { and }~ z = \sqrt{R^2 - x^2 - y^2} = \sqrt{R^2 - r^2}
@@ -1629,6 +2380,68 @@ Thus the integral
 } 
 
 \twofig{vivi}{width=\textwidth}{para}{width=\textwidth}{sur4} 
+
+\example{Surface Integral (6).}
+{Find the surface area of a cone defined by the equation \(4x^2+y^2=9z^2\), and \(0 \le z \le 1\).  }
+{The cone surface can be parameterized by the \(\rho \text { and } \theta \) as
+
+\begin{equation}
+	\vb{r} (\rho ,\theta) = \left(\rho \cos \theta ,\rho \sin \theta ,\frac{2}{3}\rho  \right).
+\end{equation}
+
+Therefore an infinitesimal surface area can be found by 
+
+\begin{equation}
+	\begin{aligned} 
+	dS &= \left| \frac{\partial \vb{r} }{\partial \rho } _{} \cross  \frac{\partial \vb{r} }{\partial \theta }_{} \right| d\rho d\theta  = \begin{pmatrix}
+		 \cos \theta  \\
+		 \sin \theta  \\
+		 2/3  \\
+	\end{pmatrix} \cross \begin{pmatrix}
+		 -\rho \sin \theta  \\
+		 \rho \cos \theta  \\
+		 0 \\
+	\end{pmatrix} d \rho d \theta \\
+	&= \left| \begin{pmatrix}
+		 2\rho \cos  \theta /3  \\
+		 2\rho \sin \theta /3  \\
+		 \rho  \\
+	\end{pmatrix} \right| d \rho d \theta = \frac{\sqrt{13} }{3} \rho d \rho d \theta .  
+	\end{aligned} 
+\end{equation}
+
+The total surface area is therefore 
+
+\begin{equation}
+	S = \int_{S}^{} dS = \int_{0}^{2\pi } \int_{0}^{\frac{3}{2} } \frac{4\sqrt{13} }{3} \rho d \rho d \theta = \frac{3\pi }{4} \sqrt{13}.    
+\end{equation}
+} 
+
+\example{Surface Integral (7).}
+{Evaluate 
+
+\begin{equation}
+	\int_{S}^{} (x-z) dS,  
+\end{equation}
+
+where \(S\) is the surface of the solid bounded by \(x^2+y^2=4, z = x -3 \text { and } z = x+2\).  
+}
+{For the side surface, we use cylindrical coordinates 
+
+\begin{equation}
+	x = 2 \cos \theta , \quad y = 2 \sin \theta , \quad z \in [z_1 ,z_2 ], \quad z_1 = 2 \cos \theta - 3 ~\text { and }~ z_2 = 2 \cos \theta +2,
+\end{equation}
+
+where the limit in \(z\) is bound by the inequality \(z \ge x-3 \text { and } z \le x+2\).
+
+For the bottom and the top cap we have \(dS = \abs{\grad{f(x,y,z)} } dxdy / (\partial f (x,y,z)  / \partial z) \), where \(f(x,y,z) = x-z+3\), so the whole surface integral becomes
+
+\begin{equation}
+	I = \int_{0}^{2\pi } \int_{2 \cos \theta -3}^{2\cos \theta +2} (2 \cos \theta -z) 2dz d \theta + \int 3 \sqrt{2}dxdy + \int -2 \sqrt{2} dxdy = \pi (10+4\sqrt{2} ).        
+\end{equation}
+~
+} 
+
 
 
 \subsection{Vector Areas}
@@ -1736,6 +2549,23 @@ Therefore we can simly evaluate the surface integral over \(S_1 \) and add a neg
 	I = - \int_{S_1 }^{} \vb{F} \cdot d\vb{S} _{1} = \int \int_{R}^{} x^2dxdy = \frac{\pi a^4}{4}.   
 \end{equation}
 } 
+
+\example{Divergence Theorem.}
+{Show that for any closed surface \(S\) in a vector field \(\vb{F} \) we have
+
+\begin{equation}
+	\oint_{S}  (\curl{\vb{F} } )\cdot d\vb{S} = 0. 
+\end{equation}
+~
+}
+{We apply the divergence theorem to the vector field \(\curl{\vb{F} } \) and we get directly
+
+\begin{equation}
+	\oint_{S} (\curl{\vb{F} } )\cdot d\vb{S} = \int_{V}^{} (\div{(\curl{\vb{F} } )} ) dV = 0. 
+\end{equation}
+~
+} 
+
 
 \example{The Continuity Equation.}
 {For a compressible fluid with time-varing position-dependent density \(\rho (\vb{r}, t)\) and velocity field \(v(\vb{r}, t)\), in which fluid is neither being created nor destroyed, show that 
@@ -1868,7 +2698,13 @@ In two dimensions, curl is not defiend, but the main idea stands:
 
 This is known as the Green's theorem in a plane, which is equivalent to the two-dimensional divergence theorem. Apply to a rectangular region, Green's theorem in a plane reduces to the fundamental theorem of calculus.
 
-If an area has a number of disconnected componenets, then the integral should be done in an anti-clockwise direction around the exterior boundary, and in a clockwise direction on any interior boundary. The quickest way to see this is to do the integration around a continouous boundary as shown in \cref{green}, with an infinitesimal gap. The two contributions across the gap then cancel.
+A surface without holes is called simply-connected region, defined by the property that any closed path on the region can be contracted to a point without leaving the surface. In layman's term, it has more than one boundaries, or more sipmly, it has holes.
+
+A surface that is orientable is one on which you can choose a continuous normal vector everywhere so that as you move around the surface, the normal never flips discontinuously. More simply put, you can distinguish its two-sides globally. A Möbius strip or a Klein bottle are exapmles of non-orientable surfaces. If you start with a chosen nomral vector at one point and carry it continuously around certain loops, you return to the original point with the normal reversed.
+
+The Stokes' theorem only holds for smooth orientable surfaces. If the region is not sipmly-connected, then the integral should be done in an anti-clockwise direction around the exterior boundary, and in a clockwise direction on any interior boundary. The quickest way to see this is to do the integration around a continouous boundary as shown in \cref{green}, with an infinitesimal gap. The two contributions across the gap then cancel. The same technique can be used to apply Stokes' theorem to closed surface.
+
+
 
 \onefig{green}{scale=0.3} 
 
@@ -1947,8 +2783,6 @@ so the line integral of one of the circumference is
 Since the orientation of \(C_1 \text { and } C_2 \) are in opposite direction, substituting \(R = a \text { and } b\) and subtracting the results give the same result as the surface integral.   
 } 
 
-
-
 \example{The Ampere's Law.}
 {Convert the integral form of Ampere's Law into differential form}
 {Amere's law for any circuit \(C\) bounding a surface \(S\) is given by 
@@ -1965,11 +2799,23 @@ Hence
 }
 
 \example{Area of an Ellipse.}
-{Show that the area of a region \(R\) enclosed by a simle closed curve \(C\) is given by \(A = \frac{1}{2} \oint_{C}(xdy - ydx) = \oint_{C}xdy = - \oint_{C}y dx\). Hence calculate the area of the ellipse \(x = a \cos \phi , y = b\sin \phi \). }
+{Show that the area of a region \(R\) enclosed by a simple closed curve \(C\) is given by 
+
+\begin{equation}
+	A = \frac{1}{2} \oint_{C}(xdy - ydx) = \oint_{C}xdy = - \oint_{C}y dx.
+\end{equation}
+
+Hence calculate the area of the ellipse with the parameterization \(x = a \cos \phi , y = b\sin \phi \). }
 {By Green's theorem we have 
 
 \begin{equation} \label{area} 
-	\oint_{C} (xdy- ydx) = \int \int_{R}^{} (1+1) dxdy = 2A.  
+	\oint_{C} (xdy- ydx) = \int_{S}^{}  (1+1) dxdy = 2A.  
+\end{equation}
+
+Similarly, 
+
+\begin{equation}
+	\oint_{C} xdy = \int_{S}^{} (1) dxdy = \oint_{C} -ydx = A. 
 \end{equation}
 
 Therefore the area of an ellipse is 
@@ -1979,9 +2825,83 @@ Therefore the area of an ellipse is
 \end{equation}
 } 
 
+\example{Green's Theorem in a Plane}
+{A closed path \(C\) is described by the upper half \((y \ge 0)\) o f the circle of radius \(1\) in the \(x\)-\(y\) plane centered at the origin, and the portion of \(y = x^2-1\) between \(-1 \le x \le 1\). Evaluate the line integral 
+
+\begin{equation}
+	\oint_{C} \vb{F} \cdot d\vb{r} , \quad \vb{F} = 3y \vu{i} + (x^2-y)\vu{j} .
+\end{equation}
+~
+}
+{The upper semicircle is parameterized by the polar angle \(\theta \) as
+
+\begin{equation}
+	\vb{r}_{1}  (\theta ) = (\cos \theta ,\sin \theta ), \quad d\vb{r} _{1}(\theta ) = (-\sin \theta ,\cos \theta )d\theta.
+\end{equation}
+
+The integrand is therefore 
+
+\begin{equation}
+	\vb{F} (\vb{r} _{1}(\theta ) ) \cdot d\vb{r} _{1} = (3 \sin \theta , \cos ^2\theta -\sin \theta ) \cdot (-\sin \theta ,\cos \theta ) dt = -3 \sin ^2 \theta + \cos ^3 \theta -\sin \theta \cos \theta . 
+\end{equation}
+
+Integrating over \(\theta \) from \(0 \) to \(\pi \) gives \(I_1  = -3\pi /2\).
+
+The lower parabola is parameterized by \(x\) since its algebraic form is given
+
+\begin{equation}
+	\vb{r} _{2}(x) = (x, x^2-1). 
+\end{equation}
+
+The integrand is therefore 
+
+\begin{equation}
+	\vb{F} (\vb{r} _{2}(x) ) \cdot d\vb{r} _{2} = (3(x^2-1), 1) \cdot (1,2x)dx .
+\end{equation}
+
+Integrating over \(x\) from \(-1\) to \(1\) gives \(I_2 = -4\). 
+
+So the final answer is \(I = I_1 +I_2 = -3 \pi /2 -4\). 
+
+A much faster method is to use the Green's theorem in a plane, which gives
+
+\begin{equation}
+	\begin{aligned} 
+	\oint_{C} \vb{F} \cdot d\vb{r} &= \oint_{C} (3y \vu{i} + (x^2-y)\vu{j} ) \cdot (dx \vu{i} + dy \vu{j} ) = \oint_{C} (3ydx+(x^2-y)dy) \\
+	&= \int_{S}^{} (2x-3)dS =   \int_{-1}^{1} \int_{x^2-1}^{\sqrt{1-x^2} } (2x-3)dydx = -\frac{3\pi }{2} - 4.    
+	\end{aligned} 
+\end{equation}
+~
+} 
+
+\example{Stokes' Theorem of a Closed Surface.}
+{Prove that for a closed surface \(S\) 
+
+\begin{equation}
+	\oint_{S} (\curl{\vb{F} } ) \cdot d\vb{S} = 0.
+\end{equation}
+~
+}
+{From the Stokes' theorem 
+
+\begin{equation}
+	\int_{S}^{} (\curl{\vb{F} } ) \cdot d\vb{S} = \oint_{C} \vb{F} \cdot d\vb{r} , 
+\end{equation}
+
+RHS is trivially zero since a closed surface has no boundary curve, so LHS is also zero.
+
+From the divergence theorem
+
+\begin{equation}
+	\int_{V}^{} \div{(\curl{\vb{F} } )} dV = \oint_{S} (\curl{\vb{F} } ) \cdot d\vb{S} , 
+\end{equation}
+
+LHS is trivially zero due to the vector identity \(\div{(\curl{\vb{F} } )} = 0 \), so RHS is also zero. 
+} 
+
 The Green's theorem is also valid for region with holes, however, the line integral must be carry out in the direction that a person travelling along the boundaries always has the region \(R\) on their left.
 
-We also see that if the line integral around a closed loop is zero, Green's theorem implies that \(\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x} \), which is equivalent to saying that \(P(x,y) dx + Q(x,y) dy \) is an exact differential such that it equals to the differential for some function \(\phi (x,y)\) and for a closed loop the beginning and the end points are the same thus we evaluate \(\phi \) at the same point and thus the result is zero.
+We also see that if the line integral around a closed loop is zero, Green's theorem implies that \(\partial P /\partial y = \partial Q /\partial x\), which is equivalent to saying that \(P(x,y) dx + Q(x,y) dy \) is an exact differential such that it equals to the differential for some function \(\phi (x,y)\) and for a closed loop the beginning and the end points are the same thus we evaluate \(\phi \) at the same point and thus the result is zero.
 
 \subsubsection{The Two Other Theorems}
 
