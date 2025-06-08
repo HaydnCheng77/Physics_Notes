@@ -173,7 +173,7 @@ Note that for relativistic case this reduces to
 
 \subsection{Relativistic Doppler Effect}
 
-The relativistic limit is that the relative speed of the source and the observer \(v\) is comparable to the speed of light \(c\), \textit{i.e.,} \(v ~ c\). 
+The relativistic limit is that the relative speed of the source and the observer \(v\) is comparable to the speed of light \(c\), \textit{i.e.,} \(v \sim  c\). 
 
 \subsubsection{One-Dimensional}
 
@@ -212,12 +212,69 @@ We also note that when \(v \ll c\) the formula is reduced to
 
 as it should by the correspondence principle.  
 
+Also note that the frequencies and period here can be referring to both discrete pulses or that of a single light pulse, since the Doppler shift always compares the spacing of successive emission events to the spacing of successive reception events, whether you call those events ``wave-crests'' or ``discrete flashes'', the kinematics is identical so you get the same formula.
 
+\example{Terrell–Penrose Rotation.}
+{A square with side \(L\) flies past you at speed \(v\), in a direction parallel to two of its sides. You stand in the plane of the square. When you see the square at its nearest point to you, show that it looks to you like it is simply rotated, instead of contracted. (Assume that \(L\) is small compared to the distance between you and the square.)}
+{The top view of the square is shown in \cref{topview}. This is the shape in my frame of reference (where is-ness is defined by where all the points of an object areat simultaneous times). 
 
+To find how the square look to me, we notice that the far side of the square have to travel an extra distance \(L\) to get to my eye, compared to ones from the near side, so they need an extra time \(L/c\) of flight. During this time \(L/c\), the square moves a distance \(Lv/c = L \beta \) sideways. Therefore, the trailing side of length \(L\) spans a distance \(L \beta \) across my field of vision, while the near side spans a distance \(L /\gamma = L \sqrt{1-\beta ^2} \) across my field of vision. But this is exactly what a rotated square of side \(L\) looks like, as shown in \cref{rotatedsquare}.}
 
+\twofig{topview}{width=\textwidth}{rotatedsquare}{width=\textwidth}{topviewrotatedsquare} 
 
+\onefig{twin}{scale=0.2} 
 
+\example{Twin Paradox.}
+{Twin \(A\) stays on the Earth and twin \(B\) flies at speed \(v\) to a distant star and back at a distance \(L\) from the Earth. \(A\) sends out flashes at inervals of \(t\) seconds in its own frame. Find the numbers of red-shifted flashes \(n_{b} \) and blue-shifted flashes \(n_{r} \) that \(B\) receives. Hence show that \(B\) is younger by a factor \(\gamma \) when \(B\) returns. }
+{Consider the emission time \(t_{e} = kt\) and the reception time \(t_{r} \) of the \(k^{\text{th}} \) flash. Equating the \(x\)-coordinates of the flash and \(B\)  we have 
 
+\begin{equation}
+    c(t_{r} - t_{e}  ) = c(t_{r} - kt ) = vt_{r}. 
+\end{equation}
+
+Requring this to be less than \(L/v\) we get 
+
+\begin{equation}
+    K_{\text{max} } = n_{r} = \frac{1}{t} \left( \frac{L}{v} - \frac{L}{c}   \right).
+\end{equation}
+
+A wrong approach is illustrated in \cref{wrong}. 
+
+To find \(n_{b} \) we simply set 
+
+\begin{equation}
+    c(t_{r} - kt  ) = L-vt_{r} \le \frac{L}{v} \implies n_{b} = \frac{1}{t} \left( \frac{L}{v} + \frac{L}{c}   \right)  .
+\end{equation}
+
+The time elasped measured by \(A\) is 
+
+\begin{equation}
+    T_{A} = t(n_{r} + n_{b}  ) = \frac{2L}{v},  
+\end{equation}
+
+while the time elasped measured by \(B\) is 
+
+\begin{equation}
+    T_{B} = t\left( n_{r} \sqrt{\frac{1-\beta }{1+\beta } }  + n_{b} \sqrt{\frac{1+\beta }{1-\beta } }   \right).
+\end{equation}
+
+Therefore we get \(T_{A}  = \gamma T_{B}  \). 
+} 
+
+\onefig{wrong}{scale=0.3} 
+
+\example{Superluminal Motion.}
+{ In the accompanying figure, a blob of material is ejected from the centre of
+a distant galaxy, at speed \(v = 0.9c\), at \(\SI{10}{\degree} \) to the line of sight of the observer
+on Earth. Analyse the situation to show that the projected position of the blob on the
+plane of the sky appears to move faster than the speed of light.}
+{The apperant velocity is 
+
+\begin{equation}
+    v_{\text{app} } = \frac{\text{transverse distance} }{\text{arrival-time interval} } = \frac{v \sin \theta t}{(1-\beta \cos \theta )t} = 1.375c.   
+\end{equation}
+~
+} 
 
 
 
@@ -629,11 +686,14 @@ The important point here to note is the the internal energy \(Q_0 \) is added to
 
 \example{Meson-Photoproduction.}
 {\begin{enumerate}
-    \item Consider a group of \(N\) particle, where the \(i^{\text{th}} \) particle has energy \(E_{i} \) in the laboratory frame. Starting from the Lorentz transformations of energy and momentum show that the Lorentz factor of the center of mass frame, \(\gamma _{\text{c.m.} } \), can be written as 
+    \item Consider a group of \(N\) particle, where the \(i^{\text{th}} \) particle has energy \(E_{i} \) in the laboratory frame. Starting from the Lorentz transformations of energy and momentum show that the Lorentz factor of the center of mass frame, \(\gamma _{\text{c.m.} } \), and the speed of the center of mass \(v_{\text{c.m.} } \), can be written as 
     
     \begin{equation}
-        \gamma _{\text{c.m.} } = \frac{\sum_{i=1}^{N} E_{i} }{E_{\text{c.m.} } }. 
+        \gamma _{\text{c.m.} } = \frac{E_{\text{lab} }  }{E_{\text{c.m.} } } ~\text { and }~  v _{c.m.} = \frac{p_{\text{lab} } }{E_{\text{lab} } }.  
     \end{equation}
+
+    where \(E_{\text{lab} }, E_{\text{c.m.} }, p_{\text{lab} } \text { and }   p_{\text{c.m.} }   \) are the total energy and momentum observed from the lab frame and the center of mass frame, respectively, respectively.
+
     
     \item Consider a photon which collides with a proton at rest in the laboratory frame. The collision produces a neutral \(\pi \)  meson and a proton via 
     
@@ -648,38 +708,38 @@ The important point here to note is the the internal energy \(Q_0 \) is added to
 ~
 }
 {\begin{enumerate}
-    \item The Lorentz transformation of energy and momentum are 
+    \item The Lorentz transformation of energy and momentum of the \(i^{\text{th}} \) particle are 
     
     \begin{equation}
         \begin{cases}
-            E' &= \gamma (E-vp),\\
-            p' &= \gamma (p-vE).
+            E'_{i}  &= \gamma (E_{i} -vp_{i} ),\\
+            p'_{i}  &= \gamma (p_{i} -vE_{i} ).
         \end{cases}
     \end{equation}
     
-    Upon summation we have 
+    Setting the primed frame \(S'\) to be the center of mass frame we get, upon summation
 
     \begin{equation}
         \begin{cases}
-            \sum_{i=1}^{N} E' &= E_{\text{c.m.} } = \gamma \left(\sum_{i=1}^{N} E_{i} - v\sum_{i=1}^{N} p_{i} \right),\\
-            \sum_{i=1}^{N} p' &= p_{\text{c.m.} } = 0 = \gamma \left( \sum_{i=1}^{N} p_{i} - v\sum_{i=1}^{N} E_{i}   \right).
+            \sum_{i=1}^{N} E'_{i}  &= E_{\text{c.m.} } = \gamma _{\text{c.m.} } \left(\sum_{i=1}^{N} E_{i} - v_{\text{c.m.} } \sum_{i=1}^{N} p_{i} \right),\\
+            \sum_{i=1}^{N} p'_{i}  &= p_{\text{c.m.} } = 0 = \gamma _{\text{c.m.} } \left( \sum_{i=1}^{N} p_{i} - v_{\text{c.m.} } \sum_{i=1}^{N} E_{i}   \right).
         \end{cases}
     \end{equation}
     
     Eliminating \(\sum_{i=1}^{N} p_{i} \) we get 
     
     \begin{equation}
-        \gamma _{\text{c.m.} } = \frac{\sum_{i=1}^{N} E_{i} }{E_{\text{c.m.} } }. 
+        \gamma _{\text{c.m.} } = \frac{\sum_{i=1}^{N} E_{i} }{\sum_{i=1}^{N} E_{i}' } = \frac{E_{\text{lab} } }{E_{\text{c.m.} } }.
     \end{equation}
     
-    This is incidentally a very useful result, when the usual forula 
+    the center of mass speed can then be found as
 
     \begin{equation}
-        \gamma _{\text{c.m.} } = \frac{\sum_{i=1}^{N} p_{i} }{\sum_{i=1}^{N} E_{i}  } } 
+       v _{\text{c.m.} }  = \frac{1}{\sqrt{1-\gamma _{\text{c.m.} } ^{-2} } } =  \frac{\sqrt{E_{\text{lab} }^2-E_{\text{c.m.} }^2  }}{E_{\text{lab} } } \frac{p_{\text{lab} } }{E_{\text{lab} } }.
     \end{equation}
     
-    does not work.
-    
+    These two formulae are incidentally very useful results. Note that \(v_{\text{c.m} } = p _{\text{lab} } /E_{\text{lab} }   \) is by no means trvial because the standard \(v = p/E\) only holds for a single particle with a well-defined \(v\), but now this formula states that we can regard the collection of particle as a single particle moving at velocity \(v_{\text{c.m.} }\).  
+
     \item From the energy-momentum invariant we get 
     
     \begin{equation}
@@ -689,7 +749,7 @@ The important point here to note is the the internal energy \(Q_0 \) is added to
     \item We first notice that the Lorentz factor of the \(\pi \) meson is the same as the Lorentz factor of the center of mass, since the \(\pi \) meson is stationary in the center of mass frame after the threshold collision, so
     
     \begin{equation}
-        \gamma _{\pi } = \gamma _{\text{c.m.} } = \frac{\sum_{i=1}^{N}E_{i}  }{E_{\text{c.m.} } }=  \frac{E_{\gamma } + m_{p}  }{m_{\pi} + m_{p}  }.    
+        \gamma _{\pi } = \gamma _{\text{c.m.} } = \frac{E_{\text{lab} } }{E_{\text{c.m.} } }=  \frac{E_{\gamma } + m_{p}  }{m_{\pi} + m_{p}  }.    
     \end{equation}
     
     In the \(\pi \) meson's frame, the momentum and energy of the photons are 
@@ -708,7 +768,7 @@ The important point here to note is the the internal energy \(Q_0 \) is added to
 } 
 
 
-\example{Collision.}
+\example{Collision (1).}
 {A ball of rest mass \(M\) and energy \(E\) collides elastically with a stationary ball of rest mass \(m\), such that the direction of motion is along the line joining the centers of the two balls. Find the final energy of \(M\).}
 {From the conservation of the energy-momentum 4-vectors, we have
 
@@ -738,6 +798,78 @@ Isolating \(P_{m} \) on one side and squaring both sides,
 \end{equation}
 
 where we have divided the whole equation by \(E-E'\), indicating that \(E= E'\) is a trivial solution. 
+} 
+
+\example{Collision (2).}
+{In the jet of a quasar, an ultra-relativistic electron with energy \(E_1 \text { and } p_1 \)  collides head-on with a very low energy photon with energy \(E_2 \) of the cosmic microwave background. No new particles are created. Find the energy of the photon after the collision. }
+{Using the conservation of the energy-momentum 4-vectors, we have 
+
+\begin{equation}
+    \begin{pmatrix}
+         E_1  \\
+         p_1  \\
+    \end{pmatrix} + \begin{pmatrix}
+         E_2  \\
+         -E_2  \\
+    \end{pmatrix}  = \begin{pmatrix}
+         E_{e}  \\
+         p_{e}  \\
+    \end{pmatrix} + \begin{pmatrix}
+         E \\
+         E \\
+    \end{pmatrix},
+\end{equation}
+
+where it is crucial to add the negative sign to the initial photon's energy-momentum 4-vector, otherwise the electron would not collide with the photon. Isolating the electron's energy-momentum 4-vector after the collision and taking the norm squared we get 
+
+\begin{equation}
+    E = \frac{(E_1 +p_1 )E_2 }{(E_1 - p_1 )+2E_2 }. 
+\end{equation}
+~
+} 
+
+\example{Photon Rocket.}
+{Derive the photon rocket equation
+
+\begin{equation}
+    \frac{m}{M} = \sqrt{\frac{1-v}{1+v} },
+\end{equation}
+
+where \(M\) is the initial mass of the rocket (when it is at rest).
+}
+{Consider the energy and momentum conservation at time \(t \text { and } t+dt\)
+
+\begin{equation}
+    \begin{cases}
+        \gamma m &= (\gamma +d \gamma )(m+dm) + dE,\\
+        \gamma mv &= (\gamma +d \gamma )(m+dm)(v+dv) - dp.
+    \end{cases}
+\end{equation}
+
+Dividng one by another gives 
+
+\begin{equation}
+    v+dv = \frac{\gamma mv+dE}{\gamma m - dE} = \frac{\gamma m(1+v)-(\gamma +d\gamma )(m+dm)}{(\gamma +d\gamma )(m+dm)}.  
+\end{equation}
+
+Expanding the brackets we have 
+
+\begin{equation}
+    v \gamma dm + vm d\gamma + vm \gamma + m\gamma dv + \gamma dm + md\gamma + m \gamma -m \gamma - \gamma mv = (1+v)d(\gamma m) + \gamma m(dv) = 0,
+\end{equation}
+
+which can be integrated as  
+
+\begin{equation}
+    \ln \left( \frac{\gamma m}{M}  \right) = - \ln (1+v) \implies \frac{m}{M} = \sqrt{\frac{1-v}{1+v} }.  
+\end{equation}
+
+Alternatively, from the enrgy and momentum conservations we simly have 
+
+\begin{equation}
+    d(\gamma mv) = - dp = -dE = - d(\gamma m) \implies \gamma mv = M - \gamma m \implies \frac{m}{M} = \sqrt{\frac{1-v}{1+v} }.  
+\end{equation}
+~
 } 
 
 

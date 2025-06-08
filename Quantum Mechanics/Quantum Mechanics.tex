@@ -1708,6 +1708,49 @@ If the particles interact only with one another, via a potential that depends on
 
 then the two-body problem reduces to an equivalent one-body problem via the introduction of the reduced mass.
 
+\chapter{Pertubation Theory}
+
+\example{First Order Pertubation in Projectile Motion.}
+{An object released at velocity \(u_0 \text { and } v_0 \) in \(x\) and \(y\) directions intially expriencing a resistive force \(\vb{F} _{\text{res} } = - k \vb{v}  \) has the solution for \(x(t) \text { and } y(t)\)
+
+\begin{equation}
+  x(t) = \frac{u_0 }{k} (1-e^{-kt} ) ~\text { and }~ y(t) = -\frac{g}{k} t + \frac{g+kv_0 }{k^2} (1-e^{-kt} ). 
+\end{equation}
+
+Find the range of the projectile to the first order in \(k\).
+
+}
+{Substituting 
+
+\begin{equation}
+  t(x) = -\frac{1}{k} \ln \left( 1- \frac{kx}{u_0 }  \right)
+\end{equation}
+
+into \(y(t)\), we get the trajectory \(y(x)\)
+
+\begin{equation}
+  y(x) = -\frac{g}{k} \left( -\frac{1}{k} \ln \left( 1- \frac{kx}{u_0 }  \right) \right) + \frac{g+kv_0 }{k^2} \frac{kx}{u_0 }.  
+\end{equation}
+
+Setting \(y(x) = 0\) and expanding the logarithm we get 
+
+\begin{equation}
+  0 = \frac{v_0 }{u_0 } x - \frac{g}{2u_0 ^2}x^2 + \frac{gk}{3 u_0 ^3 }x^3 .   
+\end{equation}
+
+Now we substitute \(x = x_0 + kx_1 \) and expand the terms up to first order in \(k\) to get  
+
+\begin{equation}
+  \left( \frac{v_0 x_0 }{u_0 } - \frac{gx_0 ^2}{2u_0 ^2}   \right) + k \left( \frac{v_0 x_1 }{u_0 } - \frac{gx_0 x_1 }{u_0 ^2} - \frac{gx_0 ^3 }{3 u_0 ^3 }   \right) = 0.
+\end{equation}
+
+We can thus solve for \(x_0  \text { and } x_1 \) by equating the two terms to be zero separately to get 
+
+\begin{equation}
+  x = x_0 + kx_1 = \frac{2u_0 v_0 }{g} - \frac{8 ku_0 v_0 ^2}{3g^2}.  
+\end{equation}
+~
+} 
 
 
 

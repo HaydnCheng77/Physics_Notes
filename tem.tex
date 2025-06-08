@@ -1,0 +1,147 @@
+\example{Two-Dimensional Inealastic Collision.}
+{A particle of mass \(M_1 \) is travelling with initial speed \(u\) along the \(x\)-axis when it collides inelastically and obliquely with a stationary particl of mass \(M_2 \). Given that the angle of deflection of mass \(M_1 \) is \(\theta\), find the speed of mass \(M_1 \), \textit{i.e.,} \(v\), following the collision in terms of the coefficient of resitutiton \(e\).
+
+Find the maximum deflection angle \(\theta _{\text{max} } \) given that \(M_1 > M_2 \).  }
+{Consider the center of mass frame travelling at 
+
+\begin{equation}
+	v_{\text{c.m.} } = \frac{M_1 }{M_1 + M_2 }u  
+\end{equation}
+
+From the center of mass frame, \(m \text { and } M\) travels in opposite direction with speed 
+
+\begin{equation}
+	u_{\text{1,c.m.} } = \frac{M_2 }{M_1 + M_2 } u ~\text { and }~ u_{\text{2,c.m.} } = \frac{M_1 }{M_1 + M_2 }, \quad M_1 u_{\text{1,c.m.} } = M_2 u_{\text{2,c.m.} }.  
+\end{equation}
+
+After the collision, \(M_1  \text { and } M_2 \) travels in opposite direction with speed \(v_{\text{1,c.m.} } \text { and } v_{\text{2,c.m.} }  \) respectively, with the same constriant \(M_1 v_{\text{1,c.m.} }  = M_2 v_{\text{2,c.m.} } \).  
+
+Using the definition of the coefficient of restitution we get 
+
+\begin{equation}
+	e = \frac{\abs{\vb{v} _{\text{rel} } '} \cdot \vu{n} }{\abs{\vb{v} _{\text{rel} } } \cdot \vu{n} } = \frac{v_{\text{1,c.m.} } + v_{\text{2,c.m.} }  }{u_{\text{1,c.m.} } + u_{\text{2,c.m.} } } = \frac{v_{\text{1,c.m.} } }{u_{\text{1,c.m.} } } = \frac{v_{\text{2,c.m.} } }{v_{\text{2,c.m.} } }.    
+\end{equation}
+
+Considering the vector addition triangle of \(M_1 \) shown in \cref{collision} we then get 
+
+\begin{equation}
+	v_{\text{1,c.m.} }^2 = v ^2 + v_{\text{c.m.} }^2 - 2v_1 v_{\text{c.m.} } \cos \theta , 
+\end{equation}
+
+so we get 
+
+\begin{equation}
+	v = \frac{M_1 }{M_1 + M_2 } \left( \cos \theta \pm \sqrt{\cos ^2\theta - 1 + e^2 \left( \frac{M_2 }{M_1 }  \right)}  \right) u.
+\end{equation}
+
+
+For \(M_1 =M_2 \text { and } e = 1\), we have 
+
+\begin{equation}
+	v = \frac{1}{2} (\cos \theta \pm \abs{\cos \theta } ).
+\end{equation}
+
+For \(0 \le  \theta \le  \pi /2\), we choose the positive root for the solution to make sense, so \(v = u \cos \theta \). For \(\pi /2 \le  \theta \le  \pi \) neither the positive root nor the negative root make any sense, since both gives a negative answer, even through \(v\) is a straightly non-negative quantity (it is the norm of the velocity vector of \(M_1 \) in the lab frame), so \(v = u\cos \theta < 0\). This means that the maximum deflection angle is \(\pi /2\) for equal mass elastic collision. 
+
+For \(M_2 \gg M_1 \text { and } e =1\), we have 
+
+\begin{equation}
+	v = \pm 1.
+\end{equation}
+
+However, as we have mentioned \(v\) must be non-negative, \(v = 1\) is the only possible solution, which means the \(M_1 \) simply bounces off \(M_2 \) with the same speed, which makes perfect sense.
+
+For \(e = 0\), the only possible value of \(\theta \) which makes the terms under the square root non-negative is \(\theta  = 0\), in which case we get 
+
+\begin{equation}
+	v = \frac{M_1 }{M_1 + M_2 } u, 
+\end{equation}
+
+which also make sense since \(M_1 \text { and } M_2 \) now sticks together and moves at the same speed. 
+
+From \cref{collision} we see that as the angle of deflection in the center of mass frame \(\phi \) varies from \(0 \) to \(2\pi \), the angle of deflection in the lab frame increases from \(0\) to \(\theta _{\text{max} } \) then subsequently decreases to \(0\). By simple geometry we find 
+
+\begin{equation}
+	\sin \theta _{\text{max} } = \frac{v_{1,\text{c.m.} } }{v_{\text{c.m.} } }  = \frac{M_2 }{M_1 }.  
+\end{equation}
+~
+} 
+
+\onefig{collision}{scale=0.3} 
+
+\example{Superball.}
+{A spherical superball is perfectly elastic, incompressible and rough. In the figure below a superball of radius \(a\) is spinning with an angular velocity \(\Omega _{1} \) as shown. The superball hits a rough, horizontal surface while travelling with components of velocity \(u_1 \) normal to the surface and \(v_1 \) parallel to the surface. Find the linear and angular velocities \(u_2 , v_2 \text { and } \Omega _{2} \) with which it rebounds.}
+{Since the collision is elastic we have 
+
+\begin{equation}
+	e = \abs{\frac{\vb{v} _{\text{rel} } ' \cdot \vu{n} }{\vb{v} _{\text{rel} } \cdot \vu{n}  } } = 1 \implies u_2 = -u_1 . 
+\end{equation}
+
+From the linear and angular impulse theorem we have 
+
+\begin{equation}
+	J = -ft = m(v_2 -v_1 ) ~\text { and }~ aJ = -aft = I(\Omega _{2} - \Omega _{1}  ).
+\end{equation}
+
+From the conservation of energy we have 
+
+\begin{equation}
+	m(v_1 ^2+u_1 ^2) + I\Omega _{1}^2 = m(v_2 ^2+u_2 ^2) + I\Omega _{2}^2.  
+\end{equation}
+
+Eliminating \(J\) we get 
+
+\begin{equation}
+	\begin{cases}
+		v_1 +a\Omega _{1} &= -(v_2 +a\Omega _{2} ) ,\\
+		5v_1 -2a\Omega _{1} &= 5v_2 -2a\Omega _{2}  ,
+	\end{cases}
+\end{equation}
+
+where the first equation shows that the tangential velocity of the contact point is also reversed, so the ``tangential coefficient of restitution'' is also \(1\).
+
+Solving the system of equation gives 
+
+\begin{equation}
+	v_2 =\frac{3}{7} v_1 -\frac{4}{7} a \Omega _{1} ~\text { and }~ \Omega _{2} = \frac{10}{7} \frac{v_1 }{a} + \frac{3}{7} \Omega _{1} .   
+\end{equation}
+~
+} 
+
+\subsection{Conservation of Waves}
+
+For dispersive wave system one can associate a local wave number \(\overline{k} = k(x,t)\) and a local angular frequency \(\overline{\omega } = \omega (x,t)\) given that \(\overline{\omega } \text { and } \overline{k} \) are slowly varying functinos of both space and time. 
+
+The number of waves per unit time must be equal to the negative number of waves per unit length, so 
+
+\begin{equation}
+	\frac{1}{T} = \frac{1}{\lambda } \implies \frac{\partial \overline{k} }{\partial t} + \frac{\partial \overline{\omega } }{\partial x} = 0.    
+\end{equation}
+
+Substituting \(\omega (k) = \sqrt{a+c^2k^2} \) we also get
+
+\begin{equation}
+	\frac{\partial \overline{k} }{\partial t} + c_{g}(\overline{k} )\frac{\partial \overline{k} }{\partial x} = 0.   
+\end{equation}
+
+It then becomes clear that changes in \(\overline{k} \text { and } \overline{\omega }  \) travel at the group velocity, which is also the pseed at which the wave energy propagates. 
+
+You can only assign a single ``group velocity'' when the pulse remains coherent, \textit{i.e.,} when its spectral components don't wander apart. If the material dispersion is strong enough (or the pulse bandwidth wide enough) that different frequencies outrun each other, the pulse breaks up, and the notion of one group velocity ceases to be meaningful.
+
+\begin{equation}\label{ThetaQ}   
+	y(x,t) = T(t)X(x) = \left( Ae^{ik ct}+Be^{-ik ct}    \right)\left( Ce^{i k x}+De^{-i k x}   \right). 
+\end{equation}
+
+The \(y(x,t)\) we get above is called a stationary wave, or standing wave, or a nomral mode, since it only contains one frequency of oscillation \(\omega = ck\). 
+
+The complete solution is the linear combination of stationary waves with different wavenumbers \(k\) and frequencies \(\omega = ck\), \textit{i.e.,} 
+
+\begin{equation}
+	y(x,t) = \sum_{m=1}^{\infty}  \left( Ae^{ik ct}+Be^{-ik ct}    \right)\left( Ce^{i k x}+De^{-i k x}   \right),
+\end{equation}
+
+where the linearity factor \(K_{m} \) is absorbed into \(A,B,C,D\). 
+
+As we see there are infinite modes due to infinite amount of particles present, and for each mode there are four undetermined constants, refering to the second order nature of the wave equation and the fact that there are two variables \(x \text { and } t\). 
+
+Solving the wave equation now becomes a matter of finding the coefficients \(A, B, C, D\) to satisfy the boundary conditions and initial conditions. 

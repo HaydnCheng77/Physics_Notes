@@ -1,0 +1,42 @@
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\numberline {1}Geometrical Optics}{2}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Basic Principles}{2}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Fermat's Principle}{2}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}Huygens' Principle}{2}{subsection.1.1.2}%
+\contentsline {section}{\numberline {1.2}Imaging Systems}{3}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Sign Conventions}{3}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Spherical Reflecting Surfaces}{4}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}Spherical Refracting Surffaces}{6}{subsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.2.4}Non-Ideal Images}{6}{subsection.1.2.4}%
+\contentsline {subsubsection}{Spherical Aberrations}{7}{section*.7}%
+\contentsline {subsubsection}{Chromatic and Coma Aberrations}{8}{section*.11}%
+\contentsline {subsection}{\numberline {1.2.5}Thin Lens}{9}{subsection.1.2.5}%
+\contentsline {subsubsection}{Thin Lens Equation and Lensmaker's Equation}{9}{section*.13}%
+\contentsline {subsection}{\numberline {1.2.6}Plano-Cylindrical Lens}{10}{subsection.1.2.6}%
+\contentsline {section}{\numberline {1.3}Terminology}{11}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Aperture Stops and Pupils}{11}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}Chief Ray and Marginal Ray}{12}{subsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.3.3}Field Stops and Windows}{12}{subsection.1.3.3}%
+\contentsline {section}{\numberline {1.4}Applications}{15}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}Cameras}{15}{subsection.1.4.1}%
+\contentsline {subsubsection}{Pinhole Camera}{15}{section*.24}%
+\contentsline {subsubsection}{Single Lens Reflex Camera}{15}{section*.26}%
+\contentsline {subsection}{\numberline {1.4.2}The Eye}{15}{subsection.1.4.2}%
+\contentsline {subsection}{\numberline {1.4.3}Magnifying Lens}{17}{subsection.1.4.3}%
+\contentsline {subsection}{\numberline {1.4.4}Refracting Telescope}{17}{subsection.1.4.4}%
+\contentsline {subsection}{\numberline {1.4.5}Compound Microscope}{19}{subsection.1.4.5}%
+\contentsline {subsection}{\numberline {1.4.6}Prism}{20}{subsection.1.4.6}%
+\contentsline {chapter}{\numberline {2}Interference and diffraction}{21}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Fraunhofer diffraction}{22}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Interference}{23}{subsection.2.1.1}%
+\contentsline {subsubsection}{Double Slits Interference}{23}{section*.33}%
+\contentsline {subsubsection}{N-Slits Interference}{24}{section*.35}%
+\contentsline {subsection}{\numberline {2.1.2}Diffraction}{27}{subsection.2.1.2}%
+\contentsline {subsubsection}{Single Slit Diffraction}{27}{section*.39}%
+\contentsline {subsubsection}{N-Slits Diffraction}{30}{section*.42}%
+\contentsline {subsubsection}{Circular Aperature Diffraction}{31}{section*.44}%
+\contentsline {subsection}{\numberline {2.1.3}Rayleigh Criterion}{32}{subsection.2.1.3}%
+\contentsline {section}{\numberline {2.2}Optical Interferometry}{34}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Michelson Interferometer}{34}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Fabry-Perot Interferometer}{36}{subsection.2.2.2}%
+\contentsline {section}{\numberline {2.3}Near-field Limit}{37}{section.2.3}%

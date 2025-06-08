@@ -37,6 +37,44 @@ If \(d^2f / dx^2 = 0\) but it does not change sign before and after the stationa
 
 An inflection point (which is not stationary) is when \(d^2f / dx^2 = 0\) but \(df/dx \neq 0\) where the concavity of the fucntion changes.  
 
+\subsubsection{Fundamental Theorem of Calculus}
+
+The fundamental theorem of calculus states that if function \(F(x)\) can be written as  
+
+\begin{equation}
+	F(x) = \int_{a}^{x} f(t)dt,  
+\end{equation}
+
+then its derivative \(F'(x)\) is 
+
+\begin{equation}
+	F'(x) = f(x).
+\end{equation}
+
+\example{Fundamental Theorem of Calculus.}
+{Find the partial derivatives \(F_{x} \text { and } F_{y} \), \(F(x,y)\) can be written as 
+
+\begin{equation}
+	F(x,y) = \int_{0}^{xy^2} e^{t^2} dt.  
+\end{equation}
+~
+}
+{Treating \(u \equiv xy^2\) as a single variable we apply the fundamental theorem of calculus to get 
+
+\begin{equation}
+	\frac{\partial F(x,y)}{\partial (xy^2)} = e^{(xy^2)^2}.  
+\end{equation}
+
+The partial derivatives \(F_{x} \text { and } F_{y}  \) can then be obtained by 
+
+\begin{equation}
+	F_{x} =  \frac{\partial F(x,y)}{\partial (xy^2)} \frac{\partial (xy^2)}{x} = y^2e^{(xy^2)^2} ~\text { and }~ F_{y} = \frac{\partial F(x,y)}{\partial (xy^2)} \frac{\partial (xy^2)}{\partial y} = 2xye^{(xy^2)^2}.     
+\end{equation}
+~
+} 
+
+
+
 \section{Independent and Dependent Variables}
 
 Variables are some quantities that can change. Relations or constriants are equations that relate the variables and put constriants on how they can change. 
@@ -489,7 +527,7 @@ So far our discussion has centred on a function \(f(x,y)\) dependent on two vari
 Since \(dx \text { and }  dz\) are independent, we the reciprocity and the cyclic relations
 
 \begin{equation}
-    \left( \frac{\partial x}{\partial y}  \right)_{z} = \left( \frac{\partial y}{\partial x}  \right)_{z}^{-1} ~\text { and }~ \left( \frac{\partial y}{\partial z}  \right)_{x} \left( \frac{\partial z}{\partial x}  \right)_{y} + \left( \frac{\partial x}{\partial y}  \right)_{z} = -1 
+    \left( \frac{\partial x}{\partial y}  \right)_{z} = \left( \frac{\partial y}{\partial x}  \right)_{z}^{-1} ~\text { and }~ \left( \frac{\partial y}{\partial z}  \right)_{x} \left( \frac{\partial z}{\partial x}  \right)_{y} + \left( \frac{\partial x}{\partial y}  \right)_{z} = 0.
 \end{equation}
 
 The reciprocity and the cyclic relations can be generalized to higher number of variables. For the reciprocity relation, we simply keep linking each numerator with the previous denominator while keeping the same constraint, \textit{e.g.,} 
@@ -829,7 +867,7 @@ For a minimum point, we require that \(df>0\) for arbitrary \(\Delta x \text { a
 \begin{enumerate}
     \item Minimum point: \(f_{xx} > 0, f_{yy} > 0 \text { and } f_{xy}^2 < f_{xx}f_{yy}\).
     \item Maximum point: \(f_{xx} < 0, f_{yy} < 0 \text { and } f_{xy}^2 < f_{xx}f_{yy}\).
-    \item Saddle point: \(f_{xy}^2 > f_{xx}f_{yy}\). 
+    \item Saddle point: \(f_{yy} - f_{xy}^2/f_{xx} > 0 \text { if } f_{xx} < 0 \text { and } f_{yy} - f_{xy}^2/f_{xx} < 0 \text { if } f_{xx} > 0 \implies f_{xy}^2 > f_{xx}f_{yy}\). 
 \end{enumerate}
 
 If \(f_{xy}^2 = f_{xx}f_{yy}\), then \(df\) must be one of the four forms \(\pm  (\abs{f_{xx} }^{\frac{1}{2} } \Delta x /2 \pm \abs{f_{yy} }^{\frac{1}{2} }\Delta y)^2\), then for some choice of the ratio \(\Delta y / \Delta x\), \(df = 0\) so higher order terms are needed to find the nature of the stationary point. 
@@ -849,6 +887,53 @@ To investigate the nature of the stationary points, we again use the second orde
 \end{equation}
 
 which must be positive for all \(\Delta x_{i} \).
+
+\example{Contour Plot (1).}
+{Sketch the contour plot for the fucntion 
+
+\begin{equation}
+	f(x,y) = xy e^{(x-y)}, 
+\end{equation}
+
+with the given maximum and saddle points \((-1,1) \text { and } (0,0)\), respectively. 
+}
+{The contour plot is shown in \cref{contour2} }. 
+
+\onefig{contour2}{scale=0.3} 
+
+\example{Contour Plot (2).}
+{For the function 
+
+\begin{equation}
+	f(x,y) = 4xy - x^4 - y^4,
+\end{equation}
+
+Determine the stationary points and its nature. Find the contour line that passes through the saddle point. Sketch the contour plot.
+}
+{First we calculate all the useful derivatives 
+
+\begin{equation}
+	f_{x} = 4y-4x^3 , \quad f_{y} = 4x-4y^3 , \quad f_{xx} = -12x^2, \quad f_{yy} = -12y^2 ~\text { and }~ f_{xy} = 4.   
+\end{equation}
+
+For the stationary points we require that
+
+\begin{equation}
+	f_{x} = f_{y} = 0 \implies (x,y) = (0,0), (1,1) \text { or } (-1,1).  
+\end{equation}
+
+Evaluating \(f_{xx}, f_{yy} \text { and }  D = f_{xy}^2 - f_{xx}f_{yy}   \) for each of the sationary points we find that \((0,0)\) is a saddle point since \(D > 0\) while \((1,1) \text { and } (-1,-1)\) are maximum points since \(D < 0 \text { and } f_{xx } < 0 \text { and } f_{yy} <0  \). 
+
+Since \(f(0,0) = 0\), the equation of the contour line that passes through the saddle point \((0,0)\) is 
+
+\begin{equation}
+	f(x,y) = 4xy - x^4 - y^4 = 0 \implies r(\theta ) = \frac{4 \cos \theta \sin \theta }{\cos ^4 \theta + \sin ^4 \theta }, \quad x = r \cos \theta \text { and } y = r \sin \theta . 
+\end{equation}
+
+The contour plot is shown in \cref{contour}. The red thick line represents the contour line that passes through \((0,0)\). Note that the contour lines does not extend off to infinity but form closed loops instead.
+} 
+
+\onefig{contour}{scale=0.5} 
 
 \chapter{Vector Calculus}
 
@@ -1134,7 +1219,13 @@ when \(C\) is a circle centered at the origin. More generally the loop integral 
 
 The inconsistency arises from the fact that \(t(\vb{r} )\) is not continuous at the origin, or in other words, \(\vb{T} (\vb{r} )\) is not continuously differentiable and fails to be defined at the origin, so \(\vb{T} (\vb{r} )\) is only conservative on the plane excluding the origin, \textit{i.e.,} \(\mathbb{R}^2 - \{0,0\}\). If the loop integral of \(\vb{T} (\vb{r} )\) includes the origin then it would not be zero, since \(\vb{T} (\vb{r} )\) is no longer conservative. 
 
+In complex analysis point of view, 
 
+\begin{equation}
+	\oint_{C} \vb{T} (\vb{r} ) \cdot d\vb{r} = \oint_{C} d \theta , 
+\end{equation}
+
+so if the contour includes the origin then the integral is \(2\pi \) and if it does not then it is just zero. 
 
 
 
@@ -1228,7 +1319,8 @@ Note that the answer \(2r(\cos \theta ,\sin \theta )\) is still in Cartesian coo
 	\item what distance in the direction of \(\vu{i} + \vu{j} \) gives an increase of 0.12?
 	\item in which directions will \(T\) be stationary? 
 \end{enumerate}
-~
+
+Why is \(\grad{T} \) perpendicular to the curve \(T = 0\)?  
 }
 {\begin{enumerate}
 	\item The direction is given by its gradient \(\grad{T} = (2/ 5, 4 /5) \).
@@ -1236,7 +1328,8 @@ Note that the answer \(2r(\cos \theta ,\sin \theta )\) is still in Cartesian coo
 	\item The change in \(T\) is given by \(dT = \grad{T} \cdot d\vb{r} =  \grad{T} \cdot (1,1) s /\sqrt{2} = 0.12\), so \(s = 4 \sqrt{5}/ 10 \).  
 	\item We require \(dT = 0\), so \(d \vb{r} \perp \grad{T} \), so the direction is \(\pm (2,-1)\).   
 \end{enumerate}
-~
+
+On the curve \(T = 0\), we have \(dT = 0\). But in general we also have \(dT = \grad{T} \cdot d\vb{r}  \), so \(\grad{T} \) must be perpendicular to \(d\vb{r} \).     
 } 
 
 
@@ -1339,6 +1432,60 @@ Substituting into the second equation gives
 Therefore the \(\vb{G} = (0,0,xyz^2 + C)\). 
 } 
 
+\example{Conservative Fields.}
+{Prove that the vector field 
+
+\begin{equation}
+	\vb{F} (\vb{r} ) = (\vu{i} - \vu{j} - 2(x-y)\vb{r}) e^{-r^2} 
+\end{equation}
+
+is conservative. Then find its potential function \(\phi (\vb{r} )\). 
+}
+{We first write \(\vb{F} (\vb{r} )\) in its three Cartesian components
+
+\begin{equation}
+	F_{x} = e^{-r^2} (1-2x(x-y)), \quad F_{y} = e^{-r^2}(-1-2y(x-y)) ~\text { and }~ F_{z} = e^{-r^2}(-2z(x-y)).     
+\end{equation}
+
+We then compute the components of \(\curl{\vb{F} } \)  
+
+\begin{equation}
+	(\nabla\times\mathbf F)_{x}
+=\frac{\partial F_{z}}{\partial y}-\frac{\partial F_{y}}{\partial z},
+\quad
+(\nabla\times\mathbf F)_{y}
+=\frac{\partial F_{x}}{\partial z}-\frac{\partial F_{z}}{\partial x},
+\quad
+(\nabla\times\mathbf F)_{z}
+=\frac{\partial F_{y}}{\partial x}-\frac{\partial F_{x}}{\partial y},
+\end{equation}
+
+and find that each of these three expression vanishes. For example we have \((\curl{\vb{F} } )_{x} = 0\) since 
+
+\begin{equation}
+	\begin{aligned} 
+	\frac{\partial F_{z}}{\partial y}
+&=\frac{\partial}{\partial y}\Bigl[-2z(x-y)e^{-r^{2}}\Bigr]
+=-2z\,\frac{\partial}{\partial y}\bigl[(x-y)e^{-r^{2}}\bigr]
+=2z\,e^{-r^{2}}\bigl[1+2y(x-y)\bigr],\\
+\frac{\partial F_{y}}{\partial z}
+&=\frac{\partial}{\partial z}\Bigl[(-1-2y(x-y))e^{-r^{2}}\Bigr]
+=(-1-2y(x-y))(-2z)e^{-r^{2}}
+=2z\,e^{-r^{2}}\bigl[1+2y(x-y)\bigr],
+\end{aligned} 
+\end{equation}
+
+Therefore \(\curl{\vb{F} }  = 0\) and thus \(\vb{F} \) is conservative.  
+
+Focusing on the \(z\) component of \(\vb{F} (\vb{r} )\) we can easily spot the potential function 
+
+\begin{equation}
+	\phi (\vb{r} ) = (x-y)e^{-r^2}. 
+\end{equation}
+~
+} 
+
+
 \section{Product Rules}
 The two product rules for gradient are
 
@@ -1369,15 +1516,33 @@ The two product rules for curl are
 \end{equation}
 
 	
-Here note that
+Here note that we can consturct another operator \(\vb{A} \cdot \grad{}  \)  called the directional derivative, defined by 
+
+\begin{equation}
+	\vb{A} \cdot \grad{} = A_{x} \frac{\partial }{\partial x} + A_{y} \frac{\partial }{\partial y} + A_{z} \frac{\partial }{\partial z},
+\end{equation}
+
+which can act on both a sclar function 
+
+\begin{equation}
+	(\vb{A} \cdot \grad{} )f = A_{x} \frac{\partial f}{\partial x} + A_{y} \frac{\partial f}{\partial y} + A_{z} \frac{\partial f}{\partial z},
+\end{equation}
+
+and a vector function
 
 \begin{equation} 
 	\begin{aligned} 
-		(\vb{A} \cdot \grad) \vb{B} &= \left(A_x\pdv{x} + A_y\pdv{y} + A_z\pdv{z}\right)\left(B_x\vu{i} + B_y\vu{j} + B_z\vu{k}\right) \\ &= \left(A_x\pdv{B_x}{x} + A_y\pdv{B_x}{y} + A_z\pdv{B_x}{z}\right)\vu{i} \\ &+ \left(A_x\pdv{B_y}{x} + A_y\pdv{B_y}{y} + A_z\pdv{B_y}{z}\right)\vu{j} \\ &+ \left(A_x\pdv{B_z}{x} + A_y\pdv{B_z}{y} + A_z\pdv{B_z}{z}\right)\vu{k} \\ &\neq \vb{A} \cdot (\grad{\vb{B}}) \\ &= A_x\pdv{B}{x} + A_y\pdv{B}{y} + A_z\pdv{B}{z} .
+		(\vb{A} \cdot \grad) \vb{B} &= \left(A_x\pdv{x} + A_y\pdv{y} + A_z\pdv{z}\right)\left(B_x\vu{i} + B_y\vu{j} + B_z\vu{k}\right) \\ &= \left(A_x\pdv{B_x}{x} + A_y\pdv{B_x}{y} + A_z\pdv{B_x}{z}\right)\vu{i} \\ &+ \left(A_x\pdv{B_y}{x} + A_y\pdv{B_y}{y} + A_z\pdv{B_y}{z}\right)\vu{j} \\ &+ \left(A_x\pdv{B_z}{x} + A_y\pdv{B_z}{y} + A_z\pdv{B_z}{z}\right)\vu{k}.
 	\end{aligned} 
 \end{equation}
 
-In component form, this is \((\vb{A} \cdot \grad{} )_{i} = A_{i}\partial _{i}   \). Another differential operator we can construct is \((\vb{A} \cross  \grad{} )_{k} = \epsilon _{ijk} A_{i}\partial _{j}     \) but it is seen much less often. 
+In component form, we have 
+
+\begin{equation}
+	\left( (\vb{A} \cdot \grad{} )\vb{B}  \right)_{i} = A_{j}\partial _{j}B _{i}.    
+\end{equation}
+
+Another differential operator we can construct is \((\vb{A} \cross  \grad{} )_{k} = \epsilon _{ijk} A_{i}\partial _{j}     \) but it is seen much less often. 
 	
 With the product rules in hand, we can perform the so-called ``Integration by part'' trick. For example, by integrating the first product rule of divergence and using the divergence theorem, we have
 	
@@ -1478,22 +1643,40 @@ From the nature of gradient, divergence and curl, we can construct five species 
 	\end{equation}	
 \end{enumerate}	
 	
-For the 5 second derivatives listed above, only \cref{prelap,curlcurl} are used regularly in physics enough that they are worth remembering. All of the identities can be easily proven in index notation, as long as one remembers the basic rules 
+For the 5 second derivatives listed above, only \cref{prelap,curlcurl} are used regularly in physics enough that they are worth remembering. 
+
+\section{Index Notation}
+
+All of the identities can be easily proven in index notation, as long as one remembers the basic rules 
 
 \begin{equation}
 	(\grad{t} )_{i} = \partial _{i}t, \quad (\div{\vb{T} } )_{i} = \partial _{i}T_{i} ~\text { and }~ (\curl{\vb{T} } )_{i} = \epsilon _{ijk}\partial _{j}T_{k}.          
 \end{equation}
 
+There are also some identities worth noting:
+
+\begin{equation}
+	\partial _{i} r_{i}  = 3 ~\text { and }~ \partial _{j}r_{i} = \delta _{ij}. 
+\end{equation}
+
 To find \(\grad{(r^{p}) } \), for example, we have 
 
 \begin{equation}
-	\partial _{i}r^{p} = \partial _{i}(x_{j}x_{j}  )^{\frac{p}{2} } = \frac{p}{2}(x_{j}x_{j})^{\frac{p}{2}-1 } \partial _{i}(x_{j}x_{j}  ) = pr^{p-2}x_{i} \implies \grad{r^{p} } = pr^{p-1}\vu{r} .           
+	\partial _{i}r^{p} = \partial _{i}(x_{j}x_{j}  )^{\frac{p}{2} } = \frac{p}{2}(x_{j}x_{j})^{\frac{p}{2}-1 } \partial _{i}(x_{j}x_{j}  ) = pr^{p-2}x_{i} \implies \grad{(r^{p} ) } = pr^{p-1}\vu{r} .           
+\end{equation}
+
+Note that it is wrong to write \(r = r_{i}r_{i}  \) because \(i\) is already the free index.
+
+Specifically, if \(p = 1\) we have 
+
+\begin{equation}
+	\partial _{i}r = \frac{x_{i} }{r} \implies \grad{r} = \vu{r} .   
 \end{equation}
 
 To prove that \(\curl{\grad{t} } = 0\), for example, we can show that 
 
 \begin{equation}
-	(\curl{\grad{t} })_{i}  = \epsilon _{ijk} \partial _{i}\partial _{j}t = 0,  
+	(\curl{\grad{t} })_{i}  = \epsilon _{ijk} \partial _{j}\partial _{k}t = 0,  
 \end{equation}
 
 since the \(\epsilon _{ijk} \) is antisymmetric over \(ij\), but the partial derivatives \(\partial _{i}\partial _{j}  \) are symmetric, so the terms like \(\partial _{1}\partial _{2} - \partial _{2}\partial _{1}    \)  cancel.   
@@ -1514,8 +1697,8 @@ since the \(\epsilon _{ijk} \) is antisymmetric over \(ij\), but the partial der
 
 \begin{equation}
 	\begin{aligned} 
-	(\curl{(\boldsymbol{\omega }\cross \vb{r}  )} ) &= \epsilon _{ilm} \partial _{l} \epsilon _{mjk} \omega _{j} r_{k} = \epsilon _{ilm} \epsilon _{mjk} \omega _{j} \partial _{l} r_{k} \\
-	&= \epsilon _{ilm} \epsilon _{mjk}  \omega _{j} \delta _{lk}  = (\delta _{ij} \delta _{kk} - \delta _{ik} \delta _{jk}   ) \omega _{j} = (3 \delta _{ij} - \delta _{ij}  ) \omega _{j} = \omega _{i}.
+	(\curl{(\boldsymbol{\omega }\cross \vb{r}  )} )_{i}  &= \epsilon _{ilm} \partial _{l} \epsilon _{mjk} \omega _{j} r_{k} = \epsilon _{ilm} \epsilon _{mjk} \omega _{j} \partial _{l} r_{k} \\
+	&= \epsilon _{ilm} \epsilon _{mjk}  \omega _{j} \delta _{lk}  = (\delta _{ij} \delta _{kk} - \delta _{ik} \delta _{jk}   ) \omega _{j} = (3 \delta _{ij} - \delta _{ij}  ) \omega _{j} = 2\omega _{i}.
 	\end{aligned}            
 \end{equation}
 
@@ -1523,6 +1706,28 @@ Note that from the first equality to the second we have pulled \(\omega _{j} \) 
 
 } 
 
+\example{Index Notation (3).}
+{Evaluate \(\grad{((\vb{M} \cdot \vu{r} )/r^2)} \), where \(\vb{M} \) is a constant vector in space.  }
+{Using the identity \(\grad{(fg)} = f \grad{g} + g\grad{f}  \), we rewrite the expression as 
+
+\begin{equation}
+	\grad{\left( \frac{\vb{M} \cdot \vu{r} }{r^2}  \right) } = \grad{\left( \frac{\vb{M} \cdot \vb{r} }{r^3 }  \right)} = (\vb{M} \cdot \vb{r}  ) \grad{\left( \frac{1}{r^3}  \right)} + \frac{1}{r^2} \grad{(\vb{M} \cdot \vb{r}  )} = -3 \frac{(\vb{M} \cdot \vu{r} )\vu{r} }{r^3 } + \frac{\vb{M} }{r^3}.  
+\end{equation}
+
+Alternatively, we can use the identity \(\grad{(\vb{A} \cdot \vb{B})} = \vb{A} \cross (\grad \cross \vb{B}) + \vb{B} \cross (\grad \cross \vb{A}) + (\vb{A} \cdot \grad)\vb{B} + (\vb{B} \cdot \grad)\vb{A}\) to rewrite the expression as 
+
+\begin{equation}
+	\grad{\left( \frac{\vb{M} \cdot \vu{r} }{r^2}  \right)} = (\vb{M} \cdot \grad{} )\frac{\vu{r} }{r^2} + \vb{M} \cross \left(\curl{\left( \frac{\vu{r} }{r^2}  \right)} \right).
+\end{equation}
+
+The second term is zero since \(\curl{(\vu{r} /r^2)} = 0\), and the first term is most easily evaluated using index notation
+
+\begin{equation}
+	\grad{\left( \frac{\vb{M} \cdot \vu{r} }{r^2}  \right)} = (\vb{M} \cdot \grad{} )\frac{\vu{r} }{r^2} = M_{j}\partial _{j}(r_{i}r^{-3} ) = M_{i} r^{-3} + M_{j}r_{i} (-3r^{-4}\partial _{j}r ) = \frac{M_{i} }{r^3 } - 3 \frac{(M_{j} r_{j} )r_{i} }{r^5},     
+\end{equation}
+
+which is what we have found previously.
+} 
 
 
 	
@@ -1790,6 +1995,8 @@ If the integrand \(f(x,y)\) can be written as a product of functions of \(x \tex
 
 The above analysis can be extended to triple integration easily.
 
+When we do a change in variables the limit of integrations have to change accordingly as well. For example, if we are integrating over \(x \in (1,1/2) \text { and } y \in (x,1-x)\), then when you do the change of variables \((r,s) = (x+y,y-x)\), you would be integrating over \(r \in (0,1) \text { and } s \in (0,r)\). This is because the three vertices of the trianular region in the \(x\)-\(y\) plane \((0,0),(0,1),(1/2,1/2)\) transform to \((0,0),(1,1),(0,1)\) in the \(r\)-\(s\) plane, respectively. Normally this procedure of chnaging the limit of integration can be more easily done by moving the \(x \text { and } y\) around in the equalities defining the boundary of integration region in the \(x\)-\(y\) plane, especially in the case where the limit of integrations are constants.   
+
 \example{Volume of a Tetrahedron.}
 {Find the volume of the tetrahedron bounded by the three coordinate surfaces \(x=0, y=0 \text { and }  z=0\) and the plane \(x/a + y /b + z /c =1\) as shown in \cref{tetrahedron}.}
 {The volume can be written as a double or triple integral, depending on how one inteprets the summing process. In triple integral,
@@ -1806,6 +2013,70 @@ which can be easily reduced to a double integral by evaluating the integral invo
 
 The result is \(V = abc /6 \). } 
 \onefig{tetrahedron}{scale=0.3}
+
+\example{Volume of a Cut Cylinder.}
+{A tube with an elliptical cross-section, defined by \(x^2 + 4z^2 = 4\), is intersected by the planes \(y+z=1\) and \(z = y+1\). Find the volume of the enclosed region, by transforming to coordintaes \((r, \theta , y)\) given by \(x = 2r \cos \theta \text { and } z = r\sin \theta \).     }
+{The Jacobian for this coordinate transformation is 
+
+\begin{equation}
+	J = \abs{\frac{\partial (x,y,z)}{\partial (r,\theta ,y)} } = \det \begin{pmatrix}
+		2\cos \theta  & -2r \sin \theta  & 0  \\
+		0 & 0 & 1  \\
+		\sin \theta  & r \cos \theta  & 0  \\
+	\end{pmatrix}= 2r.
+\end{equation}
+
+The general jacobian for an elliptic transformation is \(J = abr\), where \(a \text { and } b\) are the semi-major and semi-minor axes.
+
+The volume is limited by 
+
+\begin{equation}
+	y \le 1-z, \quad y \ge z-1 ~\text { and }~ x^2+4z^2<4.
+\end{equation}
+
+Substituting \(y = y, z = r \sin \theta \text { and } x = r \cos \theta \), we get the limits
+
+\begin{equation}
+	y \le 1-r \sin \theta , \quad y \ge r \sin \theta -1 ~\text { and }~ r \le 1.
+\end{equation}
+
+Therfore the volume of the solid is 
+
+\begin{equation}
+	V = \int_{}^{} dV = \int_{r \sin \theta -1}^{1-r\sin \theta } \int_{0}^{2\pi } \int_{0}^{1} 2r dr d \theta dy = 4\pi .     
+\end{equation}
+
+It is important to note that when finding the limit of integrations it is always best to consider the inequalities which define the area we are integrating over.
+} 
+
+\example{Elliptic-Paraboloid Sandwich.}
+{Find the volume enclosed by the curves \(z = ax^2+by^2 \text { and } z = 6-cx^2-dy^2\).}
+{First we find the projection region \(E\) in the \(x\)-\(y\) plane by setting 
+
+\begin{equation}
+	z = ax^2+by^2 = 6-cx^2-dy^2 \implies (a+c)x^2+(b+d)y^2 = 6.
+\end{equation}
+
+For each point \((x,y)\) on the \(x\)-\(y\) plane we scale the infinitesimal area element by the height 
+
+\begin{equation}
+	\Delta z = (6-cx^2-dy^2)-(ax^2+by^2) = 6-(a+c)x^2-(b+d)y^2.
+\end{equation}
+
+Therefore the volume is 
+
+\begin{equation}
+	\int_{E}^{}  (6-(a+c)x^2-(b+d)y^2) dxdy.
+\end{equation}
+
+Using the standard elliptic substituion \(x = r\cos \theta /\sqrt{a+c} \text { and } y = r \sin \theta /\sqrt{b+d} \) we get 
+
+\begin{equation}
+	V = \int_{0}^{2\pi } \int_{0}^{\sqrt{6}}  (6-r^2) \frac{rdr d\theta }{\sqrt{a+c} \sqrt{b+d} } =    \frac{18\pi }{\sqrt{(a+c)(b+d)} }. 
+\end{equation}
+~
+} 
+
 
 \section{Line, Surface and Volume Integration}
 
@@ -1885,10 +2156,12 @@ Since both \(\partial \vb{r} /\partial u \text { and } \partial \vb{r} /\partial
 If the algebraic form of the surface is given, then we usually project the surface \(S\) onto the \(xy\)-plane (sometimes the \(y\)-\(z\) or \(x\)-\(z\) planes are more useful). From \cref{dS}, we see that 
 
 \begin{equation} \label{dseq} 
-	dA = \abs{\cos \alpha }dS \implies dS = \frac{dA}{\vu{n} \cdot \vb{k} } = \frac{dA}{\frac{\grad{f} }{\abs{\grad{f} } } \cdot \vu{k}  } =  \frac{\abs{\grad{f} } }{\partial f/\partial z}dA \implies d\vb{S} = \frac{\grad{f}}{\partial f/\partial z } dA, 
+	dA = \abs{\cos \alpha }dS \implies dS = \frac{dA}{\abs{\vu{n} \cdot \vb{k} } } = \frac{dA}{\abs{\vu{k} \cdot \grad{f} / \abs{\grad{f} }  } } =  \frac{\abs{\grad{f} } }{\abs{\partial f / \partial z} }dA \implies d\vb{S} = \frac{\grad{f}}{\abs{\partial f / \partial z} } dA, 
 \end{equation}
 
 where \(\alpha \) is the angle between the unit vector \(\vu{k} \) in the \(z\)-direction and the unit normal \(\vu{n} \) to the surface, and \(f(x,y,z)=0\) is the equation which describe the surface.
+
+Note that \(\grad{f} \) points to the side of the surface with \(f(x,y,z) > 0\), so occassionally a negative sign has to be added for \(d\vb{S} \) oriente properly. For example, for the paraboloid \(z = x^2+y^2\), if we define \(f = z-x^2+y^2\), then \(\grad{f} \) points to the inside of the paraboloid. Note however that \(dS\) is a strictly positive quantity due to the absolute sign in its denominator in the equation above.      
 
 \onefig{dS}{scale=0.4} 
 
@@ -1934,6 +2207,27 @@ so we have
 	\end{aligned} 
 \end{equation}
 
+In most cases the projection area on the \(x\)-\(y\) plane is trivial but in some cases it has to be found algebraically. For example, the intersection surface between the cone \(z = \sqrt{x^2+y^2} \) and the sphere \(x^2+(y-1)^2+z^2=1\) is founded by substituting \(z\)  in the first equation into the second.  
+
+\example{Space Curve.}
+{Sketch the Folium of Descartes \(x^3 +y^3 = 3axy\) and calculate the area enclosed by the loop of this folium. }
+{We parametrize this curve by 
+
+\begin{equation}
+	 x= \frac{3t}{1+t^3 } ~\text { and }~ y = \frac{3t^2}{1+t^2}, \quad t \ge 0.  
+\end{equation}
+
+As \(t \to 0\), \((x,y) \to (0,0)\). As \(t \to \infty\), \((x,y) \to (0,0)\) again. In between, \(x \text { and } y\) are positive. On therefore finds a loop that starts at the origin, rises to a maximum around \(x = y = 1\), then returns to the origin.
+
+The area is therefore 
+
+\begin{equation}
+	A = \oint_{C} xdy-ydx = \int_{0}^{\infty}   \frac{3t}{1+t^3 } \frac{6t-3t^4}{(1+t^3 )^2} dt - \int_{0}^{\infty} \frac{3t^2}{1+t^2} \frac{3-6t^3 }{(1+t^3 )^2} dt = \frac{1}{2} \int_{0}^{\infty} \frac{9t^2}{(1+t^3 )^2}dt = \frac{3}{2}.     
+\end{equation}
+~
+} 
+
+
 
 \example{Space Surface.}
 {Consider the surface \(\phi (x,y,z) = c\), 
@@ -1959,7 +2253,7 @@ so we have
 		(\grad{R} )_{i} = \partial _{i} \left( (x_{i} - c_{i}  ) (x_{i } - c_{i}  )\right)^{1 /2} = \left( (x_{i}-c_{i}  )(x_{i} - c_{i}  ) \right)^{-1/2} (x_{i} - c_{i}  ) = \frac{\vb{R}_{i} }{\abs{\vb{R} } }.      
 	\end{equation}
 	\item Using the fact that \(AP + BP = s\), the ellipse can be described by the equation \(\phi (x,y) = AP + BP = s\). From \((a) \text { and } (b)\), we have the normal vector \(\vb{n} \)
-	\item  
+
 	\begin{equation}
 		\vb{n} = \grad{\phi (x,y)} = \grad{AP} + \grad{BP} = \frac{\vb{A} \vb{P} }{AP} + \frac{\vb{B} \vb{P} }{BP}     
 	\end{equation}
@@ -2008,7 +2302,80 @@ so we have
 ~
 } 
 
+\example{Orthogonality of Two Space Surfaces.}
+{Calculate all values of the constant \(a\) for which the surfaces 
 
+\begin{equation}
+	ay = x ~\text { and }~ 5x^2+y^2+3xy+z^2 = 25
+\end{equation}
+
+cut orthogonally. Sketch and descrive a geometric interpretation for each of these values of \(a\).
+}
+{Rewriting the surfaces in the form 
+
+\begin{equation}
+	v(x,y,z) = ay-x = 0 ~\text { and }~ w(x,y,z) = 5x^2+y^2+3xy+z^2-25 = 0,
+\end{equation}
+
+we require 
+
+\begin{equation}
+	\grad{v} \cdot \grad{w} = (3a-10)x + (2a-3)y = 0.  
+\end{equation}
+
+This equation does not uniquely determine \(a\), since \(x \text { and } y\) are still unknown. We combine this condition with the condition that \(v(x,y,z) = w(x,y,z) = 0\) to get 
+
+\begin{equation}
+	3a^2-8a-3 = 0 \implies a = 3 \text { or } -\frac{1}{3}. 
+\end{equation}
+
+The cases for \(a = 3 \text { and } -1/3\) are illustrated in \cref{ortho}. 
+} 
+\onefig{ortho}{scale=0.3} 
+
+\example{Particle on a Surface.}
+{Consider a particle which moves in three dimensions with velocity \(\vb{v} (t)\) such that 
+
+\begin{equation}
+	\dot{\vb{v} }(t) = \gamma t \vu{k} \cross \vb{v} (t). 
+\end{equation}
+
+At time \(t = 0\) the particle is located at the origin and moves with velocity \(\vb{v} (0) = w \vu{i} \). Determine \(\vb{v} (t)\) for \(t \ge 0\). Find the angular velocity \(\omega (t)\) and the radius of curvature \(R(t)\).      
+}
+{In components form, the equation of motion reads
+
+\begin{equation}
+	\begin{cases}
+		\dot{v}_{x} &= -\gamma tv_{y},\\
+		\dot{v}_{y} &= \gamma t v_{x}.
+	\end{cases}
+\end{equation}
+
+Since the force is perpendicular to the velocity the speed remains constant. From the equation of motions we also see that the motion of the particle is confined in the \(x\)-\(y\) plane. Therefore we can parametrize the velocity of the particle by 
+
+\begin{equation}
+	\vb{v} (t) = w (\cos \phi , \sin \phi ,0).
+\end{equation}
+
+Subsituting into the equations of motion we find 
+
+\begin{equation}
+	\phi = \frac{1}{2}\gamma t^2. 
+\end{equation}
+
+If \(\phi \) is the polar angle specifying the location of the particle then the angular velocity is 
+
+\begin{equation}
+	\omega (t) = \frac{d\phi (t)}{dt} = \gamma t. 
+\end{equation}
+
+Since hthe speed is constant the radius of curvature is simply 
+
+\begin{equation}
+	R = \frac{w}{\omega (t)} = \frac{w}{\gamma t}.  
+\end{equation}
+~
+} 
 
 
 \subsubsection{Frenet-Serret Equations}
@@ -2226,7 +2593,7 @@ where \(d\vb{S} = \vu{n} dS\) is the infinitesimal vector area element. The dire
 
 Entirely analogous to the fact that the first type of line integrals in the previous subsection is independent of the limits of integration (\textit{i.e.,} the orientation of the curve), the firsty type of the four surface integrals above is also independent of the orientation of the surface (\textit{i.e.,} the limits of integration). 
 
-\example{Surface Integral(1).}
+\example{Surface Integral (1).}
 {Find the element of area on the surface of a sphere of radius \(a\), and hence calculate the total surface area of the sphere.}
 {We can represent a point \(\vb{r} \)  on the surface of the sphere in terms of the two parameters \(\theta \text { and } \phi \) as
 
@@ -2415,6 +2782,7 @@ The total surface area is therefore
 \begin{equation}
 	S = \int_{S}^{} dS = \int_{0}^{2\pi } \int_{0}^{\frac{3}{2} } \frac{4\sqrt{13} }{3} \rho d \rho d \theta = \frac{3\pi }{4} \sqrt{13}.    
 \end{equation}
+~
 } 
 
 \example{Surface Integral (7).}
@@ -2432,14 +2800,15 @@ where \(S\) is the surface of the solid bounded by \(x^2+y^2=4, z = x -3 \text {
 	x = 2 \cos \theta , \quad y = 2 \sin \theta , \quad z \in [z_1 ,z_2 ], \quad z_1 = 2 \cos \theta - 3 ~\text { and }~ z_2 = 2 \cos \theta +2,
 \end{equation}
 
-where the limit in \(z\) is bound by the inequality \(z \ge x-3 \text { and } z \le x+2\).
+where the limit in \(z\) is bound by the inequality \(z \ge x-3 \text { and } z \le x+2\), which is the formal way to finding the integration limits.
 
 For the bottom and the top cap we have \(dS = \abs{\grad{f(x,y,z)} } dxdy / (\partial f (x,y,z)  / \partial z) \), where \(f(x,y,z) = x-z+3\), so the whole surface integral becomes
 
 \begin{equation}
 	I = \int_{0}^{2\pi } \int_{2 \cos \theta -3}^{2\cos \theta +2} (2 \cos \theta -z) 2dz d \theta + \int 3 \sqrt{2}dxdy + \int -2 \sqrt{2} dxdy = \pi (10+4\sqrt{2} ).        
 \end{equation}
-~
+
+In writing this integral we assueme we sum over \(\theta \) from \(0\) to \(2\pi \), of the vertical strips \((x-z)2 (z_{\text{max} } - z_{\text{min} } ) d \theta  \), which would be much harder to do if we sum over \(z\) from \(-5\) to \(4\), of the circular strips \((x-z)2 (\theta _{\text{max} }- \theta _{\text{min} }  ) dz\), since \(\theta (z)\) is much harder to find than \(z (\theta )\).
 } 
 
 
@@ -2798,7 +3167,7 @@ Hence
 \end{equation}
 }
 
-\example{Area of an Ellipse.}
+\example{Area using Stokes' theorem}
 {Show that the area of a region \(R\) enclosed by a simple closed curve \(C\) is given by 
 
 \begin{equation}

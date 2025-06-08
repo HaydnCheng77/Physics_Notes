@@ -65,13 +65,21 @@ Geometrically, we flip the imaginary axis (\(y\)-axis) upside down. Therefore, \
 	z z^* = \abs{z}^2 
 \end{equation}
 
-When extend to complex numbers, the natural logarithm is always multivalued, this is because 
+When extend to complex numbers, the natural logarithm is infinitely-multivalued, this is because 
 
 \begin{equation}
-    \ln (z) = \ln (\abs{z}e^{i \theta + 2\pi k}  ) = \ln (\abs{z} ) + i (\theta +2\pi k).
+    \ln (z) = \ln (\abs{z}e^{i \the\tau _{0}  + 2\pi k}  ) = \ln (\abs{z} ) + i (\theta _{0} +2\pi k),
 \end{equation}
 
-The princpial value is defined as the value when \(\theta \in (-\pi ,\pi ]\).  
+where \(\theta _{0} \in (-\pi ,\pi ] \text { and } k \in \mathbb{Z}\). The princpial value is defined as the value when \(k = 0\).  
+
+The \(n^{\text{th}} \) root function is \(n\)-times-multivalued, since 
+
+\begin{equation}
+    z^{1/n} = \abs{z}^{1/n} e^{i \theta _{0}/n } e^{2\pi i k /n}      
+\end{equation}
+
+can take \(n\) different values for all \(k \in \mathbb{Z}\). 
 
 The hyperbolic trigonometric formulas are largely reminiscent of the ordinary trigonometric formulas, with a few exceptions:
 
@@ -130,16 +138,11 @@ to get
 
 \begin{equation}
     \begin{aligned} 
-    z &= -i \ln (i (3+2\sqrt{2} )) = -i \left(i \frac{\pi }{2} + 2\pi in + \ln (3 \pm \sqrt{2} ) \right) \\
-    &= \frac{\pi }{2} + 2n\pi - i\ln (3+2\sqrt{2} ) ~\text { or } ~ \frac{\pi }{2} + 2n\pi -i\left( \ln (-1) + \ln (2\sqrt{2}-3 ) \right) \\
-    &= \frac{\pi }{2} + 2n\pi -i \ln (3+2\sqrt{2} ) ~\text { or } ~ \frac{\pi }{2} + 2n\pi -i\left( i \pi + 2\pi ki - \ln (3+2 \sqrt{2} ) \right)\\
-    &=  \frac{\pi }{2} + 2n\pi -i \ln (3+2\sqrt{2} ) ~\text { or } ~ -\frac{\pi }{2} + 2n\pi + i \ln (3+2\sqrt{2} ).  
+    z &= -i \ln (i (3+2\sqrt{2} )) = -i \left(i \frac{\pi }{2} + 2\pi in + \ln (3 \pm 2\sqrt{2} ) \right) \\
+    &= \frac{\pi }{2} + 2n\pi - i\ln (3+2\sqrt{2} ) ~\text { or } ~ \frac{\pi }{2} + 2n\pi +i\left( \ln (\frac{1}{3-2 \sqrt{2} } ) \right) \\
+    &= \frac{\pi }{2} + 2n\pi -i \ln (3+2\sqrt{2} ) ~\text { or } ~ \frac{\pi }{2} + 2n\pi +i \ln (3+2\sqrt{2} )\\
+    &=  \frac{\pi }{2} + 2n\pi \pm i \ln (3+2\sqrt{2} ).  
     \end{aligned} 
-\end{equation}
-
-
-\begin{equation}
-    z = \frac{\pi }{2} + 2\pi n + i \ln (3 \pm 2 \sqrt{2} ).
 \end{equation}
 ~
 } 
@@ -278,7 +281,7 @@ Their relations can be summarized by
     f(z) \text{ is analytic (given existence)} \longleftrightarrow \text{Cauchy-Riemann Conditions} \longleftrightarrow f(z) = f(z,\overline{z} ).
 \end{equation}
 
-A function may be analytic in a domain except at a finite number of points, called the singularities of \(f(z)\) (or an infinite number if the domain is infinite). Functions that are analytic everywhere (excpet, maybe, at \(z = \infty\)) are called entire of integral functions.
+A function may be analytic in a domain except at a finite number of points, called the singularities of \(f(z)\) (or an infinite number if the domain is infinite). Functions that are analytic everywhere (excpet, maybe, at \(z = \infty\)) are called entire or integral functions.
 
 \example{\(f\) Being Constant.}
 {Prove that if \(f\) is real-valued or if \(\abs{f} \) is constant, then \(f\) is constant given that \(f\) is an analytic function.}
@@ -376,8 +379,10 @@ If we restrict ourselves to the princpal roots, then the function \(f(z) = z ^{1
 A less commonly used multivalued function is the complex power
 
 \begin{equation}
-    t^{z} = e^{z \ln t} = \sum_{k=0}^{\infty} \frac{z^{k} (\ln \abs{t} + i(\theta +2\pi k) )^{t} }{k!}.  
+    t^{z} = e^{z \ln t} = \sum_{k=0}^{\infty} \frac{z^{k} (\ln \abs{t} + i(\theta +2\pi k) )^{t} }{k!}.
 \end{equation}
+
+Note that using this definition \(1^{i} = e^{i \log (1)} = 0 \neq (e^{i(2\pi (1+n)i)} ) = e^{2\pi (1+n)} \). 
 
 One particularly interesting example maps the half plane onto a circle
 
@@ -390,7 +395,7 @@ where the point \(z_0 \) will be mapped onto the origin while \(-\infty \text { 
 Another interesting mapping is the Möbius map
 
 \begin{equation}
-    f(z) = \frac{az+b}{cz+d}, 
+    f(z) = \frac{az+b}{cz+d}, \quad ad-bc \neq 0,
 \end{equation}
 
 which carries generalized circles, \textit{i.e.,} Euclidean circles or straight lines, into generalized circles. So given any three distinct points \(z_1 ,z_2, z_3 \) on one generalized cirlce and any three distinct images \(f(z_1 ), f(z_2 ), f(z_3 )\) on another generalized circle, there is exactly one Möbius map sending \(z_{i} \mapsto f(z_{i} ) \) for \(i = 1,2,3\).    
@@ -543,6 +548,8 @@ It can also be shown that the power series \(\sum_{n=0}^{\infty} a_{n}z^{n}  \) 
 
 \section{Solutions to the Laplace's Equation}
 
+\subsection{Complex Potential}
+
 We notice that if \(f(x,y)\) is analytic, then \(u(x,y) \text { and } v(x,y)\) are harmonic functions, \textit{i.e.,} they satisfy the Laplace's equation in two dimensions, since
 
 \begin{equation}
@@ -551,11 +558,144 @@ We notice that if \(f(x,y)\) is analytic, then \(u(x,y) \text { and } v(x,y)\) a
 
 The same holds for \(\laplacian v(x,y) = 0\). 
 
+Now suppose we want to solve for the electric potential \(\Phi \) and electric field \(\vb{E} \) from the Laplace's equation in two dimensions for a charge \(q\) located at the origin
+
+\begin{equation}
+    \laplacian \Phi = 0 ~\text { and }~ E = \grad{\Phi }. 
+\end{equation}
+
+Using the Laplaceian in spherical coordinates we find 
+
+\begin{equation}
+    \Phi  = -2q\ln r ~\text { and }~ \vb{E} = \frac{2q}{r}\vu{r} . 
+\end{equation}
+
+Now we introduce the complex potential 
+
+\begin{equation}
+    f = -2q \ln z = -2q \ln r - 2q i \theta = \Phi + iV,
+\end{equation}
+
+where the real part of \(f\) is the real potential \(\Phi \), and since we know that for an analytic function the lines of constant \(u\) are orthogonal to the lines of constant \(v\) we also have that the lines of constant \(v\) are the electric field lines (since \(\vb{E} = \grad{\Phi } \) are orthogonal to constant \(\Phi \)).
+
+For example we consider the \(x\)-axis where \(\Phi = \Phi _{0} = \text{constant}  \). The electric field \(\vb{E} (y) \) and potential \(\Phi (y)\) are then   
+
+\begin{equation}
+    \vb{E}(y) = \frac{\sigma }{\epsilon_0 } \vu{y}  ~\text { and }~ \Phi (y) = \Phi _{0} - \frac{\sigma }{\epsilon_0 }y.  
+\end{equation}
+
+Therefore the complex potential 
+
+\begin{equation}
+    f = \Phi _{0} + i \frac{\sigma }{\epsilon_0 }z  
+\end{equation}
+
+allows us to find both the electric potential and the electric field lines.
+
+\subsection{Coordinates Transformation}
+
+We now prove that if \(\Phi \) is harmonic in the coordinates \((x,y)\) it remains harmonic in \((u,v)\). This is because 
+
+\begin{equation}\label{eq:107a}
+\frac{\partial^2\Phi}{\partial x^2}
+=\frac{\partial^2\Phi}{\partial u^2}\Bigl(\frac{\partial u}{\partial x}\Bigr)^2
++\frac{\partial\Phi}{\partial u}\,\frac{\partial^2u}{\partial x^2}
++\frac{\partial^2\Phi}{\partial v^2}\Bigl(\frac{\partial v}{\partial x}\Bigr)^2
++\frac{\partial\Phi}{\partial v}\,\frac{\partial^2v}{\partial x^2}
++2\,\frac{\partial u}{\partial x}\,\frac{\partial v}{\partial x}\,
+\frac{\partial^2\Phi}{\partial u\,\partial v},
+\end{equation}
+\begin{equation}\label{eq:107b}
+\frac{\partial^2\Phi}{\partial y^2}
+=\frac{\partial^2\Phi}{\partial u^2}\Bigl(\frac{\partial u}{\partial y}\Bigr)^2
++\frac{\partial\Phi}{\partial u}\,\frac{\partial^2u}{\partial y^2}
++\frac{\partial^2\Phi}{\partial v^2}\Bigl(\frac{\partial v}{\partial y}\Bigr)^2
++\frac{\partial\Phi}{\partial v}\,\frac{\partial^2v}{\partial y^2}
++2\,\frac{\partial u}{\partial y}\,\frac{\partial v}{\partial y}\,
+\frac{\partial^2\Phi}{\partial u\,\partial v}.
+\end{equation}
+
+Recall that
+\begin{equation}\label{eq:108}
+\lvert f'(z)\rvert^2
+=\Bigl(\frac{\partial u}{\partial x}\Bigr)^2
++\Bigl(\frac{\partial v}{\partial x}\Bigr)^2
+=\Bigl(\frac{\partial u}{\partial y}\Bigr)^2
++\Bigl(\frac{\partial v}{\partial y}\Bigr)^2.
+\end{equation}
+
+Taking a linear combination of \eqref{eq:107a} and \eqref{eq:107b} we get
+\begin{equation}\label{eq:109}
+\begin{split}
+\frac{\partial^2\Phi}{\partial x^2}+\frac{\partial^2\Phi}{\partial y^2}
+&=\lvert f'(z)\rvert^2\Bigl(\frac{\partial^2\Phi}{\partial u^2}
++\frac{\partial^2\Phi}{\partial v^2}\Bigr)
++\frac{\partial\Phi}{\partial u}\,\nabla^2u
++\frac{\partial\Phi}{\partial v}\,\nabla^2v\\
+&\quad
++2\Bigl(\frac{\partial u}{\partial x}\frac{\partial v}{\partial x}
++\frac{\partial u}{\partial y}\frac{\partial v}{\partial y}\Bigr)
+\frac{\partial^2\Phi}{\partial u\,\partial v},
+\end{split}
+\end{equation}
+
+where only the first term on the RHS remains due to the harmonicity of \(u \text { and } v\), and the Cauchy's Riemann conditions.
+
+\subsection{More Examples}
+
+Now consider a plate held at a fixed potential \(\Phi = \Phi _{0} \) on the positive \(x \text { and } y\) axes. We can employ the transformation 
+
+\begin{equation}
+    w = z^2.
+\end{equation}
+
+The boundary will now be along the \(x\)-axis in the \(w\) plane, which is a problem we have solved earlier. In these new coordinates we have the complex potential 
+
+\begin{equation}
+    f = \Phi _{0} + i \frac{\sigma }{\epsilon_0 }w.  
+\end{equation}
+
+Therefore the real potenial is 
+
+\begin{equation}
+    \Phi = \mathfrak{Re} (f) = \mathfrak{Re} \left( \Phi _{0} + i \frac{\sigma }{\epsilon_0 }z^2  \right) = \Phi _{0} - 2 \frac{\sigma }{\epsilon_0 }xy.  
+\end{equation}
+
+Now consider a long hollow conducting cylinder with its surface described by \(x^2+y^2=1\), where the two semi-circle is set at \(\Phi = 0\) while the botoom half is fixed at \(\Phi  = 1\). In this case we can consider the Mobius transformation 
+
+\begin{equation}
+    z = \frac{i-w}{i+w}, 
+\end{equation}
+
+where we have chosen \(e^{i \theta _{0} } = -1 \text { and } w_{0} = i\) so that the positive \(x\)-axis is mapped to the top half of the cylinder and the negative \(x\)-axis the bottom half. 
+
+Now the real potential function can be represented by 
+
+\begin{equation}
+    \Phi  = \frac{\arg (w)}{\pi }. 
+\end{equation}
+
+On the positive \(x\)-axis we have \(\arg (w)\) = 0 and hence \(\Phi  = 0\) while on the negative \(x\)-axis we have \(\arg (w) = \pi \) and hence \(\Phi  = 1\).  
+
+The complex function is thus 
+
+\begin{equation}
+    f = -\frac{i}{\pi } \ln  w = -\frac{i}{\pi }\ln \left( i \frac{1-z}{1+z}  \right).
+\end{equation}
+
+Therefore the real potential is 
+
+\begin{equation}
+    \Phi  = \mathfrak{Re} (f) = \frac{1}{\pi } \tan ^{-1} \left( \frac{1-x^2-y^2}{2y}  \right).
+\end{equation}
+
+
+
 \section{Singularities}
 
 \subsection{Definitions}
 
-As we have defined eariler, a singulartiy is a point on the comlex plane, where \(f(z)\) fails to be analytic. It can either be an isolated singularity, which includes a pole, a removable singularity and an essential singularity, or a non-isolated singularity.
+As we have defined eariler, a singulartiy is a point on the complex plane, where \(f(z)\) fails to be analytic. It can either be an isolated singularity, which includes a pole, a removable singularity and an essential singularity, or a non-isolated singularity.\footnote{NOte that a function is not necessarily infinite at a singularity. For instance the function \(f(z) = z^2 f\text { or } yge_0 , z f\text { or }  y < 0\) is singular at all points on the \(x\)-axis, but has the value \(z^2=x^2\) at these points.} 
 
 Formally, if the limit of a function \(\lim_{z \to z_0 } f(z)\) does not exist but satisfies
 
@@ -571,7 +711,7 @@ The behaviour of a function \(f(z)\) at \(z = \infty\) is the same as the behavi
 
 \subsection{Poles}
 
-A pole is a point on the complex plane where the derivative \(df /dz\) is infinite. A simple example is
+A pole is a point on the complex plane where the derivative \(df /dz\) is infinite.\footnote{In most cases however this is equivalent to \(f(z)\) being infinite.} A simple example is
 
 \begin{equation}
     f(z) = \frac{1}{z}, 
@@ -639,8 +779,8 @@ at \(z = \infty\). This is because the function
 
 which has a pole of infinite order at \(\xi = 0\). 
 
-\example{Singularities.}
-{Find the singularities of the functions 
+\example{Singularities (1).}
+{Find the singularities of the function
 
 \begin{equation}
     f(z) = \tanh z.
@@ -663,6 +803,16 @@ Therefore \(f(z)\) has a singularity when
 
 } 
 
+\example{Singularities (2).}
+{Locate and classify the singular points of 
+
+\begin{equation}
+    f(z) = \frac{1}{z^2(1+e^{1 /z} )}.
+\end{equation}
+~
+}
+{At \(z = 0\), \(e^{1/z} \) has an essential singularity, so \(f(z)\) is essential at 0. Whenever \(1+e^{1/z} = 0\), or \(z = 1/i \pi (2k+1)\), we have simple poles. However we also find that there are infinite simple poles at \(z = 0\), so it is in fact a non-isolated singularity.}
+
 
 \section{Branch Points, Branch Cuts, Principal Branch and Riemann Surface}
 
@@ -672,7 +822,13 @@ In the definition of an analytic function, one of the conditions imposed was tha
 
 \subsubsection{Branch Points}
 
-Consider the root of a complex vector
+For a complex vector \(z\)
+
+\begin{equation}
+    z = re^{i \theta }, \quad \theta  = \theta _{0} + 2\pi k , \quad \theta _{0} \in (-\pi ,\pi ] \text { and } k \in \mathbb{Z},  
+\end{equation}
+
+the square root of \(z\) is
 
 \begin{equation}
     f(z) = z^{1/2} = r^{1 /2} e^{i \theta /2}.
@@ -686,7 +842,11 @@ It is clear that as the point \(z\) traverses any closed contour \(C\) that does
 
 We call \(z = 0\) the branch point \(f(z)\) with order 1, since the function return to its original value after 2 loops (which is the minimum number of loops).
 
+In fact any non-integer powers are multivalued, since it can always be written as \textit{e.g.,} \(z^{21/8} \), which involves the \(8^{\text{th} } \) root function. 
+
 Further, infinity is also a second order branch point for \(f(z) = z^{1 /2} \), as \(\xi =0\) is a branch point of \(f(\xi ) = \xi ^{- 1/2} \), by the same argument as above.  
+
+In general the function \(G(z)^{1/n} \) has branch points at \(G(z) = 0 \text { or } \infty\) with \(n\) order.
 
 Now consider the logarithm of a complex vector
 
@@ -694,13 +854,17 @@ Now consider the logarithm of a complex vector
     f(z) = \ln z = \ln r + i \theta .
 \end{equation}
 
-With the same arguements as above, \(z = 0 \text { and } \infty\) are branch points of the function. They have \(\infty\) order, since the function would not return to its original value no matter how many loop one transverse. In general, the function \(\ln (G(z))\) has branch points at \(G(z) = 0 \text { or } \infty\) with \(\infty\) order.   
+With the same arguements as when we analyzed the square root function, \(z = 0 \text { and } \infty\) are branch points of the function. They have \(\infty\) order, since the function would not return to its original value no matter how many loop one transverse. In general, the function \(\ln (G(z))\) has branch points at \(G(z) = 0 \text { or } \infty\) with \(\infty\) order.   
+
+To prove that a point is a branch point you consider a loop \(z = z_0 + \epsilon e^{i \theta } \) around the point of interest and determine whether \(z\) would change its value after \(\theta \) goes from 0 to \(2\pi \).   
 
 \subsubsection{Branch Cuts}
 
-In order that \(f(z)\) may be treated as single-valued, recovering the traditional notion of a function, we may define a branch cut, which is a curve in the complex plane that serves as an articficial barrier that we must not cross, preventing one from making a complete circuit around any branch point. 
+So now imagine a complex vector a complex plane. If we apply any multivalued function to this vector, \textit{e.g.,} the square root function or the logarithm function, the vector will be splitted into several other image vectors, this is because the argument of the vector \(\arg (z) = \theta \) is ill-defined. For a concrete picture, the complex vectors \(z_1 = e^{i \pi /4} \text { and } z_2 = e^{i 9\pi /4} \) sit on the same place on the copmlex plane but when the square root function is applied the two vectors are mapped to different places \(z_1 ' = e^{i \pi /8} \text { and } z_2 ' = e^{i 9 \pi /8} \), in completely oposite direction. Other vectors which are orginally at the same place as \(z_1 \text { and } z_2 \) will get mapped either to \(z_1 ' \text { or } z_2 '\).
 
-For the both of the functions above \(f(z) = z^{1/2} \text { or } \ln z\), the branch cut can be any curve starting at the origin \(z = 0\) and extending out to \(\abs{z} = \infty \) in any direction, restricting \(\theta \) to lie in the range \(0 \le \theta <2\pi \).
+In order for \(f(z)\) to be treated as a single-valued function, we may define a branch cut, which is a curve in the complex plane that serves as an articficial barrier that we must not cross, preventing one from making a complete circuit around any branch point. 
+
+For the both of the functions above \(f(z) = z^{1/2} \text { or } \ln z\), the branch cut can be any curve starting at the origin \(z = 0\) and extending out to \(\abs{z} = \infty \) in any direction, restricting \(\theta \) to lie in the range \(\theta \in (-\pi ,\pi ]\). 
 
 \subsubsection{Principal Branch}
 
@@ -708,11 +872,11 @@ A branch is a single-valued choice of the multi-valued function on the complex p
 
 \subsubsection{Riemann Surfaces}
 
-Alternatively we can also introduce a Riemann surface. For examples, the Riemann surface of \(f(z) = z^{1 /2} \) is shown in \cref{sqrtz} and that of \(f(z) = \ln z\) is shown in \cref{logz}.
+Alternatively we can also introduce a Riemann surface. For examples, the Riemann surface of \(f(z) = \ln z\) is shown in \cref{logz} and that of \(f(z) = z^{1 /2} \) is shown in \cref{sqrtz}.
 
-For the complex logarithm, we cut the complex plane along \(x > 0\) and glue the \(y > 0\) edge of one copy to the \(y <0\) edge of another copy. On the first sheet we have \(0 \le \theta \le 2\pi \), and on the second sheet we have \(2\pi \le \theta \le 4\pi \) \textit{etc.} 
+For the complex logarithm, we cut the complex plane along \(x > 0\) one edge of the first copy to one edge of another copy. On the first sheet we have \(0 \le \theta \le 2\pi \), and on the second sheet we have \(2\pi \le \theta \le 4\pi \) \textit{etc.} The infinite sheets required shows that the logarithmic function is infinitely-multivalued.
 
-For the square root function, we start off the same way but after that we take the \(y<0\) edge of the second copy and glue it back onto the \(y >0\) edge of the first one. For the general \(f(z) = z^{ 1/n} \), we stack \(n\) copies of the complex plane before wrapping the last one onto the first one.   
+For the square root function, we start off the same way but after that we take the \(y<0\) edge of the second copy and glue it back onto the \(y >0\) edge of the first one. For the general \(f(z) = z^{ 1/n} \), we stack \(n\) copies of the complex plane before wrapping the last one onto the first one. On the first sheet then we have \(0 \le \theta \le 2\pi , 2\pi n \le \theta \le 4\pi n, \textit{etc.} \).   
 
 \twofig{logz}{width=\textwidth}{sqrtz}{width=\textwidth}{logsqrtz} 
 
@@ -732,7 +896,7 @@ and hence sketch suitable arrangements of branch cuts and describe the Riemann s
 
 We expect \(f(z)\) to have branch points at values of \(z\) that make the expression under the square root equal to zero, \textit{i.e.,} at \(z = i \text { and } z = -i\), and they are first order branch points.
 
-If we let 
+To prove that they are indeed the branch points, we let 
 
 \begin{equation}
     z - i  = r_1 e^{i \theta _{1} } ~\text { and }~ z+i = r_2 e^{i \theta _{2} } \implies f(z) = \sqrt{r_1 r_2 } e^{i(\theta _{1}+\theta _{2}  ) /2},     
@@ -749,7 +913,7 @@ then we have the four cases: If \(C\) encloses
 
 From this the suitable cuts are shown in \cref{cut1}.
 
-The Riemann surface 
+The Riemann surface consists of two complex plane, each cut along the branch cut mentioned, with one edge of the first copy glued to the opposite edge of the second copy and vice versa.
 
 Note that infinity is not a branch point, since at \(z \gg 1\), we have \(f(z) \approx z = \abs{z}e^{i \theta }  \), which does not flips the sign of \(f(z)\) as \(\theta  \to \theta + 2\pi \). 
 
@@ -811,7 +975,7 @@ Note that we have neglected the \(\pm \) sign in the final expression. This is b
 
 This is why we say \(\sqrt{4} =2 \) but solving \(x^2=4\) gives \(x = \pm 2\). Similarly, by choosing the principal branch the \(\sin ^{-1} (z)\) function is single-valued, however if we are told to solve the equation \(\sin z = a\) we would need to say \(z = \sin ^{-1} (a) + 2\pi n \text { or } \pi -\sin ^{-1} (a) + 2\pi n\).   
 
-The branch point of this function is \(z = \pm 1\) due to the square root, and they are first order. Note that \(z = \infty\) is not a branch point of \(f(z)\) since \(\xi = 0\) is not a branch point of \(f(1 /\xi )\).
+The branch point of this function is \(z = \pm 1\) due to the square root, and they are first order. Equating the expression inside the logarithm to be zero also gives \(z = \pm 1\), which gives not extra branch points. Note that \(z = \infty\) is not a branch point of \(f(z)\) since \(\xi = 0\) is not a branch point of \(f(1 /\xi )\).
 
 Taking the principal branch we have 
 
@@ -842,7 +1006,10 @@ The Cauchy's theorem states that if \(f(z)\) is an analytic function in a region
 This is because using the Stokes' theorem we have 
 
 \begin{equation}
-    \oint_{C}f(z) dz = \oint_{C} (udx-vdy) + i \oint_{C} (vdx+udy) = \int_{S}^{} \left( -\frac{\partial u}{\partial y} - \frac{\partial v}{\partial x}  \right) dxdy + i \int_{S}^{} \left( -\frac{\partial v}{\partial y} + \frac{\partial u}{\partial x}   \right)  dxdy = 0,
+    \begin{aligned} 
+    \oint_{C}f(z) dz &= \oint_{C} (udx-vdy) + i \oint_{C} (vdx+udy) =\\
+    & \int_{S}^{} \left( -\frac{\partial u}{\partial y} - \frac{\partial v}{\partial x}  \right) dxdy + i \int_{S}^{} \left( -\frac{\partial v}{\partial y} + \frac{\partial u}{\partial x}   \right)  dxdy = 0,
+    \end{aligned} 
 \end{equation}
 
 according to the Cauchy-Riemann conditions.
@@ -961,7 +1128,7 @@ Taking the real and imaginary part we have
 
 \subsection{Cauchy's Integral Formula}\todo{Poisson's integral formula} 
 
-In the previous subsection we consider the loop integral of \(f(z)\) alone (\cref{cau}). Now consider the integral of \(f(z) /z-a\) around a circle centered at \(a\) with radius \(R\) 
+In the previous subsection we consider the loop integral of \(f(z)\) alone (\cref{cau}). Now consider the integral of \(f(z) /(z-a)\) around a circle \(C\) centered at \(z = a\) with radius \(R\) 
 
 \begin{equation}
     \oint_{C} \frac{f(z)}{z-a}dz = \oint_{C} \frac{f(a+Re^{i \theta } )}{R e^{i \theta } } i Re^{i \theta } d \theta = i \oint_{C} f(a + Re^{i \theta } ) d \theta ,
@@ -972,25 +1139,39 @@ which is analytic everywhere in the contour \(C\) except at \(z = a\).
 By the reasoning from the previous section \(R\) can take any value we want. Taking the limit as \(\epsilon \to 0\) yields 
 
 \begin{equation}
-   f(a) = \frac{1}{2\pi } \oint_{C} f(a+Re^{i \theta } ) d \theta = \frac{1}{2\pi i}  \oint_{C} \frac{f(z)}{z-a} dz .  \label{cau2} 
+    f(a)2\pi i = i \oint_{C} f(a+Re^{i \theta } )d \theta \implies f(a) = \frac{1}{2\pi } \oint_{C} f(a+Re^{i \theta } ) d \theta . 
 \end{equation}
 
-The former equality is known as the Gaussian mean-value theorem and the latter is known as the Cauchy's integral formula. The first theorem states that the average of an analytic function over a circle is equals to its value at the center. The later formula states that we can know the value of any point of a function as long as we have know the value of the function at the contour, which is any circle centered at the point at interest.
+This is is known as the Gaussian mean-value theorem, which states that the average of an analytic function over a circle is equals to its value at the center.
 
 Since the real part of any analytic function is harmonic, taking the real part of the Gaussian mean-value theorem we have that the average of any harmonic function over a circle is equals to its value at the center, coinciding with our understanding of the solution to the Laplace's equation.
 
-Further we can determine the value of any derivative of \(f\) from 
+Taking the same limit also gives
+
+\begin{equation}
+   f(a) =  \frac{1}{2\pi i}  \oint_{C} \frac{f(z)}{z-a} dz .  \label{cau2} 
+\end{equation}
+
+This is known as the Cauchy's integral formula, which states that we can know the value of any point of a function as long as we have know the value of the function at the contour, which is any circle centered at the point at interest.
+
+Note that this is sipmly a special case of the Caucny's residue theorem, since the integral is since the integrand has a simple pole at \(z = a\), so the integral is just \(2\pi i f(a)\).   
+
+Further we can determine the value of any derivative of \(f(a)\) from 
 
 \begin{equation}
     f^{(n)}(a) = \frac{n!}{2\pi i} \oint_{C} \frac{f(z)}{(z-a)^{n+1} } dz. 
 \end{equation}
+
+Note that we are differentiating \(f(a)\) with respect to \(a\) since now \(a\) is the real variable and \(z\) is just a dummy variable in the integration. 
 
 The taylor expansion around \(a\) is therefore 
 
 \begin{equation}
     \begin{aligned}
         f(a+\epsilon) &= \frac{1}{2\pi i}\oint_C \frac{f(z)}{z - a - \epsilon}\,dz = \frac{1}{2\pi i}\oint_C \frac{f(z)}{(z - a)\bigl(1 - \frac{\epsilon}{z-a}\bigr)}\,dz \\
-&= \frac{1}{2\pi i}\oint_C \frac{f(z)}{z - a} = \sum_{n=0}^{\infty} \frac{\epsilon^n}{(z - a)^n}\,dz = \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}\,\epsilon^n.
+&= \frac{1}{2\pi i}\oint_C \frac{f(z)}{z - a}  \sum_{n=0}^{\infty} \frac{\epsilon^n}{(z - a)^n}\,dz  \\
+&= \sum_{n=0}^{\infty} \epsilon ^{n} \frac{1}{2\pi i} \oint_{C} \frac{f(z)}{(z-a)^{n+1} } dz \\
+&= \sum_{n=0}^{\infty} \frac{f^{(n)}(a) }{n!} \epsilon ^{n}.      
     \end{aligned}
 \end{equation}
 
@@ -1054,15 +1235,54 @@ and get the same result from here on out.
 
 \subsection{Laurent Expansion}
 
-Taylor expansion still works in the complex plane and we can expand the function about any point, but it would only converge inside the circular disc with radius smaller than the radius of convergence (the distance from the point of expansion to the nearest pole). Outside this disc we would need the Laurent expansion.
+Taylor expansion still works in the complex plane and we can expand the function about any point, but it would only converge inside the circular disc with radius smaller than the radius of convergence (the distance from the point of expansion to the nearest sigularity). Outside this disc we would need the Laurent expansion.
 
-For a function \(f(z)\) which has a pole of order \(p \) at \(z = a\), we known from \cref{lim} that \((z-a)^{p} f(z) \) is analytic at \(z  = a\) and we can Taylor expand around this pole to get
+For a function \(f(z)\) which has a pole of order \(p \) at \(z = a\), we known from \cref{lim} that \(g(z) = (z-a)^{p} f(z) \) is analytic at \(z  = a\) and we can Taylor expand around this pole to get
 
 \begin{equation}
-    (z-a)^{p} f(z) =  \sum_{n=0}^{\infty} b_{n} (z-a)^{n} \implies f(z) = \sum_{n=-p}^{\infty} a_{n} (z-a)^{n}.   
+    g(z) = (z-a)^{p} f(z) =  \sum_{n=0}^{\infty} b_{n} (z-a)^{n} \implies f(z) = \sum_{m=-p}^{\infty} a_{m} (z-a)^{m}.   
 \end{equation}
 
 This expansion which contains negative power of \(z-a\) is called the Laurent expansion. This part of the series which only contains negative power of \(z-a\) is called the principal part. We also note that the residue of the function is given by the coefficient \(\text{Res}(f,a) = a_{-1} \). 
+
+Since we have 
+
+\begin{equation}
+    b_{n} = \frac{g^{(n)}(a) }{n!},
+\end{equation}
+
+we get the general formula for finding the residue as 
+
+\begin{equation}
+    \text{Res}(f,a) = a_{-1} = b_{p-1} = \frac{g^{(p-1)}(a) }{(p-1)!} = \frac{1}{(p-1)!} \lim_{z \to a} \left( \frac{d^{p-1} }{dz^{p-1} } ((z-a)^{p}f(z) )  \right).
+\end{equation}
+
+For a simple pole \(p = 1\) and we simply have 
+
+\begin{equation}
+    \text{Res} (f,a) = \lim_{z \to a} (z-a)f(z). 
+\end{equation}
+
+If the integrand is in the form 
+
+\begin{equation}
+    f(z) = \frac{g(z)}{h(z)}, 
+\end{equation}
+
+with a sipmle pole at \(z = a\), then the residue is 
+
+\begin{equation}
+    \begin{aligned} 
+    \text{Res}(f,a) &= \lim_{z \to a} \left( (z-a)f(z) \right)\\
+    &= \lim_{z \to a} \left( g(z) \left( \frac{z-a}{h(z)+h'(z)(z-a)+h''(z)(z-a)^2/2 + \cdots }  \right) \right) \\
+    &= g(a) \lim_{z \to a} \left( \frac{1}{0 + h'(z) + h'(z)(z-a)/2 + \cdots }  \right) = \frac{g(a)}{h'(a)}. 
+    \end{aligned} 
+\end{equation}
+
+However, if the pole is not simple then we would still require more deatiled analysis using the Laurent Expansion but the idea stands: expand the denominator about the pole using Taylor expansion and inverting the denominator.
+
+
+
 
 \example{Laurent Expansion about a Pole.}
 {Find the Laurent expansion of the fucntion 
@@ -1144,18 +1364,21 @@ about the pole \(z = 1\).
 
 about the point \(z=-2\).
 }
-{We let \(z w = z+2\) and rewrite the function as 
+{We let \(w = z+2\) and rewrite the function as 
 
 \begin{equation}
     \begin{aligned} 
-    f(z) &=  (w-5) \sin \left( \frac{1}{w}  \right) = (w-5)  \sum_{n=0}^{\infty} (-1)^{n} \frac{1}{(2n+1)!}w^{-(2n+1)}\\
+    f(z) &=  (w-5) \sin \left( \frac{1}{w}  \right) = (w-5)  \sum_{n=0}^{\infty} (-1)^{n} \frac{w^{-(2n+1)}}{(2n+1)!}\\
     & = \sum_{n=0}^{\infty} (-1)^{n} \frac{(z+2)^{-2n} - 5(z+2)^{-(2n+1)}  }{(2n+1)!}.      
     \end{aligned} 
 \end{equation}
 
-As we see there can be a Laurent expansion about an essential singularity, but not for non-isolated singularity.
+As we see there can be a Laurent expansion about an essential singularity, but not for a non-isolated singularity.
 ~
 } 
+
+
+
 
 \subsection{Cauchy's Residue Theorem}
 
@@ -1188,7 +1411,7 @@ If the contour encloses \(N\) poles at \(z = w_{k} \) then we have the general
     \oint_{C} f(z)dz = 2\pi i \sum_{k=1}^{N} \text{Res}(f,w_{k} ). 
 \end{equation}
 
-\example{Cauchy's Residue Theorem(1).}
+\example{Cauchy's Residue Theorem (1).}
 {Evaluate the integral 
 
 \begin{equation}
@@ -1205,12 +1428,7 @@ where \(C\) is the circle centered at \(z = 0\) with radius \(2\).
 
 and directly read off the residues using \cref{lim} as \(1,-(1+i)/2 \text { and } -(1-i) /2\), respectively.
 
-Alternatively, we can find the residues in a more general way by considering the Laurent expansion at each poles. For example, for \(z= 0\) we have 
-
-\begin{equation}
-    \frac{z+1}{z(z^2+1)} =  
-\end{equation}
-
+Alternatively, we can find the residues in a more general way by considering the Laurent expansion at each poles. However, since all the poles here are first order using \cref{lim} is the fastest method. In fact, the partial fraction decomposition above is not even necessary.
 
 Applying the Cauchy's residue theorem we have that 
 
@@ -1220,18 +1438,904 @@ Applying the Cauchy's residue theorem we have that
 ~
 }
 
-\subsection{Integrations Around Branch Cuts.}
+\example{Cauchy's Residue Theorem (2).}
+{Evaluate the integral 
 
-In the previous subsection we have seen how to integrate around a pole using the Cauchy's residue theorem. In this subsection we will try and integrate around branch cuts, where the function fails to be analytic.
+\begin{equation}
+    \oint_{C} \frac{e^{1/z} }{z^2-1}, 
+\end{equation}
 
-Consider 
+where \(C\) is a circle centered at \(z = 1\) with radius \(3 /2\).  
+}
+{The sigularties are that lie inside \(C\) are \(z = 0 \text { and } z = 1\), which are essential singularity and a sipmle pole respectively. 
+
+For \(z = 1\) we find the residue simply from \cref{lim} as 
+
+\begin{equation}
+    \text{Res}(f,1) = \lim_{z \to 1} (z-1)\frac{e^{1 /z} }{(z-1)(z+1)} = \frac{e}{2}.   
+\end{equation}
+
+For \(z = 0\) we expand the numerator with the Laurent series and the denominator with the usual Taylor series to get
+
+\begin{equation}
+    f(z) = \frac{e^{1 /z} }{z^2-1} =  -\left( 1+\frac{1}{z} + \frac{1}{2z^2} + \cdots    \right)\left( 1+z^2+z^4+\cdots  \right),
+\end{equation}
+
+so the residue is 
+
+\begin{equation}
+    \text{Res}(f,0) = -\left( 1+\frac{1}{3!}+\frac{1}{5!}  + \cdots   \right) = - \sinh (1).
+\end{equation}
+
+Applying the Cauchy's resideu theorem we get 
+
+\begin{equation}
+    \oint_{C} \frac{e^{1/z} }{z^2-1}= 2\pi i \left( \frac{e}{2} - \frac{e-e^{-1} }{2}   \right) = \frac{\pi i}{e}. 
+\end{equation}
+~
+} 
+
+\subsection{Integrations Around Algebraic Branch Cuts.}
+
+\example{Integral Around Algebraic Branch Cuts (1).}
+{Take the principal branch of square root function 
+
+\begin{equation}
+    f(z) = z^{1/2},
+\end{equation}
+
+where \(\arg (z) \in (0,2\pi )\) and the branch cut taken from \([0,\infty]\).
+
+Evaluate the integral 
+
+\begin{equation}
+    I_{C} = \oint_{C} \sqrt{z}dz,  
+\end{equation}
+
+where \(C\) is the circle \(\abs{z} = 1\). 
+}
+{Consider the complex integral 
+
+\begin{equation}
+    I_{K} = \oint_{K} \sqrt{z}dz,  
+\end{equation}
+
+where \(K\) is the keyhole contour consisting of the large circle \(C\), the upper and lower straight lines \(L_1 \text { and } L_2 \), respectively, and the small circle \(C_{\epsilon } \). 
+
+Along \(L_1 \) we have \(\arg (z) = 0\), so 
+
+\begin{equation}
+    \sqrt{z} = \abs{z}^{1/2}e^{i (\arg z)/2}  = \abs{z}^{1/2}
+\end{equation}
+
+while along \(L_2 \) we have \(\arg (z) = 2\pi \), so
+
+\begin{equation}
+    \sqrt{z} = \abs{z}^{1/2} e^{i (\arg (z)) /2} = \abs{z}^{1/2} e^{i \pi } = - \sqrt{\abs{z} }.
+\end{equation}
+
+Therefore the integrals along \(L_1 \text { and } L_2 \) are 
+
+\begin{equation}
+    \int_{L_1 }^{}   \sqrt{z} dz = \int_{0}^{1} \sqrt{\abs{z} } dz  = \frac{2}{3} ~\text { and }~ \int_{L_2 }^{}  \sqrt{z}dz = \int_{1}^{0} -\sqrt{\abs{z} } dz = \frac{2}{3}.  
+\end{equation}
+
+The integral along the small circle becomes zero as \(\epsilon \to 0\), so from the Cauchy's theorem we have
+
+\begin{equation}
+    \oint_{K} \sqrt{z}dz = 0 = \oint_{C+L_1 +L_2 +C_{\epsilon } } \sqrt{z}dz \implies \oint_{C} \sqrt{z}dz = -\frac{4}{3}.   
+\end{equation}
+
+Alternatively we can do a direct integral using \(\theta \) as the parameter 
+
+\begin{equation}
+    \oint_{C} \sqrt{z}dz = \int_{0}^{2\pi } e^{i \theta /2} (i e^{i \theta }d \theta  ) = -\frac{4}{3}.     
+\end{equation}
+
+Alternatively we can simply state
+
+\begin{equation}
+    \oint_{C} \sqrt{z}dz = \frac{2}{3} \eval{z^{3 /2} }_{z_2 = e^{i 2\pi } }^{z_1 = 1 } = -\frac{4}{3},
+\end{equation}
+
+where the beginning and the end points are just above and below the branch cut, respectively.
+}
+
+\example{Integrals Around Algebraic Branch Cuts (2).}
+{Evaluate the real integral
+\begin{equation}
+  I=\int_{-1}^{1}\frac{dx}{\sqrt{1 - x^{2}}}.
+\end{equation}
+}
+{Consider the complex integral
+
+\begin{equation}
+  I_{C} = \oint_{C} \frac{dz}{\sqrt{1-z^2} },
+\end{equation}
+
+where \(C\) consist of two closed loops \(D\) and \(R\). The first is the “dog‐bone” contour \(D\) that runs just above the cut from \(-1\) to \(1\), loops around \(z=1\), returns just below the cut from \(1\) back to \(-1\), and loops around \(z=-1\), and the second loop \(R\) is the circle with radius \(R\) centered at the origin.
+
+Note that the “dog‐bone” contour \(D\) is positive in clockwise manner while the outer cirlce is assumed positive in anti-clockwise manner, which is since they can be consider as a single closed loop if one connect them with two opposite running straight vertical lines along the \(y\)-axis whcih cancels out each other. 
+
+The region that we are considering is now the region between the two closed loops (but not the region inside the “dog‐bone” contour since it contains the branch cut and so the function is not analytic there).
+
+From the Cauchy's theorem since there is no singularities in the region bounded by \(C\), we have 
+
+\begin{equation}
+    I_{C} = I_{R} + I_{D} = 0 \implies I_{R} = -I_{D},
+\end{equation}
+
+which means the two the integrals along two closed loops along anti-clockwise manner is the same.
+
+For the outer circle with radius \(R\) we parametrize \(z = Re^{i \theta } \), so its contribution is 
+
+\begin{equation}
+    I_{R} = \int_{0}^{2\pi } \frac{i Re^{i \theta } d \theta }{\sqrt{1- R^2e^{2i \theta } } } \to 2\pi. 
+\end{equation}
+
+Here there are two branch points \(z = \pm 1\). For \(z = -1\) we assume that the branch cut extends from \(z = -1\) to \(z = -\infty\). For \(z = +1\) we assume that the branch cut extends from \(z= + 1\) to \(z = -\infty\). The combined branch cut is then just the interval between \(z = -1\) and \(z = +1\).
+
+Now for the ``dog-bone'' contour we have to evaluate the integral
+
+\begin{equation}
+    \begin{aligned} 
+    \oint_{D} \frac{dz}{\sqrt{1-z^2} }dz &= \oint_{D} \frac{dz}{\left( \abs{1-z}\abs{1+z}   \right)^{1/2} }\arg \left( \left( (1-z)(1+z) \right)^{-1/2}  \right) \\
+    &= \oint_{D} \frac{dz}{\left( \abs{1-z}\abs{1+z}   \right)^{1/2} } \left( -1/2 \right) \left( \arg (1-z) + \arg (1+z) \right). 
+    \end{aligned} 
+\end{equation}
+
+The arguments of \(1+z,1-z \text { and } (1-x^2)^{-1/2} \) are summarized below
+
+\[
+\begin{array}{c|ccc}
+\text{Interval \& direction} 
+  & \arg(1+z) 
+  & \arg(1-z) 
+  & \arg\bigl((z^2-1)^{-1/2}\bigr)
+\\\hline
+x\in(-1,1),\,\downarrow 
+  & 0 
+  & -2\pi  
+  & \pi 
+\\[6pt]
+x\in(-1,1),\,\uparrow   
+  & 0 
+  & 0
+  & 0
+\\[6pt]
+x\in(-\infty,-1),\,\downarrow 
+  & \pi 
+  & 2\pi 
+  & -\pi /2
+\\[6pt]
+x\in(1,\infty),\,\uparrow 
+  & -\pi 
+  & 0 
+  & -\pi /2
+\end{array}
+\]
+For the argument of \(1-z\) one should treat, for example, the point \((0.9,-0.1)\) as having an argument of \(0\) and \((0.9,0.1)\) as having an argument of \(2\pi \).
+
+We see that the argument of \((1-z^2)^{-1/2} \) is discontinuous across the branch cut but continuous everywhere else. 
+
+Therefore above and below the ``dog-bone'' contour in anti-clockwise manner we have 
+
+\begin{equation}
+    I_{D} = \int_{1}^{-1} \frac{dz}{\sqrt{1-z^2} } e^{-i\pi } + \int_{-1}^{1} \frac{dz}{1-z^2} e^{i0 } = 2 \int_{-1}^{1} \frac{1}{\sqrt{1-x^2} } dx.  
+\end{equation}
+
+Using the relation between \(I_{R} \text { and } I_{D} \) derived above we finally get 
+
+\begin{equation}
+    \int_{-1}^{1} \frac{1}{\sqrt{1-x^2} }dx = \pi .  
+\end{equation}
+
+As we can see if \(f(z) \sim R\) as \(R \to \infty\) the integral along the outer circle converges to a non-zero finite value. We can also define the residue at infinty as the negative of the integral along the circle
+
+\begin{equation}
+    \text{Res}(f,\infty) = -\frac{1}{2\pi i} \oint_{R} f(z)dz = -\text{Res}\left( \frac{1}{z^2}f\left( \frac{1}{z}  \right),0  \right),
+\end{equation}
+
+For example for the function \(f(z) = (1-z^2)^{-1/2} \) we can expand the function \(f(1/z)\) by Laurent series about \(z = 0\) to get   
+
+\begin{equation}
+    \frac{1}{z^2} f\left( \frac{1}{z}  \right) = \frac{1}{z^2}\frac{1}{\sqrt{1-z^{-2} } } = \frac{i}{z} (1-z^2)^{-1/2} = \frac{i}{z} \left(1+ \frac{1}{2}z^2 + \cdots  \right) \implies \text{Res}(f(1/z)/z^2, 0) = i.    
+\end{equation}
+
+Since we have already calculated that the integral along the outer circle to be \(2\pi \), we have 
+
+\begin{equation}
+    \text{Res}(f,\infty) = -\frac{1}{2\pi i} \oint_{R} f(z)dz = i \implies \oint_{R} f(z)dz = 2\pi ,
+\end{equation}
+
+coinciding with our calculation earlier.
+
+One can also prove the relation 
+
+\begin{equation}
+    \text{Res}(f,\infty)  = -\text{coefficient of \(z^-1\) in the Laurent expansion at \(\infty\)}. 
+\end{equation}
+
+Note that if we instead consider the complex integral 
+
+\begin{equation}
+    \oint_{C} \frac{1}{z^2-1}dz, 
+\end{equation}
+
+then the integration along the outer cirlce would instead be \(2\pi i\), while the integral along the ``dog-bone contour'' would be 
+
+\begin{equation}
+    \oint_{D} \frac{1}{z^2-1}dz = \int_{1}^{-1} \frac{1}{1-z^2}e^{-i\pi /2} dz + \int_{-1}^{1} \frac{1}{\sqrt{1-z^2} } e^{-i\pi /2}dz = 2i \int_{-1}^{1} \sqrt{1-x^2}dx,          
+\end{equation}
+
+where the integrand is \((1-z^2)^{-1/2} \) instead of \((z^2-1)^{-1/2} \) due to the fact that we are taking the modulus should always be real if we write it in polar form.  
+}
+
+
+\example{Integrals Around Algebraic Branch Cuts (3).}
+{Evaluate the real integral 
+\begin{equation}
+    I=\int_{0}^{3} \frac{x^{3/4}(3-x)^{1/4}}{5-x}\,dx.
+\end{equation}
+}
+{Consider the complex integral 
+
+\begin{equation}
+    I_{C} = \oint_{C} \frac{z^{3/4} (3-z)^{1/4} }{5-z}dz,  
+\end{equation}
+
+where \(C\) is the same contour as in the previous question, consisting of the clockwise ``dog-bone'' contour \(D\) and the anti-clockwise outer cirlce \(C\).
+
+Let \(\arg (z) \in (-\pi ,\pi ) \text { and } \arg (3-z) \in (0,2\pi )\). Above the branch cut we have 
+
+\begin{equation}
+    \arg \left( z^{3/4} (3-x)^{1/4}   \right) = \frac{1}{4}(3 \arg (z) + \arg (3-z)) = \frac{1}{4}(0+2\pi ) = \frac{\pi }{2},  
+\end{equation}
+
+while below the branch cut we have 
+
+\begin{equation}
+    \arg \left( z^{3/4} (3-x)^{1/4}   \right) = \frac{1}{4} (3 \arg (z) + \arg (3-z))  =\frac{1}{4} (0+0) = 0. 
+\end{equation}
+
+Therefore around the ``dog-bone'' integral we have 
+
+\begin{equation}
+    \oint_{D} \frac{z^{3/4}(3-z)^{1/4}  }{5-z} dz = \int_{0}^{3} \frac{z^{3/4}(3-z)^{1/4}  }{5-z} e^{i\pi /2} dz + \int_{3}^{0} \frac{z^{3/4}(3-z)^{1/4}  }{5-z} e^{i0}dz = (i-1)I.
+\end{equation}
+
+The integral along the outer cirlce is 
+
+\begin{equation}
+    \begin{aligned} 
+    \oint_{R} \frac{z^{3/4}(3-z)^{1/4}  }{5-z} dz &= \int_{0}^{2\pi } \frac{R^{3/4}e^{i 3 \theta /4} (3-R e^{i \theta } )^{1/4}}{5-Re^{i \theta } } Ri e^{i \theta }d \theta \\
+    &= \int_{0}^{2\pi } R^{3/4}e^{i 3 \theta /4} (-Re^{ i \theta } )^{1/4} \left( 1-\frac{3}{Re^{i \theta } }  \right)^{1/4} (-Re^{ i \theta } )^{-1} \left( 1-\frac{5}{Re^{ i \theta } }  \right)^{-1} Ri e^{ i \theta }  d \theta \\
+    &= \int_{0}^{2\pi } \frac{Re^{e^{2i \theta } } i}{-Re^{ i \theta } } \left( 1-\frac{3}{4Re^{i \theta } }  \right)   \left( 1-\frac{4}{Re^{ i \theta } }  \right) d \theta \\
+    &= -iR e^{i \pi /4} \int_{0}^{2\pi } e^{ i \theta } \left( \frac{5}{Re^{i \theta } } - \frac{3}{4R e^{i \theta } }  \right)    d \theta \\
+    &= -\frac{17}{2} i \pi e^{i \pi /4}.
+    \end{aligned}   
+\end{equation}
+
+If we had not expand the integrand for large \(R\) we would get 
+
+\begin{equation}
+    Ri e^{i \pi /4} \int_{0}^{2\pi } e^{i \theta } d\theta  = 0, 
+\end{equation}
+
+since the integral is identically equals to zero but the prefactor \(R\) only tends to infinity.
+
+The residue at \(z = 5\) is 
+
+\begin{equation}
+    \text{Res} (f,5) = 2\pi i e^{i \pi /4} 5^{3/4} 2^{1/4},    
+\end{equation}
+
+so using the Cauchy's residue theorem we have 
+
+\begin{equation}
+    I_{R} + I_{D} = I_{R} + (i-1)I =  2\pi i\text{Res}(f,5) \implies I = \frac{2\pi i\text{Res}(f,5) - I_{D} }{i-1} = \frac{\sqrt{2} \pi }{4} (17-40^{3/4} ). 
+\end{equation}
+
+Note that one can also use the formula for residue at infinity to calculate the contirubtion of the integral along the outer circle by 
+
+\begin{equation}
+    \oint_{R} f(z)dz = -2\pi i \text{Res}\left( \frac{1}{z^2}f\left(\frac{1}{z} \right),0  \right).
+\end{equation}
+~
+}
+
+\subsection{Integrals Around Logarithmic Branch Cuts}
+
+\example{Integral Around Logarithmic Branch Cuts (1).}
+{Evaluate the real integral 
+\begin{equation}
+    I = \int_{0}^{\infty} \frac{\ln x}{(1+x^2)^2}\,dx.
+\end{equation}
+}
+{Consider the complex integral 
+
+\begin{equation}
+    I_{C} = \oint_{C} \left( \frac{\ln z}{(1+z^2)^2}  \right) dz,
+\end{equation}
+
+where \(C\) consist of two semi-circles with raidus \(r \text { and } R\) centered at the origin with the branch cut along the positive \(x\)-axis. The contributions from the two semi-circles vanish and we are left with the integral along the \(x\)-axis
+
+\begin{equation}
+    \begin{aligned} 
+    I_{C} &= \int_{-\infty}^{0} \frac{\ln x}{(1+x^2)^2}dx+ \int_{0}^{\infty} \frac{\ln x}{(1+x^2)^2}dx \\
+    &= I - \int_{0}^{-\infty} \frac{\ln (-x)_i\pi }{(1+x^2)^2}dx \\
+    &= I - \int_{0}^{\infty} \frac{\ln u+i\pi }{(1+u^2)^2}(-du) \\
+    &= I + \int_{0}^{\infty} \frac{\ln x+i\pi }{(1+x^2)^2}dx\\
+    &= 2I + i\pi \int_{0}^{\infty} \frac{1}{(1+x^2)^2}dx \\
+    &=2I + \frac{i\pi ^2}{4}.            
+    \end{aligned} 
+\end{equation}
+
+Using the Cauchy's residue theorem we have 
+
+\begin{equation}
+    2I + \frac{i\pi ^2}{4} = 2\pi i \left( \frac{\pi +2i}{8}  \right) \implies I = -\frac{\pi }{4}.  
+\end{equation}
+
+Alternatively we can consider the complex integral 
+
+\begin{equation}
+    I_{C} = \oint_{C} \frac{(\ln z)^2}{(1+z^2)^2}dz,  
+\end{equation}
+
+where \(C\) is a keyhole contour with the branch cut along the negative \(x\)-axis. The contributions from the two circles vanish and we are left with the integral above and below the branch cut
+
+\begin{equation}
+    \begin{aligned}
+        &\int_{-\infty}^{0} \frac{(\ln x)^2}{(1+x^2)^2} dx + \int_{0}^{-\infty} \frac{(\ln x)^2}{(1+x^2)^2}dx \\
+        &= -\int_{0}^{-\infty} \frac{(\ln (-x)+i\pi )^2}{(1+x^2)^2}dx + \int_{0}^{-\infty} \frac{(\ln (-x)-i\pi )^2}{(1+x^2)^2}dx\\
+        &= \int_{0}^{\infty} \frac{(\ln x+i\pi )^2}{(1+x^2)^2}dx - \int_{0}^{\infty} \frac{(\ln x-i\pi )^2}{(1+x^2)^2}dx \\
+        &= 4\pi i \int_{0}^{\infty} \frac{\ln x}{(1+x^2)^2}dx = 4\pi iI.                
+    \end{aligned}
+\end{equation}
+
+Using the Cauchy's residue theorem we have 
+
+\begin{equation}
+    4\pi i I = -i\pi ^2 \implies I = -\frac{\pi }{4}. 
+\end{equation}
+
+Alternatively we can consider the same complex integral but with the branch cut taken along the positive \(x\)-axis, so 
+
+\begin{equation}
+    \begin{aligned}
+        I_{C} &= \int_{0}^{\infty} \frac{(\ln x)^2}{(1+x^2)^2}dx + \int_{\infty}^{0} \frac{(\ln x + 2i\pi )^2}{(1+x^2)^2} dx\\
+        &= -4\pi i \int_{0}^{\infty} \frac{\ln x}{(1+x^2)^2}dx + 4\pi ^2\int_{0}^{\infty} \frac{1}{(1+x^2)^2}dx\\
+        &= -4\pi i I + \pi ^3 .             
+    \end{aligned}
+\end{equation}
+
+Using the Cauchy's residue theorem we have 
+
+\begin{equation}
+    -4\pi iI + \pi ^3 = -i\pi ^2?
+\end{equation}
+~
+}  
+
+\example{Integrals Around Logarithmic Branch Cuts (2).}
+{Evaluate the real integral
+\begin{equation}
+  \int_{-1}^{1}\frac{dx}{\sqrt{1 - x^{2}}}.
+\end{equation}
+}
+{Consider the complex integral
+
+\begin{equation}
+  \oint_{C} \frac{dz}{\sqrt{1-z^2} }  
+\end{equation}
+
+with branch points at \(z=\pm1\) and a branch cut taken along the real interval \([-1,1]\). 
+
+Here \(C\) consist of two closed loops. The first is the “dog‐bone” contour that runs just above the cut from \(-1\) to \(1\), loops around \(z=1\), returns just below the cut from \(1\) back to \(-1\), and loops around \(z=-1\), and the second loop is the circle with radius \(R\) centered at the origin.
+
+Note that the “dog‐bone” contour is in clociwse manner while the outer cirlce is in anti-clockwise manner, which is since they can be consider as a single closed loop if one connect them with two opposite running straight vertical lines along the \(y\)-axis whcih cancels out each other. 
+
+The region that we are considering is now the region between the two closed loops (but not the region inside the “dog‐bone” contour since it contains the branch cut and so the function is not analytic there).
+
+For the outer circle with radius \(R\) we parametrize \(z = Re^{i \theta } \), so its contribution is 
+
+\begin{equation}
+    I_{R} = \int_{0}^{2\pi } \frac{i Re^{i \theta } d \theta }{\sqrt{1- R^2e^{2i \theta } } } \to 2\pi. 
+\end{equation}
+
+While above the “dog‐bone” contour, \(1-z^2 = (1-x^2)e^{0i} \) and below the “dog‐bone” contour, \(1-z^2 = (1-x^2)e^{2\pi i} \), so its contibution is 
+
+\begin{equation}
+    I_{D} = \int_{-1}^{1} \frac{dx}{\sqrt{1-x^2} } + \int_{1}^{-1} \frac{dx}{-\sqrt{1-x^2} }  = 2\int_{-1}^{1} \frac{dx}{\sqrt{1-x^2} }.       
+\end{equation}
+
+Using the Cauchy's theorem we have 
+
+\begin{equation}
+    I_{R} + I_{D} = 0 \implies \int_{-1}^{1} \frac{dx}{\sqrt{1-x^2} } = -\pi .
+\end{equation}
+
+
+
+Alternatively we can calculate the residue at infinty by the expanding the function \(f(w)\) at \(w = 0\) where \(w = 1/z\)   
+
+\begin{equation}
+    \int_{R}^{} f(z)dz = \frac{1}{1-z^2} = \frac{1}{1-w^{-2} } = iw(1-w^2)^{-1/2} = iw + \cdots = \frac{i}{z} + \cdots \implies \text{Res}(f,\infty) = i.    
+\end{equation}
+
+Therefore the integral along the outer circle is 
+
+\begin{equation}
+    \int_{R}^{} f(z)dz = -2\pi i (i) = 2\pi , 
+\end{equation}
+
+where the negative sign 
+~
+}
+
+\example{Integrations Around Branch Cuts (3).}
+{Evaluate the real integrals 
+
+\begin{equation}
+    \int_{0}^{+\infty} \frac{\ln x}{x^2+1} dx ~\text { and }~ \int_{0}^{+\infty} \frac{(\ln x)^2}{x^2+1} dx.    
+\end{equation}
+
+~
+}
+{Consider the complex integral 
+
+\begin{equation}
+    I_{\Gamma } = \oint_{\Gamma } \frac{(\ln z)^2}{z^2+1} dz, 
+\end{equation}
+
+with branch point at \(z = 0\) and branch cut taken from the positive \(x\)-axis. 
+
+Here \(\Gamma \) consists of two semi-circles in the upper half plane centered at the origin with radii \(r \text { and } R\) respectively, and two straight lines connecting them, as shown in \cref{contour3}.  
+
+The singularity inside \(\Gamma \) is \(z = i\) and its residue is \((\ln i)^2/2i\), so by the Cauchy's residue theorem we get 
+
+\begin{equation}
+    I_{\Gamma } = \oint_{\Gamma } \frac{(\ln z)^2}{z^2+1} = 2\pi i \left( \frac{(\ln i)^2}{2i}  \right)  = -\frac{\pi ^3 }{4}. 
+\end{equation}
+
+As \(R \to \infty \text { and } r \to 0\), the small and large arc integrals go to zero, since
+
+\begin{equation}
+    \abs{\frac{(\ln z)^2}{z^2+1} } \approx  \frac{\abs{\ln R + i \theta } ^2}{\abs{z}^2-1 } \approx \frac{(\ln R)^2}{R^2} ~\text { and }~ \abs{\frac{(\ln z)^2}{z^2+1} } \approx  \frac{\abs{\ln r + i \theta } ^2}{\abs{z}^2-1 } \approx (\ln r)^2.
+\end{equation}
+
+\begin{equation}
+    \begin{aligned} 
+    I_{\Gamma } &= \int_{-\infty}^{0} \frac{(\ln x)^2}{x^2+1}dx + \int_{0}^{\infty} \frac{(\ln x)^2}{x^2+1}dx \\
+    & \int_{-\infty}^{0} \frac{(\ln (-x) + i\pi )^2}{x^2+1}dx +  \int_{0}^{\infty} \frac{(\ln x)^2}{x^2+1}dx \\
+    &= \int_{\infty}^{0}\frac{(\ln u + i\pi )^2}{x^2+1}(-du) + \int_{0}^{\infty} \frac{(\ln x)^2}{x^2+1}dx \\
+    &= \int_{0}^{\infty} \frac{2(\ln x)^2 + 2i\pi \ln x - \pi ^2}{x^2+1}dx.   
+    \end{aligned}                
+\end{equation}
+
+Using the Cauchy's residue theorem we equate the real part to \(-\pi ^3 /4\) and the imaginary part to zero 
+
+\begin{equation}
+    2 \int_{0}^{\infty} \frac{(\ln x)^2}{x^2+1} - \pi ^2 \int_{0}^{\infty} \frac{1}{x^2+1}dx = -\frac{\pi ^3 }{4} ~\text { and }~ 2i\pi \int_{0}^{\infty} \frac{\ln x}{x^2+1} = 0.         
+\end{equation}
+
+Therefore 
+
+\begin{equation}
+    \int_{0}^{\infty} \frac{(\ln x)^2}{x^2+1} = \frac{\pi ^3 }{8} ~\text { and }~ \int_{0}^{\infty} \frac{\ln x}{x^2+1} = 0.      
+\end{equation}
+~
+} 
+
+
+
+\subsection{ML Lemma and Jordan's Lemma}
+
+\subsubsection{ML Inequality}
+
+The ML (Max-Length) Lemma states that for any contour \(\gamma \) and any function \(f(z)\) continuous on \(\gamma \),
+
+\begin{equation}
+    \abs{\int_{\gamma }^{} f(z)dz} \le \int_{\gamma }^{} \abs{f(z)}\abs{dz} \le ML, \quad M = (\max _{z \in \gamma } \abs{f(z)}) \text { and } L = \int_{\gamma }^{} dz.  
+\end{equation}
+
+\subsubsection{Jordan's Lemma}
+
+The Jordan's Lemma states that for the contour \(C_{R} \) (a semi-circular arc of radius \(R\) in the upper half-plane) and any function \(f(z)\) is continuous on \(C_{R} \). If \(k > 0\) is a real number, then
+
+\begin{equation}
+    \abs{\int_{C_{R} }^{} f(z) e^{ikz}dz   } \le \frac{\pi M}{k}, \quad M = (\max _{z \in C_{R} } \abs{f(z)}).
+\end{equation}
+
+This is because using the ML inequality we have
+
+\begin{equation}
+    \abs{\int_{C_{R} }^{} f(z) e^{ikz}dz } \le \int_{0}^{\pi } \text{max}(\abs{f(Re^{i \theta } )}) \abs{e^{ikz} } \abs{Ri e^{i \theta } } d \theta = MR \int_{0}^{\pi } e^{-kR \sin \theta } d \theta \le  \frac{\pi M}{k}.         
+\end{equation}
+
+If \(M \to 0\) as \(R \to \infty\) then we get  
+
+\begin{equation}
+    \lim_{R \to \infty} \int_{C_{R} }^{} f(z)e^{ikz}dz = 0, 
+\end{equation}
+
+If \(k < 0\) then we consider a semi-circular arc in the lower half-plane. 
+
+In short, the Jordan's Lemma hinges on the fact that \(e^{i kz } = e^{i kx} e^{-iy}  \) tends to zero as \(x \to \infty \text { and } y \to \infty\).  
+
+\example{ML inequalities.}
+{Show that 
+
+\begin{equation}
+    \lim_{R \to \infty} \abs{R \int_{0}^{\alpha } e^{-R^2e^{2i \theta } } e^{i \theta } d \theta }=0, \quad 0 \le \alpha \le \frac{\pi }{4}. 
+\end{equation}
+
+By considering the sector contour with angle \(\arg (w)\) show that 
+
+\begin{equation}
+    \int_{0}^{\infty} e^{-w^2x^2}dx = w^{-1} \int_{0}^{\infty} e^{-x^2} dx.    
+\end{equation}
+
+Hence using \(\arg (w) = \pi /4\) evaluate the real integral 
+
+\begin{equation}
+    \int_{0}^{\infty} \cos (x^2)dx.  
+\end{equation}
+~
+}
+{For \(0 \le \alpha < \pi /4\), we use the ML inequality to get 
+
+\begin{equation}
+     \lim_{R \to \infty} \abs{R \int_{0}^{\alpha } e^{-R^2e^{2i \theta } } e^{i \theta } d \theta } \le R \int_{0}^{\alpha } \abs{e^{-Re^{e^{2i \theta } } } } \abs{e^{i \theta } } d \theta = R \int_{0}^{\alpha } e^{-Re^{ \cos (2 \theta )} }  d \theta \le R \int_{0}^{\alpha }e^{-R^2\cos (2 \alpha )} d \theta = R \alpha e^{-R^2\cos (2\alpha )} \to 0.      
+\end{equation}
+
+For \(\alpha  = \pi /4\) we split the integral into two parts 
+
+\begin{equation}
+     \lim_{R \to \infty} \abs{R \int_{0}^{\alpha } e^{-R^2e^{2i \theta } } e^{i \theta } d \theta }  = \lim_{R \to \infty} \abs{R \int_{0}^{\pi /4 - \epsilon } e^{-R^2e^{2i \theta } } e^{i \theta } d \theta } +  \lim_{R \to \infty} \abs{R \int_{\pi / 4 - \epsilon }^{\pi /4} e^{-R^2e^{2i \theta } } e^{i \theta } d \theta }.
+\end{equation}
+
+The first integral vanshies as we have shown, while for the second integral we make the subsitution \(\phi = \pi /4 - \theta \), then 
+
+\begin{equation}
+    \begin{aligned} 
+    \lim_{R \to \infty} \abs{R \int_{\pi / 4 - \epsilon }^{\pi /4} e^{-R^2e^{2i \theta } } e^{i \theta } d \theta } &= R \int_{0}^{\epsilon } e^{-R^2 \sin (2 \phi )}d\phi \le R \int_{0}^{\epsilon } e^{-2R^2\phi \cos \epsilon } d \phi \\
+    &= \frac{1}{2R\cos \epsilon }\left( 1-e^{-2R^2\epsilon \cos \epsilon }  \right) \to 0.
+    \end{aligned} 
+\end{equation}
+~
+} 
+
+
+\subsection{Applications}
+
+\subsubsection{Real Integrals involving \(\infty\) }
+
+\example{Real Integrals involving \(\infty\)  (1).}
+{Evaluate the real integral 
+
+\begin{equation}
+    \int_{-\infty}^{+\infty} \frac{x^2}{(x^2+1)(x^2+4)}dx.  
+\end{equation}
+~
+}
+{Consider the complex integral 
+
+\begin{equation}
+    I_{C} = \oint_{C} \frac{z^2}{(z^2+1)(z^2+4)}dz, 
+\end{equation}
+
+where \(C\) is a semi-circle in the upper half-plane centered at the origin with radius \(R\).
+
+The singularities inside \(C\) are \(z = i \text { and } 2i\), and their residues are 
+
+\begin{equation}
+    \text{Res}(f,i) = \lim_{z \to i} (z-i)f(z)=  \frac{i}{6} ~\text { and }~ \text{Res}(f,2i) = \lim_{z \to 2i} (z-2i)f(z) = -\frac{i}{3}.   
+\end{equation}
+
+Using the Cauchy's residue theorem the integral is
+
+\begin{equation}
+    I_{C} = 2\pi i \left( \frac{i}{6} - \frac{i}{3}   \right) = \frac{\pi }{3}. 
+\end{equation}
+
+Therefore we get 
+
+\begin{equation}
+    I_{C} = \int_{-R}^{R} f(x)dx + \int_{\Gamma _{R} }^{}f(z)dz  = \int_{-\infty}^{\infty} \frac{x^2}{(x^2+1)(x^2+4)}dx = \frac{\pi }{3},    
+\end{equation}
+
+since using the ML inequality we can show that 
+
+\begin{equation}
+    \int_{\Gamma _{R} }^{} f(z)dz \le \left( \max \abs{f(z)}  \right) (\text{length of }\Gamma _{R}  ) \approx \frac{\pi }{R} \to 0 \text{ as } R \to 0.  
+\end{equation}
+~
+} 
+
+\example{Real Integrals from involving \(\infty\)  (2).}
+{Evaluate the real integral
+
+\begin{equation}
+    \int_{-\infty}^{+\infty} \frac{e^{x /2} }{\cosh x}dx.  
+\end{equation}
+~
+}
+{Consider the complex integral 
+
+\begin{equation}
+    I_{C} = \oint_{C} \frac{e^{z /2} }{\cosh z}dz,  
+\end{equation}
+
+where \(C\) is a rectangular contour with vertices \(-L,L,L+i\pi ,-L+i\pi \). 
+
+Thesingularities inside \(C\) is \(z = i\pi /2\), and its residue is 
+
+\begin{equation}
+    \text{Res}\left( f, \frac{i\pi }{2}  \right) = \lim_{z \to i\pi /2} \left( z - \frac{i\pi }{2}  \right) \frac{e^{x /2} }{\cosh x} = \frac{e^{i \pi /4} }{i} .
+\end{equation}
+
+The contour \(C\) can be broken into four pieces. The integral along the real axis is the one we want to find. The two integrals along the vertical side tends to zero as \(L\) tends to infinity, since as \(L \to \infty\) we have 
+
+\begin{equation}
+    \frac{e^{x /2} }{\cosh x} \to e^{-L/2} \to 0 \text{ as } L \to \infty.  
+\end{equation}
+
+The integral along the top side of the rectangle is 
+
+\begin{equation}
+    \int_{L+i\pi }^{-L+i\pi } f(z)dz = -\int_{-L}^{L} f(x+i\pi )dx = -\int_{-L}^{L} \frac{-i e^{x /2} }{\cosh x} dx = i \int_{-L}^{L} \frac{e^{x /2} }{\cosh x}dx.          
+\end{equation}
+
+Using the Cauchy's residue theorem we get 
+
+\begin{equation}
+    I_{C} = (1+i) \int_{-\infty}^{+\infty} \frac{e^{-x /2} }{\cosh x}dx = 2\pi i \left( \frac{e^{i \pi /4} }{i}  \right) \implies \int_{-\infty}^{+\infty} \frac{e^{x /2} }{\cosh x}dx = \sqrt{2}\pi .   
+\end{equation}
+~
+} 
+
+\example{Real Integrals Involving \(\infty\) (3).}
+{Evaluate the real integrals 
+
+\begin{equation}
+    \int_{0}^{\infty} \frac{\ln x}{(1+x^2)}dx ~\text { and }~ \int_{0}^{\infty} \frac{\ln (1+x^2)}{1+x^2}dx.     
+\end{equation}
+~
+}
+{Consider the integral 
+
+\begin{equation}
+    F(\alpha ) = \int_{0}^{\infty} \frac{x^{\alpha } }{(1+x^2)^{\alpha } }dx.   
+\end{equation}
+
+We evaluate this integral by considering the more general complex integral 
+
+\begin{equation}
+    G(\alpha ) = \int_{0}^{\infty} \frac{z^{\alpha } }{(1+z^2)^{\alpha } }dz.  
+\end{equation}
+
+Our goal is then to calculate \(F'(0)\), where the differentiation is with respect to \(\alpha \)  
+
+\begin{equation}
+    a^2f
+\end{equation}
 
 
 
 
+} 
+
+
+\subsubsection{Real Integrals with Trigonometric Functions}
+
+\example{Real Integrals with Trigonometric Functions (2).}
+{Evaluate the real integral 
+
+\begin{equation}
+    \int_{-\infty}^{+\infty} \frac{\cos (3x)}{1+x^2}dx.  
+\end{equation}
+~
+}
+{Consider the complex integral 
+
+\begin{equation}
+    I_{C} = \oint_{C} \frac{e^{3ix} }{1+z^2} dz
+\end{equation}
+
+where \(C\) is a semi-circle in the upper half-plane centered at the origin with radius \(R\).
+
+The singularity inside \(C\) is \(z = i\), and its residue is
+
+\begin{equation}
+    \text{Res}(f,i) = \lim_{z \to i} (z-i)f(z) = \frac{e^{-3} }{2i}.   
+\end{equation}
+
+Using the Cauchy's residue theorem the integral is
+
+\begin{equation}
+      \oint_{C} \frac{e^{3ix} }{1+z^2} = 2\pi i \left( \frac{e^{-3} }{2i} \right) = \frac{\pi }{e^3}. 
+\end{equation}
+
+Therefore we get 
+
+\begin{equation}
+      \oint_{C} \frac{e^{3ix} }{1+z^2} = \int_{-R}^{R} f(x)dx + \int_{\Gamma _{R} }^{}f(z)dz  = \int_{-\infty}^{+\infty} \frac{\cos (3x)}{1+x^2}dx = \frac{\pi }{e^3},    
+\end{equation}
+
+since using the Jordan's lemma we have 
+
+\begin{equation}
+    \frac{1}{1+z^2} \to \frac{1}{R^2} \text{ as } R \to \infty ,  
+\end{equation}
+
+which grows slower than \(1 / \abs{z} \), so the integral 
+
+\begin{equation}
+    \int_{\Gamma _{R} }^{} \frac{e^{3iz} }{1+z^2} dz \to 0 \text{ as } R \to \infty.     
+\end{equation}
+~} 
 
 
 
+
+\example{Real Integrals with Trigonometric Functions (3).}
+{Evaluate the real integral
+
+\begin{equation}
+    \int_{0}^{2\pi } \frac{1}{1+8\cos ^2\theta } d \theta .   
+\end{equation}
+~
+}
+{We make the standard substitution 
+
+\begin{equation}
+    z = e^{i \theta } \implies d \theta = \frac{dz}{iz} ~\text { and }~ \cos \theta = \frac{z^2+1}{2z}.  
+\end{equation}
+
+The integral then becomes
+
+\begin{equation}
+    \oint_{C} \frac{1}{1+8 ((z^2+1) /2z)^2} \frac{dz}{i z} = \oint_{C} \frac{z}{i(2z^{4} + 5z^2+2)}dz,   
+\end{equation}
+
+where \(C\) is a unit circle centered at the origin. The residues and the poles are 
+
+\begin{equation}
+    \text{Res} \left( f, \frac{i}{\sqrt{2} }  \right) = -\frac{i}{6} = \text{Res} \left( f, -\frac{i}{\sqrt{2} }  \right).
+\end{equation}
+
+So from the Cauchy's residue theorem the integral is 
+
+\begin{equation}
+    \int_{0}^{2\pi } \frac{1}{1+8\cos ^2\theta } d \theta = \oint_{C} \frac{z}{i(2z^{4} + 5z^2+2)}dz = 2\pi i \left( -\frac{2i}{6}  \right) = \frac{2\pi }{3}. 
+\end{equation}
+~} 
+
+\example{Real Integrals with Trigonometric Functions (4).}
+{Evaluate the real integral 
+
+\begin{equation}
+    \int_{0}^{\infty}  \frac{\sin x}{x}dx.  
+\end{equation}
+~
+}
+{Consider the complex integral 
+
+\begin{equation}
+    I_{C} = \oint_{C} \frac{e^{iz} }{z}dz,
+\end{equation}
+
+where \(C\) are the two semi-circles in the half plane centered at the origin with radii \(r \text { and } R\) respectively, as shown in \cref{contour3}.  
+
+There are no singularities inside \(C\) so we get \(I_{C} = 0\). 
+
+As \(R \to \infty\) the integral vanishes so we are left with the contributions along the real axis and the integral along the smaller semi-circle with raidus \(r\).
+
+\begin{equation}
+    \int_{-\infty}^{\infty} \frac{e^{ix} }{x}dx + \int_{0}^{\pi } \frac{e^{i re^{i \theta } } }{re^{i \theta } } ir e^{i \theta }d \theta = 0.    
+\end{equation}
+
+Simplifying we get 
+
+\begin{equation}
+    2 \int_{0}^{\infty} \frac{e^{ix} }{x}dx + i \pi = 0 \implies \int_{0}^{\infty} \frac{\sin x}{x} = \mathfrak{Im} \left( \int_{0}^{\infty} \frac{e^{ix} }{x}dx   \right) = \frac{\pi }{2}.    
+\end{equation}
+
+To be more formal for the integral along the negative \(x\)-axis we should use the parameterization \(z = \abs{x}e^{i\pi } = -\abs{x}   \), then the integral becomes
+
+\begin{equation}
+    \int \frac{e^{iz} }{z} dz = \int_{\infty}^{0} \frac{e^{-i \abs{x} } }{\abs{x} } d(\abs{x} ) = \int_{-\infty}^{0} \frac{e^{iu} }{u}du,    
+\end{equation}
+
+where we have used the substitution \(u = -\abs{x} \) at the last step. 
+
+In fact one can also choose a contour that include the pole at \(z = 0\) instead of excluding it. One would then find that the negative sign incurred from the integral of the semi-circle would cancels out with the residue now that the pole is inside our contour to get the same result. 
+} 
+
+
+\subsubsection{Others}
+
+\example{Sum of \(1 /n^2 \). }
+{Evaluate the sum
+
+\begin{equation}
+    S = \sum_{n=1}^{\infty} \frac{1}{n^2} ~\text { and }~ S' = \sum_{n=1}^{\infty} \frac{1}{n^2+a^2}. 
+\end{equation}
+~
+}
+{We start by considering the complex integral
+
+\begin{equation}
+    I_{Q} = \oint_{Q_{N} } \frac{\pi \cot (\pi z)}{z^2}  dz,
+\end{equation}
+
+where \(Q_{N} \) is a sqaure contour with length \(2N + 1/2\) centered at the origin.  
+
+The singularities inside \(Q_{N} \) are \(z = n < N\). For \(n \neq 0\) the residue is easily found by 
+
+\begin{equation}
+    \text{Res}(f,n \neq 0) = \lim_{z \to n} (z-n)\frac{\pi \cot (\pi z)}{z^2} = \frac{\pi \cos (\pi n)}{n^2} \lim_{z \to n} \frac{z-n}{\sin (\pi z)} = \frac{\pi }{n^2}.   
+\end{equation}
+
+For \(z = 0\) however we need to obtain the residue through Laurent expansion
+
+\begin{equation}
+    \frac{\pi \cos (\pi z)}{z^2\sin (\pi z)} = \frac{\pi (1-\frac{(\pi z)^2}{2!} + \cdots )}{z^2(\pi z - \frac{(\pi z)^3 }{3!} + \cdots )} = \frac{1}{z^3 } - \frac{\pi ^2}{3z} + \cdots \implies \text{Res}(f,0) = - \frac{\pi ^2}{3}.      
+\end{equation}
+
+The contour integral vanishes as \(N \to \infty\), since \(\frac{1}{n^2} \) goes to zero as \(n \to \infty\) and \(\abs{\pi } \cot (\pi z)\) is bounded on the contour. For example on the vertical lines we have \(z = N+1/2+iy\), so 
+
+\begin{equation}
+    \cot (\pi z) = i \frac{e^{i\pi (N+1/2+i\pi y)} + e^{-i\pi (N+1/2+i\pi y)} }{e^{i\pi (N+1/2+i\pi y)} - e^{-i\pi (N+1/2+i\pi y)} } = i \frac{i(-1)^{N}e^{-\pi y} + (-1)^{N}(-i)e^{\pi y}}{i(-1)^{N}e^{-\pi y} - (-1)^{N}(-i)e^{\pi y}} = \frac{e^{\pi y} - e^{-\pi y} }{e^{\pi y} + e^{-\pi y} } = \tanh (\pi y),   
+\end{equation}
+
+which is obviously bounded.
+
+Therefore by the Cauchy's residue theorem we have 
+
+\begin{equation}
+    \oint_{Q_{N} }  \frac{\pi \cot (\pi z)}{z^2} dz = 0 = 2\pi i \left( -\frac{\pi ^2}{3} + 2 \sum_{n=1}^{\infty} \frac{\pi }{n^2}  \right).
+\end{equation}
+
+We therefore conclude that 
+
+\begin{equation}
+    S = \sum_{n=1}^{\infty} \frac{1}{n^2} = \frac{\pi ^2}{6}.   
+\end{equation}
+
+To extend our result and calculate \(S'\), we consider the complex integral 
+
+\begin{equation}
+    I_{Q}' = \oint_{_{Q_{N} } }  \frac{\pi \cot (\pi z)}{z^2+a^2}dz. 
+\end{equation}
+
+The sigularities inside \(Q_{N} \) are \(z = \pm ia \text { and } z = n < N\). For the singularites \(z = n < N\) the resiues are 
+
+\begin{equation}
+    \text{Res}(f,n<N) = \lim_{z \to n} (z-n)\frac{\pi \cot (\pi z)}{z^2+a^2} = \frac{\pi \cos (\pi n)}{n^2+a^2} \lim_{z \to n} \frac{z-n}{\sin (\pi z)} = \frac{\pi }{n^2+a^2}.   
+\end{equation}
+
+For the singularities \(z = \pm ia\) the residues are  
+
+\begin{equation}
+    \text{Res}(f,\pm ia) = \lim_{z \to \pm ia} (z-\pm ia) \frac{\pi \cot (\pi z)}{z^2+a^2} = -\frac{\pi }{2} \coth (\pi a). 
+\end{equation}
+
+The contour integral vansihes as \(N \to \infty\) as the same reason as above and therfore by the Cauchy's residue theorem we have
+
+\begin{equation}
+    \oint_{Q_{N} }\frac{\pi \cot (\pi z)}{z^2+a^2}dz = 0 = 2\pi i \left( 2 \left(-\frac{\pi }{2} \coth (\pi a) \right) + 2 \sum_{n=1}^{\infty} \frac{1}{n^2+a^2} + \frac{1}{a^2}   \right).  
+\end{equation}
+
+We therefore conclude that 
+
+\begin{equation}
+    S' = \sum_{n=1}^{\infty} \frac{1}{n^2+a^2} = \frac{1}{2}\left( \pi \coth(\pi a) - \frac{1}{a^2} \right). 
+\end{equation}
+~
+} 
 
 
 

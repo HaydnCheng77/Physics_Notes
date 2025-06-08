@@ -813,6 +813,78 @@ Alternatively, we can guess \(\vb{x} = \vb{v} e^{i \omega t} \) to get\footnote{
 
 which shows that \(\vb{v} _{i} \) are the eigenvectors with eigenvalues \(\lambda _{i} =  m \omega _{i}^2\), which gives the relative amplitudes of each masses in a certain mode of oscillation. One would go on to find the \(n\) eigenvalues \(\lambda _{i} = m \omega _{i}^2  \) and the corresponding \(n\) eigenvectors and thus getting the same result as above.
 
+\example{Normal Modes.}
+{Consider a double pendulum consisting of two masses suspended by identical massless rods of length \(\ell \). The upper and lower masses are \(m\) and \(\alpha m\) respectively, where \(\alpha \) is a constant. With \(x_1 \text { and } x_2 \) denoting the horizontal displacements of the upper and lower masses respectively, solve for the frequencies of the normal modes of the system in terms of \(\alpha \). If \(\alpha  = 1\) calculate the ratio of the amplitudes of the two displacements. 
+
+Now assume that \(\alpha  \ll  1 \) so that quadratic terms in alpha can be neglected. Determine the value that \(\alpha \) should take for the lower freqeuncy mode to have one quarter of the frequency of a single pendulum of length \(\ell \) and mass \(m\). Describe qualitatively what happens to the higher-frequency normal mode as \(\alpha \to  0\).    }
+{The equations of motions of the system can be written as 
+
+\begin{equation}
+	\begin{pmatrix}
+		 \ddot{x}_{1}   \\
+		 \ddot{x}_{2}   \\
+	\end{pmatrix} = - \frac{g}{\ell } \begin{pmatrix}
+		1+2\alpha  & -\alpha   \\
+		-\alpha  & \alpha   \\
+	\end{pmatrix} \begin{pmatrix}
+		 x_1  \\
+		 x_2  \\
+	\end{pmatrix}.
+\end{equation}
+
+Substituting \((x_1 ,x_2 ) = (X_1 ,X_2 )e^{i \lambda \sqrt{g /\ell } t} \), we find 
+
+\begin{equation}
+	\begin{pmatrix}
+		-1-2\alpha + \lambda ^2 & \alpha   \\
+		\alpha  & -\alpha +\lambda ^2  \\
+	\end{pmatrix} \begin{pmatrix}
+		 X_1  \\
+		 X_2  \\
+	\end{pmatrix} = \boldsymbol{0} .
+\end{equation}
+
+Requiring the detemrinant to be zero we get 
+
+\begin{equation}
+	\omega _{1,2}^2 = \left( \frac{1+3 \alpha }{2} \pm \frac{\sqrt{5 \alpha ^2+2\alpha +1} }{2} \right)  \frac{g}{\ell }. 
+\end{equation}
+
+For \(\alpha = 1\), \(\lambda ^2 = 2 \pm \sqrt{2} \), and we find the eigenvectors 
+
+\begin{equation}
+	\begin{pmatrix}
+		 X_1  \\
+		 X_2  \\
+	\end{pmatrix} = \begin{pmatrix}
+		 1 \\
+		 1-\sqrt{2}  \\
+	\end{pmatrix} ~\text { and }~ \begin{pmatrix}
+		 X_1  \\
+		 X_2  \\
+	\end{pmatrix} = \begin{pmatrix}
+		 1 \\
+		 1+\sqrt{2}  \\
+	\end{pmatrix}
+\end{equation}
+
+for plus and minus respectively.
+
+For the low frequency to be a quarter of that of a simple pendulum we require that 
+
+\begin{equation}
+	\begin{aligned} 
+	\frac{1}{4} \sqrt{\frac{g}{\ell }} &= \left( \left( \frac{1+3 \alpha }{2} \pm \frac{\sqrt{5 \alpha ^2+2\alpha +1} }{2} \right)  \frac{g}{\ell } \right)^{1/2}\\
+	7+24 \alpha &= 8\sqrt{1+2 \alpha + 5 \alpha ^2} \approx 8 (1+\alpha ) \implies \alpha = \frac{1}{16}. 
+	\end{aligned}   
+\end{equation}
+
+Note that we should not square both sides and then omit the \((24 \alpha )^2 \text { and } 5 \alpha ^2\) terms, since then we would mix some second order correction into account. To properly take the second order correction into account we can sipmly expand the square root up to second order. The moral is that when dealing with small angles never square the equation. 
+
+Physically when the lower mass becomes negligible \((\alpha \to 0)\), the high-frequency normal mode sipmly tends to the natural freqeuncy of the upper pendulum along \(\sqrt{g /\ell } \). The lower mass still follows with an amplitude ration of \(X_2 /X_1 = 2\), but its inertia is negligible so it does not affect the frequency.   
+} 
+
+
 \subsection{Unequal Masses}
 
 If the masses in the system are unequal, then the equation becomes 
@@ -851,16 +923,16 @@ However, despite its simplicity this form is still not so useful due to it invov
 
 which can be derived from both \cref{this,that} directly, again showing that the ``solution must be real'' reasoning is the same as taking the real part of one of the solutions.
 
-Different terms corresponds to different normal modes, a pattern of oscillation in which all parts of the system oscillate a single frequency where the ratio between different parts' displacements remains fixed in time. If the initial condition matches an eigenvector \(\vb{v} _{i} \) corresponding to the eigenfrequency \(\omega _{i} \), \textit{i.e.,} \(\vb{x} (0) = C \vb{v} _{i} \text { and } \dot{\vb{x} }(0) = \boldsymbol{0}  \),\footnote{Here \(C\) is just a scaling constant, since only the relative positions of the masses matter but not the absolute positions.}\footnote{Of course one can also have the relative positions not equal to the eigenvector but have the velocities compensate for it so that the system still exhibits a single normal mode but it is less intuitive and less pratical.} then the masses will oscillate together at the same, single frequency \(\omega _{i} \).  
+Different terms corresponds to different normal modes, a pattern of unforced oscillation in which all parts of the system oscillate a single frequency with a fixed relative phase and amplitude. If the initial condition matches an eigenvector \(\vb{v} _{i} \) corresponding to the eigenfrequency \(\omega _{i} \), \textit{i.e.,} \(\vb{x} (0) = C \vb{v} _{i} \text { and } \dot{\vb{x} }(0) = \boldsymbol{0}  \),\footnote{Here \(C\) is just a scaling constant, since only the relative positions of the masses matter but not the absolute positions.}\footnote{Of course one can also have the relative positions not equal to the eigenvector but have the velocities compensate for it so that the system still exhibits a single normal mode but it is less intuitive and less pratical.} then the masses will oscillate together at the same, single frequency \(\omega _{i} \).  
 
 If one of the eigenvalue is \(\omega^2 = 0\), then the corresonding solution should be \(x_1 = x_2 = \cdots  = x_{n} = X_{\text{c.m.} } + V_{\text{c.m.} }t   \).   
 
 \subsection{Beats}
 
-Beating occurs when the normal mode frequencies are close to each other. For a two equal masses system, the normal mode frequencies and their corresponding eigenvectors are
+Beating occurs when the normal mode frequencies are close to each other. For a two equal masses system, each connected to a wall with a spring with spring constant \(k\) and connected to each other with a spring with spring constant \(\kappa \), the normal mode frequencies and their corresponding eigenvectors are
 
 \begin{equation}
-	\omega _{s} = \sqrt{\frac{k}{m} }, \quad  \omega _{f} = \sqrt{\frac{k+2\kappa }{2m} } ~\text { and }~ \vb{v} _{s} = \begin{pmatrix}
+	\omega _{s} = \sqrt{\frac{k}{m} }, \quad  \omega _{f} = \sqrt{\frac{k+2\kappa }{m} } ~\text { and }~ \vb{v} _{s} = \begin{pmatrix}
 		 1 \\
 		 1 \\
 	\end{pmatrix}, \quad \vb{v} _{f} = \begin{pmatrix}
@@ -887,7 +959,11 @@ The general solution for \(\vb{x} (t) = (x_1(t) ,x_2 (t))\) is therefore
 	\end{pmatrix} \sin \omega _{f}t .
 \end{equation}
 
-If \(\kappa \ll k\), then we have \(\omega _{s} \approx \omega _{f}  \) and for the initial condition \(\vb{x} (0) = (0,A) \text { and } \dot{\vb{x} }(0) = (0,0) \) we have 
+If \(\kappa \gg k\), then we have the strong coupling case. Since the middle spring is very stiff, the masses behave nearly as one rigid body in the lower-frequency (symmetric) mode with frequency \(\omega _{s} = \sqrt{k/m}  \), while in the high-frequency (antisymmetric) mode they oscillate against the stiff coupling spring at \(\omega _{f}  =\sqrt{2\kappa /m}  \). 
+
+If \(\kappa \ll k\), then we have the weak coupling case where \(\omega _{f} \approx \omega _{s} = \sqrt{k /m}  \). Since the middle spring is very soft, so the two masses are almost uncoupled and each mass oscillates essentially on its own end-spring but energy is transferred between the two masses via the weak coupling spring, a phenomenon known as beating. 
+
+he initial condition \(\vb{x} (0) = (0,A) \text { and } \dot{\vb{x} }(0) = (0,0) \) we have 
 
 \begin{equation}
 	\begin{cases}
@@ -900,7 +976,7 @@ The solutions are plotted in \cref{beats}. We can see that the rapid \(\Omega \)
 
 \onefig{beats}{scale=0.3} 
 
-Note that there is no restriction on the slope of the \(x_1 (t) \text { and } x_2 (t)\) curves at the intersection between the curves \(\pm \cos \Omega t\). 
+Note that there is no restriction on the slope of the \(x_1 (t) \text { and } x_2 (t)\) curves at the intersection between the curves \(\pm \cos \Omega t\). Note also that as long as the solution has the form \(x(t) = A \cos (\omega _{1})t + B \cos (\omega _{2} t) \) there would be beating even if \(A \neq B\), as the cosine terms still go in and out of phase.  
 
 \subsection{Damped and Forced Oscillators}
 
@@ -1179,7 +1255,25 @@ subject to the initial conditions
 	y(x,t=0) = y_0 (x) ~\text { and }~ \frac{\partial y}{\partial t} (x,t=0) = \dot{y_0 }(x). 
 \end{equation}
 
-The general solution of the wave equation is given by
+Introducing the variables \(u = x-ct \text { and }  v = x+ct\), we can rewrite the time derivative by 
+
+\begin{equation}
+	\partial _{t} = u_{t}\partial _{u} + v_{t}\partial _{v} = c(\partial _{v} - \partial _{u}  ) \implies \partial _{tt} = c^2(\partial _{uu} - 2 \partial _{uv} + \partial _{vv}  ).      
+\end{equation}
+
+Similarly, the spatial derivative can be rewritten as 
+
+\begin{equation}
+	\partial _{xx} = \partial _{uu} + 2 \partial _{uv} + 2 \partial _{vv}.    
+\end{equation}
+
+Subtituting into the wave equation we get 
+
+\begin{equation}
+	\frac{\partial^2 y}{\partial u \partial v} = 0. 
+\end{equation}
+
+The general solution of the wave equation is therefore given by
 
 \begin{equation}
 	y(x,t) = f(x-ct) + g(x+ct),
@@ -1388,36 +1482,22 @@ Since the LHS and RHS are functions of different variables, they can only be equ
 which has the general solution
 
 \begin{equation}\label{ThetaQ}   
-	y(x,t) = T(t)X(x) = \left( Ae^{ik ct}+Be^{-ik ct}    \right)\left( Ce^{i k x}+De^{-i k x}   \right) 
+	y(x,t) = T(t)X(x) = \left( Ae^{ik ct}+Be^{-ik ct}    \right)\left( Ce^{i k x}+De^{-i k x}   \right). 
 \end{equation}
 
-Solving the wave equation now becomes a matter of finding the coefficients \(A, B, C, D\) to satisfy the boundary conditions and initial conditions. The complete solution is built up of these stationary waves with different wavenumbers \(k\) and frequencies \(\omega = ck\). 
+The \(y(x,t)\) we get above is called a stationary wave, or standing wave, or a nomral mode, since it only contains one frequency of oscillation \(\omega = ck\). 
 
-\subsubsection{Linear Combination of Stationary Waves}
-
-Stationary wave, also called standing wave, is a wave in which certain points, called nodes remain fixed in space while other points, called antinodes, oscillate with maximum amplitude, so the amplitude of oscillation waries with position. A standing waves stores energy locally and does not transmit any net power. It is the superposition of two waves of the same frequency and amplitude travel in opposite directions in the same medium.
-
-The most general form of a stationary wave with wavenumber \(k\) (thus frequency \(\omega = kc\)) is given by 
+The complete solution is the linear combination of stationary waves with different wavenumbers \(k\) and frequencies \(\omega = ck\), \textit{i.e.,} 
 
 \begin{equation}
-	y(x,t) = A \sin (kx + \varphi _{x} )\sin (\omega t+\varphi _{t} ),
+	y(x,t) = \sum_{m=1}^{\infty}  \left( Ae^{ik ct}+Be^{-ik ct}    \right)\left( Ce^{i k x}+De^{-i k x}   \right),
 \end{equation}
 
-where we can also use cosine instead of sine due to the freedom imposed by \(\varphi _{x}\text { and } \varphi _{t}  \).   
+where the linearity factor \(K_{m} \) is absorbed into \(A,B,C,D\). 
 
-If we enforce \(y(x,t)\) is real for all \(x \text { and } t\), we have \(A=B^* \equiv T_0 e^{i\epsilon } \text { and } C=D^* \equiv X_0 e^{i\delta } \), we see that the general solution in \cref{ThetaQ} from the separation of variables is in fact a stationary wave
+As we see there are infinite modes due to infinite amount of particles present, and for each mode there are four undetermined constants, refering to the second order nature of the wave equation and the fact that there are two variables \(x \text { and } t\). 
 
-\begin{equation}
-	y(x,t) = T_0 (e^{i (\Lambda ct + \epsilon )}+e^{-i(\Lambda ct+\epsilon )}  ) X_0 (e^{i(\Lambda x+\delta )}+e^{-i(\Lambda x+\delta )} ) = X_0 T_0 \cos (\Lambda ct + \epsilon ) \cos (\Lambda x+\delta ).
-\end{equation}
-
-Note that we do not limit the generality of the solution by enforcing \(y(x,t)\) to be real, since we, in fact, live in a real world. If one insist that \(y(x,t)\) being complex is more general, it is also fine, however the real initial and boundary conditions make the imaginary part zero, forcing it to be real. 
-
-In short, this procedure is not a must, but would help us more intuitively understand the solution, since we are real creatures.
-
-The complete general solution is the linear combination of these stationary waves with different wavenumbers \(k\) (thus \(\omega = ck\)).
-
-The boundary conditions, usually specifying two fixed nodes or antinodes, fix the values of \(\delta \text { and } \Lambda \), while the initial conditions, usually the initial displacement and velocity, fix the values of \(X_0 T_0 \text { and } \epsilon \).
+Solving the wave equation now becomes a matter of finding the coefficients \(A, B, C, D\) to satisfy the boundary conditions and initial conditions. 
 
 \subsection{Complex and Real Waves} \label{explain}
 
@@ -1452,6 +1532,36 @@ Similarly, \(-kx-\omega t\) is used to denote a backward propagating wave in phy
 At this point, one might think that the general solution in \cref{ThetaQ} using the separation of variables method can be further simplified, since terms like \(Ae^{i(\Lambda ct)}+Be^{-i(\Lambda ct)}  \) can be represented by just the first term given that \(A = B^*\) since the solution must be real. However, this is not correct since the whole premise of this simplication is that we would take the real part at the end and recover the same real wave as if we did not neglect the second term.
 
 The difference is that in \cref{ThetaQ}, we are taking the real part of the product of two complex numbers, which is generally not equal to the product of their real parts, but we also have to consider the product of their imaginary parts, which complicate things even more. Therefore in such cases, it is best to restrict ourselves to the current form of \cref{ThetaQ}.
+
+
+\subsubsection{Linear Combination of Stationary Waves}
+
+Stationary wave is a wave in which certain points, called nodes remain fixed in space while other points, called antinodes, oscillate with maximum amplitude, so the amplitude of oscillation waries with position. A standing waves stores energy locally and does not transmit any net power. It is the superposition of two waves of the same frequency and amplitude travel in opposite directions in the same medium.
+
+The most general form of a stationary wave with wavenumber \(k\) (thus frequency \(\omega = kc\)) is given by \cref{ThetaQ} 
+
+\begin{equation}
+	\begin{aligned} 
+	y(x,t) &= \left( Ae^{ik ct}+Be^{-ik ct}    \right)\left( Ce^{i k x}+De^{-i k x}   \right) \\
+	&=AC e^{ik(x+ct)} + BD e^{-ik(x+ct)} + BC e^{ik(x-ct)} + AD e^{-ik(x-ct)},
+	\end{aligned} 
+\end{equation}
+
+which we have shown to be consisting of a forward and a backward travelling wave.
+
+If we enforce \(y(x,t)\) is real for all \(x \text { and } t\), we have \(A=B^* \equiv T_0 e^{i\epsilon } \text { and } C=D^* \equiv X_0 e^{i\delta } \), we see that the general solution in \cref{ThetaQ} from the separation of variables is in fact a stationary wave
+
+\begin{equation}
+	y(x,t) = T_0 (e^{i (\Lambda ct + \epsilon )}+e^{-i(\Lambda ct+\epsilon )}  ) X_0 (e^{i(\Lambda x+\delta )}+e^{-i(\Lambda x+\delta )} ) = X_0 T_0 \cos (\Lambda ct + \epsilon ) \cos (\Lambda x+\delta ).
+\end{equation}
+
+Note that we do not limit the generality of the solution by enforcing \(y(x,t)\) to be real, since we, in fact, live in a real world. If one insist that \(y(x,t)\) being complex is more general, it is also fine, however the real initial and boundary conditions make the imaginary part zero, forcing it to be real. 
+
+In short, this procedure is not a must, but would help us more intuitively understand the solution, since we are real creatures.
+
+The complete general solution is the linear combination of these stationary waves with different wavenumbers \(k\) (thus \(\omega = ck\)).
+
+The boundary conditions, usually specifying two fixed nodes or antinodes, fix the values of \(\delta \text { and } \Lambda \), while the initial conditions, usually the initial displacement and velocity, fix the values of \(X_0 T_0 \text { and } \epsilon \).
 
 \example{Stretched String Fixed at Two Points.}
 {Consider a stretched string fixed at \(x=0\) and \(L\), with initial condition \(y_0 (x) \text { and }  \dot{y_0 }(x) \) as usual. Find the general solution to the wave equation. }
@@ -1784,7 +1894,7 @@ Thus energy is conserved.
 
 \section{Dispersive Waves}
 
-A dispersive medium is one which waves of different wavenumber \(k\) travel at different speeds. Its dispersion relation \(\omega (k)\) gives the angular frequency \(\omega \) as a function of \(k\). Note that dispersive wvaes does not obey \cref{waveequation}.
+A dispersive medium is one which waves of different wavenumber \(k\) (or frequency \(\omega \)) travel at different phase velocity. A wave-packet composed of sinusodial waves of different wavenumber \(k\) thus spread out over time and space, and would not maintain a constant shape. Its dispersion relation \(\omega (k)\) gives the angular frequency \(\omega \) as a function of \(k\). Note that dispersive wvaes does not obey \cref{waveequation}.
 
 Examples of dispersion includes water waves, where deep-water waves obey \(\omega ^2 = gk\) and shallow-water waves obey \(\omega ^2 = gh\); light in glass where the refractive index \(n(\lambda )\) depends on wavelength, a prism disperses whitelight into its component colours for wavelength analysis uses this pricniple; and seismic waves where \(P\)- and \(S\)- waves' speeds depend on frequency.    
 
@@ -1798,7 +1908,7 @@ The phase velocity
 	v_{p}(k) = \frac{\omega (k)}{k}  
 \end{equation}
 
-is the velocity of a single monochromatic wave with wavenumber \(k\). Different components of the wave with different wavenumbers thus move at different speeds and therefore the wave do not maintain its initial shape while they move.
+is the velocity of a single sinusoidal travelling wave with wavenumber \(k\). Different components of the wave with different wavenumbers thus move at different speeds and therefore the wave do not maintain its initial shape while they move.
 
 For the \(N\) masses case, the wavelength of the \(m^{\text{th}} \) normal mode is \(\lambda _{m} = 2L /m \implies m = k_{m}L /\pi  \) and the angular frequency given by \cref{normalmode}
 
@@ -1808,6 +1918,8 @@ For the \(N\) masses case, the wavelength of the \(m^{\text{th}} \) normal mode 
 
 where \(l = L /(N+1)\) is the distance between each masses. And of course the frequency \(\omega _{m} \) reduces to \(m \omega _{1} \) when \(kl \ll  1\).    
 
+No information is carried in a pure sinusodial wave (except the fact that there is a tone at this frequency, but nothing ever chnages in the signal), so the phase speed is not limited by the speed of light. Imagine a lamp that is always on exactly 100 Watts. You walk into a room and see it -- sure, you know there is a lamp, but you don't learn anything else. If the person contrlling that lamp wanted to communicate ``A'' or ``B'' to you, leaving it on constantly gives you no way to discriminate. Only when it blinks or chnages brightness can you interprest ``short/long flashes'' or ``bright/dim'' as Morse code or some other scheme.
+
 \subsection{Group Velocity}
 
 The group velocity 
@@ -1816,8 +1928,43 @@ The group velocity
 	v_{g}(k) = \frac{d \omega }{dk}  
 \end{equation}
 
-is the velocity at which a wave-packet envelope travels.
+is the velocity at which a wave-packet envelope which consists of sinusodial waves with different wavenumbers \(k\) travels. 
 
+A sipmle example for transmitting information is if we combine two waves of similar freqeucies and wavenumbers. Then by superposition the waveform would be 
+
+\begin{equation}
+	y = A\sin \left( (k+\delta k)x - (\omega +\delta \omega )t \right) + A \sin \left( (k-\delta k)x - (\omega - \delta \omega )t \right) = 2A \cos (\delta kx - \delta \omega t) \sin (kx - \omega t),
+\end{equation}
+
+which consists of a rapidly-oscillating wave with wavenumber \(k\) and frequency \(\omega \) (beacuse the wavelength and period are small), travelling at the phase speed \(v_{p} = \omega /k \), and a slowly-oscillating envelope wave with wavenumber \(\delta k\) and frequency \(\delta \omega \). The maximum of the envelope wave satisfies 
+
+\begin{equation}
+	\delta k x - \delta \omega t = \text{constant} \implies \frac{dx}{dt} = \frac{\delta \omega }{\delta k}.   
+\end{equation}
+
+This is precisely the group velocity \(v_{g} \) of those two closely spaced components. 
+
+Note that this is not a perfect example to illustrate group velocity since the envelope wave is still a pure sinusoidal wave, so itself also carries no information. But the point stands: in a modulated wave, the underlying rapidly-oscillating wave carries no information and travels at the phase spped \(v_{p} = \omega /k \) while the modulating envelope travels at the group speed \(v_{g} = d \omega /dk \). 
+
+Below we will demonstrate the formula for group speed \(v_{g} = d \omega /dk  \) more rigorously. Consider the case where the peak of the wave-packet is situated at \(x = 0\) at \(t = 0\) and the phases of each individual sinusoidal waves with wavenumbers \(k_{i} \) and frequencies \(\omega _{i} \) are given by 
+
+\begin{equation}
+	\theta _{i} =  \omega _{i}t - k_{i}x + \phi _{i}.
+\end{equation}
+
+For the sinusoidal waves to interfere constructively to give the peak of the wave-packet we want the phase \(\theta \) to be independent of \(k\), so 
+
+\begin{equation}
+	\frac{d}{dk} (\omega_{i}t - k_{i}x + \phi _{i}) = 0 \implies \frac{x}{t} = \frac{d \omega }{dk}.  
+\end{equation}
+
+Since the bump consists of wave components with many different values of \(k\), there is
+an ambiguity about which value of k is the one where we should evaluate \(v_{g} = d \omega /dk\). The
+general rule is that it is evaluated at the value of k that dominates the bump. That is, it is
+evaluated at the peak of the Fourier transform of the bump.
+
+
+You can only assign a single ``group velocity'' when the pulse remains coherent, \textit{i.e.,} when its spectral components don't wander apart. If the material dispersion is strong enough (or the pulse bandwidth wide enough) that different frequencies outrun each other, the pulse breaks up, and the notion of one group velocity ceases to be meaningful.
 
 \subsection{Gravity Waves with Surface Tension}
 
@@ -1879,6 +2026,26 @@ where we have assumed \(h(x,t) = A e^{i(kx - \omega t)} \) again.
 Wavepackets are composed of a carrier wave with wavelength \(k_{c} \) and an envelope that can have any shape. 
 
 At \(t=0\), the wave packet has the form \(y(x,t=0) = E(x)\cos (k_{c}x+\varphi  )\), where \(E(x)\) is the envelope.   
+
+\subsection{Conservation of Waves}
+
+For dispersive wave system one can associate a local wave number \(\overline{k} = k(x,t)\) and a local angular frequency \(\overline{\omega } = \omega (x,t)\) given that \(\overline{\omega } \text { and } \overline{k} \) are slowly varying functinos of both space and time. 
+
+The number of waves per unit time must be equal to the negative number of waves per unit length, so 
+
+\begin{equation}
+	\frac{1}{T} = \frac{1}{\lambda } \implies \frac{\partial \overline{k} }{\partial t} + \frac{\partial \overline{\omega } }{\partial x} = 0.    
+\end{equation}
+
+Substituting \(\omega (k) = \sqrt{a+c^2k^2} \) we also get
+
+\begin{equation}
+	\frac{\partial \overline{k} }{\partial t} + c_{g}(\overline{k} )\frac{\partial \overline{k} }{\partial x} = 0.   
+\end{equation}
+
+It then becomes clear that changes in \(\overline{k} \text { and } \overline{\omega }  \) travel at the group velocity, which is also the pseed at which the wave energy propagates. 
+
+
 
 \chapter{Central Forces}
 
@@ -1945,8 +2112,8 @@ where \(\vu{n} \) is the direction of collision, which is a frame-independent qu
 
 It is very clear in the center of mass frame that if \(e = 1\), then \(\vb{v} _{\text{rel} }' = \vb{v} _{\text{rel} } \) and the energy is conserved.   
 
-\example{2-Dimensional Collision.}
-{A particle of mass \(m\)  is travelling with initial speed \(u\)  along the \(x\)-axcis when it cllides elastically and obliquely with a more massive stationary particle of mass \(M\). Find the angle of deflection \(\theta \) of the mass \(m\) in terms of the angle of deflection \(\phi \) of mass \(M\).}
+\example{Two-Dimensional Elastic Collision.}
+{A particle of mass \(m\)  is travelling with initial speed \(u\)  along the \(x\)-axis when it collides elastically and obliquely with a stationary particle of mass \(M\). Find the angle of deflection \(\theta \) of the mass \(m\) in terms of the angle of deflection \(\phi \) of mass \(M\).}
 {We start with energy and momentum conservation 
 
 \begin{equation}
@@ -1988,6 +2155,117 @@ Writing \(\cos ^2\theta = 1-\sin ^2\theta \) we have
 \end{equation}
 ~
 } 
+
+\example{Two-Dimensional Inealastic Collision.}
+{A particle of mass \(M_1 \) is travelling with initial speed \(u\) along the \(x\)-axis when it collides inelastically and obliquely with a stationary particl of mass \(M_2 \). Given that the angle of deflection of mass \(M_1 \) is \(\theta\), find the speed of mass \(M_1 \), \textit{i.e.,} \(v\), following the collision in terms of the coefficient of resitutiton \(e\).
+
+Find the maximum deflection angle \(\theta _{\text{max} } \) given that \(M_1 > M_2 \).  }
+{Consider the center of mass frame travelling at 
+
+\begin{equation}
+	v_{\text{c.m.} } = \frac{M_1 }{M_1 + M_2 }u  
+\end{equation}
+
+From the center of mass frame, \(m \text { and } M\) travels in opposite direction with speed 
+
+\begin{equation}
+	u_{\text{1,c.m.} } = \frac{M_2 }{M_1 + M_2 } u ~\text { and }~ u_{\text{2,c.m.} } = \frac{M_1 }{M_1 + M_2 }, \quad M_1 u_{\text{1,c.m.} } = M_2 u_{\text{2,c.m.} }.  
+\end{equation}
+
+After the collision, \(M_1  \text { and } M_2 \) travels in opposite direction with speed \(v_{\text{1,c.m.} } \text { and } v_{\text{2,c.m.} }  \) respectively, with the same constriant \(M_1 v_{\text{1,c.m.} }  = M_2 v_{\text{2,c.m.} } \).  
+
+Using the definition of the coefficient of restitution we get 
+
+\begin{equation}
+	e = \frac{\abs{\vb{v} _{\text{rel} } '} \cdot \vu{n} }{\abs{\vb{v} _{\text{rel} } } \cdot \vu{n} } = \frac{v_{\text{1,c.m.} } + v_{\text{2,c.m.} }  }{u_{\text{1,c.m.} } + u_{\text{2,c.m.} } } = \frac{v_{\text{1,c.m.} } }{u_{\text{1,c.m.} } } = \frac{v_{\text{2,c.m.} } }{v_{\text{2,c.m.} } }.    
+\end{equation}
+
+Considering the vector addition triangle of \(M_1 \) shown in \cref{collision} we then get 
+
+\begin{equation}
+	v_{\text{1,c.m.} }^2 = v ^2 + v_{\text{c.m.} }^2 - 2v_1 v_{\text{c.m.} } \cos \theta , 
+\end{equation}
+
+so we get 
+
+\begin{equation}
+	v = \frac{M_1 }{M_1 + M_2 } \left( \cos \theta \pm \sqrt{\cos ^2\theta - 1 + e^2 \left( \frac{M_2 }{M_1 }  \right)}  \right) u.
+\end{equation}
+
+
+For \(M_1 =M_2 \text { and } e = 1\), we have 
+
+\begin{equation}
+	v = \frac{1}{2} (\cos \theta \pm \abs{\cos \theta } ).
+\end{equation}
+
+For \(0 \le  \theta \le  \pi /2\), we choose the positive root for the solution to make sense, so \(v = u \cos \theta \). For \(\pi /2 \le  \theta \le  \pi \) neither the positive root nor the negative root make any sense, since both gives a negative answer, even through \(v\) is a straightly non-negative quantity (it is the norm of the velocity vector of \(M_1 \) in the lab frame), so \(v = u\cos \theta < 0\). This means that the maximum deflection angle is \(\pi /2\) for equal mass elastic collision. 
+
+For \(M_2 \gg M_1 \text { and } e =1\), we have 
+
+\begin{equation}
+	v = \pm 1.
+\end{equation}
+
+However, as we have mentioned \(v\) must be non-negative, \(v = 1\) is the only possible solution, which means the \(M_1 \) simply bounces off \(M_2 \) with the same speed, which makes perfect sense.
+
+For \(e = 0\), the only possible value of \(\theta \) which makes the terms under the square root non-negative is \(\theta  = 0\), in which case we get 
+
+\begin{equation}
+	v = \frac{M_1 }{M_1 + M_2 } u, 
+\end{equation}
+
+which also make sense since \(M_1 \text { and } M_2 \) now sticks together and moves at the same speed. 
+
+From \cref{collision} we see that as the angle of deflection in the center of mass frame \(\phi \) varies from \(0 \) to \(2\pi \), the angle of deflection in the lab frame increases from \(0\) to \(\theta _{\text{max} } \) then subsequently decreases to \(0\). By simple geometry we find 
+
+\begin{equation}
+	\sin \theta _{\text{max} } = \frac{v_{1,\text{c.m.} } }{v_{\text{c.m.} } }  = \frac{M_2 }{M_1 }.  
+\end{equation}
+~
+} 
+
+\onefig{collision}{scale=0.3} 
+
+\example{Superball.}
+{A spherical superball is perfectly elastic, incompressible and rough. In the figure below a superball of radius \(a\) is spinning with an angular velocity \(\Omega _{1} \) as shown. The superball hits a rough, horizontal surface while travelling with components of velocity \(u_1 \) normal to the surface and \(v_1 \) parallel to the surface. Find the linear and angular velocities \(u_2 , v_2 \text { and } \Omega _{2} \) with which it rebounds.}
+{Since the collision is elastic we have 
+
+\begin{equation}
+	e = \abs{\frac{\vb{v} _{\text{rel} } ' \cdot \vu{n} }{\vb{v} _{\text{rel} } \cdot \vu{n}  } } = 1 \implies u_2 = -u_1 . 
+\end{equation}
+
+From the linear and angular impulse theorem we have 
+
+\begin{equation}
+	J = -ft = m(v_2 -v_1 ) ~\text { and }~ aJ = -aft = I(\Omega _{2} - \Omega _{1}  ).
+\end{equation}
+
+From the conservation of energy we have 
+
+\begin{equation}
+	m(v_1 ^2+u_1 ^2) + I\Omega _{1}^2 = m(v_2 ^2+u_2 ^2) + I\Omega _{2}^2.  
+\end{equation}
+
+Eliminating \(J\) we get 
+
+\begin{equation}
+	\begin{cases}
+		v_1 +a\Omega _{1} &= -(v_2 +a\Omega _{2} ) ,\\
+		5v_1 -2a\Omega _{1} &= 5v_2 -2a\Omega _{2}  ,
+	\end{cases}
+\end{equation}
+
+where the first equation shows that the tangential velocity of the contact point is also reversed, so the ``tangential coefficient of restitution'' is also \(1\).
+
+Solving the system of equation gives 
+
+\begin{equation}
+	v_2 =\frac{3}{7} v_1 -\frac{4}{7} a \Omega _{1} ~\text { and }~ \Omega _{2} = \frac{10}{7} \frac{v_1 }{a} + \frac{3}{7} \Omega _{1} .   
+\end{equation}
+~
+} 
+
 
 
 
@@ -2048,6 +2326,80 @@ which is the same is directly writing down the Newton's second law
 The tangential angular velocity plus the gravitational potential consitutes the effective potential, which further reduces the two-dimensional one-body central force problem into a one-dimensional one-body problem. 
 
 Zeros of \(E-V_{\text{eff} }(r)  \) give perigee and apogee. Minima of \(V_{\text{eff} }(r) \) correspond to stable circular orbits. The ``centrifugal barrier'' term \(J^2/2mr^2\) explains why the particle cannot reach \(r=0\) unless \(J=0\).      
+
+\example{Power Laws (1).}
+{Consider a point mass \(m\) moving with angular momentum \(L\) under the action of a potential \(V(r) = \beta r^{k} \). Find the radius \(r_0 \) of a circular orbit in terms of \(\beta ,k, m \text { and } L\).
+
+The mass is disturbed slightly, such that the radius oscillates about \(r_0\). Find
+the frequency of these oscillations \(\omega _{r} \) and the ratio of this frequency to the orbital
+frequency \(\omega _{\theta } \)  at \(r_0 \).
+
+Use the result to sketch the shape of the perturned orbits for \(k = 2, 7 \text { and } 7/4\). }
+{The effective potential is 
+
+\begin{equation}
+	V_{\text{eff} }  = \frac{L^2}{2mr^2} + \beta r^{k}. 
+\end{equation}
+
+To find the circular orbit we set its derivative to be zero 
+
+\begin{equation}
+	\frac{dV_{\text{eff} } }{dr} = 0 \implies r_0 = \frac{L^2}{\alpha km}^{1/(k+2)}.   
+\end{equation}
+
+The angular frequency of the oscillation is simply 
+
+\begin{equation}
+	\omega = \sqrt{\frac{V_{\text{eff} }''(r_0 ) }{m} } = \sqrt{k+2} \omega _{\theta }.   
+\end{equation}
+
+The sketches for \(k = 2, 7 \text { and } 7/4\) can be found in \cref{efforbits1} and \cref{efforbits2}. \Cref{2eff} and \cref{2eff1} shows the case for \(k = 2\), where the amplitude of the raidal disturbation is set to be \(0.1r_0 \text { and } 0.3r_0 \) respectively, while \cref{7eff} and \cref{74eff} show the case for \(k=7 \text { and } 7/4\) respectively. Note that for small enough amplitude of raidal oscilaltion and for \(k =2\) the orbit is an ellipse, as expected. 
+} 
+
+\twofig{2eff}{width=\textwidth}{2eff1}{width=\textwidth}{efforbits1} 
+
+\twofig{7eff}{width=\textwidth}{74eff}{width=\textwidth}{efforbits2} 
+
+\example{Power Laws (2).}
+{A particle of mass \(m\), angular momentum \(L\) and energy \(E > 0\) moves in a central potential \(V(r) = \beta /r^2\). In the case \(L^2/2m - \beta > 0\) solve for the trajectory of the particle in polar coordinates. What happens when \(L^2/2m = \beta \)? }
+{From energy and angular momentum conservation we have 
+
+\begin{equation}
+	E = \frac{1}{2}m \dot{r} ^2 + \frac{L^2}{2mr^2} + \frac{\beta }{r^2} ~\text { and }~ L = mr^2 \dot{\theta }. 
+\end{equation}
+
+As always, use the angular momentum conservation equation to elimiante \(t\) dependecy, so we substitute
+
+\begin{equation}
+	\dot{r} = \frac{L}{mr^2} \frac{dr}{d \theta }  
+\end{equation}
+
+to get
+
+\begin{equation}
+	\left( \frac{dr}{d \theta }  \right)^2 = \frac{2mE}{L^2} r^4 - a^2 r^2, \quad a^2 = 1+ \frac{2m\beta }{L^2}. 
+\end{equation}
+
+Now we do the famous substitution \(u = 1/r\) and get  
+
+\begin{equation}
+	\left( \frac{du}{d \theta }  \right)^2 = \frac{2mE}{L^2} - a^2u^2 \implies u(\theta ) = \frac{1}{r} = \frac{\sqrt{2mE} }{aL} \sin (a \theta ).  
+\end{equation}
+
+When \(L^2/2m = \beta \), the effective potential vansies, and we simply have 
+
+\begin{equation}
+	\dot{r} = \sqrt{\frac{2E}{m} }.  
+\end{equation}
+
+Integrating we find that the particle crashes onto the origin in finite time, however, since 
+
+\begin{equation}
+	r = \frac{1}{\theta } \sqrt{\frac{L^2}{2mE} },  
+\end{equation}
+
+as one can easily show by the same means as the previous case, \(\theta \to \infty\) as \(r \to 0\), so the particle winds around the origin infinite number of times before crashing.  
+} 
 
 \subsection*{Wavepacket Construction and Group‐Velocity Dispersion}
 
@@ -2288,6 +2640,8 @@ This phenomenon is called \emph{group‐velocity dispersion}.
 
 \chapter{Lagrangian mechanics}
 \section{Euler-Lagrange Equation}
+
+Generalized coordianates are a set of parameters \(q_1 ,q_2 ,\ldots ,q_{n} \) chosen to uniquely specify the configuration of a system such that knowing all \(q_{i} \) fixes every particle's position. The minimum number of independent generalized coordintates needed is the degrees of freedom of the system.  
 
 Suppose that the function \(q(t)\) minimizes the action \(S\),\footnote{\(S\) is a functional which takes a function as its input and produces a real number as its output.} which is the integral of the Lagrangian \(\mathcal{L}(q(t), \dot{q}(t), t )\) 
 
@@ -2638,8 +2992,8 @@ In those cases the Hamiltonian \(H\) is conserved
 
 \begin{equation}
 	\begin{aligned} 
-	\frac{dE}{dt} &= \sum_{i}^{}  \ddot{q} _{i} \frac{\partial L}{\partial \dot{q}_{i}  }  + \sum_{i}^{} q_{i} \frac{d}{dt} \left( \frac{\partial L}{\partial \dot{q}_{i}  } \right)   - \frac{dL}{dt} \\
-	&= \sum_{i}^{}  \ddot{q} _{i} \frac{\partial L}{\partial \dot{q}_{i}  }  + \sum_{i}^{} q_{i} \frac{d}{dt} \left( \frac{\partial L}{\partial \dot{q}_{i}  } \right) - \left( \sum_{i}^{} \frac{\partial L}{\partial q_{i} } \dot{q}_{i}  + \sum_{i}^{} \frac{\partial L}{\partial \dot{q}_{i} } \ddot{q}_{i}  + \frac{\partial L}{\partial t}     \right) \\
+	\frac{dE}{dt} &= \sum_{i}^{}  \ddot{q} _{i} \frac{\partial L}{\partial \dot{q}_{i}  }  + \sum_{i}^{} \dot{q} _{i}  \frac{d}{dt} \left( \frac{\partial L}{\partial \dot{q}_{i}  } \right)   - \frac{dL}{dt} \\
+	&= \sum_{i}^{}  \ddot{q} _{i} \frac{\partial L}{\partial \dot{q}_{i}  }  + \sum_{i}^{} \dot{q} _{i} \frac{d}{dt} \left( \frac{\partial L}{\partial \dot{q}_{i}  } \right) - \left( \sum_{i}^{} \frac{\partial L}{\partial q_{i} } \dot{q}_{i}  + \sum_{i}^{} \frac{\partial L}{\partial \dot{q}_{i} } \ddot{q}_{i}  + \frac{\partial L}{\partial t}     \right) \\
 	&= \sum_{i}^{} \dot{q} _{i} \left( \frac{d}{dt} \left( \frac{\partial L}{\partial \dot{q} _{i} }   \right) - \frac{\partial L}{\partial \dot{q}_{i}  }  \right) - \frac{\partial L}{\partial t} = 0.
 	\end{aligned} 
 \end{equation}

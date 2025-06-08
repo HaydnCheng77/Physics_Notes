@@ -174,6 +174,56 @@ A sub vector space \(W \subset V \) is a non-empty subset of a vector space \(V\
 
 The sum of \(U+W\) of two sub vector spaces is called direct if and only if \(U \cap W = {\boldsymbol{0} }\) and a direct sum is written as \(U \oplus W\).   
 
+\example{Constructing Scalar Multiplication.}
+{A vector addition operation \(\oplus\) is defined for the set of \(n\)-dimensional vectors, \(\mathbb{R}^{n} \) by 
+
+\begin{equation}
+    \vb{x}  \oplus \vb{y}  \equiv \vb{x} + \vb{y} -\vb{a},
+\end{equation}
+
+where \(\vb{a} \) is a fixed vector and the addtion and subtraction operations on the right hand side are defined conventionally. 
+
+Construct a corresponding scalar multiplication operation \(\odot\) such that \(\mathcal{R}^{n} \), together with operations \(\oplus \text { and } \odot\) forms a vector space over the field \(\mathcal{R}^{n} \)    and show that, with these definitions, scalar multiplication \(\odot\) is distributive over vector addition \(\oplus\).   
+}
+{The ``null vector'' and the inverse of a general vector \(\vb{x} \),\textit{i.e.,} \(\boldsymbol{0} \text { and } \vb{x} '\), respectively satisfy
+
+\begin{equation}
+    \vb{x} \oplus \boldsymbol{0} = \vb{x} ~\text { and }~ \vb{x} \oplus \vb{x} ' = \boldsymbol{0}. 
+\end{equation}
+
+Using the definition of \(\oplus\) defined in the question we find 
+
+\begin{equation}
+    \boldsymbol{0} = \vb{a} ~\text { and }~ \vb{x} ' = 2\vb{a} -\vb{x}  .
+\end{equation}
+
+Now to construct the scalar multiplication \(\odot\) we test the property \(0 \odot \vb{v} = \boldsymbol{0} \) (which is not an one of the 8 axioms but can be derived from them) to get 
+
+\begin{equation}
+    0 \odot \vb{v} = \boldsymbol{0} = \vb{a} \implies \alpha \odot \vb{v} = \alpha (?) + \vb{a} .
+\end{equation}
+
+Then we test the axiom \((A8)\) to get n
+
+\begin{equation}
+    1 \odot \vb{v} = \vb{v} \implies \alpha \odot \vb{v} = \alpha (?- \vb{a} ) + \vb{a} = \alpha (\vb{v} -\vb{a} )+ \vb{a} .
+\end{equation}
+
+The distributive property can be shown easily, as 
+
+\begin{equation}
+    \alpha \odot(\vb{x} \oplus \vb{y} ) = \alpha \odot (\vb{x} +\vb{y} -\vb{a} ) = \alpha (\vb{x} +\vb{y} -2\vb{a} )+\vb{a} ,
+\end{equation}
+
+and 
+
+\begin{equation}
+    \alpha \odot (\vb{x} \oplus \vb{y} ) = \alpha \odot \vb{x} + \alpha \odot\vb{y} = \alpha (\vb{x} -\vb{a} ) + \vb{a} + \alpha (\vb{y} -\vb{a} ) + \vb{a} = \alpha (\vb{x} +\vb{y} -2\vb{a} ) + \vb{a}.
+\end{equation}
+
+In hindsight the scalar multiplication can be constructed easily we notice that the expression \(\vb{x} -\vb{a} \) can be thought of as the coordinates of \(\vb{x} \) relative to a new origin \(\vb{a} \). We first sclar these relative coordinates by \(\alpha \) in the standard way: \(\alpha (\vb{x} -\vb{a} )\) and then we shift the result back by adding \(\vb{a} \) to get the vector in the original system.      
+} 
+
 \section{Span and Linear Independence}
 
 \begin{definition}[Definition of Span]
@@ -460,6 +510,54 @@ to check if there is any non-trivial solution. However, by taking the \(k^{\text
 where \(i=1,\ldots ,n \text { and } j= 1,\ldots ,m\) and the ``1'' appears in the \(i^{\text{th }} \)row and the \(j^{\text{th }} \)column with all other entries zero. Clearly these matrices form a basis, in complete analogy with the standard unit vectors. Therefore the vector space of \(n\times m\) matrices has dimension \(nm\).    
 } 
 
+\example{Semi-Magic Squares.}
+{A semi-magic square is a \(3 \times 3\) matrix of (rational) numbers such that all rows and columns sum
+up to the same total. Show that the matrices
+
+\begin{equation}
+    M_1  = \begin{pmatrix}
+        1 & 1 &  1 \\
+        1 & 1 &  1 \\
+        1 & 1 &  1 \\
+    \end{pmatrix}, M_2  = \begin{pmatrix}
+        1 & -1 &  0 \\
+        -1 & 1 &  0 \\
+        0 & 0 &  0 \\
+    \end{pmatrix}, M_3 = \begin{pmatrix}
+        0 & 1 &  -1 \\
+        0 & -1 &  1 \\
+        0 & 0 &  0 \\
+    \end{pmatrix}, M_4 = \begin{pmatrix}
+        0 & 0 &  0 \\
+        1 & -1 &  0 \\
+        -1 & 1 &  0 \\
+    \end{pmatrix}, M_5 = \begin{pmatrix}
+        0 & 0 &  0 \\
+        0 & 1 &  -1 \\
+        0 & -1 &  1 \\
+    \end{pmatrix}
+\end{equation}
+
+form a basis of the semi-magic squares.}
+{} 
+
+\example{Page Rank.}
+{ Consider an “internet” with \(n\) sites, labeled by \(i = 1, \ldots , n\). Each site \(i\) contains \(n_{i} \) links to some of the other sites and it is linked to by the pages \(L_{i} \subset \{1,\ldots ,n\}\). The page rank \(x_{i} \) on each site \(i\) is defined by 
+
+\begin{equation}
+    x_{i} = \sum_{j \in L_{i} }^{} \frac{x_{i} }{n_{j} }.    
+\end{equation}
+
+Show that the above equation can be written in matrix form as \(A\vb{x} = 0\). Then show that a non-trivial solution always exists. 
+
+Analyze a simple example with \(n=4\) and the following struture of links shown in \cref{links}.
+
+Write down the page rank equations for this case and solve them. Which page is ranked highest?
+}
+{} 
+
+\onefig{links}{scale=0.3}
+Bl
 \begin{lemma}[Properties of a Vector Space]
 For a vector sapce \(V\) spanned by a finite number of vectors we have:
 
@@ -483,7 +581,6 @@ For a vector sapce \(V\) spanned by a finite number of vectors we have:
 
 \end{proof}
 
-\todo{magic square} 
 
 \chapter{Geometrical Applications of Vectors in \(\mathbb{R}^{n} \)}
 
@@ -694,6 +791,44 @@ Thus, either \(\vb{A} \parallelsum \vb{C} ~ or ~ \vb{A} \perp \vb{B} \perp \vb{C
 
 } 
 
+\example{Lagrange's Identity.}
+{Prove the Lagrange's Identity 
+
+\begin{equation}
+    \abs{\vb{a} \cross \vb{b} }^2 = \abs{\vb{a} }^2 \abs{\vb{b} }^2 - (\vb{a} \cdot \vb{b} )^2.   
+\end{equation}
+
+Find the matrix \(M\) such that the above relation may be written in the form 
+
+\begin{equation}
+    \abs{\vb{a} \cross \vb{b} } ^2 = \vb{a} ^T M\vb{a} .
+\end{equation}
+~
+}
+{We have 
+
+\begin{equation}
+    \abs{\vb{a} \cross \vb{b} }^2 = \abs{\vb{a} }^2 \abs{\vb{b} ^2} \sin ^2 \theta = \abs{\vb{a} }^2 \abs{\vb{b} }^2 (1- \cos ^2 \theta ) = \abs{\vb{a} }^2 \abs{\vb{b} }^2 \left( 1- \frac{(\vb{a} \cdot \vb{b} )^2}{\abs{\vb{a} }^2 \abs{\vb{b} }^2 }  \right) = \abs{\vb{a} }^2\abs{\vb{b} }^2 - (\vb{a} \cdot \vb{b} )^2.  
+\end{equation}
+
+We note that 
+
+\begin{equation}
+    \vb{a}^2 \vb{b}^2  = \vb{a} ^T (\abs{\vb{b} }^2 \mathbb{I} ) \vb{a} ~\text { and }~ (\vb{a} \cdot \vb{b} )^2 = \vb{a} ^T (\vb{b} \vb{b} ^T)\vb{a} ,
+\end{equation}
+
+so 
+
+\begin{equation}
+    M = \abs{\vb{b} }^2 \mathbb{I} - \vb{b} \vb{b} ^T = \begin{pmatrix}
+        (b_2 ^2 + b_3 ^2) & -b_1 b_2  & -b_1 b_3   \\
+        -b_2 b_1  & (b_1 ^2+sd) & -b_2 b_3   \\
+        -b_3 b_1  & -b_3 b_2  & (b_1 ^2+b_2 ^2)  \\
+    \end{pmatrix}.
+\end{equation}
+
+} 
+
 
 \section{Equations of Lines, Planes and Spheres}
 
@@ -715,7 +850,9 @@ The general equation of a plane is
     \vb{r} = \vb{a} + \lambda \vb{b} + \mu \vb{c} \Longleftrightarrow (\vb{r} - \vb{a} ) \cdot \vu{n} = \boldsymbol{0} \Longleftrightarrow \vb{r} \cdot \vu{n} = \hat{n}_{x} x + \hat{n}_{y} y + \hat{n}_{z} z = \text{constant} , 
 \end{equation}
 
-where \(\vb{a} \) is the position vector of some fixed point on the plane, \(\vb{b} \text { and } \vb{c} \) are some fixed (linearly independent) vectors along the direction of the plane and \(\vu{n}\) is the normal vector of the surface. 
+where \(\vb{a} \) is the position vector of some fixed point on the plane, \(\vb{b} \text { and } \vb{c} \) are some fixed (linearly independent) vectors along the direction of the plane and \(\vu{n}\) is the normal vector of the surface, which is related to \(\vb{b} \text { and } \vb{c} \) by \(\vu{n} = (\vb{b} \cross \vb{c}) / (\abs{\vb{b} } \abs{\vb{c} }) \).
+
+The constant in the above equation is the shortest distance from the origin to the plane, given that \(\vu{n} \) is normalized.
 
 \example{Line of Intersection of Two Planes.}
 {Find the direction of the line of intersection of the two planes \(x+3y-z=5 \text { and } 2x-2y+4z=3\). }
@@ -810,6 +947,40 @@ Alternatively, we can project \(\vb{a} \) (or \(\vb{b} \)) onto the plane of the
 \end{equation}
 
 where we have used the distance from a point to a plane formula (\cref{pointplane}).
+} 
+
+\example{Intersection between a Plane and a sphere.}
+{Let \(\vb{a} ,\vb{b} \text { and } \vb{c} \) be constant vectors and \(r\) be a real constant. Find the locus of points for \(\vb{x} \) resulting from the simultaneous solution of the equations 
+
+\begin{equation}
+    \vb{a} \cdot \vb{x} = \vb{a} \cdot \vb{b} ~\text { and }~ \abs{\vb{x} -\vb{c} } = r. 
+\end{equation}
+~
+}
+{For negative \(r\) we have no intersections because the norm of any vector must be non-negative. For \(r = 0\) we must have \(\vb{x} = \vb{c} \), given taht \(\vb{c} \cdot \vb{b} = \vb{a} \cdot \vb{b} \) is satisfied. For \(r > 0\), the intersection is a cirlce centered at \(\vb{c} + \vb{d} \) with raidus \(R = \sqrt{r^2 - \abs{\vb{d} }^2 } \). To find the vector \(\vb{d} \), we use the charateristic facts that \(\vb{c} + \vb{d} \) lies on the plane and \(\vb{d} \) is parallel to \(\vb{a} \) to get 
+
+\begin{equation}
+    \vb{d} \cdot \vb{a} = \vb{a} \cdot \vb{b} - \vb{a} \cdot \vb{c} ~\text { and }~ \vb{d} \cross \vb{a} = 0.
+\end{equation}
+
+By crossing the second identity with \(\vb{a} \) and using the vector identity \(\vb{a} \cross (\vb{b} \cross \vb{c} ) = \vb{b} (\vb{a} \cdot \vb{c} ) - \vb{c} (\vb{a} \cdot \vb{b}) \), we get 
+
+\begin{equation}
+    \vb{d} = \frac{(\vb{a} \cdot (\vb{b} -\vb{c} ))\vb{a} }{\abs{\vb{a} }^2 }. 
+\end{equation}
+
+The locus of \(\vb{x} \) is then given by \(\vb{a} \cdot \vb{x} = \vb{a} \cdot \vb{b} \) and 
+
+\begin{equation}
+    \abs{\vb{x} -\vb{c} -\vb{d} } =  \abs{\vb{x} -\vb{c} - \frac{(\vb{a} \cdot (\vb{b} -\vb{c} ))\vb{a} }{\abs{\vb{a} }^2 } } = \sqrt{r^2 - \frac{(\vb{a} \cdot \vb{b} - \vb{a} \cdot \vb{c} )^2}{\abs{\vb{a} }^2 } }.
+\end{equation}
+
+To combine the two constriants we simply set the sum of square to be zero 
+
+\begin{equation}
+    (\vb{a} \cdot \vb{x} -\vb{a} \cdot \vb{b} )^2 + \left( \abs{\vb{x} -\vb{c} - \frac{(\vb{a} \cdot (\vb{b} -\vb{c} ))\vb{a} }{\abs{\vb{a} }^2 } } - \sqrt{r^2 - \frac{(\vb{a} \cdot \vb{b} - \vb{a} \cdot \vb{c} )^2}{\abs{\vb{a} }^2 } } \right)^2 = 0.
+\end{equation}
+~
 } 
 
 
@@ -942,21 +1113,21 @@ Solving for \(\lambda \) gives
 ~
 } 
 
-
-\example{Shortest Distance between Lines.}
-{Two particles have position vectors at time \(t\) given by \(\vb{r} _{1}(t) \text { and } \vb{r} _{2}(t) \) where
+\example{Collisions between Particles.}
+{Two balls of diameter \(d\) are fired along trajectories \(\vb{r} _{1} = \vb{a} + \vb{p} t \text { and } \vb{r} _{2} = \vb{b} + \vb{q} t \). Derive an expression of \(\vb{a} , \vb{b} , \vb{p} \text { and } \vb{q} \) for which the balls will collide.}
+{The condition for collision is
 
 \begin{equation}
-    \begin{cases}
-        \vb{r} _{1}(t) &= \vb{a} _{1} + \vb{b} _{1}(t-t_1 ) ,\\
-        \vb{r} _{2}(t) &= \vb{a} _{1} + \vb{b} _{2}(t-t_2 ).
-    \end{cases}
+    \abs{\Delta \vb{r}} _{\text{min} } = \abs{\vb{a} -\vb{b} + (\vb{p} -\vb{q} )t} = \abs{\vb{p} -\vb{q} }^2t^2+2(\vb{a} -\vb{b} )(\vb{p} -\vb{q} )t+\abs{\vb{a} -\vb{b} }^2-d^2=0.   
 \end{equation}
 
-Find the condition on \(t_2 -t_1 \) for the particles to achieve minimum separation. 
-}
-{} 
+Requiring the determinant to be non-negative we get 
 
+\begin{equation}
+    \left( (\vb{a} -\vb{b} )\cdot (\vb{p} -\vb{q} ) \right)^2 \ge \abs{\vb{p} -\vb{q} }^2(\abs{\vb{a} -\vb{b} }^2-d^2 ). 
+\end{equation}
+~
+} 
 
 \section{Reciprocal Vectors}
 
@@ -1737,6 +1908,43 @@ Arranging the coefficients into columns, we have the transformed matrix
 \end{equation}
 } 
 
+\example{Active and Passive Transformation.}
+{The matrix 
+
+\begin{equation}
+    A = \begin{pmatrix}
+        1 & -1 &  0 \\
+        -3 & 0 &  1 \\
+        2 & 01 &  1 \\
+    \end{pmatrix}
+\end{equation}
+
+is calculated with respect to the standard basis \(\vb{e} _{1} = (1,0,0), \vb{e} _{2}= (0,1,0), \vb{e} _{3} = (0,0,1)   \). Find the matrix \(A'\) with respect to the basis 
+
+\begin{equation}
+    \vb{u} _{1} = (1,1,0)_{e},\quad  \vb{u} _{2} = (1,0,1)_{e} , \quad \vb{u} _{3} = (0,1,1)_{e},
+\end{equation}
+
+where the subscript \(e\) indicate that it is with respect to the standard basis. For example, \(\vb{u} _{1} = (1,1,0)_{s} = \vb{e} _{1} + \vb{e} _{2}\). With respect to the \(\vb{u} \) basis \(\vb{u} _{1} = (1,0,0)_{u} \) is trivial.  
+
+An aritrary vector \(\vb{x} \) can be represented in the standard basis as \(\vb{x} _{e} \) and in the new basis as \(\vb{x} _{u} \) and they are related by  
+
+\begin{equation}
+    \vb{x} _{e} = \left( \vb{u} _{1}, \vb{u} _{2},\vb{u} _{3}    \right) \vb{x} _{u} \equiv P \vb{x} _{u}. 
+\end{equation}
+
+To ensure this is not the other way round, we substitute \(\vb{x} _{u} = (1,0,0)_{u} \) and find \(\vb{x} _{e} = \vb{u} _{1}  \) is indeed true. 
+
+A vector transformation in the new basis can then be represented by
+
+\begin{equation}
+    A' \vb{x} _{u} = A' P^{-1} \vb{x} _{e} = P^{-1} A \vb{x} _{e} \implies A' = P^{-1} A P.
+\end{equation}
+~
+}
+{} 
+
+
 
 \section{Systems of Linear Equations}
 
@@ -1785,6 +1993,8 @@ For example, for a \(4 \times 6\) matrix \(A\) with \(\rank (A) = 3\), there can
 As another example, for a \(5 \times 3\) matrix \(B\) with \(\rank (B) = 2\), there can be s olution only when \(\vb{v} \in \mathfrak{Im} ((B)) \), \textit{i.e.,} \(\rank (B' = (B \mid \vb{b} )) = \rank (B)\), and we expect a line \(0=0\) at the end with \(5-2 = 3\) free parameters.      
 
 It is very important to note that the above discussion is under the premise that \(\vb{b} \neq 0\), \textit{i.e.,} we are finding the particular solution to the inhomogeneous equation, and we have to add the homogeneous solution \(\ker (A)\) to yield the complete solution, according to \cref{homoinhomo}.   
+
+As an alternative geometric interpretation, for example, for a system of 3 equations with 3 variables, each equation represents a plane in the 3-dimensional space. In general they intersect at one point in space. However, when the determinant is zero there is a non-trivial solution if the three planes intersect at a line in space, corresponding to a free parameter, or the three planes intersect at a plane in space, corresponding to 2 free parameters, and there is no solution if they do not intersect at all.
 
 \subsection{Gaussian Elimination} \label{elim} 
 
@@ -2293,6 +2503,67 @@ Thus
 x_i = \frac{\det(B_{(i)})}{\det(A)} = \frac{\det(\mathbf{A}^1, \ldots, \mathbf{A}^{i-1}, \mathbf{b}, \mathbf{A}^{i+1}, \ldots, \mathbf{A}^n)}{\det(A)} .
 \end{equation}
 
+\example{Gram Determinant.}
+{The Gram determinant of three real vectors \(\vb{a} ,\vb{b} \text { and } \vb{c} \) is defined as 
+
+\begin{equation}
+    G(\vb{a} ,\vb{b} ,\vb{c} ) = \begin{vmatrix}
+        \vb{a} \cdot \vb{a}  & \vb{a} \cdot \vb{b}  & \vb{a} \cdot \vb{c}   \\
+        \vb{b} \cdot \vb{a}  & \vb{b} \cdot \vb{b}  & \vb{b} \cdot \vb{c}   \\
+        \vb{c} \cdot \vb{a}  & \vb{c} \cdot \vb{b}  & \vb{c} \cdot \vb{c}   \\
+    \end{vmatrix}.
+\end{equation}
+
+Show that 
+
+\begin{equation}
+    G(\vb{a} ,\vb{b} ,\vb{c} ) = \begin{pmatrix}
+        a_1  & b_1  & c_1   \\
+        a_2  & b_2  & c_2   \\
+        a_3  & b_3  & c_3   \\
+    \end{pmatrix}
+\end{equation}
+
+and that if \(\vb{a} ,\vb{b} \text { and } \vb{c} \) are linearly independent their Gram determinant must be strictly positive. 
+}
+{We notice that
+
+\begin{equation}
+    \begin{pmatrix}
+        \vb{a} \cdot \vb{a}  & \vb{a} \cdot \vb{b}  & \vb{a} \cdot \vb{c}   \\
+        \vb{b} \cdot \vb{a}  & \vb{b} \cdot \vb{b}  & \vb{b} \cdot \vb{c}   \\
+        \vb{c} \cdot \vb{a}  & \vb{c} \cdot \vb{b}  & \vb{c} \cdot \vb{c}   \\
+    \end{pmatrix} = \begin{pmatrix}
+        a_1  & b_1  & c_1   \\
+        a_2  & b_2  & c_2   \\
+        a_3  & b_3  & c_3   \\
+    \end{pmatrix} \begin{pmatrix}
+        a_1  & a_2 & a_3  \\
+        b_1  & b_2  & b_3  \\
+        c_1  & c_2  & c_3   \\
+    \end{pmatrix}.
+\end{equation}
+
+Therefore
+
+\begin{equation}
+    G(\vb{a} ,\vb{b} ,\vb{c} ) = \begin{vmatrix}
+        a_1  & b_1  & c_1   \\
+        a_2  & b_2  & c_2   \\
+        a_3  & b_3  & c_3   \\
+    \end{vmatrix} \begin{vmatrix}
+        a_1  & b_1  & c_1   \\
+        a_2  & b_2  & c_2   \\
+        a_3  & b_3  & c_3   \\
+    \end{vmatrix}^T = \begin{pmatrix}
+        a_1  & b_1  & c_1   \\
+        a_2  & b_2  & c_2   \\
+        a_3  & b_3  & c_3   \\
+    \end{pmatrix}.
+\end{equation}
+
+If \(\vb{a} ,\vb{b} \text { and } \vb{c} \) are linearly independent then \(V = \vb{a} \cdot (\vb{b} \cross \vb{c} ) = \det (\vb{a} ,\vb{b} ,\vb{c} ) \neq 0\), therefore \(G > 0\).   
+} 
 
 
 
@@ -2701,7 +2972,7 @@ To prove that \(U\) is unitary, we calculate
 The last equality from the first relation of the above equation can be understand by regarding the RHS as a scalar product of \(\vb{e} '_{i} \text { and } \vb{e} '_{j}  \), where \(\avg{\vb{e} '_{i}, \vb{e} '_{j}   } = \sum_{k=1}^{n} (\vb{e} '_{i} )^*_{k}(\vb{e} '_{j} )_{k} = \sum_{k=1}^{n} \avg{\vb{e} '_{i},\vb{e} _{k}  } \avg{\vb{e} _{k}, \vb{e} '_{j}  }    \).  
 } 
 
-\example{Exponential of Matrices.}
+\example{Exponential of Matrices (1).}
 {Let \(M\) be a Hermitian matrix. Prove that the matrix \(e^{iM} \) is unitary by writing it as a power series.}
 {We first compute that hermitian conjugate 
 
@@ -2712,6 +2983,27 @@ The last equality from the first relation of the above equation can be understan
 it then follows directly that \(M^{\dagger} M = e^{-iM}e^{iM} = \mathbb{I}  \). 
 } 
 
+\example{Exponential of Matrices (2).}
+{Prove that if \(BC = CB\) then \(\exp (B)\exp (C) = \exp (B+C)\).  }
+{From the definition of exponential of matrices we have 
+
+\begin{equation}
+    \exp (B+C) = \sum_{m=0}^{\infty} \frac{(B+C)^{m} }{m!} = \sum_{m=0}^{\infty} \frac{1}{m!}  \sum_{k=0}^{m} {m \choose k} B^{k} C^{m-k} = \sum_{m=0}^{\infty} \sum_{k=0}^{m} \frac{B^{k} C^{m-k} }{k! (m-k)!}.
+\end{equation}
+
+At this point we have a double sum in the triangular region 
+
+\begin{equation}
+    m = 0,1,2 \ldots ~\text { and for each \(m\) }~ k = 0,1,\ldots ,m.
+\end{equation}
+
+Then this is analogous to how we integrate a function over a traigular region bounded by the \(x\)-axis and the line \(y = x\) and doing the substitution \(r=k \text { and } s = m-k\), then the double sum becomes 
+
+\begin{equation}
+    \sum_{m=0}^{\infty} \sum_{k=0}^{m} \frac{B^{k} C^{m-k} }{k! (m-k)!} = \sum_{r=0}^{\infty} \sum_{s=0}^{\infty} \frac{B^{r} C^{s} }{r!s!} = \left( \sum_{r=0}^{\infty} \frac{B^{r} }{r!}  \right)   \left( \sum_{s=0}^{\infty} \frac{C^{s} }{s!}  \right) = e^{B}e^{C}.  
+\end{equation}
+~
+} 
 
 
 
@@ -2755,7 +3047,7 @@ R(\theta_1)R(\theta_2) = R(\theta_1 + \theta_2),
 
 \textit{i.e.,} the rotation angle adds up for subsequent rotations, as one would expect. Note, the above equation also implies that two-dimensional rotations commute, since \(R(\theta_1)R(\theta_2) = R(\theta_1 + \theta_2) = R(\theta_2 + \theta_1) = R(\theta_2)R(\theta_1)\), again a property intuitively expected.
 
-\subsection{Three Dimensional Rotations}
+\subsection{Three-Dimensional Rotations}
 
 Since two dimensional rotations are basically three dimensional rotations, but with the axis of rotation implicited fixed, we can represent a two-dimensional rotation about the \(x\)-axis as
 
@@ -3043,7 +3335,7 @@ which are conveniently the sum and product of roots of the charateristic polynom
 } 
 
 \begin{lemma}[Properties of Characteristic Polynomials]
-The characteristic polynomial \(\chi _{A}(\lambda ) \equiv \det (f-\lambda \mathrm{id}_{V} ) = c_{n}\lambda ^{n} c_{n-1}\lambda ^{n-1} + \ldots + c_1 \lambda +c_0 \) of a \(n \times n\) matrix \(A\) has the following properties:
+The characteristic polynomial \(\chi _{A}(\lambda ) \equiv \det (f-\lambda \mathrm{id}_{V} ) = c_{n}\lambda ^{n} + c_{n-1}\lambda ^{n-1} + \ldots + c_1 \lambda +c_0 \) of a \(n \times n\) matrix \(A\) has the following properties:
 
 \begin{enumerate}[label=(\(O\)\arabic*)]
     \item \(\chi _{PAP^{-1} } = \chi _{A}  \), so the characteristic polynomial is basis-independent. \label{O1} 
@@ -3075,7 +3367,7 @@ The above lemma shows that the determinant of a matrix is basis-independent, whi
     \Tr (AB) = \sum_{i,j}^{} A_{ij} B_{ji} = \sum_{i,j}^{} B_{ji} A_{ij} = \Tr (BA) \implies \Tr (PAP^{-1} ) = \Tr (P^{-1} PA) = \Tr (A).
 \end{equation}
 
-Resulting from the charateristic polynomial of the matrix, there will be \(n\) eigenvalues (which are not necessarily distinct) for a \(n \times n\) matrix. Distinct eigenvalues are also known as non-degenerate eigenvalues, and repeated eigenvlues are known as degenerate eigenvalues. If there happens to be a \(m\)-folded repeated root, then there will be usually \(m\) linearly indpendent eigenvector for the same eigenvalue, otherwise the matrix is called a defective matrix, and we will not be able to find \(n\) independent eigenvectors for the matrix and thus is not diagonalizable.
+Resulting from the charateristic polynomial of the matrix, there will be \(n\) eigenvalues (which are not necessarily distinct) for a \(n \times n\) matrix. Distinct eigenvalues are also known as non-degenerate eigenvalues, and repeated eigenvlues are known as degenerate eigenvalues. If there happens to be a \(m\)-folded repeated root, then there will be usually \(m\) linearly indpendent eigenvector for the same eigenvalue, otherwise the matrix is called a defective matrix, and we will not be able to find \(n\) independent eigenvectors for the matrix and thus is not diagonalizable. 
 
 \section{Diagonalization of Matrices}
 
@@ -3130,13 +3422,76 @@ If a matrix \(A\) can be diagonalized, with eigenvalues \(\lambda _{1}, \ldots ,
     \det (A) = \prod_{i=1}^{n} \lambda _{i} ~\text { and }~  \Tr (A) = \sum_{i=1}^{n} \lambda _{i}.  
 \end{equation}
 
+\begin{theorem}[Simultaneous diagonalization]
+
+Let $A,B$ be two diagonalizable $n\times n$ matrices.  Then we have
+\begin{equation}
+A,B\text{ can be diagonalized simultaneously}
+\quad\Longleftrightarrow\quad
+[A,B]=0.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+“$\implies$”: Suppose $A,B$ are simultaneously diagonalizable.  Then there exists an invertible $P$ such that
+\begin{equation}
+\widehat A = P^{-1}AP,
+\end{equation}
+\begin{equation}
+\widehat B = P^{-1}BP
+\end{equation}
+are both diagonal.  Hence
+\begin{equation}
+[A,B]
+= AB-BA
+= P\widehat A\,P^{-1}P\widehat B\,P^{-1}-P\widehat B\,P^{-1}P\widehat A\,P^{-1}
+= P\bigl[\widehat A,\widehat B\bigr]P^{-1}
+= 0,
+\end{equation}
+since diagonal matrices commute.
+
+\medskip
+
+“$\impliedby$”: Conversely, assume $[A,B]=0$ and that $A$ has nondegenerate eigenvalues $\lambda_1,\dots,\lambda_n$.  Since $A$ is diagonalizable, there is a basis of eigenvectors $\vb{v} _1,\dots,\vb{v} _n$ with
+\begin{equation}
+A\,\vb{v} _i = \lambda_i\,\vb{v} _i,
+\quad i=1,\dots,n.
+\end{equation}
+Multiplying $B$ on the left of both sides gives
+\begin{equation}
+B(A\vb{v} _i) = A(B\vb{v} _{i} ) = \lambda_i\,(B\vb{v} _i),
+\end{equation}
+so each $B\vb{v} _i$ is again an eigenvector of $A$ with eigenvalue $\lambda_i$.  By nondegeneracy of $\lambda_i$, $B\vb{v} _i$ must lie in the one‐dimensional eigenspace for $\lambda_i$, hence
+\begin{equation}
+B\vb{v} _i = \mu_i\,\vb{v} _i
+\end{equation}
+for some scalar $\mu_i$.  Thus each $v_i$ is also an eigenvector of $B$, and $\{\vb{v} _i\}$ is a basis of common eigenvectors.  It follows that $A$ and $B$ are simultaneously diagonalizable.
+\end{proof}
+
+\example{\(AB \text { and } BA\) share the same eigenvalues.}
+{Prove that \(\lambda \) is an eigenvalue of \(AB\) if and only if \(\lambda \) is an eigenvalue of \(BA\).}
+{If \(\lambda \) is an eigenvalue of \(AB\), then 
+
+\begin{equation}
+    AB\vb{v} = \lambda \vb{v} .
+\end{equation}
+
+Multiplying \(B\) on both sides we get 
+
+\begin{equation}
+    BA(B\vb{v} ) = \lambda B\vb{v},
+\end{equation}
+
+so \(\lambda \) is also an eigenvalue of \(BA\). 
+} 
+
 \section{Eigenvectors and Eigenvalues of Normal Matrices}
 
 \begin{theorem} \label{eigen} 
 Let \(V\) be a vector space over \(\mathbb{R} (\mathbb{C})\) with real (hermitian) scalar product \(\avg{\cdot ,\cdot } \). If \(f: V \rightarrow V\) is normal then:\footnote{A more abstract proof for just the hermitian case is given in \cref{eigenapp}.} 
 
 \begin{enumerate}[label=(\(P\)\arabic*)]
-    \item The eigenvalues of \(f^{\dagger} \) are the complex conjugates of that of \(f\).
+    \item \(f^{\dagger} \) has the same set of eigenvectors as \(f\) but the eigenvalues of \(f^{\dagger} \) are the complex conjugates of that of \(f\).
     \item Eigenvectors for different eigenvalues are orthogonal.
 \end{enumerate}
    
@@ -3144,13 +3499,19 @@ Let \(V\) be a vector space over \(\mathbb{R} (\mathbb{C})\) with real (hermitia
 
 \begin{proof}
 \begin{enumerate}[label=(\(P\)\arabic*)]
-    \item Since \((A-\lambda \mathbb{I})\vb{v} = 0\), the norm of this vector must be zero
+    \item We first show that if \(A\) is normal then \(A - \lambda \mathbb{I}\) is also normal:
+    
+    \begin{equation}
+        (A-\lambda \mathbb{I}){}^{\dagger} (A-\lambda \mathbb{I}) = (A^{\dagger} - \lambda ^*\mathbb{I})(A-\lambda \mathbb{I}) = A^{\dagger} A - \lambda A^{\dagger} \mathbb{I} - \lambda ^*A {}^{\dagger} \mathbb{I} + \lambda \lambda ^*\mathbb{I}^2 = (A-\lambda \mathbb{I})(A-\lambda \mathbb{I}){}^{\dagger}.
+    \end{equation}
+    
+    Since \((A-\lambda \mathbb{I})\vb{v} = 0\), the norm of this vector must be zero
     
     \begin{equation}
         ((A-\lambda \mathbb{I})\vb{v} ){}^{\dagger} ((A-\lambda \mathbb{I})\vb{v} ) = \vb{v} {}^{\dagger} (A-\lambda \mathbb{I}){}^{\dagger} (A-\lambda \mathbb{I})\vb{v} =0.
     \end{equation}
 
-    Using the normality of \(A\), we swap the middle terms to get 
+    Using the normality of \(A-\lambda \mathbb{I}\), we swap the middle terms to get 
 
     \begin{equation}
         \vb{v} {}^{\dagger} (A-\lambda \mathbb{I})(A-\lambda \mathbb{I}){}^{\dagger} \vb{v} = ((A-\lambda \mathbb{I}){}^{\dagger} \vb{v} ){}^{\dagger} ((A-\lambda \mathbb{I}){}^{\dagger} \vb{v} ) = 0.
@@ -3164,12 +3525,12 @@ Let \(V\) be a vector space over \(\mathbb{R} (\mathbb{C})\) with real (hermitia
 
     Therefore \(\lambda ^*\) are the eigenvalues of the matrix \(A^{\dagger} \).  
     
-    \item For two eigenvectors \(\vb{v} _{1} \text { and } \vb{v} _{2}  \) with eigenvalues \(\lambda _{1} \text { and } \lambda _{2}  \) resepctively, we take the inner product of \(\vb{v} _{2} \) with \(A_{\vb{v} _{1} } \)
+    \item For two eigenvectors \(\vb{v} _{1} \text { and } \vb{v} _{2}  \) with eigenvalues \(\lambda _{1} \text { and } \lambda _{2}  \) resepctively, we take the inner product of \(\vb{v} _{2} \) with \(A \vb{v} _{1}  \). For a normal matrix this can be evaluated in two ways:
     \begin{equation}
-        \vb{v} _{2} {}^{\dagger} (A\vb{v} _{1}) = \lambda _{1} \vb{v} _{2} {}^{\dagger}\vb{v} _{1}. 
+        \vb{v} _{2} {}^{\dagger} (A\vb{v} _{1}) = \lambda _{1} \vb{v} _{2} {}^{\dagger}\vb{v} _{1},
     \end{equation}
 
-    However, for a normal matrix the inner product can also be written as 
+    and
 
     \begin{equation}
         \vb{v} _{2} {}^{\dagger} (A\vb{v} _{1}) = (A^{\dagger} \vb{v} _{2}) {}^{\dagger}  \vb{v} _{1} = (\lambda _{2}^* \vb{v} _{2} ){}^{\dagger} \vb{v} _{1} = \lambda _{2}\vb{v} _{2} {}^{\dagger}   \vb{v} _{1}. 
@@ -3180,32 +3541,25 @@ Let \(V\) be a vector space over \(\mathbb{R} (\mathbb{C})\) with real (hermitia
 
 \end{proof}
 
-For hermitian matrices this means that all eigenvalues of \(f\) are real. For anti-hermitian matrices this means that all eigenvalues of \(f\) are imaginary.
+For hermitian matrices \((P1)\) implies that all eigenvalues of \(f\) are real. For anti-hermitian matrices this means that all eigenvalues of \(f\) are imaginary.
+
+This fact can be directly proved by 
+
+\begin{equation}
+    \vb{v} {}^{\dagger} (A\vb{v} ) = \lambda \vb{v} {}^{\dagger} \vb{v} = (A^{\dagger} \vb{v} ){}^{\dagger} \vb{v} = \pm (A\vb{v} ){}^{\dagger} \vb{v} = \pm \lambda ^* \vb{v} {}^{\dagger} \vb{v} \implies \lambda = \pm \lambda ^*.
+\end{equation}
 
 \example{Eigenvalues of a Unitary Matrix.}
 {Prove that the Eigenvalues of a unitary matrix has unit modulus.}
-{\(\vb{v}^{\dagger}\vb{v}  = {\vb{v} }^{\dagger}A^{\dagger} A \vb{v} = \lambda ^*\lambda \vb{v}^{\dagger} \vb{v} \implies \lambda \lambda ^* = \abs{\lambda }^2= 1 \). } 
-
-
-\example{The Eigenvalues and Eigenvectors of a Hermitian Matrix.}
-{Prove that the eigenvalues of a hermitian matrix are real and the eigenvectors are orthogonal directly.}
-{We have 
-
+{We take the scalar product of an arbitrary vector \(\vb{v} \) with itself and find  
+    
 \begin{equation}
-    \avg{\vb{v} , A \vb{v}} = \lambda \avg{\vb{v},\vb{v}  } = \avg{A \vb{v}, \vb{v}  } = \lambda ^*\avg{\vb{v},\vb{v}  } \implies \lambda = \lambda ^*,
+    \vb{v}^{\dagger}\vb{v}  = {\vb{v} }^{\dagger}A^{\dagger} A \vb{v} = \lambda ^*\lambda \vb{v}^{\dagger} \vb{v} \implies \lambda \lambda ^* = \abs{\lambda }^2= 1 \label{lam1} 
 \end{equation}
-
-and 
-
-\begin{equation}
-    \avg{\vb{v}_{1}, A \vb{v}_{2}  } = \lambda _{2} \avg{\vb{v}_{1} ,\vb{v}_{2}   } = \avg{A \vb{v}_{1}, \vb{v}_{2}    }  = \lambda _{1} \avg{\vb{v}_{1}, \vb{v}_{2}    } \implies \avg{\vb{v}_{1}, \vb{v}_{2}    } = 0.
-\end{equation}
-~
-} 
-
+~} 
 
 \begin{theorem} \label{selfadjointeigen} 
-    Let $V$ be a vector space over $\mathbb{C}$ with hermitian scalar product $\langle \cdot, \cdot \rangle$. If $f : V \to V$ is normal, it has an orthonormal basis, $\epsilon_1, \ldots, \epsilon_n$ of eigenvectors.\footnote{A more abstract proof is given in \cref{selfadjointeigenapp}.} 
+    Let $V$ be a vector space over $\mathbb{C}$ with hermitian scalar product $\langle \cdot, \cdot \rangle$. If $f : V \to V$ is normal, it has an orthonormal basis of eigenvectors  \(\boldsymbol{\epsilon }_{1}, \ldots , \boldsymbol{\epsilon }_{n} \).\footnote{A more abstract proof is given in \cref{selfadjointeigenapp}.} 
 \end{theorem}
 
 \begin{proof}
@@ -3213,15 +3567,15 @@ If the eigenvalues are distinct (\textit{i.e.,} all of them are non-degenerate),
 \end{proof}
 
     
-In summary, it means that every normal matrix has an orthonormal basis $\epsilon_1, \ldots, \epsilon_n$ of eigenvectors with corresponding eigenvalues $\lambda_1, \ldots, \lambda_n$ (which are real for hermitian matrices) and can be diagonalized through changing its basis to the eigenvectors. From \cref{matrixlinearmap2}, the columns of the change of basis matrix is simply the new basis expressed in terms of the old basis, so the change of basis matrix is
+In summary, it means that every normal matrix has an orthonormal basis \(\boldsymbol{\epsilon }_{1}, \ldots , \boldsymbol{\epsilon }_{n} \) of eigenvectors with corresponding eigenvalues $\lambda_1, \ldots, \lambda_n$ (which are real for hermitian matrices) and can be diagonalized through changing its basis to the eigenvectors. From \cref{matrixlinearmap2}, the columns of the change of basis matrix is simply the new basis expressed in terms of the old basis, so the change of basis matrix is
 
 \begin{equation}
-    P = (\epsilon _{1}, \ldots , \epsilon _{n}  ) \implies  P^{-1} AP = P^\dagger AP = \text{diag}(\lambda_1, \ldots, \lambda_n).
+    P = (\boldsymbol{\epsilon }_{1}, \ldots , \boldsymbol{\epsilon }_{n}) \implies  P^{-1} AP = P^\dagger AP = \text{diag}(\lambda_1, \ldots, \lambda_n).
 \end{equation}
 
 This is because \(A(P)\) stretch the column vectors of \(P\) by a factor of their eigenvalues, then \(P^{\dagger} (AP)\) contains the entries of all possible combinations of the original and the scaled eigenvectros, with gives the eigenvalues on the diagonal. The result can be understood more easily since after changing the basis to eigenvectors, the transformed eigenvectors are scaled by a factor of their eigenvalues and the result follows from \cref{matrixlinearmap2}. 
 
-\example{Express a Nomal Matrix in terms of its Eigenvectors.}
+\example{Express a Normal Matrix in terms of its Eigenvectors.}
 {Show that a \(n \times n\) normal matrix \(A\) can be written in terms of its eigenvalues \(\lambda _{i} \) and orthonormal eigenvectors \(\vb{v}  _{i} \) as 
 
 \begin{equation}
@@ -3242,29 +3596,95 @@ For a general square matrix, there will be \(n\) eigenvalues from the fundamenta
 A simple way to test whether the eigenvectors are linearly independent is by calculating the determinant. If the determinant is zero, the eigenvectors are linearly dependent, and vice versa.
 
 \example{Diagonalizing with Degenerate Eigenvalues.}
-{Diagonlize the matrix \(A = \begin{pmatrix}
+{Diagonlize the matrix \(A = \frac{1}{4} \begin{pmatrix}
     2 & 3\sqrt{2}  & 3\sqrt{2}   \\
     3\sqrt{2}  & -1 & 3  \\
     3\sqrt{2}  & 3 & -1  \\
 \end{pmatrix}\). }
-{There are two eigenvalues \(\lambda _{1} = 2 \text { and } \lambda _{2} =1 \).  } 
+{There are two eigenvalues \(\lambda _{1} = 2 \text { and } \lambda _{2} =-1 \).  
 
-\example{\(AB \text { and } BA\) share the same eigenvalues.}
-{Prove that \(\lambda \) is an eigenvalue of \(AB\) if and only if \(\lambda \) is an eigenvalue of \(BA\).}
-{If \(\lambda \) is an eigenvalue of \(AB\), then 
+For \(\lambda _{1} =2\), we get
 
 \begin{equation}
-    AB\vb{v} = \lambda \vb{v} .
+\begin{pmatrix}
+    -2 & \sqrt{2}  & \sqrt{2}   \\
+    \sqrt{2}  & -3 & 1  \\
+    \sqrt{2}  & 1 & -3  \\
+\end{pmatrix} \begin{pmatrix}
+     x \\
+     y \\
+     z \\
+\end{pmatrix} = \boldsymbol{0} \implies y = z = \frac{x}{\sqrt{2} } \implies \boldsymbol{\epsilon }_{1} = \frac{1}{2} \begin{pmatrix}
+     \sqrt{2}  \\
+     1 \\
+     1 \\
+\end{pmatrix}. 
 \end{equation}
 
-Multiplying \(B\) on both sides we get 
+For \(\lambda _{2} =-1 \), we get 
 
 \begin{equation}
-    BA(B\vb{v} ) = \lambda B\vb{v},
+    \begin{pmatrix}
+        2 & \sqrt{2}  & \sqrt{2}   \\
+        \sqrt{2}  & 1 & 1\\
+        \sqrt{2}  & 1 & 1  \\
+    \end{pmatrix}\begin{pmatrix}
+         x \\
+         y \\
+         z \\
+    \end{pmatrix} = \boldsymbol{0} \implies z = -\sqrt{2}x - y \implies \vb{v} _{2} = \begin{pmatrix}
+         1 \\
+         0 \\
+         -\sqrt{2}  \\
+    \end{pmatrix} ~\text { and }~ \vb{v} _{3} = \begin{pmatrix}
+         0 \\
+         1 \\
+         -1 \\
+    \end{pmatrix}.  
 \end{equation}
 
-so \(\lambda \) is also an eigenvalue of \(BA\). 
+We have found two linearly independent eigenvectors for \(\lambda _{2} = -1 \), which are both orthogonal to \(\boldsymbol{\epsilon }_{1}  \). However \(\vb{v} _{2} \text { and } \vb{v} _{3}  \) themselves are not orthogonal. 
 
+To find \(\boldsymbol{\epsilon }_{2} \text { and } \boldsymbol{\epsilon }_{3}   \) we apply the Gram-Schmidt procedure. First we normalize \(\vb{v} _{2} \) to get 
+
+\begin{equation}
+    \boldsymbol{\epsilon }_{2} = \frac{1}{\sqrt{3} } \begin{pmatrix}
+         1 \\
+         0 \\
+         -\sqrt{2}  \\
+    \end{pmatrix}.   
+\end{equation}
+
+Then we subtract \(\vb{v} _{3} \) from its projection onto \(\boldsymbol{\epsilon }_{2}  \) and normalize to get 
+
+\begin{equation}
+    \vb{v} _{3}' = \vb{v} _{3} - (\epsilon _{2}\cdot \vb{v} _{3}  ) \boldsymbol{\epsilon }_{2} = \frac{1}{3} \begin{pmatrix}
+         -\sqrt{2}  \\
+         3 \\
+         -1 \\
+    \end{pmatrix} ~\text { and }~ \boldsymbol{\epsilon _{3} } = \frac{1}{2\sqrt{3} } \begin{pmatrix}
+         -\sqrt{2}  \\
+         3 \\
+         -1 \\
+    \end{pmatrix}.
+\end{equation}
+
+Therefore we have the transformation matrix 
+
+\begin{equation}
+    P = (\boldsymbol{\epsilon }_{1}, \boldsymbol{\epsilon }_{2},\boldsymbol{\epsilon }_{3}      ) = \begin{pmatrix}
+        \frac{1}{\sqrt{2} }  & \frac{1}{\sqrt{3} }  & -\frac{1}{\sqrt{6} }   \\
+        \frac{1}{2}  & 0 & \frac{\sqrt{3} }{2}   \\
+        \frac{1}{2}  & -\frac{\sqrt{6}  }{3}  & -\frac{1}{2\sqrt{3} }   \\
+    \end{pmatrix},
+\end{equation}
+
+which indeed satsfies 
+
+\begin{equation}
+    P^{-1} AP = P^TAP = \text{diag}  (2,-1,-1).
+\end{equation}
+~
 } 
 
 \example{Trace Formula.}
@@ -3288,8 +3708,98 @@ which is equals to the determinant of \(A\), since
 \end{equation}~
 } 
 
+\example{Symmetric Unitray Tranformation Matrix.}
+{A matrix $A$ can be transformed from one orthonormal basis to another by the unitary transformation $A' = U^\dagger A U$. State the corresponding transformation for column vector $\mathbf{x}$. For the specific examples
+$$ A = \begin{pmatrix} 0 & 0 & i \\ 0 & 3 & 0 \\ -i & 0 & 0 \end{pmatrix} , \quad \mathbf{x} = \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} , $$
+construct a symmetric, unitary matrix $U$ that can be used to transform $A$ to a basis in which it is diagonal and find transformed matrix $A'$ and vector $\mathbf{x}'$ in this basis.
+}
+{A column vector transforms as
+\begin{equation}
+\mathbf x' = U^\dagger\,\mathbf x.
+\end{equation}
 
-\section{Quadratic and Hermitian Forms}
+The eigenvalues of \(A\) are \(1,3,-1\) and their corresponding normalized eigenvectors are 
+
+\begin{equation}
+\mathbf u_1  = \tfrac1{\sqrt2}\begin{pmatrix}i\\0\\1\end{pmatrix}e^{i \phi _{1} } ,
+\quad
+\mathbf u_2  = \begin{pmatrix}0\\1\\0\end{pmatrix}e^{i \phi _{2} } ,
+\quad
+\mathbf u_3  = \tfrac1{\sqrt2}\begin{pmatrix}-i\\0\\1\end{pmatrix}e^{i \phi _{3} } ,
+\end{equation}
+
+where the phase factors are added to add extra freedoms in order to satisfy the condition that the transformation matrix has to be symmetric.
+
+Note that the eigenvectors are still normalized since \(\abs{e^{i \phi } } = 1\). 
+
+To construct a symmetric matrix we set \(\phi _{1} = - \pi /2 , \phi _{2} = \phi _{3} = 0  \), to get  
+
+\begin{equation}
+U = (\vb{u} _{1},\vb{u} _{2}, \vb{u} _{3}   ) = \begin{pmatrix}
+\tfrac1{\sqrt2} & 0 & -\tfrac{i}{\sqrt2}\\[4pt]
+0 & 1 & 0\\[4pt]
+-\tfrac{i}{\sqrt2} & 0 & \tfrac1{\sqrt2}
+\end{pmatrix}.
+\end{equation}
+
+The transfomred matrix and the transformed vector are therefore
+
+\begin{equation}
+A' = U^\dagger\,A\,U = \begin{pmatrix}1&0&0\\0&3&0\\0&0&-1\end{pmatrix} ~\text { and }~ \mathbf x' = U^\dagger\,\mathbf x
+= U^* \begin{pmatrix}1\\1\\1\end{pmatrix}
+= \begin{pmatrix}
+\tfrac{1+i}{\sqrt2}\\[4pt]
+1\\[4pt]
+\tfrac{1+i}{\sqrt2}
+\end{pmatrix}.
+\end{equation}
+~} 
+
+
+
+
+
+\section{Three-Dimensional Rotations}
+
+Since the eigenvalues \(\lambda _{i} \) of an unitary matrix \(U\) has modulus \(1\), \textit{i.e.,} \(\abs{\lambda } = 1\), as we have proved in \cref{lam1}, there always exists a transformation matrix \(P\) such that 
+
+\begin{equation}
+    P^{-1} UP = P^{\dagger} UP = \text{diag}(e^{i \phi _{1} }, \ldots , e^{i \phi _{n} }  ). 
+\end{equation}
+
+For an orthogonal rotation matrix \(R\) for any eigenvalue \(\lambda \) its copmlex conjugate \(\lambda ^*\) is also an eigenvalue by considering the charateristic polynomial \(\chi _{R}(\lambda ) \) where all the coefficients are real. In three dimensions it folows that the eigenvalues of \(R\) must be of the form \(1, e^{i \phi }, e^{-i \phi }  \), since from the charateristic polynomial \(\chi _{R}(\lambda ) \) we find the product of roots 
+
+\begin{equation}
+    \lambda _{1}\lambda _{2}\lambda _{3} = (-1)^3(-\det R) \implies e^{i \phi }e^{-i \phi }\lambda _{3} = \det R \implies \lambda _{3} = 1.       
+\end{equation}
+
+The eigenvector corresponding to the eigenvalue \(1\) is the axis of rotation \(\vb{n} \) which satsifies 
+
+\begin{equation}
+    R\vb{n} = \vb{n}.
+\end{equation}
+
+Therefore for every three-dimensional rotation \(R\) we can find an orthonormal basis where the rotation matrix \(\tilde{R} \) in this basis takes the form 
+
+\begin{equation}
+    \tilde{R} = \begin{pmatrix}
+        1 & 0 &  0 \\
+        0 & \cos \theta  & -\sin \theta   \\
+        0 & \sin \theta  &  \cos \theta  \\
+    \end{pmatrix},
+\end{equation}
+
+where the first column corresponds to the transformed vector of the axis of rotation, which is the axis of rotation itself, and the second and the third column correspond to the transformed vectors of two other eigenvectors, after rotating about the axis of rotation by \(\theta \). 
+
+From the basis-independence of the trace we also have that 
+
+\begin{equation}
+    \Tr (R) = \Tr (\tilde{R}) = 1+2 \cos \theta . 
+\end{equation}
+
+Note, however, the direction of rotation is not defined by the matrix itself, which is why we can only obtain \(\cos \theta \), but not \(\theta \) itself from the matrix. This is becuase the axis of rotation eigenvector can have opposite directions, and if we apply the right hand rule we find that a vector would rotate in opposite directions. For three general vectors there are no rules like \(\vu{x} \cross \vu{y} = \vu{z} \) to keep track of the direction of the axes.    
+
+\section{Quadratic Forms}
 
 A quadractic function in terms of the components of a vector \(\vb{x} = (x_1 ,x_2 ,x_3 )\) can be written in matrix form as 
 
@@ -3318,10 +3828,62 @@ where we have used the orthogonality of \(P\), \textit{i.e.,} \(P^TP = \mathbb{I
 Since eigenvectors are generally orthogonal, so if we choose them to be the basis, we have 
 
 \begin{equation}
-    Q = (\vb{x}') ^T\text{diag}(\lambda _{1},\lambda _{2}, \ldots ,\lambda _{n}   )\vb{x} ' = \lambda _{1}x'^2_1+ \lambda _{2}x'^2_2  + \cdots + \lambda _{n}x'^2_{n} .    
+    Q'(\vb{x} ') = (\vb{x}') ^T\text{diag}(\lambda _{1},\lambda _{2}, \ldots ,\lambda _{n}   )\vb{x} ' = \lambda _{1}x'^2_1+ \lambda _{2}x'^2_2  + \cdots + \lambda _{n}x'^2_{n} .    
 \end{equation}
 
+Quadratic forms can be used to define quadratic curves in two dimensions or quadratic surfaces in three dimensions by the set of all points \(\vb{x} \) satisfying 
+
+\begin{equation}
+    Q(\vb{x} ) = Q'(\vb{x} ') = \vb{x} ^TA\vb{x} = \vb{x} '^T A'\vb{x} = c.
+\end{equation}
+
+More explicitly, 
+
+\begin{equation}
+    A_{11}x^2+A_{22}y^2+A_{33}z^2+\frac{A_{12} }{2}xy+\frac{A_{13} }{2}yz+\frac{A_{23} }{2}xz=\lambda _{1}x_1 '^2+\lambda _{2}x_2 '^2+\lambda _{3}x_3 '^2.        
+\end{equation}
+
+By diagonalizing the quadratic form the nature of the quadratic curve or surface can be immediately read off from the eigenvalues \(\lambda _{i} \) of \(A\) as indicated in the table below. 
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lll}
+\toprule
+\textbf{Dimension} & \textbf{Eigenvalue condition} & \textbf{Quadric type} \\
+\midrule
+2D & all $\lambda_i$ equal and same sign as $c$ & circle    \\
+2D & all $\lambda_i$ same sign as $c$           & ellipse   \\
+2D & $\lambda_i$ of mixed sign                   & hyperbola \\
+\midrule
+3D & all $\lambda_i$ equal and same sign as $c$ & sphere     \\
+3D & all $\lambda_i$ same sign as $c$           & ellipsoid  \\
+3D & $\lambda_i$ of mixed sign                   & hyperboloid\\
+\bottomrule
+\end{tabular}
+\caption{Classification of central quadrics by eigenvalue signature.}
+\label{tab:quadric-classification}
+\end{table}
+
+
 If the quadratic form of \(A\) is positive for all column vectors \(\vb{x} \), then it is positive definite. From the above equation, we see that this is equivalent to all the eigenvalues of \(A\) are positive.  
+
+For example the kinetic energy of a rotating rigid body is given by 
+
+\begin{equation}
+    E = \frac{1}{2} \sum_{i,j}^{} I_{ij}\omega _{i}\omega _{j} = \frac{1}{2} \boldsymbol{\omega }^T I \boldsymbol{\omega },      
+\end{equation}
+
+where \(\boldsymbol{\omega } = (\omega _{1}, \omega _{2},\omega _{3}   ) \) is the angular velocity and \(I\) is the moment of inertia tensor of the rigid body. By diagonlizing the moment of inertia tensor 
+
+\begin{equation}
+    PIP^T = \text{diag}(I_1 ,I_2 ,I_3 ), \quad \boldsymbol{\Omega } = P \boldsymbol{\omega },   
+\end{equation}
+
+we can write the kinetic energy as 
+
+\begin{equation}
+    E = \frac{1}{2} \sum_{i=1}^{3} I_{i}\Omega _{i}^2.  
+\end{equation}
 
 \example{Equation of an Ellipse.}
 {Write the equation of the ellipse \(x^2+3y^2-2xy=1\) in quadratic form and find the length of the two axis by diagonlizing \(A\). }
@@ -3339,6 +3901,172 @@ If the quadratic form of \(A\) is positive for all column vectors \(\vb{x} \), t
 
 Thus the length of the two axes are \(a = \frac{1}{\sqrt{2+\sqrt{2 } }} \text { and } b = \frac{1}{\sqrt{2-\sqrt{2} } }  \). 
 } 
+
+\example{Quadratic Form (1).}
+{The quadratic forms \(Q_1 (x,y,z) \text { and } Q_2 (x,y,z)\) are defined by 
+
+\begin{equation}
+    Q_1 (x,y,z) \equiv x^2-4y^2+z^2+4yz-4zx-4xy ~\text { and }~ Q_2 (x,y,z)\equiv x^2+y^2+z^2.
+\end{equation}
+
+Find the corresponding maxtrix \(A_1 \text { and } A_2 \) representing the quadratic forms \(Q_1 \text { and } Q_2 \). Find a real orthogonal transformation matrix \(P\) such that \(A \text { and } A'\) can be diagonalized simultaneously. 
+
+Sketch the surface \(\Sigma \)  defined by the equation \(Q_1 (x,y,z) = -5\) and describe the shape of the intersection of \(\Sigma \) with the plane through the origin perpendicular to the direction \((2,1,-2)\).  
+}
+{The matrix \(A \text { and } A'\) can be stated as 
+
+\begin{equation}
+    A_1  = \begin{pmatrix}
+        1 & -2 &  -2 \\
+        -2 & -4 &  2 \\
+        -2 & 2 &  1 \\
+    \end{pmatrix} ~\text { and }~ A_{2} = \begin{pmatrix}
+        1 & 0 &  0 \\
+        0 & 1 &  0 \\
+        0 & 0 &  1 \\
+    \end{pmatrix} = \mathbb{I} .
+\end{equation}
+
+Since \(A_1 A_2 = A_1 \mathbb{I} = IA_1 = A_2 A_1 \), \(A_1 \text { and } A_2 \) commute and the two matrices can be diagonalized simultaneously.
+
+The eigenvalues for \(A_1 \) are \(-1,4,-5\). Arranging the normalized eigenvectors into a matrix we obtain the transformation matrix \(P\) 
+
+\begin{equation}
+    P = \begin{pmatrix}
+        \frac{1}{\sqrt{2} }  & \frac{1}{3\sqrt{2} }  & -\frac{2}{3}   \\
+        0 & \frac{4}{3\sqrt{2} }  & \frac{1}{3}   \\
+        \frac{1}{\sqrt{2} }  & \frac{1}{3\sqrt{2} }  & \frac{2}{3}   \\
+    \end{pmatrix}.
+\end{equation}
+
+Note that for \(P\) to be a rotation matrix so as to diagonalize \(A_2 = \mathbb{I}\) the column vectors must be diagonalized. 
+
+\(Q_1 (x,y,z) = -X^2 -5Y^2 + 4Z^2 = -5\) is a one-sheeted hyperboloid, which can be determined by the fact that there is no \(Z\)-intercept but \(X\)- and \(Y\)-intercepts. 
+
+The point \((\vb{r} = 2,1,-2)\) is transfomred by \(P\) by 
+
+\begin{equation}
+    \vb{r} ' = P^T \vb{r} = \left( 9,-\frac{8}{3\sqrt{2} }, -\frac{7}{3}   \right),
+\end{equation}
+
+so the equation of the plane given in \(X,Y,Z\) basis is 
+
+\begin{equation}
+    -\frac{8}{3\sqrt{2} }Y + \frac{7Z}{3} = 0.
+\end{equation}
+
+Together with \(X^2+5Y^2-4Z^2=5\) we have 
+
+\begin{equation}
+    X^2 + \frac{117}{49} Y^2 = 5,
+\end{equation}
+
+which is an ellipse from the top view. \Cref{hyper} shows the intersection between the plane and the hyperboloid.
+} 
+
+\onefig{hyper}{scale=0.3} 
+
+\example{Pauli Matrices.}
+{Explain the Properties of Pauli Matrices.}
+{\section*{1. The Pauli matrices and their algebra}
+
+The three $2\times2$ \emph{Pauli matrices} are
+\begin{equation}
+\sigma_1 = \begin{pmatrix}0 & 1\\[4pt]1 & 0\end{pmatrix}, 
+\quad
+\sigma_2 = \begin{pmatrix}0 & -i\\[4pt]i & 0\end{pmatrix},
+\quad
+\sigma_3 = \begin{pmatrix}1 & 0\\[4pt]0 & -1\end{pmatrix}.
+\end{equation}
+They span the real vector space
+\begin{equation}
+L = \mathrm{Span}_{\mathbb R}\{\sigma_1,\sigma_2,\sigma_3\},
+\end{equation}
+namely all $2\times2$ Hermitian, traceless matrices. Their multiplication rule is
+\begin{equation}
+\sigma_i\,\sigma_j \;=\;\,\delta_{ij}\,I \;+\; i\,\varepsilon_{ijk}\,\sigma_k,
+\end{equation}
+where $\delta_{ij}$ is the Kronecker delta, $\varepsilon_{ijk}$ is the Levi–Civita symbol, and repeated indices are summed over $1,2,3$. From this one obtains
+\begin{align}
+\{\sigma_i,\sigma_j\} &= \sigma_i\sigma_j + \sigma_j\sigma_i = 2\,\delta_{ij}\,I,\\
+[\sigma_i,\sigma_j]  &= \sigma_i\sigma_j - \sigma_j\sigma_i = 2\,i\,\varepsilon_{ijk}\,\sigma_k.
+\end{align}
+
+\section*{2. Squaring a general “Pauli‐vector”}
+
+For any real vector $\bm a=(a_1,a_2,a_3)$ define
+\begin{equation}
+\bm a\cdot\bm\sigma = a_i\,\sigma_i.
+\end{equation}
+Then
+\begin{equation}
+(\bm a\cdot\bm\sigma)^2
+= a_i a_j\,\sigma_i\sigma_j
+= \tfrac12\,(a_i a_i)\,I
+= \tfrac12\,|\bm a|^2\,I,
+\end{equation}
+and by induction
+\begin{align}
+(\bm a\cdot\bm\sigma)^{2n} &= \frac{|\bm a|^{2n}}{2^n}\,I,\\
+(\bm a\cdot\bm\sigma)^{2n+1} &= \frac{|\bm a|^{2n}}{2^n}\,(\bm a\cdot\bm\sigma).
+\end{align}
+
+\section*{3. Exponentiation of $i\theta\,\bm n\cdot\bm\sigma$}
+
+Let $\bm n$ be a unit vector and $\theta\in\mathbb R$. Then
+\begin{equation}
+U = \exp\bigl(i\theta\,\bm n\cdot\bm\sigma\bigr)
+= \sum_{m=0}^\infty \frac{(i\theta)^m}{m!}\,(\bm n\cdot\bm\sigma)^m.
+\end{equation}
+Splitting into even and odd terms and using the formulas above gives
+\begin{equation}
+\exp\bigl(i\theta\,\bm n\cdot\bm\sigma\bigr)
+= \cos\theta\,I
++ i\,\sin\theta\,(\bm n\cdot\bm\sigma).
+\end{equation}
+
+\section*{4. Unitarity and $\mathrm{SU}(2)$}
+
+Since each $\sigma_i$ is Hermitian,
+\begin{equation}
+\bigl(i\theta\,\bm n\cdot\bm\sigma\bigr)^\dagger = -\,i\theta\,\bm n\cdot\bm\sigma,
+\end{equation}
+one checks
+\begin{equation}
+U^\dagger U
+= \bigl(\cos\theta\,I - i\,\sin\theta\,\bm n\cdot\bm\sigma\bigr)
+  \bigl(\cos\theta\,I + i\,\sin\theta\,\bm n\cdot\bm\sigma\bigr)
+= I,
+\end{equation}
+so $U\in U(2)$. Moreover,
+\begin{equation}
+\det U = \cos^2\theta + \sin^2\theta = 1,
+\end{equation}
+hence $U\in SU(2)$.
+
+\section*{5. Parametrization of all $SU(2)$}
+
+Every $U\in SU(2)$ can be written as
+\begin{equation}
+U = \exp\bigl(i\theta\,\bm n\cdot\bm\sigma\bigr),
+\end{equation}
+which explicitly yields
+\begin{equation}
+U =
+\begin{pmatrix}
+\cos\theta + i\,n_3\,\sin\theta & (n_2 + i\,n_1)\,\sin\theta \\[6pt]
+-(n_2 - i\,n_1)\,\sin\theta      & \cos\theta - i\,n_3\,\sin\theta
+\end{pmatrix},
+\end{equation}
+with $\det U=1$. Equivalently, setting
+\begin{equation}
+\alpha = \cos\theta + i\,n_3\sin\theta,
+\quad
+\beta  = (n_2 + i\,n_1)\,\sin\theta,
+\end{equation}
+one has $|\alpha|^2+|\beta|^2=1$.
+} 
+
 
 \chapter{Hibert Space}
 

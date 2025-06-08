@@ -1,28 +1,24 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Define the extended grid over [-100, 100] × [-100, 100]
-x = np.linspace(-20, 20, 400)
-y = np.linspace(-10, 10, 400)
-X, Y = np.meshgrid(x, y)
+# x = m/M runs from 1/3 down to 1/10
+x = np.linspace(0, 0.5, 400)
+y = np.abs(1 - 10*x) / (1 + 8*x)
 
-# Define the function f(x,y) = x * y * exp(x - y)
-Z = X * Y * np.exp(X - Y)
+plt.figure(figsize=(6, 4))
+plt.plot(x, y, lw=2, color='orange')
+# Mark the endpoints
+plt.scatter([1/3, 1/10], 
+            [np.abs(1 - 10*(1/3)) / (1 + 8*(1/3)), 
+             np.abs(1 - 10*(1/10)) / (1 + 8*(1/10))], 
+            color='red')
+plt.text(1/3, (np.abs(1 - 10*(1/3)) / (1 + 8*(1/3))) + 0.03, 'm/M=1/3', ha='center')
+plt.text(1/10, (np.abs(1 - 10*(1/10)) / (1 + 8*(1/10))) + 0.03, 'm/M=1/10', ha='center')
 
-# Mask out everything except the second quadrant (x < 0, y > 0)
-mask = ~((X < 0) & (Y > 0))       # True outside Q2, False inside
-Z_masked = np.ma.masked_where(mask, Z)
-
-# Create the contour plot with 200 levels
-plt.figure(figsize=(8, 8))
-contours = plt.contour(
-    X, Y, Z_masked,
-    levels=200,
-    cmap='viridis'
-)
-plt.clabel(contours, inline=True, fontsize=4)
-plt.title(r'Contour plot of $f(x,y) = x\,y\,e^{\,x - y}$ (Q2 only, extended grid)')
-plt.xlabel('x')
-plt.ylabel('y')
+plt.title('Normalized body amplitude $(|1 - 10x|)/(1 + 8x)$ vs. $x = m/M$')
+plt.xlabel('$x = m/M$')
+plt.ylabel('$(|1 - 10x|)/(1 + 8x)$')
 plt.grid(True)
+plt.xlim(0.10, 0.3333)
+plt.ylim(0, max(y)*1.1)
 plt.show()

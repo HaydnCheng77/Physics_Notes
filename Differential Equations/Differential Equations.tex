@@ -416,14 +416,14 @@ If we cannot (and do not want to) change \( dy /dx\) to be the subject of the eq
 
 Integrating gives the solution in the form \(p = p(x)\), which can be directly substituted into the equation where \(y\) is the subject to get the solution.
 
-\example{Introduction of Parameter.}
+\example{Introduction of Parameter (1).}
 {Solve
 
 \begin{equation}
-    y = xy'=y'^2.
+    y = xy'-y'^2.
 \end{equation}~
 }
-{Introducing \(p = y'\), we have
+{Introducing the parameter \(p = y'\), we have
 
 \begin{equation}
     pdx = dy = xdp + pdx - 2pdp \implies (x-2p)dp = 0.
@@ -435,6 +435,30 @@ The solutions are
     p = \frac{x}{2} \implies y = \frac{x^2}{4} ~\text { or }~ dp = 0 \implies p = C \implies y = C(x-C).  
 \end{equation}~
 } 
+
+\example{Introduction of Parameter (2).}
+{Solve 
+
+\begin{equation}
+    xy'^2-2yy'-x = 0.
+\end{equation}
+~
+}
+{Introducing the parameter \(p = y'\), we have 
+
+\begin{equation}
+    y = \frac{xp^2-x}{2p} \implies \frac{dy}{dx} = p = \frac{(2pxp'+p^2-1)p - p'(xp^2-x)}{2p^2} \implies p' = \frac{p}{x}.    
+\end{equation}
+
+Integrating we get 
+
+\begin{equation}
+    p = y' = Cx \implies y = Cx^2+D.
+\end{equation}
+
+Subsitute this back into the original equation we get \(D = -C /4\), since there should only be 1 integration constant from a first order differential equation. Two integral curves pass through any given point \((x,y)\), since the differential equation is quadratic in \(y'\), so at every point there are two possible slopes.
+} 
+
 
 
 
@@ -948,6 +972,68 @@ If \(\gamma = \omega _{0} \) and for some reason \(\omega \to i\omega _{0}\), th
     \end{aligned} 
 \end{equation}
 
+\example{Resonance.}
+{Find the solution to the solution to the equation 
+
+\begin{equation}
+    \frac{d^2y}{dx^2} - 2 \frac{dy}{dx} + (\beta ^2-1)y = e^{x}(1+\cos x). 
+\end{equation}
+~
+}
+{The roots of the charateristic equation is \(\lambda = 1 \pm i\beta \), so the homogenous solution for \(\beta \neq 0\) is 
+
+\begin{equation}
+    y_{H}(x) = e^{x}(A \cos \beta x + B \sin \beta x).  
+\end{equation}
+
+For \(\beta ^2 \neq 1 \), the particular solution is 
+
+\begin{equation}
+    y_{P}(x) = Ce^{x} + e^{x}(D \cos x + E\sin x).    
+\end{equation}
+
+Solving gives \(C = \beta ^{-2}, D = (\beta ^2-1)^{-1} \text { and } E = 0\). 
+
+If \(\beta ^2 = 1\), however, then since one of the particular solution, namely \(e^{x} \cos x\), coincide with one of the homogenous solution, we must modify our guess to the particular solution as 
+
+\begin{equation}
+    y_{P}(x) = C e^{x} + xe^{x}(D \cos x + E \sin x).   
+\end{equation}
+
+Solving gives \(C = \beta ^{-2}, D = 0 \text { and } E = 1 /2 \).
+
+Alternatively we can take the limit of the generalized particular solution as \(\beta \to \pm 1\) 
+
+\begin{equation}
+    y_{P}(x) = \frac{e^{x} }{\beta ^2}  + \lim_{\beta  \to \pm 1} \frac{\cos x e^{x} - \cos (\beta x)e^{x}  }{\beta ^2-1} =  e^{x}  + \frac{1}{2}x \sin x e^{x}.      
+\end{equation}
+
+If \(\beta = 0\), then the roots of the charateristic equation are both \(1\) so the homogenous solution is 
+
+\begin{equation}
+    y_{H}(x) =  (A+Bx)e^{x}. 
+\end{equation}
+
+Now for the particular solution we have to guess 
+
+\begin{equation}
+    y_{P}(x) = C x^2 e^{x} + D e^{x}\cos x   
+\end{equation}
+
+to get \(C = 1 /2 \text { and } D = -1\).
+
+Alternatively we can take the limit of the generalized particular solution as \(\beta \to 0\) 
+
+\begin{equation}
+    \begin{aligned} 
+    y_{P}(x) &= (\beta ^2-1)^{-1} e^{x} \cos x + \lim_{\beta  \to 0} \frac{e^{x} - e^{x}\cos (\beta x) }{\beta ^2} \\
+    &= - e^{x} \cos x + e^{x} x  \lim_{\beta  \to 0} \frac{\sin (\beta x)}{2 \beta } = -e^{x}\cos x + \frac{1}{2} e^{x} x^2.
+    \end{aligned} 
+\end{equation}
+~
+} 
+
+
 \subsection{Extreme Cases}
 
 If \(\omega \ll \omega _{0} \), then from the general solution we have \(\varphi \approx 0 \text { and } A \approx F_0 /\omega _{0}^2  \). Mathematically, the acceleration and the damping term is negligible, so the mass simply follows the driving force, which is cancelled by the restoring force. 
@@ -969,12 +1055,12 @@ where \(\omega _{u} \equiv \sqrt{\omega _{0}^2- \gamma ^2 } \) is the underdampe
 The quality factor \(Q\) of an oscillator is defined as\footnote{The oscillator can be forced or unforced. Unforced oscillator simply means that the energy lost from damping is not replenished by the driving force.}  
 
 \begin{equation}
-    Q \equiv 2\pi \frac{\text{Average energy stored in a cycle}}{\text{Total energy last per period}}.
+    Q \equiv 2\pi \frac{\text{Average energy stored in a cycle}}{\text{Total energy lost per period}}.
 \end{equation}
 
 Sometimes the word ``average'' is omitted, since as we will see both definitions give the same result.
 
-The average energy stored in a cycle \(E\) can be calculated directly via
+The average energy stored in a cycle \(E\) can be calculated directly via, assuming \(\gamma \) small (and thus \(\omega _{u} \approx \omega _{0}  \)),
 
 \begin{equation}
     \begin{aligned} 
@@ -983,7 +1069,7 @@ The average energy stored in a cycle \(E\) can be calculated directly via
     &= \frac{1}{2}mA^2e^{-2\gamma t} \left((\omega _{0}^2-\gamma ^2 ) \sin ^2(\omega _{u}t+\varphi)  + (\gamma ^2+\omega _{0}^2) \cos ^2(\omega _{u}t+\varphi  ) + \frac{\gamma }{2} \omega _{u}\sin (2(\omega _{u}t+\varphi  )) \right)\\
     &= \frac{1}{2}mA^2e^{-2\gamma t} \left( \omega _{0}^2 + \frac{\gamma }{2}\omega _{u}\sin (2(\omega _{u}t + \varphi  )) + \gamma ^2(\cos ^2(\omega _{u}t+\varphi  )- \sin ^2(\omega _{u}t+\varphi  )) \right) \\
     &= \frac{1}{2}mA^2e^{-2\gamma t} \left( \omega _{0}^2+ \frac{\gamma }{2}\omega _{u}\sin (2(\omega _{u}t+\varphi  )) + \gamma ^2\cos (2(\omega _{u}t+\varphi  )) \right) \\
-    \avg{E} &= \frac{1}{2}mA^2\omega _{0}^2e^{-2\gamma t},
+    \avg{E} &= \frac{1}{2}mA^2\omega _{0}^2e^{-2\gamma t} \approx \frac{1}{2}mA^2\omega _{0}^2.  
      \end{aligned} 
 \end{equation}
 
@@ -1012,8 +1098,10 @@ Another way to calculate the quality factor is by considering the power of the r
 Therefore the quality factor \(Q\) is 
 
 \begin{equation}
-    Q = 2\pi \frac{\avg{E} }{\abs{\avg{E} } } = 2\pi \frac{\frac{1}{2}mA^2\omega _{0}^2e^{-2\gamma \left( \frac{2\pi }{\omega _{0} }  \right)}   }{m\pi \gamma \omega _{0}A^2 } \approx \frac{\omega _{0} }{\gamma }. 
+    Q = 2\pi \frac{\avg{E} }{\abs{\avg{E} } } = 2\pi \frac{\frac{1}{2}mA^2\omega _{0}^2}{m\pi \gamma \omega _{0}A^2 } \approx \frac{\omega _{0} }{\gamma }. 
 \end{equation}
+
+Note that the quality factor is an inherent property of the circuit itself, so the same quality factor can be derived in the steady state solution as well, not just the trasient solution, which we have demonstrated on, given that the driving frequency is also equals to the natural freqeucy, \textit{i.e.,} \(\omega = \omega _{0} \). 
 
 \subsubsection{FWHM of the Resonance Peak}
 
@@ -1559,7 +1647,6 @@ Reqruiring the determinant equals to zero we get four roots for \(\lambda \). Th
     \sum_{i=1}^{4} C_{i} \vb{u} _{i} e^{\lambda _{i}t }.   
 \end{equation}
 
-
 \example{Second Order Vector Differential Equation.}
 {Solve the coupled differential equation
 
@@ -1634,6 +1721,18 @@ we obtain \(\vb{u} _{P} = (1/5,0) \). Therefore the general solution is
 \end{equation}
 ~
 } 
+
+If a first order differential equation has the form
+
+\begin{equation}
+    \frac{d\vb{x} }{dt} = A\vb{x} , 
+\end{equation}
+
+then one can also write the solution as 
+
+\begin{equation}
+    \vb{x} = \vb{C} e^{At}, \quad e^{At} \equiv \sum_{n=0}^{\infty} \frac{1}{n!}A^{n}t^{n}.       
+\end{equation}
 
 
 

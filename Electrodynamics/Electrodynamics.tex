@@ -142,6 +142,16 @@ It is important to note that \(V(\vb{r} ')\) here is the full potential created 
 
 We see that there are two ways to compute the potential energy of a system: either by considering the external work done required for the assembly process or by calculating the energy stored in the elctric field.
 
+\example{Energy of a Charged Spherical Shell.}
+{Find the electrostatic energy of a charged spherical shell with raidus \(R\) and net charge \(Q\).}
+{Not forgetting the \(1/2\) factor we have 
+
+\begin{equation}
+    E = \frac{1}{2}QV = \frac{1}{2}Q \frac{kQ}{R^2} = \frac{kQ^2}{2R^2}.    
+\end{equation}
+~
+}
+
 \example{Energy of a Pair of Point Charges.}
 {Calculate the energy of the system consisting of a point charge \(q_1\) located at the origin and \(q_2\) located at \( z=a \) by calculating energy stored in the electric field.}
 {The total electric field \(\vb{E} \) is the sum of the electric fields of two individual charge
@@ -215,31 +225,7 @@ An incorrect way to compute this would be to consider the assembly process, sinc
 
 \todo{modify above} 
 
-\example{Sphere in Cylinder.}
-{A long cylinderical capacitor of length \(l\) consists of an outer conductor of radius \(a\) and an inner conductor of radius \(b\), where \(l \gg a\). The outer conductor is earthed and the inner conductor is hollow, insulated and unchared. A sphere of radius \(R\) is charged to a potential \(V\) far from any other bodies and is then inserted inside the inner conuctor of the cylindrical capacitor without touching it. 
 
-Sketch the electric field lines, calculate the electric field strength at a radius \(b<r<a\), and find the potential of the inner cylinder and the sphere.}
-{The charged sphere of radius \(R\) sits at potential \(V\), so in free space it would have charge \(q = 4\pi \epsilon_0 RV\). The radial electric field prodcued by this charge then induces charge \(-q\) on the inner surface of the inner conductor and \(+q\) on its outer surface. The \(-q\) charges in the inner conductor is not evenly distributed, while the \(+q\) charges on its outer surface is uniformly distributed. In other words, the meat of the inner conductor shields any information about the charge distribution inside but only reveals the amount of net charge in it. Outside of the inner conductor there is then an uniform electric field directed towards the outer conductor. Outside of the outer conductor there could be no electric field, since it is grounded, which is at the same potential as infinity.
-
-The electric field can be found by considering a cylindrical Gaussian surface between the inner and the outer conductor, which gives
-
-\begin{equation}
-    E(2\pi rl) = \frac{4\pi \epsilon_0 RV}{\epsilon_0 } \implies E = \frac{2RV}{lr}.  
-\end{equation}
-
-The potential of the inner conductor can then be found by the negative electric field line integral 
-
-\begin{equation}
-    V(b) = -\int_{a}^{b} \frac{2RV}{lr} = \frac{2RV}{l} \ln \left( \frac{a}{b}  \right).
-\end{equation}
-
-The potential of the sphere can then by found by further integrating the electric field inside the inner conductor, so 
-
-\begin{equation}
-    V(R) = V(b) - \int_{b}^{R} -\frac{q}{4\pi \epsilon_0 r^2}dr = V\left( 1-\frac{R}{b}  \right)  + \frac{2RV}{l} \ln \left( \frac{a}{b}  \right).
-\end{equation}
-~
-} 
 
 
 \section{Conductors}
@@ -284,7 +270,7 @@ In the case of a condutor, the force per unit area can be calulated via
     \frac{F}{A} = \frac{Q}{A}\left( \frac{1}{2} \left( 0 + \frac{\sigma }{\epsilon _{0} }\vu{n}   \right)  \right) = \frac{\sigma ^2}{2\epsilon _{0} }\vu{n}
 \end{equation}
 
-regardless of the external electric field because this information is embedded in the fact that \(\vb{E} _{\text{below} } = 0 \) inside the conductor and \(\sigma \) will increase so as to counteract the increasing external field to satisfy this condition  
+regardless of the external electric field because this information is embedded in the fact that \(\vb{E} _{\text{below} } = 0 \) inside the conductor and \(\sigma \) will increase so as to counteract the increasing external field to satisfy this condition.
 
 \example{Forces between Hemispheres of a Spherical Shell.}
 {Find the net force between the hemispheres of a spherical shell with radius \(R\) and charge \(Q\).}
@@ -371,7 +357,88 @@ By taking appropriate limits, find
     We see that the result is independent of \(c\), so we can take any value of \(c\). In the case of a needle, \(c \rightarrow  0\), and \(\lambda (x)\) is a constant value.
 \end{enumerate}~} 
 
+\example{Three Concentric Conducting Spheres.}
+{Three concentric conducting spheres with radius \(a,b \text { and } c\), from the innermost to the outermost sphere, respectively, are fixed at potential \(V_1 , V_2 \text { and } 0\), respectively. Find the electric field inside the spheres. If \(V_1 \) is known find \(V_2 \) such that \(E_{\text{max} } \) is minimized.}
+{So since all spheres are at fixed potential, their charges are the variables to change. Let \(q_1 \text { and } -q_1 \) be the charge of the outer surface of the innermost sphere, and the charge of the inner surface of the middle sphere, respectively, and let \(q_2 \text { and } -q_2 \) to be the charge of the outer surface of the middle sphere, and the charge of the inner surface of the outer conductor. The reson why they must be \(\pm \) of each other is explained in the previous problem. 
 
+The electric field is therefore 
+
+\begin{equation}
+    E (r) = \begin{cases}
+        E_1 (r) = \displaystyle \frac{kq_1 }{r^2} ,& a<r<b,\\
+        E_2 (r) = \displaystyle \frac{kq_2 }{r^2} ,& b<r<c.
+    \end{cases}
+\end{equation}
+
+To find \(q_1 \text { and } q_2 \) we set the potential differences as the negative line integrals of the electric fields
+
+\begin{equation}
+    V_2 - V_1 = - \int_{a}^{b} \frac{kq_1}{r^2} dr ~\text { and }~ 0-V_2 = - \int_{b}^{c} \frac{kq_2 }{r^2} dr,    
+\end{equation}
+
+so in summary we have 
+
+\begin{equation}
+    E(r) = \begin{cases}
+        E_1(r) = \displaystyle \frac{V_1 - V_2 }{r^2} \frac{ab}{b-a} ,& a<r<b,\\
+        E_2(r) = \displaystyle \frac{V_2 }{r^2} \frac{bc}{c-b} ,& b<r<c.
+    \end{cases}
+\end{equation}
+
+If \(V_2 \) increases, \(E_1 \) decreases while \(E_2 \) increases. Therefore when \(E_{\text{max} } \) is minimized we must have 
+
+\begin{equation}
+    \abs{E_1 (r)} = \abs{E_2 (r)} \implies \begin{cases}
+        \displaystyle \frac{a}{b-a} (V_1 -V_2 ) &= \displaystyle \frac{c}{c-b} V_2 ,\\
+        \displaystyle \frac{a}{b-a} (V_1 -V_2 ) &= \displaystyle -\frac{c}{c-b} V_2 .
+    \end{cases}
+\end{equation}
+
+No further conclusion can be drawn if \(a,b,c \text { and } V_1 \) are not known. 
+} 
+
+
+\example{Sphere in Cylinder.}
+{A long cylinderical capacitor of length \(l\) consists of an outer conductor of radius \(a\) and an inner conductor of radius \(b\), where \(l \gg a\). The outer conductor is earthed and the inner conductor is hollow, insulated and unchared. A sphere of radius \(R\) is charged to a potential \(V\) far from any other bodies and is then inserted inside the inner conuctor of the cylindrical capacitor without touching it. 
+
+Sketch the electric field lines, calculate the electric field strength at a radius \(b<r<a\), and find the potential of the inner cylinder and the sphere.}
+{The charged sphere of radius \(R\) sits at potential \(V\), so in free space it would have charge \(q = 4\pi \epsilon_0 RV\). It is an isolated conductor, so its net charge stays the same while its potential changes.
+
+The radial electric field prodcued by this the charged sphere then induces charge \(-q\) on the inner surface of the inner conductor and \(+q\) on its outer surface. This is because the electric field exntended from a positive charge from the charged sphere must either extend to infinity, or ends on a negative charge. This is also consistent with the fact that if you consider a gaussian surface which the end surfaces are in the two conductors, then net charge is zero since the electric field flux is zero, provided that the side surfaces are radial.
+
+By the uniqueness theorem, the \(-q\) charges in the inner conductor is not evenly distributed, while the \(+q\) charges on its outer surface is uniformly distributed. In other words, the meat of the inner conductor shields any information about the charge distribution inside but only reveals the amount of net charge in it. Outside of the inner conductor there is then an uniform electric field directed towards the outer conductor. Outside of the outer conductor there could be no electric field, since it is grounded, which is at the same potential as infinity (if there exist any electric field lines then they are not at the same potential).
+
+The electric field can be found by considering a cylindrical Gaussian surface between the inner and the outer conductor, which gives
+
+\begin{equation}
+    E(2\pi rl) = \frac{4\pi \epsilon_0 RV}{\epsilon_0 } \implies E = \frac{2RV}{lr}.  
+\end{equation}
+
+The potential of the inner conductor can then be found by the negative electric field line integral 
+
+\begin{equation}
+    V(b) = -\int_{a}^{b} \frac{2RV}{lr} = \frac{2RV}{l} \ln \left( \frac{a}{b}  \right).
+\end{equation}
+
+The potential of the sphere can then by found by further integrating the electric field inside the inner conductor, so 
+
+\begin{equation}
+    V(R) = V(b) - \int_{b}^{R} -\frac{q}{4\pi \epsilon_0 r^2}dr = V\left( 1-\frac{R}{b}  \right)  + \frac{2RV}{l} \ln \left( \frac{a}{b}  \right).
+\end{equation}
+~
+} 
+
+\example{Concentric Spheres.}
+{A spherical capacitor comprises two thin metal spheres of radii \(R_1 \text { and } R_2 (R_2 > R_1 )\) with
+a common centre. The following series of operations is completed: The spheres are
+mutually connected by an internal wire. The outer sphere is raised to potential \(+V\) with
+respect to ground. The internal connection is broken. The outer sphere is returned to
+ground potential. Determine the final potential and the final charge on the inner sphere.}
+{When the outer sphere is raised to potential \(+V\) with respect to ground, a total charge of \(Q=CV=4\pi \epsilon_0 R_2 V\) flows from the voltage supply to the outer sphere. Since the two spheres are connected by a wire they act as one conductor and thus the charge \(Q\) would only deposit on the outer surface of the outer sphere.
+
+When the internal connection is broken nothing has changes. Although the isolated inner sphere is now allowed to have induced charge and change its potential, since it does not feel any force it has no induced charge and it stays at the same potential \(V\). It is just as we have carved out a thin spherical shell inside a conductor held at potential \(V\) and ask what would happen to the isolated sphere inside - nothing.
+
+When the outer sphere is grounded, again since the inner sphere experiences no force there would be no induced charge. However, its potential is lowered to zero as well, since the outer sphere is now grounded, so from infinity there would be no electric field lines connecting to the outer sphere, and there is still no electric field lines between the two spheres.} 
 
 \subsection{Capacitors}
 
@@ -383,11 +450,25 @@ A capacitor is simply a fancy word for ``a collection of conductors''. Since we 
 
 where \(V\) is the potential difference between 2 conductor or the potential difference between a conductor compare to infinity. For three or more conductors, there is no trivial definition for the capacitance.
 
-When we say a condutor plate, we mean a conductor with small thickness, and when we say sheet of surface charge, we mean a conductor with negligible thickness. The latter is simply an extreme case of the former, and in most case do not matter. 
+When we say a condutor plate, it is always most accurate to consider a conductor with small thickness, and when we say sheet of surface charge, we mean a conductor with negligible thickness. The latter is simply an extreme case of the former, and in most case do not matter, for example it sevrves no harm when deriving the capactiance between two parallel plates that you treat the conducting plates as charged sheets, since only the inner surfaces matter anyway.
 
 The main difference is that the electric field on both sides of the conductor plate is \(\vb{E} = \sigma \vu{n} /2\epsilon _0 \), where \(\sigma \) is the surface charge density on one of the surface of the plate, while the electric field on both sides of a sheet of surface charge is \(E = \sigma /\epsilon _{0}  \), where \(\sigma \) is the surface charge density of the sheet.   
 
 The two cases unified when the thickness of the conductor plate goes to zero, where the surface charge doubles, eliminating the \(1 /2 \) factor.  
+
+\example{Capacitance of Three Spherical Shells.}
+{Find the capacitance of three concentric spherical shells with radii \(a<b<c\), of which the inner and outer shell are earthed.}
+{Now since both the inner and outer shell are earthed, they should be treated as a single conductor, where their surfaces has surface charges \(q_1 \text { and } q_2 \), respectively. The conductor in the middle, on the other hand, has charge \(-q_1 \) on its inner surface and charge \(-q_2 \) on its outer surface. 
+
+We note that this charge configuration is the exact same as if two capcitors are joined parallel (not series, as one can imagine the two wires in the usual parallel capcitors configuration as the ground wire and the meat of the middle conductor), so the capcitance is 
+
+\begin{equation}
+    C = C_1 +C_2 = 4\pi \epsilon_0 \left( \frac{ab}{b-a} + \frac{bc}{c-b}   \right).
+\end{equation}
+~
+} 
+
+
 
 \chapter{Laplace's and Poisson's Equations}
 
@@ -592,7 +673,7 @@ If \(V\) is specified everywhere on \(\mathcal{S}\), then since we have proved t
 
 If the volume contains conductors, then instead of the Dirichlet or the Neumann condition we can just specify the total charge on each conductor, which determines the potential on each conductor (see \cref{2nduni}). 
 
-
+\onefig{2nduni}{scale=0.3} 
 
 
 \example{Uniqueness Theorems.}
@@ -626,12 +707,15 @@ If the volume contains conductors, then instead of the Dirichlet or the Neumann 
 
 \section{The Method of Images}
 
-Suppose a point charge \(q\) is held a distance \(d\) above an infinite grounded conducting plane and we wish to find the potential in the region above the plane. From a mathematical standpoint, this is equivalent to solving the Poisson's equation in the region \(z > 0\), with \(\rho \) corresponds to a single point charge  \(q\) located at \((0,0,d )\), subject to the boundary conditions: 
+Suppose a point charge \(q\) is held a distance \(d\) above an infinite grounded\footnote{Note that if the plate is instead held at potential \(V_0 \), or is isolated with net charge \(Q\) (which is equivalent to being held at potential \(V_0 \) but \(V_0 \) is now determined by the net charge \(Q\) of the conductor), then the solution is \href{https:////physics.stackexchange.com//questions//314982//method-of-image-charges-for-a-point-charge-and-a-non-grounded-conducting-plane}{highly non-trivial}.} conducting plane and we wish to find the potential in the region above the plane. From a mathematical standpoint, this is equivalent to solving the Poisson's equation in the region \(z > 0\), with \(\rho \) corresponds to a single point charge  \(q\) located at \((0,0,d )\), subject to the boundary conditions: 
+
 \begin{enumerate}
     \item \(V = 0\) when \(z = 0\), and \item \(V \rightarrow 0\) for \(x^2 + y^2 + z^2 \gg d^2\).	
 \end{enumerate}
 
 By some clever insights, we see that for the potential created by a pair of opposite charge with \(q\) located at \((0,0,d)\) and \(-q\) located at \((0,0,-d)\) satisfy \(\rho \) in the region \(z > 0\).\footnote{We cannot place iamge charges in the volume \(V\) where we are calculating the potential, since for the first uniqueness theorem to stand, the charge density throughout the region has to be fixed as the given \(\rho \). Also the images charges must add up to the correct total in each region. (why?)} 
+
+The essential idea is that there the potential created by the induced charge \((z>0)\) inside the region of interest \((z>0)\) can be replaced by the potential created by the image charge \((z<0)\) inside the region of interest \((z>0)\). Outside the region of interest, the two potentials created by the induced charge and the image charge are entirely different.  
 
 Since the electric field is just \(\vb{E} = -\grad{V} \), it is also uniquely determined and the force that the real charge experience can be easily calculated as \( \vb{F} = -q^2\vu{z}/ 4\pi \epsilon_0 (2d)^2\).
 
@@ -684,23 +768,30 @@ So in general the energy becomes \(U = q_{\text{real} } V \) and we only need to
     
     We see that the potential created by \(q, q' \text{ and } q''\) satisfy both the charge density requirement as well as the boundary conditions. Therefore, we claim this as our answer. \newline
     
-    \item In this part, the boundary conditions are identical to those in the previous part, except for the fact that \(V_0\) is not known but is determined by the total net charge \(Q\). 
+    \item In this part, the boundary conditions are identical to those in the previous part, except for the fact that \(V_0\) is not known but is determined by the total net charge \(Q\). Therefore we still have the same image charges configuration as the previous part but we need to find \(q''\), which depends on \(V_0 \), which depends on \(Q\).  
     
-    To determine the relation between them, we see that since the electric field outside the sphere which is created by the real point charge and the real induced charge can be regarded as being created by the real point charge and the image charge, the field outside the sphere created by the real induced charge is identical as the field outside the sphere created by the image charge. So we have
+    To find \(q''\) we see that use the fact that the electric field outside the sphere created by the real net charge \(Q\), \textit{i.e.,} \(\vb{E} _{\text{real} } \) is identical as the electric field outside the sphere created by the image charges \(q_{\text{images} } \), \textit{i.e.,} \(\vb{E} _{\text{images} } \). So we have
     
     \begin{equation}
-        \oint _{S} \vb{E}_{\text{real, induced}}  \cdot d\vb{S} = \frac{q_{\text{real, induced}}}{\epsilon_0} = \oint _{S} \vb{E} _{\text{image}} \cdot d\vb{S} = \frac{q_{\text{image}}}{\epsilon_0} .
+        \oint _{S} \vb{E}_{\text{real}}  \cdot d\vb{S} = \frac{Q}{\epsilon_0} = \oint _{S} \vb{E} _{\text{image}} \cdot d\vb{S} = \frac{q_{\text{images}}}{\epsilon_0} .
     \end{equation}
     
-    Therefore we conclude that the image charge is equal to the induced charge. So if the total net charge of the shell is \(Q\), then  we have
+    Therefore we conclude that the total image charges is equal to the net charge, \textit{i.e.,} 
     
     \begin{equation}
-        Q = q' + q''.
+        Q = q_{\text{images} } = q' + q''.
     \end{equation}
     
     And the rest is identical to the previous part.
-\end{enumerate}~} 
 
+    Note that we cannot simply substitute \(Q = 0\) in the above equation to find \(q''\) in the previous part, since \(Q \) denotes the net real charge, which is not equals to zero when the conductor is held at potential \(V_0 \). 
+
+    Instead, using the above equation we can find the real induced charge of the spherical shell, wich is 
+
+    \begin{equation}
+        q_{\text{induced} } = q'+q'' = -\frac{R}{a} q + 4\pi \epsilon_0 RV_0 .   
+    \end{equation}
+\end{enumerate}~} 
 
 \section{Separation of Variables}
 
@@ -1087,11 +1178,7 @@ Placing the dipole at the origin, orienting \(\vb{p} \) to point in the \(z\) di
 In fact, a quick way to generate the multipole potential is to simply take the gradient of the lower order potential, for example, to generate diopole potential from the monopole potential, we can imagine a negative charge \(-q\) located at \(\vb{r} '_{-}  \) and a positive charge \(+q\) located at \(\vb{r}' _{+}  \). Then the dipole potential is the combination of the monopole potential
 
 \begin{equation}
-    \begin{aligned} 
-    V_{\text{dip} } (\vb{r} ) &= V_{\text{mono,+q} } + V_{\text{mono,-q} } = kq \left( \frac{1}{\abs{\vb{r} - \vb{r} '_{+} }  } - \frac{1}{\abs{\vb{r} - \vb{r} '_{-} } }   \right) \\
-    &= kq \left( \frac{1}{r} + (-\vb{r} '_{+}) \cdot \grad{\left( \frac{1}{r }  \right)} - \frac{1}{r} - (-\vb{r} '_{-} ) \cdot \grad{\left( \frac{1}{r}  \right)}    \right) \\
-    &= -kq \grad{\left( \frac{1}{r}  \right)} \cdot d\vb{r} ' = \frac{k \vb{p} \cdot \vu{r} }{r^2} 
-    \end{aligned} 
+    V_{\text{dip} } (\vb{r} ) = V_{\text{mono,+q} } + V_{\text{mono,-q} } = V_{\text{mono} }\left( \vb{r} - \frac{\vb{d} }{2}  \right) - V_{\text{mono} } \left( \vb{r} + \frac{\vb{d} }{2}  \right) = - \grad{V} \cdot \vb{d} = \frac{k \vb{p} \cdot \vu{r} }{r^2}. 
 \end{equation}
 
 Ultimately, this method boils down to the fact that if \(V (\vb{r} )\) is a solution to the Laplace's equation, \textit{i.e.,} \(\laplacian V = 0\), then its gradient \(\grad{V(\vb{r} )} \) also is, since \(\laplacian (\grad{V(\vb{r} )} ) = \grad{\laplacian V(\vb{r} )} = 0 \), due to the linearity of the differential operators. Note that \(\rho (\vb{r} ) = 0\) everywhere, including the origin where the charges cancel out.
@@ -1143,7 +1230,7 @@ The atomic polarizability is therefore
 The force and the torque about its center expereinced by a molecule (which we model as an electric dipole) is 
 
 \begin{equation}
-    \vb{F} = q(\Delta \vb{E} ) = q (\grad{\vb{E} } \cdot \vb{d}) = (\vb{p}  \cdot \boldsymbol{\nabla }) \vb{E} ~\text { and }~ \vb{N} = \vb{p} \cross \vb{E}
+    \vb{F} = q(\Delta \vb{E} ) = q (\vb{d} \cdot \grad{} )\vb{E}  = (\vb{p}  \cdot \boldsymbol{\nabla }) \vb{E} ~\text { and }~ \vb{N} = \vb{p} \cross \vb{E}
 \end{equation}
 
 and the energy of a dipole is 
@@ -1476,26 +1563,30 @@ So the total stored spring energy is
 {We can start with the energy-work theorem, which states that the non-conservative work done is equals to the change in kinetic energy (in this case can be made arbitrarily small thus can be neglected) and internal (or potential energy) which is the negative of the conservative work done.
 
 \begin{equation}
-    \Delta W_{\text{non-con} }  = \Delta W_{\text{ext} } + \Delta W_{\text{battery}} = \Delta \left( F_{\text{ext} } x \right) + \Delta W_{\text{battery} } = \Delta U.
+    \Delta W_{\text{non-con} }  = \Delta W_{\text{ext} } + \Delta W_{\text{battery}} = F_{\text{ext} }\Delta x  + \Delta W_{\text{battery} } = \Delta U.
 \end{equation}
 
-For an isolated capacitor, \(\Delta W_{\text{battery} } = 0 \) and since the charge is fixed, using \( \Delta U = \Delta \left( Q^2 /2C  \right) = - Q^2\Delta C / 2\Delta C  \) is more convenient. 
+For an isolated capacitor, \(\Delta W_{\text{battery} } = 0 \) and since the charge is fixed, we have
 
-Therfore, we have
+\begin{equation}
+    F_{\text{ext} }\Delta x = \Delta U = \Delta \left( \frac{Q^2}{2C}  \right) = -\frac{Q^2}{2C^2}\Delta C \implies F_{\text{elec} } = -F_{\text{ext} } =  \frac{V^2}{2}\frac{dC}{dx}.  
+\end{equation}
+
+Substitution then gives
 
 \begin{equation}
     F_{\text{ext} }\Delta x = -\frac{Q^2}{2C}\frac{\Delta C}{C^2} \implies F_{\text{elec} } = - F_{\text{ext} } = \frac{V^2}{2}\frac{dC}{dx}.    
 \end{equation}
 
-When connected with battery of voltage \(V\), \(\Delta W_{\text{battery} } = V \Delta Q = V^2\Delta C\) and since the voltage is fixed, using \(\Delta U = \Delta \left( CV^2/2 \right) = V^2\Delta C /2 \) is more convenient.
-
-Therfore, we have
+When connected with battery of voltage \(V\), \(\Delta W_{\text{battery} } = V \Delta Q = V^2\Delta C\) and since the voltage is fixed, we have 
 
 \begin{equation}
-    F_{\text{ext} } \Delta x + V^2\Delta C = \frac{V^2}{2}\Delta C \implies F_{\text{elec} } = -F_{\text{ext} } = \frac{V^2}{2}\frac{dC}{dx}.
+    F_{\text{ext} }\Delta x = \Delta U = \Delta \left( CV^2/2 \right) = V^2\Delta C /2 \implies F_{\text{elec} } = -F_{\text{ext} } = \frac{V^2}{2}\frac{dC}{dx}.   
 \end{equation}
 
 The force is the same whether \(Q \text { or } V\) is held constant, it is determinely entirely by the distribution of the charge at the moment in question.  
+
+Note that here we assume \(x\) to be the length of the non-overlapping region. If one let \(x\) to the the overlapping length a negative sign will be induced. Either way the internal force will always be attractive.
 } 
 
 \chapter{Magnetostatics}
@@ -1982,7 +2073,7 @@ So the actual work done on the charge is
     W = \int \vb{f} _{\text{net} } \cdot d \vb{s} = vB \int \vu{y} \cdot d \vb{s} = vB\left( \frac{h}{\cos \theta }  \right)\cos \theta .
 \end{equation}
 
-It can also be interpret as the work done by the pulling forc alone, since magnetic force do not work
+It can also be interpret as the work done by the pulling force alone, since magnetic force do not work
 
 \begin{equation}
     W = \int \vb{f} _{\text{net} } \cdot d \vb{s} =  \int \vb{f} _{\text{pull} } \cdot  d \vb{s} =  uB \left( \frac{h}{\cos \theta }   \right) \sin \theta  = vBh.
@@ -2573,36 +2664,50 @@ Sometimes, instead of loop current, we define different currents for each separa
 The standard equation for LRC circuit is 
 
 \begin{equation}
-     L\frac{d^2q}{dt^2} + \frac{RL}{C}\frac{dq}{dt} + \frac{q}{C} = \mathcal{E}_{0}\cos (\omega t) 
+     L\frac{d^2q}{dt^2} + R\frac{dq}{dt} + \frac{q}{C} = \mathcal{E}_{0}\cos (\omega t + \varphi ) 
 \end{equation}
 
-The equation can be solved using standard techniques detailed in the ``Differential Equations'' notes. The solution contains the sum of a homogeneous solution, which corresponds to the transient behaviour which will dies out eventually, and a particular solution. 
-
-However, a faster way to find the particular solution is to use complex voltages, currents, and impedances. The definition of complex voltages and currents are just the quantities \(\tilde{V} \text { and } \tilde{I} \), which satisifies the same differential equation as \(V \text { and } I\), and the driving function is written in complex form (\textit{e.g.,} \(\cos (\omega t) \to e^{i \omega t} \)). The standard method of finding the particular solution is to susbstitute 
+The standard way of solving this form of diffrential equation is detailed in the ``Differential Equations'' notes, in which we would consider it as the real part of the copmlex differential equation
 
 \begin{equation}
-    \tilde{q}  = \tilde{q_0 }e^{i \omega t} \implies \tilde{I} = d \tilde{q} /dt = i \omega \tilde{q_0 } e^{i \omega t}
+    L\frac{d^2\tilde{q} }{dt^2} + R\frac{d\tilde{q} }{dt} + \frac{\tilde{q} }{C} = \tilde{\mathcal{E}_{0} }e^{i \omega t},  \quad q = \mathfrak{Re} (\tilde{q} ) ~\text { and }~ \tilde{\mathcal{E}_{0} } = \mathcal{E}_{0} e^{i \varphi },
 \end{equation}
 
-to obtain
+where the standard guess for particular solution is 
 
 \begin{equation}
-    -\omega ^2 L \tilde{q_0 }e^{i \omega t} + \frac{RL}{C} i \omega \tilde{q_0 } e^{i \omega t} + \frac{1}{C} \tilde{q_0 }e^{i \omega t} = i \omega L \tilde{I} + R \tilde{I} + \frac{1}{i \omega C} \tilde{I} = \mathcal{E}_{0}e^{i \omega t}.        
+    \tilde{q}  = \tilde{q_0 }e^{i \omega t} \implies \tilde{I} = \frac{d \tilde{q} }{dt} = i \omega \tilde{q_{0} } e^{i \omega t} = \tilde{I_0 }e^{i \omega t}.    
 \end{equation}
 
-Thus, we see that the complex analog of resistance, which we call (complex) impedance are 
+which upon substitution gives 
 
 \begin{equation}
-    X_{R} = R,\quad  X_{C} = \frac{1}{i\omega C}  ~\text { and }~ X_{L} = i \omega L 
+    \left( L\omega ^2 + i \omega R + \frac{1}{C}  \right) \tilde{q_0 } = \tilde{\mathcal{E}_{0} }.
 \end{equation}
 
-for resistor, capacitor and inductor respectively. They satisfies the ``complex Ohm's law'' 
+Dividing both sides by \(\tilde{I_{0} } = i \omega \tilde{q_{0} } \) gives 
 
 \begin{equation}
-    \tilde{V} = X \tilde{I},
+    i \omega L + R + \frac{1}{i \omega C} = \frac{\tilde{\mathcal{E}_{0} } }{\tilde{I_{0} } }, ~\text { or }~ \tilde{I_{0} }(Z_{L} + Z_{R} + Z_{C}  ) = \tilde{\mathcal{E}_{0} }.  
 \end{equation}
 
 and can be added in parallel or in series like ordinary resistors. 
+
+The essential idea is that when there is a sinusoidal driving voltage of frequency \(\omega \), since we have neglected the homogeneous solution and other particular solution we assume that all the possible voltages \(V\) and currents \(I\) are also oscillating with the same frequency \(\omega \) but possibly with a phase shift.
+
+Therefore it is convenient to introduce the notion of complex voltage \(\tilde{V} \) and complex current \(\tilde{I} \), which satisfy 
+
+\begin{equation}
+    V = \mathfrak{Re} (\tilde{V} ) = \mathfrak{Re} (\tilde{V}_{0}  e^{i \omega t} ) ~\text { and }~ I = \mathfrak{Re} (\tilde{I} ) = \mathfrak{Re} (\tilde{I}_{0} e^{i \omega t}  ).    
+\end{equation}
+
+The complex impendances \(Z_{L}, Z_{R} \text { and } Z_{C}  \) of an inductor, resistor or capactior then relates the amplitudes and phases of by \(\tilde{V}  \text { and }  \tilde{I}\) via the ``complex Ohm's law''
+
+\begin{equation}
+    \tilde{V} = Z \tilde{I},
+\end{equation}
+
+which has both the information in the magnitude and phase.
 
 The power supply to a circuit element is 
 
@@ -2619,7 +2724,7 @@ but we cannot define a ``complex power'' \(\tilde{P} = \tilde{I} \tilde{V}   \),
 or in terms of current alone,
 
 \begin{equation}
-    P = I_0 ^2 \cos ^2(\omega t) R \implies \left \langle {P} \right \rangle = \left \langle {I^2} \right \rangle R = I_{\text{rms} }^2R. 
+    P = I_0 ^2 \cos ^2(\omega t) R \implies \left \langle {P} \right \rangle = \left \langle {I^2} \right \rangle R = I_{\text{rms} }^2R = \frac{1}{2} I_0 ^2R . 
 \end{equation}
 
 This is the reason why inductor and capacitor cannot dissipate energy since \(V \text { and } I\) of them are \(\pi /2 \) out of phase, so the avergae power over time is zero.  
@@ -2676,16 +2781,109 @@ Thus
 
 \onefig{infnet}{scale=0.2} 
 
+\example{Maxwell's Bridge.}
+{A Maxwell's bridge circuit is shown in \cref{maxwell}. Find the unknown inductance and resistance \(L_{x} \text { and } R_{x}  \) and state the advantages of this bridge circuit. What practical alterations to the bridge shown in the figure would allow the measurements to be made? if the bridge is found to be far from the balance point when the component is inserted?}
+{When the bridge is balanced, \textit{i.e.,} the voltmeter (or ammeter) at the center of bridge across the nodes (not shown in the figure) has zero reading, so we have 
+
+\begin{equation}
+    \frac{Z_{x}}{R_3 } = \frac{R_2 }{Z_{1} }, \quad Z_{x} = R_{x} + i \omega L_{x} \text { and } Z_1 ^{-1} = R_1 ^{-1} + (\frac{1}{i \omega C} )^{-1} ,      
+\end{equation}
+
+which gives 
+
+\begin{equation}
+    R_{x} = \frac{R_2 R_3 }{R_1 } ~\text { and }~ L_{x} = R_2 R_3 C.   
+\end{equation}
+
+Because we are measuring the zero crossing by adjusting the bridge's variable elements, rather than a large absolute signal, null detection gives much higher sensitivity and accuracy. Also, the measurement is indepedent of freqeuncy and we can determine both \(R_{x} \text { and } L_{x}  \) independently in a single set up. Further, any small resistance in the detector branch does not affect the null condition since at perfect balance the diagonal branch carries essentially zero current. Lastly the balance condition is also independent of the voltage source's impedance.
+
+If the bridge is far from balance we can add a variable resistor in series with \(R_2 \) (or \(R_3 \)) so that the real part ratio can be coarsely tuned towards balance, we can also add a variable capacitor in parallel with \(R_1 \) so the imaginary part ratio can be adjusted. 
+} 
+
+\onefig{maxwell}{scale=0.3} 
+
+\example{Bridge Circuit.}
+{For the bridge circuit shown in \cref{bridge}, \(Z\) comprises of a resistor \(R_{x} \) parallel with a capacitor \(C_{x} \). Asumming that the bridge is balanced when the variable resistor \(R_{v} = R_{0} \) and when the angular frequency \(\omega = \omega _{0} \). Find the voltage at the ammeter in terms of the driving amplitude \(V_0 \) for \(\omega  = 0, \omega = \omega _{0}  \text { and as } \omega \to \infty \).        }
+{The key point to note is that in a null-bridge measurement the ``ammeter'' is used as a null detector, not as a low-impedance ammeter in the usual sense. So for all purposes we can treat the ``ammeter'' as an open circuit, or a voltmeter. Otherwise if there is any non-zero voltage difference across the usual sense ammeter we would get infinite current.
+
+Therefore for all \(\omega \) the left node always has voltage \(V_0 /2\). And for \(\omega = 0\) the capacitor acts as an open circuit while for \(\omega \to \infty\) the capacitor acts as a short circuit. In both cases the voltage at the left node is \(V_0 \), so the voltage difference is \(V_0 /2\). While for \(\omega = \omega _{0} \) the voltage difference is zero by the definition of \(\omega _{0} \).       } 
+
+
+Practically speaking since there are parasitic winding capacitance in an inductor the frequency cannot be too large. Particularly if we model an inductor as a pure inductor \(L\) in parallel with its parasitic capacitance \(C\) the impedance would be \(Z = (i (\omega C - 1/\omega L))^{-1} \), which deviates from \(i \omega L\) if \(\omega \sim \frac{1}{\sqrt{LC} } \). However the frequency cannot be too small in some cases that the balance equation would require some extremely large capcitance to balance.   
+
+\section{Bode Magnitude Plot}
+
+Instead of the voltage gain \(\abs{V_{\text{out} }/V_{\text{in} } } \), the decibel gain 
+
+\begin{equation}
+    G = 10 \log _{10} \left( \frac{P_{\text{out} } }{P_{\text{in} } }  \right) = 20 \log _{10} \left( \frac{V_{\text{out} } }{V_{\text{in} } }  \right) 
+\end{equation}
+
+is used more often. For example for the transfer function 
+
+\begin{equation}
+    \abs{\frac{V_{\text{out} } }{V_{\text{in} } } }  = \abs{\frac{1}{1+i \omega RC} } = \frac{1}{\sqrt{1+\omega ^2R^2C^2} }  
+\end{equation}
+
+of a low pass filter, we find that for low frequencies (\(\omega \ll 1/RC\)), 
+
+\begin{equation}
+    \abs{\frac{V_{\text{out} } }{V_{\text{in} } } }  \approx 1 \implies  G \approx 0,
+\end{equation}
+
+and for high frequencies (\(\omega \gg 1/RC \)), 
+
+\begin{equation}
+    \abs{\frac{V_{\text{out} } }{V_{\text{in} } } }  \approx \frac{1}{\omega RC}  \implies G \approx -20\log \omega + \text{constant} .
+\end{equation}
+
+The cut off or corner frequency is set when \(\abs{V_{\text{out} } / V_{\text{in} } } = 1/\sqrt{2} \implies \omega = 1/\sqrt{RC}   \), which is when the bode plot changes its slope from zero to -20 dB per decade. The Bode plot with vertical axis \(G\) and horizotntal axis \(\ln \omega \) is shown in \cref{bode}.
+
+\onefig{bode}{scale=0.5} 
+
+As another example, the Bode plots for a high pass filter with the transfer function 
+
+\begin{equation}
+    G(\omega ) = \frac{-j \omega RC}{(1+j\omega RC)^2} 
+\end{equation}
+
+is shown in \cref{bodehigh}.
+
+\onefig{bodehigh}{scale=0.3} 
 
 \section{Thevenin's and Norton's Theorem}
 
-Thevenin's Theoerem states that any linear electrical network containing only voltage sources, current sources and resistances can be replaced by an equivalent combination of a voltage source \(V_{\text{eq} } \) in series with a resistacne \(R_{\text{eq} } \), where \(V_{\text{eq} } \) is the open-circuit voltage and \(R_{\text{eq} } \) is the equivalent resistance
+Thevenin's theorem states that any linear electrical network containing only voltage sources, current sources and resistances can be replaced by an equivalent combination of a voltage source \(V_{\text{eq} } \) in series with a resistacne \(R_{\text{eq} } \), where \(V_{\text{eq} } \) is the open-circuit voltage and \(R_{\text{eq} } \) is the equivalent resistance.
 
-Norton's theoerem, on the other hand states that it can be replaced by a current source \(I_{\text{eq} } \) in parallel with the same equivalent resistance \(R_{\text{eq} } \), where \(I_{\text{eq} } \) is the short-cicuit current.
+Norton's theoerem, on the other hand, states that it can be replaced by a current source \(I_{\text{eq} } \) in parallel with the same equivalent resistance \(R_{\text{eq} } \), where \(I_{\text{eq} } \) is the short-cicuit current.
 
 Their relations is \(V_{\text{eq} } = I_{\text{eq} }R_{\text{eq} }\), which can be proved by comparing the short-circuit current between the terminals in the two cases, which must be the same (the open circuit voltage must also be the same). 
 
-It can be proved that when calculating the equivalent resistance we can ignore all the charges.
+The equivalent resistance \(R_{\text{eq} } \)  is the resistance that the circuit between terminals \(A \text { and } B\)  would have if all ideal voltage sources in the circuit were replaced by a short circuit and all ideal current sources were replaced by an open circuit (i.e., the sources are set to provide zero voltages and currents).
+
+The theorems also work in alternating ciruit, but the equivalent resistance \(R_{\text{eq} } \) is replaced by an equivalent impedance \(Z_{\text{eq} } \).
+
+\example{Thevenin's and Norton's Theorem.}
+{Find the equivalent Thevenin's resistance and voltage \(R_{\text{eq} } \text { and } V_{\text{eq} }  \) for the circuit shown in \cref{the}.}
+{The open-circuit Thevenin's voltage is simply 
+
+\begin{equation}
+    V_{\text{eq} } = IR + V, 
+\end{equation}
+
+since the current provided by the current source can only flows through the resistor parallel to it.
+
+To find the Thevenin's resistance we can either ignore all the voltage and current sources and directly write down \(R_{\text{eq} } = 2R\), or alternatively, by first finding the short-circuit current, which is by first converting the parallel current source and the resistor into a voltage source and a resistor parallel, then the short-circuit current can be readily calculated as 
+
+\begin{equation}
+    I_{\text{eq} } = \frac{IR+V}{2R} \implies R_{\text{eq} } = \frac{V_{\text{eq} } }{I_{\text{eq} } } = 2R.    
+\end{equation}
+~
+} 
+
+\onefig{the}{scale=0.3} 
+
+\section{Resistor Networks}
 
 A specific transformation that is often used is the star-delta (or Y-\(\Delta \)) transformation, which is summarized below:
 
@@ -2714,6 +2912,19 @@ A specific transformation that is often used is the star-delta (or Y-\(\Delta \)
     \end{tikzpicture}
 \end{center}
     
+
+Equating the equivalent resistance between the two networks we have 
+
+\begin{equation}
+    \begin{cases}
+        R_{AB} &= R_1 +R_2 = (R_{a}^{-1} + (R_{b} + R_{c}  )^{-1}  )^{-1} ,\\
+        R_{BC} &= R_2 +R_3 = (R_{b}^{-1} + (R_{a} + R_{c}  )^{-1}  )^{-1} ,\\
+        R_{AC} &= R_1 +R_3 = (R_{c}^{-1} + (R_{a} + R_{b}  )^{-1}  )^{-1} . 
+    \end{cases}
+\end{equation}
+
+Solving gives the transformation
+
 \begin{center}
     \renewcommand{\arraystretch}{1.5} % Adjust row height
     \setlength{\tabcolsep}{12pt} % Adjust column width
@@ -2721,14 +2932,20 @@ A specific transformation that is often used is the star-delta (or Y-\(\Delta \)
     \hline
     \textbf{Y to \(\Delta\) Transformation} & \textbf{\(\Delta\) to Y Transformation} \\
     \hline
-    $R_a = \frac{R_1 R_2 + R_2 R_3 + R_3 R_1}{R_1}$ & $R_1 = \frac{R_a R_c}{R_a + R_b + R_c}$ \\
-    $R_b = \frac{R_1 R_2 + R_2 R_3 + R_3 R_1}{R_2}$ & $R_2 = \frac{R_a R_b}{R_a + R_b + R_c}$ \\
-    $R_c = \frac{R_1 R_2 + R_2 R_3 + R_3 R_1}{R_3}$ & $R_3 = \frac{R_b R_c}{R_a + R_b + R_c}$ \\
+    $R_a = R_2 R_3 (1/R_1 + 1/R_2 + 1/R_3 )$ & $R_1 = R_{b}R_{c}/(R_{a} + R_{b} + R_{c})  $ \\
+    $R_b = R_1 R_3 (1/R_1 + 1/R_2 + 1/R_3 )$ & $R_2 = R_{a}R_{c}/(R_{a} + R_{b} + R_{c})$ \\
+    $R_c = R_1 R_2 (1/R_1 + 1/R_2 + 1/R_3 )$ & $R_3 = R_{a}R_{b}/(R_{a} + R_{b} + R_{c})$ \\
     \hline
     \end{tabular}
 \end{center}
 
+\example{Equivalent Resistance (1).}
+{Find the equivalent resistance of the resistor network shown in \cref{equiv1}.}
+{Using the \(\Delta -Y\) transformation we can redraw the circuit as in \cref{equiv2}, then the equivalent resistance is readily calculated as \(R_{\text{eqv} } = 9R/5 \). 
 
+Alternatively, one can simply use symmetry argument to recast the circuit as in \cref{equiv3}, which gives the same answer \(R_{\text{eqv} } = 9R/5 \). } 
+
+\threefig{equiv1}{width=\textwidth}{equiv2}{width=\textwidth}{equiv3}{width=\textwidth}{equiv} 
 
 \section{Superconductor}
 
@@ -2749,7 +2966,7 @@ As the metal plate enters the gap of the magnet, there will be eddy current indu
 If, for instance the copper plate is replace by one which has several narrow slots cut in it, the eddy current effects are drastically reduced, since the currents in each section of the loop have less flux to drive them so the effects of the resistance of each loop are greater. 
 
 \example{Eddy Current.}
-{Consider a spherical shell with inner and outer radius \(R_1 \text { and } R_2 \) respectively spinning with constant angular velocity \(\boldsymbol{\omega } =  \omega \vu{x} \) under an uniform magnetic field \(\vb{B} = B \vu{z} \). Find the eddy currents in the steady state.  }
+{Consider a spherical shell with conductivity \(\sigma \) with inner and outer radius \(R_1 \text { and } R_2 \) respectively spinning with constant angular velocity \(\boldsymbol{\omega } =  \omega \vu{x} \) under an uniform magnetic field \(\vb{B} = B \vu{z} \). Find the eddy currents in the steady state.  }
 {Firstly from the continuity equation we have
 
 \begin{equation}
@@ -2798,7 +3015,9 @@ One can prove that for \(\omega \text { and }  \vb{B} \) at arbitrary orientatio
     \vb{J} = - \frac{\sigma }{2} (\vb{r} \cross (\boldsymbol{\omega } \cross \vb{B}  )). 
 \end{equation}
 
-In particular, when \(\boldsymbol{\omega } \parallelsum \vb{B}  \), \(\vb{J} =0\) since the electric force exactly cancels the magnetic force.  
+In particular, when \(\boldsymbol{\omega } \parallelsum \vb{B}  \), \(\vb{J} =0\) since the electric force exactly cancels the magnetic force.
+
+Note that \(\sigma \) has to be sufficiently small or else we would need to take into account the magntic field produced by the eddy current, appearing as the self-inductance term, which lowers the electric field thus the induced eddy current. Also high \(\sigma \) implies low skin depth, so the magnetic field may not penetrate fully into the shell. 
 } 
 
 
@@ -2864,14 +3083,53 @@ If the inverting input signal is fixed at, say \(1V\), then the output voltage w
 
 \onefig{comparator}{scale=0.3} 
 
+\subsection{Input and Output Impedance}
+
+\subsubsection{Input impedance}
+The input impedance \(Z_{\mathrm{in}}\) is the impedance “seen” by whatever is driving the input of a circuit or device.  Formally, if you attach a test source \(V_{\mathrm{test}}\) to the input terminals (with all other internal sources turned off) and measure the resulting current \(I_{\mathrm{test}}\) drawn into the device, then
+\[
+Z_{\mathrm{in}}
+\;=\;
+\frac{V_{\mathrm{test}}}{I_{\mathrm{test}}}.
+\]
+A high \(Z_{\mathrm{in}}\) means the device hardly loads the source feeding it.
+
+\subsubsection{Output impedance}
+The output impedance \(Z_{\mathrm{out}}\) is the impedance “seen” by a load attached to the output of a circuit or device.  You determine it by “looking back” into the output terminals: turn off all independent internal sources (voltage sources \(\to\) short; current sources \(\to\) open), apply a test source \(V_{\mathrm{test}}\) at the output, measure the resulting test current \(I_{\mathrm{test}}\), and compute
+\[
+Z_{\mathrm{out}}
+\;=\;
+\frac{V_{\mathrm{test}}}{I_{\mathrm{test}}}.
+\]
+A low \(Z_{\mathrm{out}}\) means the device can drive heavy loads without its output voltage dropping.
+
+\subsubsection{Why they matter}
+\begin{itemize}
+  \item A high \(Z_{\mathrm{in}}\) ensures minimal signal loss: the preceding stage “sees” almost no load.
+  \item A low \(Z_{\mathrm{out}}\) ensures good voltage regulation: the following stage receives nearly the full intended output voltage, even if it draws significant current.
+\end{itemize}
+
+Any circuit device can be treated as a black box with four terminals, two for the inputs and two for the outputs. For the two input terminals, the device act as a resistor, so you can determine the input resistance \(Z\) by measuring the current \(I\) when you connect the terminal with a voltage source with a voltage source \(V\), with \(Z = V/I\). For the two output terminals, the device acts as a voltage source connected to its internal resistance, so the output impedance \(Z\) can be determine by connecting the terminals with a variable resistor and varies its resistance from \(0 \to R\) which the voltage reduce from \(V \to V/2\).   
+
 \subsection{Linear Applications}
 
-We can state the two ``golden rules'' of an ideal linear op-amp:
+We can state the three ``golden rules'' of an ideal linear op-amp:
 
 \begin{enumerate}
-    \item The output will do whatever is necessary to make the voltage difference between the inputs zero.\footnote{Note that it does not mean that the op-amp acutally changes the voltage at the inputs. What it does is ``look'' at its input terminals and swing its output terminal around so that the external feedback betwork brings the input differential to zero.}
-    \item No current flows into the inputs (but current can flow out of the output).
+    \item The output will do whatever is necessary to make the voltage difference between the inputs zero because the loop gain is infinity.\footnote{Note that it does not mean that the op-amp acutally changes the voltage at the inputs. What it does is ``look'' at its input terminals and swing its output terminal around so that the external feedback betwork brings the input differential to zero.}
+    \item No current flows into the inputs becuase the input impedance is infinity (but current can flow out of the output).
+    \item The output voltage is independent of the output current since the output impedance is zero.
 \end{enumerate}
+
+Input impedance is the ipedance ``seen'' by whatever is driving the input of a device. Formally if you attach a test source \(V_{\text{test} } \) to the input terminals and measure the resulting current \(I_{\text{test} } \) drawn into the device then 
+
+\begin{equation}
+    Z_{\text{in} } = \frac{V_{\text{test} } }{I_{\text{test} } }.
+\end{equation}
+
+Output impedance is the impedance ``seen'' by a load attached to the output of a device. 
+
+For example, the input resistance is the resistance between the driving-point voltage and point \(A\), \textit{i.e.,} \(R_1 \). The output resistance is the resistance between the output voltage and the output of the op-amp, \textit{i.e.,} 0.
 
 \subsubsection{Simple Inverting Amplifier}
 
@@ -2881,9 +3139,15 @@ A simple inverting amplifier is shown in \cref{invertingopamp}.
 
 Since \(B\) is at ground, so by the first ``golden rules'' \(A\) is also at ground. Therefore the voltage across \(R_2 \) is \(V_{\text{out}} \) and the voltage across \(R_1 \) is \(V_{\text{in}} \). And by the second ``golden rules'' we have \(V_{\text{out} } /R_2 = - V_{\text{in} }/ R_1  \). 
 
+Note that the positive terminal of the op-amp is grounded but not the negative terminal. This is crucial for the feedback loop to work properly. In a non-inverting amplifier the ground and the input voltage is swapped.
+
 To understand what is really happening, imagine initially all the terminals are at zero voltage, now \(V_{\text{in}} \) is raised to \(+1V\). Due to the enormous input unbalance, \(V_{\text{out}} \) is dropped to the saturation voltage.
 
-The input resistance is the resistance between the driving-point voltage and point \(A\), \textit{i.e.,} \(R_1 \). The output resistance is the resistance between the output voltage and the output of the op-amp, \textit{i.e.,} 0.
+When the output terminal is connected to a load of reisistance \(R_{\text{load} } \), then the power gain would be 
+
+\begin{equation}
+    P = \frac{V_{\text{in} }^2 /R_{1 }  }{V_{\text{out} }^2/ R_{\text{load} }  } = \frac{R_{1} }{R_{\text{load} } } \frac{R_{1}^2 }{R_{2}^2 }.  
+\end{equation}
 
 \subsubsection{Summing and Difference Amplifier}
 
@@ -2921,6 +3185,10 @@ For the integrator from the figure we have
 
 \twofig{diffamp}{width=\textwidth}{intamp}{width=\textwidth}{diffintamp} 
 
+Note that if the input voltage has any DC offset the integral would diverge. To prevent that put a large resistor \(R_{f} \) in parallel with the capacitor \(C\), so when \(\omega = 0\) we have a finite offset. 
+
+
+
 \subsubsection{High Pass Filter}
 
 A high pass filter is shown in \cref{highpassfilter}.
@@ -2932,6 +3200,8 @@ From the figure we have
 \end{equation}
 
 As \(\omega \to 0\), \(V_{\text{out} } \to 0\) and as \(\omega \to \infty\), \(V_{\text{out} } \to -(R_2 /R_1 )V_0 e^{j \omega t} \).    
+
+Its advantages compared to a dc version of a high pass filter is that the gain can be controlled by the ratio of the resistor, and the load (impedance between \(V_{\text{out} } \) and ground) does not affect the transfer function. However its input impedance is finite, so it would not take all of the voltage's source voltage since the voltage source might have internal impedance.
 
 \onefig{highpassfilter}{scale=0.3} 
 
@@ -2957,6 +3227,7 @@ where \(S_{i} = 1\) if the \(i^{\text{th}} \) switch is closed, and 0 otherwise.
 } 
 
 \onefig{dac}{scale=0.5} 
+
 
 \chapter{Conservation Laws}
 
